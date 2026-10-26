@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/laps.json",
+  "title": "/laps response",
+  "type": "object",
+  "required": [
+    "gen",
+    "cars"
+  ],
+  "properties": {
+    "gen": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "cars": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "p",
+          "n",
+          "laps"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "p": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "n": {
+            "type": "string"
+          },
+          "laps": {
+            "type": "array",
+            "maxItems": 120,
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "source": {
+      "type": "string",
+      "enum": ["archive", "legacy", "live", "recording"],
+      "description": "API 10: where the lap list was read from"
+    },
+    "lap_len": {
+      "type": ["number", "null"],
+      "description": "API 10: lap length in metres when known, else null (recording answers, R1-B)"
+    },
+    "validated": {
+      "type": "boolean",
+      "description": "API 10: false for recording answers (not checked against live timing)"
+    },
+    "archive": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{8,47}$",
+      "description": "1.0.1 (api_version 7): id of the archived session this document was read from (?session=); absent on live documents"
+    }
+  },
+  "additionalProperties": false
+}

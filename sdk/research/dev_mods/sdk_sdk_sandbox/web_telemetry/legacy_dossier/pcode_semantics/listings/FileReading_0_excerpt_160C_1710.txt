@@ -1,0 +1,92 @@
+; EXCERPT of FileReading #0 (RTMI 0x0044E478), offsets 0x160C-0x1710: aids pass-through, damper velocities, rear diff
+; full listing: python pcode_decode.py --disasm 0x0044E478
+  0x160C: ILdRf                    var[-1972]
+  0x160F: LitStr                   pool[54]="aids1"
+  0x1612: EqStr                    
+  0x1614: BranchF                  target=+0x1622
+  0x1617: FLdRfVar                 var[-2020]
+  0x161A: CR8Var                   
+  0x161C: FStFPR4                  var[-160]
+  0x161F: Branch                   target=+0x170E
+  0x1622: ILdRf                    var[-1972]
+  0x1625: LitStr                   pool[55]="aids2"
+  0x1628: EqStr                    
+  0x162A: BranchF                  target=+0x1638
+  0x162D: FLdRfVar                 var[-2036]
+  0x1630: CR8Var                   
+  0x1632: FStFPR4                  var[-160]
+  0x1635: Branch                   target=+0x170E
+  0x1638: ILdRf                    var[-1972]
+  0x163B: LitStr                   pool[56]="aids3"
+  0x163E: EqStr                    
+  0x1640: BranchF                  target=+0x164E
+  0x1643: FLdRfVar                 var[-2052]
+  0x1646: CR8Var                   
+  0x1648: FStFPR4                  var[-160]
+  0x164B: Branch                   target=+0x170E
+  0x164E: ILdRf                    var[-1972]
+  0x1651: LitStr                   pool[57]="aids4"
+  0x1654: EqStr                    
+  0x1656: BranchF                  target=+0x1664
+  0x1659: FLdRfVar                 var[-2068]
+  0x165C: CR8Var                   
+  0x165E: FStFPR4                  var[-160]
+  0x1661: Branch                   target=+0x170E
+  0x1664: ILdRf                    var[-1972]
+  0x1667: LitStr                   pool[58]="damper velocity rear lh"
+  0x166A: EqStr                    
+  0x166C: BranchF                  target=+0x1688
+  0x166F: FLdRfVar                 var[-1824]
+  0x1672: FLdRfVar                 var[-1840]
+  0x1675: SubVar                   raw=CCFE
+  0x1679: FLdRfVar                 var[-1448]
+  0x167C: DivVar                   raw=50FE
+  0x1680: CR8Var                   
+  0x1682: FStFPR4                  var[-160]
+  0x1685: Branch                   target=+0x170E
+  0x1688: ILdRf                    var[-1972]
+  0x168B: LitStr                   pool[59]="damper velocity rear rh"
+  0x168E: EqStr                    
+  0x1690: BranchF                  target=+0x16AC
+  0x1693: FLdRfVar                 var[-1856]
+  0x1696: FLdRfVar                 var[-1872]
+  0x1699: SubVar                   raw=CCFE
+  0x169D: FLdRfVar                 var[-1448]
+  0x16A0: DivVar                   raw=50FE
+  0x16A4: CR8Var                   
+  0x16A6: FStFPR4                  var[-160]
+  0x16A9: Branch                   target=+0x170E
+  0x16AC: ILdRf                    var[-1972]
+  0x16AF: LitStr                   pool[60]="damper velocity front lh"
+  0x16B2: EqStr                    
+  0x16B4: BranchF                  target=+0x16D0
+  0x16B7: FLdRfVar                 var[-1888]
+  0x16BA: FLdRfVar                 var[-1904]
+  0x16BD: SubVar                   raw=CCFE
+  0x16C1: FLdRfVar                 var[-1448]
+  0x16C4: DivVar                   raw=50FE
+  0x16C8: CR8Var                   
+  0x16CA: FStFPR4                  var[-160]
+  0x16CD: Branch                   target=+0x170E
+  0x16D0: ILdRf                    var[-1972]
+  0x16D3: LitStr                   pool[61]="damper velocity front rh"
+  0x16D6: EqStr                    
+  0x16D8: BranchF                  target=+0x16F4
+  0x16DB: FLdRfVar                 var[-1920]
+  0x16DE: FLdRfVar                 var[-1936]
+  0x16E1: SubVar                   raw=CCFE
+  0x16E5: FLdRfVar                 var[-1448]
+  0x16E8: DivVar                   raw=50FE
+  0x16EC: CR8Var                   
+  0x16EE: FStFPR4                  var[-160]
+  0x16F1: Branch                   target=+0x170E
+  0x16F4: ILdRf                    var[-1972]
+  0x16F7: LitStr                   pool[62]="rear wheel speed differential"
+  0x16FA: EqStr                    
+  0x16FC: BranchF                  target=+0x170E
+  0x16FF: FLdRfVar                 var[-1968]
+  0x1702: FLdRfVar                 var[-1952]
+  0x1705: SubVar                   raw=CCFE
+  0x1709: CR8Var                   
+  0x170B: FStFPR4                  var[-160]
+  0x170E: LitI4                    raw=01000000

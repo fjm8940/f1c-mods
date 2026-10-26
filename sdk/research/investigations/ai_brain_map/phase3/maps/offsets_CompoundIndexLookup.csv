@@ -1,0 +1,5 @@
+func,line,dec,hex,access,width,base,form,expr
+CompoundIndexLookup,3,16,0x10,R,_DWORD,this,array,if ( a2 >= 0 && a2 < this[4] )
+CompoundIndexLookup,4,20,0x14,R,_DWORD,this,array,return this[5] + 680 * a2;
+CompoundIndexLookup,5,,,CALL,,,call,StringSplitLoop
+CompoundIndexLookup,6,,,CALL,,,call,DebugLogWrite

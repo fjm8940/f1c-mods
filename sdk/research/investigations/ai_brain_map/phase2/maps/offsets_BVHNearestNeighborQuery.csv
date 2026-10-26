@@ -1,0 +1,16 @@
+func,line,dec,hex,access,width,base,form,expr
+BVHNearestNeighborQuery,24,148,0x94,R,float,result,direct,v6 = *a1 - *(float *)(result + 148);
+BVHNearestNeighborQuery,25,4,0x4,R,float,a1,array,v7 = a1[1] - *(float *)(result + 152);
+BVHNearestNeighborQuery,25,152,0x98,R,float,result,direct,v7 = a1[1] - *(float *)(result + 152);
+BVHNearestNeighborQuery,26,8,0x8,R,float,a1,array,v8 = a1[2] - *(float *)(result + 156);
+BVHNearestNeighborQuery,26,156,0x9C,R,float,result,direct,v8 = a1[2] - *(float *)(result + 156);
+BVHNearestNeighborQuery,28,272,0x110,R,_DWORD,result,direct,if ( *(_DWORD *)(result + 272) )
+BVHNearestNeighborQuery,32,60,0x3C,R,float,v4,direct,v9 = v16 + *(float *)(v4 + 60);
+BVHNearestNeighborQuery,36,272,0x110,R,_DWORD,v4,direct,v10 = *(_DWORD *)(v4 + 272);
+BVHNearestNeighborQuery,39,4,0x4,R,float,a1,array,v11 = a1[1] - *(float *)(v10 + 152);
+BVHNearestNeighborQuery,39,152,0x98,R,float,v10,direct,v11 = a1[1] - *(float *)(v10 + 152);
+BVHNearestNeighborQuery,40,8,0x8,R,float,a1,array,v12 = a1[2] - *(float *)(v10 + 156);
+BVHNearestNeighborQuery,40,156,0x9C,R,float,v10,direct,v12 = a1[2] - *(float *)(v10 + 156);
+BVHNearestNeighborQuery,41,148,0x94,R,float,v10,direct,v13 = *a1 - *(float *)(v10 + 148);
+BVHNearestNeighborQuery,46,272,0x110,R,_DWORD,v4,direct,v4 = *(_DWORD *)(v4 + 272);
+BVHNearestNeighborQuery,47,272,0x110,R,_DWORD,v10,direct,if ( !*(_DWORD *)(v10 + 272) )

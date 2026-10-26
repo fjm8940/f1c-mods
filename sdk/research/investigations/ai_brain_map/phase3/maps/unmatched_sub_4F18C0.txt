@@ -1,0 +1,9 @@
+# sub_4F18C0: offset-like lines with no extracted row (8)
+L22: MultiplayerSessionType((_BYTE *)(this + 1764), v8);
+L28: *(_DWORD *)(248 * a2 + this + 13880) = 0;
+L35: *(_DWORD *)(248 * a2 + this + 13872) = 1065353216;
+L36: *(float *)(248 * a2 + this + 13860) = v11 * v12;
+L37: v13 = *(float *)(248 * a2 + this + 13856);
+L38: *(float *)(248 * a2 + this + 13852) = *(float *)(248 * a2 + this + 13856);
+L42: *(_DWORD *)(248 * a2 + this + 13844) = 1099694080;
+L47: DivisionWithThreshold((float *)(248 * a2 + this + 13864), v14, v15);

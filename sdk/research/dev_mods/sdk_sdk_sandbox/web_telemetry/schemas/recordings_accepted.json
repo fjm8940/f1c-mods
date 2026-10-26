@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/recordings_accepted.json",
+  "title": "Recordings job accepted (202 from POST /recordings/archive and /recordings/delete, api_version 9)",
+  "description": "The job is queued on the storage jobs thread; poll GET /recordings/jobs for the result. A job never blocks the HTTP thread.",
+  "type": "object",
+  "required": ["job", "kind", "state", "items"],
+  "properties": {
+    "job": { "type": "string", "pattern": "^(archive|delete)-[0-9]+$" },
+    "kind": { "enum": ["archive", "delete"] },
+    "state": { "const": "queued" },
+    "items": { "type": "integer", "minimum": 1, "maximum": 64 },
+    "recycle_working": { "type": "boolean", "description": "archive only: the working copy goes to the Recycle Bin after its archive verified" },
+    "bytes": { "type": "number", "minimum": 0, "description": "delete only: the size confirmed by the user" }
+  },
+  "additionalProperties": false
+}

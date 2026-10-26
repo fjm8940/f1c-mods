@@ -1,0 +1,123 @@
+; FileReading #8
+; RTMI 0x004344C0  code 0x0043432C  ProcSize 404  FrameSize 208
+  0x0000: LitI4                    raw=00000000
+  0x0005: ILdRf                    var[12]
+  0x0008: CVarRef                  raw=50FF0840
+  0x000D: ImpAdCallI2              raw=A5000800
+  0x0012: FStStrNoPop              var[-180]
+  0x0015: LitStr                   pool[140]="Ooops...Error in File "
+  0x0018: NeStr                    
+  0x001A: FFree1Str                var[-180]
+  0x001D: BranchF                  target=+0x2D
+  0x0020: ILdRf                    var[12]
+  0x0023: CVarRef                  raw=50FF0840
+  0x0028: ImpAdCallFPR4            pool[161](MSVBVM60!__imp_rtcKillFiles) stack+4
+  0x002D: ILdI4                    var[12]
+  0x0030: LitI2_Byte               raw=58
+  0x0032: LitI2_Byte               raw=FF
+  0x0034: OpenFile                 raw=2000
+  0x0038: LitI2_Byte               raw=01
+  0x003A: FLdRfVar                 var[-148]
+  0x003D: LitI4                    raw=04000000
+  0x0042: GetRec3                  
+  0x0044: LitVarI2                 var[-176] = 0
+  0x0049: FStVar                   raw=3CFF
+  0x004D: LitVarI2                 var[-176] = 0
+  0x0052: FStVar                   raw=2CFF
+  0x0056: LitVarI2                 var[-260] = 1
+  0x005B: FLdRfVar                 var[-228]
+  0x005E: ILdRf                    var[-148]
+  0x0061: CVarI4                   raw=0CFF
+  0x0065: ForVar                   raw=DCFE8D01
+  0x006B: LitI2_Byte               raw=01
+  0x006D: FLdRfVar                 var[-134]
+  0x0070: LitI4                    raw=01000000
+  0x0075: GetRec3                  
+  0x0077: FLdRfVar                 var[-196]
+  0x007A: LitVarI2                 var[-176] = 1
+  0x007F: AddVar                   raw=CCFE
+  0x0083: FStVar                   raw=3CFF
+  0x0087: FLdRfVar                 var[-196]
+  0x008A: LitVarI2                 var[-176] = 4
+  0x008F: HardType                 
+  0x0090: EqVarBool                
+  0x0092: BranchF                  target=+0x9E
+  0x0095: LitVarI2                 var[-176] = 1
+  0x009A: FStVar                   raw=3CFF
+  0x009E: FLdRfVar                 var[-196]
+  0x00A1: LitVarI2                 var[-176] = 1
+  0x00A6: HardType                 
+  0x00A7: EqVarBool                
+  0x00A9: BranchF                  target=+0xB4
+  0x00AC: LitI2_Byte               raw=5C
+  0x00AE: CUI1I2                   
+  0x00B0: FStUI1                   raw=78FF
+  0x00B4: FLdRfVar                 var[-196]
+  0x00B7: LitVarI2                 var[-176] = 2
+  0x00BC: HardType                 
+  0x00BD: EqVarBool                
+  0x00BF: BranchF                  target=+0xCB
+  0x00C2: LitI2                    raw=B400
+  0x00C5: CUI1I2                   
+  0x00C7: FStUI1                   raw=78FF
+  0x00CB: FLdRfVar                 var[-196]
+  0x00CE: LitVarI2                 var[-176] = 3
+  0x00D3: HardType                 
+  0x00D4: EqVarBool                
+  0x00D6: BranchF                  target=+0xE1
+  0x00D9: LitI2_Byte               raw=12
+  0x00DB: CUI1I2                   
+  0x00DD: FStUI1                   raw=78FF
+  0x00E1: FLdUI1                   raw=7AFF
+  0x00E5: FLdUI1                   raw=78FF
+  0x00E9: XorI4                    
+  0x00EB: FStUI1                   raw=74FF
+  0x00EF: LitI2_Byte               raw=58
+  0x00F1: FLdRfVar                 var[-140]
+  0x00F4: LitI4                    raw=01000000
+  0x00F9: PutRec3                  
+  0x00FB: FLdUI1                   raw=74FF
+  0x00FF: CVarUI1                  raw=50FF
+  0x0103: FStVar                   raw=BCFE
+  0x0107: FLdRfVar                 var[-212]
+  0x010A: LitVarI2                 var[-176] = 1
+  0x010F: AddVar                   raw=CCFE
+  0x0113: FStVar                   raw=2CFF
+  0x0117: FLdRfVar                 var[-212]
+  0x011A: LitVarI2                 var[-176] = 2
+  0x011F: HardType                 
+  0x0120: GtVarBool                
+  0x0122: BranchF                  target=+0x12E
+  0x0125: LitVarI2                 var[-176] = 1
+  0x012A: FStVar                   raw=2CFF
+  0x012E: FLdRfVar                 var[-212]
+  0x0131: LitVarI2                 var[-176] = 1
+  0x0136: HardType                 
+  0x0137: EqVarBool                
+  0x0139: BranchF                  target=+0x156
+  0x013C: FMemLdR4                 raw=08003400
+  0x0141: CVarI4                   raw=50FF
+  0x0145: FLdRfVar                 var[-324]
+  0x0148: AddVar                   raw=CCFE
+  0x014C: CI4Var                   
+  0x014E: FMemStI4                 raw=08003400
+  0x0153: FFree1Var                var[-308]
+  0x0156: FLdRfVar                 var[-212]
+  0x0159: LitVarI2                 var[-176] = 2
+  0x015E: HardType                 
+  0x015F: EqVarBool                
+  0x0161: BranchF                  target=+0x184
+  0x0164: FMemLdR4                 raw=08003400
+  0x0169: CVarI4                   raw=0CFF
+  0x016D: FLdRfVar                 var[-324]
+  0x0170: LitVarI2                 var[-176] = 2
+  0x0175: MulVar                   raw=CCFE
+  0x0179: SubVar                   raw=ACFE
+  0x017D: CI4Var                   
+  0x017F: FMemStI4                 raw=08003400
+  0x0184: FLdRfVar                 var[-228]
+  0x0187: NextStepVar              raw=DCFE6B00
+  0x018D: LitI2_Byte               raw=58
+  0x018F: Close                    
+  0x0191: ExitProc                 
+; status: {'unknown': None, 'truncated': {'offset': 402, 'reason': 'FLdRfVar size 3 exceeds buffer'}, 'stop_offset': 402, 'last_exit_end': 402, 'filler_len': 2, 'filler_hex': '0494', 'ok': True}

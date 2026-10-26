@@ -1,0 +1,3245 @@
+{
+ "source": "extended_vanilla_features/data/progress.json (generated 2026-10-07; stale vs later mods - census decides)",
+ "batches": {
+  "H7_session_flags": [
+   {
+    "sdt_index": 0,
+    "clip": "PWS_QUAL32",
+    "status": "WIP",
+    "description": "Team front row lockout",
+    "eids": [
+     293,
+     397,
+     426
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Qualifying",
+    "note": "user triage: Y, play"
+   },
+   {
+    "sdt_index": 9,
+    "clip": "PWS_QUAL29",
+    "status": "DONE",
+    "description": "Some drivers on track",
+    "eids": [
+     11,
+     302
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Qualifying",
+    "note": "PWS_QUAL29 Some drivers on track - restored via dll/traffic_density_commentary_v5.dll, eid 11 (NOT 302, that hits unrelated team-bio table), on-track filter uses pittingStatus==0, live-confirmed 2026-07-28"
+   },
+   {
+    "sdt_index": 10,
+    "clip": "PWS_QUAL28",
+    "status": "DONE",
+    "description": "Very few drivers on track",
+    "eids": [
+     12,
+     303
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Qualifying",
+    "note": "PWS_QUAL28 Very few drivers on track - restored via dll/traffic_density_commentary_v5.dll, eid 12 (NOT 303), live-confirmed 2026-07-28"
+   },
+   {
+    "sdt_index": 13,
+    "clip": "PWS_QUAL30",
+    "status": "DONE",
+    "description": "Most drivers on track",
+    "eids": [
+     15,
+     306
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Qualifying",
+    "note": "PWS_QUAL30 Most drivers on track - restored via dll/traffic_density_commentary_v5.dll, eid 15 (NOT 306), live-confirmed 2026-07-28"
+   },
+   {
+    "sdt_index": 21,
+    "clip": "PWS_2001_17",
+    "status": "WIP",
+    "description": "AI driver starting 1st run",
+    "eids": [
+     23,
+     314
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X play"
+   },
+   {
+    "sdt_index": 22,
+    "clip": "PWS_2001_18",
+    "status": "WIP",
+    "description": "AI driver starting 2nd run",
+    "eids": [
+     24,
+     315
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X play"
+   },
+   {
+    "sdt_index": 23,
+    "clip": "PWS_2001_19",
+    "status": "WIP",
+    "description": "AI driver starting 3rd run",
+    "eids": [
+     25,
+     316
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X play"
+   },
+   {
+    "sdt_index": 28,
+    "clip": "PWS_2001_14",
+    "status": "WIP",
+    "description": "AI driver ahead on Flying Lap",
+    "eids": [
+     30,
+     321
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X play"
+   },
+   {
+    "sdt_index": 29,
+    "clip": "PWS_2001_15",
+    "status": "WIP",
+    "description": "AI driver ahead on In Lap",
+    "eids": [
+     31,
+     322
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X play"
+   },
+   {
+    "sdt_index": 30,
+    "clip": "PWS_2001_13",
+    "status": "WIP",
+    "description": "AI driver ahead on Out Lap",
+    "eids": [
+     32,
+     323
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X PLAY"
+   },
+   {
+    "sdt_index": 130,
+    "clip": "PWS_GREEN01",
+    "status": "WIP",
+    "description": "Green flag conditions",
+    "eids": [
+     126,
+     419
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Safety car & flags",
+    "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match, but user states with confidence this line has NEVER fired naturally in real play. Static trace of PitSelectionStateMachine_0041b3c0 shows the emitter IS reached per-frame (on_frame tag, real caller sub_4BCCC0, not a menu trap) and gated on SessionType==7 (race) + RacePhase!=5 + a player-position-band crossing check - all plausible conditions, but user testimony says the real trigger never actually lands. Either the gate condition never becomes true in practice (a bug in the band-crossing logic, or dword_7C54E8+13388 outer byte gate staying nonzero) or a queue-priority conflict eats it every time. Needs live memory watch on the actual condition (dword_7C56A4, dword_7C56A8, the FloatRangeIndexLookup band value) during a real yellow-flag clear event, not another injection test."
+   },
+   {
+    "sdt_index": 135,
+    "clip": "PWS_RED01",
+    "status": "DONE",
+    "description": "Red flag - session stopped",
+    "eids": [
+     131,
+     416
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Safety car & flags",
+    "note": "user triage: EXISTS VIA ANOTHER MOD  [auto: exists via a MOD, not vanilla -> DONE not SHIPPED]"
+   },
+   {
+    "sdt_index": 137,
+    "clip": "PWS_SCAR05",
+    "status": "WIP",
+    "description": "Safety car in pit lane (2)",
+    "eids": [
+     428
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Safety car & flags",
+    "note": "user triage: Z, UNDER WORK VIA ANOTHER MOD"
+   },
+   {
+    "sdt_index": 138,
+    "clip": "PWS_SCAR01",
+    "status": "WIP",
+    "description": "Safety car deployed - exiting pits",
+    "eids": [
+     423
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Safety car & flags",
+    "note": "user triage: Z, UNDER WORK VIA ANOTHER MOD  [auto: inherited from SDT 137]"
+   },
+   {
+    "sdt_index": 139,
+    "clip": "PWS_SCAR02",
+    "status": "WIP",
+    "description": "Safety car on track",
+    "eids": [
+     425
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Safety car & flags",
+    "note": "user triage: Z, UNDER WORK VIA ANOTHER MOD  [auto: inherited from SDT 137]"
+   },
+   {
+    "sdt_index": 140,
+    "clip": "PWS_SCAR03",
+    "status": "WIP",
+    "description": "Safety car ending - green this lap",
+    "eids": [
+     424
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Safety car & flags",
+    "note": "user triage: Z, UNDER WORK VIA ANOTHER MOD  [auto: inherited from SDT 137]"
+   },
+   {
+    "sdt_index": 142,
+    "clip": "PWS_YELLOW04",
+    "status": "WIP",
+    "description": "Sector 1 cleared",
+    "eids": [
+     133
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Safety car & flags",
+    "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match, but user states with confidence this line has NEVER fired naturally in real play. Static trace of PitSelectionStateMachine_0041b3c0 shows the emitter IS reached per-frame (on_frame tag, real caller sub_4BCCC0, not a menu trap) and gated on SessionType==7 (race) + RacePhase!=5 + a player-position-band crossing check - all plausible conditions, but user testimony says the real trigger never actually lands. Either the gate condition never becomes true in practice (a bug in the band-crossing logic, or dword_7C54E8+13388 outer byte gate staying nonzero) or a queue-priority conflict eats it every time. Needs live memory watch on the actual condition (dword_7C56A4, dword_7C56A8, the FloatRangeIndexLookup band value) during a real yellow-flag clear event, not another injection test."
+   },
+   {
+    "sdt_index": 144,
+    "clip": "PWS_YELLOW05",
+    "status": "WIP",
+    "description": "Sector 2 cleared",
+    "eids": [
+     135
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Safety car & flags",
+    "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match, but user states with confidence this line has NEVER fired naturally in real play. Static trace of PitSelectionStateMachine_0041b3c0 shows the emitter IS reached per-frame (on_frame tag, real caller sub_4BCCC0, not a menu trap) and gated on SessionType==7 (race) + RacePhase!=5 + a player-position-band crossing check - all plausible conditions, but user testimony says the real trigger never actually lands. Either the gate condition never becomes true in practice (a bug in the band-crossing logic, or dword_7C54E8+13388 outer byte gate staying nonzero) or a queue-priority conflict eats it every time. Needs live memory watch on the actual condition (dword_7C56A4, dword_7C56A8, the FloatRangeIndexLookup band value) during a real yellow-flag clear event, not another injection test."
+   },
+   {
+    "sdt_index": 146,
+    "clip": "PWS_YELLOW06",
+    "status": "WIP",
+    "description": "Sector 3 cleared",
+    "eids": [
+     137
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Safety car & flags",
+    "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match, but user states with confidence this line has NEVER fired naturally in real play. Static trace of PitSelectionStateMachine_0041b3c0 shows the emitter IS reached per-frame (on_frame tag, real caller sub_4BCCC0, not a menu trap) and gated on SessionType==7 (race) + RacePhase!=5 + a player-position-band crossing check - all plausible conditions, but user testimony says the real trigger never actually lands. Either the gate condition never becomes true in practice (a bug in the band-crossing logic, or dword_7C54E8+13388 outer byte gate staying nonzero) or a queue-priority conflict eats it every time. Needs live memory watch on the actual condition (dword_7C56A4, dword_7C56A8, the FloatRangeIndexLookup band value) during a real yellow-flag clear event, not another injection test."
+   },
+   {
+    "sdt_index": 287,
+    "clip": "PWS_2001_165",
+    "status": "WIP",
+    "description": "75% race distance complete",
+    "eids": [
+     270
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: PLAY, \"that's three quarter distance gone\", when player has driven 75% of the race, this is played"
+   },
+   {
+    "sdt_index": 288,
+    "clip": "PWS_2001_164",
+    "status": "WIP",
+    "description": "50% race distance complete",
+    "eids": [
+     271
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: PLAY, \"that's half distance\", 50% laps driven"
+   },
+   {
+    "sdt_index": 292,
+    "clip": "PWS_2001_163",
+    "status": "WIP",
+    "description": "25% race distance complete",
+    "eids": [
+     274
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: PLAY, \"one quarter distance\", 25% laps driven"
+   },
+   {
+    "sdt_index": 293,
+    "clip": "PWS_2001_159",
+    "status": "WIP",
+    "description": "Session ends",
+    "eids": [
+     275
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "EVF-008 audit: UNKNOWN. Emitter DisplayMessage0x113_0041a6b0 (caller PitTimer, confirmed live) dispatches a variable eid, not a literal - which eid and under what condition is unresolved from the decompiled fragment. docs/SPEC_EVF-008_F_misc.md"
+   },
+   {
+    "sdt_index": 24,
+    "clip": "PWS_2001_20",
+    "status": "WIP",
+    "description": "AI driver starting 4th run",
+    "eids": [
+     26,
+     317
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X play"
+   }
+  ],
+  "H6_weather_tyres": [
+   {
+    "sdt_index": 25,
+    "clip": "PWS_2001_22",
+    "status": "SILENT",
+    "description": "Rain expected - make run ASAP",
+    "eids": [
+     27,
+     318
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": ""
+   },
+   {
+    "sdt_index": 26,
+    "clip": "PWS_2001_24",
+    "status": "SILENT",
+    "description": "Rain expected to ease - wait",
+    "eids": [
+     28,
+     319
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": ""
+   },
+   {
+    "sdt_index": 27,
+    "clip": "PWS_2001_25",
+    "status": "SILENT",
+    "description": "Rain expected to continue - make run ASAP",
+    "eids": [
+     29,
+     320
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": ""
+   },
+   {
+    "sdt_index": 131,
+    "clip": "PWS_OIL01",
+    "status": "WIP",
+    "description": "Oil on track Sector 1",
+    "eids": [
+     127,
+     420
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Weather & track surface",
+    "note": "user triage: Z, oil on track, maybe determine if AI has had an incident on racing line, how to determine temporary \"loss of grip area\" within the track? | UPDATE 2026-07-28: pending implementation plan  [flags: NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 132,
+    "clip": "PWS_OIL02",
+    "status": "WIP",
+    "description": "Oil on track Sector 2",
+    "eids": [
+     128,
+     417
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Weather & track surface",
+    "note": "user triage: Z, oil on track, maybe determine if AI has had an incident on racing line, how to determine temporary \"loss of grip area\" within the track? | UPDATE 2026-07-28: pending implementation plan  [auto: inherited from SDT 131]  [flags: NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 133,
+    "clip": "PWS_OIL03",
+    "status": "WIP",
+    "description": "Oil on track Sector 3",
+    "eids": [
+     129,
+     418
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Weather & track surface",
+    "note": "user triage: Z, oil on track, maybe determine if AI has had an incident on racing line, how to determine temporary \"loss of grip area\" within the track? | UPDATE 2026-07-28: pending implementation plan  [auto: inherited from SDT 131]  [flags: NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 203,
+    "clip": "RE_OD_INTER",
+    "status": "WIP",
+    "description": "Other driver leaves pits on Inters",
+    "eids": [
+     191
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Weather & track surface",
+    "note": "user triage: X PLAY, AI leaves the pits, plays if current tire is INTERMEDIATE"
+   },
+   {
+    "sdt_index": 204,
+    "clip": "RE_OD_MONSOON",
+    "status": "WIP",
+    "description": "Other driver leaves pits on Monsoons",
+    "eids": [
+     192,
+     511
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Weather & track surface",
+    "note": "EVF-008 audit: NO_KNOWN_WRITER. eid 192 absent from emitter_index.json literal and dynamic sections and from all DriverDataTableLookupAndTimeConversion call sites in the corpus. docs/SPEC_EVF-008_E_pit.md"
+   },
+   {
+    "sdt_index": 205,
+    "clip": "RE_OD_SLICKS",
+    "status": "WIP",
+    "description": "Other driver leaves pits on Slicks",
+    "eids": [
+     193,
+     508
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Weather & track surface",
+    "note": "user triage: X PLAY, ONLY if weather conditions are beginning to get wet/raining/drying, not played when conditions are dry because slicks = self-explanatory during dry conditions"
+   },
+   {
+    "sdt_index": 206,
+    "clip": "RE_OD_WET",
+    "status": "WIP",
+    "description": "Other driver leaves pits on Wets",
+    "eids": [
+     194,
+     509
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Weather & track surface",
+    "note": "user triage: X PLAY, same but wet"
+   },
+   {
+    "sdt_index": 231,
+    "clip": "PWS_AITYRES02",
+    "status": "WIP",
+    "description": "AI severe blistering",
+    "eids": [
+     218,
+     472
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Tyres",
+    "note": "EVF-008 audit: NO_KNOWN_WRITER. eids 218/219 (AI tyre blister) appear in ZERO DriverDataTableLookupAndTimeConversion call sites across all 7,138 functions (2 independent checks). Player-side blister emitter has no AI branch. docs/SPEC_EVF-008_C_aityres.md"
+   },
+   {
+    "sdt_index": 232,
+    "clip": "PWS_AITYRES01",
+    "status": "WIP",
+    "description": "AI light blistering",
+    "eids": [
+     219,
+     473
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Tyres",
+    "note": "EVF-008 audit: NO_KNOWN_WRITER, eid 219, same as sdt231. docs/SPEC_EVF-008_C_aityres.md"
+   },
+   {
+    "sdt_index": 298,
+    "clip": "PWS_2001_221",
+    "status": "WIP",
+    "description": "Rain starts - monsoon likely",
+    "eids": [
+     280
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: PLAY, \"its starting to rain and I think its gonna continue doing so for some time judging by the sky\", when first drips are noticed, F1CUI radio messages have the weather mechanism solved, look into them, I would say we have clear answers from there  [flags: HAS_LEAD]"
+   },
+   {
+    "sdt_index": 299,
+    "clip": "PWS_2001_222",
+    "status": "WIP",
+    "description": "Rain eases off",
+    "eids": [
+     281
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: PLAY, rain easing off, see above  [flags: HAS_LEAD]"
+   },
+   {
+    "sdt_index": 300,
+    "clip": "PWS_2001_218",
+    "status": "WIP",
+    "description": "Overcast conditions - possible rain",
+    "eids": [
+     282
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: PLAY, \"its starting to cloud over I think it might rain later\", same as above, overcast with possibility of rain"
+   },
+   {
+    "sdt_index": 301,
+    "clip": "PWS_2001_220",
+    "status": "WIP",
+    "description": "Rain starts - short shower",
+    "eids": [
+     283
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: PLAY, \"its starting to rain but I don't think it'll turn out to be any more than a shower\", above"
+   },
+   {
+    "sdt_index": 306,
+    "clip": "PWS_2001_311",
+    "status": "WIP",
+    "description": "Fastest AI is on Inters",
+    "eids": [
+     285
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X PLAY, is currently the fastest man on the track, HE'S ON INTERMEDIATE TYRES - played in quali when setting the fastest lap, replaces the original \"x is in pole position\" ONLY when the driver has intermediates"
+   },
+   {
+    "sdt_index": 307,
+    "clip": "PWS_2001_310",
+    "status": "WIP",
+    "description": "Fastest AI is on Slicks",
+    "eids": [
+     286
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X PLAY, same as above but slicks"
+   },
+   {
+    "sdt_index": 308,
+    "clip": "PWS_2001_312",
+    "status": "WIP",
+    "description": "Fastest AI is on Wets",
+    "eids": [
+     287
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X PLAY, same as above but wet tyres"
+   },
+   {
+    "sdt_index": 310,
+    "clip": "PWS_2001_308",
+    "status": "WIP",
+    "description": "You are being chased by AI driver",
+    "eids": [
+     289
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X PLAY X, \"X has let his team mate past, you are now being chased by X\", same as above, team order swap behind the driver, how to measure? | UPDATE 2026-07-28: same as 309, needs investigation  [flags: NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 311,
+    "clip": "RE_OD_FASTEST_M",
+    "status": "WIP",
+    "description": "Other driver fastest - on Monsoon tires",
+    "eids": [
+     290
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: X PLAY, same as 306 but with monsoon"
+   },
+   {
+    "sdt_index": 93,
+    "clip": "RE_PD_FL_BAD_BL",
+    "status": "WIP",
+    "description": "Front Left severe blistering",
+    "eids": [
+     94,
+     384
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "REVERTED 2026-07-28: was marked LIVE_TRUSTED/SHIPPED on a misread of the humans in-session phrasing (\"stock game\"/\"can be excluded\") as real-play recognition. Human directly clarified afterward: never actually heard this clip fire in real play. Emitter is live and not a menu trap (see docs/SPEC_EVF-008_A_blister.md / _D_aiincid.md / _F_misc.md for the code trace, which still stands as a reachability analysis) but that is NOT proof of natural firing - same evidentiary gap as every other reverted clip this session. Needs actual live observation, not another injection test or a re-read of a prior comment."
+   },
+   {
+    "sdt_index": 94,
+    "clip": "RE_PD_FL_BLIST",
+    "status": "WIP",
+    "description": "Front Left light blistering",
+    "eids": [
+     95,
+     385
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "REVERTED 2026-07-28: was marked LIVE_TRUSTED/SHIPPED on a misread of the humans in-session phrasing (\"stock game\"/\"can be excluded\") as real-play recognition. Human directly clarified afterward: never actually heard this clip fire in real play. Emitter is live and not a menu trap (see docs/SPEC_EVF-008_A_blister.md / _D_aiincid.md / _F_misc.md for the code trace, which still stands as a reachability analysis) but that is NOT proof of natural firing - same evidentiary gap as every other reverted clip this session. Needs actual live observation, not another injection test or a re-read of a prior comment."
+   },
+   {
+    "sdt_index": 95,
+    "clip": "RE_PD_FR_BAD_BL",
+    "status": "WIP",
+    "description": "Front Right severe blistering",
+    "eids": [
+     96,
+     386
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "REVERTED 2026-07-28: was marked LIVE_TRUSTED/SHIPPED on a misread of the humans in-session phrasing (\"stock game\"/\"can be excluded\") as real-play recognition. Human directly clarified afterward: never actually heard this clip fire in real play. Emitter is live and not a menu trap (see docs/SPEC_EVF-008_A_blister.md / _D_aiincid.md / _F_misc.md for the code trace, which still stands as a reachability analysis) but that is NOT proof of natural firing - same evidentiary gap as every other reverted clip this session. Needs actual live observation, not another injection test or a re-read of a prior comment."
+   },
+   {
+    "sdt_index": 96,
+    "clip": "RE_PD_FR_BLIST",
+    "status": "WIP",
+    "description": "Front Right light blistering",
+    "eids": [
+     97,
+     392
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "REVERTED 2026-07-28: was marked LIVE_TRUSTED/SHIPPED on a misread of the humans in-session phrasing (\"stock game\"/\"can be excluded\") as real-play recognition. Human directly clarified afterward: never actually heard this clip fire in real play. Emitter is live and not a menu trap (see docs/SPEC_EVF-008_A_blister.md / _D_aiincid.md / _F_misc.md for the code trace, which still stands as a reachability analysis) but that is NOT proof of natural firing - same evidentiary gap as every other reverted clip this session. Needs actual live observation, not another injection test or a re-read of a prior comment."
+   },
+   {
+    "sdt_index": 97,
+    "clip": "RE_PD_RL_BAD_BL",
+    "status": "WIP",
+    "description": "Rear Left severe blistering",
+    "eids": [
+     98,
+     391
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "REVERTED 2026-07-28: was marked LIVE_TRUSTED/SHIPPED on a misread of the humans in-session phrasing (\"stock game\"/\"can be excluded\") as real-play recognition. Human directly clarified afterward: never actually heard this clip fire in real play. Emitter is live and not a menu trap (see docs/SPEC_EVF-008_A_blister.md / _D_aiincid.md / _F_misc.md for the code trace, which still stands as a reachability analysis) but that is NOT proof of natural firing - same evidentiary gap as every other reverted clip this session. Needs actual live observation, not another injection test or a re-read of a prior comment."
+   },
+   {
+    "sdt_index": 98,
+    "clip": "RE_PD_RL_BLIST",
+    "status": "WIP",
+    "description": "Rear Left light blistering",
+    "eids": [
+     99,
+     394
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "REVERTED 2026-07-28: was marked LIVE_TRUSTED/SHIPPED on a misread of the humans in-session phrasing (\"stock game\"/\"can be excluded\") as real-play recognition. Human directly clarified afterward: never actually heard this clip fire in real play. Emitter is live and not a menu trap (see docs/SPEC_EVF-008_A_blister.md / _D_aiincid.md / _F_misc.md for the code trace, which still stands as a reachability analysis) but that is NOT proof of natural firing - same evidentiary gap as every other reverted clip this session. Needs actual live observation, not another injection test or a re-read of a prior comment."
+   },
+   {
+    "sdt_index": 99,
+    "clip": "RE_PD_RR_BAD_BL",
+    "status": "WIP",
+    "description": "Rear Right severe blistering",
+    "eids": [
+     100,
+     395
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "REVERTED 2026-07-28: was marked LIVE_TRUSTED/SHIPPED on a misread of the humans in-session phrasing (\"stock game\"/\"can be excluded\") as real-play recognition. Human directly clarified afterward: never actually heard this clip fire in real play. Emitter is live and not a menu trap (see docs/SPEC_EVF-008_A_blister.md / _D_aiincid.md / _F_misc.md for the code trace, which still stands as a reachability analysis) but that is NOT proof of natural firing - same evidentiary gap as every other reverted clip this session. Needs actual live observation, not another injection test or a re-read of a prior comment."
+   },
+   {
+    "sdt_index": 100,
+    "clip": "RE_PD_RR_BLIST",
+    "status": "WIP",
+    "description": "Rear Right light blistering",
+    "eids": [
+     101,
+     396
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "REVERTED 2026-07-28: was marked LIVE_TRUSTED/SHIPPED on a misread of the humans in-session phrasing (\"stock game\"/\"can be excluded\") as real-play recognition. Human directly clarified afterward: never actually heard this clip fire in real play. Emitter is live and not a menu trap (see docs/SPEC_EVF-008_A_blister.md / _D_aiincid.md / _F_misc.md for the code trace, which still stands as a reachability analysis) but that is NOT proof of natural firing - same evidentiary gap as every other reverted clip this session. Needs actual live observation, not another injection test or a re-read of a prior comment."
+   }
+  ],
+  "H2_penalties": [
+   {
+    "sdt_index": 35,
+    "clip": "RE_OD_EXIT_RED",
+    "status": "WIP",
+    "description": "Other driver under investigation - exiting red",
+    "eids": [
+     36,
+     327
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: X PLAY (AI likely doesnt exit under red so might be redundant)  [flags: REDUNDANT_SUSPECT]"
+   },
+   {
+    "sdt_index": 36,
+    "clip": "RE_OD_LAP_DISAL",
+    "status": "WIP",
+    "description": "Other driver lap disallowed - exited under red",
+    "eids": [
+     37,
+     328
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: X PLAY (AI likely doesnt exit under red so might be redundant)  [flags: REDUNDANT_SUSPECT]"
+   },
+   {
+    "sdt_index": 37,
+    "clip": "RE_PD_EXIT_RED",
+    "status": "WIP",
+    "description": "Under investigation - exiting under red",
+    "eids": [
+     38,
+     329
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: Z - under investigation, exiting under red, not high value, keep this as to-do for later mapping  [flags: PARKED,NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 38,
+    "clip": "RE_PD_LAP_DISAL",
+    "status": "WIP",
+    "description": "Fastest lap disallowed - exited under red",
+    "eids": [
+     39,
+     330
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: Z - fastest lap disallowed for exiting under red, same as above, not high value, keep this as to-do for later mapping  [flags: PARKED]"
+   },
+   {
+    "sdt_index": 148,
+    "clip": "PWS_PENALTY08",
+    "status": "WIP",
+    "description": "Penalty (type 8)",
+    "eids": [
+     139
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: Z, apply a 25 second time penalty for player IF three blue flag triggers activate AND blue flag is still active for player AFTER the game plays PWS_AILAPPIN04. penalty is set to be applied AFTER the face so standings might change"
+   },
+   {
+    "sdt_index": 150,
+    "clip": "PWS_PENALTY07",
+    "status": "WIP",
+    "description": "Stop/go penalty",
+    "eids": [
+     141,
+     490
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match alone, but user reports this line never plays in real gameplay - the game goes straight to the penalty, no investigation step heard. Injection proved the CLIP is intact and the emitter (SeasonDisplayIDResolver_0041daf0) exists, but did NOT prove the branch that selects this eid is ever reached live. Function gated by dword_7D0308 (RaceActiveFlag) and flt_7CF3C8 (TrackConditionState) at entry (both pass normally), but the specific eid choice inside depends on deeper state (dword_7D2DB0+45380==3, FlagsGetter, ChampionshipScore) not yet correlated to real penalty/investigation gameplay. Needs live observation of an actual penalty event to find the real gate, not another injection test."
+   },
+   {
+    "sdt_index": 152,
+    "clip": "PWS_MISC05",
+    "status": "WIP",
+    "description": "Player blocking blue - investigation",
+    "eids": [
+     143,
+     494
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match alone, but user reports this line never plays in real gameplay - the game goes straight to the penalty, no investigation step heard. Injection proved the CLIP is intact and the emitter (SeasonDisplayIDResolver_0041daf0) exists, but did NOT prove the branch that selects this eid is ever reached live. Function gated by dword_7D0308 (RaceActiveFlag) and flt_7CF3C8 (TrackConditionState) at entry (both pass normally), but the specific eid choice inside depends on deeper state (dword_7D2DB0+45380==3, FlagsGetter, ChampionshipScore) not yet correlated to real penalty/investigation gameplay. Needs live observation of an actual penalty event to find the real gate, not another injection test."
+   },
+   {
+    "sdt_index": 153,
+    "clip": "PWS_MISC47",
+    "status": "WIP",
+    "description": "Player cutting track - investigation",
+    "eids": [
+     144,
+     499
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match alone, but user reports this line never plays in real gameplay - the game goes straight to the penalty, no investigation step heard. Injection proved the CLIP is intact and the emitter (SeasonDisplayIDResolver_0041daf0) exists, but did NOT prove the branch that selects this eid is ever reached live. Function gated by dword_7D0308 (RaceActiveFlag) and flt_7CF3C8 (TrackConditionState) at entry (both pass normally), but the specific eid choice inside depends on deeper state (dword_7D2DB0+45380==3, FlagsGetter, ChampionshipScore) not yet correlated to real penalty/investigation gameplay. Needs live observation of an actual penalty event to find the real gate, not another injection test."
+   },
+   {
+    "sdt_index": 155,
+    "clip": "PWS_MISC04",
+    "status": "WIP",
+    "description": "Player overtaking yellow - investigation",
+    "eids": [
+     146,
+     503
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match alone, but user reports this line never plays in real gameplay - the game goes straight to the penalty, no investigation step heard. Injection proved the CLIP is intact and the emitter (SeasonDisplayIDResolver_0041daf0) exists, but did NOT prove the branch that selects this eid is ever reached live. Function gated by dword_7D0308 (RaceActiveFlag) and flt_7CF3C8 (TrackConditionState) at entry (both pass normally), but the specific eid choice inside depends on deeper state (dword_7D2DB0+45380==3, FlagsGetter, ChampionshipScore) not yet correlated to real penalty/investigation gameplay. Needs live observation of an actual penalty event to find the real gate, not another injection test."
+   },
+   {
+    "sdt_index": 156,
+    "clip": "PWS_MISC03",
+    "status": "WIP",
+    "description": "Player speeding pits - investigation",
+    "eids": [
+     147,
+     502
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match alone, but user reports this line never plays in real gameplay - the game goes straight to the penalty, no investigation step heard. Injection proved the CLIP is intact and the emitter (SeasonDisplayIDResolver_0041daf0) exists, but did NOT prove the branch that selects this eid is ever reached live. Function gated by dword_7D0308 (RaceActiveFlag) and flt_7CF3C8 (TrackConditionState) at entry (both pass normally), but the specific eid choice inside depends on deeper state (dword_7D2DB0+45380==3, FlagsGetter, ChampionshipScore) not yet correlated to real penalty/investigation gameplay. Needs live observation of an actual penalty event to find the real gate, not another injection test."
+   },
+   {
+    "sdt_index": 157,
+    "clip": "RE_PD_25_DD",
+    "status": "WIP",
+    "description": "25 sec penalty - dangerous driving",
+    "eids": [
+     148,
+     478
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: Z, dangerous driving penalty -> what determines dangerous driving? | UPDATE 2026-07-28: causing crashes maybe, needs research, likely can be done  [flags: HAS_PLAN,NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 158,
+    "clip": "RE_PD_DQ",
+    "status": "WIP",
+    "description": "Disqualified - failed to serve stop/go",
+    "eids": [
+     149,
+     479
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: Z, I believe this was done already, basically when you do not serve your stop/go penalty within X laps, usually three if I remember correctly"
+   },
+   {
+    "sdt_index": 159,
+    "clip": "RE_PD_INV_DD",
+    "status": "WIP",
+    "description": "Under investigation - dangerous driving",
+    "eids": [
+     150,
+     480
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: Z, dangerous driving investigation  [flags: NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 161,
+    "clip": "RE_PD_SG_DD",
+    "status": "WIP",
+    "description": "Stop/Go penalty - dangerous driving",
+    "eids": [
+     152,
+     501
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: not sure if exists  [auto: user flagged unverified -> verify in vanilla before SHIPPED]  [flags: NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 163,
+    "clip": "PWS_PENALTY04",
+    "status": "WIP",
+    "description": "Blocking blue penalty",
+    "eids": [
+     154,
+     497
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match alone, but user reports this line never plays in real gameplay - the game goes straight to the penalty, no investigation step heard. Injection proved the CLIP is intact and the emitter (SeasonDisplayIDResolver_0041daf0) exists, but did NOT prove the branch that selects this eid is ever reached live. Function gated by dword_7D0308 (RaceActiveFlag) and flt_7CF3C8 (TrackConditionState) at entry (both pass normally), but the specific eid choice inside depends on deeper state (dword_7D2DB0+45380==3, FlagsGetter, ChampionshipScore) not yet correlated to real penalty/investigation gameplay. Needs live observation of an actual penalty event to find the real gate, not another injection test."
+   },
+   {
+    "sdt_index": 165,
+    "clip": "PWS_PENALTY03",
+    "status": "WIP",
+    "description": "Overtaking yellow penalty",
+    "eids": [
+     156,
+     496
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match alone, but user reports this line never plays in real gameplay - the game goes straight to the penalty, no investigation step heard. Injection proved the CLIP is intact and the emitter (SeasonDisplayIDResolver_0041daf0) exists, but did NOT prove the branch that selects this eid is ever reached live. Function gated by dword_7D0308 (RaceActiveFlag) and flt_7CF3C8 (TrackConditionState) at entry (both pass normally), but the specific eid choice inside depends on deeper state (dword_7D2DB0+45380==3, FlagsGetter, ChampionshipScore) not yet correlated to real penalty/investigation gameplay. Needs live observation of an actual penalty event to find the real gate, not another injection test."
+   },
+   {
+    "sdt_index": 255,
+    "clip": "PWS_AIPENALTY08",
+    "status": "WIP",
+    "description": "AI penalty (type 8)",
+    "eids": [
+     239
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: X PLAY, AI driver blocking under blue 25 second penalty, not sure if the game enforces AI penalties but if it does, this should be played, should be investigated how AI penalties are enforced and if they could be activated by script  [flags: NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 256,
+    "clip": "PWS_AIPENALTY14",
+    "status": "WIP",
+    "description": "AI penalty (type 14)",
+    "eids": [
+     240
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: X PLAY, AI 25 sec track cut, same as above"
+   },
+   {
+    "sdt_index": 257,
+    "clip": "PWS_AIPENALTY07",
+    "status": "WIP",
+    "description": "AI stop/go penalty",
+    "eids": [
+     241
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: X PLAY, AI 25 sec overtake yellow"
+   },
+   {
+    "sdt_index": 258,
+    "clip": "PWS_AIPENALTY05",
+    "status": "WIP",
+    "description": "AI cutting track penalty",
+    "eids": [
+     242
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: X PLAY, AI 25 sec pitlane speeding"
+   },
+   {
+    "sdt_index": 259,
+    "clip": "PWS_AIPENALTY22",
+    "status": "WIP",
+    "description": "AI penalty (type 22)",
+    "eids": [
+     243
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: X PLAY, AI disqualified for failing to serve stop/go, determine if AI even does this"
+   },
+   {
+    "sdt_index": 260,
+    "clip": "PWS_MISC09",
+    "status": "WIP",
+    "description": "AI blocking blue - investigation",
+    "eids": [
+     244
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: X PLAY, AI under investigation for blocking under blue, same as above, determine if this is even enforced  [flags: NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 261,
+    "clip": "PWS_MISC48",
+    "status": "WIP",
+    "description": "AI cutting track - investigation",
+    "eids": [
+     245
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: X PLAY, cutting track, same as above"
+   },
+   {
+    "sdt_index": 262,
+    "clip": "PWS_MISC06",
+    "status": "WIP",
+    "description": "AI false start - investigation",
+    "eids": [
+     246
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: X PLAY, jump start, same"
+   },
+   {
+    "sdt_index": 263,
+    "clip": "PWS_MISC08",
+    "status": "WIP",
+    "description": "AI overtaking yellow - investigation",
+    "eids": [
+     247
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: X PLAY, overtaking under yellow, same"
+   },
+   {
+    "sdt_index": 264,
+    "clip": "PWS_MISC07",
+    "status": "WIP",
+    "description": "AI speeding pits - investigation",
+    "eids": [
+     248
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: X PLAY, speeding in pits, same"
+   },
+   {
+    "sdt_index": 265,
+    "clip": "RE_OD_25_DD",
+    "status": "WIP",
+    "description": "Other driver 25 sec penalty - dangerous driving",
+    "eids": [
+     249
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: X PLAY, AI 25 sec dangerous driving, enforced? | UPDATE 2026-07-28: apparently not enforced right now - implement: if AI causes X crashes in Y time, apply a 25 sec penalty after the race (add 25 sec to race time, recalculate resulting position)  [flags: HAS_PLAN,NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 266,
+    "clip": "RE_OD_INV_DD",
+    "status": "WIP",
+    "description": "Other driver under investigation - dangerous driving",
+    "eids": [
+     250
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: X PLAY, AI investigation dangerous driving, same  [flags: NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 267,
+    "clip": "RE_OD_SG_DD",
+    "status": "WIP",
+    "description": "Other driver stop/go - dangerous driving",
+    "eids": [
+     251
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: X PLAY, AI stop go dangerous, same"
+   },
+   {
+    "sdt_index": 268,
+    "clip": "PWS_AIPENALTY04",
+    "status": "WIP",
+    "description": "AI blocking blue penalty",
+    "eids": [
+     252
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: X PLAY, AI stop go blocking, same"
+   },
+   {
+    "sdt_index": 269,
+    "clip": "PWS_AIPENALTY13",
+    "status": "WIP",
+    "description": "AI penalty (type 13)",
+    "eids": [
+     253
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: X PLAY, AI stop go cutting track, same"
+   },
+   {
+    "sdt_index": 270,
+    "clip": "PWS_AIPENALTY02",
+    "status": "WIP",
+    "description": "AI speeding in pits penalty",
+    "eids": [
+     254
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: X PLAY, AI stop go jumpstart, same"
+   },
+   {
+    "sdt_index": 271,
+    "clip": "PWS_AIPENALTY03",
+    "status": "WIP",
+    "description": "AI overtaking yellow penalty",
+    "eids": [
+     255
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "user triage: X PLAY, AI stop go overtaking under yellow, same"
+   },
+   {
+    "sdt_index": 272,
+    "clip": "PWS_AIPENALTY01",
+    "status": "WIP",
+    "description": "AI penalty (type 1)",
+    "eids": [
+     256
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Penalties & disqualification",
+    "note": "EVF-008 audit: LIVE_UNPROVEN_PREDICATE. Emitter sub_41A720 exists and is AI-capable via StopGoPenaltyHandler_004bbd60 (a second, separate caller from the player-only sub_4BCCC0), but whether StopGoPenaltyHandler is ever reached for an AI car during normal play is unverified. docs/SPEC_EVF-008_F_misc.md"
+   }
+  ],
+  "H1_pit": [
+   {
+    "sdt_index": 42,
+    "clip": "PWS_PIT12",
+    "status": "DONE",
+    "description": "Limiter Off - clear of pit lane",
+    "eids": [
+     43,
+     334
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Pit stops",
+    "note": "PWS_PIT12 Limiter Off - clear of pit lane - restored via dll/pit_exit_commentary_v3.dll, eid 43 (NOT 42, that was the SDT index not the eid), trigger = pittingStatus 4->0, live-confirmed 2026-07-28"
+   },
+   {
+    "sdt_index": 44,
+    "clip": "PWS_PIT10",
+    "status": "DONE",
+    "description": "Go (pit procedure)",
+    "eids": [
+     45,
+     336
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Pit stops",
+    "note": "PWS_PIT10 Go - restored via dll/pit_exit_commentary_v3.dll, eid 45 (NOT 44, that is PIT09s twin - column-mixup bug fixed), trigger = pittingStatus 3->4, live-confirmed 2026-07-28"
+   },
+   {
+    "sdt_index": 45,
+    "clip": "PWS_MISC54",
+    "status": "WIP",
+    "description": "Box! Pit now",
+    "eids": [
+     46
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: Z, plays just about when player driver into the pit box, needs research if anything activates separately before driving into the pit box and the pit stop timer starts  [flags: NEEDS_RESEARCH,DELAYS_PIT]"
+   },
+   {
+    "sdt_index": 46,
+    "clip": "PWS_MISC18",
+    "status": "WIP",
+    "description": "Stop next lap",
+    "eids": [
+     47
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: Z, when there's either fuel for one lap OR when a scheduled pit stop is meant to be on the next lap, uncertain if already played by the game  [flags: NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 47,
+    "clip": "PWS_PIT13",
+    "status": "WIP",
+    "description": "Stop-go penalty countdown",
+    "eids": [
+     48,
+     355
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Pit stops",
+    "note": "user triage: Z, activates when the player is in for a 10 second stop and go, when player drives into the pit box during this, should be played"
+   },
+   {
+    "sdt_index": 48,
+    "clip": "PWS_PIT01",
+    "status": "WIP",
+    "description": "Pit on this lap",
+    "eids": [
+     49,
+     363
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Pit stops",
+    "note": "user triage: Z, driving past the main straight and pitting meant to be done on this lap, either pit stop strategy or when player has activated the pit stop request BEFORE crossing the S/F LINE"
+   },
+   {
+    "sdt_index": 49,
+    "clip": "PWS_PIT03",
+    "status": "WIP",
+    "description": "Watch for pit lane entrance",
+    "eids": [
+     50,
+     367
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Pit stops",
+    "note": "user triage: Z, when player coordinates are close to the pit lane entrance AND player is about to enter for scheduled pit stop or stop/go"
+   },
+   {
+    "sdt_index": 50,
+    "clip": "PWS_PIT06",
+    "status": "DONE",
+    "description": "Limiter On",
+    "eids": [
+     51,
+     356
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Pit stops",
+    "note": "PWS_PIT06 Limiter On - entering pit lane - restored via dll/pit_exit_commentary_v7.dll, eid 51 (isolation-tested before wiring), trigger = pittingStatus 1->2, live-confirmed 2026-07-28"
+   },
+   {
+    "sdt_index": 52,
+    "clip": "PWS_PIT08",
+    "status": "WIP",
+    "description": "Brake (pit procedure)",
+    "eids": [
+     53,
+     361
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Pit stops",
+    "note": "user triage: Z, when player enters the pit box and the pit timer starts  [flags: DELAYS_PIT]"
+   },
+   {
+    "sdt_index": 53,
+    "clip": "PWS_2001_80",
+    "status": "WIP",
+    "description": "Engine stalled - will get refired",
+    "eids": [
+     54,
+     337
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "EVF-008 audit: UNKNOWN. Originally attributed to DisplayMessage0x151_0041c3e0, but that function dispatches ONLY eid 337, no branch for eid 54. Real emitter unidentified within the live sub_40DE60<-PitTimer chain. docs/SPEC_EVF-008_F_misc.md"
+   },
+   {
+    "sdt_index": 55,
+    "clip": "PWS_2001_79",
+    "status": "WIP",
+    "description": "Fuel hose issue - slow refuel",
+    "eids": [
+     56,
+     365
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z, two ways: either delaying the pit stop (look into the mechanism what determines the length of the pit stop) OR by making it so that mid-race refueling doesn't start instantly and fuel level doesn't increase  [flags: NEEDS_RESEARCH,HAS_LEAD]"
+   },
+   {
+    "sdt_index": 56,
+    "clip": "PWS_2001_78",
+    "status": "WIP",
+    "description": "Refuel successful",
+    "eids": [
+     57,
+     362
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z, when player car refueling ends (fuel level no longer increasing when player is on a pit stop)"
+   },
+   {
+    "sdt_index": 57,
+    "clip": "PWS_TEAMPIT01",
+    "status": "WIP",
+    "description": "Teammate pits this lap - stay out",
+    "eids": [
+     58,
+     366
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Pit stops",
+    "note": "user triage: Z, when team mate has pit order active AND player is about to pit within one lap (based on player pre-determined strategy OR if player activates the pit stop request when team mate has it active (check existing red flag script for probing the pit order from AI driver)"
+   },
+   {
+    "sdt_index": 58,
+    "clip": "PWS_TEAMPIT02",
+    "status": "WIP",
+    "description": "Player can now pit",
+    "eids": [
+     59,
+     368
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Pit stops",
+    "note": "user triage: Z, when team mate has pitted, played ONLY if player has a pit order active AND team mate is currently in the pits"
+   },
+   {
+    "sdt_index": 59,
+    "clip": "PWS_2001_96",
+    "status": "WIP",
+    "description": "Player rejoins track at X position",
+    "eids": [
+     60,
+     370
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: PLAY Z (you've rejoined in THIRD for example), driving out from the pit lane, seek red flag script to detect when player is no longer in pits"
+   },
+   {
+    "sdt_index": 60,
+    "clip": "PWS_2001_76",
+    "status": "WIP",
+    "description": "Wheel gun failure",
+    "eids": [
+     61,
+     372
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z, artificial delay added into the pit box timer, determine a realistic additional amount of seconds based on how long a real wheel gun failure would take  [flags: DELAYS_PIT]"
+   },
+   {
+    "sdt_index": 61,
+    "clip": "PWS_2001_68",
+    "status": "WIP",
+    "description": "Front Left tire change successful",
+    "eids": [
+     62,
+     369
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z, successful front left tire change, I assume it could be played during a normal pitstop, but however I am not sure how to make these play as there are four of these similar lines and playing them all probably takes longer than the pitstop itself  [flags: NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 62,
+    "clip": "PWS_2001_72",
+    "status": "WIP",
+    "description": "Slow Front Left tire change",
+    "eids": [
+     63,
+     358
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z, problem with front left, artifical added pit timer delay, could be randomly rolled from a pool pit stop failures, add X amount of additional time  [flags: DELAYS_PIT]"
+   },
+   {
+    "sdt_index": 63,
+    "clip": "PWS_2001_69",
+    "status": "WIP",
+    "description": "Front Right tire change successful",
+    "eids": [
+     64,
+     357
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z, front right tire ok, same as 61"
+   },
+   {
+    "sdt_index": 64,
+    "clip": "PWS_2001_73",
+    "status": "WIP",
+    "description": "Slow Front Right tire change",
+    "eids": [
+     65,
+     359
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z, same as 62, maybe could happen occasionally"
+   },
+   {
+    "sdt_index": 65,
+    "clip": "PWS_2001_77",
+    "status": "WIP",
+    "description": "Wheel is jammed",
+    "eids": [
+     66,
+     371
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z, this plays if the pit stop failure is extended to take longer -> maybe cause a DNF, making it impossible for player to continue/play a \"WHEEL JAMMED\" text as with red flag? | UPDATE 2026-07-28: wheel jam, yes, reuse the red_flag script's textbox mechanism for this  [flags: HAS_PLAN,HAS_LEAD]"
+   },
+   {
+    "sdt_index": 66,
+    "clip": "PWS_2001_70",
+    "status": "WIP",
+    "description": "Rear Left tire change successful",
+    "eids": [
+     67,
+     338
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z, rear left ok, same as 61"
+   },
+   {
+    "sdt_index": 67,
+    "clip": "PWS_2001_74",
+    "status": "WIP",
+    "description": "Slow Rear Left tire change",
+    "eids": [
+     68,
+     346
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z, same as 62"
+   },
+   {
+    "sdt_index": 68,
+    "clip": "PWS_2001_71",
+    "status": "WIP",
+    "description": "Rear Right tire change successful",
+    "eids": [
+     69,
+     349
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z, rear left ok, same as 61"
+   },
+   {
+    "sdt_index": 69,
+    "clip": "PWS_2001_75",
+    "status": "WIP",
+    "description": "Slow Rear Right tire change",
+    "eids": [
+     70,
+     339
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z, same as 62"
+   },
+   {
+    "sdt_index": 195,
+    "clip": "PWS_MISC30",
+    "status": "WIP",
+    "description": "AI has pit stop issue",
+    "eids": [
+     183
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: X PLAY, problem in the pits, playing around with the pit stop delay timer for AI drivers who enter the pits  [flags: DELAYS_PIT]"
+   },
+   {
+    "sdt_index": 196,
+    "clip": "PWS_2001_131",
+    "status": "WIP",
+    "description": "AI driver engine stalled in pits",
+    "eids": [
+     184,
+     516
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "EVF-008 audit: MENU_TRAP (structural variant). Emitter PitExit_0041c0f0 reached via CarSelectionStateMachine_00434460, the pre-race grid/formation-lap phase - AI cars are on the grid/formation lap during this window, not in pit boxes, so \"engine stalled in pits\" cannot be satisfied by the calling context even though the chain is live, not a menu. docs/SPEC_EVF-008_E_pit.md"
+   },
+   {
+    "sdt_index": 197,
+    "clip": "PWS_2001_132",
+    "status": "WIP",
+    "description": "AI driver jammed fuel hose",
+    "eids": [
+     185
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X PLAY, fuel hose jammed, see above pit failures, block AI from refueling, gotta think of this if AI just takes off from the pits and tries to refuel later again OR if retires  [flags: HAS_LEAD]"
+   },
+   {
+    "sdt_index": 198,
+    "clip": "PWS_2001_133",
+    "status": "WIP",
+    "description": "AI driver stuck Front Left wheel",
+    "eids": [
+     186
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X PLAY, front left wheel stuck, simply a randomized event, if it's stuck should he be able to continue? | UPDATE 2026-07-28: applies to AI, simply delay the pit stop and pick one of 198-200 as the reason  [flags: HAS_PLAN]"
+   },
+   {
+    "sdt_index": 199,
+    "clip": "PWS_2001_134",
+    "status": "WIP",
+    "description": "AI driver stuck Front Right wheel",
+    "eids": [
+     187
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X PLAY, front left wheel stuck, simply a randomized event, if it's stuck should he be able to continue? | UPDATE 2026-07-28: applies to AI, simply delay the pit stop and pick one of 198-200 as the reason  [auto: inherited from SDT 198]  [flags: HAS_PLAN]"
+   },
+   {
+    "sdt_index": 200,
+    "clip": "PWS_2001_135",
+    "status": "WIP",
+    "description": "AI driver stuck Rear Left wheel",
+    "eids": [
+     188
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X PLAY, front left wheel stuck, simply a randomized event, if it's stuck should he be able to continue? | UPDATE 2026-07-28: applies to AI, simply delay the pit stop and pick one of 198-200 as the reason  [auto: inherited from SDT 198]  [flags: HAS_PLAN]"
+   },
+   {
+    "sdt_index": 201,
+    "clip": "PWS_2001_136",
+    "status": "WIP",
+    "description": "AI driver stuck Rear Right wheel",
+    "eids": [
+     189
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X PLAY Z, AI driver leaves the pits and his current position is said out loud, plays if tire choice is SOFT/HARD"
+   },
+   {
+    "sdt_index": 202,
+    "clip": "PWS_AIPIT13",
+    "status": "SILENT",
+    "description": "AI rejoins track at X position",
+    "eids": [
+     190
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Pit stops",
+    "note": ""
+   },
+   {
+    "sdt_index": 207,
+    "clip": "PWS_AIPIT11",
+    "status": "WIP",
+    "description": "AI pits to serve stop-go penalty",
+    "eids": [
+     195,
+     510
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Pit stops",
+    "note": "EVF-008 audit: NO_KNOWN_WRITER, eid 195, same as sdt204. docs/SPEC_EVF-008_E_pit.md"
+   }
+  ],
+  "H5_race_standings": [
+   {
+    "sdt_index": 70,
+    "clip": "PWS_RACEFAST03",
+    "status": "WIP",
+    "description": "Player sets all-time lap record",
+    "eids": [
+     71,
+     343
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Race position & battling",
+    "note": "user triage: Z, all-time race lap record, where to fetch this data from (how many laps driven/what is the previous race lap record? what does \"all time race lap record mean\"?) | UPDATE 2026-07-28: no idea, not hurried, low priority  [flags: PARKED,NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 72,
+    "clip": "PWS_2001_102",
+    "status": "WIP",
+    "description": "Player sets personal best lap",
+    "eids": [
+     73,
+     344
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z, personal best lap, same as 70, where to fetch this personal best lap data? this is not the same as \"fastest lap in the race\" as is played in vanilla | UPDATE 2026-07-28: will look into this, put into the to-be-worked bin  [flags: HAS_PLAN,NEEDS_RESEARCH,HAS_LEAD]"
+   },
+   {
+    "sdt_index": 122,
+    "clip": "PWS_OVERTAKE01",
+    "status": "WIP",
+    "description": "Player overtakes AI (1)",
+    "eids": [
+     120,
+     413
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Race position & battling",
+    "note": "REVERTED 2026-07-28: was marked LIVE_TRUSTED/SHIPPED on a misread of the humans in-session phrasing (\"stock game\"/\"can be excluded\") as real-play recognition. Human directly clarified afterward: never actually heard this clip fire in real play. Emitter is live and not a menu trap (see docs/SPEC_EVF-008_A_blister.md / _D_aiincid.md / _F_misc.md for the code trace, which still stands as a reachability analysis) but that is NOT proof of natural firing - same evidentiary gap as every other reverted clip this session. Needs actual live observation, not another injection test or a re-read of a prior comment."
+   },
+   {
+    "sdt_index": 125,
+    "clip": "PWS_AILAPPIN05",
+    "status": "WIP",
+    "description": "AI driver passes player",
+    "eids": [
+     121
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Race position & battling",
+    "note": "user triage: X PLAY, when player loses a position"
+   },
+   {
+    "sdt_index": 126,
+    "clip": "PWS_AILAPPIN01",
+    "status": "WIP",
+    "description": "AI driver approaches player",
+    "eids": [
+     122,
+     421
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Race position & battling",
+    "note": "user triage: X PLAY, when blue flag driver behind player, played earlier than the existing vanilla blue flags"
+   },
+   {
+    "sdt_index": 136,
+    "clip": "PWS_SLOWCAR01",
+    "status": "WIP",
+    "description": "Slow car ahead",
+    "eids": [
+     132,
+     427
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Race position & battling",
+    "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match alone. Traced emitter chain (ScoringClassificationDisplay_0041e320 <- sub_4A08E0) and found the same post-race-screen fingerprint as the reverted MISC/PENALTY investigation lines: gated on DelegatedFieldGetter(dword_7D2DB0)==3 (RaceStandingsSortBuffer) AND dword_7D032C==1, followed by a .bik win-movie load (aWinconstructor) - this is the post-race constructor standings screen, not live driving. Injection proved the clip and code path exist, not that it fires during a race. Needs live observation or a DLL hook, not verification."
+   },
+   {
+    "sdt_index": 209,
+    "clip": "PWS_MISC46",
+    "status": "WIP",
+    "description": "AI driver laps another AI",
+    "eids": [
+     197,
+     507
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match alone, but user reports this line never plays in real gameplay - the game goes straight to the penalty, no investigation step heard. Injection proved the CLIP is intact and the emitter (SeasonDisplayIDResolver_0041daf0) exists, but did NOT prove the branch that selects this eid is ever reached live. Function gated by dword_7D0308 (RaceActiveFlag) and flt_7CF3C8 (TrackConditionState) at entry (both pass normally), but the specific eid choice inside depends on deeper state (dword_7D2DB0+45380==3, FlagsGetter, ChampionshipScore) not yet correlated to real penalty/investigation gameplay. Needs live observation of an actual penalty event to find the real gate, not another injection test."
+   },
+   {
+    "sdt_index": 212,
+    "clip": "PWS_2001_141",
+    "status": "WIP",
+    "description": "Team positioned to secure WCC",
+    "eids": [
+     199,
+     513
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "EVF-008 audit: NO_KNOWN_WRITER, eid 199, same as sdt204. docs/SPEC_EVF-008_E_pit.md"
+   },
+   {
+    "sdt_index": 213,
+    "clip": "PWS_2001_138",
+    "status": "WIP",
+    "description": "AI driver positioned to secure WDC",
+    "eids": [
+     200,
+     506
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "EVF-008 audit: NO_KNOWN_WRITER, eid 200, same as sdt204. docs/SPEC_EVF-008_E_pit.md"
+   },
+   {
+    "sdt_index": 273,
+    "clip": "PWS_AIBLUE02",
+    "status": "WIP",
+    "description": "AI driver under blue flag - be ready",
+    "eids": [
+     257
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Race position & battling",
+    "note": "user triage: X PLAY, player approaching a lapped car, detection mechanism probably quite easily done"
+   },
+   {
+    "sdt_index": 274,
+    "clip": "PWS_AIBLUE01",
+    "status": "WIP",
+    "description": "Player approaches AI driver (blue flag)",
+    "eids": [
+     258
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Race position & battling",
+    "note": "user triage: PLAY X, same"
+   },
+   {
+    "sdt_index": 275,
+    "clip": "PWS_AIBLUE03",
+    "status": "WIP",
+    "description": "Player passes AI driver",
+    "eids": [
+     259
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Race position & battling",
+    "note": "REVERTED 2026-07-28: was marked LIVE_TRUSTED/SHIPPED on a misread of the humans in-session phrasing (\"stock game\"/\"can be excluded\") as real-play recognition. Human directly clarified afterward: never actually heard this clip fire in real play. Emitter is live and not a menu trap (see docs/SPEC_EVF-008_A_blister.md / _D_aiincid.md / _F_misc.md for the code trace, which still stands as a reachability analysis) but that is NOT proof of natural firing - same evidentiary gap as every other reverted clip this session. Needs actual live observation, not another injection test or a re-read of a prior comment."
+   },
+   {
+    "sdt_index": 280,
+    "clip": "PWS_AIFASTLAP03",
+    "status": "WIP",
+    "description": "AI sets all-time fastest lap",
+    "eids": [
+     263
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Race position & battling",
+    "note": "user triage: X PLAY, all time race lap record, how to measure? | UPDATE 2026-07-28: same as 70, no idea how the game stores/documents this  [flags: PARKED,NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 39,
+    "clip": "PWS_2001_33",
+    "status": "WIP",
+    "description": "X position or better secures WDC",
+    "eids": [
+     40,
+     331
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z - played to the player (keep this as to-do)"
+   }
+  ],
+  "H3_mechanical": [
+   {
+    "sdt_index": 74,
+    "clip": "PWS_MECHPROB16",
+    "status": "WIP",
+    "description": "Damaged suspension - avoid kerbs",
+    "eids": [
+     75,
+     345
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "user triage: Z, suspension damage, happens in vanilla game, see damage.ini file in SeasonData/Vehicles for reference, should research the flag when suspension damage happens - also, suspension damage often happens when the player loses either of the wings, how to make them all play in a way that they are actually played, meaning that wing damage doesn't cause this to not to play? | UPDATE 2026-07-28: damage.ini has the suspension damage values directly, excavate the flag from there  [flags: HAS_PLAN,NEEDS_RESEARCH,HAS_LEAD]"
+   },
+   {
+    "sdt_index": 75,
+    "clip": "PWS_MECHPROB14",
+    "status": "WIP",
+    "description": "Electronics malfunction",
+    "eids": [
+     76,
+     348
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "user triage: Z, electronics periodically malfunctioning, how to implement this? how does electronic malfunction show in real F1? I know for a fact that if the engine is overheated, the RPM starts cutting, maybe use this RPM cutting mechanism here? | UPDATE 2026-07-28: vanilla already has an engine-cut effect when the player runs out of fuel, steal that mechanism directly, needs investigation to find it  [flags: HAS_PLAN,NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 77,
+    "clip": "PWS_MECHPROB06",
+    "status": "WIP",
+    "description": "Front Left puncture",
+    "eids": [
+     78,
+     352
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "user triage: Z, FL puncture, we experimented with TirePuncture before and were able to make these happen, look into 0x4F199E, grip calc and tirePuncture_XX (veh+0x363C, absolute 0x5efd14  [flags: HAS_LEAD]"
+   },
+   {
+    "sdt_index": 78,
+    "clip": "PWS_MECHPROB07",
+    "status": "WIP",
+    "description": "Front Right puncture",
+    "eids": [
+     79,
+     351
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "user triage: Z, same as before"
+   },
+   {
+    "sdt_index": 79,
+    "clip": "PWS_MECHPROB20",
+    "status": "WIP",
+    "description": "Lost 1st gear",
+    "eids": [
+     80,
+     341
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "2026-07-30: cooldown FLT_MAX cleared by gear_failure.dll + patch gearbox-commentary-unblock, so this clip is now REACHABLE (siblings in the same PWS_MECHPROB20-33 block were heard live). NOT individually ear-checked yet - isolation-fire it from the GUI Test line button, then flip to DONE."
+   },
+   {
+    "sdt_index": 80,
+    "clip": "PWS_MECHPROB21",
+    "status": "WIP",
+    "description": "Lost 2nd gear",
+    "eids": [
+     81,
+     340
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "2026-07-30: cooldown FLT_MAX cleared by gear_failure.dll + patch gearbox-commentary-unblock, so this clip is now REACHABLE (siblings in the same PWS_MECHPROB20-33 block were heard live). NOT individually ear-checked yet - isolation-fire it from the GUI Test line button, then flip to DONE."
+   },
+   {
+    "sdt_index": 81,
+    "clip": "PWS_MECHPROB22",
+    "status": "WIP",
+    "description": "Lost 3rd gear",
+    "eids": [
+     82,
+     342
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "2026-07-30: cooldown FLT_MAX cleared by gear_failure.dll + patch gearbox-commentary-unblock, so this clip is now REACHABLE (siblings in the same PWS_MECHPROB20-33 block were heard live). NOT individually ear-checked yet - isolation-fire it from the GUI Test line button, then flip to DONE."
+   },
+   {
+    "sdt_index": 82,
+    "clip": "PWS_MECHPROB23",
+    "status": "WIP",
+    "description": "Lost 4th gear",
+    "eids": [
+     83,
+     353
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "2026-07-30: cooldown FLT_MAX cleared by gear_failure.dll + patch gearbox-commentary-unblock, so this clip is now REACHABLE (siblings in the same PWS_MECHPROB20-33 block were heard live). NOT individually ear-checked yet - isolation-fire it from the GUI Test line button, then flip to DONE."
+   },
+   {
+    "sdt_index": 83,
+    "clip": "PWS_MECHPROB24",
+    "status": "DONE",
+    "description": "Lost 5th gear",
+    "eids": [
+     84,
+     374
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "RESTORED 2026-07-30: cooldown was FLT_MAX (unplayable in vanilla). gear_failure.dll clears it at load; patch gearbox-commentary-unblock registered. HEARD IN-GAME by the driver, isolation-injected: eid 84 \"Lost 5th gear\". NB eids 201-217 are the OTHER-DRIVER lines, and the 340-383 twins are TV channel."
+   },
+   {
+    "sdt_index": 84,
+    "clip": "PWS_MECHPROB25",
+    "status": "WIP",
+    "description": "Lost 6th gear",
+    "eids": [
+     85,
+     375
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "2026-07-30: cooldown FLT_MAX cleared by gear_failure.dll + patch gearbox-commentary-unblock, so this clip is now REACHABLE (siblings in the same PWS_MECHPROB20-33 block were heard live). NOT individually ear-checked yet - isolation-fire it from the GUI Test line button, then flip to DONE."
+   },
+   {
+    "sdt_index": 85,
+    "clip": "PWS_MECHPROB26",
+    "status": "WIP",
+    "description": "Lost 7th gear",
+    "eids": [
+     86,
+     376
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "2026-07-30: cooldown FLT_MAX cleared by gear_failure.dll + patch gearbox-commentary-unblock, so this clip is now REACHABLE (siblings in the same PWS_MECHPROB20-33 block were heard live). NOT individually ear-checked yet - isolation-fire it from the GUI Test line button, then flip to DONE."
+   },
+   {
+    "sdt_index": 86,
+    "clip": "PWS_MECHPROB27",
+    "status": "WIP",
+    "description": "Stuck in 1st gear",
+    "eids": [
+     87,
+     377
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "2026-07-30: cooldown FLT_MAX cleared by gear_failure.dll + patch gearbox-commentary-unblock, so this clip is now REACHABLE (siblings in the same PWS_MECHPROB20-33 block were heard live). NOT individually ear-checked yet - isolation-fire it from the GUI Test line button, then flip to DONE."
+   },
+   {
+    "sdt_index": 87,
+    "clip": "PWS_MECHPROB28",
+    "status": "DONE",
+    "description": "Stuck in 2nd gear",
+    "eids": [
+     88,
+     378
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "RESTORED 2026-07-30: cooldown was FLT_MAX (unplayable in vanilla). gear_failure.dll clears it at load; patch gearbox-commentary-unblock registered. HEARD IN-GAME by the driver, isolation-injected: eid 88 \"Stuck in 2nd gear\". NB eids 201-217 are the OTHER-DRIVER lines, and the 340-383 twins are TV channel."
+   },
+   {
+    "sdt_index": 88,
+    "clip": "PWS_MECHPROB29",
+    "status": "DONE",
+    "description": "Stuck in 3rd gear",
+    "eids": [
+     89,
+     379
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "RESTORED 2026-07-30: cooldown was FLT_MAX (unplayable in vanilla). gear_failure.dll clears it at load; patch gearbox-commentary-unblock registered. HEARD IN-GAME by the driver, isolation-injected: eid 89 \"Stuck in 3rd gear\". NB eids 201-217 are the OTHER-DRIVER lines, and the 340-383 twins are TV channel."
+   },
+   {
+    "sdt_index": 89,
+    "clip": "PWS_MECHPROB30",
+    "status": "WIP",
+    "description": "Stuck in 4th gear",
+    "eids": [
+     90,
+     380
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "2026-07-30: cooldown FLT_MAX cleared by gear_failure.dll + patch gearbox-commentary-unblock, so this clip is now REACHABLE (siblings in the same PWS_MECHPROB20-33 block were heard live). NOT individually ear-checked yet - isolation-fire it from the GUI Test line button, then flip to DONE."
+   },
+   {
+    "sdt_index": 90,
+    "clip": "PWS_MECHPROB31",
+    "status": "WIP",
+    "description": "Stuck in 5th gear",
+    "eids": [
+     91,
+     381
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "2026-07-30: cooldown FLT_MAX cleared by gear_failure.dll + patch gearbox-commentary-unblock, so this clip is now REACHABLE (siblings in the same PWS_MECHPROB20-33 block were heard live). NOT individually ear-checked yet - isolation-fire it from the GUI Test line button, then flip to DONE."
+   },
+   {
+    "sdt_index": 91,
+    "clip": "PWS_MECHPROB32",
+    "status": "WIP",
+    "description": "Stuck in 6th gear",
+    "eids": [
+     92,
+     382
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "2026-07-30: cooldown FLT_MAX cleared by gear_failure.dll + patch gearbox-commentary-unblock, so this clip is now REACHABLE (siblings in the same PWS_MECHPROB20-33 block were heard live). NOT individually ear-checked yet - isolation-fire it from the GUI Test line button, then flip to DONE."
+   },
+   {
+    "sdt_index": 92,
+    "clip": "PWS_MECHPROB33",
+    "status": "WIP",
+    "description": "Stuck in 7th gear",
+    "eids": [
+     93,
+     383
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "2026-07-30: cooldown FLT_MAX cleared by gear_failure.dll + patch gearbox-commentary-unblock, so this clip is now REACHABLE (siblings in the same PWS_MECHPROB20-33 block were heard live). NOT individually ear-checked yet - isolation-fire it from the GUI Test line button, then flip to DONE."
+   },
+   {
+    "sdt_index": 101,
+    "clip": "PWS_MECHPROB08",
+    "status": "WIP",
+    "description": "Rear Left puncture",
+    "eids": [
+     102,
+     390,
+     393
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "user triage: Z, same as 77 and 78"
+   },
+   {
+    "sdt_index": 102,
+    "clip": "PWS_MECHPROB09",
+    "status": "WIP",
+    "description": "Rear Right puncture",
+    "eids": [
+     103,
+     387
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "user triage: Z, same as above"
+   },
+   {
+    "sdt_index": 111,
+    "clip": "RE_PD_STALLED",
+    "status": "WIP",
+    "description": "Engine stalled - T-car prepared",
+    "eids": [
+     112,
+     405
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "user triage: Z, engine stall, working on T/spare car, unsure how this would play out, maybe teleport player into the pit garage after a timer and \"restart\" the car  [flags: NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 112,
+    "clip": "RE_PD_STALLED_T",
+    "status": "WIP",
+    "description": "T-car also stalled - session over",
+    "eids": [
+     113,
+     406
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "user triage: Z, if stalling again, then this plays and player automatic DNF/ESC, see what happens when player receives terminal damage -> session ends"
+   },
+   {
+    "sdt_index": 118,
+    "clip": "PWS_RETIRE02",
+    "status": "WIP",
+    "description": "Player retired (generic 1)",
+    "eids": [
+     117,
+     410
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "user triage: Z, played when player receives terminal accident damage (see damage.ini for engine seizure)  [flags: HAS_LEAD]"
+   },
+   {
+    "sdt_index": 120,
+    "clip": "PWS_RETIRE01",
+    "status": "WIP",
+    "description": "Player engine stall",
+    "eids": [
+     118,
+     411
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "user triage: Z, stalling, when a team doesn't have a T/spare car, how to determine which teams have and which do, from vanilla team parameters? | UPDATE 2026-07-28: engine stall, no idea how to do this  [flags: PARKED,NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 121,
+    "clip": "PWS_RETIRE04",
+    "status": "WIP",
+    "description": "Player blown engine",
+    "eids": [
+     119,
+     412
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "user triage: Z, when players engine overheats"
+   },
+   {
+    "sdt_index": 134,
+    "clip": "PWS_MECHANWARN0",
+    "status": "WIP",
+    "description": "Meatball flag - must pit",
+    "eids": [
+     130,
+     415
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "user triage: Z, player mechanical issues, how to determine this? | UPDATE 2026-07-28: marshals indicate mechanical problem, need to look into how, no clear implementation idea yet  [flags: NEEDS_RESEARCH,HAS_LEAD]"
+   },
+   {
+    "sdt_index": 214,
+    "clip": "PWS_AIMECHPROB0",
+    "status": "WIP",
+    "description": "",
+    "eids": [
+     201,
+     447
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "EVF-008 audit: NO_KNOWN_WRITER. sub_41AC50 (the real AI gear-fault emitter, not RaceCommentary as originally assumed) has no dispatch case for eid 201. Grep of all 7,138 functions for literal eid 201-206 found zero call sites. Audio plays on injection, no code path dispatches it. docs/SPEC_EVF-008_B_gearloss.md"
+   },
+   {
+    "sdt_index": 215,
+    "clip": "PWS_AIMECHPROB0",
+    "status": "WIP",
+    "description": "",
+    "eids": [
+     202,
+     448
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "EVF-008 audit: NO_KNOWN_WRITER, eid 202, same as sdt214. docs/SPEC_EVF-008_B_gearloss.md"
+   },
+   {
+    "sdt_index": 216,
+    "clip": "PWS_AIMECHPROB1",
+    "status": "WIP",
+    "description": "",
+    "eids": [
+     203,
+     449
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "EVF-008 audit: NO_KNOWN_WRITER, eid 203, same as sdt214. docs/SPEC_EVF-008_B_gearloss.md"
+   },
+   {
+    "sdt_index": 217,
+    "clip": "PWS_AIMECHPROB1",
+    "status": "WIP",
+    "description": "",
+    "eids": [
+     204,
+     450
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "EVF-008 audit: NO_KNOWN_WRITER, eid 204, same as sdt214. docs/SPEC_EVF-008_B_gearloss.md"
+   },
+   {
+    "sdt_index": 218,
+    "clip": "PWS_AIMECHPROB1",
+    "status": "WIP",
+    "description": "",
+    "eids": [
+     205,
+     451
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "EVF-008 audit: NO_KNOWN_WRITER, eid 205, same as sdt214. docs/SPEC_EVF-008_B_gearloss.md"
+   },
+   {
+    "sdt_index": 219,
+    "clip": "PWS_AIMECHPROB1",
+    "status": "WIP",
+    "description": "",
+    "eids": [
+     206,
+     452
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "EVF-008 audit: NO_KNOWN_WRITER, eid 206, same as sdt214. docs/SPEC_EVF-008_B_gearloss.md"
+   },
+   {
+    "sdt_index": 220,
+    "clip": "PWS_AIMECHPROB1",
+    "status": "WIP",
+    "description": "",
+    "eids": [
+     207,
+     453
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "EVF-008 audit: NO_KNOWN_WRITER, eid 207 (periodically slowing down), same as sdt214. docs/SPEC_EVF-008_B_gearloss.md"
+   },
+   {
+    "sdt_index": 221,
+    "clip": "PWS_AIMECHPROB1",
+    "status": "WIP",
+    "description": "",
+    "eids": [
+     208
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "EVF-008 audit: LIVE_UNPROVEN_PREDICATE. Emitter sub_41AC50 IS live (on_frame, EngineStressSimulation), dispatches eid 208 on AI engine-durability-countdown expiry + random failure-type roll. Genuine rare event, not proven to occur in a normal race. docs/SPEC_EVF-008_B_gearloss.md"
+   },
+   {
+    "sdt_index": 222,
+    "clip": "RE_OD_LOST_7",
+    "status": "WIP",
+    "description": "Other driver lost 7th gear",
+    "eids": [
+     209,
+     457
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "EVF-008 audit: UNKNOWN. eid 209 has no emitter in emitter_index.json; adjacent to the sub_41AC50 gear-loss family but has no dispatch case there either. Emitter unidentified. docs/SPEC_EVF-008_E_pit.md"
+   },
+   {
+    "sdt_index": 223,
+    "clip": "RE_OD_PUNCTURE",
+    "status": "WIP",
+    "description": "Other driver has a puncture",
+    "eids": [
+     210,
+     458
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Weather & track surface",
+    "note": "user triage: X PLAY, SIMULATED AI PUNCTURES, a separate mod called \"F1CUI\" already does the puncture mechanism to AI drivers, we should review it  [flags: HAS_LEAD]"
+   },
+   {
+    "sdt_index": 224,
+    "clip": "RE_OD_STUCK_7",
+    "status": "WIP",
+    "description": "Other driver stuck in 7th gear",
+    "eids": [
+     211,
+     462
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Weather & track surface",
+    "note": "EVF-008 audit: LIVE_UNPROVEN_PREDICATE. Emitter sub_41AC50 (a2=2, CurrentGear out-of-range default). Predicate requires veh+0x3D68 timer to expire; FACT live measurement shows this timer class drains 1.000/s from a ~20000-41000s random start and does not reach zero within any normal race distance (max observed depletion ~10400s remaining after a 53-lap race). Effectively unsatisfiable at normal race lengths. docs/SPEC_EVF-008_B_gearloss.md"
+   },
+   {
+    "sdt_index": 225,
+    "clip": "PWS_AIMECHPROB0",
+    "status": "WIP",
+    "description": "",
+    "eids": [
+     212,
+     463
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "EVF-008 audit: LIVE_UNPROVEN_PREDICATE, same veh+0x3D68 timer-never-expires problem as sdt224. docs/SPEC_EVF-008_B_gearloss.md"
+   },
+   {
+    "sdt_index": 226,
+    "clip": "PWS_AIMECHPROB0",
+    "status": "WIP",
+    "description": "",
+    "eids": [
+     213,
+     464
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "EVF-008 audit: LIVE_UNPROVEN_PREDICATE, same as sdt225. docs/SPEC_EVF-008_B_gearloss.md"
+   },
+   {
+    "sdt_index": 227,
+    "clip": "PWS_AIMECHPROB0",
+    "status": "WIP",
+    "description": "",
+    "eids": [
+     214,
+     465
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "EVF-008 audit: LIVE_UNPROVEN_PREDICATE, same as sdt225. docs/SPEC_EVF-008_B_gearloss.md"
+   },
+   {
+    "sdt_index": 228,
+    "clip": "PWS_AIMECHPROB0",
+    "status": "WIP",
+    "description": "",
+    "eids": [
+     215,
+     466
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "EVF-008 audit: LIVE_UNPROVEN_PREDICATE, same as sdt225. docs/SPEC_EVF-008_B_gearloss.md"
+   },
+   {
+    "sdt_index": 229,
+    "clip": "PWS_AIMECHPROB0",
+    "status": "WIP",
+    "description": "",
+    "eids": [
+     216,
+     467
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "EVF-008 audit: LIVE_UNPROVEN_PREDICATE, same as sdt225. docs/SPEC_EVF-008_B_gearloss.md"
+   },
+   {
+    "sdt_index": 230,
+    "clip": "PWS_AIMECHPROB0",
+    "status": "WIP",
+    "description": "",
+    "eids": [
+     217,
+     471
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Retirement & mechanical failure",
+    "note": "EVF-008 audit: LIVE_UNPROVEN_PREDICATE, same as sdt225. docs/SPEC_EVF-008_B_gearloss.md"
+   }
+  ],
+  "H4_incidents": [
+   {
+    "sdt_index": 105,
+    "clip": "PWS_HIT03",
+    "status": "DONE",
+    "description": "Player lost Front Left wheel",
+    "eids": [
+     106,
+     389
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Collisions & incidents",
+    "note": "user triage: DONE"
+   },
+   {
+    "sdt_index": 106,
+    "clip": "PWS_HIT04",
+    "status": "DONE",
+    "description": "Player lost Front Right wheel",
+    "eids": [
+     107,
+     373
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Collisions & incidents",
+    "note": "user triage: DONE"
+   },
+   {
+    "sdt_index": 107,
+    "clip": "PWS_HIT01",
+    "status": "DONE",
+    "description": "Player lost front wing",
+    "eids": [
+     108,
+     398
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Collisions & incidents",
+    "note": "user triage: DONE"
+   },
+   {
+    "sdt_index": 108,
+    "clip": "PWS_HIT05",
+    "status": "DONE",
+    "description": "Player lost Rear Left wheel",
+    "eids": [
+     109,
+     402
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Collisions & incidents",
+    "note": "user triage: DONE"
+   },
+   {
+    "sdt_index": 109,
+    "clip": "PWS_HIT06",
+    "status": "DONE",
+    "description": "Player lost Rear Right wheel",
+    "eids": [
+     110,
+     403
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Collisions & incidents",
+    "note": "user triage: DONE"
+   },
+   {
+    "sdt_index": 110,
+    "clip": "PWS_HIT02",
+    "status": "DONE",
+    "description": "Player lost rear wing",
+    "eids": [
+     111,
+     404
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Collisions & incidents",
+    "note": "user triage: DONE"
+   },
+   {
+    "sdt_index": 238,
+    "clip": "PWS_AIINCID10",
+    "status": "WIP",
+    "description": "AI drivers collide (1)",
+    "eids": [
+     225
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Collisions & incidents",
+    "note": "REVERTED 2026-07-28: was marked LIVE_TRUSTED/SHIPPED on a misread of the humans in-session phrasing (\"stock game\"/\"can be excluded\") as real-play recognition. Human directly clarified afterward: never actually heard this clip fire in real play. Emitter is live and not a menu trap (see docs/SPEC_EVF-008_A_blister.md / _D_aiincid.md / _F_misc.md for the code trace, which still stands as a reachability analysis) but that is NOT proof of natural firing - same evidentiary gap as every other reverted clip this session. Needs actual live observation, not another injection test or a re-read of a prior comment."
+   },
+   {
+    "sdt_index": 239,
+    "clip": "PWS_AIINCID11",
+    "status": "WIP",
+    "description": "AI drivers collide (2)",
+    "eids": [
+     226
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Collisions & incidents",
+    "note": "REVERTED 2026-07-28: was marked LIVE_TRUSTED/SHIPPED on a misread of the humans in-session phrasing (\"stock game\"/\"can be excluded\") as real-play recognition. Human directly clarified afterward: never actually heard this clip fire in real play. Emitter is live and not a menu trap (see docs/SPEC_EVF-008_A_blister.md / _D_aiincid.md / _F_misc.md for the code trace, which still stands as a reachability analysis) but that is NOT proof of natural firing - same evidentiary gap as every other reverted clip this session. Needs actual live observation, not another injection test or a re-read of a prior comment."
+   },
+   {
+    "sdt_index": 240,
+    "clip": "PWS_AIINCID06",
+    "status": "WIP",
+    "description": "Car off track just ahead",
+    "eids": [
+     227
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Collisions & incidents",
+    "note": "user triage: X PLAY, if AI drivers goes out the track, this doesn't exist yet I think, AI driver tends to drive corners quite \"straight\" meaning that it occasionally cuts corners which is normal for it, but we should look into how to do this too  [flags: NEEDS_RESEARCH,HAS_LEAD]"
+   },
+   {
+    "sdt_index": 241,
+    "clip": "PWS_AIINCID03",
+    "status": "WIP",
+    "description": "AI went off track",
+    "eids": [
+     228
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Collisions & incidents",
+    "note": "user triage: X PLAY, same as above"
+   },
+   {
+    "sdt_index": 243,
+    "clip": "PWS_AIINCID08",
+    "status": "WIP",
+    "description": "Cars all over in sector X",
+    "eids": [
+     229
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Collisions & incidents",
+    "note": "user triage: Z, cars all over the place in sector 1/2/3, can't tell if it should count cars that have clearly crashed and are causing issues, look into the red_flag script for the detection mechanism, could be used here directly  [flags: HAS_LEAD]"
+   },
+   {
+    "sdt_index": 244,
+    "clip": "PWS_OD_HOLDING",
+    "status": "WIP",
+    "description": "AI driver holds up another AI",
+    "eids": [
+     230
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: X PLAY X, driver1 (higher position) is fighting driver2 (attacking driver), maybe when their difference has been less than 0,5 seconds for 5 seconds or longer"
+   },
+   {
+    "sdt_index": 245,
+    "clip": "PWS_AIINCID07",
+    "status": "WIP",
+    "description": "Car spun off just ahead",
+    "eids": [
+     231
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Collisions & incidents",
+    "note": "user triage: X PLAY, has spun JUST AHEAD (time infront to player less than 10 seconds at the moment of voiceline activation), how to determine AI spin? maybe when been slower than 5kmh for 2 seconds or more? | UPDATE 2026-07-28: no idea how to determine AI spin, needs an implementation plan  [flags: PARKED,NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 246,
+    "clip": "PWS_AIINCID04",
+    "status": "WIP",
+    "description": "AI spun off sector X",
+    "eids": [
+     232
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Collisions & incidents",
+    "note": "user triage: X PLAY Z, spun off in sector 1/2/3, same as above"
+   },
+   {
+    "sdt_index": 248,
+    "clip": "PWS_AIINCID01",
+    "status": "WIP",
+    "description": "AI stalls on the grid",
+    "eids": [
+     233
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Collisions & incidents",
+    "note": "user triage: X PLAY, has stalled on the grid, easy to determine, StartStalls in .rcd gives a path to the mechanism which determines AI driver stalling - if that mechanism is activated, this is played  [flags: HAS_LEAD]"
+   },
+   {
+    "sdt_index": 249,
+    "clip": "PWS_2001_149",
+    "status": "WIP",
+    "description": "AI driver held up by another AI",
+    "eids": [
+     234
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Driver/team-specific",
+    "note": "user triage: X PLAY X, same as 244 but reverse, maybe these should play 50/50"
+   },
+   {
+    "sdt_index": 282,
+    "clip": "PWS_MISC29",
+    "status": "WIP",
+    "description": "AI reduces pace (2)",
+    "eids": [
+     265
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: X PLAY, is easing off, what determines AI pace shifts, any way to find these from AI driving skills if AI truly changes its pacing  [flags: NEEDS_RESEARCH]"
+   },
+   {
+    "sdt_index": 283,
+    "clip": "PWS_MISC28",
+    "status": "WIP",
+    "description": "AI maintains position (2)",
+    "eids": [
+     266
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: X PLAY, is holding position, same as above, determined entirely by if AI clearly assumes a \"maintaining position\" flag, there's a yellow flag script with F1CUI which apparently forbids AI from overtaking, might be worth looking into if this is hooked into it and could give us leads to all the rest pace shift mechanisms  [flags: NEEDS_RESEARCH,HAS_LEAD]"
+   },
+   {
+    "sdt_index": 284,
+    "clip": "PWS_MISC27",
+    "status": "WIP",
+    "description": "AI maintains position (1)",
+    "eids": [
+     267
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: X PLAY, same as above"
+   },
+   {
+    "sdt_index": 285,
+    "clip": "PWS_MISC26",
+    "status": "WIP",
+    "description": "AI reduces pace (1)",
+    "eids": [
+     268
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: X PLAY, \"is pacing himself\", what does this mean? above applies, can't really think of any direct way to determine | UPDATE 2026-07-28: still unclear what \"is pacing himself\" is meant to convey, open question  [flags: PARKED]"
+   },
+   {
+    "sdt_index": 286,
+    "clip": "PWS_MISC25",
+    "status": "WIP",
+    "description": "AI increases pace",
+    "eids": [
+     269
+    ],
+    "blocked": false,
+    "orphaned": false,
+    "category": "Misc / uncategorized",
+    "note": "user triage: X PLAY, \"is pushing hard\", same as above"
+   }
+  ],
+  "H8_orphans": [
+   {
+    "sdt_index": 117,
+    "clip": "PWS_OFFROAD02",
+    "status": "WIP",
+    "description": "Player went off track (2)",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Weather & track surface",
+    "note": "user triage: Z, same as above"
+   },
+   {
+    "sdt_index": 119,
+    "clip": "PWS_RETIRE03",
+    "status": "WIP",
+    "description": "Player retired (generic 2)",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Retirement & mechanical failure",
+    "note": "user triage: Z, same as above"
+   },
+   {
+    "sdt_index": 141,
+    "clip": "PWS_SCAR04",
+    "status": "WIP",
+    "description": "Safety car in pit lane (1)",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Safety car & flags",
+    "note": "user triage: Z, UNDER WORK VIA ANOTHER MOD  [auto: inherited from SDT 137]"
+   },
+   {
+    "sdt_index": 177,
+    "clip": "PWS_2001_110",
+    "status": "WIP",
+    "description": "Player wins race",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Driver/team-specific",
+    "note": "user triage: Z, check if loaded by the game already"
+   },
+   {
+    "sdt_index": 242,
+    "clip": "PWS_AIINCID02",
+    "status": "WIP",
+    "description": "AI went off track sector X",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Collisions & incidents",
+    "note": "user triage: X PLAY Z, AI is off somewhere sector 1/2/3, same as above"
+   },
+   {
+    "sdt_index": 247,
+    "clip": "PWS_AIINCID05",
+    "status": "WIP",
+    "description": "AI spun off",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Collisions & incidents",
+    "note": "user triage: X PLAY, has spun, played whether any driver fills the criteria of having been spun as stated above"
+   },
+   {
+    "sdt_index": 302,
+    "clip": "PWS_2001_219",
+    "status": "WIP",
+    "description": "Rain starts - light drizzle",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Driver/team-specific",
+    "note": "user triage: PLAY, \"its starting to rain but I don't think it's gonna turn any worse\", above"
+   },
+   {
+    "sdt_index": 312,
+    "clip": "RE_PORSCHE_23",
+    "status": "SILENT",
+    "description": "Porsche Cup line 23",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Driver/team-specific",
+    "note": ""
+   },
+   {
+    "sdt_index": 313,
+    "clip": "RE_PORSCHE_24",
+    "status": "SILENT",
+    "description": "Porsche Cup line 24",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Driver/team-specific",
+    "note": ""
+   },
+   {
+    "sdt_index": 314,
+    "clip": "RE_PORSCHE_25",
+    "status": "SILENT",
+    "description": "Porsche Cup line 25",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Driver/team-specific",
+    "note": ""
+   },
+   {
+    "sdt_index": 315,
+    "clip": "RE_PORSCHE_03",
+    "status": "SILENT",
+    "description": "Porsche Cup line 03",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Driver/team-specific",
+    "note": ""
+   },
+   {
+    "sdt_index": 316,
+    "clip": "PWS_MF01",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 317,
+    "clip": "PWS_MF02",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 318,
+    "clip": "PWS_MF03",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 319,
+    "clip": "PWS_MF04",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 320,
+    "clip": "PWS_MF05",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 321,
+    "clip": "PWS_MF06",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 322,
+    "clip": "PWS_MF07",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 323,
+    "clip": "PWS_MF08",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 324,
+    "clip": "PWS_MF09",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 325,
+    "clip": "PWS_MF10",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 326,
+    "clip": "PWS_MF11",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 327,
+    "clip": "PWS_MF12",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 328,
+    "clip": "PWS_MF13",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 329,
+    "clip": "PWS_MF14",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 330,
+    "clip": "PWS_MF15",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 331,
+    "clip": "PWS_MF16",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 332,
+    "clip": "PWS_MF17",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 333,
+    "clip": "PWS_MF18",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 334,
+    "clip": "PWS_MF19",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 335,
+    "clip": "PWS_MF20",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 336,
+    "clip": "PWS_MF21",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 337,
+    "clip": "PWS_MF22",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 338,
+    "clip": "PWS_MF23",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 339,
+    "clip": "PWS_MF24",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 340,
+    "clip": "PWS_MF25",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 341,
+    "clip": "PWS_MF26",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 342,
+    "clip": "PWS_MF27",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 343,
+    "clip": "PWS_MF28",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 344,
+    "clip": "PWS_MF29",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 345,
+    "clip": "PWS_MF30",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 346,
+    "clip": "PWS_MF31",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 347,
+    "clip": "PWS_MF32",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 348,
+    "clip": "PWS_MF33",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 349,
+    "clip": "PWS_MF34",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   },
+   {
+    "sdt_index": 350,
+    "clip": "PWS_MF35",
+    "status": "SILENT",
+    "description": "",
+    "eids": [],
+    "blocked": false,
+    "orphaned": true,
+    "category": "Misc / uncategorized",
+    "note": ""
+   }
+  ]
+ }
+}

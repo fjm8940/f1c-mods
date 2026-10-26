@@ -1,0 +1,98 @@
++ [canonical CLI internal operation]
+sdk: 113 vehicle fields (105 FACT/CONFIRMED), 7889 globals (51 FACT/CONFIRMED), 6378 functions (42 reviewed ABI) -> tools/sdk/
+113 fields, 70 gaps
+  C   -> %USERPROFILE%\Desktop\F1\f1c_ida_decompiled\tools\sdk\f1c_vehicle_struct.h
+  IDA -> %USERPROFILE%\Desktop\F1\f1c_ida_decompiled\tools\sdk\f1c_vehicle_struct_ida.h
+sizeof(F1CVehicle) should be 0x48C0 (18624)
+trace schema: 100 trusted scalar vehicle fields -> tools/sdk/f1c_trace_schema.h
+reviewed C++ API: 42 wrappers -> tools/sdk/f1c_reviewed_api.hpp
+recovery index: {'functions': 7132, 'call_edges': 15170, 'reviewed_object_methods': 31, 'same_this_proposals': 46} -> analysis\recovery_index.json
+SDK validation passed: 113 vehicle fields, 42 reviewed ABIs, 6336 legacy function leads.
+Canonical front-door contract passed.
+Tool catalogue passed: 32 capabilities, 387 labelled implementations.
+gmouse PID targeting passed: invalid IDs and wrong-process fallback refused.
+Canonical SDK test gate passed.
+Focused qualifying-order tests passed (not the full SDK gate).
+Safety Car reviewed ABI, input semantics, scoring-output refusal and explicit target selection: PASS
+PASS session guard: offline, pause/menu, null/overflow/unreadable state fail closed
+
+Safety Car action adapters: deploy/loader/pump bindings and focus/modifier edge adapter PASS
+PASS lifecycle: measured Gene garage geometry, road-wreck control, AI state, bounds/overflow/NaN/unreadable and participants
+
+PASS canonical lifecycle diagnostic parity: garage, road wreck, pointer overflow and unreadable
+Safety Car v0.10.16 complete candidate syntax: PASS (no DLL emitted)
+PASS: multiple clients, all-allow/any-block, no short circuit, isolated clear, snapshot retention, in-flight drain, stale/retiring/not-ready/stopping
+
+%USERPROFILE%\Desktop\F1\development\mods\full_safety_car\trials\guard_chain_evidence\20260914_085753_093636
+PASS: preload before native; ECX receiver/EAX result; reserved clients; deadlock refusal; snapshot retention; isolated clear; retiring/stopping/unsupported guards
+
+%USERPROFILE%\Desktop\F1\development\mods\full_safety_car\trials\preload_evidence\20260914_085753_620843
+
+PASS: native thiscall receiver/state/result, only current zone states filtered, managed pace/SC out, green/stop/session/wrong-thread pass-through, install failure and idempotence
+
+%USERPROFILE%\Desktop\F1\development\mods\full_safety_car\trials\v0.9.8_local_yellow\evidence\local_yellow_20260914_085754_223852
+%USERPROFILE%\Desktop\F1\f1c_ida_decompiled\tools\sdk\tests\evidence\placement_20260914_085754_870079\placement.c:9:9: warning: '#pragma once' in main file [-Wpragma-once-outside-header]
+    9 | #pragma once
+      |         ^~~~
+PASS placement wrappers: x86 thiscall, receiver +12, get/reset/set order, invalid pose/code gate
+
+PASS canonical disassembly: wrong hash/invalid bounds refused, reviewed tails and placement wrappers. Evidence: %USERPROFILE%\Desktop\F1\f1c_ida_decompiled\tools\sdk\tests\evidence\placement_20260914_085754_870079
+sdk_smoke.c
+sdk_smoke.cpp
+sdk_dispatch_smoke.c
+SDK C/C++ builds and bounded dispatch smoke passed.
+broker discovery compatibility matrix: PASS
+broker regressions: PASS (overflow, hostile-reader, slot-reuse, pause-menu)
+hook layout compatibility: PASS
+Recovery index passed: pit owner, critical edge, and corpus coverage verified.
+Created isolated mod: %USERPROFILE%\AppData\Local\Temp\f1c_sdk_workflow_132zos2_\workflow_probe
+Next: python tools/f1c_mod.py build %USERPROFILE%\AppData\Local\Temp\f1c_sdk_workflow_132zos2_\workflow_probe
+Built %USERPROFILE%\AppData\Local\Temp\f1c_sdk_workflow_132zos2_\workflow_probe\build\workflow_probe.dll
+Deployed SDK-owned DLL: %USERPROFILE%\AppData\Local\Temp\f1c_sdk_workflow_132zos2_\deployed\workflow_probe.dll
+SHA256: 27E2A9C6C391ECC34AFC3A2193FD90ACF0934FDBABCD32B1B183678EA13DCE17
+Deployed SDK-owned DLL: %USERPROFILE%\AppData\Local\Temp\f1c_sdk_workflow_132zos2_\deployed\workflow_probe.dll
+SHA256: 27E2A9C6C391ECC34AFC3A2193FD90ACF0934FDBABCD32B1B183678EA13DCE17
+New-mod workflow passed: create/refuse-overwrite/build-x86/deploy-guard/update-owned.
+Mod orchestrator passed: raw search/inspect, semantic memory linking, init/discover/generate/build/trace-plan and all fail-closed gates.
+Variant resolver passed: canonical, relocated operands/functions, invariant refusal, RVA snapshot diff.
+Runtime validator passed: known-field validation, candidate ranking, and inconclusive gating.
+Saved: %USERPROFILE%\Desktop\F1\f1c_ida_decompiled\new.json
+Changed positions: 0
+Read-only archive. The game's simulation and grid were not changed.
+Shadow source passed: evidence coverage, numeric grounding, trust gating and C++ map rendering.
+shadow architecture tests passed
+shadow reconciliation tests passed
+All canonical SDK tests passed.
+PASS interaction accessor: bounded read, opaque target, finite fields, immutable input and failure output
+
+%USERPROFILE%\Desktop\F1\f1c_ida_decompiled\tools\sdk\tests\evidence\car_restart_20260914_085814_789277\test.c:11:9: warning: '#pragma once' in main file [-Wpragma-once-outside-header]
+   11 | #pragma once
+      |         ^~~~
+PASS per-car wrapper: x86 thiscall receiver, integer flag1, null/code refusal; native gameplay pending
+
+PASS callback budget scope, token/thread denial, ordinary/native containment and unlocked in-flight recovery
+
+PASS native marker chain, cached/uncached transform, live52m reproduction, finite/readability guards, unchanged failure output,100m boundary and height guard
+
+PASS bounded XPITIN reader missing/uncached/cached diagnosis, rotation/translation, no writes
+PASS exact surface tags, mixed edge contacts, unreadable/null/overflow guards; no writes
+
+PASS native wetness reader: exact bounded address, valid zero/full wetness, NaN/infinity/range/null/unreadable rejection; no writes
+
+PASS session guard: offline, pause/menu, null/overflow/unreadable state fail closed
+
+Safety Car action adapters: deploy/loader/pump bindings and focus/modifier edge adapter PASS
+PASS lifecycle: measured Gene garage geometry, road-wreck control, AI state, bounds/overflow/NaN/unreadable and participants
+
+PASS canonical lifecycle diagnostic parity: garage, road wreck, pointer overflow and unreadable
+PASS native restart deadline: future/equality/expiry/sentinel/invalid/unreadable/overflow
+
+PASS Safety Car diagnostic decode: gates/float/slot/size/magic/ABI; no writes
+PASS per-car diagnostics: known road/mixed tags/overflow/pending deadline/cross-tick rejection
+PASS SDK start-stall reader exact bounds, type/condition, last pair, unreadable/null/overflow
+
+PASS SDK engine motion exact field/zero/positive/invalid/unreadable/overflow
+
+PASS SDK cross-DLL process-scoped mapping, exclusive acquisition, acknowledged handoff, stale owner retention, clean recovery
+
+Canonical SDK test gate passed.

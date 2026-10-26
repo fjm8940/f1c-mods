@@ -1,0 +1,5 @@
+# AIMainUpdate: offset-like lines with no extracted row (4)
+L69: v6 = (_DWORD *)(this + 16708);
+L79: ConditionalGate(this + 12);
+L88: ConditionalGate(this + 12);
+L192: v22 = (int *)(this + 16712);

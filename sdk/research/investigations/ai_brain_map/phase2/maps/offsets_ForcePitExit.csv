@@ -1,0 +1,8 @@
+func,line,dec,hex,access,width,base,form,expr
+ForcePitExit,8,16444,0x403C,R,_DWORD,this,array,if ( this[4111] != dword_8ACF8C - 1 )
+ForcePitExit,10,,,CALL,,,call,TeammatePartValueLookup
+ForcePitExit,11,16484,0x4064,R,_DWORD,this,array,if ( !result || result == 4 || this[4121] == 1 )
+ForcePitExit,13,,,CALL,,,call,StateConditionalAction
+ForcePitExit,14,,,CALL,,,call,AIStateFlagSetter
+ForcePitExit,20,,,CALL,,,call,StateConditionalAction
+ForcePitExit,21,,,CALL,,,call,AIStateFlagSetter

@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "id": "esc_pause_menu",
+  "name": "ESC Pause Menu",
+  "sdk_version": "1.0.0",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "dll": "build/esc_pause_menu.dll",
+  "unload_event": "F1C_ESC_PAUSE_MENU_UNLOAD",
+  "production": false
+}
+

@@ -1,0 +1,2 @@
+# DriverSetupParamLookupByID: offset-like lines with no extracted row (1)
+L7: for ( i = this + 4177; *i != a2; i += 2 )

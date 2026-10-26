@@ -1,0 +1,8 @@
+func,line,dec,hex,access,width,base,form,expr
+StateChangeNotify,7,388,0x184,R,_DWORD,this,direct,result = *(_DWORD *)(this + 388);
+StateChangeNotify,11,396,0x18C,W,float,this,direct,*(float *)(this + 396) = dbl_8AFEA0;
+StateChangeNotify,19,,,CALL,,,call,ProgressBarEventEncode
+StateChangeNotify,19,4,0x4,R,_DWORD,this,direct,"ProgressBarEventEncode(6, 1, 1, *(_DWORD *)(this + 4), LODWORD(v4), 0);"
+StateChangeNotify,19,,,CALL,,,call,LODWORD
+StateChangeNotify,20,8,0x8,W,_BYTE,v3,direct,*(_BYTE *)(v3 + 8) = a2;
+StateChangeNotify,21,,,CALL,,,call,AIStateMachineWithModeDispatch

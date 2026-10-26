@@ -1,0 +1,141 @@
+{
+  "schema": "f1c.tool_contract.v1",
+  "sdk_version": "1.0.0",
+  "front_door": "python tools/f1c_mod.py",
+  "llm_guide": "tools/sdk/LLM_OPERATING_CONTRACT.md",
+  "archive_index": "tools/sdk/ARCHIVE_INDEX.md",
+  "default_instruction": "Treat this as project context. Discover and operate on it only through python tools/f1c_mod.py; do not invent a direct helper invocation.",
+  "required_files": [
+    "tools/f1c_mod.py",
+    "AGENTS.md",
+    "tools/sdk/f1c_sdk.json",
+    "tools/sdk/f1c_sdk.h",
+    "tools/sdk/f1c_broker_abi.h",
+    "tools/sdk/LLM_OPERATING_CONTRACT.md",
+    "tools/sdk/ARCHIVE_INDEX.md"
+  ],
+  "active_guidance": [
+    "README.md",
+    "AGENTS.md",
+    "GEMINI.md",
+    ".github/copilot-instructions.md",
+    ".cursor/rules/f1c-sdk.mdc",
+    ".cursorrules",
+    "tools/sdk/README.md",
+    "tools/sdk/LLM_OPERATING_CONTRACT.md",
+    "tools/sdk/NEW_MOD_GUIDE.md",
+    "tools/sdk/LARGE_MOD_AUTOMATION.md",
+    "tools/sdk/SEMANTIC_MEMORY_LINKER.md",
+    "tools/sdk/VARIANT_RESOLUTION.md",
+    "tools/sdk/templates/native_mod/README.md.in",
+    "mods/sdk/README.md",
+    "mods/sdk_sandbox/sdk_hello_mod/README.md",
+    "mods/sdk_sandbox/engine_overhaul_lab/README.md",
+    "mods/sdk_sandbox/main_tick_probe/README.md",
+    "tools/sdk/QUALIFYING_PRESERVATION.md"
+  ],
+  "routing_rules": [
+    {
+      "prefix": "tools/f1c_memory_mcp.py",
+      "classification": "internal-implementation",
+      "instruction": "Read-only Windows MCP backend; only use python tools/f1c_mod.py memory-mcp. Fixed positions operation includes excluded terminal slots, not external collider enumeration. See tools/sdk/F1C_MEMORY_MCP.md."
+    },
+    {
+      "prefix": "tools/f1c_mod.py",
+      "classification": "canonical-front-door",
+      "instruction": "This is the only supported user/LLM executable interface. Use its subcommands and help output."
+    },
+    {
+      "prefix": "tools/sdk",
+      "classification": "canonical-sdk",
+      "instruction": "Public headers, broker ABI, contracts, templates, and tests. Consume through tools/f1c_mod.py; edit reviewed public surfaces only with evidence and tests."
+    },
+    {
+      "prefix": "tools",
+      "classification": "internal-implementation",
+      "instruction": "Preserved implementation module. Never invoke directly in a modding workflow; use the matching tools/f1c_mod.py command."
+    },
+    {
+      "prefix": "mods/sdk_sandbox",
+      "classification": "supported-sandbox",
+      "instruction": "Supported isolated mod workspace. Create, validate, build, test, trace, and stage it through tools/f1c_mod.py."
+    },
+    {
+      "prefix": "mods/sdk",
+      "classification": "compatibility-archive",
+      "instruction": "Preserved legacy SDK export for old builds only. Do not use for new work; query and generate from the canonical SDK through tools/f1c_mod.py."
+    },
+    {
+      "prefix": "mods",
+      "classification": "legacy-mod-archive",
+      "instruction": "Preserved prototypes, production mods, and historical experiments. Read-only evidence unless explicitly promoted into an SDK sandbox through tools/f1c_mod.py."
+    },
+    {
+      "prefix": "replacement_engine",
+      "classification": "paused-archive",
+      "instruction": "Preserved, paused replacement-engine experiment. It is outside the current mod-SDK goal; do not build or extend it from an SDK task."
+    },
+    {
+      "prefix": "shadow_source",
+      "classification": "evidence-archive",
+      "instruction": "Preserved reconstruction evidence and historical worker output. Search or inspect it through tools/f1c_mod.py; do not resume engine reconstruction."
+    },
+    {
+      "prefix": "functions",
+      "classification": "immutable-evidence",
+      "instruction": "Raw decompiler evidence. Never rewrite it; use tools/f1c_mod.py search or inspect."
+    },
+    {
+      "prefix": "functions_typed_20260930",
+      "classification": "immutable-evidence",
+      "instruction": "Typed Hex-Rays export of the reviewed lab IDB (see MANIFEST.json). Never rewrite it; regenerate into a new directory with tools/f1c_mod.py ida-export and read it with search or inspect."
+    },
+    {
+      "prefix": "functions_annotated",
+      "classification": "immutable-evidence",
+      "instruction": "Annotated decompiler evidence. Never rewrite it; use tools/f1c_mod.py search or inspect."
+    },
+    {
+      "prefix": "skeletons",
+      "classification": "immutable-evidence",
+      "instruction": "Static analysis evidence. Never rewrite it; use tools/f1c_mod.py search or inspect."
+    },
+    {
+      "prefix": "skeletons_filled",
+      "classification": "immutable-evidence",
+      "instruction": "Derived analysis with lower-trust prose. Never bulk rewrite it; use tools/f1c_mod.py search or inspect and verify against facts."
+    },
+    {
+      "prefix": "analysis",
+      "classification": "evidence-and-generated-index",
+      "instruction": "Machine evidence and indexes. Consume through tools/f1c_mod.py and preserve provenance."
+    },
+    {
+      "prefix": "runtime_structs",
+      "classification": "runtime-evidence",
+      "instruction": "Observed runtime evidence. Consume through tools/f1c_mod.py memory and runtime commands; never treat observation alone as a safe write contract."
+    },
+    {
+      "prefix": "investigations",
+      "classification": "historical-investigation",
+      "instruction": "Preserved experiment records. Use as leads via tools/f1c_mod.py, not as current execution instructions."
+    },
+    {
+      "prefix": "docs",
+      "classification": "research-reference",
+      "instruction": "Evidence-linked research reference. Query through tools/f1c_mod.py and obey each claim's trust tier."
+    },
+    {
+      "prefix": "launcher",
+      "classification": "distribution-client",
+      "instruction": "Distribution UI, not an SDK or reverse-engineering entry point. It may consume only artifacts validated and staged through tools/f1c_mod.py."
+    }
+  ],
+  "prohibitions": [
+    "Do not delete, move, or rewrite evidence merely to modernize its wording.",
+    "Do not invoke internal tools/*.py files directly from active instructions.",
+    "Do not hard-code a raw address or duplicate a hook already owned by the broker.",
+    "Do not use QuickRace; live validation uses the f1cm_guard.asi full-weekend launch path.",
+    "Do not modify the original executable or production mod tree."
+  ]
+}

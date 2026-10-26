@@ -1,0 +1,471 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 25,
+ "clip": "PWS_2001_22",
+ "says": "Rain expected - make run ASAP",
+ "dump_rows_for_clip": [
+  {
+   "eid": 27,
+   "hex": "0x001B",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 25,
+   "sdt_index": 25,
+   "clip_name": "PWS_2001_22.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 318,
+   "hex": "0x013E",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 25,
+   "sdt_index": 25,
+   "clip_name": "PWS_2001_22.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  25
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 27,
+   "hex": "0x001B",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 25,
+   "sdt_index": 25,
+   "clip_name": "PWS_2001_22.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 318,
+   "hex": "0x013E",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 25,
+   "sdt_index": 25,
+   "clip_name": "PWS_2001_22.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  27
+ ],
+ "literal_hits": {
+  "27": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 139,
+       "text": "v5 = a4 != 0 ? 181 : 27;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 123,
+    "first": [
+     "ArraySearchByIDWithCleanup",
+     "AudioResampler",
+     "AudioSamplePlaybackWithPitchModulationAndStereoP",
+     "AudioSceneUpdateLoop",
+     "BatchProcessWithFixedStartOffsets",
+     "BitfieldExtractFromStruct",
+     "BlockLDLTSparseConstraintFactorization",
+     "COMInterfaceVectorProcessingMethod",
+     "CameraPositionDefinitions",
+     "CameraShakeRingBufferWrite",
+     "CameraViewportConfigBatch",
+     "CameraViewportRenderSetup",
+     "CompressedAudioDecoder",
+     "ConstraintForceEval",
+     "ConstructorInitWith1Sentinels",
+     "ControllerShifterMapping",
+     "DestructorWithMultipleConditionalFrees",
+     "DirectXTextureSurfaceFactoryDispatchingFourCCCod",
+     "DoublyLinkedListRemove",
+     "DrawableObjectNodeManager",
+     "EntityVisibilityGridManager",
+     "F_32PointMDCTAudioTransform",
+     "F_3DSoundEmitter",
+     "F_3DTransformObjectAllocator",
+     "F_3DTransformObjectInit",
+     "F_3DTransformWithSIMD",
+     "FuelConsumptionAndWear",
+     "InitPhysicsTransformIdentity",
+     "InitViewportDimensions",
+     "InitializeCollisionGlobalsA",
+     "LargeStructInitialization",
+     "LargeStructZeroInit",
+     "LargeZeroInit",
+     "LinkedListByteBufferInsert",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "MemoryAllocation_56a0",
+     "MultiFieldGetter",
+     "MultiFieldStructInit",
+     "NetworkSocketArrayCleanup",
+     "PEImageBaseAddressDetection"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 25 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "MapCollisionShapeToBoneIndex",
+    "file": "MapCollisionShapeToBoneIndex_00412c30.c",
+    "hits": [
+     {
+      "line": 53,
+      "text": "case 25:"
+     }
+    ]
+   },
+   {
+    "function": "RaceEventMessageDispatcher",
+    "file": "RaceEventMessageDispatcher_00411bf0.c",
+    "hits": [
+     {
+      "line": 48,
+      "text": "case 0x19:"
+     }
+    ]
+   },
+   {
+    "function": "SoundEventDispatcher",
+    "file": "SoundEventDispatcher_00411e90.c",
+    "hits": [
+     {
+      "line": 67,
+      "text": "case 0x19:"
+     }
+    ]
+   },
+   {
+    "function": "sub_412E50",
+    "file": "sub_412E50_00412e50.c",
+    "hits": [
+     {
+      "line": 167,
+      "text": "case 25:"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:82: {\"tier\": \"DERIVED\", \"claim\": \"Group F (T1 verify-and-wire): 3 of 7 clips have working emitters (RE_PD_DQ sub_41A940, RE_OD_STUCK_7 sub_41AC50, PWS_AIMECHPROB1 sub_41AC50+DriverName"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-002.md:130: | `PWS_2001_221` | 298 | 280 | rain starting; F1CUI radio messages solved weather |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\DUMP_RESULTS.md:52: | PWS_2001_223 | 304 | PWS_2001_224 | 303 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\DUMP_RESULTS.md:53: | PWS_2001_225 | 305 | PWS_2001_224 | 303 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:366: | 283 | PWS_2001_220 | OnLineWetness crosses above 0.33 (light->moderate rain) AND SessionType==7 AND RaceActiveF | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:367: | 280 | PWS_2001_221 | OnLineWetness crosses above 0.66 (moderate->heavy rain, monsoon likely) AND SessionType==7 | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:368: | 281 | PWS_2001_222 | OnLineWetness crosses below 0.15 (rain easing off) AND SessionType==7 AND RaceActiveFlag== | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:133: | `PWS_2001_224` | 303 | 284 | Player driving wrong way (2) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:134: | `PWS_2001_223` | 304 | - | Player driving wrong way (1) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:135: | `PWS_2001_225` | 305 | - | Player driving wrong way (3) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:167: | `PWS_2001_22` | 25 | 318 | 0x0041b980? | Rain expected - make run ASAP |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:334: | `PWS_2001_221` | 298 | 280 | Rain starts - monsoon likely |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:335: | `PWS_2001_222` | 299 | 281 | Rain eases off |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:337: | `PWS_2001_220` | 301 | 283 | Rain starts - short shower |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:136: | PWS_2001_220 | 301 | 283 | Rain starting, short shower |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:138: | PWS_2001_222 | 299 | 281 | Rain easing off |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:69: | `PWS_2001_224` | 303 | 284 | — | Player driving wrong way (2) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:70: | `PWS_2001_223` | 304 | — | orphaned | Player driving wrong way (1) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:71: | `PWS_2001_225` | 305 | — | orphaned | Player driving wrong way (3) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:270: | `PWS_2001_221` | 298 | 280 | — | Rain starts - monsoon likely | user triage: PLAY, \"its starting to rain and I think its gonna continue doing so for some time judging by the sky\"",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:271: | `PWS_2001_222` | 299 | 281 | — | Rain eases off | user triage: PLAY, rain easing off, see above  [flags: HAS_LEAD] |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:273: | `PWS_2001_220` | 301 | 283 | — | Rain starts - short shower | user triage: PLAY, \"its starting to rain but I don't think it'll turn out to be any more than a shower\", above |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:478: | `PWS_2001_22` | 25 | 27, 318 | — | Rain expected - make run ASAP |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:66: | `PWS_2001_223` | — | Player driving wrong way (1) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:67: | `PWS_2001_224` | 284 | Player driving wrong way (2) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:68: | `PWS_2001_225` | — | Player driving wrong way (3) |  |"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_auto",
+  "modded_by": [
+   {
+    "mod": "mechanical_failures",
+    "mod_version": "1.0.7 public (RELEASE_REGISTRY); donor table in mf_voice.h",
+    "eid": 27,
+    "mechanism": "token_only",
+    "condition": "TOKEN ONLY (owner correction 2026-10-18): MF borrows this eid as an internal radio-queue token and plays its own WAV; the vanilla clip never plays. MF V3 line MF_COOLANT01 \"You're losing coolant.\": donor eid row rewritten at load when PWS_MF01 SDT is installed; fired via commentary queue / radio_req",
+    "source": "development/mods/mechanical_failures/dll/mf_voice.h:64; engine_failure.c:1722-1760 (row write), 4040-4062 (voice_native_say)",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Rain expected - make run ASAP"
+   }
+  ],
+  "note": "",
+  "triage": null,
+  "evf_status": "SILENT"
+ }
+}

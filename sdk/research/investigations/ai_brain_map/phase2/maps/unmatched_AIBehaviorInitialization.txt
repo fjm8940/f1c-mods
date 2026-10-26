@@ -1,0 +1,5 @@
+# AIBehaviorInitialization: offset-like lines with no extracted row (4)
+L64: *(_DWORD *)(this + 4 * v7) = -1082130432;
+L94: v14 = (v25 - v13) * (*(float *)(this + 4 * v8) / v25);
+L109: *(_DWORD *)(this + 4 * v8) = -1082130432;
+L126: v20 = this + 416;

@@ -1,0 +1,4 @@
+func,line,dec,hex,access,width,base,form,expr
+FloatFunctionPassThrough,6,,,CALL,,,call,FloatExponentExtractWithNaNGuard
+FloatFunctionPassThrough,6,,,CALL,,,call,HIDWORD
+FloatFunctionPassThrough,7,,,CALL,,,call,sub_5894BD

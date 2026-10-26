@@ -1,0 +1,29 @@
+func,line,dec,hex,access,width,base,form,expr
+sub_4A4110,50,,,CALL,,,call,LODWORD
+sub_4A4110,50,,,R,float,this,array,v7 = LODWORD(this[i]);
+sub_4A4110,53,17744,0x4550,R,_DWORD,v7,direct,if ( *(_DWORD *)(v7 + 17744) )
+sub_4A4110,55,,,CALL,,,call,AIDelegateCall
+sub_4A4110,56,,,CALL,,,call,SpeedDeltaComputation
+sub_4A4110,59,,,R,float,this,array,v10 = this[i];
+sub_4A4110,60,,,CALL,,,call,LODWORD
+sub_4A4110,61,,,CALL,,,call,LODWORD
+sub_4A4110,68,,,W,float,this,array,this[i] = 0.0;
+sub_4A4110,75,17800,0x4588,R,_DWORD,a2,direct,v13 = *(_DWORD *)(a2 + 17800);
+sub_4A4110,76,17888,0x45E0,R,_DWORD,a2,direct,if ( v13 <= *(_DWORD *)(a2 + 17888) )
+sub_4A4110,85,,,CALL,,,call,LODWORD
+sub_4A4110,85,,,R,float,this,array,if ( LODWORD(this[v15]) )
+sub_4A4110,118,16444,0x403C,R,int,a2,direct,v40 = (float)*(int *)(a2 + 16444);
+sub_4A4110,119,,,CALL,,,call,StateFlagsLookup
+sub_4A4110,122,18596,0x48A4,R,_DWORD,*(_DWORD*)a2,deref2,v21 = *(_DWORD *)(*(_DWORD *)a2 + 18596);
+sub_4A4110,154,416,0x1A0,R,float,this,array,if ( this[104] < (double)v38 )
+sub_4A4110,162,16444,0x403C,R,_DWORD,a2,direct,v22 = *(_DWORD *)(a2 + 16444);
+sub_4A4110,163,16540,0x409C,R,float,a2,direct,v23 = (double)(*(_DWORD *)(16 * (v13 + 1112) + a2) - v22) * *(float *)(a2 + 16540);
+sub_4A4110,208,,,CALL,,,call,StateFlagsLookup
+sub_4A4110,216,16444,0x403C,R,int,a2,direct,v41 = (float)*(int *)(a2 + 16444);
+sub_4A4110,217,,,CALL,,,call,StateFlagsLookup
+sub_4A4110,231,18596,0x48A4,R,int,*(_DWORD*)a2,deref2,if ( *(int *)(*(_DWORD *)a2 + 18596) >= 4 )
+sub_4A4110,259,416,0x1A0,R,float,this,array,if ( dbl_8AFEA0 <= this[104] )
+sub_4A4110,263,416,0x1A0,W,float,this,array,this[104] = v30 + 18.0;
+sub_4A4110,266,,,CALL,,,call,RandLCGRandomNumberGenerator
+sub_4A4110,267,,,CALL,,,call,CRTFtol
+sub_4A4110,270,416,0x1A0,R,float,this,array,if ( dbl_8AFEA0 >= this[104] )

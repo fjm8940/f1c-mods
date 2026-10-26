@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "pitstop_failures",
+  "title": "Pit Stop Failures 1.1.4",
+  "production": false,
+  "sdk_major": 1,
+  "language": "cpp",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "subsystems": [],
+  "seeds": [],
+  "hooks": [],
+  "writes": [
+    {
+      "object": "F1CVehicle",
+      "field": "CallToBox"
+    },
+    {
+      "object": "F1CVehicle",
+      "field": "PitStopEndTime"
+    }
+  ],
+  "tracing": {
+    "driver": "",
+    "seconds": 180,
+    "hz": 20,
+    "wait_phase": 5,
+    "pit_cycle": false,
+    "semantics": [
+      "command_input",
+      "output",
+      "latched_control"
+    ]
+  },
+  "regressions": [],
+  "build": {
+    "script": "build.bat",
+    "dll": "%USERPROFILE%\\AppData\\Local\\Temp\\f1c-pitstop-1.1.4-final\\pitstop_failures.dll"
+  }
+}

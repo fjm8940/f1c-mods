@@ -1,0 +1,5 @@
+func,line,dec,hex,access,width,base,form,expr
+RandLCGRandomNumberGenerator,6,,,CALL,,,call,TLSValueRetrievalWithInit
+RandLCGRandomNumberGenerator,7,20,0x14,R,_DWORD,v0,direct,v1 = 214013 * *(_DWORD *)(v0 + 20) + 2531011;
+RandLCGRandomNumberGenerator,8,20,0x14,W,_DWORD,v0,direct,*(_DWORD *)(v0 + 20) = v1;
+RandLCGRandomNumberGenerator,9,,,CALL,,,call,HIWORD

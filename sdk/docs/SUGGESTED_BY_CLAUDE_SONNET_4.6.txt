@@ -1,0 +1,72 @@
+Here's an efficient workflow for sharing reverse engineering findings on Discord in thesis form:
+
+## Structure Your Findings as Themed Theses
+
+**Each thesis post should follow this template:**
+
+```
+📌 [THEME NAME] — Thesis #N
+
+**Claim:** One clear, falsifiable statement about how the game works.
+
+**Evidence:**
+• Decompiled function: `ClassName::methodName()` @ offset 0x...
+• Behavior observed: ...
+• Supporting pattern: ...
+
+**Code Snippet:**
+[paste or attach relevant decompiled excerpt]
+
+**Implications:** What this means for modding / understanding / further research.
+
+**Open Questions:** What's still unknown or needs verification.
+```
+
+---
+
+## Practical Discord Tips
+
+**Use threads aggressively.** Post a short thesis summary in the main channel, then put all the evidence, code, and discussion in a thread under it. This keeps the channel scannable.
+
+**Pin a master index post** at the top of your channel/thread listing all theses with jump links, so people can navigate by theme.
+
+**Use Discord's code blocks correctly:**
+- Inline: \`symbol_name\` for identifiers
+- Block with syntax highlighting: \`\`\`c for decompiled C-like pseudocode, \`\`\`asm for assembly
+
+**Attachments over pastes** for anything over ~20 lines — Discord's message cap is 2000 characters. Use `.c`, `.txt`, or `.md` files.
+
+---
+
+## Organizing by Theme
+
+Group theses into **themed channels or forum posts** (Discord Forums work great here):
+
+| Theme | Examples |
+|---|---|
+| Memory layout | Object structs, heap patterns |
+| Game loop | Tick order, update phases |
+| Networking | Packet structure, desync causes |
+| AI / pathfinding | Decision trees, state machines |
+| Rendering | Draw call order, shader tricks |
+| Save format | Serialization, versioning |
+
+---
+
+## Tooling That Pairs Well
+
+- **Ghidra / IDA** → export decompiled pseudocode as `.c` files for clean attaching
+- **x64dbg / Cheat Engine** → screenshots of memory state as visual evidence
+- **A private GitHub repo or Gist** → link to longer findings; Discord can embed GitHub code blocks
+- **Notion or HackMD** → draft theses with formatting before pasting to Discord, so you're not editing in chat
+
+---
+
+## Efficiency Habits
+
+1. **Write the claim first**, before pasting any code — it forces clarity and prevents "data dump" posts
+2. **Number theses sequentially per theme** (e.g. `NET-01`, `AI-03`) so people can reference them in discussion
+3. **Use reactions as a voting/verification system** — e.g. ✅ = confirmed by others, ❓= disputed, 🔬 = needs more evidence
+4. **Keep a running `#corrections` thread** for when earlier theses get disproven — reverse engineering findings get invalidated often
+
+This approach turns your Discord into a structured, searchable knowledge base rather than a scroll of chat messages.

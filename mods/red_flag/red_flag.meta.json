@@ -1,0 +1,1 @@
+{"schemaVersion":1,"id":"red_flag","name":"Red Flag","version":"1.1.8","author":"Matias","description":"Red Flag race control for F1 Challenge.","homepage":"https://mods.palloset.com/redflag","requires":["shared_broker>=10"],"settings":"redflag.ini","lightloader":">=2.2.3"}

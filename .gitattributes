@@ -1,0 +1,2 @@
+mods/web_telemetry/*.js -text
+mods/web_telemetry/*.json -text

@@ -1,0 +1,23 @@
+func,line,dec,hex,access,width,base,form,expr
+sub_4FB6D0,24,4,0x4,R,float,a2,array,v16 = a2[1] - *((float *)this + 1);
+sub_4FB6D0,24,4,0x4,R,float,this,arith,v16 = a2[1] - *((float *)this + 1);
+sub_4FB6D0,25,8,0x8,R,float,a2,array,v2 = a2[2] - *((float *)this + 2);
+sub_4FB6D0,25,8,0x8,R,float,this,arith,v2 = a2[2] - *((float *)this + 2);
+sub_4FB6D0,27,40,0x28,R,float,this,arith,v3 = v2 * *((float *)this + 10) + v16 * *((float *)this + 9) + v15 * *((float *)this + 8);
+sub_4FB6D0,27,36,0x24,R,float,this,arith,v3 = v2 * *((float *)this + 10) + v16 * *((float *)this + 9) + v15 * *((float *)this + 8);
+sub_4FB6D0,27,32,0x20,R,float,this,arith,v3 = v2 * *((float *)this + 10) + v16 * *((float *)this + 9) + v15 * *((float *)this + 8);
+sub_4FB6D0,29,92,0x5C,R,float,this,arith,result = v3 - *((float *)this + 23);
+sub_4FB6D0,31,88,0x58,R,float,this,arith,result = -(v3 + *((float *)this + 22));
+sub_4FB6D0,32,272,0x110,R,_DWORD,this,arith,v5 = (float *)*((_DWORD *)this + 68);
+sub_4FB6D0,34,4,0x4,R,float,v5,array,v11 = v5[1] - *((float *)this + 1);
+sub_4FB6D0,34,4,0x4,R,float,this,arith,v11 = v5[1] - *((float *)this + 1);
+sub_4FB6D0,35,8,0x8,R,float,v5,array,v13 = v5[2] - *((float *)this + 2);
+sub_4FB6D0,35,8,0x8,R,float,this,arith,v13 = v5[2] - *((float *)this + 2);
+sub_4FB6D0,36,,,CALL,,,call,sqrt
+sub_4FB6D0,42,268,0x10C,R,_DWORD,this,arith,v7 = (float *)*((_DWORD *)this + 67);
+sub_4FB6D0,44,4,0x4,R,float,v7,array,v12 = v7[1] - *((float *)this + 1);
+sub_4FB6D0,44,4,0x4,R,float,this,arith,v12 = v7[1] - *((float *)this + 1);
+sub_4FB6D0,45,8,0x8,R,float,v7,array,v14 = v7[2] - *((float *)this + 2);
+sub_4FB6D0,45,8,0x8,R,float,this,arith,v14 = v7[2] - *((float *)this + 2);
+sub_4FB6D0,46,,,CALL,,,call,sqrt
+sub_4FB6D0,52,,,CALL,,,call,fabs

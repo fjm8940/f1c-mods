@@ -1,0 +1,12 @@
+func,line,dec,hex,access,width,base,form,expr
+AICollision,18,64,0x40,R,_BYTE,v6,direct,if ( !*(_DWORD *)v6 || !*(_BYTE *)(v6 + 64) )
+AICollision,24,15724,0x3D6C,R,_DWORD,a2,direct,if ( *(_DWORD *)(a2 + 15724) == 2 )
+AICollision,27,,,CALL,,,call,DriverSetupParamLookupByID
+AICollision,27,16444,0x403C,R,_DWORD,a2,direct,"return DriverSetupParamLookupByID((_DWORD *)a2, *(_DWORD *)(a2 + 16444)) <= -1 ? 0 : 2;"
+AICollision,28,832,0x340,R,_BYTE,this,direct,if ( *(_BYTE *)(this + 832) )
+AICollision,30,17616,0x44D0,R,float,a2,direct,v7 = *(float *)(a2 + 17616) * 0.0099999998 / (double)*(int *)(this + 860) * a3;
+AICollision,30,860,0x35C,R,int,this,direct,v7 = *(float *)(a2 + 17616) * 0.0099999998 / (double)*(int *)(this + 860) * a3;
+AICollision,35,833,0x341,R,_BYTE,this,direct,if ( *(_BYTE *)(this + 833) && v3 != 1 )
+AICollision,37,17628,0x44DC,R,float,a2,direct,v9 = (1.0 - *(float *)(a2 + 17628) * 0.0099999998) / (double)*(int *)(this + 860) * a3 * *(float *)(this + 836);
+AICollision,37,860,0x35C,R,int,this,direct,v9 = (1.0 - *(float *)(a2 + 17628) * 0.0099999998) / (double)*(int *)(this + 860) * a3 * *(float *)(this + 836);
+AICollision,37,836,0x344,R,float,this,direct,v9 = (1.0 - *(float *)(a2 + 17628) * 0.0099999998) / (double)*(int *)(this + 860) * a3 * *(float *)(this + 836);

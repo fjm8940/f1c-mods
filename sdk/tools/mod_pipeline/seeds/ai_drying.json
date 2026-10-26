@@ -1,0 +1,19 @@
+{
+  "name": "ai_drying",
+  "description": "Why AI cars are too fast in drying conditions. Anchor on the runtime on-path/off-path track wetness pair that feeds the AI grip scalar (base - (onpath+offpath)*scale), versus the player's separate per-tire wet model.",
+  "globals": [
+    { "addr": "0x008afee8", "label": "OnPathWetness",  "type": "float" },
+    { "addr": "0x008afeec", "label": "OffPathWetness", "type": "float" },
+    { "addr": "0x0059e450", "label": "WetnessScale",   "type": "float" },
+    { "addr": "0x0059e43c", "label": "BaseGrip",       "type": "float" },
+    { "addr": "0x0059e480", "label": "DryingThreshold","type": "float" }
+  ],
+  "seeds": [
+    "0x00404250",
+    "0x00404460",
+    "0x00401c90",
+    "0x004fb260"
+  ],
+  "struct_watches": [],
+  "watch_hz": 10
+}

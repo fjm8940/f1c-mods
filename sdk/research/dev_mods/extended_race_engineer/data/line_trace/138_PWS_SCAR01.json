@@ -1,0 +1,313 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 138,
+ "clip": "PWS_SCAR01",
+ "says": "Safety car deployed - exiting pits",
+ "dump_rows_for_clip": [
+  {
+   "eid": 423,
+   "hex": "0x01A7",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 132,
+   "sdt_index": 138,
+   "clip_name": "PWS_SCAR01.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  132
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 423,
+   "hex": "0x01A7",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 132,
+   "sdt_index": 138,
+   "clip_name": "PWS_SCAR01.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [],
+ "literal_hits": {},
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 138 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": []
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:131: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"Session wrap: low-hanging-fruit sweep landed at 48 clips SHIPPED, T4_CONDITION pool down to 30\", \"claim\": \"Continued t",
+  "f1c_ida_decompiled\\findings.jsonl:321: {\"id\": \"f1c-tv-only-clips-playable-via-score-swap\", \"date\": \"2026-07-31\", \"tier\": \"FACT\", \"claim\": \"A clip that has NO event in the PWS range can still be played on the race-engine"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:193: | `PWS_SCAR01` | 138 | 423 | 0x00420820 | Safety car deployed - exiting pits |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:411: | `PWS_SCAR01` | 138 | 423 | — | Safety car deployed - exiting pits | user triage: Z, UNDER WORK VIA ANOTHER MOD  [auto: inherited from SDT 137] |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:218: | `PWS_SCAR01` | 423 | Safety car deployed - exiting pits | eid 423 live, emitter literal ConstructorStandingsParser_00420820.c:163 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:117: `PWS_SCAR01`, `PWS_SCAR03`, `PWS_SLOWCAR01`, `PWS_WIN20`, `PWS_WIN21`,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:158: | 138 | `PWS_SCAR01` | Z | - | Z, UNDER WORK VIA ANOTHER MOD *(inherited from SDT 137)* |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:201: | `PWS_SCAR01` | 138 | 423 | Safety car deployed - exiting pits |"
+ ],
+ "mod_sources": [
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:472: * The safety-car clips PWS_SCAR01/02/03/05 exist in PC_RE_MAIN.SDT but have NO",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:542: *   132  SCAR01  \"safety car has been deployed and is exiting the pits now\"",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:556: #define SCORE_SCAR01    132       /* \"deployed, exiting the pits now\"     */",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:4062: /* NO LINE HERE. SCAR01 says he \"is exiting the pits now\", and at this",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:4761: sc_say_later(SCORE_SCAR01, \"SCAR01 deployed, exiting the pits now\", 0);",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:532: * The safety-car clips PWS_SCAR01/02/03/05 exist in PC_RE_MAIN.SDT but have NO",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:602: *   132  SCAR01  \"safety car has been deployed and is exiting the pits now\"",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:616: #define SCORE_SCAR01    132       /* \"deployed, exiting the pits now\"     */",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:4135: /* NO LINE HERE. SCAR01 says he \"is exiting the pits now\", and at this",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:4835: sc_say_later(SCORE_SCAR01, \"SCAR01 deployed, exiting the pits now\", 0);",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:533: * The safety-car clips PWS_SCAR01/02/03/05 exist in PC_RE_MAIN.SDT but have NO",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:603: *   132  SCAR01  \"safety car has been deployed and is exiting the pits now\"",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:617: #define SCORE_SCAR01    132       /* \"deployed, exiting the pits now\"     */",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:4174: /* NO LINE HERE. SCAR01 says he \"is exiting the pits now\", and at this",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:4874: sc_say_later(SCORE_SCAR01, \"SCAR01 deployed, exiting the pits now\", 0);",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9.c:567: * The safety-car clips PWS_SCAR01/02/03/05 exist in PC_RE_MAIN.SDT but have NO",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9.c:637: *   132  SCAR01  \"safety car has been deployed and is exiting the pits now\"",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9.c:651: #define SCORE_SCAR01    132       /* \"deployed, exiting the pits now\"     */",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9.c:4264: /* NO LINE HERE. SCAR01 says he \"is exiting the pits now\", and at this",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9.c:4995: sc_say_later(SCORE_SCAR01, \"SCAR01 deployed, exiting the pits now\", 0);",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9_protected.c:580: * The safety-car clips PWS_SCAR01/02/03/05 exist in PC_RE_MAIN.SDT but have NO",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9_protected.c:650: *   132  SCAR01  \"safety car has been deployed and is exiting the pits now\"",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9_protected.c:664: #define SCORE_SCAR01    132       /* \"deployed, exiting the pits now\"     */",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9_protected.c:4296: /* NO LINE HERE. SCAR01 says he \"is exiting the pits now\", and at this",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9_protected.c:5027: sc_say_later(SCORE_SCAR01, \"SCAR01 deployed, exiting the pits now\", 0);"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [],
+  "note": "user triage: Z, UNDER WORK VIA ANOTHER MOD  [auto: inherited from SDT 137]",
+  "triage": {
+   "sdt_index": 138,
+   "text": "Z, UNDER WORK VIA ANOTHER MOD",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [],
+   "inherited": true,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

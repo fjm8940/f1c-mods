@@ -1,0 +1,437 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 281,
+ "clip": "PWS_MISC16",
+ "says": "Switch camera to AI driver",
+ "dump_rows_for_clip": [
+  {
+   "eid": 264,
+   "hex": "0x0108",
+   "priority": 20,
+   "cooldown": 0.0,
+   "blocked": false,
+   "score": 267,
+   "sdt_index": 281,
+   "clip_name": "PWS_MISC16.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  267
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 264,
+   "hex": "0x0108",
+   "priority": 20,
+   "cooldown": 0.0,
+   "blocked": false,
+   "score": 267,
+   "sdt_index": 281,
+   "clip_name": "PWS_MISC16.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  264
+ ],
+ "literal_hits": {
+  "264": {
+   "emitters": [
+    {
+     "function": "AIOutOfTrackEvent",
+     "file": "AIOutOfTrackEvent_0041a0c0.c",
+     "hits": [
+      {
+       "line": 7,
+       "text": "BooleanOROfTwoChecks(flt_5EA618, 264);"
+      },
+      {
+       "line": 11,
+       "text": "DriverDataTableLookupAndTimeConversion(v1, 264, dword_5F0F74[4656 * a1], -1, -1, -1, -2.0, -2.0);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "GameStateDispatchChain",
+       "callers": [
+        {
+         "caller": "CameraTargetCurrentTrackedVehicle",
+         "callers": [
+          {
+           "caller": "KeyboardInputActionMapper",
+           "callers": [
+            {
+             "caller": "MainCameraDirectorUpdate",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "caller": "CameraTargetRaceLeader",
+         "callers": [
+          {
+           "caller": "KeyboardInputActionMapper",
+           "callers": []
+          },
+          {
+           "caller": "RandomStateMachineWithTimerAndTrigger",
+           "callers": [
+            {
+             "caller": "MainCameraDirectorUpdate",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "caller": "VehicleSelectionCyclicShift",
+         "callers": []
+        },
+        {
+         "caller": "sub_4A0250",
+         "callers": [
+          {
+           "caller": "ConditionalInitGuard",
+           "callers": [
+            {
+             "caller": "RestartGate",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "MainMenuTransition",
+           "callers": [
+            {
+             "caller": "RestartGate",
+             "callers": []
+            },
+            {
+             "caller": "SessionMenuModeSwitch",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "SessionSynchronizer",
+           "callers": [
+            {
+             "caller": "CollisionResponseStatus",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "caller": "sub_4DA840",
+         "callers": []
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [],
+   "other_functions": {
+    "count": 47,
+    "first": [
+     "AudioMixerChannelInitializer",
+     "BlockLDLTSparseConstraintFactorization",
+     "BufferFlushWrite",
+     "ComplexStateValidator",
+     "ConstructorWithVTableAndFloatInit",
+     "DoublyLinkedListNodeMover",
+     "DoublyLinkedListNodeTransplant",
+     "F_3x3InertiaTensorTransform",
+     "FileINILoader",
+     "ForceFeedback",
+     "IndexedFloatArrayLookup",
+     "LargeConstructor",
+     "MatrixFactorizeLDLT",
+     "MediaAudioDecodeDispatch",
+     "MenuLayoutCalculator",
+     "RingBufferAccessWithWrap",
+     "ShortComputation_6c40",
+     "StructInitWithFloatDefaults",
+     "TextureImageColorTransform",
+     "TireModelDataInit",
+     "TwoCallDelegation_d6d0",
+     "UIComponentScrollUpdate",
+     "VehicleDataCopy",
+     "VehicleOrientationMatrixConstruction",
+     "VehiclePhysicsVelocityAngularVelocityIntegrator",
+     "VertexBufferTransform",
+     "sub_412E50",
+     "sub_43C250",
+     "sub_44FF50",
+     "sub_45A8E0",
+     "sub_4C3050",
+     "sub_4D1730",
+     "sub_4D6B00",
+     "sub_4FCAA0",
+     "sub_4FCEE0",
+     "sub_50FF84",
+     "sub_518AAA",
+     "sub_518E18",
+     "sub_54A870",
+     "sub_55A790"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 281 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "sub_412490",
+    "file": "sub_412490_00412490.c",
+    "hits": [
+     {
+      "line": 34,
+      "text": "v6 = 281;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:1550: {\"id\": \"h4-ridingwith-gate-20261014\", \"date\": \"2026-10-14\", \"tier\": \"FACT\", \"claim\": \"The 'riding with' line is queued by AIOutOfTrackEvent 0x41A0C0 (5th call of GameStateDispatchC",
+  "f1c_ida_decompiled\\findings.jsonl:1552: {\"id\": \"h4-ridingwith-open-items-20261014\", \"date\": \"2026-10-14\", \"tier\": \"OPEN\", \"claim\": \"Open for H4: (1) eid 264 is documented as PWS_MISC16.mp2 'Switch camera to AI driver' (b"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:125: | `PWS_MISC16` | 281 | 264 | Switch camera to AI driver |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:180: | `PWS_MISC16` | 281 | 264 | — | Switch camera to AI driver |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:104: | `PWS_MISC16` | 264 | Switch camera to AI driver |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SHIPPED_MECHANISMS.md:132: | PWS_MISC16 | 264 | Switch camera to AI driver | `AIOutOfTrackEvent_0041a0c0` [alias: broadcast/director camera-focus-change event, misnamed by the decompiler]. Fires whenever the"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": true,
+  "vanilla_source": "evf_auto",
+  "modded_by": [],
+  "note": "",
+  "triage": null,
+  "evf_status": "SHIPPED"
+ }
+}

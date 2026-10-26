@@ -1,0 +1,506 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 118,
+ "clip": "PWS_RETIRE02",
+ "says": "Player retired (generic 1)",
+ "dump_rows_for_clip": [
+  {
+   "eid": 117,
+   "hex": "0x0075",
+   "priority": 55,
+   "cooldown": 6.0,
+   "blocked": false,
+   "score": 115,
+   "sdt_index": 118,
+   "clip_name": "PWS_RETIRE02.mp",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 410,
+   "hex": "0x019A",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 115,
+   "sdt_index": 118,
+   "clip_name": "PWS_RETIRE02.mp",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  115
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 117,
+   "hex": "0x0075",
+   "priority": 55,
+   "cooldown": 6.0,
+   "blocked": false,
+   "score": 115,
+   "sdt_index": 118,
+   "clip_name": "PWS_RETIRE02.mp",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 410,
+   "hex": "0x019A",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 115,
+   "sdt_index": 118,
+   "clip_name": "PWS_RETIRE02.mp",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  117
+ ],
+ "literal_hits": {
+  "117": {
+   "emitters": [
+    {
+     "function": "sub_41B250",
+     "file": "sub_41B250_0041b250.c",
+     "hits": [
+      {
+       "line": 23,
+       "text": "DriverDataTableLookupAndTimeConversion(v4, 117, -1, -1, -1, -1, -2.0, -2.0);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_4F1FE0",
+       "callers": [
+        {
+         "caller": "VehicleYawRotationRecoveryController",
+         "callers": [
+          {
+           "caller": "MainGameTickUpdate",
+           "callers": [
+            {
+             "caller": "GamePostMainLoop",
+             "callers": []
+            },
+            {
+             "caller": "StateTriggerCheck",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 91,
+       "text": "v5 = a4 != 0 ? 271 : 117;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 21,
+    "first": [
+     "ArraySearchFor1Sentinel",
+     "AudioVideoDecodeSubbandLoop",
+     "BlockLDLTSparseConstraintFactorization",
+     "BrakeBiasSetup",
+     "ClearPlayerSlots",
+     "EnumValueTranslation",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "ObjectConstructor_9872",
+     "PitPartStateCopy",
+     "PitStopOperationTimer",
+     "RaceLapsStringLoadOnTrigger",
+     "ShortComputation_4990",
+     "ShortComputation_e5d0",
+     "UIComponentCleanup",
+     "UIControlWindowInitialization",
+     "VehicleMainPhysicsUpdate",
+     "VehiclePhysicsBodyNameMapping",
+     "sub_455580",
+     "sub_4F9480",
+     "sub_530840",
+     "sub_58D04D"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 118 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "EnumValueTranslation",
+    "file": "EnumValueTranslation_00414010.c",
+    "hits": [
+     {
+      "line": 25,
+      "text": "v3 = 118;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:88: {\"tier\": \"DERIVED\", \"claim\": \"Group B (player retirement): RETIRE02 (eid 117) T1 — emitter EXISTS (sub_41B250:23), FLT_MAX cooldown blocker. Already registered in patches/manifest.",
+  "f1c_ida_decompiled\\findings.jsonl:89: {\"tier\": \"FACT\", \"claim\": \"SYSTEMIC: data/full_event_dump.json was STALE against the patched exe - it marked 26 events blocked when only 16 are actually blocked live, causing two i",
+  "f1c_ida_decompiled\\findings.jsonl:90: {\"tier\": \"CONFIRMED\", \"claim\": \"AUDIT of EVF-002 groups A/B/D/E: A and E verified clean, B wrong via the stale dump, D substantively right but over-tiered on one offset\", \"evidence",
+  "f1c_ida_decompiled\\findings.jsonl:92: {\"tier\": \"OPEN\", \"claim\": \"A disqualification does NOT produce a player retirement commentary line, even with a nonzero ReasonCode - the DQ and retire exits are separate paths\", \"e",
+  "f1c_ida_decompiled\\findings.jsonl:94: {\"tier\": \"CONFIRMED\", \"claim\": \"Player retirement commentary (PWS_RETIRE01/02/04) requires FinishState != 0 AND a ~10 s dwell timer - collision damage alone never satisfies it beca",
+  "f1c_ida_decompiled\\findings.jsonl:99: {\"tier\": \"CONFIRMED\", \"claim\": \"DEFINITIVE NEGATIVE: player retirement commentary (PWS_RETIRE01/02/04) cannot be triggered by any gameplay situation - it requires a code hook. The ",
+  "f1c_ida_decompiled\\findings.jsonl:100: {\"tier\": \"FACT\", \"claim\": \"commentary_inject.py's hardcoded RETIREMENT_BLOCKED list is STALE and emits a false 'Cooldown=FLT_MAX (cannot bypass)' warning for eids that are now unbl",
+  "f1c_ida_decompiled\\findings.jsonl:101: {\"tier\": \"FACT\", \"claim\": \"PROVEN LIVE: PWS_RETIRE02 (eid 117) restored by retire_commentary_v5.dll - player retirement commentary now fires and is audible in-game\", \"evidence\": \"L",
+  "f1c_ida_decompiled\\findings.jsonl:103: {\"tier\": \"OPEN\", \"claim\": \"Restored retirement commentary plays LAST, after the game spams the wing-loss lines - an ordering artefact of waiting for an idle audio player\", \"evidenc",
+  "f1c_ida_decompiled\\findings.jsonl:263: {\"id\": \"player-engine-failure-fires-no-commentary\", \"date\": \"2026-07-31\", \"tier\": \"FACT\", \"claim\": \"A player engine failure produces NO race-engineer radio line, and the reason is "
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-002.md:93: `PWS_RETIRE02` sdt 118 eid 117 · `PWS_RETIRE03` sdt 119 (**no eid — check `orphaned_clips.json`**)",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-003.md:16: - `RE_PD_DQ` and `PWS_RETIRE02` are **DONE**, both heard in-game.",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-005.md:20: `PWS_RETIRE01`, `PWS_RETIRE02`, `PWS_RETIRE04` are **handled by",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ENGINE_FAILURE.md:153: > same as PWS_RETIRE02.",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:149: | `PWS_RETIRE02` | 118 | 117,410 | Player retired (generic 1) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\HANDOFF_2026-07-28.md:21: The old #1 task is answered: `RE_PD_DQ` and `PWS_RETIRE02` were both injected and",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\HANDOFF_2026-07-28.md:33: `PWS_RETIRE02`, user-confirmed audible. **Read `dll/README.md` before writing any",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\HANDOFF_2026-07-28c.md:44: rows (`PWS_RETIRE02`, `RE_PD_DQ` — the two live-proven restorations).",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:303: | `PWS_RETIRE02` | 118 | 117, 410 | — | Player retired (generic 1) | user triage: Z, played when player receives terminal accident damage (see damage.ini for engine seizure)  [flag",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:216: | `PWS_RETIRE02` | 117, 410 | Player retired (generic 1) | eid 117 live, emitter literal sub_41B250_0041b250.c:23 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:51: | `PWS_RETIRE02` | 117, 410 | Player retired (generic 1) — same function/family | `functions/sub_41B250_0041b250.c:23` |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002B_player_retirement.md:5: PWS_RETIRE02 / 118 / 117, 410  (\"Player retired generic\")",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002B_player_retirement.md:21: ## 1. PWS_RETIRE02 (eid 117) — T1: emitter exists, FLT_MAX cooldown",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002B_player_retirement.md:32: | all others | **117** | **PWS_RETIRE02** |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:56: | 118 | `PWS_RETIRE02` | Z | HAS_LEAD | Z, played when player receives terminal accident damage (see damage.ini for engine seizure) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:60: ### PWS_RETIRE02 (SDT 118) - Player retired (generic 1)"
+ ],
+ "mod_sources": [
+  "development\\mods\\pitstop_modding\\dll\\pit_commentary.c:55: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.1\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.2\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.3\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.4\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.2-rc.1\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.2-rc.2\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.3-rc.1\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.4-rc.1\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.5-rc.1\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.5-rc.2\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.6-rc.3\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.6-rc.4\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.7-rc.1\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.8-rc.1\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.9-rc.1\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.0-rc.1\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.1-rc.1\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.2-rc.1\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.3-rc.1\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.4-rc.1\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\pitstop_modding\\src\\pit_commentary.c:56: #define EID_RETIRE        117      /* PWS_RETIRE02 \"and that's the end\" */",
+  "development\\mods\\player_retire_commentary\\retire_commentary.c:3: *   PWS_RETIRE04 (eid 119), PWS_RETIRE01 (eid 118), PWS_RETIRE02 (eid 117)",
+  "development\\mods\\player_retire_commentary\\retire_commentary.c:25: *       otherwise    -> eid 117   (PWS_RETIRE02)",
+  "development\\mods\\player_retire_commentary\\retire_commentary.c:62: #define EID_RETIRE02    117"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "pitstop_modding",
+    "mod_version": "1.1.4 (RELEASE_REGISTRY 2026-10-11)",
+    "eid": 117,
+    "mechanism": "dll_emit",
+    "condition": "player terminal wheel jam: fire(EID_RETIRE) after the jam line (retire to pits path)",
+    "source": "development/mods/pitstop_modding/dll/pit_commentary.c:55,1477",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Player retired (generic 1)"
+   },
+   {
+    "mod": "player_retire_commentary",
+    "mod_version": "candidate (folder release-aligned-1.0.1-dev; PRODUCT_STATUS active-candidate)",
+    "eid": 117,
+    "mechanism": "dll_emit",
+    "condition": "retirement: ReasonCode other than 1 or 7 (fallback RETIRE02)",
+    "source": "development/mods/player_retire_commentary/src/retire_commentary.c:63-65,210-212,321-330",
+    "release_status": "candidate",
+    "live_verified": true,
+    "says": "Player retired (generic 1)"
+   }
+  ],
+  "note": "user triage: Z, played when player receives terminal accident damage (see damage.ini for engine seizure)  [flags: HAS_LEAD]",
+  "triage": {
+   "sdt_index": 118,
+   "text": "Z, played when player receives terminal accident damage (see damage.ini for engine seizure)",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [
+    "HAS_LEAD"
+   ],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

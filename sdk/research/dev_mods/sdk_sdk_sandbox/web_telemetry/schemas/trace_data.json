@@ -1,0 +1,390 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/trace_data.json",
+  "title": "f1c.trace/1 document (/trace/data, /trace/open, /trace/import, legacy import POST)",
+  "type": "object",
+  "required": [
+    "schema",
+    "source",
+    "open",
+    "gen",
+    "rev",
+    "which",
+    "slot",
+    "driver",
+    "car",
+    "ai",
+    "team",
+    "lap",
+    "lap_time",
+    "start_sim",
+    "lap_len",
+    "count",
+    "flags",
+    "channels_seen",
+    "track",
+    "lid",
+    "samples"
+  ],
+  "properties": {
+    "schema": {
+      "const": "f1c.trace/1"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "archive",
+        "legacy",
+        "live",
+        "recording"
+      ]
+    },
+    "open": {
+      "type": "boolean"
+    },
+    "gen": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "rev": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "which": {
+      "type": "string"
+    },
+    "slot": {
+      "type": "integer"
+    },
+    "driver": {
+      "type": "string"
+    },
+    "car": {
+      "type": "string"
+    },
+    "ai": {
+      "type": "integer"
+    },
+    "team": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "lap": {
+      "type": "integer"
+    },
+    "lap_time": {
+      "type": "number"
+    },
+    "lap_time_src": {
+      "description": "1.2.5: recording only. game = lap_time is the game's lap time; derived = no game time, lap_time is the line-to-line time.",
+      "enum": ["game", "derived"]
+    },
+    "derived_lap_time": {
+      "description": "1.2.5: recording only. Line-to-line sim time of the lap (start_sim to the lap change).",
+      "type": "number"
+    },
+    "start_sim": {
+      "type": "number"
+    },
+    "lap_len": {
+      "type": "number",
+      "minimum": 0
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "flags": {
+      "type": "integer"
+    },
+    "channels_seen": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "track": {
+      "type": "string"
+    },
+    "lid": {
+      "type": "object",
+      "description": "stable lap identity: generation + revision + slot + lap + source; imports carry slot -1, lap 0, src import and a per-side serial",
+      "required": [
+        "gen",
+        "rev",
+        "slot",
+        "lap",
+        "src"
+      ],
+      "properties": {
+        "gen": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "rev": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "slot": {
+          "type": "integer"
+        },
+        "lap": {
+          "type": "integer"
+        },
+        "src": {
+          "type": "string",
+          "enum": [
+            "archive",
+            "import",
+            "live",
+            "recording"
+          ]
+        },
+        "serial": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "imports only"
+        }
+      },
+      "additionalProperties": false
+    },
+    "truncated": {
+      "type": "boolean",
+      "description": "response bound cut the sample list"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "lap",
+        "spt"
+      ],
+      "description": "legacy imports only"
+    },
+    "partial": {
+      "type": "boolean",
+      "description": "legacy imports only"
+    },
+    "file": {
+      "type": "object",
+      "required": [
+        "bytes"
+      ],
+      "properties": {
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false,
+      "description": "legacy imports only"
+    },
+    "formulas": {
+      "type": "string",
+      "description": "legacy imports only (parallel-C references)"
+    },
+    "conversions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "legacy imports only; every unit conversion applied"
+    },
+    "reduction": {
+      "type": "object",
+      "required": [
+        "from",
+        "to",
+        "stride"
+      ],
+      "properties": {
+        "from": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "to": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "stride": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false,
+      "description": "present only when a legacy import exceeded the trace ring and was stride-reduced"
+    },
+    "samples": {
+      "type": "array",
+      "maxItems": 3200,
+      "description": "API 10: 3200 = TRACE_SAMPLES (web_telemetry.c); was 2400 in API 9",
+      "items": {
+        "type": "object",
+        "required": [
+          "t",
+          "d",
+          "s",
+          "th",
+          "br",
+          "st",
+          "gl",
+          "go",
+          "gv",
+          "y",
+          "yr",
+          "rpm",
+          "ge",
+          "tx",
+          "tz",
+          "tr",
+          "f",
+          "tt",
+          "rx"
+        ],
+        "properties": {
+          "t": {
+            "type": "number",
+            "description": "session time, s"
+          },
+          "d": {
+            "type": "number",
+            "description": "lap distance, m"
+          },
+          "s": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "speed m/s; valid when f bit 2 set"
+          },
+          "th": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "throttle 0..1; f bit 4"
+          },
+          "br": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "brake 0..1; f bit 8"
+          },
+          "st": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "steering input factor; f bit 16 (AI only)"
+          },
+          "gl": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "lateral accel m/s2; f bit 32"
+          },
+          "go": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "longitudinal accel m/s2; f bit 64"
+          },
+          "gv": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "vertical accel m/s2; f bit 128"
+          },
+          "y": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "yaw rad; f bit 256"
+          },
+          "yr": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "yaw rate rad/s; f bit 512"
+          },
+          "rpm": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "display RPM (already converted); f bit 4096"
+          },
+          "ge": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "gear; f bit 8192"
+          },
+          "tx": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "coordinatesInTrack x; f bit 16384"
+          },
+          "tz": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "coordinatesInTrack z; f bit 16384"
+          },
+          "tr": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "number"
+            },
+            "description": "remaining tread FL,FR,RL,RR 0..1; meaningful when f bit 1024 set"
+          },
+          "f": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "TRF_* validity bits (see API contract)"
+          },
+          "tt": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "number"
+            },
+            "description": "tyre temp C FL,FR,RL,RR; f bit 32768 (bit 1048576 = AI RESEARCH candidate)"
+          },
+          "rx": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "minItems": 16,
+            "maxItems": 16,
+            "items": {
+              "type": "number"
+            },
+            "description": "RESEARCH raw candidates susp/load/slip/force x4; f bits 65536/131072/262144/524288"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "archive": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{8,47}$",
+      "description": "1.0.1 (api_version 7): id of the archived session this document was read from (?session=); absent on live documents"
+    }
+  },
+  "additionalProperties": false
+}

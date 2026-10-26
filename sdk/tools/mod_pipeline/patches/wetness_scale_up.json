@@ -1,0 +1,10 @@
+{
+  "name": "wetness_scale_up",
+  "va": "0x0059e450",
+  "file_offset": "0x19e450",
+  "type": "float",
+  "size": 4,
+  "original_bytes": "0000003f",
+  "new_bytes": "8fc2753d",
+  "new_value": "0.06"
+}

@@ -1,0 +1,400 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 134,
+ "clip": "PWS_MECHANWARN0",
+ "says": "Meatball flag - must pit",
+ "dump_rows_for_clip": [
+  {
+   "eid": 130,
+   "hex": "0x0082",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 128,
+   "sdt_index": 134,
+   "clip_name": "PWS_MECHANWARN0",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 415,
+   "hex": "0x019F",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 128,
+   "sdt_index": 134,
+   "clip_name": "PWS_MECHANWARN0",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  128
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 130,
+   "hex": "0x0082",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 128,
+   "sdt_index": 134,
+   "clip_name": "PWS_MECHANWARN0",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 415,
+   "hex": "0x019F",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 128,
+   "sdt_index": 134,
+   "clip_name": "PWS_MECHANWARN0",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  130
+ ],
+ "literal_hits": {
+  "130": {
+   "emitters": [],
+   "lookups": [],
+   "other_functions": {
+    "count": 23,
+    "first": [
+     "AudioResampler",
+     "ConstructorFieldsVTable",
+     "EnumValueTranslation",
+     "JPEGMarkerParsing",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "ObjectBufferCopyWithValidation",
+     "TireModelDataInit",
+     "VTableAllocNullTerminate",
+     "ZlibDeflateLongestMatch",
+     "sub_417AF0",
+     "sub_530840",
+     "sub_536260",
+     "sub_54A600",
+     "sub_5550E0",
+     "sub_556D60",
+     "sub_557240",
+     "sub_5572B0",
+     "sub_58C255",
+     "sub_58CF35",
+     "sub_59070A",
+     "sub_592924",
+     "sub_59C1E7",
+     "sub_59C30E"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 134 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "EnumValueTranslation",
+    "file": "EnumValueTranslation_00414010.c",
+    "hits": [
+     {
+      "line": 73,
+      "text": "v3 = 134;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:562: {\"id\": \"pws-mechanwarn0-eid130-confirmed-not-131\", \"tier\": \"FACT\", \"date\": \"2026-08-07\", \"what\": \"PWS_MECHANWARN0 ('pit on this laps, the marshals are indicating you have a mechani",
+  "f1c_ida_decompiled\\findings.jsonl:564: {\"id\": \"retire04-two-trigger-design-certain-vs-uncertain-death\", \"tier\": \"DERIVED\", \"date\": \"2026-08-07\", \"what\": \"engine_failure.c's PWS_RETIRE04 (eid 119) firing was split into t"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-005.md:39: | `PWS_MECHANWARN0` | 134 | 130, 415 | generic player mechanical warning — what determines it? |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:91: | 130 | PWS_MECHANWARN0 | StewardObject (0x8ACEE0) dispatches a 'meatball' penalty (black+orange flag = mechanical i | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:92: | 415 | PWS_MECHANWARN0 (alt | Same as eid 130 with context variation | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:287: | `PWS_MECHANWARN0` | 134 | 130,415 | Meatball flag - must pit |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:307: | `PWS_MECHANWARN0` | 134 | 130, 415 | — | Meatball flag - must pit | user triage: Z, player mechanical issues, how to determine this? \\| UPDATE 2026-07-28: marshals indicate mecha",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:297: | `PWS_MECHANWARN0` | 130, 415 | Meatball flag - must pit | eid 415 has no call site |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:192: PWS_AIPIT13, PWS_MECHANWARN0, PWS_MECHPROB27, PWS_MECHPROB28,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:57: | 134 | `PWS_MECHANWARN0` | Z | NEEDS_RESEARCH,HAS_LEAD | Z, player mechanical issues, how to determine this? \\| UPDATE 2026-07-28: marshals indicate mechanical problem, need to lo",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:317: | `PWS_MECHANWARN0` | 134 | 130,415 | Meatball flag - must pit |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:176: | `PWS_MECHANWARN0` | 134 | 130, 415 | user triage: Z, player mechanical issues, how to determine this? |"
+ ],
+ "mod_sources": [
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:445: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:390: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.1\\src\\engine_failure.c:396: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.2\\src\\engine_failure.c:404: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.3\\src\\engine_failure.c:404: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.4\\src\\engine_failure.c:404: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.5\\src\\engine_failure.c:445: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.6\\src\\engine_failure.c:445: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.7\\src\\engine_failure.c:445: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\releases\\WIP_2026-10-12_gearbox_G8\\src\\engine_failure.c:445: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AI_LAT_STAGE1_BEFORE_2026-10-03\\engine_failure.c:375: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AI_RATE_FIX_BEFORE_2026-10-01\\engine_failure.c:372: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X1\\dll\\engine_failure.c:385: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X1B\\dll\\engine_failure.c:387: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X2\\dll\\engine_failure.c:388: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X4\\dll\\engine_failure.c:388: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X5\\dll\\engine_failure.c:389: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDIT_BATCH1_BEFORE_2026-10-07\\dll\\engine_failure.c:396: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDIT_BATCH2_BEFORE_2026-10-07\\dll\\engine_failure.c:396: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDIT_BATCH3_BEFORE_2026-10-07\\dll\\engine_failure.c:397: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDIT_BATCH4_BEFORE_2026-10-07\\dll\\engine_failure.c:397: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\BLOW_FREEZE_BEFORE_2026-10-06\\engine_failure.c:390: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\CONTAINMENT_BEFORE_2026-09-29\\engine_failure.c:177: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\COOLING_FIX_BEFORE_2026-09-28\\engine_failure.c:177: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\COOLING_HEAT_BEFORE_2026-09-28\\engine_failure.c:177: * matches the project's preferred pattern. eid 130 = PWS_MECHANWARN0"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "mechanical_failures",
+    "mod_version": "1.0.7 public (RELEASE_REGISTRY 2026-10-12); dev dll/",
+    "eid": 130,
+    "mechanism": "dll_emit",
+    "condition": "marshals warning 5-30 s after smoke, exhaust or blow-by (say_after EID_MECHWARN)",
+    "source": "development/mods/mechanical_failures/dll/engine_failure.c:454,2889,5120,5384,5745",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Meatball flag - must pit"
+   }
+  ],
+  "note": "user triage: Z, player mechanical issues, how to determine this? | UPDATE 2026-07-28: marshals indicate mechanical problem, need to look into how, no clear implementation idea yet  [flags: NEEDS_RESEARCH,HAS_LEAD]",
+  "triage": {
+   "sdt_index": 134,
+   "text": "Z, player mechanical issues, how to determine this? | UPDATE 2026-07-28: marshals indicate mechanical problem, need to look into how, no clear implementation idea yet",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [
+    "NEEDS_RESEARCH",
+    "HAS_LEAD"
+   ],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

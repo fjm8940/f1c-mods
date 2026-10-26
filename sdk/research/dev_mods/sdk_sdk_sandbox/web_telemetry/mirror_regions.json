@@ -1,0 +1,132 @@
+[
+  {
+    "name": "ADDR_SESSION_TYPE",
+    "address": "0x007C56A4",
+    "size": 8
+  },
+  {
+    "name": "ADDR_RACE_PHASE",
+    "address": "0x007C56A8",
+    "size": 8
+  },
+  {
+    "name": "ADDR_RACE_ACTIVE",
+    "address": "0x007D0308",
+    "size": 8
+  },
+  {
+    "name": "ADDR_VEHICLE_COUNT",
+    "address": "0x005C329C",
+    "size": 8
+  },
+  {
+    "name": "ADDR_VEHICLE_PTR_ARRAY",
+    "address": "0x007C54F0",
+    "size": 416
+  },
+  {
+    "name": "ADDR_TOTAL_LAPS",
+    "address": "0x008ACF8C",
+    "size": 8
+  },
+  {
+    "name": "ADDR_TRACK_CONDITION",
+    "address": "0x007CF3C8",
+    "size": 8
+  },
+  {
+    "name": "ADDR_TRACK_WETNESS",
+    "address": "0x007CF3A4",
+    "size": 8
+  },
+  {
+    "name": "ADDR_CHAMP_MODE",
+    "address": "0x007D0410",
+    "size": 8
+  },
+  {
+    "name": "ADDR_PLAYER_INDEX",
+    "address": "0x007C54DC",
+    "size": 8
+  },
+  {
+    "name": "ADDR_AI_DIFFICULTY",
+    "address": "0x007D01A0",
+    "size": 8
+  },
+  {
+    "name": "ADDR_RACE_TIME_THRESH",
+    "address": "0x008ACF94",
+    "size": 8
+  },
+  {
+    "name": "ADDR_SESSION_TIME",
+    "address": "0x008AFEA0",
+    "size": 8
+  },
+  {
+    "name": "ADDR_STEWARD",
+    "address": "0x008ACEE0",
+    "size": 280
+  },
+  {
+    "name": "ADDR_AIW_PATH",
+    "address": "0x008AC438",
+    "size": 260
+  },
+  {
+    "name": "ADDR_AI_DB_BASE",
+    "address": "0x005EA2C0",
+    "size": 312
+  },
+  {
+    "name": "ADDR_AMBIENT_TEMP",
+    "address": "0x008AFEF0",
+    "size": 8
+  },
+  {
+    "name": "ADDR_TRACK_TEMP",
+    "address": "0x008AFEF4",
+    "size": 8
+  },
+  {
+    "name": "ADDR_ON_WETNESS",
+    "address": "0x008AFEE8",
+    "size": 8
+  },
+  {
+    "name": "ADDR_OFF_WETNESS",
+    "address": "0x008AFEEC",
+    "size": 8
+  },
+  {
+    "name": "ADDR_WHEEL_THERMAL",
+    "address": "0x007C7A00",
+    "size": 4496
+  },
+  {
+    "name": "ADDR_BLISTER_FLAGS",
+    "address": "0x005EC3BC",
+    "size": 16
+  },
+  {
+    "name": "ADDR_WHEEL_LOAD",
+    "address": "0x007C79D0",
+    "size": 3380
+  },
+  {
+    "name": "ADDR_OIL_TEMP_HUD",
+    "address": "0x007C9174",
+    "size": 8
+  },
+  {
+    "name": "ADDR_WATER_TEMP_HUD",
+    "address": "0x007C91B4",
+    "size": 8
+  },
+  {
+    "name": "ADDR_PLAYER_PHYS",
+    "address": "0x007C7428",
+    "size": 7744
+  }
+]

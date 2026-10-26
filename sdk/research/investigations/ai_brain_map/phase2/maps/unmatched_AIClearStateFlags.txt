@@ -1,0 +1,2 @@
+# AIClearStateFlags: offset-like lines with no extracted row (1)
+L6: memset((void *)(this + 17236), 0, 0x50u);

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/track.json",
+  "title": "/track response",
+  "type": "object",
+  "required": ["wc", "pts"],
+  "properties": {
+    "wc": { "type": "integer", "minimum": 0 },
+    "pts": {
+      "type": "array",
+      "maxItems": 3000,
+      "items": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": { "type": "number" }
+      }
+    },
+    "gw": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Additive rc.12: AIW GrooveWidth in metres (0 = not read); map annotation only."
+    },
+    "gww": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Additive rc.12: AIW GrooveWidthWet in metres (0 = not read); map annotation only."
+    },
+    "dl": {
+      "type": "array",
+      "maxItems": 3000,
+      "description": "Additive rc.12: dry driving line [x,z] per waypoint (wp_pos + wp_path[0] * wp_perp; DERIVED). Present only when the length equals wc.",
+      "items": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": { "type": "number" }
+      }
+    },
+    "wl": {
+      "type": "array",
+      "maxItems": 3000,
+      "description": "Additive rc.12: wet driving line [x,z] per waypoint (wp_pos + wp_path[1] * wp_perp; DERIVED). Present only when the length equals wc.",
+      "items": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": { "type": "number" }
+      }
+    }
+  },
+  "additionalProperties": false
+}

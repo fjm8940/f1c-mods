@@ -1,0 +1,476 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 146,
+ "clip": "PWS_YELLOW06",
+ "says": "Sector 3 cleared",
+ "dump_rows_for_clip": [
+  {
+   "eid": 137,
+   "hex": "0x0089",
+   "priority": 40,
+   "cooldown": 5.0,
+   "blocked": false,
+   "score": 140,
+   "sdt_index": 146,
+   "clip_name": "PWS_YELLOW06.mp",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  140
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 137,
+   "hex": "0x0089",
+   "priority": 40,
+   "cooldown": 5.0,
+   "blocked": false,
+   "score": 140,
+   "sdt_index": 146,
+   "clip_name": "PWS_YELLOW06.mp",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  137
+ ],
+ "literal_hits": {
+  "137": {
+   "emitters": [
+    {
+     "function": "AISessionModeTransition",
+     "file": "AISessionModeTransition_004193a0.c",
+     "hits": [
+      {
+       "line": 34,
+       "text": "BooleanOROfTwoChecks(flt_5EA618, 137);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_4BCCC0",
+       "callers": [
+        {
+         "caller": "MainGameTickUpdate",
+         "callers": [
+          {
+           "caller": "GamePostMainLoop",
+           "callers": [
+            {
+             "caller": "GameMainEntry",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "StateTriggerCheck",
+           "callers": [
+            {
+             "caller": "LoadingPhase1",
+             "callers": []
+            },
+            {
+             "caller": "LoadingPhase2",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B9890",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "file": "PitSelectionStateMachine_0041b3c0.c",
+     "hits": [
+      {
+       "line": 55,
+       "text": "DriverDataTableLookupAndTimeConversion(v13, 137, -1, -1, -1, -1, -2.0, -2.0);"
+      },
+      {
+       "line": 139,
+       "text": "BooleanOROfTwoChecks(flt_5EA618, 137);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_4BCCC0",
+       "callers": [
+        {
+         "caller": "MainGameTickUpdate",
+         "callers": [
+          {
+           "caller": "GamePostMainLoop",
+           "callers": [
+            {
+             "caller": "GameMainEntry",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "StateTriggerCheck",
+           "callers": [
+            {
+             "caller": "LoadingPhase1",
+             "callers": []
+            },
+            {
+             "caller": "LoadingPhase2",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B9890",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "caller": "sub_4D1730",
+       "callers": [
+        {
+         "caller": "sub_4D1D80",
+         "callers": []
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 736,
+       "text": "v5 = a4 != 0 ? 137 : 438;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 11,
+    "first": [
+     "FunctionPointerDispatchViaLinkedTraversal",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "SceneGraph",
+     "StaticInitBulk",
+     "TireModelDataInit",
+     "UIControlWindowInitialization",
+     "sub_417AF0",
+     "sub_530840",
+     "sub_53EB70",
+     "sub_54A600",
+     "sub_5550E0"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 146 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": []
+ },
+ "findings": [],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-002.md:87: `PWS_YELLOW04` sdt 142 eid 133 · `PWS_YELLOW05` sdt 144 eid 135 · `PWS_YELLOW06` sdt 146 eid 137",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:197: | `PWS_YELLOW06` | 146 | 137 | 0x0041b3c0 | Sector 3 cleared |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:417: | `PWS_YELLOW06` | 146 | 137 | — | Sector 3 cleared | REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match, but user states with confidence this line has NEV",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:223: | `PWS_YELLOW06` | 137 | Sector 3 cleared | eid 137 live, emitter literal PitSelectionStateMachine_0041b3c0.c:55 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:73: | `PWS_YELLOW06` | 137 | same function | `functions/PitSelectionStateMachine_0041b3c0.c:55` |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002A_yellow_flag_clear.md:7: PWS_YELLOW06 / 146 / 137  (\"Sector 3 cleared\")",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002A_yellow_flag_clear.md:44: - Sector 3 → eid 137 → PWS_YELLOW06",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:164: | 146 | `PWS_YELLOW06` | Z | - | Z, same as above |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:163: | `PWS_YELLOW06` | 146 | 137 | Sector 3 cleared |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:33: | `PWS_YELLOW06` | 146 | 137 | user triage: Z, same as above |"
+ ],
+ "mod_sources": [
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2697: *   eid 133 PWS_YELLOW04  eid 135 YELLOW05  eid 137 YELLOW06  (flag cleared)",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:2757: *   eid 133 PWS_YELLOW04  eid 135 YELLOW05  eid 137 YELLOW06  (flag cleared)",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:2758: *   eid 133 PWS_YELLOW04  eid 135 YELLOW05  eid 137 YELLOW06  (flag cleared)",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9.c:2822: *   eid 133 PWS_YELLOW04  eid 135 YELLOW05  eid 137 YELLOW06  (flag cleared)",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9_protected.c:2854: *   eid 133 PWS_YELLOW04  eid 135 YELLOW05  eid 137 YELLOW06  (flag cleared)",
+  "development\\mods\\full_safety_car_sdk_lab\\dll\\pace_probe_sdk_lab.c:2697: *   eid 133 PWS_YELLOW04  eid 135 YELLOW05  eid 137 YELLOW06  (flag cleared)"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [],
+  "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match, but user states with confidence this line has NEVER fired naturally in real play. Static trace of PitSelectionStateMachine_0041b3c0 shows the emitter IS reached per-frame (on_frame tag, real caller sub_4BCCC0, not a menu trap) and gated on SessionType==7 (race) + RacePhase!=5 + a player-position-band crossing check - all plausible conditions, but user testimony says the real trigger never actually lands. Either the gate condition never becomes true in practice (a bug in the band-crossing logic, or dword_7C54E8+13388 outer byte gate staying nonzero) or a queue-priority conflict eats it every time. Needs live memory watch on the actual condition (dword_7C56A4, dword_7C56A8, the FloatRangeIndexLookup band value) during a real yellow-flag clear event, not another injection test.",
+  "triage": {
+   "sdt_index": 146,
+   "text": "Z, same as above",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

@@ -1,0 +1,2 @@
+# sub_4C6F10: offset-like lines with no extracted row (1)
+L40: if ( !sub_588410(this + 4526, v3) )

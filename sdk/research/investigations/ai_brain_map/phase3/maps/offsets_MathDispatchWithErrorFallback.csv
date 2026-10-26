@@ -1,0 +1,9 @@
+func,line,dec,hex,access,width,base,form,expr
+MathDispatchWithErrorFallback,7,,,CALL,,,call,TLSOffsetGetter
+MathDispatchWithErrorFallback,8,,,CALL,,,call,ReturnFPUControlWord
+MathDispatchWithErrorFallback,14,,,CALL,,,call,FloatParsingWithErrorHandling
+MathDispatchWithErrorFallback,17,,,CALL,,,call,SLODWORD
+MathDispatchWithErrorFallback,18,,,CALL,,,call,SHIDWORD
+MathDispatchWithErrorFallback,19,,,CALL,,,call,COERCE_UNSIGNED_INT64
+MathDispatchWithErrorFallback,20,,,CALL,,,call,HIDWORD
+MathDispatchWithErrorFallback,20,,,CALL,,,call,COERCE_UNSIGNED_INT64

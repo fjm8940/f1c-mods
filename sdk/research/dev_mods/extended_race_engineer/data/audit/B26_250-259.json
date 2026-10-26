@@ -1,0 +1,3045 @@
+{
+ "schema": "ere.audit.v1",
+ "range": "B26_250-259",
+ "method_note": "Exhaustive per-line audit (AUDIT_BRIEF exhaustive method) for SDT 250-259. Every row lists the emitter hits of the 40 DriverDataTable callers (EVF emitter_index.json), dynamic eid candidates read in their functions, eid-lookup tables, reachability to sub_4F1FE0 / LapCompletion / MainGameTickUpdate, gates with file:line, the subclip builder (sub_412E50 / SoundEventDispatcher / RaceEventMessageDispatcher / FontRenderingPrep), and mod sources. Read-only; no live game; the owner exe was read byte-wise for the event table. SUB-CLIP BANK FACT applied 2026-10-18: subclip_resolver fields and sub-clip hits are PC_RE_STITCH indices; removed as evidence (see stitch_recheck per row).",
+ "owner_exe_check": "F1 Challenge Online.exe (sha256 1a70e5ed0c4a059f). Read-only byte check of event table, file offset 0x1BF9A0 (VA 0x5BF9A0), stride 0x14, cooldown float at +0x0C, score at +0x10. eid 235-238 cooldown 6.0; eid 239-243 cooldown 1.0; eid 117-119 cooldown 6.0. Dump agrees. Not a live read.",
+ "verdict_counts": {
+  "NATIVE_ACTIVE": 3,
+  "UNKNOWN": 2,
+  "NOT_ACTIVATED": 5
+ },
+ "contradictions": [
+  {
+   "where": "docs/EMITTER_SPECS.md:244-247",
+   "claim": "eids 239-242 have triggers (241 AI stop/go; 242 AI cut track via sub_4BCCC0 l.183; 239/240 penalty types 8/14)",
+   "code": "no function among the 40 DriverDataTable callers can queue 239-242 (literal grep + EVF emitter_index literal section). AI cut track is eid 253."
+  },
+  {
+   "where": "docs/OBSERVER_TABLE.md:41-44, 314-316",
+   "claim": "AIPENALTY14 (240) track cut, 07 (241) yellow overtake, 05 (242) pitlane speeding, all from sub_4BCCC0",
+   "code": "sub_4BCCC0 -> StopGoPenaltyHandler/DisqualificationHandler -> sub_41A720 queues 151-155 (player) or 252-256 (AI) only"
+  },
+  {
+   "where": "docs/FULL_INVENTORY.md:312-313; progress.json 257,258; OBSERVER_TABLE.md:42-43",
+   "claim": "AIPENALTY05 = AI cutting track (inventory/progress) vs pitlane speeding (owner note, OBSERVER); AIPENALTY07 = AI stop/go (inventory) vs overtake yellow (owner note, OBSERVER)",
+   "code": "label conflict; no code emitter for either"
+  },
+  {
+   "where": "data/progress.json 250,251,252,254",
+   "claim": "'blog-confirmed heard ... and reachable live'",
+   "code": "static path only; AI gates (+16752, 3348, DistanceComparison) not live-proven; reachability claim unsupported here"
+  },
+  {
+   "where": "findings.jsonl:104 vs findings.jsonl:138",
+   "claim": "'13 AI clips DEAD - sub_4BCCC0 never runs for an AI car' then 'sub_4BCCC0 caller RETRACTED as player-only'",
+   "code": "MainGameTickUpdate.c:86-87 gates the call on player +13000 but shows no this; AI capability UNKNOWN - contested, unresolved"
+  },
+  {
+   "where": "AIDriverStateTransition_00419120.c:39 (eid 259) vs SDT 259 (PWS_AIPENALTY22)",
+   "claim": "naming collision",
+   "code": "eid 259 = PWS_AIBLUE03 (dump score 262); SDT 259 = PWS_AIPENALTY22"
+  },
+  {
+   "where": "sub_41A720 AI eids 252-256 vs SDT indices 252-256",
+   "claim": "naming collision",
+   "code": "eid 253 = AI cut track (SDT 269); SDT 253 = PWS_AIRETIRE01 (orphan); eid 256 = AI pit speeding (SDT 272); SDT 256 = PWS_AIPENALTY14"
+  },
+  {
+   "where": "sub_588410 literal 255 (other_functions for AIPENALTY08)",
+   "claim": "subclip hit",
+   "code": "string-compare sentinel, not an SDT or eid"
+  }
+ ],
+ "rows": [
+  {
+   "sdt_index": 250,
+   "eid": 235,
+   "clip": "PWS_AIRETIRE05",
+   "says": "AI blown engine",
+   "score": 238,
+   "priority": 40,
+   "cooldown": 6.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native emitter reachable and unblocked; conditional on AI ReasonCode 1 and the removal path",
+   "situation": "An AI car stops and stays outside the pit area for the owner's Vehicle Removal time with ReasonCode 1 (engine). Game retires it and plays this line. ReasonCode 1 for AI engine failure is written in Mechanical Failures dev source (engine_failure.c:8602 AI_OFF_REASON); installed-build presence not verified here.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41B250 (functions/sub_41B250_0041b250.c:38, v2=235, AI branch)"
+   ],
+   "call_path": "MainGameTickUpdate (0042C690.c:75-79) -> VehicleYawRotationRecoveryController/sub_4F1C40 (004F1C40.c:149) -> sub_4F1FE0 (004F1FE0.c:135) -> sub_41B250 (0041B250.c)",
+   "gates": [
+    "dword_7D0308 && flt_7CF3C8!=0 && dword_7C56A4==7 && dword_7C56A8!=8 && dword_7D0410!=5 (41B250.c:8; live RaceActiveFlag 3, TrackCondition nonzero, SessionType 7, ChampionshipMode 3: findings.jsonl:60,63)",
+    "AI branch: *(dword_7C54E8+18580) != *(a1+18580) (41B250.c:11)",
+    "FinishState veh+0x4064 == 0 (4F1FE0.c:34; findings.jsonl:96)",
+    "AI early return unless *(float*)(veh+16752) >= FLT_MAX (4F1FE0.c:83-86) - OPEN GATE, +16752 meaning UNKNOWN",
+    "sub_4D21D0() true at green (findings.jsonl:94) (4F1FE0.c:107)",
+    "(*this)[3348]!=3 && !DistanceComparison (4F1FE0.c:109) - AI values UNKNOWN",
+    "dwell this[4097] > flt_7D0A8C (4F1FE0.c:113; Vehicle Removal live 60.0, findings.jsonl:688)",
+    "latch: FinishState=2 (4F1FE0.c:138) so the branch is not re-entered",
+    "ReasonCode a1+16488 == 1 (41B250.c:13)"
+   ],
+   "mod": "none queues this eid. Mechanical Failures (installed engine family) supplies the ReasonCode input via dev source only; not a token mod.",
+   "heard_evidence": "progress.json 250: 'blog-confirmed heard (j21csblog 2023-01-21) and reachable live' (blog claim; not owner-live). No TRIAGE_NOTES entry.",
+   "tier": "DERIVED",
+   "notes": "Not FLT_MAX so not blocked. Static only. Live test: owner makes an AI car suffer an engine failure, leaves it out of pits, waits out Vehicle Removal.",
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce [235]; emits only [13, 14, 19, 20]",
+     "line": "AICornerSpeedComparison_00419500.c (literal l.22,26,31,35)"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce [235]; emits only [120, 198, 259]",
+     "line": "AIDriverStateTransition_00419120.c (literal 120 (l.37); literal 259 (l.39) is EID 259 = PWS_AIBLUE03 (dump score 262), not this clip; v11 candidates 120/198 (l.59))"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce [235]; emits only [6, 180, 181, 182]",
+     "line": "AIFormationLap_0041a3a0.c (v3 (l.24) switch l.34-42)"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce [235]; emits only [264]",
+     "line": "AIOutOfTrackEvent_0041a0c0.c (literal l.11)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce [235]; emits only [3, 4, 5, 10, 16, 33, 72, 262]",
+     "line": "AIOvertakeDefendStateChange_00419690.c (v5 (l.61) from l.21,27,29,41,47,54-57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce [235]; emits only [42, 52]",
+     "line": "AIPitStrategyState_0041a200.c (v3 (l.15) from l.13-14)"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce [235]; emits only [7, 8, 9, 17, 18]",
+     "line": "AIPositionChangeEvent_004198b0.c (v6 (l.36) {17,18}; v8 (l.48) {7,8,9})"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce [235]; emits only [1, 2, 41, 272, 273]",
+     "line": "AIRetirementVehicleFailureEvent_004199e0.c (literal l.20,29,47,54,75; race only (l.14))"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce [235]; emits only [55]",
+     "line": "AISessionEventAudio_0041a8c0.c (literal l.10)"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce [235]; emits only [134, 136, 138]",
+     "line": "AISessionModeTransition_004193a0.c (literal l.23,29,35)"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce [235]; emits only [21, 22, 178, 179]",
+     "line": "AISessionPhaseChange_0041a2b0.c (v5 (l.36) from l.17-34)"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce [235]; emits only [95, 97, 99, 101, 105]",
+     "line": "AISessionPhaseCounter_0041aa10.c (literal l.28,31,34,37,45)"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce [235]; emits only [52, 196]",
+     "line": "AIVehicleDamageEvent_0041a170.c (v1 (l.19) from l.10,16)"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce [235]; emits only [423, 424, 488]",
+     "line": "ConstructorStandingsParser_00420820.c (literal l.163,245,255)"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce [235]; emits only [275]",
+     "line": "DisplayMessage0x113_0041a6b0.c (literal l.10)"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce [235]; emits only [284]",
+     "line": "DisplayMessage0x11c_0041a4a0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce [235]; emits only [337]",
+     "line": "DisplayMessage0x151_0041c3e0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce [235]; emits only [514]",
+     "line": "DisplayMessage0x202_0041c090.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce [235]; emits only [74]",
+     "line": "DisplayMessage0x4a_0041b200.c (literal l.9)"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce [235]; emits only [492, 496, 500, 504]",
+     "line": "GdbSeasonSelector_00420cf0.c (literal l.349,358,367,376)"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce [235]; emits only [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170] ...",
+     "line": "PerDriverRaceCommentary_00419c50.c (v2 (l.113) from l.29-103 (157-177); literal l.149 (159), l.159 (261), l.164 (260))"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce [235]; emits only [397, 516, 517, 518, 519, 523, 524, 525, 526, 527, 528, 529, 530, 531] ...",
+     "line": "PitExit_0041c0f0.c (v6 (l.127) from l.29-99 and remap l.103-123)"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce [235]; emits only [506, 507, 509, 510, 511, 512, 513]",
+     "line": "PitRaceStatusMessageDispatcher_0041be60.c (literal l.17-52)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce [235]; emits only [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138]",
+     "line": "PitSelectionStateMachine_0041b3c0.c (literal l.55-168)"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce [235]; emits only [94, 96, 98, 100, 104]",
+     "line": "PitStateSlotActivation_0041ab30.c (literal l.28-45)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce [235]; emits only [355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368] ...",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c (v2 (l.25) = ThunkToFUN004201e0 = sub_4203D0 (returns 355-371 or -1))"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce [235]; emits only [397]",
+     "line": "PositionChangeDetector_00420490.c (literal l.111,189)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce [235]; emits only [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459] ...",
+     "line": "RaceCommentary_0041d630.c (v2 (l.107); v11 (l.148) {397,465}; literal l.158 (474); v14 (l.173) {397,459,460,461}; literal l.191-226 (454,455,456,476))"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce [235]; emits only [427, 483, 484, 485, 486, 487]",
+     "line": "ScoringClassificationDisplay_0041e320.c (literal l.98-245)"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce [235]; emits only [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503]",
+     "line": "SeasonDisplayIDResolver_0041daf0.c (literal l.99-453)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce [235]; emits only [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306] ...",
+     "line": "TeamNameDisplayIDLookup_0041b980.c (v2 (l.189) from string-compare chain l.11-187)"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce [235]; emits only [34, 35, 276, 277, 278, 279]",
+     "line": "TimeBasedMessageChain_0041a500.c (v3 (l.25) from threshold chain l.16-64)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce [235]; emits only [151, 153, 154, 155, 252, 253, 254, 256]",
+     "line": "sub_41A720_0041a720.c (v2 (l.35): player l.14-29 (151,153,155,154); AI l.41-58 (256,253,254,252))"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce [235]; emits only [149, 243]",
+     "line": "sub_41A940_0041a940.c (v2 (l.15): 149 player l.8-12; 243 AI l.19-22)"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce [235]; emits only [208, 211, 212, 213, 214, 215, 216, 217, 220]",
+     "line": "sub_41AC50_0041ac50.c (v2 (l.58) switch l.19-52)"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce [235]; emits only [114, 115, 225, 226]",
+     "line": "sub_41AD80_0041ad80.c (literal l.35,37,43,45,53,72,88)"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce [235]; emits only [106, 107, 108, 109, 110, 111, 221, 222, 223]",
+     "line": "sub_41AFD0_0041afd0.c (literal l.13-48)"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce [235]; emits only [77]",
+     "line": "sub_41B190_0041b190.c (literal l.7)"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "EMITS 235 on AI branch when a1+16488 (ReasonCode veh+0x4068)==1 (l.13 test, l.38 v2=235, l.53 dispatch)",
+     "line": "sub_41B250_0041b250.c (player l.15,19,23 (117-119); AI l.38 (235), l.45 (236), l.47 (237), l.51 (238))"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce [235]; emits only [338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351] ...",
+     "line": "sub_41C440_0041c440.c (v1 = sub_420000 (420000.c l.11-45 returns 338-353 or -1))"
+    },
+    {
+     "function": "sub_4F1FE0 (AI removal path, caller of sub_41B250)",
+     "result": "l.30-34 reads FinishState v4=*(veh+16484); l.36-68 nonzero branch (no emit); l.83-86 AI returns early unless *(float*)(veh+16752) >= FLT_MAX (meaning of +16752 UNKNOWN); l.107 sub_4D21D0() (findings.jsonl:94: 0 for RacePhase 0-4); l.109 (*this)[3348]!=3 && !DistanceComparison (AI values UNKNOWN); l.113 dwell > flt_7D0A8C (Vehicle Removal, live 60.0, findings.jsonl:688); l.135 sub_41B250; l.138 FinishState=2 latch",
+     "line": "sub_4F1FE0_004f1fe0.c:30-149"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController (sub_4F1C40)",
+     "result": "calls sub_4F1FE0(a2) for each car",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c:149"
+    },
+    {
+     "function": "MainGameTickUpdate (per-frame root)",
+     "result": "l.75-79 runs VehicleYawRotationRecoveryController(0.125) for all cars when dword_7C5698 % 50 == 0; l.86-87 sub_4BCCC0(0.025) only if !(player+13000) (this-object not shown by decompile)",
+     "line": "MainGameTickUpdate_0042c690.c:75-87"
+    },
+    {
+     "function": "sub_412E50 (clip-list builder, subclip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): SDT 250-259 reachable as subclip: bank0 type table (a2=0,a4=0) case 11..20 -> 250..259 (l.126,129,132,135,138,141,144,147,150,153); bank1 type table (a2=1,a4=0) case 8..17 -> 250..259 (l.36,39,42,45,48,51,54,57,60,63). Parent eid NOT identified",
+     "line": "sub_412E50_00412e50.c:36-153"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,a3[4],0) for type 0x0E (l.46); sub_412E50(a4,a1,a3[5],0) for types 0x13/0x29 (l.57); bank a1 from ShortComputation_19d0. Parent message carrying enum 8..20 UNKNOWN",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,value,1) for types 0x0B/0x0C/0x33 (l.37): a4=1 selects X table 214-242 -> cannot produce 250-259 as subclip",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:37"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840, clip-list entry)",
+     "result": "RaceEventMessageDispatcher then SoundEventDispatcher (l.36,45); no literal SDT index",
+     "line": "FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_588410 (literal 255 in other_functions)",
+     "result": "number is not an eid or SDT index: string-compare loop sentinel (v6=255, l.24); no emit",
+     "line": "sub_588410_00588410.c:24"
+    },
+    {
+     "function": "eid-lookup tables (step 3)",
+     "result": "dossier literal_hits.lookups empty for every clip in B26; no lookup feeds an emitter with 235-243",
+     "line": "data/line_trace/25x_*.json literal_hits.lookups"
+    },
+    {
+     "function": "other_functions (step 0, non-emitter hits)",
+     "result": "number is not an eid: array sizes/offsets (LargeConfigFunctionWithPhysicsConstants, SeasonDataFileSetupChain, TelemetryDataDump, TireModelInit, VehicleDataCopy, sub_45C400 v15[235], sub_4E3360 v44[235]); none is among the 40 DriverDataTable callers (EVF emitter_index.json, 135 call sites)",
+     "line": "sub_45C400_0045c400.c:13; sub_4E3360_004e3360.c:45"
+    },
+    {
+     "function": "subclip (step 0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): subclip exists: bank0 enum 11 (sub_412E50.c:126), bank1 enum 8 (36); parent UNKNOWN",
+     "line": "sub_412E50_00412e50.c:36,126"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "Main route unchanged: sub_41B250 AI branch emits eid 235 (type 3, no tail) under ReasonCode 1; the subclip_resolver field was removed as a PC_RE_STITCH index."
+   }
+  },
+  {
+   "sdt_index": 251,
+   "eid": 236,
+   "clip": "PWS_AIRETIRE03",
+   "says": "AI ran out of fuel",
+   "score": 239,
+   "priority": 40,
+   "cooldown": 6.0,
+   "verdict": "UNKNOWN",
+   "reason": "emitter path native and unblocked; AI-side source of ReasonCode 9 not proven",
+   "situation": "Would play when an AI car runs out of fuel, stops and is removed (Vehicle Removal) with ReasonCode 9. A native ReasonCode 9 at fuel-empty is described for the PLAYER car (engine_failure.c:6139, 6281 comments); no writer of 9 for AI cars found.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41B250 (functions/sub_41B250_0041b250.c:45, literal 236, AI branch, ReasonCode==9)"
+   ],
+   "call_path": "MainGameTickUpdate (0042C690.c:75-79) -> VehicleYawRotationRecoveryController/sub_4F1C40 (004F1C40.c:149) -> sub_4F1FE0 (004F1FE0.c:135) -> sub_41B250 (0041B250.c)",
+   "gates": [
+    "dword_7D0308 && flt_7CF3C8!=0 && dword_7C56A4==7 && dword_7C56A8!=8 && dword_7D0410!=5 (41B250.c:8; live RaceActiveFlag 3, TrackCondition nonzero, SessionType 7, ChampionshipMode 3: findings.jsonl:60,63)",
+    "AI branch: *(dword_7C54E8+18580) != *(a1+18580) (41B250.c:11)",
+    "FinishState veh+0x4064 == 0 (4F1FE0.c:34; findings.jsonl:96)",
+    "AI early return unless *(float*)(veh+16752) >= FLT_MAX (4F1FE0.c:83-86) - OPEN GATE, +16752 meaning UNKNOWN",
+    "sub_4D21D0() true at green (findings.jsonl:94) (4F1FE0.c:107)",
+    "(*this)[3348]!=3 && !DistanceComparison (4F1FE0.c:109) - AI values UNKNOWN",
+    "dwell this[4097] > flt_7D0A8C (4F1FE0.c:113; Vehicle Removal live 60.0, findings.jsonl:688)",
+    "latch: FinishState=2 (4F1FE0.c:138) so the branch is not re-entered",
+    "ReasonCode a1+16488 == 9 (41B250.c:44)"
+   ],
+   "mod": "none. Mechanical Failures writes 9 for the player fuel pump only (engine_failure.c:6073, PLR_VEH).",
+   "heard_evidence": "progress.json 251: 'blog-confirmed heard ... reachable live' (blog claim).",
+   "tier": "DERIVED",
+   "notes": "Missing to decide: static proof that the native code sets AI veh+0x4068 to 9 at fuel-empty, or a live read of an AI car's ReasonCode after fuel-out.",
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce [236]; emits only [13, 14, 19, 20]",
+     "line": "AICornerSpeedComparison_00419500.c (literal l.22,26,31,35)"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce [236]; emits only [120, 198, 259]",
+     "line": "AIDriverStateTransition_00419120.c (literal 120 (l.37); literal 259 (l.39) is EID 259 = PWS_AIBLUE03 (dump score 262), not this clip; v11 candidates 120/198 (l.59))"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce [236]; emits only [6, 180, 181, 182]",
+     "line": "AIFormationLap_0041a3a0.c (v3 (l.24) switch l.34-42)"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce [236]; emits only [264]",
+     "line": "AIOutOfTrackEvent_0041a0c0.c (literal l.11)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce [236]; emits only [3, 4, 5, 10, 16, 33, 72, 262]",
+     "line": "AIOvertakeDefendStateChange_00419690.c (v5 (l.61) from l.21,27,29,41,47,54-57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce [236]; emits only [42, 52]",
+     "line": "AIPitStrategyState_0041a200.c (v3 (l.15) from l.13-14)"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce [236]; emits only [7, 8, 9, 17, 18]",
+     "line": "AIPositionChangeEvent_004198b0.c (v6 (l.36) {17,18}; v8 (l.48) {7,8,9})"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce [236]; emits only [1, 2, 41, 272, 273]",
+     "line": "AIRetirementVehicleFailureEvent_004199e0.c (literal l.20,29,47,54,75; race only (l.14))"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce [236]; emits only [55]",
+     "line": "AISessionEventAudio_0041a8c0.c (literal l.10)"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce [236]; emits only [134, 136, 138]",
+     "line": "AISessionModeTransition_004193a0.c (literal l.23,29,35)"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce [236]; emits only [21, 22, 178, 179]",
+     "line": "AISessionPhaseChange_0041a2b0.c (v5 (l.36) from l.17-34)"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce [236]; emits only [95, 97, 99, 101, 105]",
+     "line": "AISessionPhaseCounter_0041aa10.c (literal l.28,31,34,37,45)"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce [236]; emits only [52, 196]",
+     "line": "AIVehicleDamageEvent_0041a170.c (v1 (l.19) from l.10,16)"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce [236]; emits only [423, 424, 488]",
+     "line": "ConstructorStandingsParser_00420820.c (literal l.163,245,255)"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce [236]; emits only [275]",
+     "line": "DisplayMessage0x113_0041a6b0.c (literal l.10)"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce [236]; emits only [284]",
+     "line": "DisplayMessage0x11c_0041a4a0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce [236]; emits only [337]",
+     "line": "DisplayMessage0x151_0041c3e0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce [236]; emits only [514]",
+     "line": "DisplayMessage0x202_0041c090.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce [236]; emits only [74]",
+     "line": "DisplayMessage0x4a_0041b200.c (literal l.9)"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce [236]; emits only [492, 496, 500, 504]",
+     "line": "GdbSeasonSelector_00420cf0.c (literal l.349,358,367,376)"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce [236]; emits only [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170] ...",
+     "line": "PerDriverRaceCommentary_00419c50.c (v2 (l.113) from l.29-103 (157-177); literal l.149 (159), l.159 (261), l.164 (260))"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce [236]; emits only [397, 516, 517, 518, 519, 523, 524, 525, 526, 527, 528, 529, 530, 531] ...",
+     "line": "PitExit_0041c0f0.c (v6 (l.127) from l.29-99 and remap l.103-123)"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce [236]; emits only [506, 507, 509, 510, 511, 512, 513]",
+     "line": "PitRaceStatusMessageDispatcher_0041be60.c (literal l.17-52)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce [236]; emits only [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138]",
+     "line": "PitSelectionStateMachine_0041b3c0.c (literal l.55-168)"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce [236]; emits only [94, 96, 98, 100, 104]",
+     "line": "PitStateSlotActivation_0041ab30.c (literal l.28-45)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce [236]; emits only [355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368] ...",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c (v2 (l.25) = ThunkToFUN004201e0 = sub_4203D0 (returns 355-371 or -1))"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce [236]; emits only [397]",
+     "line": "PositionChangeDetector_00420490.c (literal l.111,189)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce [236]; emits only [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459] ...",
+     "line": "RaceCommentary_0041d630.c (v2 (l.107); v11 (l.148) {397,465}; literal l.158 (474); v14 (l.173) {397,459,460,461}; literal l.191-226 (454,455,456,476))"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce [236]; emits only [427, 483, 484, 485, 486, 487]",
+     "line": "ScoringClassificationDisplay_0041e320.c (literal l.98-245)"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce [236]; emits only [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503]",
+     "line": "SeasonDisplayIDResolver_0041daf0.c (literal l.99-453)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce [236]; emits only [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306] ...",
+     "line": "TeamNameDisplayIDLookup_0041b980.c (v2 (l.189) from string-compare chain l.11-187)"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce [236]; emits only [34, 35, 276, 277, 278, 279]",
+     "line": "TimeBasedMessageChain_0041a500.c (v3 (l.25) from threshold chain l.16-64)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce [236]; emits only [151, 153, 154, 155, 252, 253, 254, 256]",
+     "line": "sub_41A720_0041a720.c (v2 (l.35): player l.14-29 (151,153,155,154); AI l.41-58 (256,253,254,252))"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce [236]; emits only [149, 243]",
+     "line": "sub_41A940_0041a940.c (v2 (l.15): 149 player l.8-12; 243 AI l.19-22)"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce [236]; emits only [208, 211, 212, 213, 214, 215, 216, 217, 220]",
+     "line": "sub_41AC50_0041ac50.c (v2 (l.58) switch l.19-52)"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce [236]; emits only [114, 115, 225, 226]",
+     "line": "sub_41AD80_0041ad80.c (literal l.35,37,43,45,53,72,88)"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce [236]; emits only [106, 107, 108, 109, 110, 111, 221, 222, 223]",
+     "line": "sub_41AFD0_0041afd0.c (literal l.13-48)"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce [236]; emits only [77]",
+     "line": "sub_41B190_0041b190.c (literal l.7)"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "EMITS 236 on AI branch when ReasonCode==9 (l.44 test, l.45 literal 236)",
+     "line": "sub_41B250_0041b250.c (player l.15,19,23 (117-119); AI l.38 (235), l.45 (236), l.47 (237), l.51 (238))"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce [236]; emits only [338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351] ...",
+     "line": "sub_41C440_0041c440.c (v1 = sub_420000 (420000.c l.11-45 returns 338-353 or -1))"
+    },
+    {
+     "function": "sub_4F1FE0 (AI removal path, caller of sub_41B250)",
+     "result": "l.30-34 reads FinishState v4=*(veh+16484); l.36-68 nonzero branch (no emit); l.83-86 AI returns early unless *(float*)(veh+16752) >= FLT_MAX (meaning of +16752 UNKNOWN); l.107 sub_4D21D0() (findings.jsonl:94: 0 for RacePhase 0-4); l.109 (*this)[3348]!=3 && !DistanceComparison (AI values UNKNOWN); l.113 dwell > flt_7D0A8C (Vehicle Removal, live 60.0, findings.jsonl:688); l.135 sub_41B250; l.138 FinishState=2 latch",
+     "line": "sub_4F1FE0_004f1fe0.c:30-149"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController (sub_4F1C40)",
+     "result": "calls sub_4F1FE0(a2) for each car",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c:149"
+    },
+    {
+     "function": "MainGameTickUpdate (per-frame root)",
+     "result": "l.75-79 runs VehicleYawRotationRecoveryController(0.125) for all cars when dword_7C5698 % 50 == 0; l.86-87 sub_4BCCC0(0.025) only if !(player+13000) (this-object not shown by decompile)",
+     "line": "MainGameTickUpdate_0042c690.c:75-87"
+    },
+    {
+     "function": "sub_412E50 (clip-list builder, subclip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): SDT 250-259 reachable as subclip: bank0 type table (a2=0,a4=0) case 11..20 -> 250..259 (l.126,129,132,135,138,141,144,147,150,153); bank1 type table (a2=1,a4=0) case 8..17 -> 250..259 (l.36,39,42,45,48,51,54,57,60,63). Parent eid NOT identified",
+     "line": "sub_412E50_00412e50.c:36-153"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,a3[4],0) for type 0x0E (l.46); sub_412E50(a4,a1,a3[5],0) for types 0x13/0x29 (l.57); bank a1 from ShortComputation_19d0. Parent message carrying enum 8..20 UNKNOWN",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,value,1) for types 0x0B/0x0C/0x33 (l.37): a4=1 selects X table 214-242 -> cannot produce 250-259 as subclip",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:37"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840, clip-list entry)",
+     "result": "RaceEventMessageDispatcher then SoundEventDispatcher (l.36,45); no literal SDT index",
+     "line": "FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_588410 (literal 255 in other_functions)",
+     "result": "number is not an eid or SDT index: string-compare loop sentinel (v6=255, l.24); no emit",
+     "line": "sub_588410_00588410.c:24"
+    },
+    {
+     "function": "eid-lookup tables (step 3)",
+     "result": "dossier literal_hits.lookups empty for every clip in B26; no lookup feeds an emitter with 235-243",
+     "line": "data/line_trace/25x_*.json literal_hits.lookups"
+    },
+    {
+     "function": "other_functions (step 0, non-emitter hits)",
+     "result": "number is not an eid: array sizes/offsets (LargeConfigFunctionWithPhysicsConstants, SeasonDataFileSetupChain, TelemetryDataDump, TireModelInit, VehicleDataCopy, sub_45C400 v15[235], sub_4E3360 v44[235]); none is among the 40 DriverDataTable callers (EVF emitter_index.json, 135 call sites)",
+     "line": "sub_45C400_0045c400.c:13; sub_4E3360_004e3360.c:45"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "UNKNOWN",
+    "why": "Verdict kept on independent evidence: the AI-side source of ReasonCode 9 is unproven. The sub-clip bank index was never a route to PC_RE_MAIN sdt 251."
+   }
+  },
+  {
+   "sdt_index": 252,
+   "eid": 237,
+   "clip": "PWS_AIRETIRE02",
+   "says": "AI retired (generic 2)",
+   "score": 240,
+   "priority": 40,
+   "cooldown": 6.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native emitter reachable and unblocked (default ReasonCode branch)",
+   "situation": "An AI car stops on track and stays out of the pit area for the Vehicle Removal time with a ReasonCode other than 1, 4 or 9 (for example 0, which stationary removals leave, findings.jsonl:688). Game retires it and plays this generic line.",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41B250 (functions/sub_41B250_0041b250.c:47, literal 237, AI default branch)"
+   ],
+   "call_path": "MainGameTickUpdate (0042C690.c:75-79) -> VehicleYawRotationRecoveryController/sub_4F1C40 (004F1C40.c:149) -> sub_4F1FE0 (004F1FE0.c:135) -> sub_41B250 (0041B250.c)",
+   "gates": [
+    "dword_7D0308 && flt_7CF3C8!=0 && dword_7C56A4==7 && dword_7C56A8!=8 && dword_7D0410!=5 (41B250.c:8; live RaceActiveFlag 3, TrackCondition nonzero, SessionType 7, ChampionshipMode 3: findings.jsonl:60,63)",
+    "AI branch: *(dword_7C54E8+18580) != *(a1+18580) (41B250.c:11)",
+    "FinishState veh+0x4064 == 0 (4F1FE0.c:34; findings.jsonl:96)",
+    "AI early return unless *(float*)(veh+16752) >= FLT_MAX (4F1FE0.c:83-86) - OPEN GATE, +16752 meaning UNKNOWN",
+    "sub_4D21D0() true at green (findings.jsonl:94) (4F1FE0.c:107)",
+    "(*this)[3348]!=3 && !DistanceComparison (4F1FE0.c:109) - AI values UNKNOWN",
+    "dwell this[4097] > flt_7D0A8C (4F1FE0.c:113; Vehicle Removal live 60.0, findings.jsonl:688)",
+    "latch: FinishState=2 (4F1FE0.c:138) so the branch is not re-entered",
+    "ReasonCode not in {1,4,9} (41B250.c:40-47)"
+   ],
+   "mod": "pitstop_failures 1.1.4-rc.1 ALSO queues eid 237 via voice(car,237) at pitstop_modding/release_candidates/pitstop_failures-v1.1.4-rc.1/source/live_client.cpp:628 (observe_retirement: DNF and garaged). Real eid queue, not token_only: a garage DNF can double-queue this line. pitstop_failures is loaded in the owner game.",
+   "heard_evidence": "progress.json 252: 'blog-confirmed heard ... reachable live' (blog claim).",
+   "tier": "DERIVED",
+   "notes": "Static path only; AI gates (+16752, 3348, DistanceComparison) not live-proven. Overlap with pit mod noted.",
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce [237]; emits only [13, 14, 19, 20]",
+     "line": "AICornerSpeedComparison_00419500.c (literal l.22,26,31,35)"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce [237]; emits only [120, 198, 259]",
+     "line": "AIDriverStateTransition_00419120.c (literal 120 (l.37); literal 259 (l.39) is EID 259 = PWS_AIBLUE03 (dump score 262), not this clip; v11 candidates 120/198 (l.59))"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce [237]; emits only [6, 180, 181, 182]",
+     "line": "AIFormationLap_0041a3a0.c (v3 (l.24) switch l.34-42)"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce [237]; emits only [264]",
+     "line": "AIOutOfTrackEvent_0041a0c0.c (literal l.11)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce [237]; emits only [3, 4, 5, 10, 16, 33, 72, 262]",
+     "line": "AIOvertakeDefendStateChange_00419690.c (v5 (l.61) from l.21,27,29,41,47,54-57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce [237]; emits only [42, 52]",
+     "line": "AIPitStrategyState_0041a200.c (v3 (l.15) from l.13-14)"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce [237]; emits only [7, 8, 9, 17, 18]",
+     "line": "AIPositionChangeEvent_004198b0.c (v6 (l.36) {17,18}; v8 (l.48) {7,8,9})"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce [237]; emits only [1, 2, 41, 272, 273]",
+     "line": "AIRetirementVehicleFailureEvent_004199e0.c (literal l.20,29,47,54,75; race only (l.14))"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce [237]; emits only [55]",
+     "line": "AISessionEventAudio_0041a8c0.c (literal l.10)"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce [237]; emits only [134, 136, 138]",
+     "line": "AISessionModeTransition_004193a0.c (literal l.23,29,35)"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce [237]; emits only [21, 22, 178, 179]",
+     "line": "AISessionPhaseChange_0041a2b0.c (v5 (l.36) from l.17-34)"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce [237]; emits only [95, 97, 99, 101, 105]",
+     "line": "AISessionPhaseCounter_0041aa10.c (literal l.28,31,34,37,45)"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce [237]; emits only [52, 196]",
+     "line": "AIVehicleDamageEvent_0041a170.c (v1 (l.19) from l.10,16)"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce [237]; emits only [423, 424, 488]",
+     "line": "ConstructorStandingsParser_00420820.c (literal l.163,245,255)"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce [237]; emits only [275]",
+     "line": "DisplayMessage0x113_0041a6b0.c (literal l.10)"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce [237]; emits only [284]",
+     "line": "DisplayMessage0x11c_0041a4a0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce [237]; emits only [337]",
+     "line": "DisplayMessage0x151_0041c3e0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce [237]; emits only [514]",
+     "line": "DisplayMessage0x202_0041c090.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce [237]; emits only [74]",
+     "line": "DisplayMessage0x4a_0041b200.c (literal l.9)"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce [237]; emits only [492, 496, 500, 504]",
+     "line": "GdbSeasonSelector_00420cf0.c (literal l.349,358,367,376)"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce [237]; emits only [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170] ...",
+     "line": "PerDriverRaceCommentary_00419c50.c (v2 (l.113) from l.29-103 (157-177); literal l.149 (159), l.159 (261), l.164 (260))"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce [237]; emits only [397, 516, 517, 518, 519, 523, 524, 525, 526, 527, 528, 529, 530, 531] ...",
+     "line": "PitExit_0041c0f0.c (v6 (l.127) from l.29-99 and remap l.103-123)"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce [237]; emits only [506, 507, 509, 510, 511, 512, 513]",
+     "line": "PitRaceStatusMessageDispatcher_0041be60.c (literal l.17-52)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce [237]; emits only [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138]",
+     "line": "PitSelectionStateMachine_0041b3c0.c (literal l.55-168)"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce [237]; emits only [94, 96, 98, 100, 104]",
+     "line": "PitStateSlotActivation_0041ab30.c (literal l.28-45)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce [237]; emits only [355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368] ...",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c (v2 (l.25) = ThunkToFUN004201e0 = sub_4203D0 (returns 355-371 or -1))"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce [237]; emits only [397]",
+     "line": "PositionChangeDetector_00420490.c (literal l.111,189)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce [237]; emits only [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459] ...",
+     "line": "RaceCommentary_0041d630.c (v2 (l.107); v11 (l.148) {397,465}; literal l.158 (474); v14 (l.173) {397,459,460,461}; literal l.191-226 (454,455,456,476))"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce [237]; emits only [427, 483, 484, 485, 486, 487]",
+     "line": "ScoringClassificationDisplay_0041e320.c (literal l.98-245)"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce [237]; emits only [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503]",
+     "line": "SeasonDisplayIDResolver_0041daf0.c (literal l.99-453)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce [237]; emits only [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306] ...",
+     "line": "TeamNameDisplayIDLookup_0041b980.c (v2 (l.189) from string-compare chain l.11-187)"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce [237]; emits only [34, 35, 276, 277, 278, 279]",
+     "line": "TimeBasedMessageChain_0041a500.c (v3 (l.25) from threshold chain l.16-64)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce [237]; emits only [151, 153, 154, 155, 252, 253, 254, 256]",
+     "line": "sub_41A720_0041a720.c (v2 (l.35): player l.14-29 (151,153,155,154); AI l.41-58 (256,253,254,252))"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce [237]; emits only [149, 243]",
+     "line": "sub_41A940_0041a940.c (v2 (l.15): 149 player l.8-12; 243 AI l.19-22)"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce [237]; emits only [208, 211, 212, 213, 214, 215, 216, 217, 220]",
+     "line": "sub_41AC50_0041ac50.c (v2 (l.58) switch l.19-52)"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce [237]; emits only [114, 115, 225, 226]",
+     "line": "sub_41AD80_0041ad80.c (literal l.35,37,43,45,53,72,88)"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce [237]; emits only [106, 107, 108, 109, 110, 111, 221, 222, 223]",
+     "line": "sub_41AFD0_0041afd0.c (literal l.13-48)"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce [237]; emits only [77]",
+     "line": "sub_41B190_0041b190.c (literal l.7)"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "EMITS 237 on AI branch as default ReasonCode (not 1, 4, 9): l.46-47 literal 237 with subject a1+18588",
+     "line": "sub_41B250_0041b250.c (player l.15,19,23 (117-119); AI l.38 (235), l.45 (236), l.47 (237), l.51 (238))"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce [237]; emits only [338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351] ...",
+     "line": "sub_41C440_0041c440.c (v1 = sub_420000 (420000.c l.11-45 returns 338-353 or -1))"
+    },
+    {
+     "function": "sub_4F1FE0 (AI removal path, caller of sub_41B250)",
+     "result": "l.30-34 reads FinishState v4=*(veh+16484); l.36-68 nonzero branch (no emit); l.83-86 AI returns early unless *(float*)(veh+16752) >= FLT_MAX (meaning of +16752 UNKNOWN); l.107 sub_4D21D0() (findings.jsonl:94: 0 for RacePhase 0-4); l.109 (*this)[3348]!=3 && !DistanceComparison (AI values UNKNOWN); l.113 dwell > flt_7D0A8C (Vehicle Removal, live 60.0, findings.jsonl:688); l.135 sub_41B250; l.138 FinishState=2 latch",
+     "line": "sub_4F1FE0_004f1fe0.c:30-149"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController (sub_4F1C40)",
+     "result": "calls sub_4F1FE0(a2) for each car",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c:149"
+    },
+    {
+     "function": "MainGameTickUpdate (per-frame root)",
+     "result": "l.75-79 runs VehicleYawRotationRecoveryController(0.125) for all cars when dword_7C5698 % 50 == 0; l.86-87 sub_4BCCC0(0.025) only if !(player+13000) (this-object not shown by decompile)",
+     "line": "MainGameTickUpdate_0042c690.c:75-87"
+    },
+    {
+     "function": "sub_412E50 (clip-list builder, subclip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): SDT 250-259 reachable as subclip: bank0 type table (a2=0,a4=0) case 11..20 -> 250..259 (l.126,129,132,135,138,141,144,147,150,153); bank1 type table (a2=1,a4=0) case 8..17 -> 250..259 (l.36,39,42,45,48,51,54,57,60,63). Parent eid NOT identified",
+     "line": "sub_412E50_00412e50.c:36-153"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,a3[4],0) for type 0x0E (l.46); sub_412E50(a4,a1,a3[5],0) for types 0x13/0x29 (l.57); bank a1 from ShortComputation_19d0. Parent message carrying enum 8..20 UNKNOWN",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,value,1) for types 0x0B/0x0C/0x33 (l.37): a4=1 selects X table 214-242 -> cannot produce 250-259 as subclip",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:37"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840, clip-list entry)",
+     "result": "RaceEventMessageDispatcher then SoundEventDispatcher (l.36,45); no literal SDT index",
+     "line": "FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_588410 (literal 255 in other_functions)",
+     "result": "number is not an eid or SDT index: string-compare loop sentinel (v6=255, l.24); no emit",
+     "line": "sub_588410_00588410.c:24"
+    },
+    {
+     "function": "eid-lookup tables (step 3)",
+     "result": "dossier literal_hits.lookups empty for every clip in B26; no lookup feeds an emitter with 235-243",
+     "line": "data/line_trace/25x_*.json literal_hits.lookups"
+    },
+    {
+     "function": "other_functions (step 0, non-emitter hits)",
+     "result": "number is not an eid: array sizes/offsets (LargeConfigFunctionWithPhysicsConstants, SeasonDataFileSetupChain, TelemetryDataDump, TireModelInit, VehicleDataCopy, sub_45C400 v15[235], sub_4E3360 v44[235]); none is among the 40 DriverDataTable callers (EVF emitter_index.json, 135 call sites)",
+     "line": "sub_45C400_0045c400.c:13; sub_4E3360_004e3360.c:45"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "Main route unchanged: sub_41B250 default branch emits eid 237 (type 0x13 parent; its main clip is sdt 252). The subclip_resolver field was removed as evidence."
+   }
+  },
+  {
+   "sdt_index": 253,
+   "eid": null,
+   "clip": "PWS_AIRETIRE01",
+   "says": "AI retired (generic 1)",
+   "score": null,
+   "priority": null,
+   "cooldown": null,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "orphan_clip (no event row maps to SDT 253; no emitter queues it)",
+   "situation": "Would be a generic AI retirement variant 1, same situation as PWS_AIRETIRE02. The game never queues it.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No trigger in code for this clip: the generic branch of sub_41B250 always uses 237 (41B250.c:47).",
+   "emitters": [],
+   "call_path": "n/a (no emitter)",
+   "gates": [],
+   "mod": "none",
+   "heard_evidence": "progress.json 253: 'blog-confirmed heard, but not reachable live (blocked/orphaned) - check sibling variant' (source user). DUMP_RESULTS.md:58 lists it with siblings 250-254. findings.jsonl:71: all 23 orphans unreachable.",
+   "tier": "CONFIRMED",
+   "notes": "No event row, no score and no PC_RE_MAIN route. The only sub-clip index naming sdt 253 (sub_412E50 bank0 enum 14 / bank1 enum 11) is a PC_RE_STITCH index and is not evidence (SUB-CLIP BANK FACT). eid 253 is a DIFFERENT clip (AI cut track, SDT 269).",
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce []; emits only [13, 14, 19, 20]",
+     "line": "AICornerSpeedComparison_00419500.c (literal l.22,26,31,35)"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce []; emits only [120, 198, 259]",
+     "line": "AIDriverStateTransition_00419120.c (literal 120 (l.37); literal 259 (l.39) is EID 259 = PWS_AIBLUE03 (dump score 262), not this clip; v11 candidates 120/198 (l.59))"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce []; emits only [6, 180, 181, 182]",
+     "line": "AIFormationLap_0041a3a0.c (v3 (l.24) switch l.34-42)"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce []; emits only [264]",
+     "line": "AIOutOfTrackEvent_0041a0c0.c (literal l.11)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce []; emits only [3, 4, 5, 10, 16, 33, 72, 262]",
+     "line": "AIOvertakeDefendStateChange_00419690.c (v5 (l.61) from l.21,27,29,41,47,54-57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce []; emits only [42, 52]",
+     "line": "AIPitStrategyState_0041a200.c (v3 (l.15) from l.13-14)"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce []; emits only [7, 8, 9, 17, 18]",
+     "line": "AIPositionChangeEvent_004198b0.c (v6 (l.36) {17,18}; v8 (l.48) {7,8,9})"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce []; emits only [1, 2, 41, 272, 273]",
+     "line": "AIRetirementVehicleFailureEvent_004199e0.c (literal l.20,29,47,54,75; race only (l.14))"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce []; emits only [55]",
+     "line": "AISessionEventAudio_0041a8c0.c (literal l.10)"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce []; emits only [134, 136, 138]",
+     "line": "AISessionModeTransition_004193a0.c (literal l.23,29,35)"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce []; emits only [21, 22, 178, 179]",
+     "line": "AISessionPhaseChange_0041a2b0.c (v5 (l.36) from l.17-34)"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce []; emits only [95, 97, 99, 101, 105]",
+     "line": "AISessionPhaseCounter_0041aa10.c (literal l.28,31,34,37,45)"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce []; emits only [52, 196]",
+     "line": "AIVehicleDamageEvent_0041a170.c (v1 (l.19) from l.10,16)"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce []; emits only [423, 424, 488]",
+     "line": "ConstructorStandingsParser_00420820.c (literal l.163,245,255)"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce []; emits only [275]",
+     "line": "DisplayMessage0x113_0041a6b0.c (literal l.10)"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce []; emits only [284]",
+     "line": "DisplayMessage0x11c_0041a4a0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce []; emits only [337]",
+     "line": "DisplayMessage0x151_0041c3e0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce []; emits only [514]",
+     "line": "DisplayMessage0x202_0041c090.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce []; emits only [74]",
+     "line": "DisplayMessage0x4a_0041b200.c (literal l.9)"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce []; emits only [492, 496, 500, 504]",
+     "line": "GdbSeasonSelector_00420cf0.c (literal l.349,358,367,376)"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce []; emits only [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170] ...",
+     "line": "PerDriverRaceCommentary_00419c50.c (v2 (l.113) from l.29-103 (157-177); literal l.149 (159), l.159 (261), l.164 (260))"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce []; emits only [397, 516, 517, 518, 519, 523, 524, 525, 526, 527, 528, 529, 530, 531] ...",
+     "line": "PitExit_0041c0f0.c (v6 (l.127) from l.29-99 and remap l.103-123)"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce []; emits only [506, 507, 509, 510, 511, 512, 513]",
+     "line": "PitRaceStatusMessageDispatcher_0041be60.c (literal l.17-52)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce []; emits only [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138]",
+     "line": "PitSelectionStateMachine_0041b3c0.c (literal l.55-168)"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce []; emits only [94, 96, 98, 100, 104]",
+     "line": "PitStateSlotActivation_0041ab30.c (literal l.28-45)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce []; emits only [355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368] ...",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c (v2 (l.25) = ThunkToFUN004201e0 = sub_4203D0 (returns 355-371 or -1))"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce []; emits only [397]",
+     "line": "PositionChangeDetector_00420490.c (literal l.111,189)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce []; emits only [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459] ...",
+     "line": "RaceCommentary_0041d630.c (v2 (l.107); v11 (l.148) {397,465}; literal l.158 (474); v14 (l.173) {397,459,460,461}; literal l.191-226 (454,455,456,476))"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce []; emits only [427, 483, 484, 485, 486, 487]",
+     "line": "ScoringClassificationDisplay_0041e320.c (literal l.98-245)"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce []; emits only [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503]",
+     "line": "SeasonDisplayIDResolver_0041daf0.c (literal l.99-453)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce []; emits only [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306] ...",
+     "line": "TeamNameDisplayIDLookup_0041b980.c (v2 (l.189) from string-compare chain l.11-187)"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce []; emits only [34, 35, 276, 277, 278, 279]",
+     "line": "TimeBasedMessageChain_0041a500.c (v3 (l.25) from threshold chain l.16-64)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce []; emits only [151, 153, 154, 155, 252, 253, 254, 256]",
+     "line": "sub_41A720_0041a720.c (v2 (l.35): player l.14-29 (151,153,155,154); AI l.41-58 (256,253,254,252))"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce []; emits only [149, 243]",
+     "line": "sub_41A940_0041a940.c (v2 (l.15): 149 player l.8-12; 243 AI l.19-22)"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce []; emits only [208, 211, 212, 213, 214, 215, 216, 217, 220]",
+     "line": "sub_41AC50_0041ac50.c (v2 (l.58) switch l.19-52)"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce []; emits only [114, 115, 225, 226]",
+     "line": "sub_41AD80_0041ad80.c (literal l.35,37,43,45,53,72,88)"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce []; emits only [106, 107, 108, 109, 110, 111, 221, 222, 223]",
+     "line": "sub_41AFD0_0041afd0.c (literal l.13-48)"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce []; emits only [77]",
+     "line": "sub_41B190_0041b190.c (literal l.7)"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce SDT 253: no literal 253 and no eid. Generic AI branch emits 237 only (41B250.c:47)",
+     "line": "sub_41B250_0041b250.c (player l.15,19,23 (117-119); AI l.38 (235), l.45 (236), l.47 (237), l.51 (238))"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce []; emits only [338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351] ...",
+     "line": "sub_41C440_0041c440.c (v1 = sub_420000 (420000.c l.11-45 returns 338-353 or -1))"
+    },
+    {
+     "function": "sub_4F1FE0 (AI removal path, caller of sub_41B250)",
+     "result": "l.30-34 reads FinishState v4=*(veh+16484); l.36-68 nonzero branch (no emit); l.83-86 AI returns early unless *(float*)(veh+16752) >= FLT_MAX (meaning of +16752 UNKNOWN); l.107 sub_4D21D0() (findings.jsonl:94: 0 for RacePhase 0-4); l.109 (*this)[3348]!=3 && !DistanceComparison (AI values UNKNOWN); l.113 dwell > flt_7D0A8C (Vehicle Removal, live 60.0, findings.jsonl:688); l.135 sub_41B250; l.138 FinishState=2 latch",
+     "line": "sub_4F1FE0_004f1fe0.c:30-149"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController (sub_4F1C40)",
+     "result": "calls sub_4F1FE0(a2) for each car",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c:149"
+    },
+    {
+     "function": "MainGameTickUpdate (per-frame root)",
+     "result": "l.75-79 runs VehicleYawRotationRecoveryController(0.125) for all cars when dword_7C5698 % 50 == 0; l.86-87 sub_4BCCC0(0.025) only if !(player+13000) (this-object not shown by decompile)",
+     "line": "MainGameTickUpdate_0042c690.c:75-87"
+    },
+    {
+     "function": "sub_412E50 (clip-list builder, subclip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): SDT 250-259 reachable as subclip: bank0 type table (a2=0,a4=0) case 11..20 -> 250..259 (l.126,129,132,135,138,141,144,147,150,153); bank1 type table (a2=1,a4=0) case 8..17 -> 250..259 (l.36,39,42,45,48,51,54,57,60,63). Parent eid NOT identified",
+     "line": "sub_412E50_00412e50.c:36-153"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,a3[4],0) for type 0x0E (l.46); sub_412E50(a4,a1,a3[5],0) for types 0x13/0x29 (l.57); bank a1 from ShortComputation_19d0. Parent message carrying enum 8..20 UNKNOWN",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,value,1) for types 0x0B/0x0C/0x33 (l.37): a4=1 selects X table 214-242 -> cannot produce 250-259 as subclip",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:37"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840, clip-list entry)",
+     "result": "RaceEventMessageDispatcher then SoundEventDispatcher (l.36,45); no literal SDT index",
+     "line": "FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_588410 (literal 255 in other_functions)",
+     "result": "number is not an eid or SDT index: string-compare loop sentinel (v6=255, l.24); no emit",
+     "line": "sub_588410_00588410.c:24"
+    },
+    {
+     "function": "eid-lookup tables (step 3)",
+     "result": "dossier literal_hits.lookups empty for every clip in B26; no lookup feeds an emitter with 235-243",
+     "line": "data/line_trace/25x_*.json literal_hits.lookups"
+    },
+    {
+     "function": "other_functions (step 0, non-emitter hits)",
+     "result": "number is not an eid: array sizes/offsets (LargeConfigFunctionWithPhysicsConstants, SeasonDataFileSetupChain, TelemetryDataDump, TireModelInit, VehicleDataCopy, sub_45C400 v15[235], sub_4E3360 v44[235]); none is among the 40 DriverDataTable callers (EVF emitter_index.json, 135 call sites)",
+     "line": "sub_45C400_0045c400.c:13; sub_4E3360_004e3360.c:45"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "A second generic AI retirement line, alternating with PWS_AIRETIRE02 (no specific cause).",
+    "when_it_should_play": "Same situation as PWS_AIRETIRE02: AI car (not player) stops, is removed after Vehicle Removal time, default ReasonCode (not 1/4/9).",
+    "trigger": "sub_4F1FE0 AI removal path (4F1FE0.c:113-135) reaching the default branch of sub_41B250 (41B250.c:46-47); ReasonCode a1+16488 (veh+0x4068) not in {1,4,9}",
+    "subject": "AI driver id veh+0x489C (a1+18588)",
+    "technique": "hook_native: alternate the default branch of sub_41B250 between 237 and 253 (owner decision), or carrier_score on a free PWS eid row (free-eid census NOT done here)",
+    "latch_cooldown": "once per AI retirement (FinishState 0->2 latch, 4F1FE0.c:138)",
+    "must_not_play_when": "player car (player branch emits 117-119 only, 41B250.c:13-23); non-default ReasonCode; garage DNF path where pitstop already queues 237",
+    "conflicts": "eid 237 queued by pitstop_failures 1.1.4-rc.1 (live_client.cpp:628). Eid 253 is the AI cut-track eid in sub_41A720 (-> SDT 269): do NOT reuse eid 253 as a carrier.",
+    "calibration": "none beyond the owner's Vehicle Removal value",
+    "live_test": "Stop several AI cars (engine failure via MF, or crashes that leave them stationary), keep them out of pits, wait out Vehicle Removal, and listen for 237 vs 253.",
+    "confidence": "GUESS: technique not chosen; no free-eid census; variant choice is an owner decision"
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "Orphan verdict unchanged; the only tail-based claim (parent carrying enum 14/11) is removed as a stitch-bank index."
+   }
+  },
+  {
+   "sdt_index": 254,
+   "eid": 238,
+   "clip": "PWS_AIRETIRE04",
+   "says": "AI suspension collapsed",
+   "score": 241,
+   "priority": 40,
+   "cooldown": 6.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native emitter reachable and unblocked; conditional on AI ReasonCode 4",
+   "situation": "An AI car with a suspension failure (ReasonCode 4) stops and is removed after the Vehicle Removal time. ReasonCode 4 is written by the Mechanical Failures wheel accumulator (engine_failure.c:392 W_ACCUM > 0.015 -> ReasonCode 4, suspension record); installed-build presence not verified here.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41B250 (functions/sub_41B250_0041b250.c:51, v2=238 under ReasonCode==4)"
+   ],
+   "call_path": "MainGameTickUpdate (0042C690.c:75-79) -> VehicleYawRotationRecoveryController/sub_4F1C40 (004F1C40.c:149) -> sub_4F1FE0 (004F1FE0.c:135) -> sub_41B250 (0041B250.c)",
+   "gates": [
+    "dword_7D0308 && flt_7CF3C8!=0 && dword_7C56A4==7 && dword_7C56A8!=8 && dword_7D0410!=5 (41B250.c:8; live RaceActiveFlag 3, TrackCondition nonzero, SessionType 7, ChampionshipMode 3: findings.jsonl:60,63)",
+    "AI branch: *(dword_7C54E8+18580) != *(a1+18580) (41B250.c:11)",
+    "FinishState veh+0x4064 == 0 (4F1FE0.c:34; findings.jsonl:96)",
+    "AI early return unless *(float*)(veh+16752) >= FLT_MAX (4F1FE0.c:83-86) - OPEN GATE, +16752 meaning UNKNOWN",
+    "sub_4D21D0() true at green (findings.jsonl:94) (4F1FE0.c:107)",
+    "(*this)[3348]!=3 && !DistanceComparison (4F1FE0.c:109) - AI values UNKNOWN",
+    "dwell this[4097] > flt_7D0A8C (4F1FE0.c:113; Vehicle Removal live 60.0, findings.jsonl:688)",
+    "latch: FinishState=2 (4F1FE0.c:138) so the branch is not re-entered",
+    "ReasonCode a1+16488 == 4 (41B250.c:42)"
+   ],
+   "mod": "none queues eid 238. Mechanical Failures supplies the ReasonCode input (engine_failure.c:392/401, dev source).",
+   "heard_evidence": "progress.json 254: 'blog-confirmed heard ... reachable live' (blog claim).",
+   "tier": "DERIVED",
+   "notes": "MF suspension family lines are dev-only per brief; the ReasonCode 4 write sits in engine_failure.c, so the installed build's writing of 4 is UNVERIFIED.",
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce [238]; emits only [13, 14, 19, 20]",
+     "line": "AICornerSpeedComparison_00419500.c (literal l.22,26,31,35)"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce [238]; emits only [120, 198, 259]",
+     "line": "AIDriverStateTransition_00419120.c (literal 120 (l.37); literal 259 (l.39) is EID 259 = PWS_AIBLUE03 (dump score 262), not this clip; v11 candidates 120/198 (l.59))"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce [238]; emits only [6, 180, 181, 182]",
+     "line": "AIFormationLap_0041a3a0.c (v3 (l.24) switch l.34-42)"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce [238]; emits only [264]",
+     "line": "AIOutOfTrackEvent_0041a0c0.c (literal l.11)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce [238]; emits only [3, 4, 5, 10, 16, 33, 72, 262]",
+     "line": "AIOvertakeDefendStateChange_00419690.c (v5 (l.61) from l.21,27,29,41,47,54-57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce [238]; emits only [42, 52]",
+     "line": "AIPitStrategyState_0041a200.c (v3 (l.15) from l.13-14)"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce [238]; emits only [7, 8, 9, 17, 18]",
+     "line": "AIPositionChangeEvent_004198b0.c (v6 (l.36) {17,18}; v8 (l.48) {7,8,9})"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce [238]; emits only [1, 2, 41, 272, 273]",
+     "line": "AIRetirementVehicleFailureEvent_004199e0.c (literal l.20,29,47,54,75; race only (l.14))"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce [238]; emits only [55]",
+     "line": "AISessionEventAudio_0041a8c0.c (literal l.10)"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce [238]; emits only [134, 136, 138]",
+     "line": "AISessionModeTransition_004193a0.c (literal l.23,29,35)"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce [238]; emits only [21, 22, 178, 179]",
+     "line": "AISessionPhaseChange_0041a2b0.c (v5 (l.36) from l.17-34)"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce [238]; emits only [95, 97, 99, 101, 105]",
+     "line": "AISessionPhaseCounter_0041aa10.c (literal l.28,31,34,37,45)"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce [238]; emits only [52, 196]",
+     "line": "AIVehicleDamageEvent_0041a170.c (v1 (l.19) from l.10,16)"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce [238]; emits only [423, 424, 488]",
+     "line": "ConstructorStandingsParser_00420820.c (literal l.163,245,255)"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce [238]; emits only [275]",
+     "line": "DisplayMessage0x113_0041a6b0.c (literal l.10)"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce [238]; emits only [284]",
+     "line": "DisplayMessage0x11c_0041a4a0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce [238]; emits only [337]",
+     "line": "DisplayMessage0x151_0041c3e0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce [238]; emits only [514]",
+     "line": "DisplayMessage0x202_0041c090.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce [238]; emits only [74]",
+     "line": "DisplayMessage0x4a_0041b200.c (literal l.9)"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce [238]; emits only [492, 496, 500, 504]",
+     "line": "GdbSeasonSelector_00420cf0.c (literal l.349,358,367,376)"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce [238]; emits only [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170] ...",
+     "line": "PerDriverRaceCommentary_00419c50.c (v2 (l.113) from l.29-103 (157-177); literal l.149 (159), l.159 (261), l.164 (260))"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce [238]; emits only [397, 516, 517, 518, 519, 523, 524, 525, 526, 527, 528, 529, 530, 531] ...",
+     "line": "PitExit_0041c0f0.c (v6 (l.127) from l.29-99 and remap l.103-123)"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce [238]; emits only [506, 507, 509, 510, 511, 512, 513]",
+     "line": "PitRaceStatusMessageDispatcher_0041be60.c (literal l.17-52)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce [238]; emits only [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138]",
+     "line": "PitSelectionStateMachine_0041b3c0.c (literal l.55-168)"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce [238]; emits only [94, 96, 98, 100, 104]",
+     "line": "PitStateSlotActivation_0041ab30.c (literal l.28-45)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce [238]; emits only [355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368] ...",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c (v2 (l.25) = ThunkToFUN004201e0 = sub_4203D0 (returns 355-371 or -1))"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce [238]; emits only [397]",
+     "line": "PositionChangeDetector_00420490.c (literal l.111,189)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce [238]; emits only [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459] ...",
+     "line": "RaceCommentary_0041d630.c (v2 (l.107); v11 (l.148) {397,465}; literal l.158 (474); v14 (l.173) {397,459,460,461}; literal l.191-226 (454,455,456,476))"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce [238]; emits only [427, 483, 484, 485, 486, 487]",
+     "line": "ScoringClassificationDisplay_0041e320.c (literal l.98-245)"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce [238]; emits only [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503]",
+     "line": "SeasonDisplayIDResolver_0041daf0.c (literal l.99-453)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce [238]; emits only [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306] ...",
+     "line": "TeamNameDisplayIDLookup_0041b980.c (v2 (l.189) from string-compare chain l.11-187)"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce [238]; emits only [34, 35, 276, 277, 278, 279]",
+     "line": "TimeBasedMessageChain_0041a500.c (v3 (l.25) from threshold chain l.16-64)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce [238]; emits only [151, 153, 154, 155, 252, 253, 254, 256]",
+     "line": "sub_41A720_0041a720.c (v2 (l.35): player l.14-29 (151,153,155,154); AI l.41-58 (256,253,254,252))"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce [238]; emits only [149, 243]",
+     "line": "sub_41A940_0041a940.c (v2 (l.15): 149 player l.8-12; 243 AI l.19-22)"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce [238]; emits only [208, 211, 212, 213, 214, 215, 216, 217, 220]",
+     "line": "sub_41AC50_0041ac50.c (v2 (l.58) switch l.19-52)"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce [238]; emits only [114, 115, 225, 226]",
+     "line": "sub_41AD80_0041ad80.c (literal l.35,37,43,45,53,72,88)"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce [238]; emits only [106, 107, 108, 109, 110, 111, 221, 222, 223]",
+     "line": "sub_41AFD0_0041afd0.c (literal l.13-48)"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce [238]; emits only [77]",
+     "line": "sub_41B190_0041b190.c (literal l.7)"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "EMITS 238 on AI branch when ReasonCode==4 (l.42 test, l.51 v2=238)",
+     "line": "sub_41B250_0041b250.c (player l.15,19,23 (117-119); AI l.38 (235), l.45 (236), l.47 (237), l.51 (238))"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce [238]; emits only [338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351] ...",
+     "line": "sub_41C440_0041c440.c (v1 = sub_420000 (420000.c l.11-45 returns 338-353 or -1))"
+    },
+    {
+     "function": "sub_4F1FE0 (AI removal path, caller of sub_41B250)",
+     "result": "l.30-34 reads FinishState v4=*(veh+16484); l.36-68 nonzero branch (no emit); l.83-86 AI returns early unless *(float*)(veh+16752) >= FLT_MAX (meaning of +16752 UNKNOWN); l.107 sub_4D21D0() (findings.jsonl:94: 0 for RacePhase 0-4); l.109 (*this)[3348]!=3 && !DistanceComparison (AI values UNKNOWN); l.113 dwell > flt_7D0A8C (Vehicle Removal, live 60.0, findings.jsonl:688); l.135 sub_41B250; l.138 FinishState=2 latch",
+     "line": "sub_4F1FE0_004f1fe0.c:30-149"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController (sub_4F1C40)",
+     "result": "calls sub_4F1FE0(a2) for each car",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c:149"
+    },
+    {
+     "function": "MainGameTickUpdate (per-frame root)",
+     "result": "l.75-79 runs VehicleYawRotationRecoveryController(0.125) for all cars when dword_7C5698 % 50 == 0; l.86-87 sub_4BCCC0(0.025) only if !(player+13000) (this-object not shown by decompile)",
+     "line": "MainGameTickUpdate_0042c690.c:75-87"
+    },
+    {
+     "function": "sub_412E50 (clip-list builder, subclip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): SDT 250-259 reachable as subclip: bank0 type table (a2=0,a4=0) case 11..20 -> 250..259 (l.126,129,132,135,138,141,144,147,150,153); bank1 type table (a2=1,a4=0) case 8..17 -> 250..259 (l.36,39,42,45,48,51,54,57,60,63). Parent eid NOT identified",
+     "line": "sub_412E50_00412e50.c:36-153"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,a3[4],0) for type 0x0E (l.46); sub_412E50(a4,a1,a3[5],0) for types 0x13/0x29 (l.57); bank a1 from ShortComputation_19d0. Parent message carrying enum 8..20 UNKNOWN",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,value,1) for types 0x0B/0x0C/0x33 (l.37): a4=1 selects X table 214-242 -> cannot produce 250-259 as subclip",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:37"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840, clip-list entry)",
+     "result": "RaceEventMessageDispatcher then SoundEventDispatcher (l.36,45); no literal SDT index",
+     "line": "FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_588410 (literal 255 in other_functions)",
+     "result": "number is not an eid or SDT index: string-compare loop sentinel (v6=255, l.24); no emit",
+     "line": "sub_588410_00588410.c:24"
+    },
+    {
+     "function": "eid-lookup tables (step 3)",
+     "result": "dossier literal_hits.lookups empty for every clip in B26; no lookup feeds an emitter with 235-243",
+     "line": "data/line_trace/25x_*.json literal_hits.lookups"
+    },
+    {
+     "function": "other_functions (step 0, non-emitter hits)",
+     "result": "number is not an eid: array sizes/offsets (LargeConfigFunctionWithPhysicsConstants, SeasonDataFileSetupChain, TelemetryDataDump, TireModelInit, VehicleDataCopy, sub_45C400 v15[235], sub_4E3360 v44[235]); none is among the 40 DriverDataTable callers (EVF emitter_index.json, 135 call sites)",
+     "line": "sub_45C400_0045c400.c:13; sub_4E3360_004e3360.c:45"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "Main route unchanged: sub_41B250 ReasonCode 4 branch emits eid 238 (type 3, no tail). subclip_resolver removed."
+   }
+  },
+  {
+   "sdt_index": 255,
+   "eid": 239,
+   "clip": "PWS_AIPENALTY08",
+   "says": "AI penalty (type 8)",
+   "score": 242,
+   "priority": 20,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter (no function among the 40 DriverDataTable callers or dynamic set can queue eid 239)",
+   "situation": "No situation: no emitter exists. Owner note (ASSIGNMENT_EVF-007.md:100) describes AI blocking under blue flag, 25 s penalty.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No suppressed trigger: no code queues eid 239.",
+   "emitters": [],
+   "call_path": "n/a",
+   "gates": [
+    "no literal 239 in any emitter; EVF emitter_index literal section has no 239"
+   ],
+   "mod": "none (modded_lines.json has no entry for this clip)",
+   "heard_evidence": "progress.json 255 owner triage: 'X PLAY, AI driver blocking under blue 25 second penalty, not sure if the game enforces AI penalties' (NEEDS_RESEARCH)",
+   "tier": "CONFIRMED",
+   "notes": "Contradiction: EMITTER_SPECS.md:247 claims an emitter/trigger for eid 239 - none in code.",
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce [239]; emits only [13, 14, 19, 20]",
+     "line": "AICornerSpeedComparison_00419500.c (literal l.22,26,31,35)"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce [239]; emits only [120, 198, 259]",
+     "line": "AIDriverStateTransition_00419120.c (literal 120 (l.37); literal 259 (l.39) is EID 259 = PWS_AIBLUE03 (dump score 262), not this clip; v11 candidates 120/198 (l.59))"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce [239]; emits only [6, 180, 181, 182]",
+     "line": "AIFormationLap_0041a3a0.c (v3 (l.24) switch l.34-42)"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce [239]; emits only [264]",
+     "line": "AIOutOfTrackEvent_0041a0c0.c (literal l.11)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce [239]; emits only [3, 4, 5, 10, 16, 33, 72, 262]",
+     "line": "AIOvertakeDefendStateChange_00419690.c (v5 (l.61) from l.21,27,29,41,47,54-57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce [239]; emits only [42, 52]",
+     "line": "AIPitStrategyState_0041a200.c (v3 (l.15) from l.13-14)"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce [239]; emits only [7, 8, 9, 17, 18]",
+     "line": "AIPositionChangeEvent_004198b0.c (v6 (l.36) {17,18}; v8 (l.48) {7,8,9})"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce [239]; emits only [1, 2, 41, 272, 273]",
+     "line": "AIRetirementVehicleFailureEvent_004199e0.c (literal l.20,29,47,54,75; race only (l.14))"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce [239]; emits only [55]",
+     "line": "AISessionEventAudio_0041a8c0.c (literal l.10)"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce [239]; emits only [134, 136, 138]",
+     "line": "AISessionModeTransition_004193a0.c (literal l.23,29,35)"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce [239]; emits only [21, 22, 178, 179]",
+     "line": "AISessionPhaseChange_0041a2b0.c (v5 (l.36) from l.17-34)"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce [239]; emits only [95, 97, 99, 101, 105]",
+     "line": "AISessionPhaseCounter_0041aa10.c (literal l.28,31,34,37,45)"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce [239]; emits only [52, 196]",
+     "line": "AIVehicleDamageEvent_0041a170.c (v1 (l.19) from l.10,16)"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce [239]; emits only [423, 424, 488]",
+     "line": "ConstructorStandingsParser_00420820.c (literal l.163,245,255)"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce [239]; emits only [275]",
+     "line": "DisplayMessage0x113_0041a6b0.c (literal l.10)"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce [239]; emits only [284]",
+     "line": "DisplayMessage0x11c_0041a4a0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce [239]; emits only [337]",
+     "line": "DisplayMessage0x151_0041c3e0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce [239]; emits only [514]",
+     "line": "DisplayMessage0x202_0041c090.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce [239]; emits only [74]",
+     "line": "DisplayMessage0x4a_0041b200.c (literal l.9)"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce [239]; emits only [492, 496, 500, 504]",
+     "line": "GdbSeasonSelector_00420cf0.c (literal l.349,358,367,376)"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce [239]; emits only [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170] ...",
+     "line": "PerDriverRaceCommentary_00419c50.c (v2 (l.113) from l.29-103 (157-177); literal l.149 (159), l.159 (261), l.164 (260))"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce [239]; emits only [397, 516, 517, 518, 519, 523, 524, 525, 526, 527, 528, 529, 530, 531] ...",
+     "line": "PitExit_0041c0f0.c (v6 (l.127) from l.29-99 and remap l.103-123)"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce [239]; emits only [506, 507, 509, 510, 511, 512, 513]",
+     "line": "PitRaceStatusMessageDispatcher_0041be60.c (literal l.17-52)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce [239]; emits only [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138]",
+     "line": "PitSelectionStateMachine_0041b3c0.c (literal l.55-168)"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce [239]; emits only [94, 96, 98, 100, 104]",
+     "line": "PitStateSlotActivation_0041ab30.c (literal l.28-45)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce [239]; emits only [355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368] ...",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c (v2 (l.25) = ThunkToFUN004201e0 = sub_4203D0 (returns 355-371 or -1))"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce [239]; emits only [397]",
+     "line": "PositionChangeDetector_00420490.c (literal l.111,189)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce [239]; emits only [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459] ...",
+     "line": "RaceCommentary_0041d630.c (v2 (l.107); v11 (l.148) {397,465}; literal l.158 (474); v14 (l.173) {397,459,460,461}; literal l.191-226 (454,455,456,476))"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce [239]; emits only [427, 483, 484, 485, 486, 487]",
+     "line": "ScoringClassificationDisplay_0041e320.c (literal l.98-245)"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce [239]; emits only [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503]",
+     "line": "SeasonDisplayIDResolver_0041daf0.c (literal l.99-453)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce [239]; emits only [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306] ...",
+     "line": "TeamNameDisplayIDLookup_0041b980.c (v2 (l.189) from string-compare chain l.11-187)"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce [239]; emits only [34, 35, 276, 277, 278, 279]",
+     "line": "TimeBasedMessageChain_0041a500.c (v3 (l.25) from threshold chain l.16-64)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce 239: strcmp chain emits 151,153,154,155 (player) and 252,253,254,256 (AI) only (41A720.c:14-58)",
+     "line": "sub_41A720_0041a720.c (v2 (l.35): player l.14-29 (151,153,155,154); AI l.41-58 (256,253,254,252))"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce 239: emits 149 (player) and 243 (AI) only (41A940.c:12,21)",
+     "line": "sub_41A940_0041a940.c (v2 (l.15): 149 player l.8-12; 243 AI l.19-22)"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce [239]; emits only [208, 211, 212, 213, 214, 215, 216, 217, 220]",
+     "line": "sub_41AC50_0041ac50.c (v2 (l.58) switch l.19-52)"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce [239]; emits only [114, 115, 225, 226]",
+     "line": "sub_41AD80_0041ad80.c (literal l.35,37,43,45,53,72,88)"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce [239]; emits only [106, 107, 108, 109, 110, 111, 221, 222, 223]",
+     "line": "sub_41AFD0_0041afd0.c (literal l.13-48)"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce [239]; emits only [77]",
+     "line": "sub_41B190_0041b190.c (literal l.7)"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce 239: emits 117-119 (player) and 235-238 (AI) only (41B250.c:15-51)",
+     "line": "sub_41B250_0041b250.c (player l.15,19,23 (117-119); AI l.38 (235), l.45 (236), l.47 (237), l.51 (238))"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce [239]; emits only [338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351] ...",
+     "line": "sub_41C440_0041c440.c (v1 = sub_420000 (420000.c l.11-45 returns 338-353 or -1))"
+    },
+    {
+     "function": "sub_4F1FE0 (AI removal path, caller of sub_41B250)",
+     "result": "l.30-34 reads FinishState v4=*(veh+16484); l.36-68 nonzero branch (no emit); l.83-86 AI returns early unless *(float*)(veh+16752) >= FLT_MAX (meaning of +16752 UNKNOWN); l.107 sub_4D21D0() (findings.jsonl:94: 0 for RacePhase 0-4); l.109 (*this)[3348]!=3 && !DistanceComparison (AI values UNKNOWN); l.113 dwell > flt_7D0A8C (Vehicle Removal, live 60.0, findings.jsonl:688); l.135 sub_41B250; l.138 FinishState=2 latch",
+     "line": "sub_4F1FE0_004f1fe0.c:30-149"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController (sub_4F1C40)",
+     "result": "calls sub_4F1FE0(a2) for each car",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c:149"
+    },
+    {
+     "function": "MainGameTickUpdate (per-frame root)",
+     "result": "l.75-79 runs VehicleYawRotationRecoveryController(0.125) for all cars when dword_7C5698 % 50 == 0; l.86-87 sub_4BCCC0(0.025) only if !(player+13000) (this-object not shown by decompile)",
+     "line": "MainGameTickUpdate_0042c690.c:75-87"
+    },
+    {
+     "function": "sub_412E50 (clip-list builder, subclip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): SDT 250-259 reachable as subclip: bank0 type table (a2=0,a4=0) case 11..20 -> 250..259 (l.126,129,132,135,138,141,144,147,150,153); bank1 type table (a2=1,a4=0) case 8..17 -> 250..259 (l.36,39,42,45,48,51,54,57,60,63). Parent eid NOT identified",
+     "line": "sub_412E50_00412e50.c:36-153"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,a3[4],0) for type 0x0E (l.46); sub_412E50(a4,a1,a3[5],0) for types 0x13/0x29 (l.57); bank a1 from ShortComputation_19d0. Parent message carrying enum 8..20 UNKNOWN",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,value,1) for types 0x0B/0x0C/0x33 (l.37): a4=1 selects X table 214-242 -> cannot produce 250-259 as subclip",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:37"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840, clip-list entry)",
+     "result": "RaceEventMessageDispatcher then SoundEventDispatcher (l.36,45); no literal SDT index",
+     "line": "FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_588410 (literal 255 in other_functions)",
+     "result": "number is not an eid or SDT index: string-compare loop sentinel (v6=255, l.24); no emit",
+     "line": "sub_588410_00588410.c:24"
+    },
+    {
+     "function": "eid-lookup tables (step 3)",
+     "result": "dossier literal_hits.lookups empty for every clip in B26; no lookup feeds an emitter with 235-243",
+     "line": "data/line_trace/25x_*.json literal_hits.lookups"
+    },
+    {
+     "function": "other_functions (step 0, non-emitter hits)",
+     "result": "number is not an eid: array sizes/offsets (LargeConfigFunctionWithPhysicsConstants, SeasonDataFileSetupChain, TelemetryDataDump, TireModelInit, VehicleDataCopy, sub_45C400 v15[235], sub_4E3360 v44[235]); none is among the 40 DriverDataTable callers (EVF emitter_index.json, 135 call sites)",
+     "line": "sub_45C400_0045c400.c:13; sub_4E3360_004e3360.c:45"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "AI driver penalised for blocking under blue flags (25 s).",
+    "when_it_should_play": "n/a (see confidence)",
+    "trigger": "no AI penalty trigger exists in the game",
+    "subject": "AI driver id veh+0x489C",
+    "technique": "none proposed",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "eid 239 has no emitter",
+    "calibration": "n/a",
+    "live_test": "n/a",
+    "confidence": "EXCLUDED by DD-10 (AI penalty lines: AI stays silent; owner decision 2026-10-18)."
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "no_emitter unchanged; sub-clip index note and subclip_resolver removed."
+   }
+  },
+  {
+   "sdt_index": 256,
+   "eid": 240,
+   "clip": "PWS_AIPENALTY14",
+   "says": "AI penalty (type 14)",
+   "score": 243,
+   "priority": 20,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter (no function can queue eid 240)",
+   "situation": "No situation: no emitter. Owner note: 'AI 25 sec track cut' (progress.json 256). OBSERVER_TABLE.md:41,314 maps 240 to the sub_4BCCC0 cut-track path, which in code queues AI eid 253 (via sub_41A720), not 240.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No suppressed trigger: no code queues eid 240.",
+   "emitters": [],
+   "call_path": "n/a",
+   "gates": [
+    "no literal 240 in any emitter; EVF emitter_index literal has no 240"
+   ],
+   "mod": "none",
+   "heard_evidence": "progress.json 256 owner triage: 'X PLAY, AI 25 sec track cut'",
+   "tier": "CONFIRMED",
+   "notes": "Contradiction with OBSERVER_TABLE.md:41,314.",
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce [240]; emits only [13, 14, 19, 20]",
+     "line": "AICornerSpeedComparison_00419500.c (literal l.22,26,31,35)"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce [240]; emits only [120, 198, 259]",
+     "line": "AIDriverStateTransition_00419120.c (literal 120 (l.37); literal 259 (l.39) is EID 259 = PWS_AIBLUE03 (dump score 262), not this clip; v11 candidates 120/198 (l.59))"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce [240]; emits only [6, 180, 181, 182]",
+     "line": "AIFormationLap_0041a3a0.c (v3 (l.24) switch l.34-42)"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce [240]; emits only [264]",
+     "line": "AIOutOfTrackEvent_0041a0c0.c (literal l.11)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce [240]; emits only [3, 4, 5, 10, 16, 33, 72, 262]",
+     "line": "AIOvertakeDefendStateChange_00419690.c (v5 (l.61) from l.21,27,29,41,47,54-57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce [240]; emits only [42, 52]",
+     "line": "AIPitStrategyState_0041a200.c (v3 (l.15) from l.13-14)"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce [240]; emits only [7, 8, 9, 17, 18]",
+     "line": "AIPositionChangeEvent_004198b0.c (v6 (l.36) {17,18}; v8 (l.48) {7,8,9})"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce [240]; emits only [1, 2, 41, 272, 273]",
+     "line": "AIRetirementVehicleFailureEvent_004199e0.c (literal l.20,29,47,54,75; race only (l.14))"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce [240]; emits only [55]",
+     "line": "AISessionEventAudio_0041a8c0.c (literal l.10)"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce [240]; emits only [134, 136, 138]",
+     "line": "AISessionModeTransition_004193a0.c (literal l.23,29,35)"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce [240]; emits only [21, 22, 178, 179]",
+     "line": "AISessionPhaseChange_0041a2b0.c (v5 (l.36) from l.17-34)"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce [240]; emits only [95, 97, 99, 101, 105]",
+     "line": "AISessionPhaseCounter_0041aa10.c (literal l.28,31,34,37,45)"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce [240]; emits only [52, 196]",
+     "line": "AIVehicleDamageEvent_0041a170.c (v1 (l.19) from l.10,16)"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce [240]; emits only [423, 424, 488]",
+     "line": "ConstructorStandingsParser_00420820.c (literal l.163,245,255)"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce [240]; emits only [275]",
+     "line": "DisplayMessage0x113_0041a6b0.c (literal l.10)"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce [240]; emits only [284]",
+     "line": "DisplayMessage0x11c_0041a4a0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce [240]; emits only [337]",
+     "line": "DisplayMessage0x151_0041c3e0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce [240]; emits only [514]",
+     "line": "DisplayMessage0x202_0041c090.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce [240]; emits only [74]",
+     "line": "DisplayMessage0x4a_0041b200.c (literal l.9)"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce [240]; emits only [492, 496, 500, 504]",
+     "line": "GdbSeasonSelector_00420cf0.c (literal l.349,358,367,376)"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce [240]; emits only [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170] ...",
+     "line": "PerDriverRaceCommentary_00419c50.c (v2 (l.113) from l.29-103 (157-177); literal l.149 (159), l.159 (261), l.164 (260))"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce [240]; emits only [397, 516, 517, 518, 519, 523, 524, 525, 526, 527, 528, 529, 530, 531] ...",
+     "line": "PitExit_0041c0f0.c (v6 (l.127) from l.29-99 and remap l.103-123)"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce [240]; emits only [506, 507, 509, 510, 511, 512, 513]",
+     "line": "PitRaceStatusMessageDispatcher_0041be60.c (literal l.17-52)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce [240]; emits only [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138]",
+     "line": "PitSelectionStateMachine_0041b3c0.c (literal l.55-168)"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce [240]; emits only [94, 96, 98, 100, 104]",
+     "line": "PitStateSlotActivation_0041ab30.c (literal l.28-45)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce [240]; emits only [355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368] ...",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c (v2 (l.25) = ThunkToFUN004201e0 = sub_4203D0 (returns 355-371 or -1))"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce [240]; emits only [397]",
+     "line": "PositionChangeDetector_00420490.c (literal l.111,189)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce [240]; emits only [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459] ...",
+     "line": "RaceCommentary_0041d630.c (v2 (l.107); v11 (l.148) {397,465}; literal l.158 (474); v14 (l.173) {397,459,460,461}; literal l.191-226 (454,455,456,476))"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce [240]; emits only [427, 483, 484, 485, 486, 487]",
+     "line": "ScoringClassificationDisplay_0041e320.c (literal l.98-245)"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce [240]; emits only [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503]",
+     "line": "SeasonDisplayIDResolver_0041daf0.c (literal l.99-453)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce [240]; emits only [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306] ...",
+     "line": "TeamNameDisplayIDLookup_0041b980.c (v2 (l.189) from string-compare chain l.11-187)"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce [240]; emits only [34, 35, 276, 277, 278, 279]",
+     "line": "TimeBasedMessageChain_0041a500.c (v3 (l.25) from threshold chain l.16-64)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce 240: strcmp chain emits 151,153,154,155 (player) and 252,253,254,256 (AI) only (41A720.c:14-58)",
+     "line": "sub_41A720_0041a720.c (v2 (l.35): player l.14-29 (151,153,155,154); AI l.41-58 (256,253,254,252))"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce 240: emits 149 (player) and 243 (AI) only (41A940.c:12,21)",
+     "line": "sub_41A940_0041a940.c (v2 (l.15): 149 player l.8-12; 243 AI l.19-22)"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce [240]; emits only [208, 211, 212, 213, 214, 215, 216, 217, 220]",
+     "line": "sub_41AC50_0041ac50.c (v2 (l.58) switch l.19-52)"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce [240]; emits only [114, 115, 225, 226]",
+     "line": "sub_41AD80_0041ad80.c (literal l.35,37,43,45,53,72,88)"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce [240]; emits only [106, 107, 108, 109, 110, 111, 221, 222, 223]",
+     "line": "sub_41AFD0_0041afd0.c (literal l.13-48)"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce [240]; emits only [77]",
+     "line": "sub_41B190_0041b190.c (literal l.7)"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce 240: emits 117-119 (player) and 235-238 (AI) only (41B250.c:15-51)",
+     "line": "sub_41B250_0041b250.c (player l.15,19,23 (117-119); AI l.38 (235), l.45 (236), l.47 (237), l.51 (238))"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce [240]; emits only [338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351] ...",
+     "line": "sub_41C440_0041c440.c (v1 = sub_420000 (420000.c l.11-45 returns 338-353 or -1))"
+    },
+    {
+     "function": "sub_4F1FE0 (AI removal path, caller of sub_41B250)",
+     "result": "l.30-34 reads FinishState v4=*(veh+16484); l.36-68 nonzero branch (no emit); l.83-86 AI returns early unless *(float*)(veh+16752) >= FLT_MAX (meaning of +16752 UNKNOWN); l.107 sub_4D21D0() (findings.jsonl:94: 0 for RacePhase 0-4); l.109 (*this)[3348]!=3 && !DistanceComparison (AI values UNKNOWN); l.113 dwell > flt_7D0A8C (Vehicle Removal, live 60.0, findings.jsonl:688); l.135 sub_41B250; l.138 FinishState=2 latch",
+     "line": "sub_4F1FE0_004f1fe0.c:30-149"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController (sub_4F1C40)",
+     "result": "calls sub_4F1FE0(a2) for each car",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c:149"
+    },
+    {
+     "function": "MainGameTickUpdate (per-frame root)",
+     "result": "l.75-79 runs VehicleYawRotationRecoveryController(0.125) for all cars when dword_7C5698 % 50 == 0; l.86-87 sub_4BCCC0(0.025) only if !(player+13000) (this-object not shown by decompile)",
+     "line": "MainGameTickUpdate_0042c690.c:75-87"
+    },
+    {
+     "function": "sub_412E50 (clip-list builder, subclip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): SDT 250-259 reachable as subclip: bank0 type table (a2=0,a4=0) case 11..20 -> 250..259 (l.126,129,132,135,138,141,144,147,150,153); bank1 type table (a2=1,a4=0) case 8..17 -> 250..259 (l.36,39,42,45,48,51,54,57,60,63). Parent eid NOT identified",
+     "line": "sub_412E50_00412e50.c:36-153"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,a3[4],0) for type 0x0E (l.46); sub_412E50(a4,a1,a3[5],0) for types 0x13/0x29 (l.57); bank a1 from ShortComputation_19d0. Parent message carrying enum 8..20 UNKNOWN",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,value,1) for types 0x0B/0x0C/0x33 (l.37): a4=1 selects X table 214-242 -> cannot produce 250-259 as subclip",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:37"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840, clip-list entry)",
+     "result": "RaceEventMessageDispatcher then SoundEventDispatcher (l.36,45); no literal SDT index",
+     "line": "FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_588410 (literal 255 in other_functions)",
+     "result": "number is not an eid or SDT index: string-compare loop sentinel (v6=255, l.24); no emit",
+     "line": "sub_588410_00588410.c:24"
+    },
+    {
+     "function": "eid-lookup tables (step 3)",
+     "result": "dossier literal_hits.lookups empty for every clip in B26; no lookup feeds an emitter with 235-243",
+     "line": "data/line_trace/25x_*.json literal_hits.lookups"
+    },
+    {
+     "function": "other_functions (step 0, non-emitter hits)",
+     "result": "number is not an eid: array sizes/offsets (LargeConfigFunctionWithPhysicsConstants, SeasonDataFileSetupChain, TelemetryDataDump, TireModelInit, VehicleDataCopy, sub_45C400 v15[235], sub_4E3360 v44[235]); none is among the 40 DriverDataTable callers (EVF emitter_index.json, 135 call sites)",
+     "line": "sub_45C400_0045c400.c:13; sub_4E3360_004e3360.c:45"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "AI driver cut track, 25 s penalty.",
+    "when_it_should_play": "n/a (see confidence)",
+    "trigger": "no AI penalty trigger exists in the game",
+    "subject": "AI driver id veh+0x489C",
+    "technique": "none proposed",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "eid 240 has no emitter; AI cut track is eid 253 (SDT 269)",
+    "calibration": "n/a",
+    "live_test": "n/a",
+    "confidence": "EXCLUDED by DD-10 (AI penalty lines: AI stays silent; owner decision 2026-10-18)."
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "no_emitter unchanged; sub-clip index note and subclip_resolver removed."
+   }
+  },
+  {
+   "sdt_index": 257,
+   "eid": 241,
+   "clip": "PWS_AIPENALTY07",
+   "says": "AI stop/go penalty",
+   "score": 244,
+   "priority": 20,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter (no function can queue eid 241)",
+   "situation": "No situation: no emitter. Labels conflict: progress.json and FULL_INVENTORY.md:312 say 'AI stop/go penalty'; owner note and OBSERVER_TABLE.md:42 say 'overtaking under yellow'.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No suppressed trigger: no code queues eid 241.",
+   "emitters": [],
+   "call_path": "n/a",
+   "gates": [
+    "no literal 241 in any emitter; EVF emitter_index literal has no 241"
+   ],
+   "mod": "none",
+   "heard_evidence": "progress.json 257 owner triage: 'X PLAY, AI 25 sec overtake yellow'",
+   "tier": "CONFIRMED",
+   "notes": "Also excluded by DD-11: the game has no overtaking-under-yellow infraction string (findings.jsonl CORRECTED/infraction entries). Contradiction: EMITTER_SPECS.md:246 claims an AI stop/go trigger for eid 241.",
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce [241]; emits only [13, 14, 19, 20]",
+     "line": "AICornerSpeedComparison_00419500.c (literal l.22,26,31,35)"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce [241]; emits only [120, 198, 259]",
+     "line": "AIDriverStateTransition_00419120.c (literal 120 (l.37); literal 259 (l.39) is EID 259 = PWS_AIBLUE03 (dump score 262), not this clip; v11 candidates 120/198 (l.59))"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce [241]; emits only [6, 180, 181, 182]",
+     "line": "AIFormationLap_0041a3a0.c (v3 (l.24) switch l.34-42)"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce [241]; emits only [264]",
+     "line": "AIOutOfTrackEvent_0041a0c0.c (literal l.11)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce [241]; emits only [3, 4, 5, 10, 16, 33, 72, 262]",
+     "line": "AIOvertakeDefendStateChange_00419690.c (v5 (l.61) from l.21,27,29,41,47,54-57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce [241]; emits only [42, 52]",
+     "line": "AIPitStrategyState_0041a200.c (v3 (l.15) from l.13-14)"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce [241]; emits only [7, 8, 9, 17, 18]",
+     "line": "AIPositionChangeEvent_004198b0.c (v6 (l.36) {17,18}; v8 (l.48) {7,8,9})"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce [241]; emits only [1, 2, 41, 272, 273]",
+     "line": "AIRetirementVehicleFailureEvent_004199e0.c (literal l.20,29,47,54,75; race only (l.14))"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce [241]; emits only [55]",
+     "line": "AISessionEventAudio_0041a8c0.c (literal l.10)"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce [241]; emits only [134, 136, 138]",
+     "line": "AISessionModeTransition_004193a0.c (literal l.23,29,35)"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce [241]; emits only [21, 22, 178, 179]",
+     "line": "AISessionPhaseChange_0041a2b0.c (v5 (l.36) from l.17-34)"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce [241]; emits only [95, 97, 99, 101, 105]",
+     "line": "AISessionPhaseCounter_0041aa10.c (literal l.28,31,34,37,45)"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce [241]; emits only [52, 196]",
+     "line": "AIVehicleDamageEvent_0041a170.c (v1 (l.19) from l.10,16)"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce [241]; emits only [423, 424, 488]",
+     "line": "ConstructorStandingsParser_00420820.c (literal l.163,245,255)"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce [241]; emits only [275]",
+     "line": "DisplayMessage0x113_0041a6b0.c (literal l.10)"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce [241]; emits only [284]",
+     "line": "DisplayMessage0x11c_0041a4a0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce [241]; emits only [337]",
+     "line": "DisplayMessage0x151_0041c3e0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce [241]; emits only [514]",
+     "line": "DisplayMessage0x202_0041c090.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce [241]; emits only [74]",
+     "line": "DisplayMessage0x4a_0041b200.c (literal l.9)"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce [241]; emits only [492, 496, 500, 504]",
+     "line": "GdbSeasonSelector_00420cf0.c (literal l.349,358,367,376)"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce [241]; emits only [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170] ...",
+     "line": "PerDriverRaceCommentary_00419c50.c (v2 (l.113) from l.29-103 (157-177); literal l.149 (159), l.159 (261), l.164 (260))"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce [241]; emits only [397, 516, 517, 518, 519, 523, 524, 525, 526, 527, 528, 529, 530, 531] ...",
+     "line": "PitExit_0041c0f0.c (v6 (l.127) from l.29-99 and remap l.103-123)"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce [241]; emits only [506, 507, 509, 510, 511, 512, 513]",
+     "line": "PitRaceStatusMessageDispatcher_0041be60.c (literal l.17-52)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce [241]; emits only [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138]",
+     "line": "PitSelectionStateMachine_0041b3c0.c (literal l.55-168)"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce [241]; emits only [94, 96, 98, 100, 104]",
+     "line": "PitStateSlotActivation_0041ab30.c (literal l.28-45)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce [241]; emits only [355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368] ...",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c (v2 (l.25) = ThunkToFUN004201e0 = sub_4203D0 (returns 355-371 or -1))"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce [241]; emits only [397]",
+     "line": "PositionChangeDetector_00420490.c (literal l.111,189)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce [241]; emits only [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459] ...",
+     "line": "RaceCommentary_0041d630.c (v2 (l.107); v11 (l.148) {397,465}; literal l.158 (474); v14 (l.173) {397,459,460,461}; literal l.191-226 (454,455,456,476))"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce [241]; emits only [427, 483, 484, 485, 486, 487]",
+     "line": "ScoringClassificationDisplay_0041e320.c (literal l.98-245)"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce [241]; emits only [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503]",
+     "line": "SeasonDisplayIDResolver_0041daf0.c (literal l.99-453)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce [241]; emits only [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306] ...",
+     "line": "TeamNameDisplayIDLookup_0041b980.c (v2 (l.189) from string-compare chain l.11-187)"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce [241]; emits only [34, 35, 276, 277, 278, 279]",
+     "line": "TimeBasedMessageChain_0041a500.c (v3 (l.25) from threshold chain l.16-64)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce 241: strcmp chain emits 151,153,154,155 (player) and 252,253,254,256 (AI) only (41A720.c:14-58)",
+     "line": "sub_41A720_0041a720.c (v2 (l.35): player l.14-29 (151,153,155,154); AI l.41-58 (256,253,254,252))"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce 241: emits 149 (player) and 243 (AI) only (41A940.c:12,21)",
+     "line": "sub_41A940_0041a940.c (v2 (l.15): 149 player l.8-12; 243 AI l.19-22)"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce [241]; emits only [208, 211, 212, 213, 214, 215, 216, 217, 220]",
+     "line": "sub_41AC50_0041ac50.c (v2 (l.58) switch l.19-52)"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce [241]; emits only [114, 115, 225, 226]",
+     "line": "sub_41AD80_0041ad80.c (literal l.35,37,43,45,53,72,88)"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce [241]; emits only [106, 107, 108, 109, 110, 111, 221, 222, 223]",
+     "line": "sub_41AFD0_0041afd0.c (literal l.13-48)"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce [241]; emits only [77]",
+     "line": "sub_41B190_0041b190.c (literal l.7)"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce 241: emits 117-119 (player) and 235-238 (AI) only (41B250.c:15-51)",
+     "line": "sub_41B250_0041b250.c (player l.15,19,23 (117-119); AI l.38 (235), l.45 (236), l.47 (237), l.51 (238))"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce [241]; emits only [338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351] ...",
+     "line": "sub_41C440_0041c440.c (v1 = sub_420000 (420000.c l.11-45 returns 338-353 or -1))"
+    },
+    {
+     "function": "sub_4F1FE0 (AI removal path, caller of sub_41B250)",
+     "result": "l.30-34 reads FinishState v4=*(veh+16484); l.36-68 nonzero branch (no emit); l.83-86 AI returns early unless *(float*)(veh+16752) >= FLT_MAX (meaning of +16752 UNKNOWN); l.107 sub_4D21D0() (findings.jsonl:94: 0 for RacePhase 0-4); l.109 (*this)[3348]!=3 && !DistanceComparison (AI values UNKNOWN); l.113 dwell > flt_7D0A8C (Vehicle Removal, live 60.0, findings.jsonl:688); l.135 sub_41B250; l.138 FinishState=2 latch",
+     "line": "sub_4F1FE0_004f1fe0.c:30-149"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController (sub_4F1C40)",
+     "result": "calls sub_4F1FE0(a2) for each car",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c:149"
+    },
+    {
+     "function": "MainGameTickUpdate (per-frame root)",
+     "result": "l.75-79 runs VehicleYawRotationRecoveryController(0.125) for all cars when dword_7C5698 % 50 == 0; l.86-87 sub_4BCCC0(0.025) only if !(player+13000) (this-object not shown by decompile)",
+     "line": "MainGameTickUpdate_0042c690.c:75-87"
+    },
+    {
+     "function": "sub_412E50 (clip-list builder, subclip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): SDT 250-259 reachable as subclip: bank0 type table (a2=0,a4=0) case 11..20 -> 250..259 (l.126,129,132,135,138,141,144,147,150,153); bank1 type table (a2=1,a4=0) case 8..17 -> 250..259 (l.36,39,42,45,48,51,54,57,60,63). Parent eid NOT identified",
+     "line": "sub_412E50_00412e50.c:36-153"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,a3[4],0) for type 0x0E (l.46); sub_412E50(a4,a1,a3[5],0) for types 0x13/0x29 (l.57); bank a1 from ShortComputation_19d0. Parent message carrying enum 8..20 UNKNOWN",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,value,1) for types 0x0B/0x0C/0x33 (l.37): a4=1 selects X table 214-242 -> cannot produce 250-259 as subclip",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:37"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840, clip-list entry)",
+     "result": "RaceEventMessageDispatcher then SoundEventDispatcher (l.36,45); no literal SDT index",
+     "line": "FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_588410 (literal 255 in other_functions)",
+     "result": "number is not an eid or SDT index: string-compare loop sentinel (v6=255, l.24); no emit",
+     "line": "sub_588410_00588410.c:24"
+    },
+    {
+     "function": "eid-lookup tables (step 3)",
+     "result": "dossier literal_hits.lookups empty for every clip in B26; no lookup feeds an emitter with 235-243",
+     "line": "data/line_trace/25x_*.json literal_hits.lookups"
+    },
+    {
+     "function": "other_functions (step 0, non-emitter hits)",
+     "result": "number is not an eid: array sizes/offsets (LargeConfigFunctionWithPhysicsConstants, SeasonDataFileSetupChain, TelemetryDataDump, TireModelInit, VehicleDataCopy, sub_45C400 v15[235], sub_4E3360 v44[235]); none is among the 40 DriverDataTable callers (EVF emitter_index.json, 135 call sites)",
+     "line": "sub_45C400_0045c400.c:13; sub_4E3360_004e3360.c:45"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "AI overtook under yellow flag, 25 s penalty.",
+    "when_it_should_play": "n/a",
+    "trigger": "n/a: game lacks the infraction (DD-11)",
+    "subject": "AI driver id veh+0x489C",
+    "technique": "none",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "n/a",
+    "calibration": "n/a",
+    "live_test": "n/a",
+    "confidence": "EXCLUDED by DD-11 (overtaking under yellow: game lacks the infraction) and DD-10 (AI penalty lines). EXCLUDED by DD-10 (AI penalty lines: AI stays silent; owner decision 2026-10-18)."
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "no_emitter unchanged; sub-clip index note and subclip_resolver removed."
+   }
+  },
+  {
+   "sdt_index": 258,
+   "eid": 242,
+   "clip": "PWS_AIPENALTY05",
+   "says": "AI cutting track penalty",
+   "score": 245,
+   "priority": 20,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter (no function can queue eid 242)",
+   "situation": "No situation: no emitter. Labels conflict: FULL_INVENTORY.md:313 and progress.json say 'AI cutting track penalty'; owner note and OBSERVER_TABLE.md:43 say 'pitlane speeding'.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No suppressed trigger: no code queues eid 242.",
+   "emitters": [],
+   "call_path": "n/a",
+   "gates": [
+    "no literal 242 in any emitter; EVF emitter_index literal has no 242"
+   ],
+   "mod": "none",
+   "heard_evidence": "progress.json 258 owner triage: 'X PLAY, AI 25 sec pitlane speeding'",
+   "tier": "CONFIRMED",
+   "notes": "Contradiction: EMITTER_SPECS.md:245 claims an AI cut-track trigger for eid 242 (sub_4BCCC0 l.183); code uses eid 253 for AI cut track. AI pitlane speeding is eid 256 (PWS_AIPENALTY01).",
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce [242]; emits only [13, 14, 19, 20]",
+     "line": "AICornerSpeedComparison_00419500.c (literal l.22,26,31,35)"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce [242]; emits only [120, 198, 259]",
+     "line": "AIDriverStateTransition_00419120.c (literal 120 (l.37); literal 259 (l.39) is EID 259 = PWS_AIBLUE03 (dump score 262), not this clip; v11 candidates 120/198 (l.59))"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce [242]; emits only [6, 180, 181, 182]",
+     "line": "AIFormationLap_0041a3a0.c (v3 (l.24) switch l.34-42)"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce [242]; emits only [264]",
+     "line": "AIOutOfTrackEvent_0041a0c0.c (literal l.11)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce [242]; emits only [3, 4, 5, 10, 16, 33, 72, 262]",
+     "line": "AIOvertakeDefendStateChange_00419690.c (v5 (l.61) from l.21,27,29,41,47,54-57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce [242]; emits only [42, 52]",
+     "line": "AIPitStrategyState_0041a200.c (v3 (l.15) from l.13-14)"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce [242]; emits only [7, 8, 9, 17, 18]",
+     "line": "AIPositionChangeEvent_004198b0.c (v6 (l.36) {17,18}; v8 (l.48) {7,8,9})"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce [242]; emits only [1, 2, 41, 272, 273]",
+     "line": "AIRetirementVehicleFailureEvent_004199e0.c (literal l.20,29,47,54,75; race only (l.14))"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce [242]; emits only [55]",
+     "line": "AISessionEventAudio_0041a8c0.c (literal l.10)"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce [242]; emits only [134, 136, 138]",
+     "line": "AISessionModeTransition_004193a0.c (literal l.23,29,35)"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce [242]; emits only [21, 22, 178, 179]",
+     "line": "AISessionPhaseChange_0041a2b0.c (v5 (l.36) from l.17-34)"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce [242]; emits only [95, 97, 99, 101, 105]",
+     "line": "AISessionPhaseCounter_0041aa10.c (literal l.28,31,34,37,45)"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce [242]; emits only [52, 196]",
+     "line": "AIVehicleDamageEvent_0041a170.c (v1 (l.19) from l.10,16)"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce [242]; emits only [423, 424, 488]",
+     "line": "ConstructorStandingsParser_00420820.c (literal l.163,245,255)"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce [242]; emits only [275]",
+     "line": "DisplayMessage0x113_0041a6b0.c (literal l.10)"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce [242]; emits only [284]",
+     "line": "DisplayMessage0x11c_0041a4a0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce [242]; emits only [337]",
+     "line": "DisplayMessage0x151_0041c3e0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce [242]; emits only [514]",
+     "line": "DisplayMessage0x202_0041c090.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce [242]; emits only [74]",
+     "line": "DisplayMessage0x4a_0041b200.c (literal l.9)"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce [242]; emits only [492, 496, 500, 504]",
+     "line": "GdbSeasonSelector_00420cf0.c (literal l.349,358,367,376)"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce [242]; emits only [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170] ...",
+     "line": "PerDriverRaceCommentary_00419c50.c (v2 (l.113) from l.29-103 (157-177); literal l.149 (159), l.159 (261), l.164 (260))"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce [242]; emits only [397, 516, 517, 518, 519, 523, 524, 525, 526, 527, 528, 529, 530, 531] ...",
+     "line": "PitExit_0041c0f0.c (v6 (l.127) from l.29-99 and remap l.103-123)"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce [242]; emits only [506, 507, 509, 510, 511, 512, 513]",
+     "line": "PitRaceStatusMessageDispatcher_0041be60.c (literal l.17-52)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce [242]; emits only [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138]",
+     "line": "PitSelectionStateMachine_0041b3c0.c (literal l.55-168)"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce [242]; emits only [94, 96, 98, 100, 104]",
+     "line": "PitStateSlotActivation_0041ab30.c (literal l.28-45)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce [242]; emits only [355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368] ...",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c (v2 (l.25) = ThunkToFUN004201e0 = sub_4203D0 (returns 355-371 or -1))"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce [242]; emits only [397]",
+     "line": "PositionChangeDetector_00420490.c (literal l.111,189)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce [242]; emits only [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459] ...",
+     "line": "RaceCommentary_0041d630.c (v2 (l.107); v11 (l.148) {397,465}; literal l.158 (474); v14 (l.173) {397,459,460,461}; literal l.191-226 (454,455,456,476))"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce [242]; emits only [427, 483, 484, 485, 486, 487]",
+     "line": "ScoringClassificationDisplay_0041e320.c (literal l.98-245)"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce [242]; emits only [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503]",
+     "line": "SeasonDisplayIDResolver_0041daf0.c (literal l.99-453)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce [242]; emits only [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306] ...",
+     "line": "TeamNameDisplayIDLookup_0041b980.c (v2 (l.189) from string-compare chain l.11-187)"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce [242]; emits only [34, 35, 276, 277, 278, 279]",
+     "line": "TimeBasedMessageChain_0041a500.c (v3 (l.25) from threshold chain l.16-64)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce 242: strcmp chain emits 151,153,154,155 (player) and 252,253,254,256 (AI) only (41A720.c:14-58)",
+     "line": "sub_41A720_0041a720.c (v2 (l.35): player l.14-29 (151,153,155,154); AI l.41-58 (256,253,254,252))"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce 242: emits 149 (player) and 243 (AI) only (41A940.c:12,21)",
+     "line": "sub_41A940_0041a940.c (v2 (l.15): 149 player l.8-12; 243 AI l.19-22)"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce [242]; emits only [208, 211, 212, 213, 214, 215, 216, 217, 220]",
+     "line": "sub_41AC50_0041ac50.c (v2 (l.58) switch l.19-52)"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce [242]; emits only [114, 115, 225, 226]",
+     "line": "sub_41AD80_0041ad80.c (literal l.35,37,43,45,53,72,88)"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce [242]; emits only [106, 107, 108, 109, 110, 111, 221, 222, 223]",
+     "line": "sub_41AFD0_0041afd0.c (literal l.13-48)"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce [242]; emits only [77]",
+     "line": "sub_41B190_0041b190.c (literal l.7)"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce 242: emits 117-119 (player) and 235-238 (AI) only (41B250.c:15-51)",
+     "line": "sub_41B250_0041b250.c (player l.15,19,23 (117-119); AI l.38 (235), l.45 (236), l.47 (237), l.51 (238))"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce [242]; emits only [338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351] ...",
+     "line": "sub_41C440_0041c440.c (v1 = sub_420000 (420000.c l.11-45 returns 338-353 or -1))"
+    },
+    {
+     "function": "sub_4F1FE0 (AI removal path, caller of sub_41B250)",
+     "result": "l.30-34 reads FinishState v4=*(veh+16484); l.36-68 nonzero branch (no emit); l.83-86 AI returns early unless *(float*)(veh+16752) >= FLT_MAX (meaning of +16752 UNKNOWN); l.107 sub_4D21D0() (findings.jsonl:94: 0 for RacePhase 0-4); l.109 (*this)[3348]!=3 && !DistanceComparison (AI values UNKNOWN); l.113 dwell > flt_7D0A8C (Vehicle Removal, live 60.0, findings.jsonl:688); l.135 sub_41B250; l.138 FinishState=2 latch",
+     "line": "sub_4F1FE0_004f1fe0.c:30-149"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController (sub_4F1C40)",
+     "result": "calls sub_4F1FE0(a2) for each car",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c:149"
+    },
+    {
+     "function": "MainGameTickUpdate (per-frame root)",
+     "result": "l.75-79 runs VehicleYawRotationRecoveryController(0.125) for all cars when dword_7C5698 % 50 == 0; l.86-87 sub_4BCCC0(0.025) only if !(player+13000) (this-object not shown by decompile)",
+     "line": "MainGameTickUpdate_0042c690.c:75-87"
+    },
+    {
+     "function": "sub_412E50 (clip-list builder, subclip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): SDT 250-259 reachable as subclip: bank0 type table (a2=0,a4=0) case 11..20 -> 250..259 (l.126,129,132,135,138,141,144,147,150,153); bank1 type table (a2=1,a4=0) case 8..17 -> 250..259 (l.36,39,42,45,48,51,54,57,60,63). Parent eid NOT identified",
+     "line": "sub_412E50_00412e50.c:36-153"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,a3[4],0) for type 0x0E (l.46); sub_412E50(a4,a1,a3[5],0) for types 0x13/0x29 (l.57); bank a1 from ShortComputation_19d0. Parent message carrying enum 8..20 UNKNOWN",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,value,1) for types 0x0B/0x0C/0x33 (l.37): a4=1 selects X table 214-242 -> cannot produce 250-259 as subclip",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:37"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840, clip-list entry)",
+     "result": "RaceEventMessageDispatcher then SoundEventDispatcher (l.36,45); no literal SDT index",
+     "line": "FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_588410 (literal 255 in other_functions)",
+     "result": "number is not an eid or SDT index: string-compare loop sentinel (v6=255, l.24); no emit",
+     "line": "sub_588410_00588410.c:24"
+    },
+    {
+     "function": "eid-lookup tables (step 3)",
+     "result": "dossier literal_hits.lookups empty for every clip in B26; no lookup feeds an emitter with 235-243",
+     "line": "data/line_trace/25x_*.json literal_hits.lookups"
+    },
+    {
+     "function": "other_functions (step 0, non-emitter hits)",
+     "result": "number is not an eid: array sizes/offsets (LargeConfigFunctionWithPhysicsConstants, SeasonDataFileSetupChain, TelemetryDataDump, TireModelInit, VehicleDataCopy, sub_45C400 v15[235], sub_4E3360 v44[235]); none is among the 40 DriverDataTable callers (EVF emitter_index.json, 135 call sites)",
+     "line": "sub_45C400_0045c400.c:13; sub_4E3360_004e3360.c:45"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "AI speeding in the pitlane, 25 s penalty (label conflict, see notes).",
+    "when_it_should_play": "n/a",
+    "trigger": "no AI penalty trigger exists in the game",
+    "subject": "AI driver id veh+0x489C",
+    "technique": "none proposed",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "eid 242 has no emitter; AI pit speeding is eid 256",
+    "calibration": "n/a",
+    "live_test": "n/a",
+    "confidence": "EXCLUDED by DD-10 (AI penalty lines: AI stays silent; owner decision 2026-10-18)."
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "no_emitter unchanged; sub-clip index note and subclip_resolver removed."
+   }
+  },
+  {
+   "sdt_index": 259,
+   "eid": 243,
+   "clip": "PWS_AIPENALTY22",
+   "says": "AI penalty (type 22)",
+   "score": 246,
+   "priority": 70,
+   "cooldown": 1.0,
+   "verdict": "UNKNOWN",
+   "reason": "AI stop/go counter producer for AI cars not proven; the DQ branch itself is live-proven for the player",
+   "situation": "Would play when an AI car is disqualified for an unserved stop/go penalty. The same DQ branch for the player is live-proven (RE_PD_DQ eid 149, findings.jsonl:91).",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": true,
+   "suppressed_note": "Activation trigger exists in code: LapCompletion_004bc4e0.c:134-153 expired stop/go counter -> DisqualificationHandler(aIgnoredStopGoP) -> sub_41A940 AI branch emits 243. Suppressed upstream: stop/go counters are appended by sub_4BBED0 from StopGoPenaltyHandler event op 23 (4BBD60.c:41, sub_4B3400.c:231). AI callers not shown: sub_4BC9B0 excludes AI (gate *(v5+3247)!=1), sub_4BCCC0 is called from MainGameTickUpdate.c:87 with no explicit this (AI capability UNKNOWN; findings.jsonl:104 vs :138 contradict).",
+   "emitters": [
+    "sub_41A940 (functions/sub_41A940_0041a940.c:19-22, emits 243 for AI)",
+    "DisqualificationHandler (functions/DisqualificationHandler_004bc0e0.c:47)",
+    "LapCompletion (functions/LapCompletion_004bc4e0.c:153)"
+   ],
+   "call_path": "LapCompletion (sub_4BC4E0, per car, race case 7 l.125-153) -> DisqualificationHandler (4BC0E0.c:47) -> sub_41A940 (41A940.c:21)",
+   "gates": [
+    "dword_7C56A4==7 (4BC4E0.c:125)",
+    "dword_7C56A8 != 8 (4BC4E0.c:126)",
+    "(*this)[3250] <= 1 (4BC4E0.c:152-153)",
+    "counter v18==1 and !(*(this)+13388) (4BC4E0.c:146)",
+    "this[15] > 0 pending list (4BC4E0.c:140): producer for AI cars UNKNOWN",
+    "dword_7D0308 && flt_7CF3C8 && AI (41A940.c:6,8)"
+   ],
+   "mod": "none queues eid 243. DD-10 applies to AI penalty lines.",
+   "heard_evidence": "progress.json 259 owner triage: 'X PLAY, AI disqualified for failing to serve stop/go, determine if AI even does this'",
+   "tier": "DERIVED",
+   "notes": "SDT 259 collides with eid 259 (PWS_AIBLUE03) in AIDriverStateTransition.c:39 - different things. Open question: for which car StopGoPenaltyHandler is called (sub_4BCCC0 this-object).",
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce [243]; emits only [13, 14, 19, 20]",
+     "line": "AICornerSpeedComparison_00419500.c (literal l.22,26,31,35)"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce [243]; emits only [120, 198, 259]",
+     "line": "AIDriverStateTransition_00419120.c (literal 120 (l.37); literal 259 (l.39) is EID 259 = PWS_AIBLUE03 (dump score 262), not this clip; v11 candidates 120/198 (l.59))"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce [243]; emits only [6, 180, 181, 182]",
+     "line": "AIFormationLap_0041a3a0.c (v3 (l.24) switch l.34-42)"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce [243]; emits only [264]",
+     "line": "AIOutOfTrackEvent_0041a0c0.c (literal l.11)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce [243]; emits only [3, 4, 5, 10, 16, 33, 72, 262]",
+     "line": "AIOvertakeDefendStateChange_00419690.c (v5 (l.61) from l.21,27,29,41,47,54-57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce [243]; emits only [42, 52]",
+     "line": "AIPitStrategyState_0041a200.c (v3 (l.15) from l.13-14)"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce [243]; emits only [7, 8, 9, 17, 18]",
+     "line": "AIPositionChangeEvent_004198b0.c (v6 (l.36) {17,18}; v8 (l.48) {7,8,9})"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce [243]; emits only [1, 2, 41, 272, 273]",
+     "line": "AIRetirementVehicleFailureEvent_004199e0.c (literal l.20,29,47,54,75; race only (l.14))"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce [243]; emits only [55]",
+     "line": "AISessionEventAudio_0041a8c0.c (literal l.10)"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce [243]; emits only [134, 136, 138]",
+     "line": "AISessionModeTransition_004193a0.c (literal l.23,29,35)"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce [243]; emits only [21, 22, 178, 179]",
+     "line": "AISessionPhaseChange_0041a2b0.c (v5 (l.36) from l.17-34)"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce [243]; emits only [95, 97, 99, 101, 105]",
+     "line": "AISessionPhaseCounter_0041aa10.c (literal l.28,31,34,37,45)"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce [243]; emits only [52, 196]",
+     "line": "AIVehicleDamageEvent_0041a170.c (v1 (l.19) from l.10,16)"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce [243]; emits only [423, 424, 488]",
+     "line": "ConstructorStandingsParser_00420820.c (literal l.163,245,255)"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce [243]; emits only [275]",
+     "line": "DisplayMessage0x113_0041a6b0.c (literal l.10)"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce [243]; emits only [284]",
+     "line": "DisplayMessage0x11c_0041a4a0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce [243]; emits only [337]",
+     "line": "DisplayMessage0x151_0041c3e0.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce [243]; emits only [514]",
+     "line": "DisplayMessage0x202_0041c090.c (literal l.9)"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce [243]; emits only [74]",
+     "line": "DisplayMessage0x4a_0041b200.c (literal l.9)"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce [243]; emits only [492, 496, 500, 504]",
+     "line": "GdbSeasonSelector_00420cf0.c (literal l.349,358,367,376)"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce [243]; emits only [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170] ...",
+     "line": "PerDriverRaceCommentary_00419c50.c (v2 (l.113) from l.29-103 (157-177); literal l.149 (159), l.159 (261), l.164 (260))"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce [243]; emits only [397, 516, 517, 518, 519, 523, 524, 525, 526, 527, 528, 529, 530, 531] ...",
+     "line": "PitExit_0041c0f0.c (v6 (l.127) from l.29-99 and remap l.103-123)"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce [243]; emits only [506, 507, 509, 510, 511, 512, 513]",
+     "line": "PitRaceStatusMessageDispatcher_0041be60.c (literal l.17-52)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce [243]; emits only [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138]",
+     "line": "PitSelectionStateMachine_0041b3c0.c (literal l.55-168)"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce [243]; emits only [94, 96, 98, 100, 104]",
+     "line": "PitStateSlotActivation_0041ab30.c (literal l.28-45)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce [243]; emits only [355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368] ...",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c (v2 (l.25) = ThunkToFUN004201e0 = sub_4203D0 (returns 355-371 or -1))"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce [243]; emits only [397]",
+     "line": "PositionChangeDetector_00420490.c (literal l.111,189)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce [243]; emits only [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459] ...",
+     "line": "RaceCommentary_0041d630.c (v2 (l.107); v11 (l.148) {397,465}; literal l.158 (474); v14 (l.173) {397,459,460,461}; literal l.191-226 (454,455,456,476))"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce [243]; emits only [427, 483, 484, 485, 486, 487]",
+     "line": "ScoringClassificationDisplay_0041e320.c (literal l.98-245)"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce [243]; emits only [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503]",
+     "line": "SeasonDisplayIDResolver_0041daf0.c (literal l.99-453)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce [243]; emits only [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306] ...",
+     "line": "TeamNameDisplayIDLookup_0041b980.c (v2 (l.189) from string-compare chain l.11-187)"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce [243]; emits only [34, 35, 276, 277, 278, 279]",
+     "line": "TimeBasedMessageChain_0041a500.c (v3 (l.25) from threshold chain l.16-64)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce [243]; emits only [151, 153, 154, 155, 252, 253, 254, 256]",
+     "line": "sub_41A720_0041a720.c (v2 (l.35): player l.14-29 (151,153,155,154); AI l.41-58 (256,253,254,252))"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "EMITS 243 for an AI car when a2 == aIgnoredStopGoP (l.19-22; AI = a1 != dword_7C54E8, l.8). Only DisqualificationHandler (4BC0E0.c:47) calls it with this string, reached from LapCompletion (4BC4E0.c:153).",
+     "line": "sub_41A940_0041a940.c (v2 (l.15): 149 player l.8-12; 243 AI l.19-22)"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce [243]; emits only [208, 211, 212, 213, 214, 215, 216, 217, 220]",
+     "line": "sub_41AC50_0041ac50.c (v2 (l.58) switch l.19-52)"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce [243]; emits only [114, 115, 225, 226]",
+     "line": "sub_41AD80_0041ad80.c (literal l.35,37,43,45,53,72,88)"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce [243]; emits only [106, 107, 108, 109, 110, 111, 221, 222, 223]",
+     "line": "sub_41AFD0_0041afd0.c (literal l.13-48)"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce [243]; emits only [77]",
+     "line": "sub_41B190_0041b190.c (literal l.7)"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce [243]; emits only [117, 118, 119, 235, 236, 237, 238]",
+     "line": "sub_41B250_0041b250.c (player l.15,19,23 (117-119); AI l.38 (235), l.45 (236), l.47 (237), l.51 (238))"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce [243]; emits only [338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351] ...",
+     "line": "sub_41C440_0041c440.c (v1 = sub_420000 (420000.c l.11-45 returns 338-353 or -1))"
+    },
+    {
+     "function": "sub_4F1FE0 (AI removal path, caller of sub_41B250)",
+     "result": "l.30-34 reads FinishState v4=*(veh+16484); l.36-68 nonzero branch (no emit); l.83-86 AI returns early unless *(float*)(veh+16752) >= FLT_MAX (meaning of +16752 UNKNOWN); l.107 sub_4D21D0() (findings.jsonl:94: 0 for RacePhase 0-4); l.109 (*this)[3348]!=3 && !DistanceComparison (AI values UNKNOWN); l.113 dwell > flt_7D0A8C (Vehicle Removal, live 60.0, findings.jsonl:688); l.135 sub_41B250; l.138 FinishState=2 latch",
+     "line": "sub_4F1FE0_004f1fe0.c:30-149"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController (sub_4F1C40)",
+     "result": "calls sub_4F1FE0(a2) for each car",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c:149"
+    },
+    {
+     "function": "MainGameTickUpdate (per-frame root)",
+     "result": "l.75-79 runs VehicleYawRotationRecoveryController(0.125) for all cars when dword_7C5698 % 50 == 0; l.86-87 sub_4BCCC0(0.025) only if !(player+13000) (this-object not shown by decompile)",
+     "line": "MainGameTickUpdate_0042c690.c:75-87"
+    },
+    {
+     "function": "sub_412E50 (clip-list builder, subclip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): SDT 250-259 reachable as subclip: bank0 type table (a2=0,a4=0) case 11..20 -> 250..259 (l.126,129,132,135,138,141,144,147,150,153); bank1 type table (a2=1,a4=0) case 8..17 -> 250..259 (l.36,39,42,45,48,51,54,57,60,63). Parent eid NOT identified",
+     "line": "sub_412E50_00412e50.c:36-153"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,a3[4],0) for type 0x0E (l.46); sub_412E50(a4,a1,a3[5],0) for types 0x13/0x29 (l.57); bank a1 from ShortComputation_19d0. Parent message carrying enum 8..20 UNKNOWN",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50(a4,a1,value,1) for types 0x0B/0x0C/0x33 (l.37): a4=1 selects X table 214-242 -> cannot produce 250-259 as subclip",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:37"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840, clip-list entry)",
+     "result": "RaceEventMessageDispatcher then SoundEventDispatcher (l.36,45); no literal SDT index",
+     "line": "FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_588410 (literal 255 in other_functions)",
+     "result": "number is not an eid or SDT index: string-compare loop sentinel (v6=255, l.24); no emit",
+     "line": "sub_588410_00588410.c:24"
+    },
+    {
+     "function": "eid-lookup tables (step 3)",
+     "result": "dossier literal_hits.lookups empty for every clip in B26; no lookup feeds an emitter with 235-243",
+     "line": "data/line_trace/25x_*.json literal_hits.lookups"
+    },
+    {
+     "function": "other_functions (step 0, non-emitter hits)",
+     "result": "number is not an eid: array sizes/offsets (LargeConfigFunctionWithPhysicsConstants, SeasonDataFileSetupChain, TelemetryDataDump, TireModelInit, VehicleDataCopy, sub_45C400 v15[235], sub_4E3360 v44[235]); none is among the 40 DriverDataTable callers (EVF emitter_index.json, 135 call sites)",
+     "line": "sub_45C400_0045c400.c:13; sub_4E3360_004e3360.c:45"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "An AI car ignored a stop/go penalty and is disqualified.",
+    "when_it_should_play": "AI car with a pending stop/go counter that expires unserved in a race.",
+    "trigger": "LapCompletion stop/go loop (4BC4E0.c:134-161) expiry for an AI car; producer of the counter for AI UNKNOWN",
+    "subject": "AI driver id veh+0x489C",
+    "technique": "lift_suppression: first make the game issue AI stop/go penalties (not a line change)",
+    "latch_cooldown": "once per penalty entry (counter reset, 4BC4E0.c:154)",
+    "must_not_play_when": "player car (149 path) or DQ for wrong way / jump start",
+    "conflicts": "player path (149) shares the DQ function",
+    "calibration": "stop/go producer must be traced first",
+    "live_test": "n/a until producer is known",
+    "confidence": "EXCLUDED by DD-10 (AI penalty lines: AI stays silent). Would stay DERIVED-only even if DD-10 were lifted."
+   },
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "UNKNOWN",
+    "why": "Verdict kept on independent evidence: AI stop/go counter producer unproven (DQ branch live-proven for the player only). Sub-clip bank index was never a route."
+   }
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+struct F1CPitMachine {
+    void *vehicle;
+    int pit_team_index;
+    unsigned char gap_008[0x178];
+    unsigned char pit_entry_latch;
+    unsigned char gap_181[3];
+    int status;
+    float state_event_time;
+    float state_enter_time;
+    unsigned char service_ready;
+    unsigned char gap_191[0xF];
+    float stop_start_time;
+    float stop_end_time;
+    unsigned int operation_flags;
+    unsigned char operation_sound_latch;
+    unsigned char gap_1AD[3];
+    float fuel_start;
+    float fuel_start_time;
+    float fuel_target;
+    float refuel_progress;
+    unsigned int refuel_active;
+    unsigned int tire_change_active;
+    unsigned int wing_adjustment_active;
+    unsigned int repair_active;
+    float tire_service_start_time;
+    float tire_service_end_time;
+};

@@ -1,0 +1,10 @@
+{
+  "name": "engine_blowup",
+  "facts": [
+    {"id":"in_race","expr":"SessionType","type":"int32","expect":{"eq":7},"gate":true},
+    {"id":"race_active","expr":"RaceActiveFlag","type":"int32","expect":{"nonzero":true},"gate":true},
+    {"id":"player_ptr","expr":"[PlayerVehiclePtr]","type":"ptr","expect":{"nonzero":true}},
+    {"id":"player_finish_state","expr":"[PlayerVehiclePtr]+0x4064","type":"int32","expect":{"eq":0}},
+    {"id":"player_reason_code","expr":"[PlayerVehiclePtr]+0x4068","type":"int32","expect":{"range":[0,9]}}
+  ]
+}

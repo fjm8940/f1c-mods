@@ -1,0 +1,5 @@
+# PitStopDecisionTireCompound: offset-like lines with no extracted row (4)
+L45: if ( *(_DWORD *)(*this + 3352) && !*(_BYTE *)(*this + 3416) && dword_7C56A4 == 7 )
+L47: ConditionalGate(this + 3);
+L56: ConditionalGate(this + 3);
+L111: v20 = this + 4480;

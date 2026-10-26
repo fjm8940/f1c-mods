@@ -1,0 +1,2 @@
+# VehicleDynamicsStateReset: offset-like lines with no extracted row (1)
+L15: result = this + 3436;

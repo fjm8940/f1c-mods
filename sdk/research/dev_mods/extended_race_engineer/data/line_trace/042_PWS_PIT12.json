@@ -1,0 +1,488 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 42,
+ "clip": "PWS_PIT12",
+ "says": "Limiter Off - clear of pit lane",
+ "dump_rows_for_clip": [
+  {
+   "eid": 43,
+   "hex": "0x002B",
+   "priority": 20,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 41,
+   "sdt_index": 42,
+   "clip_name": "PWS_PIT12.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 334,
+   "hex": "0x014E",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 41,
+   "sdt_index": 42,
+   "clip_name": "PWS_PIT12.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  41
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 43,
+   "hex": "0x002B",
+   "priority": 20,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 41,
+   "sdt_index": 42,
+   "clip_name": "PWS_PIT12.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 334,
+   "hex": "0x014E",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 41,
+   "sdt_index": 42,
+   "clip_name": "PWS_PIT12.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  43
+ ],
+ "literal_hits": {
+  "43": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 79,
+       "text": "v4 = a4 != 0 ? 43 : 64;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 78,
+    "first": [
+     "AudioResampler",
+     "Base64IndexToCharEncoding",
+     "CameraViewportRenderSetup",
+     "CharacterCodeMapper",
+     "CockpitDashboardLEDGaugeSetup",
+     "CollisionCoefficientApplication",
+     "CollisionShapeSizeClassify",
+     "CollisionStateInit1",
+     "ColorPaletteLookupByIndex",
+     "ConstructorInputControlInit",
+     "CursorSelectorFromArray",
+     "DriverEntrantSetupEntry",
+     "FAILTriageUnknownUnidentifiedButIsActuallyConstr",
+     "F_3DSoundEmitter",
+     "F_3DTransformWithSIMD",
+     "GlobalStateBranchFormat",
+     "GlobalStateInitializerWithEnumValues",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "MemoryAllocation_8c10",
+     "MultiFieldPointerFree",
+     "MultiStageCleanupWithRepeatedCallCycle",
+     "NetworkEntrantSetupWithIDCheck",
+     "PhysicsStateStructureInitializer",
+     "PitStopOperationTimer",
+     "PressureForceFieldMapping",
+     "RaceCommentaryDirectorSystem",
+     "RaceEventMessageDispatcher",
+     "SeasonDatabaseObjectFactory",
+     "SessionStateIndexedLookup",
+     "ShortComputation_5e30",
+     "SmallStructFieldInit",
+     "SoundEventDispatcher",
+     "SteeringWheelAnimation",
+     "StringPrefixPatternCheck",
+     "StructFieldSerialization",
+     "StructFieldSerializerPacker",
+     "SuspensionAndWheelPhysics",
+     "TireCompoundPerWheelPhysicsApplication",
+     "TireSlipForceCalculation",
+     "TrackPositionNameFormatter"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 42 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "CharacterCodeMapper",
+    "file": "CharacterCodeMapper_00411b50.c",
+    "hits": [
+     {
+      "line": 27,
+      "text": "v4 = 42;"
+     }
+    ]
+   },
+   {
+    "function": "CollisionShapeSizeClassify",
+    "file": "CollisionShapeSizeClassify_004139c0.c",
+    "hits": [
+     {
+      "line": 61,
+      "text": "v6 = 42;"
+     }
+    ]
+   },
+   {
+    "function": "RaceEventMessageDispatcher",
+    "file": "RaceEventMessageDispatcher_00411bf0.c",
+    "hits": [
+     {
+      "line": 42,
+      "text": "case 0x2A:"
+     }
+    ]
+   },
+   {
+    "function": "SoundEventDispatcher",
+    "file": "SoundEventDispatcher_00411e90.c",
+    "hits": [
+     {
+      "line": 86,
+      "text": "case 0x2A:"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:125: {\"ts\": \"2026-07-28\", \"tier\": \"FACT\", \"topic\": \"PWS_PIT10/PIT12 eid bug - wrong column used\", \"claim\": \"dll/pit_exit_commentary.c v1/v2 used the WRONG low-eid twins: EID_P"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:178: | `PWS_PIT12` | 42 | 334 | 0x0041b980? | Limiter Off - clear of pit lane |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:62: | PWS_PIT12 | 42 | 43 | Player exits the pit straight |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:199: | `PWS_PIT12` | 42 | 43, 334 | — | Limiter Off - clear of pit lane | PWS_PIT12 Limiter Off - clear of pit lane - restored via dll/pit_exit_commentary_v3.dll, eid 43 (NOT 42, that w",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:42: | `PWS_PIT12` | 43, 334 | Limiter Off - clear of pit lane |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:116: `PWS_PIT12`, `PWS_QUAL28`, `PWS_QUAL29`, `PWS_QUAL30`, `PWS_QUAL32`,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:129: | 42 | `PWS_PIT12` | Z | - | Z, player exits the pit straight |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:109: | `PWS_PIT12` | 42 | 334 | 43 | Limiter Off - clear of pit lane |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:58: | `PWS_PIT12` | 42 | 43, 334 | user triage: Z, player exits the pit straight |"
+ ],
+ "mod_sources": [
+  "development\\mods\\pitstop_modding\\dll\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.1\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.2\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.3\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.4\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.2-rc.1\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.2-rc.2\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.3-rc.1\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.4-rc.1\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.5-rc.1\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.5-rc.2\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.6-rc.3\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.6-rc.4\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.7-rc.1\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.8-rc.1\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.9-rc.1\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.0-rc.1\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.1-rc.1\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.2-rc.1\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.3-rc.1\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.4-rc.1\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pitstop_modding\\src\\pit_commentary.c:7: *   PIT12 \"Limiter Off\" (eid 43)  pittingStatus 4->0",
+  "development\\mods\\pit_exit_commentary\\pit_exit_commentary.c:5: *   PWS_PIT12 \"Limiter Off - clear of pit lane\" eid 43 (low twin, high=334)",
+  "development\\mods\\pit_exit_commentary\\pit_exit_commentary.c:26: *   PIT12 \"Limiter Off...\"    -> pittingStatus 4->0 (crossing exit line)",
+  "development\\mods\\pit_exit_commentary\\pit_exit_commentary.c:57: * instead of the eid twin for PIT12, and PIT09's twin instead of PIT10's)."
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "EVF archive (progress.json DONE)",
+    "eid": null,
+    "mechanism": "see note",
+    "release_status": "archived",
+    "live_verified": true,
+    "source": "seed",
+    "condition": null
+   },
+   {
+    "mod": "pitstop_modding",
+    "mod_version": "1.1.4 (RELEASE_REGISTRY 2026-10-11)",
+    "eid": 43,
+    "mechanism": "dll_emit",
+    "condition": "player pit exit: pittingStatus 4 -> 0 within 60 s of Go (limiter off)",
+    "source": "development/mods/pitstop_modding/dll/pit_commentary.c:1097-1099",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Limiter Off - clear of pit lane"
+   },
+   {
+    "mod": "pit_exit_commentary",
+    "mod_version": "dev (no registry row; FEATURE.md:7 RESTORED)",
+    "eid": 43,
+    "mechanism": "dll_emit",
+    "condition": "pittingStatus 4 -> 0 edge",
+    "source": "development/mods/pit_exit_commentary/pit_exit_commentary.c:64,164",
+    "release_status": "dev",
+    "live_verified": true,
+    "says": "Limiter Off - clear of pit lane"
+   }
+  ],
+  "note": "PWS_PIT12 Limiter Off - clear of pit lane - restored via dll/pit_exit_commentary_v3.dll, eid 43 (NOT 42, that was the SDT index not the eid), trigger = pittingStatus 4->0, live-confirmed 2026-07-28",
+  "triage": {
+   "sdt_index": 42,
+   "text": "Z, player exits the pit straight",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "DONE"
+ }
+}

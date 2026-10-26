@@ -1,0 +1,434 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 74,
+ "clip": "PWS_MECHPROB16",
+ "says": "Damaged suspension - avoid kerbs",
+ "dump_rows_for_clip": [
+  {
+   "eid": 75,
+   "hex": "0x004B",
+   "priority": 40,
+   "cooldown": 15.0,
+   "blocked": false,
+   "score": 73,
+   "sdt_index": 74,
+   "clip_name": "PWS_MECHPROB16.",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 345,
+   "hex": "0x0159",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 73,
+   "sdt_index": 74,
+   "clip_name": "PWS_MECHPROB16.",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  73
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 75,
+   "hex": "0x004B",
+   "priority": 40,
+   "cooldown": 15.0,
+   "blocked": false,
+   "score": 73,
+   "sdt_index": 74,
+   "clip_name": "PWS_MECHPROB16.",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 345,
+   "hex": "0x0159",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 73,
+   "sdt_index": 74,
+   "clip_name": "PWS_MECHPROB16.",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  75
+ ],
+ "literal_hits": {
+  "75": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 124,
+       "text": "v4 = a4 != 0 ? 75 : 94;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 39,
+    "first": [
+     "AIRacingLinePathFollowing",
+     "AIRacingLine",
+     "AdobePSDHeaderParser",
+     "AudioResampler",
+     "CameraPositionGetter",
+     "CameraViewportConfigBatch",
+     "Camera",
+     "CollisionContactDetection",
+     "CollisionShapeSizeClassify",
+     "DoublyLinkedListRemove",
+     "DrawableObjectNodeManager",
+     "DrivingModeParameterSetup",
+     "EnumToIDMappingWithDefaultFallthrough",
+     "FAILTriageUnknownUnidentifiedButIsActuallyConstr",
+     "LinkedIndexedAccess",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "PhysicsObjectLinkedListRemoval",
+     "PhysicsStateStructureInitializer",
+     "PitStopOperationTimer",
+     "PlayerOptionsInitializer",
+     "SpatialNodeInit_e300",
+     "StateTransition",
+     "UIDimensionCapture",
+     "sub_402690",
+     "sub_413820",
+     "sub_454350",
+     "sub_455580",
+     "sub_48F1A0",
+     "sub_530840",
+     "sub_53CBC0",
+     "sub_5456B0",
+     "sub_54B190",
+     "sub_54C320",
+     "sub_54D080",
+     "sub_54EED0",
+     "sub_561660",
+     "sub_56F818",
+     "sub_575882",
+     "sub_5837F0"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 74 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": []
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:574: {\"tier\": \"CONFIRMED\", \"tags\": [\"suspension\", \"mechanical_failure\", \"live\", \"detour\", \"hook_site\"], \"title\": \"suspension_failure.dll drives the game input live: bend angles, bent fl",
+  "f1c_ida_decompiled\\findings.jsonl:580: {\"tier\": \"CONFIRMED\", \"tags\": [\"suspension\", \"mechanical_failure\", \"driver_confirmed\", \"retune\"], \"title\": \"Stage 2 retuned 8 x 0.60 -> 3 x 0.60: RL -6.57 deg / RR +5.80 deg, mid-r"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-005.md:36: | `PWS_MECHPROB16` | 74 | 75, 345 | suspension damage. Happens in vanilla. See `SeasonData/Vehicles/damage.ini`. Suspension damage often coincides with wing loss — **how does the w",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-005.md:41: **Start here, with `PWS_MECHPROB16`,** because it has the strongest existing",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-005.md:46: > Is `PWS_MECHPROB16` a real emitter with a FLT_MAX cooldown (i.e. a 4-byte fix",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:305: | 345 | PWS_MECHPROB16 | veh+0x16484==2 AND veh+0x16488==4 AND SessionType==7 AND RaceActiveFlag==3 AND previous ti | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:260: | `PWS_MECHPROB16` | 74 | 75,345 | Damaged suspension - avoid kerbs |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:284: | `PWS_MECHPROB16` | 74 | 75, 345 | — | Damaged suspension - avoid kerbs | user triage: Z, suspension damage, happens in vanilla game, see damage.ini file in SeasonData/Vehicles fo",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:303: | `PWS_MECHPROB16` | 75, 345 | Damaged suspension - avoid kerbs | eid 345 has no call site |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:166: PWS_MECHPROB14, PWS_MECHPROB16, PWS_MECHPROB20, PWS_MECHPROB21,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:33: | 74 | `PWS_MECHPROB16` | Z PLAY | HAS_PLAN,NEEDS_RESEARCH,HAS_LEAD | Z, suspension damage, happens in vanilla game, see damage.ini file in SeasonData/Vehicles for reference, shoul",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:286: | `PWS_MECHPROB16` | 74 | 75,345 | Damaged suspension - avoid kerbs |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:168: | `PWS_MECHPROB16` | 74 | 75, 345 | user triage: Z, suspension damage, happens in vanilla game, see damage.ini file in SeasonData/Vehicles for reference, should research the flag w"
+ ],
+ "mod_sources": [
+  "development\\mods\\mechanical_failures\\dll\\suspension_failure.c:87: #define EID_MECHPROB16   75        /* PWS \"Damaged suspension - avoid kerbs\"",
+  "development\\mods\\mechanical_failures\\dll\\suspension_failure.c:283: if (*(volatile float*)(CM_TS_ARR + (DWORD)EID_MECHPROB16 * 4u) > 0.0f) {",
+  "development\\mods\\mechanical_failures\\dll\\suspension_failure.c:293: commentary_queue(EID_MECHPROB16);",
+  "development\\mods\\mechanical_failures\\dll\\suspension_failure.c:332: commentary_queue(EID_MECHPROB16);",
+  "development\\mods\\mechanical_failures\\dll\\suspension_failure_v5.c:92: #define EID_MECHPROB16   75        /* PWS \"Damaged suspension - avoid kerbs\"",
+  "development\\mods\\mechanical_failures\\dll\\suspension_failure_v5.c:294: if (*(volatile float*)(CM_TS_ARR + (DWORD)EID_MECHPROB16 * 4u) > 0.0f) {",
+  "development\\mods\\mechanical_failures\\dll\\suspension_failure_v5.c:304: commentary_queue(EID_MECHPROB16);",
+  "development\\mods\\mechanical_failures\\dll\\suspension_failure_v5.c:343: commentary_queue(EID_MECHPROB16);",
+  "development\\mods\\mechanical_failures\\releases\\WIP_2026-10-12_gearbox_G8\\src\\suspension_failure.c:87: #define EID_MECHPROB16   75        /* PWS \"Damaged suspension - avoid kerbs\"",
+  "development\\mods\\mechanical_failures\\releases\\WIP_2026-10-12_gearbox_G8\\src\\suspension_failure.c:283: if (*(volatile float*)(CM_TS_ARR + (DWORD)EID_MECHPROB16 * 4u) > 0.0f) {",
+  "development\\mods\\mechanical_failures\\releases\\WIP_2026-10-12_gearbox_G8\\src\\suspension_failure.c:293: commentary_queue(EID_MECHPROB16);",
+  "development\\mods\\mechanical_failures\\releases\\WIP_2026-10-12_gearbox_G8\\src\\suspension_failure.c:332: commentary_queue(EID_MECHPROB16);",
+  "development\\mods\\mechanical_failures\\releases\\WIP_2026-10-12_gearbox_G8\\src\\suspension_failure_v5.c:92: #define EID_MECHPROB16   75        /* PWS \"Damaged suspension - avoid kerbs\"",
+  "development\\mods\\mechanical_failures\\releases\\WIP_2026-10-12_gearbox_G8\\src\\suspension_failure_v5.c:294: if (*(volatile float*)(CM_TS_ARR + (DWORD)EID_MECHPROB16 * 4u) > 0.0f) {",
+  "development\\mods\\mechanical_failures\\releases\\WIP_2026-10-12_gearbox_G8\\src\\suspension_failure_v5.c:304: commentary_queue(EID_MECHPROB16);",
+  "development\\mods\\mechanical_failures\\releases\\WIP_2026-10-12_gearbox_G8\\src\\suspension_failure_v5.c:343: commentary_queue(EID_MECHPROB16);",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\CONTAINMENT_BEFORE_2026-09-29\\sandbox_suspension_failure.c:173: #define EID_MECHPROB16   75        /* PWS \"Damaged suspension - avoid kerbs\"",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\CONTAINMENT_BEFORE_2026-09-29\\sandbox_suspension_failure.c:382: commentary_queue(EID_MECHPROB16);",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\CONTAINMENT_BEFORE_2026-09-29\\sandbox_suspension_failure.c:388: if (*(volatile float*)(CM_TS_ARR + (DWORD)EID_MECHPROB16 * 4u) > 0.0f) {",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\CONTAINMENT_BEFORE_2026-09-29\\sandbox_suspension_failure.c:398: commentary_queue(EID_MECHPROB16);",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\DETECTION_TIMING_BEFORE_2026-09-28\\sandbox_suspension_failure.c:173: #define EID_MECHPROB16   75        /* PWS \"Damaged suspension - avoid kerbs\"",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\DETECTION_TIMING_BEFORE_2026-09-28\\sandbox_suspension_failure.c:376: if (*(volatile float*)(CM_TS_ARR + (DWORD)EID_MECHPROB16 * 4u) > 0.0f) {",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\DETECTION_TIMING_BEFORE_2026-09-28\\sandbox_suspension_failure.c:386: commentary_queue(EID_MECHPROB16);",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\DETECTION_TIMING_BEFORE_2026-09-28\\sandbox_suspension_failure.c:425: commentary_queue(EID_MECHPROB16);",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\ELEC_TIMER_REALISM_BEFORE_2026-09-28\\sandbox_suspension\\suspension_failure.c:172: #define EID_MECHPROB16   75        /* PWS \"Damaged suspension - avoid kerbs\""
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "mechanical_failures",
+    "mod_version": "dev (suspension_failure.c, not in releases/v1.0.7/src)",
+    "eid": 75,
+    "mechanism": "dll_emit",
+    "condition": "player suspension damage: commentary_queue(EID_MECHPROB16)",
+    "source": "development/mods/mechanical_failures/dll/suspension_failure.c:87,283-293 (and suspension_failure_v5.c:92,294-304)",
+    "release_status": "dev",
+    "live_verified": true,
+    "says": "Damaged suspension - avoid kerbs"
+   }
+  ],
+  "note": "user triage: Z, suspension damage, happens in vanilla game, see damage.ini file in SeasonData/Vehicles for reference, should research the flag when suspension damage happens - also, suspension damage often happens when the player loses either of the wings, how to make them all play in a way that they are actually played, meaning that wing damage doesn't cause this to not to play? | UPDATE 2026-07-28: damage.ini has the suspension damage values directly, excavate the flag from there  [flags: HAS_PLAN,NEEDS_RESEARCH,HAS_LEAD]",
+  "triage": {
+   "sdt_index": 74,
+   "text": "Z, suspension damage, happens in vanilla game, see damage.ini file in SeasonData/Vehicles for reference, should research the flag when suspension damage happens - also, suspension damage often happens when the player loses either of the wings, how to make them all play in a way that they are actually played, meaning that wing damage doesn't cause this to not to play? | UPDATE 2026-07-28: damage.ini has the suspension damage values directly, excavate the flag from there",
+   "subject": "Z",
+   "play": true,
+   "verdict": "TODO",
+   "flags": [
+    "HAS_PLAN",
+    "NEEDS_RESEARCH",
+    "HAS_LEAD"
+   ],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

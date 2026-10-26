@@ -1,0 +1,16 @@
+func,line,dec,hex,access,width,base,form,expr
+AIDriverSorting,21,16480,0x4060,R,_DWORD,a1,direct,v12 = *(_DWORD *)(a1 + 16480);
+AIDriverSorting,38,16480,0x4060,R,_DWORD,v6,direct,v7 = *(_DWORD *)(v6 + 16480);
+AIDriverSorting,47,16444,0x403C,R,_DWORD,v6,direct,v8 = *(_DWORD *)(v6 + 16444);
+AIDriverSorting,48,16444,0x403C,R,_DWORD,a1,direct,v9 = *(_DWORD *)(a1 + 16444);
+AIDriverSorting,49,16536,0x4098,R,float,a1,direct,if ( v8 >= v9 && (v8 != v9 || *(float *)(a1 + 16536) >= (double)*(float *)(v6 + 16536)) )
+AIDriverSorting,49,16536,0x4098,R,float,v6,direct,if ( v8 >= v9 && (v8 != v9 || *(float *)(a1 + 16536) >= (double)*(float *)(v6 + 16536)) )
+AIDriverSorting,52,16540,0x409C,R,float,a1,direct,else if ( *(float *)(a1 + 16540) >= (double)*(float *)(v6 + 16540) && *(float *)(v6 + 16540) >= 0.0 )
+AIDriverSorting,52,16540,0x409C,R,float,v6,direct,else if ( *(float *)(a1 + 16540) >= (double)*(float *)(v6 + 16540) && *(float *)(v6 + 16540) >= 0.0 )
+AIDriverSorting,52,16540,0x409C,R,float,v6,direct,else if ( *(float *)(a1 + 16540) >= (double)*(float *)(v6 + 16540) && *(float *)(v6 + 16540) >= 0.0 )
+AIDriverSorting,57,16480,0x4060,R,_DWORD,a1,direct,if ( *(_DWORD *)(a1 + 16480) - 1 == v7 )
+AIDriverSorting,60,,,CALL,,,call,ConditionalFieldSetter
+AIDriverSorting,61,,,CALL,,,call,ConditionalFieldSetter
+AIDriverSorting,61,16480,0x4060,R,_DWORD,v6,direct,"ConditionalFieldSetter(v6 + 16436, *(_DWORD *)(v6 + 16480) + 1);"
+AIDriverSorting,67,,,CALL,,,call,ConditionalFieldSetter
+AIDriverSorting,68,16480,0x4060,R,_DWORD,v6,direct,if ( v12 == *(_DWORD *)(v6 + 16480) )

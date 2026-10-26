@@ -1,0 +1,2 @@
+func,line,dec,hex,access,width,base,form,expr
+DriverSetupParamLookupByID,12,16712,0x4148,R,_DWORD,this,array,return this[2 * v2 + 4178];

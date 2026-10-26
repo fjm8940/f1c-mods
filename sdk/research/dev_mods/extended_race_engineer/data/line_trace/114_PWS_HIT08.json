@@ -1,0 +1,427 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 114,
+ "clip": "PWS_HIT08",
+ "says": "Player hits AI driver (1)",
+ "dump_rows_for_clip": [
+  {
+   "eid": 115,
+   "hex": "0x0073",
+   "priority": 1,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 113,
+   "sdt_index": 114,
+   "clip_name": "PWS_HIT08.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 408,
+   "hex": "0x0198",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 113,
+   "sdt_index": 114,
+   "clip_name": "PWS_HIT08.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  113
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 115,
+   "hex": "0x0073",
+   "priority": 1,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 113,
+   "sdt_index": 114,
+   "clip_name": "PWS_HIT08.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 408,
+   "hex": "0x0198",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 113,
+   "sdt_index": 114,
+   "clip_name": "PWS_HIT08.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  115
+ ],
+ "literal_hits": {
+  "115": {
+   "emitters": [
+    {
+     "function": "sub_41AD80",
+     "file": "sub_41AD80_0041ad80.c",
+     "hits": [
+      {
+       "line": 37,
+       "text": "DriverDataTableLookupAndTimeConversion(v11, 115, *(_DWORD *)(a3 + 18588), -1, -1, -1, -2.0, -2.0);"
+      },
+      {
+       "line": 43,
+       "text": "DriverDataTableLookupAndTimeConversion(v11, 115, *(_DWORD *)(a2 + 18588), -1, -1, -1, -2.0, -2.0);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CollisionDetectionSystem",
+       "callers": [
+        {
+         "caller": "ParticleEffectUpdateDispatch",
+         "callers": [
+          {
+           "caller": "MainGameTickUpdate",
+           "callers": [
+            {
+             "caller": "GamePostMainLoop",
+             "callers": []
+            },
+            {
+             "caller": "StateTriggerCheck",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 43,
+       "text": "v5 = a4 != 0 ? 115 : 71;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 19,
+    "first": [
+     "AudioResampler",
+     "BrakeBiasSetup",
+     "EnumValueTranslation",
+     "FormatStringWithArgs",
+     "HUDFlagRendererMain",
+     "JPEGMarkerParsing",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "PitStopOperationTimer",
+     "SuspensionParamUpdate",
+     "TrackFilePathBuilder",
+     "UIControlWindowInitialization",
+     "UIMessageCompose",
+     "VehFileParser",
+     "VertexBufferResourceAllocation",
+     "sub_455580",
+     "sub_530840",
+     "sub_545D00",
+     "sub_5572B0",
+     "sub_58D04D"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 114 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "EnumValueTranslation",
+    "file": "EnumValueTranslation_00414010.c",
+    "hits": [
+     {
+      "line": 13,
+      "text": "v3 = 114;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\DUMP_RESULTS.md:55: | PWS_HIT09 | 115 | PWS_HIT08 | 114 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:64: | `PWS_HIT08` | 114 | 115,408 | Player hits AI driver (1) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:114: | `PWS_HIT08` | 114 | 115, 408 | — | Player hits AI driver (1) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:96: | `PWS_HIT08` | 115, 408 | Player hits AI driver (1) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SHIPPED_MECHANISMS.md:120: | PWS_HIT08 | 115, 408 | Player hits AI driver (1) | Same function, player is `a2`, other car is behind (`v14 < v13`) → eid115 | DERIVED | `functions/sub_41AD80_0041ad80.c:34-35` |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:65: | `PWS_AIINCID10` | 225 | `sub_41AD80_0041ad80` (family 5, ships `PWS_HIT08/10`) | `functions/sub_41AD80_0041ad80.c:53` |"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": true,
+  "vanilla_source": "evf_auto",
+  "modded_by": [],
+  "note": "",
+  "triage": null,
+  "evf_status": "SHIPPED"
+ }
+}

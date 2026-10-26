@@ -1,0 +1,24 @@
+{
+  "mode": "combined",
+  "profile": "era_2001_2004",
+  "params": {
+    "k": 1,
+    "min_leader_laps": 2
+  },
+  "ignored_segments": [],
+  "proposals": {
+    "laps": true,
+    "grid": true,
+    "earlier_retirements": true,
+    "retirement_plausibility": true,
+    "times": true,
+    "fastest_lap": true,
+    "lap_history": true,
+    "retirement_lists": true,
+    "mirror": true
+  },
+  "driver_decisions": {},
+  "retirement_reviews": {},
+  "allow_empty_result": true,
+  "confirm_final": true
+}

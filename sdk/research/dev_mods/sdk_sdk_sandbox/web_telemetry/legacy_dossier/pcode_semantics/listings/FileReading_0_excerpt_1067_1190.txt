@@ -1,0 +1,97 @@
+; EXCERPT of FileReading #0 (RTMI 0x0044E478), offsets 0x1067-0x1190: spt -> lap conversion: tyre temps, ride heights
+; full listing: python pcode_decode.py --disasm 0x0044E478
+  0x1067: LitStr                   pool[101]="fl tyre left temp"
+  0x106A: EqStr                    
+  0x106C: BranchF                  target=+0x107D
+  0x106F: FLdFPR4                  var[-160]
+  0x1072: CVarR4                   raw=F4FE
+  0x1076: FStVar                   raw=E0F9
+  0x107A: Branch                   target=+0x12FB
+  0x107D: ILdRf                    var[-1520]
+  0x1080: LitStr                   pool[102]="fl tyre center temp"
+  0x1083: EqStr                    
+  0x1085: BranchF                  target=+0x1096
+  0x1088: FLdFPR4                  var[-160]
+  0x108B: CVarR4                   raw=F4FE
+  0x108F: FStVar                   raw=D0F9
+  0x1093: Branch                   target=+0x12FB
+  0x1096: ILdRf                    var[-1520]
+  0x1099: LitStr                   pool[103]="fl tyre right temp"
+  0x109C: EqStr                    
+  0x109E: BranchF                  target=+0x10AF
+  0x10A1: FLdFPR4                  var[-160]
+  0x10A4: CVarR4                   raw=F4FE
+  0x10A8: FStVar                   raw=C0F9
+  0x10AC: Branch                   target=+0x12FB
+  0x10AF: ILdRf                    var[-1520]
+  0x10B2: LitStr                   pool[104]="fr tyre left temp"
+  0x10B5: EqStr                    
+  0x10B7: BranchF                  target=+0x10C8
+  0x10BA: FLdFPR4                  var[-160]
+  0x10BD: CVarR4                   raw=F4FE
+  0x10C1: FStVar                   raw=B0F9
+  0x10C5: Branch                   target=+0x12FB
+  0x10C8: ILdRf                    var[-1520]
+  0x10CB: LitStr                   pool[105]="fr tyre center temp"
+  0x10CE: EqStr                    
+  0x10D0: BranchF                  target=+0x10E1
+  0x10D3: FLdFPR4                  var[-160]
+  0x10D6: CVarR4                   raw=F4FE
+  0x10DA: FStVar                   raw=A0F9
+  0x10DE: Branch                   target=+0x12FB
+  0x10E1: ILdRf                    var[-1520]
+  0x10E4: LitStr                   pool[106]="fr tyre right temp"
+  0x10E7: EqStr                    
+  0x10E9: BranchF                  target=+0x10FA
+  0x10EC: FLdFPR4                  var[-160]
+  0x10EF: CVarR4                   raw=F4FE
+  0x10F3: FStVar                   raw=90F9
+  0x10F7: Branch                   target=+0x12FB
+  0x10FA: ILdRf                    var[-1520]
+  0x10FD: LitStr                   pool[107]="rl tyre left temp"
+  0x1100: EqStr                    
+  0x1102: BranchF                  target=+0x1113
+  0x1105: FLdFPR4                  var[-160]
+  0x1108: CVarR4                   raw=F4FE
+  0x110C: FStVar                   raw=80F9
+  0x1110: Branch                   target=+0x12FB
+  0x1113: ILdRf                    var[-1520]
+  0x1116: LitStr                   pool[108]="rl tyre center temp"
+  0x1119: EqStr                    
+  0x111B: BranchF                  target=+0x112C
+  0x111E: FLdFPR4                  var[-160]
+  0x1121: CVarR4                   raw=F4FE
+  0x1125: FStVar                   raw=70F9
+  0x1129: Branch                   target=+0x12FB
+  0x112C: ILdRf                    var[-1520]
+  0x112F: LitStr                   pool[109]="rl tyre right temp"
+  0x1132: EqStr                    
+  0x1134: BranchF                  target=+0x1145
+  0x1137: FLdFPR4                  var[-160]
+  0x113A: CVarR4                   raw=F4FE
+  0x113E: FStVar                   raw=60F9
+  0x1142: Branch                   target=+0x12FB
+  0x1145: ILdRf                    var[-1520]
+  0x1148: LitStr                   pool[110]="rr tyre left temp"
+  0x114B: EqStr                    
+  0x114D: BranchF                  target=+0x115E
+  0x1150: FLdFPR4                  var[-160]
+  0x1153: CVarR4                   raw=F4FE
+  0x1157: FStVar                   raw=50F9
+  0x115B: Branch                   target=+0x12FB
+  0x115E: ILdRf                    var[-1520]
+  0x1161: LitStr                   pool[111]="rr tyre center temp"
+  0x1164: EqStr                    
+  0x1166: BranchF                  target=+0x1177
+  0x1169: FLdFPR4                  var[-160]
+  0x116C: CVarR4                   raw=F4FE
+  0x1170: FStVar                   raw=40F9
+  0x1174: Branch                   target=+0x12FB
+  0x1177: ILdRf                    var[-1520]
+  0x117A: LitStr                   pool[112]="rr tyre right temp"
+  0x117D: EqStr                    
+  0x117F: BranchF                  target=+0x1190
+  0x1182: FLdFPR4                  var[-160]
+  0x1185: CVarR4                   raw=F4FE
+  0x1189: FStVar                   raw=30F9
+  0x118D: Branch                   target=+0x12FB

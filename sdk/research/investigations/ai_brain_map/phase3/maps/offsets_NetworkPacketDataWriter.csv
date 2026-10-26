@@ -1,0 +1,15 @@
+func,line,dec,hex,access,width,base,form,expr
+NetworkPacketDataWriter,7,480,0x1E0,R,_DWORD,this,array,v3 = this[120];
+NetworkPacketDataWriter,8,8,0x8,R,_DWORD,v3,direct,v4 = *(_DWORD *)(v3 + 8);
+NetworkPacketDataWriter,9,4,0x4,R,_DWORD,v3,direct,if ( v4 && a3 < *(_DWORD *)(v3 + 4) )
+NetworkPacketDataWriter,12,4,0x4,W,_DWORD,v5,array,v5[1] = *a2;
+NetworkPacketDataWriter,13,8,0x8,W,_DWORD,v5,array,v5[2] = a2[1];
+NetworkPacketDataWriter,13,4,0x4,R,_DWORD,a2,array,v5[2] = a2[1];
+NetworkPacketDataWriter,14,12,0xC,W,_DWORD,v5,array,v5[3] = a2[2];
+NetworkPacketDataWriter,14,8,0x8,R,_DWORD,a2,array,v5[3] = a2[2];
+NetworkPacketDataWriter,15,28,0x1C,W,_DWORD,v5,array,v5[7] = a2[3];
+NetworkPacketDataWriter,15,12,0xC,R,_DWORD,a2,array,v5[7] = a2[3];
+NetworkPacketDataWriter,16,32,0x20,W,_DWORD,v5,array,v5[8] = a2[4];
+NetworkPacketDataWriter,16,16,0x10,R,_DWORD,a2,array,v5[8] = a2[4];
+NetworkPacketDataWriter,17,36,0x24,W,_DWORD,v5,array,v5[9] = a2[5];
+NetworkPacketDataWriter,17,20,0x14,R,_DWORD,a2,array,v5[9] = a2[5];

@@ -1,0 +1,436 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 47,
+ "clip": "PWS_PIT13",
+ "says": "Stop-go penalty countdown",
+ "dump_rows_for_clip": [
+  {
+   "eid": 48,
+   "hex": "0x0030",
+   "priority": 20,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 46,
+   "sdt_index": 47,
+   "clip_name": "PWS_PIT13.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 355,
+   "hex": "0x0163",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 46,
+   "sdt_index": 47,
+   "clip_name": "PWS_PIT13.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  46
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 48,
+   "hex": "0x0030",
+   "priority": 20,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 46,
+   "sdt_index": 47,
+   "clip_name": "PWS_PIT13.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 355,
+   "hex": "0x0163",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 46,
+   "sdt_index": 47,
+   "clip_name": "PWS_PIT13.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  48
+ ],
+ "literal_hits": {
+  "48": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 104,
+       "text": "v4 = a4 != 0 ? 48 : 69;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 316,
+    "first": [
+     "AppendNodeToDoublyLinkedListTail",
+     "ArithmeticComparison_0f90",
+     "ArrayProcessingWithValidation",
+     "AudioBufferReset",
+     "AudioChannelInit",
+     "AudioFIRConvolutionFilter",
+     "AudioMixerChannelInitializer",
+     "AudioMixing",
+     "AudioParameterInterpolation",
+     "AudioResampler",
+     "AudioResourceFree",
+     "AudioSampleCrossFadeInterpolation",
+     "AudioStreamBufferFill",
+     "AudioSubbandSynthesisFilterbank",
+     "BatchProcessingLoop3Passes",
+     "BlockLDLTSparseConstraintFactorization",
+     "BoundingBoxComputationFromVertexData",
+     "BufferEntryAppendWithMatrixInit",
+     "BufferPoolAllocatorInitialization",
+     "BufferedDataStreamWrite",
+     "CMpegBase_ProcessHeader",
+     "COMInterfaceVectorProcessingMethod",
+     "CameraDirectorResetInit",
+     "CameraPositionDefinitions",
+     "CameraViewSystem",
+     "CareerStandingsStateLoader",
+     "CodecModeSelect",
+     "CollisionContactDetection",
+     "CollisionEffectDispatch",
+     "CollisionFilterAABBCull",
+     "CollisionParameterBlockInit",
+     "CollisionSpeedSetter",
+     "CollisionStructCopy",
+     "CompositingPass",
+     "ConfigIniParser",
+     "ConstraintStiffnessMatrixAssembly",
+     "ConstructorInputControlInit",
+     "D3DAnimationTimeUpdate",
+     "D3DResourceRelease",
+     "D3DShaderConstantSetup"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 47 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "CollisionShapeSizeClassify",
+    "file": "CollisionShapeSizeClassify_004139c0.c",
+    "hits": [
+     {
+      "line": 40,
+      "text": "v6 = (a3 >= 999) + 47;"
+     }
+    ]
+   },
+   {
+    "function": "SoundEventDispatcher",
+    "file": "SoundEventDispatcher_00411e90.c",
+    "hits": [
+     {
+      "line": 19,
+      "text": "case 0x2F:"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:254: | 48 | PWS_PIT13 | Stop-go penalty countdown timer active for penalized car AND PenaltiesEnabled AND SessionT | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:255: | 355 | PWS_PIT13 | Same as eid 48, same score/clip. Likely a secondary eid for a different context (e.g. qual | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:238: | `PWS_PIT13` | 47 | 48,355 | Stop-go penalty countdown |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:63: | PWS_PIT13 | 47 | 48 | 10 second stop and go — player drives into pit box |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:423: | `PWS_PIT13` | 47 | 48, 355 | — | Stop-go penalty countdown | user triage: Z, activates when the player is in for a 10 second stop and go, when player drives into the pit box duri",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:339: | `PWS_PIT13` | 48, 355 | Stop-go penalty countdown | eid 355 has no call site |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:196: PWS_PENALTY08, PWS_PIT01, PWS_PIT03, PWS_PIT06, PWS_PIT08, PWS_PIT13,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:130: | 47 | `PWS_PIT13` | Z | - | Z, activates when the player is in for a 10 second stop and go, when player drives into the pit box during this, should be played |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:264: | `PWS_PIT13` | 47 | 48,355 | Stop-go penalty countdown |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:59: | `PWS_PIT13` | 47 | 48, 355 | user triage: Z, activates when the player is in for a 10 second stop and go, when player drives into the pit box during this, should be played |"
+ ],
+ "mod_sources": [
+  "development\\mods\\pitstop_modding\\live\\live_client.cpp:522: * PWS_2001_96 (player, \"you've rejoined in P\"), EID 190 PWS_AIPIT13 (AI,",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.5-rc.1\\source\\live_client.cpp:605: * PWS_2001_96 (player, \"you've rejoined in P\"), EID 190 PWS_AIPIT13 (AI,",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.5-rc.2\\source\\live_client.cpp:605: * PWS_2001_96 (player, \"you've rejoined in P\"), EID 190 PWS_AIPIT13 (AI,",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.6-rc.3\\source\\live_client.cpp:605: * PWS_2001_96 (player, \"you've rejoined in P\"), EID 190 PWS_AIPIT13 (AI,",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.6-rc.4\\source\\live_client.cpp:605: * PWS_2001_96 (player, \"you've rejoined in P\"), EID 190 PWS_AIPIT13 (AI,",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.7-rc.1\\source\\live_client.cpp:613: * PWS_2001_96 (player, \"you've rejoined in P\"), EID 190 PWS_AIPIT13 (AI,",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.8-rc.1\\source\\live_client.cpp:519: * PWS_2001_96 (player, \"you've rejoined in P\"), EID 190 PWS_AIPIT13 (AI,",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.9-rc.1\\source\\live_client.cpp:522: * PWS_2001_96 (player, \"you've rejoined in P\"), EID 190 PWS_AIPIT13 (AI,",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.0-rc.1\\source\\live_client.cpp:522: * PWS_2001_96 (player, \"you've rejoined in P\"), EID 190 PWS_AIPIT13 (AI,",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.1-rc.1\\source\\live_client.cpp:522: * PWS_2001_96 (player, \"you've rejoined in P\"), EID 190 PWS_AIPIT13 (AI,",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.2-rc.1\\source\\live_client.cpp:588: * PWS_2001_96 (player, \"you've rejoined in P\"), EID 190 PWS_AIPIT13 (AI,",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.3-rc.1\\source\\live_client.cpp:588: * PWS_2001_96 (player, \"you've rejoined in P\"), EID 190 PWS_AIPIT13 (AI,",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.4-rc.1\\source\\live_client.cpp:588: * PWS_2001_96 (player, \"you've rejoined in P\"), EID 190 PWS_AIPIT13 (AI,"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "mechanical_failures",
+    "mod_version": "1.0.7 public (RELEASE_REGISTRY); donor table in mf_voice.h",
+    "eid": 48,
+    "mechanism": "token_only",
+    "condition": "TOKEN ONLY (owner correction 2026-10-18): MF borrows this eid as an internal radio-queue token and plays its own WAV; the vanilla clip never plays. MF V3 line MF_FUELP01 \"Fuel pressure dropping.\": donor eid row rewritten at load when PWS_MF01 SDT is installed; fired via commentary queue / radio_req",
+    "source": "development/mods/mechanical_failures/dll/mf_voice.h:78; engine_failure.c:1722-1760 (row write), 4040-4062 (voice_native_say)",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Stop-go penalty countdown"
+   }
+  ],
+  "note": "user triage: Z, activates when the player is in for a 10 second stop and go, when player drives into the pit box during this, should be played",
+  "triage": {
+   "sdt_index": 47,
+   "text": "Z, activates when the player is in for a 10 second stop and go, when player drives into the pit box during this, should be played",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

@@ -1,0 +1,12 @@
+func,line,dec,hex,access,width,base,form,expr
+VehicleDynamicsStateReset,6,13548,0x34EC,W,_DWORD,this,array,this[3387] = 0;
+VehicleDynamicsStateReset,7,13552,0x34F0,W,_DWORD,this,array,this[3388] = 0;
+VehicleDynamicsStateReset,8,13556,0x34F4,W,_DWORD,this,array,this[3389] = 0;
+VehicleDynamicsStateReset,9,13560,0x34F8,W,_DWORD,this,array,this[3390] = 0;
+VehicleDynamicsStateReset,10,13564,0x34FC,W,_DWORD,this,array,this[3391] = 0;
+VehicleDynamicsStateReset,11,13568,0x3500,W,_DWORD,this,array,this[3392] = 0;
+VehicleDynamicsStateReset,12,13572,0x3504,W,_DWORD,this,array,this[3393] = 0;
+VehicleDynamicsStateReset,13,13576,0x3508,W,_DWORD,this,array,this[3394] = 0;
+VehicleDynamicsStateReset,14,13580,0x350C,W,_DWORD,this,array,this[3395] = 0;
+VehicleDynamicsStateReset,24,12988,0x32BC,R,_DWORD,this,array,if ( !this[3247] )
+VehicleDynamicsStateReset,25,,,CALL,,,call,PhysicsStateZeroingResetForSuspension

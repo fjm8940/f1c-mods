@@ -1,0 +1,4 @@
+func,line,dec,hex,access,width,base,form,expr
+SuspensionRatioClamp,5,14764,0x39AC,R,float,this,array,if ( this[3691] == 0.0 )
+SuspensionRatioClamp,7,14760,0x39A8,R,float,this,array,result = -(this[3690] / this[3691]);
+SuspensionRatioClamp,7,14764,0x39AC,R,float,this,array,result = -(this[3690] / this[3691]);

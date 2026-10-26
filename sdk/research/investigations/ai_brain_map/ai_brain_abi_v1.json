@@ -1,0 +1,1388 @@
+{
+  "schema": "f1c.ai_brain_abi.v1",
+  "generated_by": "build_abi.py",
+  "generated_from": [
+    "offsets_ALL.csv",
+    "FIELD_GLOSSARY.md",
+    "map_AIRacingLine.md",
+    "map_AIRacingLinePathFollowing.md",
+    "map_AIAbility.md",
+    "map_AIComputePassScore.md",
+    "map_AISteeringRacingLineCorrection.md",
+    "map_AISteering_part1.md",
+    "map_AISteering_part5.md",
+    "map_OpponentProximityScanTeamRecognition.md",
+    "map_PhysicsGearShiftLogicWithThresholds.md",
+    "REVIEW_1_B1B2.md",
+    "REVIEW_2_GROUP1.md",
+    "REVIEW_3_GROUP2.md",
+    "REVIEW_4_FINAL.md",
+    "docs/54-ai-driving-brain-map.md",
+    "findings.jsonl"
+  ],
+  "vehicle": {
+    "base_hex": "0x5EC6D8",
+    "stride_hex": "0x48C0",
+    "driver_name_note": "NUL-terminated driver name string follows the vehicle base; see ABI_README.md."
+  },
+  "groups": [
+    "state",
+    "perception",
+    "plan_speed",
+    "plan_line",
+    "decision",
+    "watchdog",
+    "derived_views"
+  ],
+  "fields": [
+    {
+      "id": "speed",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x4440",
+      "dec": 17472,
+      "type": "float",
+      "count": 1,
+      "units": "m/s",
+      "meaning": "Car speed computed each tick from the velocity vector; doc 54's live check saw 69-324 km/h and every speed gate uses this value.",
+      "tier": "OBSERVED",
+      "source": "docs/54-ai-driving-brain-map.md:15,56",
+      "writer": "sub_426430",
+      "writers": [
+        "sub_426430"
+      ],
+      "readers": [
+        "AIAbility",
+        "AIMainUpdate",
+        "AIRacingLine",
+        "AISteering",
+        "AISteeringCorrection",
+        "AISteeringRacingLineCorrection",
+        "SteeringAngleController",
+        "sub_4258C0",
+        "sub_426430"
+      ]
+    },
+    {
+      "id": "yaw",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x34F0",
+      "dec": 13552,
+      "type": "float",
+      "count": 1,
+      "units": "rad",
+      "meaning": "Vehicle yaw; the tick derives the heading vector (-sin, -cos) from it.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:14",
+      "writer": null,
+      "writers": [],
+      "readers": [
+        "AIMainUpdate",
+        "SteeringAngleController",
+        "sub_426430"
+      ]
+    },
+    {
+      "id": "driver_status",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x4510",
+      "dec": 17680,
+      "type": "_DWORD",
+      "count": 1,
+      "units": "enum",
+      "meaning": "AI driver/session mode: 0 race, 1 recovery stop, 2 stopped/handed over, 3 pit approach, 4/5 pit-garage wait, 6 reverse, 7 stop. Modes 4/5 park the car (throttle 0, brake 1, steer 0).",
+      "tier": "OBSERVED",
+      "source": "docs/54-ai-driving-brain-map.md:88; finding:ai-mode-4-native-park-2026-10-02",
+      "writer": "AIAbility",
+      "writers": [
+        "AIAbility",
+        "AIMainUpdate",
+        "AIRacingLine",
+        "AISteeringRacingLineCorrection",
+        "SteeringAngleController",
+        "sub_4258C0"
+      ],
+      "readers": [
+        "AIMainUpdate",
+        "PhysicsGearShiftLogicWithThresholds",
+        "SteeringAngleController",
+        "sub_426100"
+      ]
+    },
+    {
+      "id": "car_conditions",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x3D6C",
+      "dec": 15724,
+      "type": "_DWORD",
+      "count": 1,
+      "units": "enum",
+      "meaning": "Vehicle condition status; value 2 = retired/pit mode. While 2 the game keeps re-retiring the car (limbo), so it must be cleared to recover the car.",
+      "tier": "OBSERVED",
+      "source": "docs/54-ai-driving-brain-map.md:109; finding:limbo-unlocked-carconditions",
+      "writer": null,
+      "writers": [],
+      "readers": [
+        "AIAbility",
+        "AIMainUpdate",
+        "Overtaking",
+        "PhysicsGearShiftLogicWithThresholds",
+        "sub_426430"
+      ]
+    },
+    {
+      "id": "gear",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x39FC",
+      "dec": 14844,
+      "type": "_DWORD",
+      "count": 1,
+      "units": "gear",
+      "meaning": "Current gear from the auto-shift logic; 0 while shifting, -1 is the neutral/reverse sentinel.",
+      "tier": "DERIVED",
+      "source": "map_PhysicsGearShiftLogicWithThresholds.md:22; finding:organic-pit-trace-full-field-map",
+      "writer": null,
+      "writers": [],
+      "readers": [
+        "PhysicsGearShiftLogicWithThresholds",
+        "SteeringAngleController"
+      ]
+    },
+    {
+      "id": "gear_max",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x3A04",
+      "dec": 14852,
+      "type": "_DWORD",
+      "count": 1,
+      "units": "gear",
+      "meaning": "Highest available gear; an upshift is ordered only while the current gear is below this.",
+      "tier": "DERIVED",
+      "source": "map_PhysicsGearShiftLogicWithThresholds.md:29",
+      "writer": null,
+      "writers": [],
+      "readers": [
+        "PhysicsGearShiftLogicWithThresholds"
+      ]
+    },
+    {
+      "id": "gear_shift_lockout",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x3A10",
+      "dec": 14864,
+      "type": "float",
+      "count": 1,
+      "units": "s",
+      "meaning": "Shift lockout timer; while greater than zero the auto-shift logic returns immediately.",
+      "tier": "DERIVED",
+      "source": "map_PhysicsGearShiftLogicWithThresholds.md:21",
+      "writer": null,
+      "writers": [],
+      "readers": [
+        "PhysicsGearShiftLogicWithThresholds"
+      ]
+    },
+    {
+      "id": "position_x",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x34E0",
+      "dec": 13536,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Live car world position X used by the locator, steering law and watchdog; the path walk refreshes it and brainlog.py reads it.",
+      "tier": "DERIVED",
+      "source": "FIELD_GLOSSARY.md:18; map_AIRacingLinePathFollowing.md:38",
+      "writer": "AIRacingLinePathFollowing",
+      "writers": [
+        "AIRacingLinePathFollowing"
+      ],
+      "readers": [
+        "AIMainUpdate",
+        "AISteering",
+        "OpponentProximityScanTeamRecognition",
+        "SteeringAngleController",
+        "sub_426100",
+        "sub_426430"
+      ]
+    },
+    {
+      "id": "position_y",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x34E4",
+      "dec": 13540,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Live car world position Y used by the locator, steering law and watchdog.",
+      "tier": "DERIVED",
+      "source": "FIELD_GLOSSARY.md:19; map_AIRacingLinePathFollowing.md:39",
+      "writer": "AIRacingLinePathFollowing",
+      "writers": [
+        "AIRacingLinePathFollowing"
+      ],
+      "readers": [
+        "AISteering",
+        "SteeringAngleController"
+      ]
+    },
+    {
+      "id": "position_z",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x34E8",
+      "dec": 13544,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Live car world position Z used by the locator, steering law and watchdog.",
+      "tier": "DERIVED",
+      "source": "FIELD_GLOSSARY.md:20; map_AIRacingLinePathFollowing.md:40",
+      "writer": "AIRacingLinePathFollowing",
+      "writers": [
+        "AIRacingLinePathFollowing"
+      ],
+      "readers": [
+        "AIMainUpdate",
+        "AISteering",
+        "OpponentProximityScanTeamRecognition",
+        "SteeringAngleController",
+        "sub_426100",
+        "sub_426430"
+      ]
+    },
+    {
+      "id": "placement_pose_x",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x34D4",
+      "dec": 13524,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Placement pose X written from the racing-line path node by the path walk. Object kind is OPEN; this is a placement/visual walk, not per-tick driving (REVIEW_4).",
+      "tier": "GUESS",
+      "source": "map_AIRacingLinePathFollowing.md:35",
+      "writer": "AIRacingLinePathFollowing",
+      "writers": [
+        "AIRacingLinePathFollowing"
+      ],
+      "readers": [
+        "AISteeringRacingLineCorrection"
+      ]
+    },
+    {
+      "id": "placement_pose_y",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x34D8",
+      "dec": 13528,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Placement pose Y written from the racing-line path node by the path walk (not per-tick driving; REVIEW_4).",
+      "tier": "GUESS",
+      "source": "map_AIRacingLinePathFollowing.md:36",
+      "writer": "AIRacingLinePathFollowing",
+      "writers": [
+        "AIRacingLinePathFollowing"
+      ],
+      "readers": []
+    },
+    {
+      "id": "placement_pose_z",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x34DC",
+      "dec": 13532,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Placement pose Z written from the racing-line path node by the path walk (not per-tick driving; REVIEW_4).",
+      "tier": "GUESS",
+      "source": "map_AIRacingLinePathFollowing.md:37",
+      "writer": "AIRacingLinePathFollowing",
+      "writers": [
+        "AIRacingLinePathFollowing"
+      ],
+      "readers": [
+        "AISteeringRacingLineCorrection"
+      ]
+    },
+    {
+      "id": "velocity_x",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x34F8",
+      "dec": 13560,
+      "type": "float",
+      "count": 1,
+      "units": "m/s",
+      "meaning": "Velocity X; the tick computes the speed field as the length of the velocity vector.",
+      "tier": "DERIVED",
+      "source": "map_AIRacingLine.md:75",
+      "writer": "AIAbility",
+      "writers": [
+        "AIAbility",
+        "AIRacingLine"
+      ],
+      "readers": [
+        "AISteering",
+        "SteeringAngleController",
+        "sub_426430"
+      ]
+    },
+    {
+      "id": "velocity_y",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x34FC",
+      "dec": 13564,
+      "type": "float",
+      "count": 1,
+      "units": "m/s",
+      "meaning": "Velocity Y (see velocity_x).",
+      "tier": "DERIVED",
+      "source": "map_AIRacingLine.md:75",
+      "writer": "AIAbility",
+      "writers": [
+        "AIAbility",
+        "AIRacingLine"
+      ],
+      "readers": [
+        "AISteering",
+        "sub_426430"
+      ]
+    },
+    {
+      "id": "velocity_z",
+      "group": "state",
+      "base": "veh",
+      "hex": "0x3500",
+      "dec": 13568,
+      "type": "float",
+      "count": 1,
+      "units": "m/s",
+      "meaning": "Velocity Z (see velocity_x).",
+      "tier": "DERIVED",
+      "source": "map_AIRacingLine.md:75",
+      "writer": "AIAbility",
+      "writers": [
+        "AIAbility",
+        "AIRacingLine"
+      ],
+      "readers": [
+        "AISteering",
+        "BrakeThermalModel",
+        "SteeringAngleController",
+        "sub_426430"
+      ]
+    },
+    {
+      "id": "current_waypoint_ptr",
+      "group": "perception",
+      "base": "veh",
+      "hex": "0x4354",
+      "dec": 17236,
+      "type": "_DWORD",
+      "count": 1,
+      "units": "pointer",
+      "meaning": "Pointer to the current racing-line waypoint; the locator re-finds it when the car is far away, and the whole AI tick is skipped when it is null.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:15",
+      "writer": "AISteeringRacingLineCorrection",
+      "writers": [
+        "AISteeringRacingLineCorrection",
+        "sub_426430"
+      ],
+      "readers": [
+        "AIAbility",
+        "AIRacingLine",
+        "AISteering",
+        "SteeringAngleController",
+        "sub_426100",
+        "sub_426430"
+      ]
+    },
+    {
+      "id": "lookahead_waypoints",
+      "group": "perception",
+      "base": "veh",
+      "hex": "0x4358",
+      "dec": 17240,
+      "type": "_DWORD",
+      "count": 19,
+      "units": "pointer",
+      "meaning": "19 look-ahead waypoint pointers; entries follow the next link, or the alternate branch link when the branch id matches the branch-override field.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:16",
+      "writer": "AISteeringRacingLineCorrection",
+      "writers": [
+        "AISteeringRacingLineCorrection"
+      ],
+      "readers": [
+        "sub_426430"
+      ],
+      "stride": 4
+    },
+    {
+      "id": "lateral_position",
+      "group": "perception",
+      "base": "veh",
+      "hex": "0x4428",
+      "dec": 17448,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Measured lateral position in the current waypoint frame; doc 54's live check saw -3.78..+2.70 m.",
+      "tier": "OBSERVED",
+      "source": "docs/54-ai-driving-brain-map.md:17,63",
+      "writer": "sub_426430",
+      "writers": [
+        "sub_426430"
+      ],
+      "readers": [
+        "AIAbility",
+        "AIMainUpdate",
+        "AIRacingLine",
+        "AISteering"
+      ]
+    },
+    {
+      "id": "on_track",
+      "group": "perception",
+      "base": "veh",
+      "hex": "0x445C",
+      "dec": 17500,
+      "type": "_BYTE",
+      "count": 1,
+      "units": "bool",
+      "meaning": "1 when the car is inside the current waypoint width plus a 1.5 m margin.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:85",
+      "writer": "AIRacingLine",
+      "writers": [
+        "AIRacingLine"
+      ],
+      "readers": [
+        "AIRacingLine"
+      ]
+    },
+    {
+      "id": "opp_slot_vehicle_ptr",
+      "group": "perception",
+      "base": "opp_slot",
+      "hex": "0x4174",
+      "dec": 16756,
+      "type": "_DWORD",
+      "count": 5,
+      "units": "pointer",
+      "meaning": "Per-slot opponent vehicle pointer (first field of the 68-byte slot record, count 5). Cleared each scan, then the five nearest vehicles are inserted.",
+      "tier": "GUESS",
+      "source": "map_OpponentProximityScanTeamRecognition.md:38",
+      "writer": "OpponentProximityScanTeamRecognition",
+      "writers": [
+        "OpponentProximityScanTeamRecognition"
+      ],
+      "readers": [
+        "OpponentProximityScanTeamRecognition"
+      ],
+      "stride": 68
+    },
+    {
+      "id": "opp_slot_distance_sq",
+      "group": "perception",
+      "base": "opp_slot",
+      "hex": "0x41A8",
+      "dec": 16808,
+      "type": "float",
+      "count": 5,
+      "units": "m^2",
+      "meaning": "Per-slot squared distance to the opponent (distance field in each slot record); the 999999 sentinel means empty.",
+      "tier": "GUESS",
+      "source": "map_OpponentProximityScanTeamRecognition.md:39",
+      "writer": "OpponentProximityScanTeamRecognition",
+      "writers": [
+        "OpponentProximityScanTeamRecognition"
+      ],
+      "readers": [
+        "AISteering",
+        "OpponentProximityScanTeamRecognition"
+      ],
+      "stride": 68
+    },
+    {
+      "id": "opp_team_match_flag",
+      "group": "perception",
+      "base": "veh",
+      "hex": "0x42CC",
+      "dec": 17100,
+      "type": "_DWORD",
+      "count": 5,
+      "units": "bool",
+      "meaning": "Per-team-record match flag (record stride 28); 1 when the record matched this car/team.",
+      "tier": "GUESS",
+      "source": "map_OpponentProximityScanTeamRecognition.md:48",
+      "writer": "OpponentProximityScanTeamRecognition",
+      "writers": [
+        "OpponentProximityScanTeamRecognition"
+      ],
+      "readers": [],
+      "stride": 28
+    },
+    {
+      "id": "opp_team_id",
+      "group": "perception",
+      "base": "veh",
+      "hex": "0x42D0",
+      "dec": 17104,
+      "type": "_DWORD",
+      "count": 5,
+      "units": "team id",
+      "meaning": "Team id stored in the team record (+4 in the 28-byte record).",
+      "tier": "GUESS",
+      "source": "map_OpponentProximityScanTeamRecognition.md:50",
+      "writer": "OpponentProximityScanTeamRecognition",
+      "writers": [
+        "OpponentProximityScanTeamRecognition"
+      ],
+      "readers": [],
+      "stride": 28
+    },
+    {
+      "id": "opp_team_threshold",
+      "group": "perception",
+      "base": "veh",
+      "hex": "0x42DC",
+      "dec": 17116,
+      "type": "float",
+      "count": 5,
+      "units": "m^2",
+      "meaning": "Per-team-record threshold float (+12 in the record), reset to 500 by the team-scan reset flag.",
+      "tier": "GUESS",
+      "source": "map_OpponentProximityScanTeamRecognition.md:52",
+      "writer": "AISteering",
+      "writers": [
+        "AISteering",
+        "OpponentProximityScanTeamRecognition"
+      ],
+      "readers": [
+        "AISteering"
+      ],
+      "stride": 28
+    },
+    {
+      "id": "corridor_bound_1",
+      "group": "perception",
+      "base": "veh",
+      "hex": "0x4414",
+      "dec": 17428,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "First lateral corridor bound; AISteering clamps the published lateral target between the two bounds. Widening them live let a dead AI car steer off the racing line.",
+      "tier": "OBSERVED",
+      "source": "finding:ai-pulloff-lateral-chain-v4-2026-10-02; map_AISteering_part1.md:26",
+      "writer": "sub_426430",
+      "writers": [
+        "sub_426430"
+      ],
+      "readers": [
+        "AISteering",
+        "sub_426430"
+      ]
+    },
+    {
+      "id": "corridor_bound_2",
+      "group": "perception",
+      "base": "veh",
+      "hex": "0x4418",
+      "dec": 17432,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Second lateral corridor bound (see corridor_bound_1).",
+      "tier": "OBSERVED",
+      "source": "finding:ai-pulloff-lateral-chain-v4-2026-10-02; map_AISteering_part1.md:27",
+      "writer": "sub_426430",
+      "writers": [
+        "sub_426430"
+      ],
+      "readers": [
+        "AISteering",
+        "sub_426430"
+      ]
+    },
+    {
+      "id": "corner_speed_force_coeff",
+      "group": "plan_speed",
+      "base": "veh",
+      "hex": "0x4504",
+      "dec": 17668,
+      "type": "float",
+      "count": 1,
+      "units": "speed per force",
+      "meaning": "Multiplier of the tire-force term in the per-waypoint corner-speed limit.",
+      "tier": "DERIVED",
+      "source": "finding:ai-brain-corner-speed-braking-2026-10-02; docs/54-ai-driving-brain-map.md:80",
+      "writer": null,
+      "writers": [],
+      "readers": [
+        "AIComputePassScore",
+        "sub_426430"
+      ]
+    },
+    {
+      "id": "corner_speed_force_offset",
+      "group": "plan_speed",
+      "base": "veh",
+      "hex": "0x4500",
+      "dec": 17664,
+      "type": "float",
+      "count": 1,
+      "units": "m/s",
+      "meaning": "Offset added to the tire-force term in the per-waypoint corner-speed limit.",
+      "tier": "DERIVED",
+      "source": "finding:ai-brain-corner-speed-braking-2026-10-02; docs/54-ai-driving-brain-map.md:80",
+      "writer": null,
+      "writers": [],
+      "readers": [
+        "AIComputePassScore",
+        "sub_426430"
+      ]
+    },
+    {
+      "id": "corner_speed_scale",
+      "group": "plan_speed",
+      "base": "veh",
+      "hex": "0x4580",
+      "dec": 17792,
+      "type": "float",
+      "count": 1,
+      "units": "scale",
+      "meaning": "Overall scale of the per-waypoint corner-speed limit.",
+      "tier": "DERIVED",
+      "source": "finding:ai-brain-corner-speed-braking-2026-10-02; docs/54-ai-driving-brain-map.md:80",
+      "writer": null,
+      "writers": [],
+      "readers": [
+        "AIComputePassScore"
+      ]
+    },
+    {
+      "id": "ai_pace_multiplier",
+      "group": "plan_speed",
+      "base": "veh",
+      "hex": "0x453C",
+      "dec": 17724,
+      "type": "float",
+      "count": 1,
+      "units": "scale",
+      "meaning": "AIAbility dynamic pace multiplier walked by +-0.01 per tick and reset by car-condition/pit paths; external writes do not persist.",
+      "tier": "DERIVED",
+      "source": "map_AIAbility.md:15; finding:0x453C-recalc",
+      "writer": "AIAbility",
+      "writers": [
+        "AIAbility"
+      ],
+      "readers": [
+        "AIAbility",
+        "AIComputePassScore"
+      ]
+    },
+    {
+      "id": "speed_profile",
+      "group": "plan_speed",
+      "base": "veh",
+      "hex": "0x43A4",
+      "dec": 17316,
+      "type": "float",
+      "count": 20,
+      "units": "m/s",
+      "meaning": "20-slot projected-speed profile from the braking look-ahead; each slot is the projected speed at a waypoint ahead.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:85; map_AIRacingLine.md:78",
+      "writer": null,
+      "writers": [],
+      "readers": [
+        "AIRacingLine",
+        "AISteering"
+      ],
+      "stride": 4
+    },
+    {
+      "id": "limiting_waypoint_ptr",
+      "group": "plan_speed",
+      "base": "veh",
+      "hex": "0x43F8",
+      "dec": 17400,
+      "type": "_DWORD",
+      "count": 1,
+      "units": "pointer",
+      "meaning": "Pointer to the waypoint that forces braking now, or null when the projection reaches zero first.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:85; map_AIRacingLine.md:79",
+      "writer": "AIAbility",
+      "writers": [
+        "AIAbility",
+        "AIMainUpdate",
+        "AIRacingLine"
+      ],
+      "readers": []
+    },
+    {
+      "id": "braking_target_speed",
+      "group": "plan_speed",
+      "base": "veh",
+      "hex": "0x43FC",
+      "dec": 17404,
+      "type": "float",
+      "count": 1,
+      "units": "m/s",
+      "meaning": "Target speed of the limiting waypoint; the 9999.0 sentinel means none.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:85; map_AIRacingLine.md:80",
+      "writer": "AIRacingLine",
+      "writers": [
+        "AIRacingLine"
+      ],
+      "readers": []
+    },
+    {
+      "id": "brake_decel_factor",
+      "group": "plan_speed",
+      "base": "veh",
+      "hex": "0x44CC",
+      "dec": 17612,
+      "type": "float",
+      "count": 1,
+      "units": "1/m",
+      "meaning": "Per-segment deceleration factor used when projecting speed loss from braking.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:81; map_AIRacingLine.md:65",
+      "writer": null,
+      "writers": [],
+      "readers": [
+        "AIRacingLine"
+      ]
+    },
+    {
+      "id": "lateral_request",
+      "group": "plan_line",
+      "base": "veh",
+      "hex": "0x4420",
+      "dec": 17440,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Lateral offset request; zeroed every tick unless the yield target is set or the car is in condition 2. With override-enable it replaces the published target.",
+      "tier": "OBSERVED",
+      "source": "finding:ai-lateral-request-4420-zeroed-each-tick-2026-10-02",
+      "writer": "AIAbility",
+      "writers": [
+        "AIAbility",
+        "AIMainUpdate",
+        "OpponentProximityScanTeamRecognition",
+        "Overtaking"
+      ],
+      "readers": [
+        "AISteering"
+      ]
+    },
+    {
+      "id": "working_lateral_target",
+      "group": "plan_line",
+      "base": "veh",
+      "hex": "0x440C",
+      "dec": 17420,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Working lateral target before the published-target overrides; seeded from the request and clamped to the corridor.",
+      "tier": "OBSERVED",
+      "source": "finding:ai-pulloff-lateral-chain-v4-2026-10-02; map_AISteering_part1.md:41",
+      "writer": "AISteering",
+      "writers": [
+        "AISteering"
+      ],
+      "readers": [
+        "AISteering"
+      ]
+    },
+    {
+      "id": "override_enable",
+      "group": "plan_line",
+      "base": "veh",
+      "hex": "0x4548",
+      "dec": 17736,
+      "type": "_BYTE",
+      "count": 1,
+      "units": "bool",
+      "meaning": "Non-zero means publish the lateral request directly as the steering target.",
+      "tier": "DERIVED",
+      "source": "map_AISteering_part5.md:207; docs/54-ai-driving-brain-map.md:123",
+      "writer": "AIAbility",
+      "writers": [
+        "AIAbility"
+      ],
+      "readers": [
+        "AISteering"
+      ]
+    },
+    {
+      "id": "hard_lateral_override",
+      "group": "plan_line",
+      "base": "veh",
+      "hex": "0x4424",
+      "dec": 17444,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Forced lateral offset that wins over both the working target and the request when non-zero.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:125; map_AISteering_part5.md:209",
+      "writer": "AIAbility",
+      "writers": [
+        "AIAbility",
+        "AIMainUpdate",
+        "AIRacingLine"
+      ],
+      "readers": [
+        "AIRacingLine",
+        "AISteering"
+      ]
+    },
+    {
+      "id": "published_lateral_target",
+      "group": "plan_line",
+      "base": "veh",
+      "hex": "0x4408",
+      "dec": 17416,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Final lateral offset the steering law follows (live-confirmed); set from the working target, then overridden by the request or the forced value.",
+      "tier": "OBSERVED",
+      "source": "docs/54-ai-driving-brain-map.md:63,123",
+      "writer": "AISteering",
+      "writers": [
+        "AISteering"
+      ],
+      "readers": [
+        "AISteering",
+        "sub_426100"
+      ]
+    },
+    {
+      "id": "steering_lookahead_index",
+      "group": "plan_line",
+      "base": "veh",
+      "hex": "0x4468",
+      "dec": 17512,
+      "type": "_DWORD",
+      "count": 1,
+      "units": "index",
+      "meaning": "Look-ahead waypoint index 0..3 chosen from speed; the steering law aims at the waypoint pointer this many entries ahead. Conflict noted in ABI_README (organic pit trace names it a pit-phase enum).",
+      "tier": "OBSERVED",
+      "source": "docs/54-ai-driving-brain-map.md:61",
+      "writer": "AIRacingLine",
+      "writers": [
+        "AIRacingLine",
+        "sub_426430"
+      ],
+      "readers": [
+        "AISteering",
+        "sub_426100",
+        "sub_426430"
+      ]
+    },
+    {
+      "id": "steering_anchor_x",
+      "group": "plan_line",
+      "base": "veh",
+      "hex": "0x4498",
+      "dec": 17560,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Anchor point X recorded at the last waypoint change; the steering law adds the distance driven since the change along the waypoint direction.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:18",
+      "writer": "sub_426430",
+      "writers": [
+        "sub_426430"
+      ],
+      "readers": [
+        "sub_426100"
+      ]
+    },
+    {
+      "id": "steering_anchor_z",
+      "group": "plan_line",
+      "base": "veh",
+      "hex": "0x44A0",
+      "dec": 17568,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Anchor point Z recorded at the last waypoint change (see steering_anchor_x).",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:18",
+      "writer": "sub_426430",
+      "writers": [
+        "sub_426430"
+      ],
+      "readers": [
+        "sub_426100"
+      ]
+    },
+    {
+      "id": "steering_lock_divisor",
+      "group": "plan_line",
+      "base": "veh",
+      "hex": "0x44B4",
+      "dec": 17588,
+      "type": "float",
+      "count": 1,
+      "units": "rad",
+      "meaning": "Steering-lock divisor; steer = heading error / this. Live constant 0.4014 rad (about 23 degrees). Writers still OPEN.",
+      "tier": "OBSERVED",
+      "source": "docs/54-ai-driving-brain-map.md:60",
+      "writer": null,
+      "writers": [],
+      "readers": [
+        "AISteeringRacingLineCorrection",
+        "sub_426100"
+      ]
+    },
+    {
+      "id": "opp_mode",
+      "group": "plan_line",
+      "base": "veh",
+      "hex": "0x42D4",
+      "dec": 17108,
+      "type": "_DWORD",
+      "count": 5,
+      "units": "enum",
+      "meaning": "Per-opponent overtaking mode in the 5-slot table (1/2/3/4/7/8/16; 7/8/16 are attempt states).",
+      "tier": "DERIVED",
+      "source": "map_AISteering_part5.md:25",
+      "writer": "AISteering",
+      "writers": [
+        "AISteering"
+      ],
+      "readers": [
+        "AISteering"
+      ],
+      "stride": 28
+    },
+    {
+      "id": "opp_state",
+      "group": "plan_line",
+      "base": "veh",
+      "hex": "0x42D8",
+      "dec": 17112,
+      "type": "float",
+      "count": 5,
+      "units": "mixed",
+      "meaning": "Per-opponent working state compared with the per-opponent reset value. Same address is the team record's -9999 sentinel field written by the traffic scan.",
+      "tier": "GUESS",
+      "source": "FIELD_GLOSSARY.md:48; map_OpponentProximityScanTeamRecognition.md:51",
+      "writer": "AISteering",
+      "writers": [
+        "AISteering",
+        "OpponentProximityScanTeamRecognition"
+      ],
+      "readers": [
+        "AISteering"
+      ],
+      "stride": 28
+    },
+    {
+      "id": "cmd_throttle",
+      "group": "decision",
+      "base": "veh",
+      "hex": "0x4434",
+      "dec": 17460,
+      "type": "float",
+      "count": 1,
+      "units": "0..1",
+      "meaning": "Throttle candidate before post-processing (steer lift, traction control, speed limit).",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:21",
+      "writer": "AIAbility",
+      "writers": [
+        "AIAbility",
+        "AIMainUpdate",
+        "AIRacingLine",
+        "AISteeringCorrection",
+        "AISteeringRacingLineCorrection",
+        "sub_4258C0"
+      ],
+      "readers": [
+        "AIMainUpdate",
+        "AIRacingLine",
+        "AISteeringCorrection",
+        "AISteeringRacingLineCorrection"
+      ]
+    },
+    {
+      "id": "cmd_brake",
+      "group": "decision",
+      "base": "veh",
+      "hex": "0x4438",
+      "dec": 17464,
+      "type": "float",
+      "count": 1,
+      "units": "0..1",
+      "meaning": "Brake candidate before post-processing.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:21",
+      "writer": "AIAbility",
+      "writers": [
+        "AIAbility",
+        "AIMainUpdate",
+        "AIRacingLine",
+        "AISteeringCorrection",
+        "sub_4258C0"
+      ],
+      "readers": [
+        "AIMainUpdate",
+        "AIRacingLine",
+        "AISteering",
+        "AISteeringCorrection"
+      ]
+    },
+    {
+      "id": "cmd_steer",
+      "group": "decision",
+      "base": "veh",
+      "hex": "0x442C",
+      "dec": 17452,
+      "type": "float",
+      "count": 1,
+      "units": "-1..1",
+      "meaning": "Normalized steering command written by the steering law; live recomputation from the law correlated 0.989.",
+      "tier": "OBSERVED",
+      "source": "docs/54-ai-driving-brain-map.md:65",
+      "writer": "AIMainUpdate",
+      "writers": [
+        "AIMainUpdate",
+        "AISteeringRacingLineCorrection",
+        "sub_426100"
+      ],
+      "readers": [
+        "AIMainUpdate",
+        "AISteeringCorrection",
+        "AISteeringRacingLineCorrection",
+        "sub_426100"
+      ]
+    },
+    {
+      "id": "act_throttle",
+      "group": "decision",
+      "base": "veh",
+      "hex": "0x357C",
+      "dec": 13692,
+      "type": "float",
+      "count": 1,
+      "units": "0..1",
+      "meaning": "Throttle actuator copy written at tick end from the throttle candidate (0 in park mode).",
+      "tier": "OBSERVED",
+      "source": "docs/54-ai-driving-brain-map.md:28; finding:ai-mode-4-native-park-2026-10-02",
+      "writer": "AIMainUpdate",
+      "writers": [
+        "AIMainUpdate"
+      ],
+      "readers": []
+    },
+    {
+      "id": "act_steer",
+      "group": "decision",
+      "base": "veh",
+      "hex": "0x3580",
+      "dec": 13696,
+      "type": "float",
+      "count": 1,
+      "units": "-1..1",
+      "meaning": "Steering actuator copy written at tick end from the steer command; live-equal to the command in every sample (0 in park mode).",
+      "tier": "OBSERVED",
+      "source": "docs/54-ai-driving-brain-map.md:28,65",
+      "writer": "AIMainUpdate",
+      "writers": [
+        "AIMainUpdate"
+      ],
+      "readers": []
+    },
+    {
+      "id": "act_brake",
+      "group": "decision",
+      "base": "veh",
+      "hex": "0x3584",
+      "dec": 13700,
+      "type": "float",
+      "count": 1,
+      "units": "0..1",
+      "meaning": "Brake actuator copy written at tick end from the brake candidate (1 in park mode).",
+      "tier": "OBSERVED",
+      "source": "docs/54-ai-driving-brain-map.md:28; finding:ai-mode-4-native-park-2026-10-02",
+      "writer": "AIMainUpdate",
+      "writers": [
+        "AIMainUpdate"
+      ],
+      "readers": []
+    },
+    {
+      "id": "speed_limit",
+      "group": "decision",
+      "base": "veh",
+      "hex": "0x4484",
+      "dec": 17540,
+      "type": "float",
+      "count": 1,
+      "units": "m/s",
+      "meaning": "Speed governor input (pit limiter etc.); reset to 1000000.0 every tick before the AI functions, so a write must land between the reset and the pedal post-processor.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:72,120",
+      "writer": "AIMainUpdate",
+      "writers": [
+        "AIMainUpdate"
+      ],
+      "readers": [
+        "AISteeringCorrection"
+      ]
+    },
+    {
+      "id": "throttle_cap_race_start",
+      "group": "decision",
+      "base": "veh",
+      "hex": "0x44B8",
+      "dec": 17592,
+      "type": "float",
+      "count": 1,
+      "units": "scale",
+      "meaning": "Throttle smoothing constant used at race start when the race-start byte is set.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:74",
+      "writer": null,
+      "writers": [],
+      "readers": [
+        "AIRacingLine",
+        "AISteeringCorrection"
+      ]
+    },
+    {
+      "id": "throttle_cap_difficulty",
+      "group": "decision",
+      "base": "veh",
+      "hex": "0x457C",
+      "dec": 17788,
+      "type": "float",
+      "count": 1,
+      "units": "0..1",
+      "meaning": "Difficulty throttle cap = AIDifficultyScalar * 0.75, applied when the interaction target is set.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:74; map_AIAbility.md:54",
+      "writer": "AIAbility",
+      "writers": [
+        "AIAbility",
+        "AISteeringCorrection"
+      ],
+      "readers": [
+        "AISteeringCorrection"
+      ]
+    },
+    {
+      "id": "watchdog_counter",
+      "group": "watchdog",
+      "base": "veh",
+      "hex": "0x446C",
+      "dec": 17516,
+      "type": "_DWORD",
+      "count": 1,
+      "units": "count",
+      "meaning": "Wrong-way/stuck counter; +5 per tick while travel direction opposes yaw, -1 otherwise. Above the limit the mode switches to recovery.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:101",
+      "writer": "SteeringAngleController",
+      "writers": [
+        "SteeringAngleController"
+      ],
+      "readers": [
+        "AIRacingLine",
+        "AISteeringCorrection",
+        "SteeringAngleController"
+      ]
+    },
+    {
+      "id": "watchdog_limit",
+      "group": "watchdog",
+      "base": "veh",
+      "hex": "0x4558",
+      "dec": 17752,
+      "type": "_DWORD",
+      "count": 1,
+      "units": "count",
+      "meaning": "Counter threshold that triggers the mode-1 recovery stop.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:101",
+      "writer": null,
+      "writers": [],
+      "readers": [
+        "SteeringAngleController"
+      ]
+    },
+    {
+      "id": "watchdog_saved_x",
+      "group": "watchdog",
+      "base": "veh",
+      "hex": "0x4470",
+      "dec": 17520,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Saved position X used by the 4-second progress check.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:102",
+      "writer": "SteeringAngleController",
+      "writers": [
+        "SteeringAngleController"
+      ],
+      "readers": []
+    },
+    {
+      "id": "watchdog_saved_y",
+      "group": "watchdog",
+      "base": "veh",
+      "hex": "0x4474",
+      "dec": 17524,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Saved position Y used by the 4-second progress check.",
+      "tier": "DERIVED",
+      "source": "FIELD_GLOSSARY.md:81",
+      "writer": "SteeringAngleController",
+      "writers": [
+        "SteeringAngleController"
+      ],
+      "readers": []
+    },
+    {
+      "id": "watchdog_saved_z",
+      "group": "watchdog",
+      "base": "veh",
+      "hex": "0x4478",
+      "dec": 17528,
+      "type": "float",
+      "count": 1,
+      "units": "m",
+      "meaning": "Saved position Z used by the 4-second progress check.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:102",
+      "writer": "SteeringAngleController",
+      "writers": [
+        "SteeringAngleController"
+      ],
+      "readers": []
+    },
+    {
+      "id": "watchdog_timer",
+      "group": "watchdog",
+      "base": "veh",
+      "hex": "0x447C",
+      "dec": 17532,
+      "type": "float",
+      "count": 1,
+      "units": "s",
+      "meaning": "Progress-check timer; when stuck it toggles the mode between normal and reverse attempt.",
+      "tier": "DERIVED",
+      "source": "docs/54-ai-driving-brain-map.md:102",
+      "writer": "AIMainUpdate",
+      "writers": [
+        "AIMainUpdate",
+        "SteeringAngleController"
+      ],
+      "readers": [
+        "SteeringAngleController"
+      ]
+    }
+  ],
+  "derived_views": [
+    {
+      "id": "steering_target_point",
+      "group": "derived_views",
+      "tier": "DERIVED",
+      "formula": "waypoint = look-ahead entry current_waypoint_ptr + steering_lookahead_index; target = waypoint.position + published_lateral_target * waypoint.right + distance_since_waypoint_change * waypoint.direction",
+      "inputs": [
+        "current_waypoint_ptr",
+        "steering_lookahead_index",
+        "published_lateral_target",
+        "steering_anchor_x",
+        "steering_anchor_z"
+      ],
+      "source": "docs/54-ai-driving-brain-map.md:34-43"
+    },
+    {
+      "id": "corner_speed_limit",
+      "group": "derived_views",
+      "tier": "DERIVED",
+      "formula": "corner_speed = (tire_force_solver(waypoint) * corner_speed_force_coeff + corner_speed_force_offset) * corner_speed_scale * ai_pace_multiplier * waypoint.grip_factor",
+      "inputs": [
+        "corner_speed_force_coeff",
+        "corner_speed_force_offset",
+        "corner_speed_scale",
+        "ai_pace_multiplier"
+      ],
+      "source": "finding:ai-brain-corner-speed-braking-2026-10-02"
+    },
+    {
+      "id": "braking_now",
+      "group": "derived_views",
+      "tier": "DERIVED",
+      "formula": "braking while the look-ahead's limiting_waypoint_ptr target (braking_target_speed) sits below the projected speed; then cmd_brake ramps +0.2/tick and cmd_throttle = 0",
+      "inputs": [
+        "speed",
+        "speed_profile",
+        "limiting_waypoint_ptr",
+        "braking_target_speed",
+        "cmd_brake",
+        "cmd_throttle"
+      ],
+      "source": "map_AIRacingLine.md:24-35"
+    },
+    {
+      "id": "intended_vs_true_lateral",
+      "group": "derived_views",
+      "tier": "DERIVED",
+      "formula": "true_lateral = dot(car_position - waypoint_position, waypoint.perpendicular); published_lateral_target is the AI's intended offset, not its true lateral position",
+      "inputs": [
+        "position_x",
+        "position_z",
+        "published_lateral_target",
+        "current_waypoint_ptr"
+      ],
+      "source": "finding:ai-free-space-scanner-prototype-2026-10-02"
+    },
+    {
+      "id": "on_track_margin",
+      "group": "derived_views",
+      "tier": "DERIVED",
+      "formula": "on_track = (waypoint.half_width_a + 1.5 > lateral_position) and (waypoint.half_width_b + 1.5 > -lateral_position)",
+      "inputs": [
+        "on_track",
+        "lateral_position",
+        "current_waypoint_ptr"
+      ],
+      "source": "docs/54-ai-driving-brain-map.md:85; map_AIRacingLine.md:250"
+    }
+  ]
+}

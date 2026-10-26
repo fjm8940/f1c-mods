@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "id": "driver_ai_toolkit",
+  "name": "Driver AI Toolkit (game plug-in)",
+  "version": "1.0.6",
+  "author": "Matias",
+  "description": "Lets the Driver AI Toolkit change how the game's AI drivers behave, live. Installed and updated by Lightloader > Tools > Driver AI Toolkit.",
+  "homepage": "https://mods.palloset.com/driver_ai_toolkit",
+  "lightloader": ">=2.2.0"
+}

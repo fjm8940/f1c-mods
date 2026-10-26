@@ -1,0 +1,494 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 129,
+ "clip": "PWS_AILAPPIN04",
+ "says": "Player under blue flag (3rd)",
+ "dump_rows_for_clip": [
+  {
+   "eid": 125,
+   "hex": "0x007D",
+   "priority": 70,
+   "cooldown": 45.0,
+   "blocked": false,
+   "score": 123,
+   "sdt_index": 129,
+   "clip_name": "PWS_AILAPPIN04.",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 414,
+   "hex": "0x019E",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 123,
+   "sdt_index": 129,
+   "clip_name": "PWS_AILAPPIN04.",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  123
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 125,
+   "hex": "0x007D",
+   "priority": 70,
+   "cooldown": 45.0,
+   "blocked": false,
+   "score": 123,
+   "sdt_index": 129,
+   "clip_name": "PWS_AILAPPIN04.",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 414,
+   "hex": "0x019E",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 123,
+   "sdt_index": 129,
+   "clip_name": "PWS_AILAPPIN04.",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  125
+ ],
+ "literal_hits": {
+  "125": {
+   "emitters": [
+    {
+     "function": "PitSelectionStateMachine",
+     "file": "PitSelectionStateMachine_0041b3c0.c",
+     "hits": [
+      {
+       "line": 168,
+       "text": "DriverDataTableLookupAndTimeConversion(v13, 125, -1, -1, -1, -1, -2.0, -2.0);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_4BCCC0",
+       "callers": [
+        {
+         "caller": "MainGameTickUpdate",
+         "callers": [
+          {
+           "caller": "GamePostMainLoop",
+           "callers": [
+            {
+             "caller": "GameMainEntry",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "StateTriggerCheck",
+           "callers": [
+            {
+             "caller": "LoadingPhase1",
+             "callers": []
+            },
+            {
+             "caller": "LoadingPhase2",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B9890",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "caller": "sub_4D1730",
+       "callers": [
+        {
+         "caller": "sub_4D1D80",
+         "callers": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "sub_41A720",
+     "file": "sub_41A720_0041a720.c",
+     "hits": [
+      {
+       "line": 31,
+       "text": "BooleanOROfTwoChecks(flt_5EA618, 125);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "StopGoPenaltyHandler",
+       "callers": [
+        {
+         "caller": "sub_4BC9B0",
+         "callers": [
+          {
+           "caller": "PitCloseTeamReadyCheck",
+           "callers": [
+            {
+             "caller": "PitTimer",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "PitTimer",
+           "callers": [
+            {
+             "caller": "sub_4D4580",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "sub_4C6B60",
+           "callers": [
+            {
+             "caller": "SceneRenderUpdate",
+             "callers": []
+            },
+            {
+             "caller": "sub_42D140",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "sub_4D2170",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "sub_4BCCC0",
+         "callers": [
+          {
+           "caller": "MainGameTickUpdate",
+           "callers": [
+            {
+             "caller": "GamePostMainLoop",
+             "callers": []
+            },
+            {
+             "caller": "StateTriggerCheck",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "caller": "sub_4BCCC0",
+       "callers": []
+      }
+     ]
+    }
+   ],
+   "lookups": [],
+   "other_functions": {
+    "count": 35,
+    "first": [
+     "ArrayCleanup",
+     "ClearPitSelectionFlags",
+     "ConstructorFieldsVTable",
+     "ControllerShifterMapping",
+     "EnumValueTranslation",
+     "FileSettingsDataLoad",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "MouseInputHandler",
+     "MultiplayerSessionJoinHandler",
+     "SceneTextureApply",
+     "ShortComputation_4990",
+     "StructFieldZeroInitWithDefaults",
+     "TextRenderDispatcher",
+     "ThunkWithByteIncrementForward",
+     "TireModelDataInit",
+     "UIControlWindowInitialization",
+     "VertexClusteringLODGrouping",
+     "sub_417AF0",
+     "sub_455580",
+     "sub_47BF30",
+     "sub_492160",
+     "sub_492460",
+     "sub_492710",
+     "sub_492A40",
+     "sub_493060",
+     "sub_493480",
+     "sub_493990",
+     "sub_493FC0",
+     "sub_49CD80",
+     "sub_4BA460",
+     "sub_4DA9E0",
+     "sub_530840",
+     "sub_54A600",
+     "sub_559AD0",
+     "sub_5651B0"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 129 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "EnumValueTranslation",
+    "file": "EnumValueTranslation_00414010.c",
+    "hits": [
+     {
+      "line": 58,
+      "text": "v3 = 129;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:70: | `PWS_AILAPPIN04` | 129 | 125,414 | Player under blue flag (3rd) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:26: | `PWS_AILAPPIN04` | 129 | 125, 414 | — | Player under blue flag (3rd) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:339: | `PWS_PENALTY08` | 148 | 139 | — | Penalty (type 8) | user triage: Z, apply a 25 second time penalty for player IF three blue flag triggers activate AND blue flag is still active ",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:77: | `PWS_AILAPPIN04` | 125, 414 | Player under blue flag (3rd) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SHIPPED_MECHANISMS.md:140: | PWS_AILAPPIN04 | 125, 414 | Player under blue flag (3rd) | Same function/branch, `a6==3` → eid125 | DERIVED | `functions/PitSelectionStateMachine_0041b3c0.c:165-169` |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:165: | 148 | `PWS_PENALTY08` | Z | - | Z, apply a 25 second time penalty for player IF three blue flag triggers activate AND blue flag is still active for player AFTER the game plays PW",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TRIAGE_NOTES.txt:137: 148 Z, apply a 25 second time penalty for player IF three blue flag triggers activate AND blue flag is still active for player AFTER the game plays PWS_AILAPPIN04. penalty is set t",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:90: | `PWS_PENALTY08` | 148 | 139 | user triage: Z, apply a 25 second time penalty for player IF three blue flag triggers activate AND blue flag is still active for player AFTER the ga"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": true,
+  "vanilla_source": "evf_auto",
+  "modded_by": [],
+  "note": "",
+  "triage": null,
+  "evf_status": "SHIPPED"
+ }
+}

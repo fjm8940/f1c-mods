@@ -1,0 +1,318 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 137,
+ "clip": "PWS_SCAR05",
+ "says": "Safety car in pit lane (2)",
+ "dump_rows_for_clip": [
+  {
+   "eid": 428,
+   "hex": "0x01AC",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 131,
+   "sdt_index": 137,
+   "clip_name": "PWS_SCAR05.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  131
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 428,
+   "hex": "0x01AC",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 131,
+   "sdt_index": 137,
+   "clip_name": "PWS_SCAR05.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [],
+ "literal_hits": {},
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 137 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": []
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:321: {\"id\": \"f1c-tv-only-clips-playable-via-score-swap\", \"date\": \"2026-07-31\", \"tier\": \"FACT\", \"claim\": \"A clip that has NO event in the PWS range can still be played on the race-engine",
+  "f1c_ida_decompiled\\findings.jsonl:345: {\"id\": \"f1c-safety-car-scores-131-135-all-isolation-tested\", \"date\": \"2026-08-01\", \"tier\": \"FACT\", \"claim\": \"The five safety-car commentary scores are fixed: 131=PWS_SCAR05 'safety"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:104: | 428 | PWS_SCAR05 | Safety car deployed AND safety car is in pit lane zone. Safety car state detection UNKNOWN | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:136: - PWS_SCAR05 (eid 428) — 'Safety car in pit lane (2)' implies there's a SCAR04 or another safety-car-in-pit sequence. No other SCAR* pit lane clip found in event dump.",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:288: | `PWS_SCAR05` | 137 | 428 | Safety car in pit lane (2) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:172: | PWS_SCAR05 | 137 | 428 | Safety car line (UNDER WORK VIA ANOTHER MOD) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:183: - **PWS_SCAR05** (1 clip): Safety car. \"UNDER WORK VIA ANOTHER MOD.\"",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:410: | `PWS_SCAR05` | 137 | 428 | — | Safety car in pit lane (2) | user triage: Z, UNDER WORK VIA ANOTHER MOD |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:342: | `PWS_SCAR05` | 428 | Safety car in pit lane (2) | eid 428 has no call site |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:197: PWS_RACEFAST03, PWS_SCAR05, RE_OD_25_DD, RE_OD_INTER, RE_OD_INV_DD,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:157: | 137 | `PWS_SCAR05` | Z | - | Z, UNDER WORK VIA ANOTHER MOD |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:318: | `PWS_SCAR05` | 137 | 428 | Safety car in pit lane (2) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:89: | `PWS_SCAR05` | 137 | 428 | user triage: Z, UNDER WORK VIA ANOTHER MOD |"
+ ],
+ "mod_sources": [
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:459: * sequence needs exactly two lines close together (SCAR05 as he turns in,",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:541: *   131  SCAR05  \"safety car is entering the pits now\"",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:555: #define SCORE_SCAR05    131       /* \"entering the pits now\"              */",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2595: * sequence: SCAR05 as he turns into the pit lane, then SCAR04 as the field is",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:4074: * end of this lap, get ready\". SCAR05 (\"entering the pits now\") follows",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:4848: * moments of that - driver instruction 2026-08-02b: SCAR05 as he",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:4858: sc_say_later(SCORE_SCAR05, \"SCAR05 entering the pits now\", 0);",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:4869: sc_say_later(SCORE_SCAR05, \"SCAR05 entering the pits now\", 0);",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:4873: /* No delay: sc_say_later already holds it behind SCAR05 by",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:519: * sequence needs exactly two lines close together (SCAR05 as he turns in,",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:601: *   131  SCAR05  \"safety car is entering the pits now\"",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:615: #define SCORE_SCAR05    131       /* \"entering the pits now\"              */",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:2655: * sequence: SCAR05 as he turns into the pit lane, then SCAR04 as the field is",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:4147: * end of this lap, get ready\". SCAR05 (\"entering the pits now\") follows",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:4922: * moments of that - driver instruction 2026-08-02b: SCAR05 as he",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:4932: sc_say_later(SCORE_SCAR05, \"SCAR05 entering the pits now\", 0);",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:4943: sc_say_later(SCORE_SCAR05, \"SCAR05 entering the pits now\", 0);",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:4947: /* No delay: sc_say_later already holds it behind SCAR05 by",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:520: * sequence needs exactly two lines close together (SCAR05 as he turns in,",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:602: *   131  SCAR05  \"safety car is entering the pits now\"",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:616: #define SCORE_SCAR05    131       /* \"entering the pits now\"              */",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:2656: * sequence: SCAR05 as he turns into the pit lane, then SCAR04 as the field is",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:4186: * end of this lap, get ready\". SCAR05 (\"entering the pits now\") follows",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:4961: * moments of that - driver instruction 2026-08-02b: SCAR05 as he",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:4971: sc_say_later(SCORE_SCAR05, \"SCAR05 entering the pits now\", 0);"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [],
+  "note": "user triage: Z, UNDER WORK VIA ANOTHER MOD",
+  "triage": {
+   "sdt_index": 137,
+   "text": "Z, UNDER WORK VIA ANOTHER MOD",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

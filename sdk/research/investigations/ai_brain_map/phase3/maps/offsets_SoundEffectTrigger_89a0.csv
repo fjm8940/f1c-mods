@@ -1,0 +1,5 @@
+func,line,dec,hex,access,width,base,form,expr
+SoundEffectTrigger_89a0,13,,,CALL,,,call,RatioComputationWithClamping
+SoundEffectTrigger_89a0,16,,,CALL,,,call,RatioComputationWithClamping
+SoundEffectTrigger_89a0,18,,,CALL,,,call,RandLCGRandomNumberGenerator
+SoundEffectTrigger_89a0,24,,,CALL,,,call,HUDElementConfig

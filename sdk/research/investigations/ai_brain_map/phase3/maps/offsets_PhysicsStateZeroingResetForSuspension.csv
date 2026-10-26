@@ -1,0 +1,32 @@
+func,line,dec,hex,access,width,base,form,expr
+PhysicsStateZeroingResetForSuspension,10,5548,0x15AC,R,_DWORD,this,array,v2 = this[1387];
+PhysicsStateZeroingResetForSuspension,12,,,CALL,,,call,memset
+PhysicsStateZeroingResetForSuspension,18,,,CALL,,,call,qmemcpy
+PhysicsStateZeroingResetForSuspension,18,5552,0x15B0,R,_DWORD,this,array,"qmemcpy((void *)(v6 + this[1388] + 100), v7, 0x18u);"
+PhysicsStateZeroingResetForSuspension,19,,,CALL,,,call,Copy6DwordsToStructCall
+PhysicsStateZeroingResetForSuspension,23,5548,0x15AC,R,_DWORD,this,array,while ( v3 < this[1387] );
+PhysicsStateZeroingResetForSuspension,30,4,0x4,W,_DWORD,result,array,result[1] = 0;
+PhysicsStateZeroingResetForSuspension,35,7940,0x1F04,W,_DWORD,this,array,this[1985] = 0;
+PhysicsStateZeroingResetForSuspension,36,7944,0x1F08,W,_DWORD,this,array,this[1986] = 0;
+PhysicsStateZeroingResetForSuspension,37,7948,0x1F0C,W,_DWORD,this,array,this[1987] = 0;
+PhysicsStateZeroingResetForSuspension,38,7952,0x1F10,W,_DWORD,this,array,this[1988] = 0;
+PhysicsStateZeroingResetForSuspension,39,7956,0x1F14,W,_DWORD,this,array,this[1989] = 0;
+PhysicsStateZeroingResetForSuspension,40,7960,0x1F18,W,_DWORD,this,array,this[1990] = 0;
+PhysicsStateZeroingResetForSuspension,41,7964,0x1F1C,W,_DWORD,this,array,this[1991] = 0;
+PhysicsStateZeroingResetForSuspension,42,7968,0x1F20,W,_DWORD,this,array,this[1992] = 0;
+PhysicsStateZeroingResetForSuspension,43,7972,0x1F24,W,_DWORD,this,array,this[1993] = 0;
+PhysicsStateZeroingResetForSuspension,44,7976,0x1F28,W,_DWORD,this,array,this[1994] = 0;
+PhysicsStateZeroingResetForSuspension,45,7980,0x1F2C,W,_DWORD,this,array,this[1995] = 0;
+PhysicsStateZeroingResetForSuspension,46,7984,0x1F30,W,_DWORD,this,array,this[1996] = 0;
+PhysicsStateZeroingResetForSuspension,47,236,0xEC,W,_DWORD,this,array,this[59] = 0;
+PhysicsStateZeroingResetForSuspension,48,240,0xF0,W,_DWORD,this,array,this[60] = 0;
+PhysicsStateZeroingResetForSuspension,49,244,0xF4,W,_DWORD,this,array,this[61] = 0;
+PhysicsStateZeroingResetForSuspension,50,248,0xF8,W,_DWORD,this,array,this[62] = 0;
+PhysicsStateZeroingResetForSuspension,51,252,0xFC,W,_DWORD,this,array,this[63] = 0;
+PhysicsStateZeroingResetForSuspension,52,256,0x100,W,_DWORD,this,array,this[64] = 0;
+PhysicsStateZeroingResetForSuspension,53,260,0x104,W,_DWORD,this,array,this[65] = 0;
+PhysicsStateZeroingResetForSuspension,54,264,0x108,W,_DWORD,this,array,this[66] = 0;
+PhysicsStateZeroingResetForSuspension,55,268,0x10C,W,_DWORD,this,array,this[67] = 0;
+PhysicsStateZeroingResetForSuspension,56,272,0x110,W,_DWORD,this,array,this[68] = 0;
+PhysicsStateZeroingResetForSuspension,57,276,0x114,W,_DWORD,this,array,this[69] = 0;
+PhysicsStateZeroingResetForSuspension,58,280,0x118,W,_DWORD,this,array,this[70] = 0;

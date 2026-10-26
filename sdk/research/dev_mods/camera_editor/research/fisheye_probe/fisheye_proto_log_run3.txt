@@ -1,0 +1,58 @@
+fisheye prototype (research build 2026-10-05)
+device 2560x1600 windowed=1: fisheye ready (F9 on/off, F10/F11 strength)
+-- game window IN FRONT
+fisheye ON (strength 0.60)
+render-target texture 2560x1600 fmt=22 ready
+frame 516: flat before 3D 1, 3D draws 448 (viewport 35,498 1264x845, full=0), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.88/0.52
+frame 517: flat before 3D 1, 3D draws 448 (viewport 35,498 1264x845, full=0), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.88/0.52
+frame 518: flat before 3D 1, 3D draws 448 (viewport 35,498 1264x845, full=0), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.88/0.52
+frame 600: flat before 3D 1, 3D draws 448 (viewport 35,498 1264x845, full=0), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.88/0.52
+fisheye off (strength 0.60)
+fisheye ON (strength 0.60)
+frame 638: flat before 3D 1, 3D draws 448 (viewport 35,498 1264x845, full=0), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.88/0.52
+frame 639: flat before 3D 1, 3D draws 448 (viewport 35,498 1264x845, full=0), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.88/0.52
+frame 640: flat before 3D 1, 3D draws 448 (viewport 35,498 1264x845, full=0), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.88/0.52
+fisheye off (strength 0.60)
+fisheye ON (strength 0.60)
+frame 868: flat before 3D 0, 3D draws 451 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 42; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 869: flat before 3D 0, 3D draws 451 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 42; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 870: flat before 3D 0, 3D draws 451 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 42; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 900: flat before 3D 0, 3D draws 451 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 42; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+strength 0.70
+strength 0.80
+strength 0.90
+strength 1.00
+strength 1.00
+strength 1.00
+strength 1.00
+strength 1.00
+frame 1200: flat before 3D 0, 3D draws 451 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 42; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 1500: flat before 3D 0, 3D draws 547 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 42; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+-- game window tabbed out
+frame 1769: flat before 3D 0, 3D draws 547 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 44; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 1770: flat before 3D 0, 3D draws 575 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 1771: flat before 3D 0, 3D draws 575 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 1800: flat before 3D 0, 3D draws 583 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 2100: flat before 3D 0, 3D draws 568 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 2400: flat before 3D 0, 3D draws 570 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 2700: flat before 3D 0, 3D draws 558 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 3000: flat before 3D 0, 3D draws 561 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 3300: flat before 3D 0, 3D draws 577 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+-- game window IN FRONT
+frame 3459: flat before 3D 0, 3D draws 557 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 34; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 3460: flat before 3D 0, 3D draws 555 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 36; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 3461: flat before 3D 0, 3D draws 555 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 36; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 3600: flat before 3D 0, 3D draws 449 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 3900: flat before 3D 0, 3D draws 449 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+-- game window tabbed out
+frame 3914: flat before 3D 0, 3D draws 449 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 3915: flat before 3D 0, 3D draws 449 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 3916: flat before 3D 0, 3D draws 449 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 4200: flat before 3D 0, 3D draws 449 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 4500: flat before 3D 0, 3D draws 449 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 4800: flat before 3D 0, 3D draws 449 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+-- game window IN FRONT
+frame 5053: flat before 3D 0, 3D draws 449 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 5054: flat before 3D 0, 3D draws 449 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 5055: flat before 3D 0, 3D draws 449 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12
+frame 5100: flat before 3D 0, 3D draws 1 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 0.62/0.12

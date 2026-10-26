@@ -1,0 +1,7 @@
+func,line,dec,hex,access,width,base,form,expr
+sub_4258C0,5,17472,0x4440,R,float,this,direct,v1 = *(float *)(this + 17472);
+sub_4258C0,6,17464,0x4438,W,_DWORD,this,direct,*(_DWORD *)(this + 17464) = 1065353216;
+sub_4258C0,7,17460,0x4434,W,_DWORD,this,direct,*(_DWORD *)(this + 17460) = 0;
+sub_4258C0,8,14284,0x37CC,R,float,this,direct,if ( v1 < 4.0 || *(float *)(this + 14284) > 0.89999998 && *(float *)(this + 14532) > 0.89999998 )
+sub_4258C0,8,14532,0x38C4,R,float,this,direct,if ( v1 < 4.0 || *(float *)(this + 14284) > 0.89999998 && *(float *)(this + 14532) > 0.89999998 )
+sub_4258C0,9,17680,0x4510,W,_DWORD,this,direct,*(_DWORD *)(this + 17680) = 2;

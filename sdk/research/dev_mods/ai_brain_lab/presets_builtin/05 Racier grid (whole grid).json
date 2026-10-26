@@ -1,0 +1,16 @@
+{
+ "schema": "driver_ai_toolkit.preset.v2",
+ "name": "Racier grid (whole grid)",
+ "description": "The 75 % throttle bug fix plus tailgating and full-throttle rejoins. A livelier race.",
+ "target": "grid",
+ "global": {
+  "NO_LIFT_ALL": true
+ },
+ "rules": {
+  "follow_min_gap": 1.5,
+  "follow_backoff": 1.0,
+  "attack_threshold": 900.0,
+  "offtrack_throttle_fast": 1.0,
+  "offtrack_throttle_slow": 1.0
+ }
+}

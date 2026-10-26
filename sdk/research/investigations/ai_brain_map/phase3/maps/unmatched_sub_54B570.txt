@@ -1,0 +1,11 @@
+# sub_54B570: offset-like lines with no extracted row (10)
+L63: v7 = (char *)(this + 212);
+L64: v8 = (char *)(this + 228);
+L65: v9 = (char *)(this + 244);
+L66: v10 = (char *)(this + 260);
+L70: v7 = (char *)(this + 276);
+L71: v8 = (char *)(this + 292);
+L72: v9 = (char *)(this + 308);
+L73: v10 = (char *)(this + 324);
+L101: v16 = (_DWORD *)(this + 340);
+L102: v17 = (_DWORD *)(this + 276);

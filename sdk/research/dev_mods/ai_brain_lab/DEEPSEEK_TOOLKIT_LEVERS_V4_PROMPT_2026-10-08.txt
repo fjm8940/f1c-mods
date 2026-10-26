@@ -1,0 +1,88 @@
+DEEPSEEK - DRIVER AI TOOLKIT: PLUG-IN v4 (per-driver rules + per-car throttle cap), FIELD RESEARCH, A/B TEST PLAN,
+"CHASE TRAIN" OVERTAKE INVESTIGATION
+Owner: Matias. Spec + review: Claude. 2026-10-08.
+This file: %USERPROFILE%\Desktop\F1\development\mods\ai_brain_lab\DEEPSEEK_TOOLKIT_LEVERS_V4_PROMPT_2026-10-08.txt
+Do this AFTER the MF batch (M2b + R3) if that is still open; it does not touch Mechanical Failures.
+
+READ FIRST
+  1. %USERPROFILE%\Desktop\F1\development\mods\MOD_STANDARD.md
+  2. %USERPROFILE%\Desktop\F1\development\mods\ai_brain_lab\README.md (top entries + "How it works" + "Lever table")
+  3. %USERPROFILE%\Desktop\F1\development\mods\ai_brain_lab\UI_REDESIGN_AND_ADDRESS_AUDIT_2026-10-08.md (all; sections 4-7)
+  4. %USERPROFILE%\Desktop\F1\f1c_ida_decompiled\tools\sdk\LLM_OPERATING_CONTRACT.md; SDK front door first:
+     python tools/f1c_mod.py start --json, evidence-query findings, inspect <address>.
+
+Paths
+  ABL  = %USERPROFILE%\Desktop\F1\development\mods\ai_brain_lab          (dev; GUI is Claude's - do not edit tools\*.py
+                                                                              except abl_shm.py layout + its test)
+  DLL  = ABL\dll  (ai_brain_lab.c, abl_logic.h, abl_levers.h, abl_rules.h, levers.json, rules.json, build.bat)
+  IDA  = %USERPROFILE%\Desktop\F1\f1c_ida_decompiled
+  Current dev plug-in: ABL\dll\ai_brain_lab.dll 6C60B666... (pairs with MF 1.0.3). Toolkit package candidate 1.0.3-r2.
+
+HARD RULES
+- Edit only DLL\*, ABL\tools\abl_shm.py, ABL\tools\test_abl_shm.py, ABL\tools\abl_logic_test.c, ABL\tools\abl_precedence_test.c,
+  new files under ABL\research\ and ABL\tests\, append-only IDA\findings.jsonl, and STOP reports appended to
+  ABL\DS_TOOLKIT_V4_LOG_2026-10-08.md (create). Before editing an existing file: copy <name>.BEFORE_20261008_v4. Never delete.
+- No game installs, no game writes, no deploys. Live work is read-only (memory reads at the game's elevation) and only if the
+  owner has a session running; otherwise static (IDA / capstone / decompile corpus).
+- Build output to %TEMP%. -Wall -Wextra -Werror. Reproducible PE (existing build.bat rules). UTF-8 no BOM.
+- Every claim gets a tier (FACT / CONFIRMED / OBSERVED / DERIVED / GUESS) and evidence (address, function, sample file).
+- Keep the precedence rule: SC/RF > MF > Toolkit (abl_precedence.h). Keep "never write" list: 0x3D6C, 0x10C0, 0x33C8, 0x4064,
+  0x4410, 0x454C, 0x45F4, 0x45FC except clearing.
+
+GATES (baseline before any edit, after each STOP): DLL\build.bat (rules ok, gen_levers, test_abl_shm 0 failures,
+abl_logic_test, abl_precedence_test, -Werror build), plus python ABL\tools\test_abl_ui.py (Claude's GUI test; must stay 25/25).
+
+------------------------------------------------------------------------------------------------------------
+V1 Per-driver rules (plug-in v4 rule masks)
+  The GUI already writes a per-rule car mask at RULE_MASK_OFF = SHM_SIZE_V3, 256 x uint32 (abl_shm.py; bit s = rule acts
+  while AI slot s ticks; 0 = every AI car). No plug-in implements it (fact: no RULE_MASK in DLL\). Implement it:
+  - Grow the shared block to SHM_SIZE_V4 (header SIZE tells the client; old clients keep working = append-only).
+  - Inside the existing AIMainUpdate wrapper, per ticking car: for every ON rule whose mask is non-zero and does not contain
+    this slot, the redirected value must read the GAME value for this car's tick (swap in / swap back, same thread, no window
+    where another car sees the wrong value). Prove the swap is restored on every exit path (including early returns).
+  - Rule STATUS stays per rule; add nothing the GUI cannot read.
+  - Tests: abl_logic_test cases for mask 0 / mask with slot / mask without slot / rule off; a swap-restore test.
+  -> STOP V1.
+
+V2 Per-car throttle cap lever (0x457C)
+  Finding ai-throttle-cap-457c-latches-after-traffic-target-2026-10-03 (+ its correction). Add catalog lever
+  "throttle_cap" (family Traffic, car scope, float, lo 0.3, hi 1.0, hold lever: save the AI value on enable, write every
+  tick at the right stage, restore on disable/ARM off/unload). Find the stage where AIDifficultyScalar() writes 0x457C and
+  write after it (cite the function + address). Must coexist with the global NO_LIFT_ALL switch (define and test which wins).
+  levers.json entry with tier, offset, evidence, help; gen_levers count updated. -> STOP V2.
+
+V3 Research: the unnamed LATCHED fields (static first, live read-only if a session runs)
+  Fields: 0x4000, 0x4040, 0x416C, 0x441C, 0x444C, 0x4458, 0x4460, 0x4488, 0x4490, 0x4524, 0x4544, 0x4550, 0x455C,
+  0x4568, 0x456C, 0x4570, 0x4574, 0x4578, 0x4579, 0x4584, 0x45A0, 0x4894 (source: IDA\investigations\ai_brain_map\phase3\
+  WRITE_READINESS_V12.csv). For each: every reader and writer (function + address), what decision it feeds, value range
+  seen, and a verdict: BEHAVIOUR LEVER CANDIDATE (with proposed safe range) / INTERNAL STATE (not a setting) / UNKNOWN.
+  Output ABL\research\UNNAMED_FIELDS_2026-10-08.md + one findings.jsonl entry per field (tier + evidence). No new levers
+  in this STOP; Claude decides which become levers. -> STOP V3.
+
+V4 A/B test plan for the unproven settings (plan + offline harness only; the owner runs it live)
+  Unproven = DERIVED/EXPERIMENTAL: levers quali_skill, driver_variant, corner_target_mult, launch, pit_stops, next_tyres,
+  engine_life, stall_time, top_gear, pace_push, push_norm, brake_ramp, watchdog_limit; rules yield_radius_sq, sidestep_plus,
+  sidestep_minus, traffic_lift_factor, offtrack_throttle_slow, tc_brake_gain, follow_min_gap, follow_backoff, attack_range,
+  attack_patience_decay, attack_threshold, attack_patience_cap, alongside_gap, approach_patience_keep; Quick overtake
+  commitment, cooperation, speed governor, throttle/brake multiplier.
+  For each: the claimed effect (from levers.json/rules.json help), a measurable signal (field + expected direction), test
+  setup (track, session, car, value A vs B, duration), pass/fail rule, and what disproves it. Plus a read-only recorder
+  script ABL\tests\ab_record.py (samples the named fields per car at 10 Hz to CSV in %TEMP%, run at the game's elevation;
+  no writes) and ABL\tests\ab_compare.py (offline: CSV A vs CSV B -> PASS/FAIL per claim). Output
+  ABL\research\AB_TEST_PLAN_2026-10-08.md. -> STOP V4.
+
+V5 "Chase train" investigation (owner report, live evidence in the audit section 7 + finding
+  ai-follower-stuck-in-hold-mode5-chase-train-2026-10-08)
+  Barrichello followed R. Schumacher 10-25 m behind for 80 s with his record at mode 5 (hold) every sample, never 1/2/7/8,
+  with single-tick lifts at ~311 km/h (speed matching). Map, statically:
+  - the exact pull-out decision in AISteering 0x4270A0 (patience build/decay, range (aggression+1) x 20 m, the pass-cost
+    score and threshold 500 - patience, cap 450): every input of the pass-cost score with its address;
+  - the hold-mode (5) speed law: what target speed the follower uses and where the throttle lift comes from;
+  - which of these inputs a per-car lever could change safely (e.g. a per-car "attack threshold" via the V1 rule masks, a
+    patience bias, or a hold-mode speed margin), with the expected effect.
+  Output ABL\research\CHASE_TRAIN_2026-10-08.md + findings entries. Propose (do not build) the lever set; Claude decides.
+  -> STOP V5.
+
+STOP REPORT FORMAT (append to ABL\DS_TOOLKIT_V4_LOG_2026-10-08.md): changed files + BEFORE copies; per item what /
+file:line / test + result; gates baseline vs after; hashes (8 hex + full sha256); facts vs inference; open questions.
+Wait for Claude after each STOP.

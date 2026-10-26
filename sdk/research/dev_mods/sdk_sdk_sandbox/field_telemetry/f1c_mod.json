@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "field_telemetry",
+  "title": "F1C Field Telemetry Service",
+  "production": false,
+  "sdk_major": 1,
+  "language": "cpp",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "subsystems": [
+    "vehicle",
+    "session"
+  ],
+  "seeds": [],
+  "hooks": [],
+  "writes": [],
+  "tracing": {
+    "driver": "",
+    "seconds": 180,
+    "hz": 20,
+    "wait_phase": 5,
+    "pit_cycle": false,
+    "semantics": [
+      "command_input",
+      "output",
+      "latched_control"
+    ]
+  },
+  "regressions": [],
+  "build": {
+    "script": "build_orientation.bat",
+    "dll": "build_orientation_r3/field_telemetry.dll"
+  }
+}

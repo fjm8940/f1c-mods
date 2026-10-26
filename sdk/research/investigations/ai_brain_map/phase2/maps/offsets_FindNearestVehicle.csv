@@ -1,0 +1,7 @@
+func,line,dec,hex,access,width,base,form,expr
+FindNearestVehicle,16,,,R,_BYTE,this,array,if ( *(_DWORD *)&this[4 * a2] )
+FindNearestVehicle,25,,,CALL,,,call,AIDelegateCall
+FindNearestVehicle,26,,,CALL,,,call,SpeedDeltaComputation
+FindNearestVehicle,26,,,R,_BYTE,this,array,"v8 = SpeedDeltaComputation((_DWORD *)*(_DWORD *)&this[4 * a2], v7);"
+FindNearestVehicle,35,,,CALL,,,call,SpeedDeltaComputation
+FindNearestVehicle,35,,,R,_BYTE,this,array,"v9 = SpeedDeltaComputation((_DWORD *)*(_DWORD *)&this[4 * a2], *(_DWORD *)(*v4 + 15016));"

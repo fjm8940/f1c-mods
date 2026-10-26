@@ -1,0 +1,3 @@
+# AISteeringCorrection: offset-like lines with no extracted row (2)
+L47: v7 = SuspensionRatioClamp(this + 12);
+L101: v15 = TireGripCoefficient(this + 12) * 0.5;

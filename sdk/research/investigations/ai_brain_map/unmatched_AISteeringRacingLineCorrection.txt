@@ -1,0 +1,5 @@
+# AISteeringRacingLineCorrection: offset-like lines with no extracted row (4)
+L62: v36 = DistanceProjectionCalc(this + 3);
+L110: if ( (unsigned __int8)DistanceComparison(this + 3) )
+L254: VehicleDynamicsStateReset(this + 3);
+L258: ConditionalGate(this + 3);

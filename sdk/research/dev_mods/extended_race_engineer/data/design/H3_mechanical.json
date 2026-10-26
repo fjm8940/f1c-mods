@@ -1,0 +1,1650 @@
+{
+ "schema": "ere.design.v1",
+ "batch": "H3_mechanical",
+ "rows": [
+  {
+   "clip": "PWS_MECHPROB16",
+   "sdt_index": 74,
+   "pws_eid": 75,
+   "all_eids": [
+    75,
+    345
+   ],
+   "says": "Damaged suspension - avoid kerbs",
+   "eid_source": "full_event_dump.json eid 75 (sdt 74, cd 15, unblocked); doc56 row 75",
+   "eid_isolation_tested": true,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/suspension_failure.c:87 (EID_MECHPROB16), :283-293, :332; shipped per development/mods/mechanical_failures/README.md:110",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "suspension_failure stage reaches damaged state (steering-geometry bend via game's SteeringGeometryUpdate_00442060); queued once per arm",
+   "state_reads": [
+    {
+     "what": "MF suspension stage",
+     "locator": "suspension_failure.c ctl block",
+     "tier": "CONFIRMED",
+     "source": "suspension_failure.c:283"
+    }
+   ],
+   "latch_cooldown": "owned by MF (once per arm)",
+   "calibration_needed": null,
+   "conflicts": "ERE must not queue eid 75 or 345 while MF is loaded; MF already plays it",
+   "live_test": "Owner already heard it every arm (driver-confirmed, full_safety_car/trials/v0.10.66_replay_live_field/before-shared/3-AUTOMATION_CHECKPOINT.json:181)",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/suspension_failure.c:87",
+    "development/mods/mechanical_failures/dll/suspension_failure.c:283",
+    "development/mods/mechanical_failures/README.md:110",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SUSPENSION_DAMAGE.md:262"
+   ],
+   "open_questions": "PRIOR-ART CONTRADICTION: triage note says damage.ini holds suspension values; SUSPENSION_DAMAGE.md:262 says damage.ini has no suspension section (only WheelBend/WheelDetach thresholds). MF uses the game's own steering-geometry call instead. Wing-loss to suspension coupling (triage) is UNPROVEN."
+  },
+  {
+   "clip": "PWS_MECHPROB14",
+   "sdt_index": 75,
+   "pws_eid": 76,
+   "all_eids": [
+    76,
+    348
+   ],
+   "says": "Electronics malfunction",
+   "eid_source": "full_event_dump.json eid 76 (sdt 75, cd 15, unblocked); doc56 row 76; electronics_failure.c:117",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/electronics_failure.c:117 (EID_ELEC 76), :386 radio_queue, :751 radio_say; dev DLL, README.md:112 'live validation pending'",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "seeded 10% roll per race/quali session + constructed lifetime timer; line once per session when electronics fault activates; fault = fuel-starvation cutting (<1 L), misfire cutout bursts, radio-comms-lost windows",
+   "state_reads": [
+    {
+     "what": "electronics fault activation",
+     "locator": "electronics_failure.c roll/timer",
+     "tier": "DERIVED",
+     "source": "electronics_failure.c:1-30"
+    }
+   ],
+   "latch_cooldown": "once per session (MF)",
+   "calibration_needed": "roll 10% default and lifetime distribution (ELEC_TIMER_AND_REALISM_AUDIT_2026-09-28.md) need live tuning",
+   "conflicts": "Radio-comms-lost windows suppress PWS entries at CM_CONTROLLER+0xAF0 (electronics_failure.c:17-30): any ERE line queued in such a window is dropped. Triage asked for RPM cut from overheating: MF uses fuel starvation/misfire instead, no overheat-driven cut exists in MF.",
+   "live_test": "Owner live validation pending (README.md:112)",
+   "tier": "DERIVED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/electronics_failure.c:1-30",
+    "development/mods/mechanical_failures/dll/electronics_failure.c:117",
+    "development/mods/mechanical_failures/README.md:112"
+   ],
+   "open_questions": "Triage 'steal the fuel-out engine cut' idea: MF already uses the 0x7C9081 misfire lever and starvation flicker; confirm no duplicate cut. Electronics line is not a real F1 event by itself: keep it tied to MF's real electronics fault only."
+  },
+  {
+   "clip": "PWS_MECHPROB06",
+   "sdt_index": 77,
+   "pws_eid": 78,
+   "all_eids": [
+    78,
+    352
+   ],
+   "says": "Front Left puncture",
+   "eid_source": "full_event_dump.json eid 78 (sdt 77, cd 15, unblocked); doc56; EMITTER_SPECS.md tyre_condition",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "no literal/dynamic writer of eid 78 in emitter_index.json; state exists in sub_438130 (functions/VehicleDynamicsForceAccumulatorIntegration_00438130.c:154-165)",
+   "why_silent": "no_emitter",
+   "technique": "hook_native",
+   "subject": "player",
+   "trigger": "per-wheel tread (this+0x394 = tread 0.75 threshold) crosses downward through 0.75 at corner 0 (DERIVED FL=0 FR=1 RL=2 RR=3, EMITTER_SPECS). Native branch then resets tread to 0.5 and multiplies grip x0.18 (sub_438130:154-165). Commentary is only queued if ERE/hook writes eid 78.",
+   "state_reads": [
+    {
+     "what": "per-wheel tread",
+     "locator": "sub_438130 this+0x394 (heap per-wheel object)",
+     "tier": "CONFIRMED",
+     "source": "findings.jsonl (this[916] is the per-wheel tread field; veh+0x363C poke DISPROVEN)"
+    },
+    {
+     "what": "corner index",
+     "locator": "sub_438130 this+0x78 (dword_5EC3BC[this+120])",
+     "tier": "DERIVED",
+     "source": "EMITTER_SPECS.md corner ordering"
+    }
+   ],
+   "latch_cooldown": "once per wheel per stint (must add); dump cooldown 15 s",
+   "calibration_needed": "(a) is 0.75 reached by wear alone (= tyre life 0, findings CONFIRMED life=(tread-0.75)*4) or only by impact/puncture? (b) corner index mapping",
+   "conflicts": "Same function drives blister lines PWS_TYRES01/02 (0.7/0.4 life thresholds, findings FACT 0x59E6E8/0x59E8C8). Wear-out to 0.75 is NOT a puncture by itself: an unconditional line here would invent a failure. Gate on a real trigger.",
+   "live_test": "Owner: 'we experimented with TirePuncture before and were able to make these happen' (triage). Not reproduced here. Needs owner live test.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/functions/VehicleDynamicsForceAccumulatorIntegration_00438130.c:138-165",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md:440-495",
+    "f1c_ida_decompiled/findings.jsonl (tread->life 'destroyed at 0.75'; DISPROVEN veh+0x363C poke)"
+   ],
+   "open_questions": "Triage asks to look at 0x4F199E grip calc: findings say 0x4F199E reads the veh+0x363C family for grip physics and is NOT the blister/puncture trigger. The triage note 'look at 0x4F199E' is superseded. Also: TV twins (352, 390, 393, 351, 387) are above eid 291 and are not PWS; design uses the PWS eid only."
+  },
+  {
+   "clip": "PWS_MECHPROB07",
+   "sdt_index": 78,
+   "pws_eid": 79,
+   "all_eids": [
+    79,
+    351
+   ],
+   "says": "Front Right puncture",
+   "eid_source": "full_event_dump.json eid 79 (sdt 78, cd 15, unblocked); doc56; EMITTER_SPECS.md tyre_condition",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "no literal/dynamic writer of eid 79 in emitter_index.json; state exists in sub_438130 (functions/VehicleDynamicsForceAccumulatorIntegration_00438130.c:154-165)",
+   "why_silent": "no_emitter",
+   "technique": "hook_native",
+   "subject": "player",
+   "trigger": "per-wheel tread (this+0x394 = tread 0.75 threshold) crosses downward through 0.75 at corner 1 (DERIVED FL=0 FR=1 RL=2 RR=3, EMITTER_SPECS). Native branch then resets tread to 0.5 and multiplies grip x0.18 (sub_438130:154-165). Commentary is only queued if ERE/hook writes eid 79.",
+   "state_reads": [
+    {
+     "what": "per-wheel tread",
+     "locator": "sub_438130 this+0x394 (heap per-wheel object)",
+     "tier": "CONFIRMED",
+     "source": "findings.jsonl (this[916] is the per-wheel tread field; veh+0x363C poke DISPROVEN)"
+    },
+    {
+     "what": "corner index",
+     "locator": "sub_438130 this+0x78 (dword_5EC3BC[this+120])",
+     "tier": "DERIVED",
+     "source": "EMITTER_SPECS.md corner ordering"
+    }
+   ],
+   "latch_cooldown": "once per wheel per stint (must add); dump cooldown 15 s",
+   "calibration_needed": "(a) is 0.75 reached by wear alone (= tyre life 0, findings CONFIRMED life=(tread-0.75)*4) or only by impact/puncture? (b) corner index mapping",
+   "conflicts": "Same function drives blister lines PWS_TYRES01/02 (0.7/0.4 life thresholds, findings FACT 0x59E6E8/0x59E8C8). Wear-out to 0.75 is NOT a puncture by itself: an unconditional line here would invent a failure. Gate on a real trigger.",
+   "live_test": "Owner: 'we experimented with TirePuncture before and were able to make these happen' (triage). Not reproduced here. Needs owner live test.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/functions/VehicleDynamicsForceAccumulatorIntegration_00438130.c:138-165",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md:440-495",
+    "f1c_ida_decompiled/findings.jsonl (tread->life 'destroyed at 0.75'; DISPROVEN veh+0x363C poke)"
+   ],
+   "open_questions": "Triage asks to look at 0x4F199E grip calc: findings say 0x4F199E reads the veh+0x363C family for grip physics and is NOT the blister/puncture trigger. The triage note 'look at 0x4F199E' is superseded. Also: TV twins (352, 390, 393, 351, 387) are above eid 291 and are not PWS; design uses the PWS eid only."
+  },
+  {
+   "clip": "PWS_MECHPROB20",
+   "sdt_index": 79,
+   "pws_eid": 80,
+   "all_eids": [
+    80,
+    341
+   ],
+   "says": "Lost 1st gear",
+   "eid_source": "full_event_dump.json eid 80 (sdt 79); gear_failure.c:96",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/gear_failure.c:96-97 (EID_LOST/EID_STUCK), :1409 unblock of 14 FLT_MAX cooldowns, :1584-1586 say_eid; gear_failure.dll shipped (development/mods/mechanical_failures/README.md:109)",
+   "native_emitter": null,
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "gear_failure lost-gear fault on gear 1 (fault latch g_announced; say_eid(EID_LOST(1)) at gear_failure.c:1586)",
+   "state_reads": [
+    {
+     "what": "lost-gear fault",
+     "locator": "gear_failure.c GearCtl / g_locked_at",
+     "tier": "CONFIRMED",
+     "source": "gear_failure.c:1577-1586"
+    }
+   ],
+   "latch_cooldown": "g_announced latch (once per failure)",
+   "calibration_needed": null,
+   "conflicts": "Do not reuse TV twin eids (340-383) - they resolve to TV channel (gear_failure.c:82-83)",
+   "live_test": "Reachable since 2026-07-30; not individually ear-checked (gear_failure.c:76-82)",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gear_failure.c:73-100",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1409",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1586",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json"
+   ],
+   "open_questions": "None for ERE: already owned. Owner to ear-check 80-83, 85-86 as in the note."
+  },
+  {
+   "clip": "PWS_MECHPROB21",
+   "sdt_index": 80,
+   "pws_eid": 81,
+   "all_eids": [
+    81,
+    340
+   ],
+   "says": "Lost 2nd gear",
+   "eid_source": "full_event_dump.json eid 81 (sdt 80); gear_failure.c:96",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/gear_failure.c:96-97 (EID_LOST/EID_STUCK), :1409 unblock of 14 FLT_MAX cooldowns, :1584-1586 say_eid; gear_failure.dll shipped (development/mods/mechanical_failures/README.md:109)",
+   "native_emitter": null,
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "gear_failure lost-gear fault on gear 2 (fault latch g_announced; say_eid(EID_LOST(2)) at gear_failure.c:1586)",
+   "state_reads": [
+    {
+     "what": "lost-gear fault",
+     "locator": "gear_failure.c GearCtl / g_locked_at",
+     "tier": "CONFIRMED",
+     "source": "gear_failure.c:1577-1586"
+    }
+   ],
+   "latch_cooldown": "g_announced latch (once per failure)",
+   "calibration_needed": null,
+   "conflicts": "Do not reuse TV twin eids (340-383) - they resolve to TV channel (gear_failure.c:82-83)",
+   "live_test": "Reachable since 2026-07-30; not individually ear-checked (gear_failure.c:76-82)",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gear_failure.c:73-100",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1409",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1586",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json"
+   ],
+   "open_questions": "None for ERE: already owned. Owner to ear-check 80-83, 85-86 as in the note."
+  },
+  {
+   "clip": "PWS_MECHPROB22",
+   "sdt_index": 81,
+   "pws_eid": 82,
+   "all_eids": [
+    82,
+    342
+   ],
+   "says": "Lost 3rd gear",
+   "eid_source": "full_event_dump.json eid 82 (sdt 81); gear_failure.c:96",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/gear_failure.c:96-97 (EID_LOST/EID_STUCK), :1409 unblock of 14 FLT_MAX cooldowns, :1584-1586 say_eid; gear_failure.dll shipped (development/mods/mechanical_failures/README.md:109)",
+   "native_emitter": null,
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "gear_failure lost-gear fault on gear 3 (fault latch g_announced; say_eid(EID_LOST(3)) at gear_failure.c:1586)",
+   "state_reads": [
+    {
+     "what": "lost-gear fault",
+     "locator": "gear_failure.c GearCtl / g_locked_at",
+     "tier": "CONFIRMED",
+     "source": "gear_failure.c:1577-1586"
+    }
+   ],
+   "latch_cooldown": "g_announced latch (once per failure)",
+   "calibration_needed": null,
+   "conflicts": "Do not reuse TV twin eids (340-383) - they resolve to TV channel (gear_failure.c:82-83)",
+   "live_test": "Reachable since 2026-07-30; not individually ear-checked (gear_failure.c:76-82)",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gear_failure.c:73-100",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1409",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1586",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json"
+   ],
+   "open_questions": "None for ERE: already owned. Owner to ear-check 80-83, 85-86 as in the note."
+  },
+  {
+   "clip": "PWS_MECHPROB23",
+   "sdt_index": 82,
+   "pws_eid": 83,
+   "all_eids": [
+    83,
+    353
+   ],
+   "says": "Lost 4th gear",
+   "eid_source": "full_event_dump.json eid 83 (sdt 82); gear_failure.c:96",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/gear_failure.c:96-97 (EID_LOST/EID_STUCK), :1409 unblock of 14 FLT_MAX cooldowns, :1584-1586 say_eid; gear_failure.dll shipped (development/mods/mechanical_failures/README.md:109)",
+   "native_emitter": null,
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "gear_failure lost-gear fault on gear 4 (fault latch g_announced; say_eid(EID_LOST(4)) at gear_failure.c:1586)",
+   "state_reads": [
+    {
+     "what": "lost-gear fault",
+     "locator": "gear_failure.c GearCtl / g_locked_at",
+     "tier": "CONFIRMED",
+     "source": "gear_failure.c:1577-1586"
+    }
+   ],
+   "latch_cooldown": "g_announced latch (once per failure)",
+   "calibration_needed": null,
+   "conflicts": "Do not reuse TV twin eids (340-383) - they resolve to TV channel (gear_failure.c:82-83)",
+   "live_test": "Reachable since 2026-07-30; not individually ear-checked (gear_failure.c:76-82)",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gear_failure.c:73-100",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1409",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1586",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json"
+   ],
+   "open_questions": "None for ERE: already owned. Owner to ear-check 80-83, 85-86 as in the note."
+  },
+  {
+   "clip": "PWS_MECHPROB24",
+   "sdt_index": 83,
+   "pws_eid": 84,
+   "all_eids": [
+    84,
+    374
+   ],
+   "says": "Lost 5th gear",
+   "eid_source": "full_event_dump.json eid 84 (sdt 83); gear_failure.c:96",
+   "eid_isolation_tested": true,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/gear_failure.c:96-97 (EID_LOST/EID_STUCK), :1409 unblock of 14 FLT_MAX cooldowns, :1584-1586 say_eid; gear_failure.dll shipped (development/mods/mechanical_failures/README.md:109)",
+   "native_emitter": null,
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "gear_failure lost-gear fault on gear 5 (fault latch g_announced; say_eid(EID_LOST(5)) at gear_failure.c:1586)",
+   "state_reads": [
+    {
+     "what": "lost-gear fault",
+     "locator": "gear_failure.c GearCtl / g_locked_at",
+     "tier": "CONFIRMED",
+     "source": "gear_failure.c:1577-1586"
+    }
+   ],
+   "latch_cooldown": "g_announced latch (once per failure)",
+   "calibration_needed": null,
+   "conflicts": "Do not reuse TV twin eids (340-383) - they resolve to TV channel (gear_failure.c:82-83)",
+   "live_test": "HEARD in game 2026-07-30 (eid 84, isolation-injected; HANDOFF/gear_failure comment)",
+   "tier": "FACT",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gear_failure.c:73-100",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1409",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1586",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json"
+   ],
+   "open_questions": "None for ERE: already owned. Owner to ear-check 80-83, 85-86 as in the note."
+  },
+  {
+   "clip": "PWS_MECHPROB25",
+   "sdt_index": 84,
+   "pws_eid": 85,
+   "all_eids": [
+    85,
+    375
+   ],
+   "says": "Lost 6th gear",
+   "eid_source": "full_event_dump.json eid 85 (sdt 84); gear_failure.c:96",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/gear_failure.c:96-97 (EID_LOST/EID_STUCK), :1409 unblock of 14 FLT_MAX cooldowns, :1584-1586 say_eid; gear_failure.dll shipped (development/mods/mechanical_failures/README.md:109)",
+   "native_emitter": null,
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "gear_failure lost-gear fault on gear 6 (fault latch g_announced; say_eid(EID_LOST(6)) at gear_failure.c:1586)",
+   "state_reads": [
+    {
+     "what": "lost-gear fault",
+     "locator": "gear_failure.c GearCtl / g_locked_at",
+     "tier": "CONFIRMED",
+     "source": "gear_failure.c:1577-1586"
+    }
+   ],
+   "latch_cooldown": "g_announced latch (once per failure)",
+   "calibration_needed": null,
+   "conflicts": "Do not reuse TV twin eids (340-383) - they resolve to TV channel (gear_failure.c:82-83)",
+   "live_test": "Reachable since 2026-07-30; not individually ear-checked (gear_failure.c:76-82)",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gear_failure.c:73-100",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1409",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1586",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json"
+   ],
+   "open_questions": "None for ERE: already owned. Owner to ear-check 80-83, 85-86 as in the note."
+  },
+  {
+   "clip": "PWS_MECHPROB26",
+   "sdt_index": 85,
+   "pws_eid": 86,
+   "all_eids": [
+    86,
+    376
+   ],
+   "says": "Lost 7th gear",
+   "eid_source": "full_event_dump.json eid 86 (sdt 85); gear_failure.c:96",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/gear_failure.c:96-97 (EID_LOST/EID_STUCK), :1409 unblock of 14 FLT_MAX cooldowns, :1584-1586 say_eid; gear_failure.dll shipped (development/mods/mechanical_failures/README.md:109)",
+   "native_emitter": null,
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "gear_failure lost-gear fault on gear 7 (fault latch g_announced; say_eid(EID_LOST(7)) at gear_failure.c:1586)",
+   "state_reads": [
+    {
+     "what": "lost-gear fault",
+     "locator": "gear_failure.c GearCtl / g_locked_at",
+     "tier": "CONFIRMED",
+     "source": "gear_failure.c:1577-1586"
+    }
+   ],
+   "latch_cooldown": "g_announced latch (once per failure)",
+   "calibration_needed": null,
+   "conflicts": "Do not reuse TV twin eids (340-383) - they resolve to TV channel (gear_failure.c:82-83)",
+   "live_test": "Reachable since 2026-07-30; not individually ear-checked (gear_failure.c:76-82)",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gear_failure.c:73-100",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1409",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1586",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json"
+   ],
+   "open_questions": "None for ERE: already owned. Owner to ear-check 80-83, 85-86 as in the note."
+  },
+  {
+   "clip": "PWS_MECHPROB27",
+   "sdt_index": 86,
+   "pws_eid": 87,
+   "all_eids": [
+    87,
+    377
+   ],
+   "says": "Stuck in 1st gear",
+   "eid_source": "full_event_dump.json eid 87 (sdt 86); gear_failure.c:97",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/gear_failure.c:96-97 (EID_LOST/EID_STUCK), :1409 unblock of 14 FLT_MAX cooldowns, :1584-1586 say_eid; gear_failure.dll shipped (development/mods/mechanical_failures/README.md:109)",
+   "native_emitter": null,
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "gear_failure stuck-gear state on gear 1 (say_eid(EID_STUCK(1)) at gear_failure.c:1584)",
+   "state_reads": [
+    {
+     "what": "stuck-gear state",
+     "locator": "gear_failure.c GEARCLIP / g_locked_at",
+     "tier": "CONFIRMED",
+     "source": "gear_failure.c:1577-1584"
+    }
+   ],
+   "latch_cooldown": "g_announced latch (once per failure)",
+   "calibration_needed": null,
+   "conflicts": "TV twins 340-383 are not PWS (gear_failure.c:82-83)",
+   "live_test": "Reachable; not individually ear-checked",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gear_failure.c:73-100",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1584"
+   ],
+   "open_questions": "None for ERE: already owned."
+  },
+  {
+   "clip": "PWS_MECHPROB28",
+   "sdt_index": 87,
+   "pws_eid": 88,
+   "all_eids": [
+    88,
+    378
+   ],
+   "says": "Stuck in 2nd gear",
+   "eid_source": "full_event_dump.json eid 88 (sdt 87); gear_failure.c:97",
+   "eid_isolation_tested": true,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/gear_failure.c:96-97 (EID_LOST/EID_STUCK), :1409 unblock of 14 FLT_MAX cooldowns, :1584-1586 say_eid; gear_failure.dll shipped (development/mods/mechanical_failures/README.md:109)",
+   "native_emitter": null,
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "gear_failure stuck-gear state on gear 2 (say_eid(EID_STUCK(2)) at gear_failure.c:1584)",
+   "state_reads": [
+    {
+     "what": "stuck-gear state",
+     "locator": "gear_failure.c GEARCLIP / g_locked_at",
+     "tier": "CONFIRMED",
+     "source": "gear_failure.c:1577-1584"
+    }
+   ],
+   "latch_cooldown": "g_announced latch (once per failure)",
+   "calibration_needed": null,
+   "conflicts": "TV twins 340-383 are not PWS (gear_failure.c:82-83)",
+   "live_test": "HEARD in game 2026-07-30 (eid 88, isolation-injected)",
+   "tier": "FACT",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gear_failure.c:73-100",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1584"
+   ],
+   "open_questions": "None for ERE: already owned."
+  },
+  {
+   "clip": "PWS_MECHPROB29",
+   "sdt_index": 88,
+   "pws_eid": 89,
+   "all_eids": [
+    89,
+    379
+   ],
+   "says": "Stuck in 3rd gear",
+   "eid_source": "full_event_dump.json eid 89 (sdt 88); gear_failure.c:97",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/gear_failure.c:96-97 (EID_LOST/EID_STUCK), :1409 unblock of 14 FLT_MAX cooldowns, :1584-1586 say_eid; gear_failure.dll shipped (development/mods/mechanical_failures/README.md:109)",
+   "native_emitter": null,
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "gear_failure stuck-gear state on gear 3 (say_eid(EID_STUCK(3)) at gear_failure.c:1584)",
+   "state_reads": [
+    {
+     "what": "stuck-gear state",
+     "locator": "gear_failure.c GEARCLIP / g_locked_at",
+     "tier": "CONFIRMED",
+     "source": "gear_failure.c:1577-1584"
+    }
+   ],
+   "latch_cooldown": "g_announced latch (once per failure)",
+   "calibration_needed": null,
+   "conflicts": "TV twins 340-383 are not PWS (gear_failure.c:82-83)",
+   "live_test": "Reachable; not individually ear-checked",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gear_failure.c:73-100",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1584"
+   ],
+   "open_questions": "None for ERE: already owned."
+  },
+  {
+   "clip": "PWS_MECHPROB30",
+   "sdt_index": 89,
+   "pws_eid": 90,
+   "all_eids": [
+    90,
+    380
+   ],
+   "says": "Stuck in 4th gear",
+   "eid_source": "full_event_dump.json eid 90 (sdt 89); gear_failure.c:97",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/gear_failure.c:96-97 (EID_LOST/EID_STUCK), :1409 unblock of 14 FLT_MAX cooldowns, :1584-1586 say_eid; gear_failure.dll shipped (development/mods/mechanical_failures/README.md:109)",
+   "native_emitter": null,
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "gear_failure stuck-gear state on gear 4 (say_eid(EID_STUCK(4)) at gear_failure.c:1584)",
+   "state_reads": [
+    {
+     "what": "stuck-gear state",
+     "locator": "gear_failure.c GEARCLIP / g_locked_at",
+     "tier": "CONFIRMED",
+     "source": "gear_failure.c:1577-1584"
+    }
+   ],
+   "latch_cooldown": "g_announced latch (once per failure)",
+   "calibration_needed": null,
+   "conflicts": "TV twins 340-383 are not PWS (gear_failure.c:82-83)",
+   "live_test": "Reachable; not individually ear-checked",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gear_failure.c:73-100",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1584"
+   ],
+   "open_questions": "None for ERE: already owned."
+  },
+  {
+   "clip": "PWS_MECHPROB31",
+   "sdt_index": 90,
+   "pws_eid": 91,
+   "all_eids": [
+    91,
+    381
+   ],
+   "says": "Stuck in 5th gear",
+   "eid_source": "full_event_dump.json eid 91 (sdt 90); gear_failure.c:97",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/gear_failure.c:96-97 (EID_LOST/EID_STUCK), :1409 unblock of 14 FLT_MAX cooldowns, :1584-1586 say_eid; gear_failure.dll shipped (development/mods/mechanical_failures/README.md:109)",
+   "native_emitter": null,
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "gear_failure stuck-gear state on gear 5 (say_eid(EID_STUCK(5)) at gear_failure.c:1584)",
+   "state_reads": [
+    {
+     "what": "stuck-gear state",
+     "locator": "gear_failure.c GEARCLIP / g_locked_at",
+     "tier": "CONFIRMED",
+     "source": "gear_failure.c:1577-1584"
+    }
+   ],
+   "latch_cooldown": "g_announced latch (once per failure)",
+   "calibration_needed": null,
+   "conflicts": "TV twins 340-383 are not PWS (gear_failure.c:82-83)",
+   "live_test": "Reachable; not individually ear-checked",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gear_failure.c:73-100",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1584"
+   ],
+   "open_questions": "None for ERE: already owned."
+  },
+  {
+   "clip": "PWS_MECHPROB32",
+   "sdt_index": 91,
+   "pws_eid": 92,
+   "all_eids": [
+    92,
+    382
+   ],
+   "says": "Stuck in 6th gear",
+   "eid_source": "full_event_dump.json eid 92 (sdt 91); gear_failure.c:97",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/gear_failure.c:96-97 (EID_LOST/EID_STUCK), :1409 unblock of 14 FLT_MAX cooldowns, :1584-1586 say_eid; gear_failure.dll shipped (development/mods/mechanical_failures/README.md:109)",
+   "native_emitter": null,
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "gear_failure stuck-gear state on gear 6 (say_eid(EID_STUCK(6)) at gear_failure.c:1584)",
+   "state_reads": [
+    {
+     "what": "stuck-gear state",
+     "locator": "gear_failure.c GEARCLIP / g_locked_at",
+     "tier": "CONFIRMED",
+     "source": "gear_failure.c:1577-1584"
+    }
+   ],
+   "latch_cooldown": "g_announced latch (once per failure)",
+   "calibration_needed": null,
+   "conflicts": "TV twins 340-383 are not PWS (gear_failure.c:82-83)",
+   "live_test": "Reachable; not individually ear-checked",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gear_failure.c:73-100",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1584"
+   ],
+   "open_questions": "None for ERE: already owned."
+  },
+  {
+   "clip": "PWS_MECHPROB33",
+   "sdt_index": 92,
+   "pws_eid": 93,
+   "all_eids": [
+    93,
+    383
+   ],
+   "says": "Stuck in 7th gear",
+   "eid_source": "full_event_dump.json eid 93 (sdt 92); gear_failure.c:97",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/gear_failure.c:96-97 (EID_LOST/EID_STUCK), :1409 unblock of 14 FLT_MAX cooldowns, :1584-1586 say_eid; gear_failure.dll shipped (development/mods/mechanical_failures/README.md:109)",
+   "native_emitter": null,
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "gear_failure stuck-gear state on gear 7 (say_eid(EID_STUCK(7)) at gear_failure.c:1584)",
+   "state_reads": [
+    {
+     "what": "stuck-gear state",
+     "locator": "gear_failure.c GEARCLIP / g_locked_at",
+     "tier": "CONFIRMED",
+     "source": "gear_failure.c:1577-1584"
+    }
+   ],
+   "latch_cooldown": "g_announced latch (once per failure)",
+   "calibration_needed": null,
+   "conflicts": "TV twins 340-383 are not PWS (gear_failure.c:82-83)",
+   "live_test": "Reachable; not individually ear-checked",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gear_failure.c:73-100",
+    "development/mods/mechanical_failures/dll/gear_failure.c:1584"
+   ],
+   "open_questions": "None for ERE: already owned."
+  },
+  {
+   "clip": "PWS_MECHPROB08",
+   "sdt_index": 101,
+   "pws_eid": 102,
+   "all_eids": [
+    102,
+    390,
+    393
+   ],
+   "says": "Rear Left puncture",
+   "eid_source": "full_event_dump.json eid 102 (sdt 101, cd 15, unblocked); doc56; EMITTER_SPECS.md tyre_condition",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "no literal/dynamic writer of eid 102 in emitter_index.json; state exists in sub_438130 (functions/VehicleDynamicsForceAccumulatorIntegration_00438130.c:154-165)",
+   "why_silent": "no_emitter",
+   "technique": "hook_native",
+   "subject": "player",
+   "trigger": "per-wheel tread (this+0x394 = tread 0.75 threshold) crosses downward through 0.75 at corner 2 (DERIVED FL=0 FR=1 RL=2 RR=3, EMITTER_SPECS). Native branch then resets tread to 0.5 and multiplies grip x0.18 (sub_438130:154-165). Commentary is only queued if ERE/hook writes eid 102.",
+   "state_reads": [
+    {
+     "what": "per-wheel tread",
+     "locator": "sub_438130 this+0x394 (heap per-wheel object)",
+     "tier": "CONFIRMED",
+     "source": "findings.jsonl (this[916] is the per-wheel tread field; veh+0x363C poke DISPROVEN)"
+    },
+    {
+     "what": "corner index",
+     "locator": "sub_438130 this+0x78 (dword_5EC3BC[this+120])",
+     "tier": "DERIVED",
+     "source": "EMITTER_SPECS.md corner ordering"
+    }
+   ],
+   "latch_cooldown": "once per wheel per stint (must add); dump cooldown 15 s",
+   "calibration_needed": "(a) is 0.75 reached by wear alone (= tyre life 0, findings CONFIRMED life=(tread-0.75)*4) or only by impact/puncture? (b) corner index mapping",
+   "conflicts": "Same function drives blister lines PWS_TYRES01/02 (0.7/0.4 life thresholds, findings FACT 0x59E6E8/0x59E8C8). Wear-out to 0.75 is NOT a puncture by itself: an unconditional line here would invent a failure. Gate on a real trigger.",
+   "live_test": "Owner: 'we experimented with TirePuncture before and were able to make these happen' (triage). Not reproduced here. Needs owner live test.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/functions/VehicleDynamicsForceAccumulatorIntegration_00438130.c:138-165",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md:440-495",
+    "f1c_ida_decompiled/findings.jsonl (tread->life 'destroyed at 0.75'; DISPROVEN veh+0x363C poke)"
+   ],
+   "open_questions": "Triage asks to look at 0x4F199E grip calc: findings say 0x4F199E reads the veh+0x363C family for grip physics and is NOT the blister/puncture trigger. The triage note 'look at 0x4F199E' is superseded. Also: TV twins (352, 390, 393, 351, 387) are above eid 291 and are not PWS; design uses the PWS eid only."
+  },
+  {
+   "clip": "PWS_MECHPROB09",
+   "sdt_index": 102,
+   "pws_eid": 103,
+   "all_eids": [
+    103,
+    387
+   ],
+   "says": "Rear Right puncture",
+   "eid_source": "full_event_dump.json eid 103 (sdt 102, cd 15, unblocked); doc56; EMITTER_SPECS.md tyre_condition",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "no literal/dynamic writer of eid 103 in emitter_index.json; state exists in sub_438130 (functions/VehicleDynamicsForceAccumulatorIntegration_00438130.c:154-165)",
+   "why_silent": "no_emitter",
+   "technique": "hook_native",
+   "subject": "player",
+   "trigger": "per-wheel tread (this+0x394 = tread 0.75 threshold) crosses downward through 0.75 at corner 3 (DERIVED FL=0 FR=1 RL=2 RR=3, EMITTER_SPECS). Native branch then resets tread to 0.5 and multiplies grip x0.18 (sub_438130:154-165). Commentary is only queued if ERE/hook writes eid 103.",
+   "state_reads": [
+    {
+     "what": "per-wheel tread",
+     "locator": "sub_438130 this+0x394 (heap per-wheel object)",
+     "tier": "CONFIRMED",
+     "source": "findings.jsonl (this[916] is the per-wheel tread field; veh+0x363C poke DISPROVEN)"
+    },
+    {
+     "what": "corner index",
+     "locator": "sub_438130 this+0x78 (dword_5EC3BC[this+120])",
+     "tier": "DERIVED",
+     "source": "EMITTER_SPECS.md corner ordering"
+    }
+   ],
+   "latch_cooldown": "once per wheel per stint (must add); dump cooldown 15 s",
+   "calibration_needed": "(a) is 0.75 reached by wear alone (= tyre life 0, findings CONFIRMED life=(tread-0.75)*4) or only by impact/puncture? (b) corner index mapping",
+   "conflicts": "Same function drives blister lines PWS_TYRES01/02 (0.7/0.4 life thresholds, findings FACT 0x59E6E8/0x59E8C8). Wear-out to 0.75 is NOT a puncture by itself: an unconditional line here would invent a failure. Gate on a real trigger.",
+   "live_test": "Owner: 'we experimented with TirePuncture before and were able to make these happen' (triage). Not reproduced here. Needs owner live test.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/functions/VehicleDynamicsForceAccumulatorIntegration_00438130.c:138-165",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md:440-495",
+    "f1c_ida_decompiled/findings.jsonl (tread->life 'destroyed at 0.75'; DISPROVEN veh+0x363C poke)"
+   ],
+   "open_questions": "Triage asks to look at 0x4F199E grip calc: findings say 0x4F199E reads the veh+0x363C family for grip physics and is NOT the blister/puncture trigger. The triage note 'look at 0x4F199E' is superseded. Also: TV twins (352, 390, 393, 351, 387) are above eid 291 and are not PWS; design uses the PWS eid only."
+  },
+  {
+   "clip": "RE_PD_STALLED",
+   "sdt_index": 111,
+   "pws_eid": 112,
+   "all_eids": [
+    112,
+    405
+   ],
+   "says": "Engine stalled - T-car prepared",
+   "eid_source": "full_event_dump.json eid 112 (sdt 111, cd FLT_MAX, blocked); doc56 row 112",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none found: emitter_index.json has no literal/dynamic entry for 112",
+   "why_silent": "cooldown_flt_max",
+   "technique": "skip",
+   "subject": "player",
+   "trigger": "UNKNOWN: no spare-car (T-car) mechanic in game code found; owner idea (teleport to pit garage, restart) is UNPROVEN",
+   "state_reads": [],
+   "latch_cooldown": "n/a",
+   "calibration_needed": "T-car existence per team: UNKNOWN (triage: 'how to determine from team parameters')",
+   "conflicts": "Stall-as-DNF overlaps the retire lines 117-119 (owner-owned)",
+   "live_test": "none",
+   "tier": "GUESS",
+   "sources": [
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/emitter_index.json (no entry)",
+    "clip_assignments.json sdt 111 note"
+   ],
+   "open_questions": "Prove a native spare-car or team-parameter field before design. Skip is recommended until then."
+  },
+  {
+   "clip": "RE_PD_STALLED_T",
+   "sdt_index": 112,
+   "pws_eid": 113,
+   "all_eids": [
+    113,
+    406
+   ],
+   "says": "T-car also stalled - session over",
+   "eid_source": "full_event_dump.json eid 113 (sdt 112, cd FLT_MAX, blocked); doc56 row 113",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none found",
+   "why_silent": "cooldown_flt_max",
+   "technique": "skip",
+   "subject": "player",
+   "trigger": "UNKNOWN: depends on 111 and on a second stall. Should not be a second retire line (117-119 owned by others).",
+   "state_reads": [],
+   "latch_cooldown": "n/a",
+   "calibration_needed": null,
+   "conflicts": "Retire path overlap with eids 117-119 (player_retire_commentary, MF)",
+   "live_test": "none",
+   "tier": "GUESS",
+   "sources": [
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json (eid 113)"
+   ],
+   "open_questions": "Depends on 111. If ever built, it should reuse the DNF path, not add a new line."
+  },
+  {
+   "clip": "PWS_RETIRE02",
+   "sdt_index": 118,
+   "pws_eid": 117,
+   "all_eids": [
+    117,
+    410
+   ],
+   "says": "Player retired (generic 1)",
+   "eid_source": "full_event_dump.json eid 117 (sdt 118); doc56 row 117; retire_commentary.c:62; sub_41B250 (functions/sub_41B250_0041b250.c:23)",
+   "eid_isolation_tested": true,
+   "already_modded_by": "player_retire_commentary development/mods/player_retire_commentary/retire_commentary.c:62 (EID_RETIRE02), :24-25 mapping; also pitstop_modding development/mods/pitstop_modding/live/live_client.cpp:1443 voice(c,117) on garage retire",
+   "native_emitter": "sub_41B250 (functions/sub_41B250_0041b250.c:23) - gated, unreachable by gameplay (findings: CONFIRMED negative)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "FinishState veh+0x4064 transitions to 2 and ReasonCode veh+0x4068 is not 1 or 7 (native emitter branch)",
+   "state_reads": [
+    {
+     "what": "FinishState",
+     "locator": "veh+0x4064",
+     "tier": "FACT",
+     "source": "retire_commentary.c:4-20"
+    },
+    {
+     "what": "ReasonCode",
+     "locator": "veh+0x4068",
+     "tier": "FACT",
+     "source": "retire_commentary.c:20-25"
+    }
+   ],
+   "latch_cooldown": "one-shot per retirement (owner DLL)",
+   "calibration_needed": null,
+   "conflicts": "TWO owners can queue eid 117: player_retire_commentary (polling) and pitstop_modding live_client.cpp:1443. Not verified together. ERE must not add a third.",
+   "live_test": "PROVEN LIVE 2026-07-28 (findings.jsonl: retire_commentary_v5 PWS_RETIRE02 audible)",
+   "tier": "FACT",
+   "sources": [
+    "development/mods/player_retire_commentary/retire_commentary.c:4-25",
+    "findings.jsonl (PROVEN LIVE retire_commentary_v5)",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-002B_player_retirement.md:21-46"
+   ],
+   "open_questions": "Is the pitstop_modding retire-to-garage path shipped in the same build as player_retire_commentary? Not checked."
+  },
+  {
+   "clip": "PWS_RETIRE01",
+   "sdt_index": 120,
+   "pws_eid": 118,
+   "all_eids": [
+    118,
+    411
+   ],
+   "says": "Player engine stall",
+   "eid_source": "full_event_dump.json eid 118 (sdt 120); doc56 row 118; retire_commentary.c:61",
+   "eid_isolation_tested": false,
+   "already_modded_by": "player_retire_commentary retire_commentary.c:61 (EID_RETIRE01) and :24 (ReasonCode 7 -> 118)",
+   "native_emitter": "sub_41B250 (functions/sub_41B250_0041b250.c:19)",
+   "why_silent": "player_unreachable",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "FinishState 0->2 with ReasonCode veh+0x4068 == 7. No native writer of ReasonCode 7 found: writers are 1 (engine, FuelConsumptionAndWear_004ed960.c:126), 5 (brakes :229), 2 (gearbox :242), 4 (suspension :259), 6 (accident, RepairServiceStateDispatcher_004ed250.c:13)",
+   "state_reads": [
+    {
+     "what": "ReasonCode",
+     "locator": "veh+0x4068",
+     "tier": "CONFIRMED",
+     "source": "FuelConsumptionAndWear_004ed960.c:126-259 (grep of writers)"
+    }
+   ],
+   "latch_cooldown": "one-shot per retirement",
+   "calibration_needed": "which gameplay path writes ReasonCode 7 is UNKNOWN",
+   "conflicts": "PRIOR-ART CONTRADICTION: engine_failure.c:677-679 enum lists 7 as Clutch (3/7), while retire_commentary.c:24 and doc56 call 118 'engine stall'. The wording may be wrong for code 7.",
+   "live_test": "Never observed (retire_commentary FEATURE: 'not observed live')",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/player_retire_commentary/retire_commentary.c:24",
+    "development/mods/mechanical_failures/dll/engine_failure.c:677-679",
+    "f1c_ida_decompiled/functions/FuelConsumptionAndWear_004ed960.c"
+   ],
+   "open_questions": "Find the code path that writes ReasonCode 7 (clutch or stall). Until then PWS_RETIRE01 cannot be reached. Owner listen check of the wording before any use."
+  },
+  {
+   "clip": "PWS_RETIRE04",
+   "sdt_index": 121,
+   "pws_eid": 119,
+   "all_eids": [
+    119,
+    412
+   ],
+   "says": "Player blown engine",
+   "eid_source": "full_event_dump.json eid 119 (sdt 121); doc56 row 119; engine_failure.c:527",
+   "eid_isolation_tested": true,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/engine_failure.c:527 (EID_RETIRE04), :570 radio_req(MFR_P_DEATH), :591; ALSO player_retire_commentary retire_commentary.c:60 (ReasonCode 1 -> 119)",
+   "native_emitter": "sub_41B250 (functions/sub_41B250_0041b250.c:15)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "MF engine death (ReasonCode 1, ENG_RUNNING 0) or native ReasonCode 1 terminal state",
+   "state_reads": [
+    {
+     "what": "ReasonCode",
+     "locator": "veh+0x4068",
+     "tier": "CONFIRMED",
+     "source": "engine_failure.c:401-402"
+    }
+   ],
+   "latch_cooldown": "g_retire_fired shared latch inside MF (engine_failure.c:520-523)",
+   "calibration_needed": null,
+   "conflicts": "DOUBLE OWNER: MF and player_retire_commentary both key on ReasonCode 1 (retire_commentary.c:60). The shared latch only exists inside MF. Confirm only one DLL is loaded or add a cross-DLL latch.",
+   "live_test": "MF: isolation-tested and driver-confirmed 2026-08-07 (engine_failure.c:503-505, findings pending)",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/engine_failure.c:501-530",
+    "development/mods/mechanical_failures/dll/engine_failure.c:570",
+    "development/mods/player_retire_commentary/retire_commentary.c:60"
+   ],
+   "open_questions": "Which DLL owns 119 in the shipped set? (MF v1.0.7 includes engine_failure.c.)"
+  },
+  {
+   "clip": "PWS_MECHANWARN0",
+   "sdt_index": 134,
+   "pws_eid": 130,
+   "all_eids": [
+    130,
+    415
+   ],
+   "says": "Meatball flag - must pit (MF: 'pit on this lap, marshals indicate a mechanical problem')",
+   "eid_source": "full_event_dump.json eid 130 (sdt 134, cd 1); doc56 row 130; engine_failure.c:454",
+   "eid_isolation_tested": true,
+   "already_modded_by": "mechanical_failures development/mods/mechanical_failures/dll/engine_failure.c:454 (EID_MECHWARN 130), say_after callers :2889, :2986, :5120, :5327, :5384, :5745, :5948",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "MF engine symptom with a critical-fault state (messaging audit: critical only when engine dies soon if driver carries on; engine_failure.c:459-462)",
+   "state_reads": [
+    {
+     "what": "MF engine health component",
+     "locator": "mf_engine_model.h",
+     "tier": "DERIVED",
+     "source": "engine_failure.c:459-462"
+    }
+   ],
+   "latch_cooldown": "say_after timers per symptom (5-20 s windows)",
+   "calibration_needed": null,
+   "conflicts": "No meatball/black flag object exists in the game code found. ERE should not add a second 'pit' call (eid 49 PWS_PIT01 is MF's critical call).",
+   "live_test": "Isolation-tested 2026-08-07 per engine_failure.c:445-449",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/engine_failure.c:445-462",
+    "development/mods/mechanical_failures/dll/engine_failure.c:454"
+   ],
+   "open_questions": "Owner question 'how to determine this': MF already decides it from engine symptoms. A true marshal meatball flag is UNKNOWN in the game and not proven."
+  },
+  {
+   "clip": "PWS_AIMECHPROB0",
+   "sdt_index": 214,
+   "pws_eid": 201,
+   "all_eids": [
+    201,
+    447
+   ],
+   "says": "<driver> has lost 1st gear (AI)",
+   "eid_source": "full_event_dump.json eid 201 (sdt 214, cd 15); EVF-008_B line 61-66 names it; sdt name PWS_AIMECHPROB0/1 resolved by eid",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures DEV ONLY development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155 (gbx_say, formatter 0x4144F0), development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418 (terminal LOST/STUCK/ACTUATOR). NOT in v1.0.7 release; G3 'not live-tested' (development/mods/mechanical_failures/README.md:5)",
+   "native_emitter": "none for eid 201-206 (SPEC_EVF-008_B: NO_KNOWN_WRITER; literal grep of sub_41AC50 has no 201-206)",
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI gearbox model terminal LOST fault on gear 1 (gbx_sim_pump.h:412-415 -> gbx_eid_lost(1))",
+   "state_reads": [
+    {
+     "what": "AI terminal lost fault",
+     "locator": "gbx_sim_pump.h o.fault == MF_GBX_F_LOST",
+     "tier": "DERIVED",
+     "source": "gbx_sim_pump.h:412-415"
+    },
+    {
+     "what": "AI driver id",
+     "locator": "veh+0x489C",
+     "tier": "CONFIRMED",
+     "source": "gbx_sim_core.h:130,140"
+    }
+   ],
+   "latch_cooldown": "logged_term once per AI terminal (gbx_sim_pump.h:407)",
+   "calibration_needed": "model terminal rate (G7 race: 16 natural onsets among 23 cars, README.md:3)",
+   "conflicts": "PRIOR-ART CONTRADICTION: SPEC_EVF-008_B says no writer for 201-206 (correct for native code), MF writes them itself via 0x4144F0. Both are true. Do not design a second writer.",
+   "live_test": "Isolation test of 213 only (2026-07-30). Gearbox sim AI voice NOT live-tested.",
+   "tier": "DERIVED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155",
+    "development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md:49-67"
+   ],
+   "open_questions": "Live check: AI lost-gear line for a terminal fault (owner race with Failure Rate on, AI on)."
+  },
+  {
+   "clip": "PWS_AIMECHPROB0",
+   "sdt_index": 215,
+   "pws_eid": 202,
+   "all_eids": [
+    202,
+    448
+   ],
+   "says": "<driver> has lost 2nd gear (AI)",
+   "eid_source": "full_event_dump.json eid 202 (sdt 215, cd 15); EVF-008_B line 61-66 names it; sdt name PWS_AIMECHPROB0/1 resolved by eid",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures DEV ONLY development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155 (gbx_say, formatter 0x4144F0), development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418 (terminal LOST/STUCK/ACTUATOR). NOT in v1.0.7 release; G3 'not live-tested' (development/mods/mechanical_failures/README.md:5)",
+   "native_emitter": "none for eid 201-206 (SPEC_EVF-008_B: NO_KNOWN_WRITER; literal grep of sub_41AC50 has no 201-206)",
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI gearbox model terminal LOST fault on gear 2 (gbx_sim_pump.h:412-415 -> gbx_eid_lost(2))",
+   "state_reads": [
+    {
+     "what": "AI terminal lost fault",
+     "locator": "gbx_sim_pump.h o.fault == MF_GBX_F_LOST",
+     "tier": "DERIVED",
+     "source": "gbx_sim_pump.h:412-415"
+    },
+    {
+     "what": "AI driver id",
+     "locator": "veh+0x489C",
+     "tier": "CONFIRMED",
+     "source": "gbx_sim_core.h:130,140"
+    }
+   ],
+   "latch_cooldown": "logged_term once per AI terminal (gbx_sim_pump.h:407)",
+   "calibration_needed": "model terminal rate (G7 race: 16 natural onsets among 23 cars, README.md:3)",
+   "conflicts": "PRIOR-ART CONTRADICTION: SPEC_EVF-008_B says no writer for 201-206 (correct for native code), MF writes them itself via 0x4144F0. Both are true. Do not design a second writer.",
+   "live_test": "Isolation test of 213 only (2026-07-30). Gearbox sim AI voice NOT live-tested.",
+   "tier": "DERIVED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155",
+    "development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md:49-67"
+   ],
+   "open_questions": "Live check: AI lost-gear line for a terminal fault (owner race with Failure Rate on, AI on)."
+  },
+  {
+   "clip": "PWS_AIMECHPROB1",
+   "sdt_index": 216,
+   "pws_eid": 203,
+   "all_eids": [
+    203,
+    449
+   ],
+   "says": "<driver> has lost 3rd gear (AI)",
+   "eid_source": "full_event_dump.json eid 203 (sdt 216, cd 15); EVF-008_B line 61-66 names it; sdt name PWS_AIMECHPROB0/1 resolved by eid",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures DEV ONLY development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155 (gbx_say, formatter 0x4144F0), development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418 (terminal LOST/STUCK/ACTUATOR). NOT in v1.0.7 release; G3 'not live-tested' (development/mods/mechanical_failures/README.md:5)",
+   "native_emitter": "none for eid 201-206 (SPEC_EVF-008_B: NO_KNOWN_WRITER; literal grep of sub_41AC50 has no 201-206)",
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI gearbox model terminal LOST fault on gear 3 (gbx_sim_pump.h:412-415 -> gbx_eid_lost(3))",
+   "state_reads": [
+    {
+     "what": "AI terminal lost fault",
+     "locator": "gbx_sim_pump.h o.fault == MF_GBX_F_LOST",
+     "tier": "DERIVED",
+     "source": "gbx_sim_pump.h:412-415"
+    },
+    {
+     "what": "AI driver id",
+     "locator": "veh+0x489C",
+     "tier": "CONFIRMED",
+     "source": "gbx_sim_core.h:130,140"
+    }
+   ],
+   "latch_cooldown": "logged_term once per AI terminal (gbx_sim_pump.h:407)",
+   "calibration_needed": "model terminal rate (G7 race: 16 natural onsets among 23 cars, README.md:3)",
+   "conflicts": "PRIOR-ART CONTRADICTION: SPEC_EVF-008_B says no writer for 201-206 (correct for native code), MF writes them itself via 0x4144F0. Both are true. Do not design a second writer.",
+   "live_test": "Isolation test of 213 only (2026-07-30). Gearbox sim AI voice NOT live-tested.",
+   "tier": "DERIVED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155",
+    "development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md:49-67"
+   ],
+   "open_questions": "Live check: AI lost-gear line for a terminal fault (owner race with Failure Rate on, AI on)."
+  },
+  {
+   "clip": "PWS_AIMECHPROB1",
+   "sdt_index": 217,
+   "pws_eid": 204,
+   "all_eids": [
+    204,
+    450
+   ],
+   "says": "<driver> has lost 4th gear (AI)",
+   "eid_source": "full_event_dump.json eid 204 (sdt 217, cd 15); EVF-008_B line 61-66 names it; sdt name PWS_AIMECHPROB0/1 resolved by eid",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures DEV ONLY development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155 (gbx_say, formatter 0x4144F0), development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418 (terminal LOST/STUCK/ACTUATOR). NOT in v1.0.7 release; G3 'not live-tested' (development/mods/mechanical_failures/README.md:5)",
+   "native_emitter": "none for eid 201-206 (SPEC_EVF-008_B: NO_KNOWN_WRITER; literal grep of sub_41AC50 has no 201-206)",
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI gearbox model terminal LOST fault on gear 4 (gbx_sim_pump.h:412-415 -> gbx_eid_lost(4))",
+   "state_reads": [
+    {
+     "what": "AI terminal lost fault",
+     "locator": "gbx_sim_pump.h o.fault == MF_GBX_F_LOST",
+     "tier": "DERIVED",
+     "source": "gbx_sim_pump.h:412-415"
+    },
+    {
+     "what": "AI driver id",
+     "locator": "veh+0x489C",
+     "tier": "CONFIRMED",
+     "source": "gbx_sim_core.h:130,140"
+    }
+   ],
+   "latch_cooldown": "logged_term once per AI terminal (gbx_sim_pump.h:407)",
+   "calibration_needed": "model terminal rate (G7 race: 16 natural onsets among 23 cars, README.md:3)",
+   "conflicts": "PRIOR-ART CONTRADICTION: SPEC_EVF-008_B says no writer for 201-206 (correct for native code), MF writes them itself via 0x4144F0. Both are true. Do not design a second writer.",
+   "live_test": "Isolation test of 213 only (2026-07-30). Gearbox sim AI voice NOT live-tested.",
+   "tier": "DERIVED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155",
+    "development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md:49-67"
+   ],
+   "open_questions": "Live check: AI lost-gear line for a terminal fault (owner race with Failure Rate on, AI on)."
+  },
+  {
+   "clip": "PWS_AIMECHPROB1",
+   "sdt_index": 218,
+   "pws_eid": 205,
+   "all_eids": [
+    205,
+    451
+   ],
+   "says": "<driver> has lost 5th gear (AI)",
+   "eid_source": "full_event_dump.json eid 205 (sdt 218, cd 15); EVF-008_B line 61-66 names it; sdt name PWS_AIMECHPROB0/1 resolved by eid",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures DEV ONLY development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155 (gbx_say, formatter 0x4144F0), development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418 (terminal LOST/STUCK/ACTUATOR). NOT in v1.0.7 release; G3 'not live-tested' (development/mods/mechanical_failures/README.md:5)",
+   "native_emitter": "none for eid 201-206 (SPEC_EVF-008_B: NO_KNOWN_WRITER; literal grep of sub_41AC50 has no 201-206)",
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI gearbox model terminal LOST fault on gear 5 (gbx_sim_pump.h:412-415 -> gbx_eid_lost(5))",
+   "state_reads": [
+    {
+     "what": "AI terminal lost fault",
+     "locator": "gbx_sim_pump.h o.fault == MF_GBX_F_LOST",
+     "tier": "DERIVED",
+     "source": "gbx_sim_pump.h:412-415"
+    },
+    {
+     "what": "AI driver id",
+     "locator": "veh+0x489C",
+     "tier": "CONFIRMED",
+     "source": "gbx_sim_core.h:130,140"
+    }
+   ],
+   "latch_cooldown": "logged_term once per AI terminal (gbx_sim_pump.h:407)",
+   "calibration_needed": "model terminal rate (G7 race: 16 natural onsets among 23 cars, README.md:3)",
+   "conflicts": "PRIOR-ART CONTRADICTION: SPEC_EVF-008_B says no writer for 201-206 (correct for native code), MF writes them itself via 0x4144F0. Both are true. Do not design a second writer.",
+   "live_test": "Isolation test of 213 only (2026-07-30). Gearbox sim AI voice NOT live-tested.",
+   "tier": "DERIVED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155",
+    "development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md:49-67"
+   ],
+   "open_questions": "Live check: AI lost-gear line for a terminal fault (owner race with Failure Rate on, AI on)."
+  },
+  {
+   "clip": "PWS_AIMECHPROB1",
+   "sdt_index": 219,
+   "pws_eid": 206,
+   "all_eids": [
+    206,
+    452
+   ],
+   "says": "<driver> has lost 6th gear (AI)",
+   "eid_source": "full_event_dump.json eid 206 (sdt 219, cd 15); EVF-008_B line 61-66 names it; sdt name PWS_AIMECHPROB0/1 resolved by eid",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures DEV ONLY development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155 (gbx_say, formatter 0x4144F0), development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418 (terminal LOST/STUCK/ACTUATOR). NOT in v1.0.7 release; G3 'not live-tested' (development/mods/mechanical_failures/README.md:5)",
+   "native_emitter": "none for eid 201-206 (SPEC_EVF-008_B: NO_KNOWN_WRITER; literal grep of sub_41AC50 has no 201-206)",
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI gearbox model terminal LOST fault on gear 6 (gbx_sim_pump.h:412-415 -> gbx_eid_lost(6))",
+   "state_reads": [
+    {
+     "what": "AI terminal lost fault",
+     "locator": "gbx_sim_pump.h o.fault == MF_GBX_F_LOST",
+     "tier": "DERIVED",
+     "source": "gbx_sim_pump.h:412-415"
+    },
+    {
+     "what": "AI driver id",
+     "locator": "veh+0x489C",
+     "tier": "CONFIRMED",
+     "source": "gbx_sim_core.h:130,140"
+    }
+   ],
+   "latch_cooldown": "logged_term once per AI terminal (gbx_sim_pump.h:407)",
+   "calibration_needed": "model terminal rate (G7 race: 16 natural onsets among 23 cars, README.md:3)",
+   "conflicts": "PRIOR-ART CONTRADICTION: SPEC_EVF-008_B says no writer for 201-206 (correct for native code), MF writes them itself via 0x4144F0. Both are true. Do not design a second writer.",
+   "live_test": "Isolation test of 213 only (2026-07-30). Gearbox sim AI voice NOT live-tested.",
+   "tier": "DERIVED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155",
+    "development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md:49-67"
+   ],
+   "open_questions": "Live check: AI lost-gear line for a terminal fault (owner race with Failure Rate on, AI on)."
+  },
+  {
+   "clip": "PWS_AIMECHPROB1",
+   "sdt_index": 220,
+   "pws_eid": 207,
+   "all_eids": [
+    207,
+    453
+   ],
+   "says": "Periodically slowing down (AI)",
+   "eid_source": "full_event_dump.json eid 207 (sdt 220, cd 15); doc56 row 207",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none for eid 207 (SPEC_EVF-008_A: NO_KNOWN_WRITER). NOTE: native sub_41AC50 a2==3 emits eid 220 (= PWS_AIHIT08 'AI has suspension damage', sdt 233), NOT 207 (functions/sub_41AC50_0041ac50.c:51-58; caller FuelConsumptionAndWear_004ed960.c:273)",
+   "why_silent": "no_emitter",
+   "technique": "skip",
+   "subject": "ai",
+   "trigger": "UNKNOWN: no real periodic-slowdown state proven. MF AI symptoms spec (AI_SYMPTOMS_AND_REACTIONS_SPEC_2026-10-01) covers power loss and smoke, not a periodic slowdown line.",
+   "state_reads": [],
+   "latch_cooldown": "n/a",
+   "calibration_needed": null,
+   "conflicts": "eid 220 is a different, shipped AI line (PWS_AIHIT08). Do not reuse 220.",
+   "live_test": "none",
+   "tier": "GUESS",
+   "sources": [
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_A_blister.md",
+    "f1c_ida_decompiled/functions/sub_41AC50_0041ac50.c:51-58",
+    "development/mods/mechanical_failures/docs/AI_SYMPTOMS_AND_REACTIONS_SPEC_2026-10-01.md"
+   ],
+   "open_questions": "Map a real AI state for 'periodically slowing' (e.g. MF AI power-loss phase). Skip until then."
+  },
+  {
+   "clip": "PWS_AIMECHPROB1",
+   "sdt_index": 221,
+   "pws_eid": 208,
+   "all_eids": [
+    208
+   ],
+   "says": "Smoke coming from engine (AI)",
+   "eid_source": "full_event_dump.json eid 208 (sdt 221, cd 15); doc56 row 208; sub_41AC50 line 56",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_41AC50 a2==0 (functions/sub_41AC50_0041ac50.c:56), called from EngineStressSimulation_0043ef20.c:282 (EVF-008_B: LIVE_UNPROVEN_PREDICATE: durability 0 and random roll)",
+   "why_silent": "gate_never_true",
+   "technique": "hook_native",
+   "subject": "ai",
+   "trigger": "MF AI engine smoke onset (real AI oil/blow-by smoke state from MF AI engine model, AI symptoms spec). ERE/MF calls native sub_41AC50(aiVehicle, 0) once at onset so the game's own emitter writes eid 208 with the AI driver id. Player is excluded by the native guard.",
+   "state_reads": [
+    {
+     "what": "AI smoke onset",
+     "locator": "MF AI engine smoke state (engine_failure.c AI path)",
+     "tier": "DERIVED",
+     "source": "development/mods/mechanical_failures/docs/AI_SYMPTOMS_AND_REACTIONS_SPEC_2026-10-01.md:12,57"
+    },
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 == 7",
+     "tier": "FACT",
+     "source": "sub_41AC50 guard"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C (a1[4647])",
+     "tier": "CONFIRMED",
+     "source": "sub_41AC50 line 58"
+    }
+   ],
+   "latch_cooldown": "once per AI engine smoke onset (must add)",
+   "calibration_needed": "which MF AI engine state corresponds to visible smoke vs power loss",
+   "conflicts": "Native guard requires SessionType 7 (race only). Qualifying AI smoke stays silent by design.",
+   "live_test": "Owner: AI gets the same symptoms as the player (project_ai_engine_fairness_rule). Live AI smoke not confirmed to reach 208.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/functions/sub_41AC50_0041ac50.c:1-60",
+    "f1c_ida_decompiled/functions/EngineStressSimulation_0043ef20.c:282",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md:69-82"
+   ],
+   "open_questions": "Is calling sub_41AC50 with a2=0 from MF's AI path safe (guard a1[4121] finished flag)? Needs live test."
+  },
+  {
+   "clip": "RE_OD_LOST_7",
+   "sdt_index": 222,
+   "pws_eid": 209,
+   "all_eids": [
+    209,
+    457
+   ],
+   "says": "Other driver lost 7th gear",
+   "eid_source": "full_event_dump.json eid 209 (sdt 222, cd 15); doc56 row 209; gbx_sim_core.h:133",
+   "eid_isolation_tested": true,
+   "already_modded_by": "mechanical_failures DEV ONLY development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155 (gbx_say, formatter 0x4144F0), development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418 (terminal LOST/STUCK/ACTUATOR). NOT in v1.0.7 release; G3 'not live-tested' (development/mods/mechanical_failures/README.md:5)",
+   "native_emitter": "none (EVF: emitter unidentified; no literal/dynamic entry for 209)",
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI gearbox terminal LOST on gear 7 (gbx_eid_lost(7) = 209, gbx_sim_core.h:145)",
+   "state_reads": [
+    {
+     "what": "AI terminal lost fault",
+     "locator": "gbx_sim_pump.h:412-415",
+     "tier": "DERIVED",
+     "source": "gbx_sim_pump.h"
+    }
+   ],
+   "latch_cooldown": "per AI terminal",
+   "calibration_needed": null,
+   "conflicts": "Assignment note points at SPEC_EVF-008_E_pit.md; the gear family is SPEC_EVF-008_B. Use _B.",
+   "live_test": "Heard in isolation tests (gbx_sim_core.h:133, EVF-008 B)",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gbx_sim_core.h:133-145",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md"
+   ],
+   "open_questions": "Owner ear-check in a live AI failure."
+  },
+  {
+   "clip": "RE_OD_PUNCTURE",
+   "sdt_index": 223,
+   "pws_eid": 210,
+   "all_eids": [
+    210,
+    458
+   ],
+   "says": "Other driver has a puncture",
+   "eid_source": "full_event_dump.json eid 210 (sdt 223, cd 15); doc56 row 210; ASSIGNMENT_EVF-002.md:128",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none writes eid 210 (emitter_index none). Native tread observer in sub_438130 runs for all cars (EVF-002C finding: per-wheel detection runs for all cars)",
+   "why_silent": "no_emitter",
+   "technique": "hook_native",
+   "subject": "ai",
+   "trigger": "same observer as PWS_MECHPROB06-09 but on an AI car: per-wheel tread crosses 0.75 and the event is a real puncture (gate as for player)",
+   "state_reads": [
+    {
+     "what": "AI per-wheel tread",
+     "locator": "sub_438130 this+0x394 for AI wheel objects",
+     "tier": "DERIVED",
+     "source": "findings.jsonl (AI tyre degradation T2)"
+    }
+   ],
+   "latch_cooldown": "once per AI wheel per stint (must add)",
+   "calibration_needed": "same as player puncture rows",
+   "conflicts": "F1CUI (external Java overlay) can simulate AI punctures via magic.ini DefaultTirePuncturesFrequency=3 (investigations/F1CUI_2026-10-13.md:241). If F1CUI causes the real tread crossing, the observer hears it. Whether F1CUI also plays eid 210: UNVERIFIED.",
+   "live_test": "Triage: 'SIMULATED AI PUNCTURES ... review F1CUI'. No live check.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/functions/VehicleDynamicsForceAccumulatorIntegration_00438130.c:154-165",
+    "development/lightloader/v2.0.0-hub-dev.1/release_2.3.23_plugins_layout_2026-10-13/investigations/F1CUI_2026-10-13.md:17,241",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/ASSIGNMENT_EVF-002.md:128"
+   ],
+   "open_questions": "Review how F1CUI makes AI punctures (owner triage). Confirm no double line when F1CUI punctures a car."
+  },
+  {
+   "clip": "RE_OD_STUCK_7",
+   "sdt_index": 224,
+   "pws_eid": 211,
+   "all_eids": [
+    211,
+    462
+   ],
+   "says": "Other driver stuck in 7th gear",
+   "eid_source": "full_event_dump.json eid 211 (sdt 224, cd 15); doc56 row 211; gbx_sim_core.h:144",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures DEV ONLY development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155 (gbx_say, formatter 0x4144F0), development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418 (terminal LOST/STUCK/ACTUATOR). NOT in v1.0.7 release; G3 'not live-tested' (development/mods/mechanical_failures/README.md:5)",
+   "native_emitter": "sub_41AC50 a2==2 default case (functions/sub_41AC50_0041ac50.c:43) gated by LIVE_UNPROVEN predicate (veh+0x3D68 never expires, SPEC_EVF-008_B:84-118)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI gearbox terminal STUCK/ACTUATOR on gear 7 (gbx_eid_stuck(7) = 211)",
+   "state_reads": [
+    {
+     "what": "AI terminal stuck fault",
+     "locator": "gbx_sim_pump.h:417-418",
+     "tier": "DERIVED",
+     "source": "gbx_sim_pump.h"
+    }
+   ],
+   "latch_cooldown": "per AI terminal",
+   "calibration_needed": null,
+   "conflicts": "Native a2==2 path would also write 211 if its predicate ever fired: do not add a second writer (predicate unsatisfiable at race length per EVF).",
+   "live_test": "Not individually tested",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gbx_sim_core.h:141-145",
+    "development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md:84-110"
+   ],
+   "open_questions": "Owner ear-check."
+  },
+  {
+   "clip": "PWS_AIMECHPROB0",
+   "sdt_index": 225,
+   "pws_eid": 212,
+   "all_eids": [
+    212,
+    463
+   ],
+   "says": "<driver> is stuck in 1st gear (AI)",
+   "eid_source": "full_event_dump.json eid 212 (sdt 225, cd 15); doc56 row 212",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures DEV ONLY development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155 (gbx_say, formatter 0x4144F0), development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418 (terminal LOST/STUCK/ACTUATOR). NOT in v1.0.7 release; G3 'not live-tested' (development/mods/mechanical_failures/README.md:5)",
+   "native_emitter": "sub_41AC50 a2==2 switch case (functions/sub_41AC50_0041ac50.c:25-40) gated by unsatisfiable veh+0x3D68 timer (SPEC_EVF-008_C)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI gearbox terminal STUCK/ACTUATOR while gear is 1 (gbx_eid_stuck(1) = 212, gbx_sim_core.h:144)",
+   "state_reads": [
+    {
+     "what": "AI terminal stuck fault and current gear",
+     "locator": "gbx_sim_pump.h:417-418 (veh+0x39FC)",
+     "tier": "DERIVED",
+     "source": "gbx_sim_pump.h:417-418"
+    }
+   ],
+   "latch_cooldown": "per AI terminal",
+   "calibration_needed": null,
+   "conflicts": "Native switch would write the same eid if its predicate fired. MF is the writer for ERE: do not add another.",
+   "live_test": "Not individually tested",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gbx_sim_core.h:144",
+    "development/mods/mechanical_failures/dll/gbx_sim_pump.h:417-418",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md:84-110"
+   ],
+   "open_questions": "Owner ear-check."
+  },
+  {
+   "clip": "PWS_AIMECHPROB0",
+   "sdt_index": 226,
+   "pws_eid": 213,
+   "all_eids": [
+    213,
+    464
+   ],
+   "says": "<driver> is stuck in 2nd gear (AI)",
+   "eid_source": "full_event_dump.json eid 213 (sdt 226, cd 15); doc56 row 213",
+   "eid_isolation_tested": true,
+   "already_modded_by": "mechanical_failures DEV ONLY development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155 (gbx_say, formatter 0x4144F0), development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418 (terminal LOST/STUCK/ACTUATOR). NOT in v1.0.7 release; G3 'not live-tested' (development/mods/mechanical_failures/README.md:5)",
+   "native_emitter": "sub_41AC50 a2==2 switch case (functions/sub_41AC50_0041ac50.c:25-40) gated by unsatisfiable veh+0x3D68 timer (SPEC_EVF-008_C)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI gearbox terminal STUCK/ACTUATOR while gear is 2 (gbx_eid_stuck(2) = 213, gbx_sim_core.h:144)",
+   "state_reads": [
+    {
+     "what": "AI terminal stuck fault and current gear",
+     "locator": "gbx_sim_pump.h:417-418 (veh+0x39FC)",
+     "tier": "DERIVED",
+     "source": "gbx_sim_pump.h:417-418"
+    }
+   ],
+   "latch_cooldown": "per AI terminal",
+   "calibration_needed": null,
+   "conflicts": "Native switch would write the same eid if its predicate fired. MF is the writer for ERE: do not add another.",
+   "live_test": "eid 213 isolation-tested 2026-07-30 (gbx_sim_core.h:131-132); sdt 226 = eid 213",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gbx_sim_core.h:144",
+    "development/mods/mechanical_failures/dll/gbx_sim_pump.h:417-418",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md:84-110"
+   ],
+   "open_questions": "Owner ear-check."
+  },
+  {
+   "clip": "PWS_AIMECHPROB0",
+   "sdt_index": 227,
+   "pws_eid": 214,
+   "all_eids": [
+    214,
+    465
+   ],
+   "says": "<driver> is stuck in 3rd gear (AI)",
+   "eid_source": "full_event_dump.json eid 214 (sdt 227, cd 15); doc56 row 214",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures DEV ONLY development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155 (gbx_say, formatter 0x4144F0), development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418 (terminal LOST/STUCK/ACTUATOR). NOT in v1.0.7 release; G3 'not live-tested' (development/mods/mechanical_failures/README.md:5)",
+   "native_emitter": "sub_41AC50 a2==2 switch case (functions/sub_41AC50_0041ac50.c:25-40) gated by unsatisfiable veh+0x3D68 timer (SPEC_EVF-008_C)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI gearbox terminal STUCK/ACTUATOR while gear is 3 (gbx_eid_stuck(3) = 214, gbx_sim_core.h:144)",
+   "state_reads": [
+    {
+     "what": "AI terminal stuck fault and current gear",
+     "locator": "gbx_sim_pump.h:417-418 (veh+0x39FC)",
+     "tier": "DERIVED",
+     "source": "gbx_sim_pump.h:417-418"
+    }
+   ],
+   "latch_cooldown": "per AI terminal",
+   "calibration_needed": null,
+   "conflicts": "Native switch would write the same eid if its predicate fired. MF is the writer for ERE: do not add another.",
+   "live_test": "Not individually tested",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gbx_sim_core.h:144",
+    "development/mods/mechanical_failures/dll/gbx_sim_pump.h:417-418",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md:84-110"
+   ],
+   "open_questions": "Owner ear-check."
+  },
+  {
+   "clip": "PWS_AIMECHPROB0",
+   "sdt_index": 228,
+   "pws_eid": 215,
+   "all_eids": [
+    215,
+    466
+   ],
+   "says": "<driver> is stuck in 4th gear (AI)",
+   "eid_source": "full_event_dump.json eid 215 (sdt 228, cd 15); doc56 row 215",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures DEV ONLY development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155 (gbx_say, formatter 0x4144F0), development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418 (terminal LOST/STUCK/ACTUATOR). NOT in v1.0.7 release; G3 'not live-tested' (development/mods/mechanical_failures/README.md:5)",
+   "native_emitter": "sub_41AC50 a2==2 switch case (functions/sub_41AC50_0041ac50.c:25-40) gated by unsatisfiable veh+0x3D68 timer (SPEC_EVF-008_C)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI gearbox terminal STUCK/ACTUATOR while gear is 4 (gbx_eid_stuck(4) = 215, gbx_sim_core.h:144)",
+   "state_reads": [
+    {
+     "what": "AI terminal stuck fault and current gear",
+     "locator": "gbx_sim_pump.h:417-418 (veh+0x39FC)",
+     "tier": "DERIVED",
+     "source": "gbx_sim_pump.h:417-418"
+    }
+   ],
+   "latch_cooldown": "per AI terminal",
+   "calibration_needed": null,
+   "conflicts": "Native switch would write the same eid if its predicate fired. MF is the writer for ERE: do not add another.",
+   "live_test": "Not individually tested",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gbx_sim_core.h:144",
+    "development/mods/mechanical_failures/dll/gbx_sim_pump.h:417-418",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md:84-110"
+   ],
+   "open_questions": "Owner ear-check."
+  },
+  {
+   "clip": "PWS_AIMECHPROB0",
+   "sdt_index": 229,
+   "pws_eid": 216,
+   "all_eids": [
+    216,
+    467
+   ],
+   "says": "<driver> is stuck in 5th gear (AI)",
+   "eid_source": "full_event_dump.json eid 216 (sdt 229, cd 15); doc56 row 216",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures DEV ONLY development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155 (gbx_say, formatter 0x4144F0), development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418 (terminal LOST/STUCK/ACTUATOR). NOT in v1.0.7 release; G3 'not live-tested' (development/mods/mechanical_failures/README.md:5)",
+   "native_emitter": "sub_41AC50 a2==2 switch case (functions/sub_41AC50_0041ac50.c:25-40) gated by unsatisfiable veh+0x3D68 timer (SPEC_EVF-008_C)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI gearbox terminal STUCK/ACTUATOR while gear is 5 (gbx_eid_stuck(5) = 216, gbx_sim_core.h:144)",
+   "state_reads": [
+    {
+     "what": "AI terminal stuck fault and current gear",
+     "locator": "gbx_sim_pump.h:417-418 (veh+0x39FC)",
+     "tier": "DERIVED",
+     "source": "gbx_sim_pump.h:417-418"
+    }
+   ],
+   "latch_cooldown": "per AI terminal",
+   "calibration_needed": null,
+   "conflicts": "Native switch would write the same eid if its predicate fired. MF is the writer for ERE: do not add another.",
+   "live_test": "Not individually tested",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gbx_sim_core.h:144",
+    "development/mods/mechanical_failures/dll/gbx_sim_pump.h:417-418",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md:84-110"
+   ],
+   "open_questions": "Owner ear-check."
+  },
+  {
+   "clip": "PWS_AIMECHPROB0",
+   "sdt_index": 230,
+   "pws_eid": 217,
+   "all_eids": [
+    217,
+    471
+   ],
+   "says": "<driver> is stuck in 6th gear (AI)",
+   "eid_source": "full_event_dump.json eid 217 (sdt 230, cd 15); doc56 row 217",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures DEV ONLY development/mods/mechanical_failures/dll/gbx_sim_core.h:125-155 (gbx_say, formatter 0x4144F0), development/mods/mechanical_failures/dll/gbx_sim_pump.h:412-418 (terminal LOST/STUCK/ACTUATOR). NOT in v1.0.7 release; G3 'not live-tested' (development/mods/mechanical_failures/README.md:5)",
+   "native_emitter": "sub_41AC50 a2==2 switch case (functions/sub_41AC50_0041ac50.c:25-40) gated by unsatisfiable veh+0x3D68 timer (SPEC_EVF-008_C)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI gearbox terminal STUCK/ACTUATOR while gear is 6 (gbx_eid_stuck(6) = 217, gbx_sim_core.h:144)",
+   "state_reads": [
+    {
+     "what": "AI terminal stuck fault and current gear",
+     "locator": "gbx_sim_pump.h:417-418 (veh+0x39FC)",
+     "tier": "DERIVED",
+     "source": "gbx_sim_pump.h:417-418"
+    }
+   ],
+   "latch_cooldown": "per AI terminal",
+   "calibration_needed": null,
+   "conflicts": "Native switch would write the same eid if its predicate fired. MF is the writer for ERE: do not add another.",
+   "live_test": "Not individually tested",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/dll/gbx_sim_core.h:144",
+    "development/mods/mechanical_failures/dll/gbx_sim_pump.h:417-418",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_B_gearloss.md:84-110"
+   ],
+   "open_questions": "Owner ear-check."
+  }
+ ]
+}

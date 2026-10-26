@@ -1,0 +1,2 @@
+# PitStopBlockingCondition: offset-like lines with no extracted row (1)
+L8: || *(_DWORD *)(*this + 3352) && !*(_BYTE *)(*this + 3416);

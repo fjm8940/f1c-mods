@@ -1,0 +1,10 @@
+func,line,dec,hex,access,width,base,form,expr
+TLSValueRetrievalWithInit,8,,,CALL,,,call,GetLastError
+TLSValueRetrievalWithInit,9,,,CALL,,,call,TlsGetValue
+TLSValueRetrievalWithInit,12,,,CALL,,,call,sub_58AB58
+TLSValueRetrievalWithInit,14,,,CALL,,,call,TlsSetValue
+TLSValueRetrievalWithInit,16,,,CALL,,,call,TwoFieldInitializer_e0b4
+TLSValueRetrievalWithInit,17,,,CALL,,,call,GetCurrentThreadId
+TLSValueRetrievalWithInit,18,4,0x4,W,_DWORD,Value,array,Value[1] = -1;
+TLSValueRetrievalWithInit,23,,,CALL,,,call,CRTAmsgExit
+TLSValueRetrievalWithInit,26,,,CALL,,,call,SetLastError

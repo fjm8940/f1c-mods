@@ -1,0 +1,219 @@
+{
+  "date": "2026-10-08.108928+00:00",
+  "scope": "source and corpus review plus synthetic UI walkthrough; no native game or deployment",
+  "sources": [
+    {
+      "path": "f1c_ida_decompiled\\mods\\sdk_sandbox\\web_telemetry\\web_telemetry.c",
+      "sha256": "07D39531729F23D40B6477D8ECEBC1C7185A0F6D316DD4566FA4457205C46134"
+    },
+    {
+      "path": "f1c_ida_decompiled\\mods\\sdk_sandbox\\web_telemetry\\compatibility_runtime.inc",
+      "sha256": "B20942679BD63AA203EAC450CBDE64AED2A4E5134D9E9EFE77E3F49A5319B6BD"
+    },
+    {
+      "path": "f1c_ida_decompiled\\mods\\f1cui_web_remote\\web_telemetry.c",
+      "sha256": "97C6B7F8BD78A036494F71E7D5BB3D440942B387078D21DE8813A51908E7FF33"
+    },
+    {
+      "path": "f1c_ida_decompiled\\tools\\sdk\\f1c_broker_abi.h",
+      "sha256": "18AD04DB10D7B41130428C2AB498CD257345F49C59E4433BE04B6E810D542C67"
+    },
+    {
+      "path": "f1c_ida_decompiled\\tools\\sdk\\f1c_race_control.h",
+      "sha256": "A0310FE70B9B4ED38C577F49474E8971131B5B81F4CDCDB5E1A29E5207A20078"
+    },
+    {
+      "path": "development\\lightloader\\v2.0.0-hub-dev.1\\release_2.2.7_2026-10-08\\README.md",
+      "sha256": "3C0D1AF4E7D4D117B2626CAE22F409E34B7414775BA5A9183C10853DAB9E4A53"
+    },
+    {
+      "path": "development\\lightloader\\v2.0.0-hub-dev.1\\payload\\dinput8.v2.2.6.dll",
+      "sha256": "6153ED27FCCECF8CCEEE502C97AF6958611D017894715EDC4505D0AE5D095B91"
+    },
+    {
+      "path": "development\\mods\\mechanical_failures\\docs\\NATIVE_SIMULATION_MAP_2026-10-06.md",
+      "sha256": "EEB065CE1C711BFC0C0E1DD73B6DFCDF320AFFBF2F2FA63BA6EF325A37A9FC8C"
+    },
+    {
+      "path": "development\\mods\\mechanical_failures\\dll\\engine_failure.c",
+      "sha256": "70FA6D74BA911B8557CA88221CCD0C0EF2A6DFB7CC96ED721EF53F07F7C49790"
+    },
+    {
+      "path": "development\\mods\\race_data_collector\\docs\\DATA_COVERAGE.md",
+      "sha256": "5062D65C83413B54B435C331C91A3BCA622CBFEB1FAE6CC9E2CCCB7D0FAA0267"
+    },
+    {
+      "path": "development\\mods\\race_data_collector\\src\\plugin.cpp",
+      "sha256": "69A832836802C0859FC982555C3D458CCE8CB3E49C9824809303CEB2345ED9F6"
+    },
+    {
+      "path": "development\\mods\\pitstop_modding\\live\\session_dev.c",
+      "sha256": "7B597BD9638217C0D3489FD3AD26AAC264DF0D63A686F8BD4DF02F6D73C96438"
+    },
+    {
+      "path": "development\\mods\\ai_brain_lab\\README.md",
+      "sha256": "6DA41FA204927F1D99DA24668E3875D005DE15749EBF2F9885B44B6D0A955FCE"
+    },
+    {
+      "path": "development\\mods\\COMP02_PRECEDENCE_2026-10-08.md",
+      "sha256": "218E01C1AEC445AE73C5FB160173D74CE1F5DBDD4861074A96790240C15F4E46"
+    },
+    {
+      "path": "development\\mods\\traffic_density_commentary\\FEATURE.md",
+      "sha256": "681E7B66B811EB8875E2E09118ADC9B6954B7B1025993CBEE1F542CB97241AFD"
+    },
+    {
+      "path": "development\\mods\\tyre_blister_commentary\\FEATURE.md",
+      "sha256": "599869256A177230C0D53E5C13CE3B3F301D6C6884C57E52963CF03EAAAC40E1"
+    },
+    {
+      "path": "f1c_ida_decompiled\\mods\\sdk_sandbox\\web_telemetry\\UI_CORPUS_REVIEW_2026-10-08.md",
+      "sha256": "F658BC1379A0C357B470107B9086933BF08A4A07F82129F71881674D77BD3FD5"
+    }
+  ],
+  "counterexamples": {
+    "radar_wrap_lapped": {
+      "track_m": 5000,
+      "player_lap_distance": [
+        10,
+        4990
+      ],
+      "other_lap_distance": [
+        9,
+        10
+      ],
+      "legacy_signed_gap_m": -9980,
+      "physical_forward_gap_m": 20
+    },
+    "live_delta": {
+      "pb_sector_s": 30,
+      "elapsed_at_entry_s": 0,
+      "legacy_delta_at_entry_s": -30,
+      "elapsed_at_finish_s": 31,
+      "legacy_delta_at_finish_s": 1,
+      "interpretation": "The same lap appears 30 seconds ahead at sector entry then 1 second behind at exit; not a comparison at equal distance."
+    },
+    "fuel_partial_first_lap": {
+      "join_fuel_l": 20,
+      "crossing_fuel_l": 19.8,
+      "legacy_first_sample_l_per_lap": 0.1999999999999993,
+      "real_full_lap_use_l": 3,
+      "at_19_8_l_legacy_autonomy": 99.00000000000036,
+      "real_autonomy": 6.6000000000000005
+    },
+    "fuel_refuel_mid_lap": {
+      "lap_start_fuel_l": 10,
+      "used_l": 3,
+      "added_l": 2,
+      "lap_end_l": 9,
+      "legacy_use_l": 1,
+      "actual_use_l": 3
+    },
+    "contact_iteration": {
+      "before_damage": [
+        0,
+        0
+      ],
+      "current_damage": [
+        1,
+        1
+      ],
+      "pair_radius_passes": true,
+      "A_checks_B": true,
+      "A_updates_previous_to": 1,
+      "B_checks_A": false,
+      "reason": "B compares A current=1 against already updated previous=1."
+    },
+    "ui_source_checks": {
+      "driver_dossier_markup_present": false,
+      "comment": "renderDriver returns without displaying when this element is absent."
+    }
+  },
+  "verification": {
+    "fixture_checks": 24623,
+    "fixture_optional_real_dll_test": false,
+    "tabs_reviewed": [
+      "Pit Wall",
+      "Team Principal",
+      "Race Control",
+      "Full Debug"
+    ],
+    "pit_wall_panes": [
+      "Session",
+      "Car Telemetry",
+      "Race Control",
+      "Timing Tower",
+      "Race Pace",
+      "Track Map"
+    ],
+    "viewports": [
+      "default narrow approximately 663x1009",
+      "1440x900"
+    ],
+    "workspace_baseline_errors": [
+      "unexpected root .claude",
+      "unexpected root plans"
+    ],
+    "tooling_gate": "PASS: python tools/f1c_mod.py sdk-test --suite tooling; not full SDK/native gate",
+    "post_workspace_validator": {
+      "errors": 2,
+      "warnings": 0,
+      "same_as_baseline": true,
+      "existing_errors": [
+        "unexpected root .claude",
+        "unexpected root plans"
+      ]
+    }
+  },
+  "unchanged_runtime_artifacts": {
+    "candidate_dll_sha256": "C0C52A913BFD5F2E190E732A50BEA297CB21F2AF330F4186202096FC46A1FFAF",
+    "prior_zip_sha256": "A7BB5A96479C4580BB6149C41B58E864474022DCAD3527AF6F9D260C47241A15"
+  },
+  "new_findings": [
+    {
+      "id": "web-telemetry-ui-20261008-target-227",
+      "date": "2026-10-08",
+      "tier": "CONFIRMED",
+      "topic": "web telemetry UI and F1 corpus review",
+      "claim": "The local Lightloader 2.2.7 release record pins loader SHA-256 6153ED27, the same payload as 2.2.6; this does not establish native telemetry candidate acceptance.",
+      "evidence": "mods/sdk_sandbox/web_telemetry/UI_CORPUS_REVIEW_2026-10-08.md; UI_CORPUS_EVIDENCE_2026-10-08.json",
+      "source": "local source/corpus review and synthetic UI/formula counterexamples; no live game test"
+    },
+    {
+      "id": "web-telemetry-ui-20261008-ui-radar-delta-fuel",
+      "date": "2026-10-08",
+      "tier": "DERIVED",
+      "topic": "web telemetry UI and F1 corpus review",
+      "claim": "Reviewed telemetry formulas confuse race-progress distance with physical proximity, partial-sector elapsed with distance-aligned delta, and partial/net-refuel lap fuel with full-lap consumption; arithmetic counterexamples are retained.",
+      "evidence": "mods/sdk_sandbox/web_telemetry/UI_CORPUS_REVIEW_2026-10-08.md; UI_CORPUS_EVIDENCE_2026-10-08.json",
+      "source": "local source/corpus review and synthetic UI/formula counterexamples; no live game test"
+    },
+    {
+      "id": "web-telemetry-ui-20261008-ui-history-dossier",
+      "date": "2026-10-08",
+      "tier": "CONFIRMED",
+      "topic": "web telemetry UI and F1 corpus review",
+      "claim": "Source and synthetic browser review show missing drvDoss markup, a consumption-driven FUEL bar, three-native-slot stop counters and a 60-row lap storage ceiling.",
+      "evidence": "mods/sdk_sandbox/web_telemetry/UI_CORPUS_REVIEW_2026-10-08.md; UI_CORPUS_EVIDENCE_2026-10-08.json",
+      "source": "local source/corpus review and synthetic UI/formula counterexamples; no live game test"
+    },
+    {
+      "id": "web-telemetry-ui-20261008-mod-authority-gap",
+      "date": "2026-10-08",
+      "tier": "CONFIRMED",
+      "topic": "web telemetry UI and F1 corpus review",
+      "claim": "Telemetry Race Control derives its status from RC_MODE event cache without an active producer in the read-only candidate; existing SDK SC/RF ABI 1 ownership and separate MF ABI 2 limited mapping are not consumed. Full phase/reason adapters remain a proposal.",
+      "evidence": "mods/sdk_sandbox/web_telemetry/UI_CORPUS_REVIEW_2026-10-08.md; UI_CORPUS_EVIDENCE_2026-10-08.json",
+      "source": "local source/corpus review and synthetic UI/formula counterexamples; no live game test"
+    },
+    {
+      "id": "web-telemetry-ui-20261008-ui-native-gates",
+      "date": "2026-10-08",
+      "tier": "OPEN",
+      "topic": "web telemetry UI and F1 corpus review",
+      "claim": "UI calculation, field-scope and cross-mod display corrections and exact telemetry candidate acceptance under the owner Lightloader 2.2.7 setup remain pending; no native crash cause was established.",
+      "evidence": "mods/sdk_sandbox/web_telemetry/UI_CORPUS_REVIEW_2026-10-08.md; UI_CORPUS_EVIDENCE_2026-10-08.json",
+      "source": "local source/corpus review and synthetic UI/formula counterexamples; no live game test"
+    }
+  ]
+}

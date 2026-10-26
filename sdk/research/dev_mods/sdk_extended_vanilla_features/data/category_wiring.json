@@ -1,0 +1,70 @@
+{
+ "Season / run plan": {
+  "shipped_unvouched": 17,
+  "total": 67,
+  "no_emitter": 32,
+  "orphaned": 2,
+  "emitter_exists": 16
+ },
+ "Blue flag": {
+  "no_emitter": 2,
+  "total": 3,
+  "emitter_exists": 1
+ },
+ "Other": {
+  "shipped_unvouched": 37,
+  "total": 66,
+  "no_emitter": 15,
+  "orphaned": 9,
+  "emitter_exists": 5
+ },
+ "Damage - impact": {
+  "shipped_unvouched": 7,
+  "total": 13,
+  "wired_by_hand": 6
+ },
+ "Mechanical / tyres": {
+  "emitter_exists": 4,
+  "total": 29,
+  "no_emitter": 21,
+  "shipped_unvouched": 4
+ },
+ "Penalty / steward": {
+  "emitter_exists": 27,
+  "total": 49,
+  "no_emitter": 15,
+  "shipped_unvouched": 6,
+  "wired_by_hand": 1
+ },
+ "Pit": {
+  "shipped_unvouched": 11,
+  "total": 23,
+  "emitter_exists": 4,
+  "no_emitter": 8
+ },
+ "Retirement": {
+  "shipped_unvouched": 5,
+  "total": 9,
+  "emitter_exists": 2,
+  "wired_by_hand": 1,
+  "orphaned": 1
+ },
+ "Misc": {
+  "shipped_unvouched": 4,
+  "total": 22,
+  "emitter_exists": 5,
+  "no_emitter": 13
+ },
+ "Qualifying": {
+  "shipped_unvouched": 13,
+  "total": 17,
+  "emitter_exists": 4
+ },
+ "Flags / safety car": {
+  "wired_by_hand": 1,
+  "total": 6,
+  "emitter_exists": 2,
+  "no_emitter": 2,
+  "orphaned": 1
+ }
+}

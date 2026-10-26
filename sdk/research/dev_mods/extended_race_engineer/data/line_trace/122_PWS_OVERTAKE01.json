@@ -1,0 +1,598 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 122,
+ "clip": "PWS_OVERTAKE01",
+ "says": "Player overtakes AI (1)",
+ "dump_rows_for_clip": [
+  {
+   "eid": 120,
+   "hex": "0x0078",
+   "priority": 20,
+   "cooldown": 10.0,
+   "blocked": false,
+   "score": 118,
+   "sdt_index": 122,
+   "clip_name": "PWS_OVERTAKE01.",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 413,
+   "hex": "0x019D",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 118,
+   "sdt_index": 122,
+   "clip_name": "PWS_OVERTAKE01.",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  118
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 120,
+   "hex": "0x0078",
+   "priority": 20,
+   "cooldown": 10.0,
+   "blocked": false,
+   "score": 118,
+   "sdt_index": 122,
+   "clip_name": "PWS_OVERTAKE01.",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 413,
+   "hex": "0x019D",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 118,
+   "sdt_index": 122,
+   "clip_name": "PWS_OVERTAKE01.",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  120
+ ],
+ "literal_hits": {
+  "120": {
+   "emitters": [
+    {
+     "function": "AIDriverStateTransition",
+     "file": "AIDriverStateTransition_00419120.c",
+     "hits": [
+      {
+       "line": 34,
+       "text": "ArraySearchReturningIndex(flt_5EA618, 120);"
+      },
+      {
+       "line": 37,
+       "text": "DriverDataTableLookupAndTimeConversion(v13, 120, a4, -1, -1, -1, -2.0, -2.0);"
+      },
+      {
+       "line": 48,
+       "text": "ArraySearchReturningIndex(flt_5EA618, 120);"
+      },
+      {
+       "line": 50,
+       "text": "v11 = 120;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "ConditionalFieldSetter",
+       "callers": [
+        {
+         "caller": "AIDriverSorting",
+         "callers": [
+          {
+           "caller": "AIBehaviorInitialization",
+           "callers": [
+            {
+             "caller": "AIOvertake",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "AITickUpdate",
+           "callers": [
+            {
+             "caller": "EngineFailureCheck",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "EngineFailureCheck",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "NetCommPlayerSlotSync",
+         "callers": [
+          {
+           "caller": "SessionScoringUpdate",
+           "callers": [
+            {
+             "caller": "GamePostMainLoop",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "caller": "sub_462E20",
+         "callers": [
+          {
+           "caller": "MultiplayerVehiclePlacement",
+           "callers": [
+            {
+             "caller": "LoadVehicleEntries",
+             "callers": []
+            },
+            {
+             "caller": "RunCollisionDetectionLoop",
+             "callers": []
+            },
+            {
+             "caller": "SessionInit",
+             "callers": []
+            },
+            {
+             "caller": "SessionSceneInitChain",
+             "callers": []
+            },
+            {
+             "caller": "SessionSynchronizer",
+             "callers": []
+            },
+            {
+             "caller": "Steward_Init",
+             "callers": []
+            },
+            {
+             "caller": "sub_4A0590",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "caller": "sub_4B3400",
+         "callers": [
+          {
+           "caller": "BufferReset",
+           "callers": [
+            {
+             "caller": "GamePostMainLoop",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B9B80",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "caller": "sub_4BFF70",
+         "callers": [
+          {
+           "caller": "DynMan_Init",
+           "callers": [
+            {
+             "caller": "Game_Init",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "caller": "sub_4C01A0",
+         "callers": [
+          {
+           "caller": "DynMan_Init",
+           "callers": []
+          },
+          {
+           "caller": "MultiplayerVehiclePlacement",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "sub_4C0850",
+         "callers": [
+          {
+           "caller": "sub_4C1050",
+           "callers": [
+            {
+             "caller": "ArrayCheckInit",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 444,
+       "text": "v5 = a4 != 0 ? 274 : 120;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 91,
+    "first": [
+     "AIRacingLine",
+     "AccumulatorWithStateSwitch",
+     "ArrayResourceCleanup",
+     "AudioResampler",
+     "AudioValueSetterCall",
+     "BlockLDLTSparseConstraintFactorization",
+     "BrakeBiasSetup",
+     "BrakeTemperatureFadeModel",
+     "BufferEntryAppendWithMatrixInit",
+     "BufferEntryClear",
+     "BufferProcessingStateMachine",
+     "CameraPositionDefinitions",
+     "CollisionContactDetection",
+     "DotProductWithScaleOffset",
+     "EnumValueTranslation",
+     "F_2DTransformStructCopy",
+     "F_3DBoundingBoxExtentsComputation",
+     "F_3DTransformObjectInit_83b0",
+     "FlagBasedLoopConditionalCall",
+     "GameOptionsWriter",
+     "InitPhysicsTransformIdentity",
+     "LinkedNodeDestruction",
+     "LocaleEnumProc",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "MatrixFactorizeLDLT",
+     "MemoryObjectAllocator",
+     "MeshBoundingBoxComputation",
+     "NetworkPacketDataReader",
+     "NetworkPacketDataWriter",
+     "PerElementConditionalActionDispatcher",
+     "PhysicsChannelProcessingWithLocals",
+     "PhysicsNodePropagationWithDistanceFalloff",
+     "PhysicsStateZeroInit",
+     "PitCrewAnimationLoader",
+     "PlaneFromEdgesNormalizeSSE",
+     "PlaneFromThreePoints",
+     "PlayerOptionsInitializer",
+     "RenderListIteration",
+     "SceneGraph",
+     "SessionConfigBuilder"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 122 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "EnumValueTranslation",
+    "file": "EnumValueTranslation_00414010.c",
+    "hits": [
+     {
+      "line": 37,
+      "text": "v3 = 122;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:129: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"extended_vanilla_features low-hanging-fruit sweep - 15 clips already SHIPPED\", \"claim\": \"All 15 Bucket-A T4_CONDITION ",
+  "f1c_ida_decompiled\\findings.jsonl:138: {\"tier\": \"DERIVED\", \"needs_review\": true, \"group\": \"EVF-008_F\", \"summary\": \"Misc singles (6 clips): PWS_OVERTAKE01 (120) and PWS_AIBLUE03 (259) = LIVE_TRUSTED via human real-play r",
+  "f1c_ida_decompiled\\findings.jsonl:139: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"EVF-008 DeepSeek re-verification of the injection-only batch: 26 of 39 reverted\", \"claim\": \"DeepSeek V4 Pro produced 6",
+  "f1c_ida_decompiled\\findings.jsonl:140: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"Second correction: 12 more clips reverted, human real-play recognition claim was a misread\", \"claim\": \"The 12 remainin",
+  "f1c_ida_decompiled\\findings.jsonl:563: {\"id\": \"pws-retire04-eid119-confirmed-not-120\", \"tier\": \"FACT\", \"date\": \"2026-08-07\", \"what\": \"PWS_RETIRE04 is eid 119 (score 117, sdt_index 121, cooldown 6.0). eid 120 is a DIFFER"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-008.md:168: | `PWS_OVERTAKE01` | 122 | 120 | `AIDriverStateTransition_00419120` | Player overtakes AI (1) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-008.md:173: For `PWS_OVERTAKE01`/`PWS_AIBLUE03`: these two share a function with a",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:67: | `PWS_OVERTAKE01` | 122 | 120,413 | Player overtakes AI (1) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:141: | `RE_PD_SG_SPEED` | 162 | 153, 505 | — | Stop/Go penalty - speeding in pits | confirmed live 2026-07-28: injected eid 153, heard Stop/Go for speeding in pits, correct clip, alread",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:396: | `PWS_OVERTAKE01` | 122 | 120, 413 | — | Player overtakes AI (1) | REVERTED 2026-07-28: was marked LIVE_TRUSTED/SHIPPED on a misread of the humans in-session phrasing (\"stock game",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:210: | `PWS_OVERTAKE01` | 120, 413 | Player overtakes AI (1) | eid 120 live, emitter literal AIDriverStateTransition_00419120.c:37 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:64: | `PWS_OVERTAKE01` | 120, 413 | same function, different branch | `functions/AIDriverStateTransition_00419120.c:37` |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-008_D_aiincid.md:89: The human recognized these clips in real play (the assignment says \"the human directly recognized in real play during testing\" for PWS_OVERTAKE01/AIBLUE03, which are siblings in th",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-008_F_misc.md:7: `PWS_OVERTAKE01` and `PWS_AIBLUE03` below rested on reading the human's",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-008_F_misc.md:48: ### PWS_OVERTAKE01 — \"Player overtakes AI (1)\" (eid 120, sdt 122)",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-008_F_misc.md:60: | PWS_OVERTAKE01 | 122 | 120 | LIVE_TRUSTED |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-008_F_misc.md:110: | PWS_OVERTAKE01 | 122 | 120 | AIDriverStateTransition | LIVE_TRUSTED |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TO_LISTEN.txt:21: 122 PWS_OVERTAKE01 -- Player overtakes AI (1)"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [],
+  "note": "REVERTED 2026-07-28: was marked LIVE_TRUSTED/SHIPPED on a misread of the humans in-session phrasing (\"stock game\"/\"can be excluded\") as real-play recognition. Human directly clarified afterward: never actually heard this clip fire in real play. Emitter is live and not a menu trap (see docs/SPEC_EVF-008_A_blister.md / _D_aiincid.md / _F_misc.md for the code trace, which still stands as a reachability analysis) but that is NOT proof of natural firing - same evidentiary gap as every other reverted clip this session. Needs actual live observation, not another injection test or a re-read of a prior comment.",
+  "triage": {
+   "sdt_index": 122,
+   "text": "EXISTS",
+   "subject": "",
+   "play": false,
+   "verdict": "EXISTS_VANILLA",
+   "flags": [],
+   "inherited": false,
+   "status": "SHIPPED"
+  },
+  "evf_status": "WIP"
+ }
+}

@@ -1,0 +1,12 @@
+func,line,dec,hex,access,width,base,form,expr
+ConditionalMathWithDAT005e9ad0Flag,8,,,CALL,,,call,sub_5919DA
+ConditionalMathWithDAT005e9ad0Flag,11,,,CALL,,,call,sub_591727
+ConditionalMathWithDAT005e9ad0Flag,13,,,CALL,,,call,BitFlagDecoderViaBitTests
+ConditionalMathWithDAT005e9ad0Flag,16,,,CALL,,,call,SetErrorCodeBasedOnInputRange
+ConditionalMathWithDAT005e9ad0Flag,17,,,CALL,,,call,ReturnFPUControlWord
+ConditionalMathWithDAT005e9ad0Flag,23,,,CALL,,,call,FloatParsingWithErrorHandling
+ConditionalMathWithDAT005e9ad0Flag,26,,,CALL,,,call,SLODWORD
+ConditionalMathWithDAT005e9ad0Flag,27,,,CALL,,,call,SHIDWORD
+ConditionalMathWithDAT005e9ad0Flag,28,,,CALL,,,call,COERCE_UNSIGNED_INT64
+ConditionalMathWithDAT005e9ad0Flag,29,,,CALL,,,call,HIDWORD
+ConditionalMathWithDAT005e9ad0Flag,29,,,CALL,,,call,COERCE_UNSIGNED_INT64

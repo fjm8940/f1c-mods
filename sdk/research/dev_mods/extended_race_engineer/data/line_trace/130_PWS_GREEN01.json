@@ -1,0 +1,442 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 130,
+ "clip": "PWS_GREEN01",
+ "says": "Green flag conditions",
+ "dump_rows_for_clip": [
+  {
+   "eid": 126,
+   "hex": "0x007E",
+   "priority": 70,
+   "cooldown": 5.0,
+   "blocked": false,
+   "score": 124,
+   "sdt_index": 130,
+   "clip_name": "PWS_GREEN01.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 419,
+   "hex": "0x01A3",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 124,
+   "sdt_index": 130,
+   "clip_name": "PWS_GREEN01.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  124
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 126,
+   "hex": "0x007E",
+   "priority": 70,
+   "cooldown": 5.0,
+   "blocked": false,
+   "score": 124,
+   "sdt_index": 130,
+   "clip_name": "PWS_GREEN01.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 419,
+   "hex": "0x01A3",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 124,
+   "sdt_index": 130,
+   "clip_name": "PWS_GREEN01.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  126
+ ],
+ "literal_hits": {
+  "126": {
+   "emitters": [
+    {
+     "function": "PitSelectionStateMachine",
+     "file": "PitSelectionStateMachine_0041b3c0.c",
+     "hits": [
+      {
+       "line": 72,
+       "text": "DriverDataTableLookupAndTimeConversion(v13, 126, -1, -1, -1, -1, -2.0, -2.0);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_4BCCC0",
+       "callers": [
+        {
+         "caller": "MainGameTickUpdate",
+         "callers": [
+          {
+           "caller": "GamePostMainLoop",
+           "callers": [
+            {
+             "caller": "GameMainEntry",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "StateTriggerCheck",
+           "callers": [
+            {
+             "caller": "LoadingPhase1",
+             "callers": []
+            },
+            {
+             "caller": "LoadingPhase2",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B9890",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "caller": "sub_4D1730",
+       "callers": [
+        {
+         "caller": "sub_4D1D80",
+         "callers": []
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [],
+   "other_functions": {
+    "count": 22,
+    "first": [
+     "ConstructorFieldsVTable",
+     "EnumValueTranslation",
+     "FormatStringBatchDisplay",
+     "HUDFlagRendererMain",
+     "InflateDecompressionLoop",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "RandomPasswordKeyGenerator",
+     "StaticInitBulk",
+     "StringPrefixPatternCheck",
+     "StructFieldZeroInitWithDefaults",
+     "TireModelDataInit",
+     "UIMessageCompose",
+     "ZlibInflateDecompressionCore",
+     "sub_417AF0",
+     "sub_455580",
+     "sub_4DA9E0",
+     "sub_530840",
+     "sub_535C10",
+     "sub_54A600",
+     "sub_568620",
+     "sub_568910",
+     "sub_59070A"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 130 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "EnumValueTranslation",
+    "file": "EnumValueTranslation_00414010.c",
+    "hits": [
+     {
+      "line": 61,
+      "text": "v3 = 130;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:129: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"extended_vanilla_features low-hanging-fruit sweep - 15 clips already SHIPPED\", \"claim\": \"All 15 Bucket-A T4_CONDITION ",
+  "f1c_ida_decompiled\\findings.jsonl:328: {\"id\": \"f1c-flag-event-dispatcher-is-41b3c0\", \"date\": \"2026-08-01\", \"tier\": \"CONFIRMED\", \"claim\": \"PitSelectionStateMachine_0041b3c0 is F1C's FLAG EVENT DISPATCHER, not a pit funct",
+  "f1c_ida_decompiled\\findings.jsonl:329: {\"id\": \"f1c-f1-restart-procedure-built\", \"date\": \"2026-08-01\", \"tier\": \"OPEN\", \"claim\": \"An F1-rules restart is built in pace_probe.c and replaces the previous 'stop pacing' releas"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-008.md:34: Then a THIRD, worse case: `PWS_GREEN01` / `PWS_YELLOW04/05/06`. Static trace",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:191: | `PWS_GREEN01` | 130 | 126 | 0x0041b3c0 | Green flag conditions |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:144: | PWS_GREEN01 | 130 | 126 | Yellow flag zone ends OR yellow flag goes off |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:409: | `PWS_GREEN01` | 130 | 126, 419 | — | Green flag conditions | REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match, but user states with confidence this lin",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:204: | `PWS_GREEN01` | 126, 419 | Green flag conditions | eid 126 live, emitter literal PitSelectionStateMachine_0041b3c0.c:72 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:69: | `PWS_GREEN01` | 126, 419 | `PitSelectionStateMachine_0041b3c0` (family 9/21, ships `PWS_AILAPPIN02/03/04`) | `functions/PitSelectionStateMachine_0041b3c0.c:72` |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-008_E_pit.md:27: This is the same structural problem as PWS_GREEN01/YELLOW04/05/06: the caller is live and the emitter code path exists, but the specific event described requires a game situation t",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:156: | 130 | `PWS_GREEN01` | Z | - | Z, played when player is in a yellow flag zone and the yellow flag zone either ends OR when the yellow flag goes off |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:160: | `PWS_GREEN01` | 130 | 126 | Green flag conditions |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:88: | `PWS_GREEN01` | 130 | 126, 419 | user triage: Z, played when player is in a yellow flag zone and the yellow flag zone either ends OR when the yellow flag goes off |"
+ ],
+ "mod_sources": [
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2695: *   eid 126 PWS_GREEN01   score 124  cooldown 5.0   not blocked",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2699: * Only GREEN01 is used here. The yellow lines are deliberately NOT injected:",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:5031: *   - nothing is released early. The green flag, PWS_GREEN01 and the release of",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:5128: say_eid(126, \"GREEN01 green flag\");",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:2755: *   eid 126 PWS_GREEN01   score 124  cooldown 5.0   not blocked",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:2759: * Only GREEN01 is used here. The yellow lines are deliberately NOT injected:",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:5105: *   - nothing is released early. The green flag, PWS_GREEN01 and the release of",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:5202: say_eid(126, \"GREEN01 green flag\");",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:2756: *   eid 126 PWS_GREEN01   score 124  cooldown 5.0   not blocked",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:2760: * Only GREEN01 is used here. The yellow lines are deliberately NOT injected:",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:5144: *   - nothing is released early. The green flag, PWS_GREEN01 and the release of",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:5241: say_eid(126, \"GREEN01 green flag\");",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9.c:2820: *   eid 126 PWS_GREEN01   score 124  cooldown 5.0   not blocked",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9.c:2824: * Only GREEN01 is used here. The yellow lines are deliberately NOT injected:",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9.c:5290: *   - nothing is released early. The green flag, PWS_GREEN01 and the release of",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9.c:5395: say_eid(126, \"GREEN01 green flag\");",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9_protected.c:2852: *   eid 126 PWS_GREEN01   score 124  cooldown 5.0   not blocked",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9_protected.c:2856: * Only GREEN01 is used here. The yellow lines are deliberately NOT injected:",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9_protected.c:5347: *   - nothing is released early. The green flag, PWS_GREEN01 and the release of",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9_protected.c:5452: say_eid(126, \"GREEN01 green flag\");",
+  "development\\mods\\full_safety_car_sdk_lab\\dll\\pace_probe_sdk_lab.c:2695: *   eid 126 PWS_GREEN01   score 124  cooldown 5.0   not blocked",
+  "development\\mods\\full_safety_car_sdk_lab\\dll\\pace_probe_sdk_lab.c:2699: * Only GREEN01 is used here. The yellow lines are deliberately NOT injected:",
+  "development\\mods\\full_safety_car_sdk_lab\\dll\\pace_probe_sdk_lab.c:5006: *   - nothing is released early. The green flag, PWS_GREEN01 and the release of",
+  "development\\mods\\full_safety_car_sdk_lab\\dll\\pace_probe_sdk_lab.c:5103: say_eid(126, \"GREEN01 green flag\");"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [],
+  "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match, but user states with confidence this line has NEVER fired naturally in real play. Static trace of PitSelectionStateMachine_0041b3c0 shows the emitter IS reached per-frame (on_frame tag, real caller sub_4BCCC0, not a menu trap) and gated on SessionType==7 (race) + RacePhase!=5 + a player-position-band crossing check - all plausible conditions, but user testimony says the real trigger never actually lands. Either the gate condition never becomes true in practice (a bug in the band-crossing logic, or dword_7C54E8+13388 outer byte gate staying nonzero) or a queue-priority conflict eats it every time. Needs live memory watch on the actual condition (dword_7C56A4, dword_7C56A8, the FloatRangeIndexLookup band value) during a real yellow-flag clear event, not another injection test.",
+  "triage": {
+   "sdt_index": 130,
+   "text": "Z, played when player is in a yellow flag zone and the yellow flag zone either ends OR when the yellow flag goes off",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

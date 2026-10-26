@@ -1,0 +1,19 @@
+func,line,dec,hex,access,width,base,form,expr
+EulerToRotationMatrix,12,,,CALL,,,call,sin
+EulerToRotationMatrix,13,,,CALL,,,call,cos
+EulerToRotationMatrix,14,,,CALL,,,call,sin
+EulerToRotationMatrix,14,4,0x4,R,float,a1,array,v4 = sin(a1[1]);
+EulerToRotationMatrix,15,,,CALL,,,call,cos
+EulerToRotationMatrix,15,4,0x4,R,float,a1,array,v7 = cos(a1[1]);
+EulerToRotationMatrix,16,,,CALL,,,call,sin
+EulerToRotationMatrix,16,8,0x8,R,float,a1,array,v5 = sin(a1[2]);
+EulerToRotationMatrix,17,,,CALL,,,call,cos
+EulerToRotationMatrix,17,8,0x8,R,float,a1,array,v6 = cos(a1[2]);
+EulerToRotationMatrix,21,4,0x4,W,float,a2,array,a2[1] = v4 * v2 * v6 - v8;
+EulerToRotationMatrix,22,8,0x8,W,float,a2,array,a2[2] = v4 * v3;
+EulerToRotationMatrix,23,12,0xC,W,float,a2,array,a2[3] = v5 * v3;
+EulerToRotationMatrix,24,16,0x10,W,float,a2,array,a2[4] = v6 * v3;
+EulerToRotationMatrix,25,20,0x14,W,float,a2,array,a2[5] = -v2;
+EulerToRotationMatrix,26,24,0x18,W,float,a2,array,a2[6] = v8 * v2 - v6 * v4;
+EulerToRotationMatrix,27,28,0x1C,W,float,a2,array,a2[7] = v5 * v4 + v9 * v2;
+EulerToRotationMatrix,28,32,0x20,W,float,a2,array,a2[8] = v7 * v3;

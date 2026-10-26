@@ -1,0 +1,14 @@
+{
+ "schema": "driver_ai_toolkit.preset.v2",
+ "name": "Slow and careful",
+ "description": "A little slower everywhere and in corners.",
+ "target": "current",
+ "quick": {
+  "PACE": {
+   "PACE": 0.95
+  },
+  "CORNER": {
+   "CORNER_MULT": 0.95
+  }
+ }
+}

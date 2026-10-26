@@ -1,0 +1,9 @@
+{
+ "schema": "driver_ai_toolkit.preset.v2",
+ "name": "No 75 percent throttle cap (whole grid)",
+ "description": "Fixes the game bug that keeps an AI car at 75 % throttle for the rest of the race after it lets someone past. Cars still obey blue flags.",
+ "target": "grid",
+ "global": {
+  "NO_LIFT_ALL": true
+ }
+}

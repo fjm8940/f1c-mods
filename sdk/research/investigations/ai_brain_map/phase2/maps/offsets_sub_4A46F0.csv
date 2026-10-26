@@ -1,0 +1,4 @@
+func,line,dec,hex,access,width,base,form,expr
+sub_4A46F0,7,4,0x4,R,_DWORD,a2,direct,v5 = *(_DWORD *)(a2 + 4);
+sub_4A46F0,9,,,W,_DWORD,this,array,this[v5] = a2;
+sub_4A46F0,11,,,W,_DWORD,this,array,this[v5] = 0;

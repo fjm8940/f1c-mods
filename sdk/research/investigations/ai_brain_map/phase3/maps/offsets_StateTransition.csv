@@ -1,0 +1,8 @@
+func,line,dec,hex,access,width,base,form,expr
+StateTransition,9,296,0x128,R,_DWORD,this,array,if ( this[74] != 2 )
+StateTransition,11,296,0x128,W,_DWORD,this,array,this[74] = 2;
+StateTransition,13,300,0x12C,W,_DWORD,this,array,this[75] = 1;
+StateTransition,14,304,0x130,W,_DWORD,this,array,this[76] = 1;
+StateTransition,19,296,0x128,W,_DWORD,this,array,this[74] = 1;
+StateTransition,20,300,0x12C,W,_DWORD,this,array,this[75] = 0;
+StateTransition,21,304,0x130,W,_DWORD,this,array,this[76] = 0;

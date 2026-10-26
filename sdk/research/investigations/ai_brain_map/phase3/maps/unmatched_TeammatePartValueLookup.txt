@@ -1,0 +1,2 @@
+# TeammatePartValueLookup: offset-like lines with no extracted row (1)
+L9: v2 = *(_DWORD *)(*this + 18596);

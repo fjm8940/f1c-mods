@@ -1,0 +1,1475 @@
+{
+ "schema": "ere.audit_batches.v1",
+ "batches": {
+  "B01_000-009": [
+   {
+    "sdt_index": 0,
+    "clip": "PWS_QUAL32"
+   },
+   {
+    "sdt_index": 1,
+    "clip": "PWS_QUAL07"
+   },
+   {
+    "sdt_index": 2,
+    "clip": "PWS_QUAL02"
+   },
+   {
+    "sdt_index": 3,
+    "clip": "PWS_QUAL03"
+   },
+   {
+    "sdt_index": 4,
+    "clip": "PWS_QUAL01"
+   },
+   {
+    "sdt_index": 5,
+    "clip": "PWS_QUAL08"
+   },
+   {
+    "sdt_index": 6,
+    "clip": "PWS_QUAL06"
+   },
+   {
+    "sdt_index": 7,
+    "clip": "PWS_2001_04"
+   },
+   {
+    "sdt_index": 8,
+    "clip": "PWS_QUAL23"
+   },
+   {
+    "sdt_index": 9,
+    "clip": "PWS_QUAL29"
+   }
+  ],
+  "B02_010-019": [
+   {
+    "sdt_index": 10,
+    "clip": "PWS_QUAL28"
+   },
+   {
+    "sdt_index": 11,
+    "clip": "PWS_QUAL15"
+   },
+   {
+    "sdt_index": 12,
+    "clip": "PWS_QUAL16"
+   },
+   {
+    "sdt_index": 13,
+    "clip": "PWS_QUAL30"
+   },
+   {
+    "sdt_index": 14,
+    "clip": "PWS_2001_05"
+   },
+   {
+    "sdt_index": 15,
+    "clip": "PWS_QUAL22"
+   },
+   {
+    "sdt_index": 16,
+    "clip": "PWS_QUAL21"
+   },
+   {
+    "sdt_index": 17,
+    "clip": "PWS_QUAL12"
+   },
+   {
+    "sdt_index": 18,
+    "clip": "PWS_QUAL13"
+   },
+   {
+    "sdt_index": 19,
+    "clip": "PWS_2001_16"
+   }
+  ],
+  "B03_020-029": [
+   {
+    "sdt_index": 20,
+    "clip": "PWS_2001_21"
+   },
+   {
+    "sdt_index": 21,
+    "clip": "PWS_2001_17"
+   },
+   {
+    "sdt_index": 22,
+    "clip": "PWS_2001_18"
+   },
+   {
+    "sdt_index": 23,
+    "clip": "PWS_2001_19"
+   },
+   {
+    "sdt_index": 24,
+    "clip": "PWS_2001_20"
+   },
+   {
+    "sdt_index": 25,
+    "clip": "PWS_2001_22"
+   },
+   {
+    "sdt_index": 26,
+    "clip": "PWS_2001_24"
+   },
+   {
+    "sdt_index": 27,
+    "clip": "PWS_2001_25"
+   },
+   {
+    "sdt_index": 28,
+    "clip": "PWS_2001_14"
+   },
+   {
+    "sdt_index": 29,
+    "clip": "PWS_2001_15"
+   }
+  ],
+  "B04_030-039": [
+   {
+    "sdt_index": 30,
+    "clip": "PWS_2001_13"
+   },
+   {
+    "sdt_index": 31,
+    "clip": "PWS_2001_08"
+   },
+   {
+    "sdt_index": 32,
+    "clip": "PWS_2001_09"
+   },
+   {
+    "sdt_index": 33,
+    "clip": "RE_30_MINS_LEFT"
+   },
+   {
+    "sdt_index": 34,
+    "clip": "RE_45_MINS_LEFT"
+   },
+   {
+    "sdt_index": 35,
+    "clip": "RE_OD_EXIT_RED"
+   },
+   {
+    "sdt_index": 36,
+    "clip": "RE_OD_LAP_DISAL"
+   },
+   {
+    "sdt_index": 37,
+    "clip": "RE_PD_EXIT_RED"
+   },
+   {
+    "sdt_index": 38,
+    "clip": "RE_PD_LAP_DISAL"
+   },
+   {
+    "sdt_index": 39,
+    "clip": "PWS_2001_33"
+   }
+  ],
+  "B05_040-049": [
+   {
+    "sdt_index": 40,
+    "clip": "PWS_POSUPDATE01"
+   },
+   {
+    "sdt_index": 41,
+    "clip": "PWS_CHANGEPIT01"
+   },
+   {
+    "sdt_index": 42,
+    "clip": "PWS_PIT12"
+   },
+   {
+    "sdt_index": 43,
+    "clip": "PWS_PIT09"
+   },
+   {
+    "sdt_index": 44,
+    "clip": "PWS_PIT10"
+   },
+   {
+    "sdt_index": 45,
+    "clip": "PWS_MISC54"
+   },
+   {
+    "sdt_index": 46,
+    "clip": "PWS_MISC18"
+   },
+   {
+    "sdt_index": 47,
+    "clip": "PWS_PIT13"
+   },
+   {
+    "sdt_index": 48,
+    "clip": "PWS_PIT01"
+   },
+   {
+    "sdt_index": 49,
+    "clip": "PWS_PIT03"
+   }
+  ],
+  "B06_050-059": [
+   {
+    "sdt_index": 50,
+    "clip": "PWS_PIT06"
+   },
+   {
+    "sdt_index": 51,
+    "clip": "PWS_PIT02"
+   },
+   {
+    "sdt_index": 52,
+    "clip": "PWS_PIT08"
+   },
+   {
+    "sdt_index": 53,
+    "clip": "PWS_2001_80"
+   },
+   {
+    "sdt_index": 54,
+    "clip": "PWS_PIT14"
+   },
+   {
+    "sdt_index": 55,
+    "clip": "PWS_2001_79"
+   },
+   {
+    "sdt_index": 56,
+    "clip": "PWS_2001_78"
+   },
+   {
+    "sdt_index": 57,
+    "clip": "PWS_TEAMPIT01"
+   },
+   {
+    "sdt_index": 58,
+    "clip": "PWS_TEAMPIT02"
+   },
+   {
+    "sdt_index": 59,
+    "clip": "PWS_2001_96"
+   }
+  ],
+  "B07_060-069": [
+   {
+    "sdt_index": 60,
+    "clip": "PWS_2001_76"
+   },
+   {
+    "sdt_index": 61,
+    "clip": "PWS_2001_68"
+   },
+   {
+    "sdt_index": 62,
+    "clip": "PWS_2001_72"
+   },
+   {
+    "sdt_index": 63,
+    "clip": "PWS_2001_69"
+   },
+   {
+    "sdt_index": 64,
+    "clip": "PWS_2001_73"
+   },
+   {
+    "sdt_index": 65,
+    "clip": "PWS_2001_77"
+   },
+   {
+    "sdt_index": 66,
+    "clip": "PWS_2001_70"
+   },
+   {
+    "sdt_index": 67,
+    "clip": "PWS_2001_74"
+   },
+   {
+    "sdt_index": 68,
+    "clip": "PWS_2001_71"
+   },
+   {
+    "sdt_index": 69,
+    "clip": "PWS_2001_75"
+   }
+  ],
+  "B08_070-079": [
+   {
+    "sdt_index": 70,
+    "clip": "PWS_RACEFAST03"
+   },
+   {
+    "sdt_index": 71,
+    "clip": "PWS_RACEFAST02"
+   },
+   {
+    "sdt_index": 72,
+    "clip": "PWS_2001_102"
+   },
+   {
+    "sdt_index": 73,
+    "clip": "PWS_MECHPROB18"
+   },
+   {
+    "sdt_index": 74,
+    "clip": "PWS_MECHPROB16"
+   },
+   {
+    "sdt_index": 75,
+    "clip": "PWS_MECHPROB14"
+   },
+   {
+    "sdt_index": 76,
+    "clip": "PWS_MECHPROB15"
+   },
+   {
+    "sdt_index": 77,
+    "clip": "PWS_MECHPROB06"
+   },
+   {
+    "sdt_index": 78,
+    "clip": "PWS_MECHPROB07"
+   },
+   {
+    "sdt_index": 79,
+    "clip": "PWS_MECHPROB20"
+   }
+  ],
+  "B09_080-089": [
+   {
+    "sdt_index": 80,
+    "clip": "PWS_MECHPROB21"
+   },
+   {
+    "sdt_index": 81,
+    "clip": "PWS_MECHPROB22"
+   },
+   {
+    "sdt_index": 82,
+    "clip": "PWS_MECHPROB23"
+   },
+   {
+    "sdt_index": 83,
+    "clip": "PWS_MECHPROB24"
+   },
+   {
+    "sdt_index": 84,
+    "clip": "PWS_MECHPROB25"
+   },
+   {
+    "sdt_index": 85,
+    "clip": "PWS_MECHPROB26"
+   },
+   {
+    "sdt_index": 86,
+    "clip": "PWS_MECHPROB27"
+   },
+   {
+    "sdt_index": 87,
+    "clip": "PWS_MECHPROB28"
+   },
+   {
+    "sdt_index": 88,
+    "clip": "PWS_MECHPROB29"
+   },
+   {
+    "sdt_index": 89,
+    "clip": "PWS_MECHPROB30"
+   }
+  ],
+  "B10_090-099": [
+   {
+    "sdt_index": 90,
+    "clip": "PWS_MECHPROB31"
+   },
+   {
+    "sdt_index": 91,
+    "clip": "PWS_MECHPROB32"
+   },
+   {
+    "sdt_index": 92,
+    "clip": "PWS_MECHPROB33"
+   },
+   {
+    "sdt_index": 93,
+    "clip": "RE_PD_FL_BAD_BL"
+   },
+   {
+    "sdt_index": 94,
+    "clip": "RE_PD_FL_BLIST"
+   },
+   {
+    "sdt_index": 95,
+    "clip": "RE_PD_FR_BAD_BL"
+   },
+   {
+    "sdt_index": 96,
+    "clip": "RE_PD_FR_BLIST"
+   },
+   {
+    "sdt_index": 97,
+    "clip": "RE_PD_RL_BAD_BL"
+   },
+   {
+    "sdt_index": 98,
+    "clip": "RE_PD_RL_BLIST"
+   },
+   {
+    "sdt_index": 99,
+    "clip": "RE_PD_RR_BAD_BL"
+   }
+  ],
+  "B11_100-109": [
+   {
+    "sdt_index": 100,
+    "clip": "RE_PD_RR_BLIST"
+   },
+   {
+    "sdt_index": 101,
+    "clip": "PWS_MECHPROB08"
+   },
+   {
+    "sdt_index": 102,
+    "clip": "PWS_MECHPROB09"
+   },
+   {
+    "sdt_index": 103,
+    "clip": "PWS_TYRES02"
+   },
+   {
+    "sdt_index": 104,
+    "clip": "PWS_TYRES01"
+   },
+   {
+    "sdt_index": 105,
+    "clip": "PWS_HIT03"
+   },
+   {
+    "sdt_index": 106,
+    "clip": "PWS_HIT04"
+   },
+   {
+    "sdt_index": 107,
+    "clip": "PWS_HIT01"
+   },
+   {
+    "sdt_index": 108,
+    "clip": "PWS_HIT05"
+   },
+   {
+    "sdt_index": 109,
+    "clip": "PWS_HIT06"
+   }
+  ],
+  "B12_110-119": [
+   {
+    "sdt_index": 110,
+    "clip": "PWS_HIT02"
+   },
+   {
+    "sdt_index": 111,
+    "clip": "RE_PD_STALLED"
+   },
+   {
+    "sdt_index": 112,
+    "clip": "RE_PD_STALLED_T"
+   },
+   {
+    "sdt_index": 113,
+    "clip": "PWS_HIT10"
+   },
+   {
+    "sdt_index": 114,
+    "clip": "PWS_HIT08"
+   },
+   {
+    "sdt_index": 115,
+    "clip": "PWS_HIT09"
+   },
+   {
+    "sdt_index": 116,
+    "clip": "PWS_OFFROAD01"
+   },
+   {
+    "sdt_index": 117,
+    "clip": "PWS_OFFROAD02"
+   },
+   {
+    "sdt_index": 118,
+    "clip": "PWS_RETIRE02"
+   },
+   {
+    "sdt_index": 119,
+    "clip": "PWS_RETIRE03"
+   }
+  ],
+  "B13_120-129": [
+   {
+    "sdt_index": 120,
+    "clip": "PWS_RETIRE01"
+   },
+   {
+    "sdt_index": 121,
+    "clip": "PWS_RETIRE04"
+   },
+   {
+    "sdt_index": 122,
+    "clip": "PWS_OVERTAKE01"
+   },
+   {
+    "sdt_index": 123,
+    "clip": "PWS_OVERTAKE02"
+   },
+   {
+    "sdt_index": 124,
+    "clip": "PWS_OVERTAKE03"
+   },
+   {
+    "sdt_index": 125,
+    "clip": "PWS_AILAPPIN05"
+   },
+   {
+    "sdt_index": 126,
+    "clip": "PWS_AILAPPIN01"
+   },
+   {
+    "sdt_index": 127,
+    "clip": "PWS_AILAPPIN02"
+   },
+   {
+    "sdt_index": 128,
+    "clip": "PWS_AILAPPIN03"
+   },
+   {
+    "sdt_index": 129,
+    "clip": "PWS_AILAPPIN04"
+   }
+  ],
+  "B14_130-139": [
+   {
+    "sdt_index": 130,
+    "clip": "PWS_GREEN01"
+   },
+   {
+    "sdt_index": 131,
+    "clip": "PWS_OIL01"
+   },
+   {
+    "sdt_index": 132,
+    "clip": "PWS_OIL02"
+   },
+   {
+    "sdt_index": 133,
+    "clip": "PWS_OIL03"
+   },
+   {
+    "sdt_index": 134,
+    "clip": "PWS_MECHANWARN0"
+   },
+   {
+    "sdt_index": 135,
+    "clip": "PWS_RED01"
+   },
+   {
+    "sdt_index": 136,
+    "clip": "PWS_SLOWCAR01"
+   },
+   {
+    "sdt_index": 137,
+    "clip": "PWS_SCAR05"
+   },
+   {
+    "sdt_index": 138,
+    "clip": "PWS_SCAR01"
+   },
+   {
+    "sdt_index": 139,
+    "clip": "PWS_SCAR02"
+   }
+  ],
+  "B15_140-149": [
+   {
+    "sdt_index": 140,
+    "clip": "PWS_SCAR03"
+   },
+   {
+    "sdt_index": 141,
+    "clip": "PWS_SCAR04"
+   },
+   {
+    "sdt_index": 142,
+    "clip": "PWS_YELLOW04"
+   },
+   {
+    "sdt_index": 143,
+    "clip": "PWS_YELLOW01"
+   },
+   {
+    "sdt_index": 144,
+    "clip": "PWS_YELLOW05"
+   },
+   {
+    "sdt_index": 145,
+    "clip": "PWS_YELLOW02"
+   },
+   {
+    "sdt_index": 146,
+    "clip": "PWS_YELLOW06"
+   },
+   {
+    "sdt_index": 147,
+    "clip": "PWS_YELLOW03"
+   },
+   {
+    "sdt_index": 148,
+    "clip": "PWS_PENALTY08"
+   },
+   {
+    "sdt_index": 149,
+    "clip": "PWS_PENALTY14"
+   }
+  ],
+  "B16_150-159": [
+   {
+    "sdt_index": 150,
+    "clip": "PWS_PENALTY07"
+   },
+   {
+    "sdt_index": 151,
+    "clip": "PWS_PENALTY05"
+   },
+   {
+    "sdt_index": 152,
+    "clip": "PWS_MISC05"
+   },
+   {
+    "sdt_index": 153,
+    "clip": "PWS_MISC47"
+   },
+   {
+    "sdt_index": 154,
+    "clip": "PWS_MISC02"
+   },
+   {
+    "sdt_index": 155,
+    "clip": "PWS_MISC04"
+   },
+   {
+    "sdt_index": 156,
+    "clip": "PWS_MISC03"
+   },
+   {
+    "sdt_index": 157,
+    "clip": "RE_PD_25_DD"
+   },
+   {
+    "sdt_index": 158,
+    "clip": "RE_PD_DQ"
+   },
+   {
+    "sdt_index": 159,
+    "clip": "RE_PD_INV_DD"
+   }
+  ],
+  "B17_160-169": [
+   {
+    "sdt_index": 160,
+    "clip": "RE_PD_SG_CUT"
+   },
+   {
+    "sdt_index": 161,
+    "clip": "RE_PD_SG_DD"
+   },
+   {
+    "sdt_index": 162,
+    "clip": "RE_PD_SG_SPEED"
+   },
+   {
+    "sdt_index": 163,
+    "clip": "PWS_PENALTY04"
+   },
+   {
+    "sdt_index": 164,
+    "clip": "PWS_PENALTY02"
+   },
+   {
+    "sdt_index": 165,
+    "clip": "PWS_PENALTY03"
+   },
+   {
+    "sdt_index": 166,
+    "clip": "PWS_WIN21"
+   },
+   {
+    "sdt_index": 167,
+    "clip": "PWS_WIN20"
+   },
+   {
+    "sdt_index": 168,
+    "clip": "PWS_2001_124"
+   },
+   {
+    "sdt_index": 169,
+    "clip": "RE_PD_WIN_EUR"
+   }
+  ],
+  "B18_170-179": [
+   {
+    "sdt_index": 170,
+    "clip": "PWS_WIN01"
+   },
+   {
+    "sdt_index": 171,
+    "clip": "PWS_WIN09"
+   },
+   {
+    "sdt_index": 172,
+    "clip": "PWS_WIN12"
+   },
+   {
+    "sdt_index": 173,
+    "clip": "PWS_WIN02"
+   },
+   {
+    "sdt_index": 174,
+    "clip": "PWS_WIN06"
+   },
+   {
+    "sdt_index": 175,
+    "clip": "PWS_WIN07"
+   },
+   {
+    "sdt_index": 176,
+    "clip": "PWS_WIN19"
+   },
+   {
+    "sdt_index": 177,
+    "clip": "PWS_2001_110"
+   },
+   {
+    "sdt_index": 178,
+    "clip": "PWS_WIN10"
+   },
+   {
+    "sdt_index": 179,
+    "clip": "PWS_WIN08"
+   }
+  ],
+  "B19_180-189": [
+   {
+    "sdt_index": 180,
+    "clip": "PWS_WIN11"
+   },
+   {
+    "sdt_index": 181,
+    "clip": "PWS_WIN13"
+   },
+   {
+    "sdt_index": 182,
+    "clip": "PWS_WIN16"
+   },
+   {
+    "sdt_index": 183,
+    "clip": "PWS_WIN15"
+   },
+   {
+    "sdt_index": 184,
+    "clip": "PWS_WIN04"
+   },
+   {
+    "sdt_index": 185,
+    "clip": "PWS_WIN03"
+   },
+   {
+    "sdt_index": 186,
+    "clip": "PWS_WIN05"
+   },
+   {
+    "sdt_index": 187,
+    "clip": "PWS_WIN17"
+   },
+   {
+    "sdt_index": 188,
+    "clip": "PWS_AIPIT04"
+   },
+   {
+    "sdt_index": 189,
+    "clip": "PWS_AIPIT05"
+   }
+  ],
+  "B20_190-199": [
+   {
+    "sdt_index": 190,
+    "clip": "PWS_AIPIT06"
+   },
+   {
+    "sdt_index": 191,
+    "clip": "PWS_AIPIT07"
+   },
+   {
+    "sdt_index": 192,
+    "clip": "PWS_AIPIT08"
+   },
+   {
+    "sdt_index": 193,
+    "clip": "PWS_AIPIT09"
+   },
+   {
+    "sdt_index": 194,
+    "clip": "PWS_AIPIT10"
+   },
+   {
+    "sdt_index": 195,
+    "clip": "PWS_MISC30"
+   },
+   {
+    "sdt_index": 196,
+    "clip": "PWS_2001_131"
+   },
+   {
+    "sdt_index": 197,
+    "clip": "PWS_2001_132"
+   },
+   {
+    "sdt_index": 198,
+    "clip": "PWS_2001_133"
+   },
+   {
+    "sdt_index": 199,
+    "clip": "PWS_2001_134"
+   }
+  ],
+  "B21_200-209": [
+   {
+    "sdt_index": 200,
+    "clip": "PWS_2001_135"
+   },
+   {
+    "sdt_index": 201,
+    "clip": "PWS_2001_136"
+   },
+   {
+    "sdt_index": 202,
+    "clip": "PWS_AIPIT13"
+   },
+   {
+    "sdt_index": 203,
+    "clip": "RE_OD_INTER"
+   },
+   {
+    "sdt_index": 204,
+    "clip": "RE_OD_MONSOON"
+   },
+   {
+    "sdt_index": 205,
+    "clip": "RE_OD_SLICKS"
+   },
+   {
+    "sdt_index": 206,
+    "clip": "RE_OD_WET"
+   },
+   {
+    "sdt_index": 207,
+    "clip": "PWS_AIPIT11"
+   },
+   {
+    "sdt_index": 208,
+    "clip": "PWS_AIPIT01"
+   },
+   {
+    "sdt_index": 209,
+    "clip": "PWS_MISC46"
+   }
+  ],
+  "B22_210-219": [
+   {
+    "sdt_index": 210,
+    "clip": "PWS_MISC14"
+   },
+   {
+    "sdt_index": 211,
+    "clip": "PWS_MISC12"
+   },
+   {
+    "sdt_index": 212,
+    "clip": "PWS_2001_141"
+   },
+   {
+    "sdt_index": 213,
+    "clip": "PWS_2001_138"
+   },
+   {
+    "sdt_index": 214,
+    "clip": "PWS_AIMECHPROB0"
+   },
+   {
+    "sdt_index": 215,
+    "clip": "PWS_AIMECHPROB0"
+   },
+   {
+    "sdt_index": 216,
+    "clip": "PWS_AIMECHPROB1"
+   },
+   {
+    "sdt_index": 217,
+    "clip": "PWS_AIMECHPROB1"
+   },
+   {
+    "sdt_index": 218,
+    "clip": "PWS_AIMECHPROB1"
+   },
+   {
+    "sdt_index": 219,
+    "clip": "PWS_AIMECHPROB1"
+   }
+  ],
+  "B23_220-229": [
+   {
+    "sdt_index": 220,
+    "clip": "PWS_AIMECHPROB1"
+   },
+   {
+    "sdt_index": 221,
+    "clip": "PWS_AIMECHPROB1"
+   },
+   {
+    "sdt_index": 222,
+    "clip": "RE_OD_LOST_7"
+   },
+   {
+    "sdt_index": 223,
+    "clip": "RE_OD_PUNCTURE"
+   },
+   {
+    "sdt_index": 224,
+    "clip": "RE_OD_STUCK_7"
+   },
+   {
+    "sdt_index": 225,
+    "clip": "PWS_AIMECHPROB0"
+   },
+   {
+    "sdt_index": 226,
+    "clip": "PWS_AIMECHPROB0"
+   },
+   {
+    "sdt_index": 227,
+    "clip": "PWS_AIMECHPROB0"
+   },
+   {
+    "sdt_index": 228,
+    "clip": "PWS_AIMECHPROB0"
+   },
+   {
+    "sdt_index": 229,
+    "clip": "PWS_AIMECHPROB0"
+   }
+  ],
+  "B24_230-239": [
+   {
+    "sdt_index": 230,
+    "clip": "PWS_AIMECHPROB0"
+   },
+   {
+    "sdt_index": 231,
+    "clip": "PWS_AITYRES02"
+   },
+   {
+    "sdt_index": 232,
+    "clip": "PWS_AITYRES01"
+   },
+   {
+    "sdt_index": 233,
+    "clip": "PWS_AIHIT08"
+   },
+   {
+    "sdt_index": 234,
+    "clip": "PWS_AIHIT07"
+   },
+   {
+    "sdt_index": 235,
+    "clip": "PWS_AIHIT01"
+   },
+   {
+    "sdt_index": 236,
+    "clip": "PWS_AIHIT02"
+   },
+   {
+    "sdt_index": 237,
+    "clip": "PWS_AIOFFTRACK0"
+   },
+   {
+    "sdt_index": 238,
+    "clip": "PWS_AIINCID10"
+   },
+   {
+    "sdt_index": 239,
+    "clip": "PWS_AIINCID11"
+   }
+  ],
+  "B25_240-249": [
+   {
+    "sdt_index": 240,
+    "clip": "PWS_AIINCID06"
+   },
+   {
+    "sdt_index": 241,
+    "clip": "PWS_AIINCID03"
+   },
+   {
+    "sdt_index": 242,
+    "clip": "PWS_AIINCID02"
+   },
+   {
+    "sdt_index": 243,
+    "clip": "PWS_AIINCID08"
+   },
+   {
+    "sdt_index": 244,
+    "clip": "PWS_OD_HOLDING"
+   },
+   {
+    "sdt_index": 245,
+    "clip": "PWS_AIINCID07"
+   },
+   {
+    "sdt_index": 246,
+    "clip": "PWS_AIINCID04"
+   },
+   {
+    "sdt_index": 247,
+    "clip": "PWS_AIINCID05"
+   },
+   {
+    "sdt_index": 248,
+    "clip": "PWS_AIINCID01"
+   },
+   {
+    "sdt_index": 249,
+    "clip": "PWS_2001_149"
+   }
+  ],
+  "B26_250-259": [
+   {
+    "sdt_index": 250,
+    "clip": "PWS_AIRETIRE05"
+   },
+   {
+    "sdt_index": 251,
+    "clip": "PWS_AIRETIRE03"
+   },
+   {
+    "sdt_index": 252,
+    "clip": "PWS_AIRETIRE02"
+   },
+   {
+    "sdt_index": 253,
+    "clip": "PWS_AIRETIRE01"
+   },
+   {
+    "sdt_index": 254,
+    "clip": "PWS_AIRETIRE04"
+   },
+   {
+    "sdt_index": 255,
+    "clip": "PWS_AIPENALTY08"
+   },
+   {
+    "sdt_index": 256,
+    "clip": "PWS_AIPENALTY14"
+   },
+   {
+    "sdt_index": 257,
+    "clip": "PWS_AIPENALTY07"
+   },
+   {
+    "sdt_index": 258,
+    "clip": "PWS_AIPENALTY05"
+   },
+   {
+    "sdt_index": 259,
+    "clip": "PWS_AIPENALTY22"
+   }
+  ],
+  "B27_260-269": [
+   {
+    "sdt_index": 260,
+    "clip": "PWS_MISC09"
+   },
+   {
+    "sdt_index": 261,
+    "clip": "PWS_MISC48"
+   },
+   {
+    "sdt_index": 262,
+    "clip": "PWS_MISC06"
+   },
+   {
+    "sdt_index": 263,
+    "clip": "PWS_MISC08"
+   },
+   {
+    "sdt_index": 264,
+    "clip": "PWS_MISC07"
+   },
+   {
+    "sdt_index": 265,
+    "clip": "RE_OD_25_DD"
+   },
+   {
+    "sdt_index": 266,
+    "clip": "RE_OD_INV_DD"
+   },
+   {
+    "sdt_index": 267,
+    "clip": "RE_OD_SG_DD"
+   },
+   {
+    "sdt_index": 268,
+    "clip": "PWS_AIPENALTY04"
+   },
+   {
+    "sdt_index": 269,
+    "clip": "PWS_AIPENALTY13"
+   }
+  ],
+  "B28_270-279": [
+   {
+    "sdt_index": 270,
+    "clip": "PWS_AIPENALTY02"
+   },
+   {
+    "sdt_index": 271,
+    "clip": "PWS_AIPENALTY03"
+   },
+   {
+    "sdt_index": 272,
+    "clip": "PWS_AIPENALTY01"
+   },
+   {
+    "sdt_index": 273,
+    "clip": "PWS_AIBLUE02"
+   },
+   {
+    "sdt_index": 274,
+    "clip": "PWS_AIBLUE01"
+   },
+   {
+    "sdt_index": 275,
+    "clip": "PWS_AIBLUE03"
+   },
+   {
+    "sdt_index": 276,
+    "clip": "PWS_AIWIN02"
+   },
+   {
+    "sdt_index": 277,
+    "clip": "PWS_AIWIN03"
+   },
+   {
+    "sdt_index": 278,
+    "clip": "PWS_AIWIN01"
+   },
+   {
+    "sdt_index": 279,
+    "clip": "PWS_AIFASTLAP01"
+   }
+  ],
+  "B29_280-289": [
+   {
+    "sdt_index": 280,
+    "clip": "PWS_AIFASTLAP03"
+   },
+   {
+    "sdt_index": 281,
+    "clip": "PWS_MISC16"
+   },
+   {
+    "sdt_index": 282,
+    "clip": "PWS_MISC29"
+   },
+   {
+    "sdt_index": 283,
+    "clip": "PWS_MISC28"
+   },
+   {
+    "sdt_index": 284,
+    "clip": "PWS_MISC27"
+   },
+   {
+    "sdt_index": 285,
+    "clip": "PWS_MISC26"
+   },
+   {
+    "sdt_index": 286,
+    "clip": "PWS_MISC25"
+   },
+   {
+    "sdt_index": 287,
+    "clip": "PWS_2001_165"
+   },
+   {
+    "sdt_index": 288,
+    "clip": "PWS_2001_164"
+   },
+   {
+    "sdt_index": 289,
+    "clip": "PWS_2001_160"
+   }
+  ],
+  "B30_290-299": [
+   {
+    "sdt_index": 290,
+    "clip": "PWS_2001_161"
+   },
+   {
+    "sdt_index": 291,
+    "clip": "PWS_2001_167"
+   },
+   {
+    "sdt_index": 292,
+    "clip": "PWS_2001_163"
+   },
+   {
+    "sdt_index": 293,
+    "clip": "PWS_2001_159"
+   },
+   {
+    "sdt_index": 294,
+    "clip": "PWS_2001_156"
+   },
+   {
+    "sdt_index": 295,
+    "clip": "PWS_2001_155"
+   },
+   {
+    "sdt_index": 296,
+    "clip": "PWS_2001_158"
+   },
+   {
+    "sdt_index": 297,
+    "clip": "PWS_2001_157"
+   },
+   {
+    "sdt_index": 298,
+    "clip": "PWS_2001_221"
+   },
+   {
+    "sdt_index": 299,
+    "clip": "PWS_2001_222"
+   }
+  ],
+  "B31_300-309": [
+   {
+    "sdt_index": 300,
+    "clip": "PWS_2001_218"
+   },
+   {
+    "sdt_index": 301,
+    "clip": "PWS_2001_220"
+   },
+   {
+    "sdt_index": 302,
+    "clip": "PWS_2001_219"
+   },
+   {
+    "sdt_index": 303,
+    "clip": "PWS_2001_224"
+   },
+   {
+    "sdt_index": 304,
+    "clip": "PWS_2001_223"
+   },
+   {
+    "sdt_index": 305,
+    "clip": "PWS_2001_225"
+   },
+   {
+    "sdt_index": 306,
+    "clip": "PWS_2001_311"
+   },
+   {
+    "sdt_index": 307,
+    "clip": "PWS_2001_310"
+   },
+   {
+    "sdt_index": 308,
+    "clip": "PWS_2001_312"
+   },
+   {
+    "sdt_index": 309,
+    "clip": "PWS_2001_309"
+   }
+  ],
+  "B32_310-315": [
+   {
+    "sdt_index": 310,
+    "clip": "PWS_2001_308"
+   },
+   {
+    "sdt_index": 311,
+    "clip": "RE_OD_FASTEST_M"
+   },
+   {
+    "sdt_index": 312,
+    "clip": "RE_PORSCHE_23"
+   },
+   {
+    "sdt_index": 313,
+    "clip": "RE_PORSCHE_24"
+   },
+   {
+    "sdt_index": 314,
+    "clip": "RE_PORSCHE_25"
+   },
+   {
+    "sdt_index": 315,
+    "clip": "RE_PORSCHE_03"
+   }
+  ],
+  "B33_MF_316-350": [
+   {
+    "sdt_index": 316,
+    "clip": "PWS_MF01"
+   },
+   {
+    "sdt_index": 317,
+    "clip": "PWS_MF02"
+   },
+   {
+    "sdt_index": 318,
+    "clip": "PWS_MF03"
+   },
+   {
+    "sdt_index": 319,
+    "clip": "PWS_MF04"
+   },
+   {
+    "sdt_index": 320,
+    "clip": "PWS_MF05"
+   },
+   {
+    "sdt_index": 321,
+    "clip": "PWS_MF06"
+   },
+   {
+    "sdt_index": 322,
+    "clip": "PWS_MF07"
+   },
+   {
+    "sdt_index": 323,
+    "clip": "PWS_MF08"
+   },
+   {
+    "sdt_index": 324,
+    "clip": "PWS_MF09"
+   },
+   {
+    "sdt_index": 325,
+    "clip": "PWS_MF10"
+   },
+   {
+    "sdt_index": 326,
+    "clip": "PWS_MF11"
+   },
+   {
+    "sdt_index": 327,
+    "clip": "PWS_MF12"
+   },
+   {
+    "sdt_index": 328,
+    "clip": "PWS_MF13"
+   },
+   {
+    "sdt_index": 329,
+    "clip": "PWS_MF14"
+   },
+   {
+    "sdt_index": 330,
+    "clip": "PWS_MF15"
+   },
+   {
+    "sdt_index": 331,
+    "clip": "PWS_MF16"
+   },
+   {
+    "sdt_index": 332,
+    "clip": "PWS_MF17"
+   },
+   {
+    "sdt_index": 333,
+    "clip": "PWS_MF18"
+   },
+   {
+    "sdt_index": 334,
+    "clip": "PWS_MF19"
+   },
+   {
+    "sdt_index": 335,
+    "clip": "PWS_MF20"
+   },
+   {
+    "sdt_index": 336,
+    "clip": "PWS_MF21"
+   },
+   {
+    "sdt_index": 337,
+    "clip": "PWS_MF22"
+   },
+   {
+    "sdt_index": 338,
+    "clip": "PWS_MF23"
+   },
+   {
+    "sdt_index": 339,
+    "clip": "PWS_MF24"
+   },
+   {
+    "sdt_index": 340,
+    "clip": "PWS_MF25"
+   },
+   {
+    "sdt_index": 341,
+    "clip": "PWS_MF26"
+   },
+   {
+    "sdt_index": 342,
+    "clip": "PWS_MF27"
+   },
+   {
+    "sdt_index": 343,
+    "clip": "PWS_MF28"
+   },
+   {
+    "sdt_index": 344,
+    "clip": "PWS_MF29"
+   },
+   {
+    "sdt_index": 345,
+    "clip": "PWS_MF30"
+   },
+   {
+    "sdt_index": 346,
+    "clip": "PWS_MF31"
+   },
+   {
+    "sdt_index": 347,
+    "clip": "PWS_MF32"
+   },
+   {
+    "sdt_index": 348,
+    "clip": "PWS_MF33"
+   },
+   {
+    "sdt_index": 349,
+    "clip": "PWS_MF34"
+   },
+   {
+    "sdt_index": 350,
+    "clip": "PWS_MF35"
+   }
+  ]
+ }
+}

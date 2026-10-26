@@ -1,0 +1,15 @@
+{
+ "schema": "driver_ai_toolkit.preset.v2",
+ "name": "Brave overtaker",
+ "description": "Never gives up an attack, races harder, keeps full throttle in traffic.",
+ "target": "current",
+ "quick": {
+  "OVERTAKE": {
+   "OVT_POLICY": "COMMIT"
+  },
+  "AGGRESSION": {
+   "AGGRESSION": 1.5
+  },
+  "NO_LIFT": {}
+ }
+}

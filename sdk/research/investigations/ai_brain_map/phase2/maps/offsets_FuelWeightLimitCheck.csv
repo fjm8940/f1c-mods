@@ -1,0 +1,5 @@
+func,line,dec,hex,access,width,base,form,expr
+FuelWeightLimitCheck,4,16444,0x403C,R,_DWORD,this,direct,|| (double)(dword_8ACF8C - *(_DWORD *)(this + 16444)) - (double)*(int *)(this + 16448) * 0.33333334 < *(float *)(this + 14724) * *(float *)(this + 13384) - 0.34999999;
+FuelWeightLimitCheck,4,16448,0x4040,R,int,this,direct,|| (double)(dword_8ACF8C - *(_DWORD *)(this + 16444)) - (double)*(int *)(this + 16448) * 0.33333334 < *(float *)(this + 14724) * *(float *)(this + 13384) - 0.34999999;
+FuelWeightLimitCheck,4,14724,0x3984,R,float,this,direct,|| (double)(dword_8ACF8C - *(_DWORD *)(this + 16444)) - (double)*(int *)(this + 16448) * 0.33333334 < *(float *)(this + 14724) * *(float *)(this + 13384) - 0.34999999;
+FuelWeightLimitCheck,4,13384,0x3448,R,float,this,direct,|| (double)(dword_8ACF8C - *(_DWORD *)(this + 16444)) - (double)*(int *)(this + 16448) * 0.33333334 < *(float *)(this + 14724) * *(float *)(this + 13384) - 0.34999999;

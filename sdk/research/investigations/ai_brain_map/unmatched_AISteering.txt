@@ -1,0 +1,6 @@
+# AISteering: offset-like lines with no extracted row (5)
+L195: v4 = this + 17240;
+L304: v14 = (float *)(this + 16756);
+L311: (float *)(*(_DWORD *)v14 + 13536),
+L349: v24 = this + 17236;
+L900: v101 = this + 17236;

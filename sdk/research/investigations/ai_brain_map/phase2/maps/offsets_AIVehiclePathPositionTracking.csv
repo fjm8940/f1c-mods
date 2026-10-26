@@ -1,0 +1,36 @@
+func,line,dec,hex,access,width,base,form,expr
+AIVehiclePathPositionTracking,20,4,0x4,W,_DWORD,v5,array,v5[1] = a3[1];
+AIVehiclePathPositionTracking,20,4,0x4,R,_DWORD,a3,array,v5[1] = a3[1];
+AIVehiclePathPositionTracking,21,8,0x8,W,_DWORD,v5,array,v5[2] = a3[2];
+AIVehiclePathPositionTracking,21,8,0x8,R,_DWORD,a3,array,v5[2] = a3[2];
+AIVehiclePathPositionTracking,22,,,CALL,,,call,EulerToRotationMatrix
+AIVehiclePathPositionTracking,23,,,CALL,,,call,RideHeightDelta
+AIVehiclePathPositionTracking,24,13496,0x34B8,R,float,this,direct,v6 = *(float *)&v14 * *(float *)(this + 13496)
+AIVehiclePathPositionTracking,25,13492,0x34B4,R,float,this,direct,+ *((float *)&v13 + 1) * *(float *)(this + 13492)
+AIVehiclePathPositionTracking,26,13488,0x34B0,R,float,this,direct,+ *(float *)&v13 * *(float *)(this + 13488);
+AIVehiclePathPositionTracking,27,13508,0x34C4,R,float,this,direct,v7 = *(float *)&v14 * *(float *)(this + 13508)
+AIVehiclePathPositionTracking,28,13504,0x34C0,R,float,this,direct,+ *((float *)&v13 + 1) * *(float *)(this + 13504)
+AIVehiclePathPositionTracking,29,13500,0x34BC,R,float,this,direct,+ *(float *)&v13 * *(float *)(this + 13500);
+AIVehiclePathPositionTracking,30,13520,0x34D0,R,float,this,direct,*(float *)&v14 = *(float *)&v14 * *(float *)(this + 13520)
+AIVehiclePathPositionTracking,31,13516,0x34CC,R,float,this,direct,+ *((float *)&v13 + 1) * *(float *)(this + 13516)
+AIVehiclePathPositionTracking,32,13512,0x34C8,R,float,this,direct,+ *(float *)&v13 * *(float *)(this + 13512);
+AIVehiclePathPositionTracking,33,13524,0x34D4,R,float,this,direct,*(float *)&v13 = v6 + *(float *)(this + 13524);
+AIVehiclePathPositionTracking,34,13528,0x34D8,R,float,this,direct,v8 = v7 + *(float *)(this + 13528);
+AIVehiclePathPositionTracking,35,13532,0x34DC,R,float,this,direct,v9 = *(float *)&v14 + *(float *)(this + 13532);
+AIVehiclePathPositionTracking,37,4,0x4,R,float,a2,array,*((float *)&v13 + 1) = a2[1] - v8;
+AIVehiclePathPositionTracking,38,8,0x8,R,float,a2,array,v10 = a2[2] - v9;
+AIVehiclePathPositionTracking,39,13524,0x34D4,W,float,this,direct,*(float *)(this + 13524) = *(float *)&v13 + *(float *)(this + 13524);
+AIVehiclePathPositionTracking,39,13524,0x34D4,R,float,this,direct,*(float *)(this + 13524) = *(float *)&v13 + *(float *)(this + 13524);
+AIVehiclePathPositionTracking,40,13528,0x34D8,W,float,this,direct,*(float *)(this + 13528) = *((float *)&v13 + 1) + *(float *)(this + 13528);
+AIVehiclePathPositionTracking,40,13528,0x34D8,R,float,this,direct,*(float *)(this + 13528) = *((float *)&v13 + 1) + *(float *)(this + 13528);
+AIVehiclePathPositionTracking,41,13532,0x34DC,W,float,this,direct,*(float *)(this + 13532) = v10 + *(float *)(this + 13532);
+AIVehiclePathPositionTracking,41,13532,0x34DC,R,float,this,direct,*(float *)(this + 13532) = v10 + *(float *)(this + 13532);
+AIVehiclePathPositionTracking,42,15004,0x3A9C,W,_DWORD,this,direct,*(_DWORD *)(this + 15004) = 0;
+AIVehiclePathPositionTracking,43,,,CALL,,,call,F_3x3MatrixTransformWithTranslation
+AIVehiclePathPositionTracking,44,12988,0x32BC,R,_DWORD *,this,direct,result = *(_DWORD **)(this + 12988);
+AIVehiclePathPositionTracking,47,13524,0x34D4,R,float,this,direct,v16[0] = *(float *)(this + 13524);
+AIVehiclePathPositionTracking,48,13528,0x34D8,R,float,this,direct,v16[1] = *(float *)(this + 13528);
+AIVehiclePathPositionTracking,49,13532,0x34DC,R,float,this,direct,v16[2] = *(float *)(this + 13532);
+AIVehiclePathPositionTracking,51,13540,0x34E4,R,float,this,direct,v14 = *(float *)(this + 13540);
+AIVehiclePathPositionTracking,52,13544,0x34E8,R,float,this,direct,v15 = *(float *)(this + 13544);
+AIVehiclePathPositionTracking,53,,,CALL,,,call,RigidBodyConstraintSolve

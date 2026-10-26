@@ -1,0 +1,6 @@
+func,line,dec,hex,access,width,base,form,expr
+PostPitCleanup,5,,,CALL,,,call,SentinelSlotFill
+PostPitCleanup,6,17796,0x4584,R,_BYTE,this,direct,result = *(_BYTE *)(this + 17796);
+PostPitCleanup,8,17888,0x45E0,R,_DWORD,this,direct,++*(_DWORD *)(this + 17888);
+PostPitCleanup,10,17716,0x4534,W,_DWORD,this,direct,*(_DWORD *)(this + 17716) = 0;
+PostPitCleanup,11,17532,0x447C,W,float,this,direct,*(float *)(this + 17532) = dbl_8AFEA0 + 4.0;

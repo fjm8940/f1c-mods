@@ -1,0 +1,401 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 58,
+ "clip": "PWS_TEAMPIT02",
+ "says": "Player can now pit",
+ "dump_rows_for_clip": [
+  {
+   "eid": 59,
+   "hex": "0x003B",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 57,
+   "sdt_index": 58,
+   "clip_name": "PWS_TEAMPIT02.m",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 368,
+   "hex": "0x0170",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 57,
+   "sdt_index": 58,
+   "clip_name": "PWS_TEAMPIT02.m",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  57
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 59,
+   "hex": "0x003B",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 57,
+   "sdt_index": 58,
+   "clip_name": "PWS_TEAMPIT02.m",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 368,
+   "hex": "0x0170",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 57,
+   "sdt_index": 58,
+   "clip_name": "PWS_TEAMPIT02.m",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  59
+ ],
+ "literal_hits": {
+  "59": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 55,
+       "text": "v8 = a4 != 0 ? 38 : 59;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 78,
+    "first": [
+     "AudioNetworkStreamCleanup",
+     "AudioNetworkTreeWalker",
+     "AudioResampler",
+     "BoundedCounterUpdate",
+     "CUBESceneLoaderEntry",
+     "CameraViewportConfigBatch",
+     "CollisionContactDetection",
+     "CommandDispatchStateMachine",
+     "ConditionalGeometryDisplayUpdate",
+     "Constructor_e070",
+     "DisplayModeSetter",
+     "DoublyLinkedListAppend_90b0",
+     "EnumToIDMappingWithDefaultFallthrough",
+     "F_3DTransformWithSIMD",
+     "FilePathNameLookup",
+     "FlagBitSetter",
+     "FlagBitSetter_a160",
+     "GameOptionsUIConstructor",
+     "InPlaceDigitCharConversionStripSemicolons",
+     "LargeZeroInitConstructor",
+     "LinkedListBufferDestructor",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "MemoryAllocationWithFallback",
+     "MenuItemLayoutCalculator",
+     "MultiListFreeWithTraversal",
+     "MutexProtectedFieldWrite",
+     "ObjectInitWithFieldZeroing",
+     "ObjectInitWithFieldZeroing_0250",
+     "PanelMouseInteractionHandler",
+     "PhysicsDefaultsInitializer",
+     "PhysicsStateStructureInitializer",
+     "PhysicsStateZeroingResetForSuspension",
+     "PitStopOperationTimer",
+     "ResourceCleanup",
+     "SceneBatchRenderCheck",
+     "ScreenMenuNavigationController",
+     "SessionFlagPointerSelector",
+     "SignedIndexTableLookup",
+     "StateInitializerWithFlagCheck",
+     "TelemetryDisplaySwitch"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 58 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": []
+ },
+ "findings": [],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:107: | 59 | PWS_TEAMPIT02 | Teammate's pit stop completes (pittingStatus transitions to 0) AND player's callToBox tran | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:108: | 368 | PWS_TEAMPIT02 (alt e | Same as eid 59 with context variation | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:246: | `PWS_TEAMPIT02` | 58 | 59,368 | Player can now pit |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:68: | PWS_TEAMPIT02 | 58 | 59 | Team mate has pitted |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:428: | `PWS_TEAMPIT02` | 58 | 59, 368 | — | Player can now pit | user triage: Z, when team mate has pitted, played ONLY if player has a pit order active AND team mate is currently in th",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:344: | `PWS_TEAMPIT02` | 59, 368 | Player can now pit | eid 368 has no call site |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:170: PWS_TEAMPIT02, RE_OD_FASTEST_M`.",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:136: | 58 | `PWS_TEAMPIT02` | Z | - | Z, when team mate has pitted, played ONLY if player has a pit order active AND team mate is currently in the pits |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:272: | `PWS_TEAMPIT02` | 58 | 59,368 | Player can now pit |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:64: | `PWS_TEAMPIT02` | 58 | 59, 368 | user triage: Z, when team mate has pitted, played ONLY if player has a pit order active AND team mate is currently in the pits |"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "mechanical_failures",
+    "mod_version": "1.0.7 public (RELEASE_REGISTRY); donor table in mf_voice.h",
+    "eid": 59,
+    "mechanism": "token_only",
+    "condition": "TOKEN ONLY (owner correction 2026-10-18): MF borrows this eid as an internal radio-queue token and plays its own WAV; the vanilla clip never plays. MF V3 line MF_CRIT01 \"Engine critical, box now.\": donor eid row rewritten at load when PWS_MF01 SDT is installed; fired via commentary queue / radio_req",
+    "source": "development/mods/mechanical_failures/dll/mf_voice.h:82; engine_failure.c:1722-1760 (row write), 4040-4062 (voice_native_say)",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Player can now pit"
+   }
+  ],
+  "note": "user triage: Z, when team mate has pitted, played ONLY if player has a pit order active AND team mate is currently in the pits",
+  "triage": {
+   "sdt_index": 58,
+   "text": "Z, when team mate has pitted, played ONLY if player has a pit order active AND team mate is currently in the pits",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

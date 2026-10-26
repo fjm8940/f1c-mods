@@ -1,0 +1,2 @@
+Error: LoadLibrary returned NULL — check DLL path and bitness
+^C

@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "comments": {
+    "S_s_per_unit": "AI lap seconds per +1.00 AllAIFactor, negative (faster AI = lower lap). Slowing is linear; speed-up is capped by max_gain_s.",
+    "fallback_update_2026-10-16": "Fallback S_rel changed from -0.420 (Austria only) to the 5-track median; the 4 night1 tracks agree within -0.28..-0.31; Austria (100 % race) is the outlier.",
+    "night2_2026-10-16": "Monza and Austria wet added; Austria revised from -30.2 to -28.1 (two runs). Dry relative S over 6 tracks -0.28..-0.39, median ~-0.31; fallback kept -0.307.",
+    "run14_2026-10-16": "Hook is linear 0.85-1.10 and symmetric (Run 14, slider 93); seconds per unit do not depend on the slider (Austria -28.1 at 100, -29.4 at 93)."
+  },
+  "tracks": {
+    "austria_2001": {
+      "S_s_per_unit": -28.8,
+      "baseline_ai_lap_s": 71.88,
+      "max_gain_s": 3.0,
+      "evidence": "Run 9 parallel -1.51 s, Run 12 vs Run 9 -1.30 s (slider 100, x1.05) and Run 14 slider 93 linear fit 0.85-1.10 -29.4 s/unit (symmetric); mean of -28.1 and -29.4",
+      "tier": "MEASURED",
+      "range_tested": [
+        0.85,
+        1.1
+      ]
+    },
+    "monaco_2001": {
+      "S_s_per_unit": -23.2,
+      "baseline_ai_lap_s": 83.562,
+      "max_gain_s": 3.49,
+      "evidence": "Run 11 2026-10-16 night1, 50 % race, factor 1.05 vs native in parallel, delta -1.162 s (CI -1.287..-1.015), n=75 vs 146 clean laps (Monaco: few surviving cars, CI underestimates)",
+      "tier": "MEASURED",
+      "max_gain_tier": "DERIVED (fallback ratio)"
+    },
+    "hungaroring_2001": {
+      "S_s_per_unit": -24.5,
+      "baseline_ai_lap_s": 79.666,
+      "max_gain_s": 3.32,
+      "evidence": "Run 11 2026-10-16 night1, 50 % race, factor 1.05 vs native in parallel, delta -1.224 s (CI -1.597..-0.936), n=69 vs 152 clean laps",
+      "tier": "MEASURED",
+      "max_gain_tier": "DERIVED (fallback ratio)"
+    },
+    "indianapolis_2001": {
+      "S_s_per_unit": -22.9,
+      "baseline_ai_lap_s": 74.441,
+      "max_gain_s": 3.11,
+      "evidence": "Run 11 2026-10-16 night1, 50 % race, factor 1.05 vs native in parallel, delta -1.147 s (CI -1.308..-0.901), n=199 vs 162 clean laps",
+      "tier": "MEASURED",
+      "max_gain_tier": "DERIVED (fallback ratio)"
+    },
+    "melbourne_2001": {
+      "S_s_per_unit": -26.9,
+      "baseline_ai_lap_s": 91.93,
+      "max_gain_s": 3.84,
+      "evidence": "Run 11 2026-10-16 night1, 50 % race, factor 1.05 vs native in parallel, delta -1.343 s (CI -1.825..-0.779), n=170 vs 118 clean laps",
+      "tier": "MEASURED",
+      "max_gain_tier": "DERIVED (fallback ratio)"
+    },
+    "monza_2001": {
+      "S_s_per_unit": -29.4,
+      "baseline_ai_lap_s": 89.0,
+      "max_gain_s": 3.71,
+      "evidence": "Run 12 x1.05 vs Run 10 native (not parallel): -1.26 s standard / -1.68 per-car; mean used",
+      "tier": "MEASURED",
+      "max_gain_tier": "DERIVED (fallback ratio)"
+    },
+    "austria_2001_wet": {
+      "S_s_per_unit": -35.0,
+      "baseline_ai_lap_s": 76.53,
+      "max_gain_s": 3.19,
+      "evidence": "Run 12 wet pair (wetness 0.40) parallel: -1.751 s standard (CI -1.99..-1.56), per-car -1.70",
+      "tier": "MEASURED",
+      "note": "lever ~40 % stronger in the wet; apply when track wetness > 0"
+    }
+  },
+  "fallback": {
+    "S_rel_per_unit": -0.307,
+    "max_gain_rel": 0.041736,
+    "reference": "S_rel = median relative sensitivity over 5 measured tracks (Austria 100 % -0.42, Monaco -0.278, Hungaroring -0.307, Indianapolis -0.308, Melbourne -0.292; night1 2026-10-16); max_gain_rel = 3.0 / 71.88 (Austria, unmeasured cap). Multiply by the track AI baseline lap.",
+    "tier": "DERIVED"
+  },
+  "slider_ladder_austria_2001": {
+    "note": "native AI, 50 % race, laps 4..14 per-car filter (Run 13); seconds vs slider 100",
+    "70": 15.38,
+    "80": 8.62,
+    "85": 6.18,
+    "90": 4.14,
+    "93": 2.29,
+    "95": 1.36,
+    "97": 0.69,
+    "100": 0.0,
+    "110": -2.04,
+    "120": -3.22,
+    "source": "Run 13; 110/120 from Run 8 (100 % race)"
+  }
+}

@@ -1,0 +1,535 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 50,
+ "clip": "PWS_PIT06",
+ "says": "Limiter On",
+ "dump_rows_for_clip": [
+  {
+   "eid": 51,
+   "hex": "0x0033",
+   "priority": 20,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 49,
+   "sdt_index": 50,
+   "clip_name": "PWS_PIT06.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 356,
+   "hex": "0x0164",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 49,
+   "sdt_index": 50,
+   "clip_name": "PWS_PIT06.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  49
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 51,
+   "hex": "0x0033",
+   "priority": 20,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 49,
+   "sdt_index": 50,
+   "clip_name": "PWS_PIT06.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 356,
+   "hex": "0x0164",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 49,
+   "sdt_index": 50,
+   "clip_name": "PWS_PIT06.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  51
+ ],
+ "literal_hits": {
+  "51": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 553,
+       "text": "v5 = a4 != 0 ? 192 : 51;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 30,
+       "text": "v4 = a4 != 0 ? 30 : 51;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 47,
+    "first": [
+     "AddByteAtOffset51",
+     "AppendToLinkedListTail",
+     "AudioResampler",
+     "CMpegFilePlayer_Open",
+     "CollisionRegionInit2",
+     "ComplexStateValidator",
+     "ConfigIniParser",
+     "DDSTextureFormatValidationDecoding",
+     "F_3DTransformWithSIMD",
+     "FourCCDecoder",
+     "IDToValueMapper",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "MultiListDestructorWithCleanup",
+     "ObjectBufferCopyWithValidation",
+     "PPMP6ImageDecoder",
+     "PhysicsDefaultsInitializer",
+     "PhysicsStateStructureInitializer",
+     "PlayerOptionsInitializer",
+     "PlayerSteeringUpdate",
+     "RaceEventMessageDispatcher",
+     "ShortComputation_f190",
+     "SignedIndexTableLookup",
+     "SoundEventDispatcher",
+     "StructInitWithFloatConstants",
+     "SuspensionForceComputationWithPerCornerVirtualDi",
+     "TheSvmHdvVehicleFileParser",
+     "TireContactForceComputation",
+     "UnidentifiedLogicFunctionTable",
+     "WheelForceCalculationSpringDamperTorque",
+     "sub_44ED10",
+     "sub_454350",
+     "sub_455580",
+     "sub_486600",
+     "sub_496560",
+     "sub_4AE750",
+     "sub_4BCCC0",
+     "sub_4C6F10",
+     "sub_50210E",
+     "sub_511B7C",
+     "sub_5170C0"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 50 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "MapCollisionShapeToBoneIndex",
+    "file": "MapCollisionShapeToBoneIndex_00412c30.c",
+    "hits": [
+     {
+      "line": 65,
+      "text": "case 50:"
+     }
+    ]
+   },
+   {
+    "function": "RaceEventMessageDispatcher",
+    "file": "RaceEventMessageDispatcher_00411bf0.c",
+    "hits": [
+     {
+      "line": 23,
+      "text": "case 0x32:"
+     }
+    ]
+   },
+   {
+    "function": "SoundEventDispatcher",
+    "file": "SoundEventDispatcher_00411e90.c",
+    "hits": [
+     {
+      "line": 97,
+      "text": "case 0x32:"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:82: {\"tier\": \"DERIVED\", \"claim\": \"Group F (T1 verify-and-wire): 3 of 7 clips have working emitters (RE_PD_DQ sub_41A940, RE_OD_STUCK_7 sub_41AC50, PWS_AIMECHPROB1 sub_41AC50+DriverName",
+  "f1c_ida_decompiled\\findings.jsonl:127: {\"ts\": \"2026-07-28\", \"tier\": \"FACT\", \"topic\": \"pit_exit_commentary double-fire bug\", \"claim\": \"Root cause of PIT06/PIT10/PIT12 playing twice: the retry loop called inject"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-002.md:124: | `PWS_PIT06` | 50 | 51, 356 | red_flag NUMPAD2 already detects pit-lane entry — copy it |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:100: | 51 | PWS_PIT06 | Player enters pit lane zone: track position crosses pit entry waypoint (wp_pitlane from .a | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:101: | 356 | PWS_PIT06 (alt eid) | Same as eid 51 with context variation | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:241: | `PWS_PIT06` | 50 | 51,356 | Limiter On |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PITSTOP_METHODOLOGY.md:3: How PWS_QUAL28/29/30 and PWS_PIT06/09/10/12 were found, restored, and",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:201: | `PWS_PIT06` | 50 | 51, 356 | — | Limiter On | PWS_PIT06 Limiter On - entering pit lane - restored via dll/pit_exit_commentary_v7.dll, eid 51 (isolation-tested before wiring), tri",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:40: | `PWS_PIT06` | 51, 356 | Limiter On |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:196: PWS_PENALTY08, PWS_PIT01, PWS_PIT03, PWS_PIT06, PWS_PIT08, PWS_PIT13,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002F_t1_verify_and_wire.md:8: PWS_PIT06           [T2] no emitter — needs pit-entry observer",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002F_t1_verify_and_wire.md:20: PWS_PIT06 — red_flag script pit detection mechanism not yet reviewed.",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002F_t1_verify_and_wire.md:98: ## 4. PWS_PIT06 (eid 51) — T2: no emitter",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002F_t1_verify_and_wire.md:181: | PWS_PIT06 | 50 | 51 | none | no emitter | T2: copy red_flag script |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:46: | 50 | `PWS_PIT06` | Z | HAS_LEAD | Z, when player is detected to have entered the pit lane, existing red_flag script NUMPAD2 has detection for this when player enters the pit lane",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:267: | `PWS_PIT06` | 50 | 51,356 | Limiter On |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:19: | `PWS_PIT06` | 50 | 51, 356 | user triage: Z, when player is detected to have entered the pit lane, existing red_flag script NUMPAD2 has detection for this when player enters the "
+ ],
+ "mod_sources": [
+  "development\\mods\\pitstop_modding\\dll\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.1\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.2\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.3\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.4\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.2-rc.1\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.2-rc.2\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.3-rc.1\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.4-rc.1\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.5-rc.1\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.5-rc.2\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.6-rc.3\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.6-rc.4\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.7-rc.1\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.8-rc.1\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.9-rc.1\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.0-rc.1\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.1-rc.1\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.2-rc.1\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.3-rc.1\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.4-rc.1\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pitstop_modding\\src\\pit_commentary.c:5: *   PIT06 \"Limiter On\"  (eid 51)  pittingStatus 1->2",
+  "development\\mods\\pit_exit_commentary\\pit_exit_commentary.c:3: *   PWS_PIT06 \"Limiter On\"                    eid 51  (low twin, high=356)",
+  "development\\mods\\pit_exit_commentary\\pit_exit_commentary.c:24: *   PIT06 \"Limiter On\"        -> pittingStatus 1->2 (entering pit lane)",
+  "development\\mods\\pit_exit_commentary\\pit_exit_commentary.c:62: #define EID_PIT06_LIMITER_ON  51   /* isolation-tested 2026-07-28 before wiring */"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "EVF archive (progress.json DONE)",
+    "eid": null,
+    "mechanism": "see note",
+    "release_status": "archived",
+    "live_verified": true,
+    "source": "seed",
+    "condition": null
+   },
+   {
+    "mod": "pitstop_modding",
+    "mod_version": "1.1.4 (RELEASE_REGISTRY 2026-10-11)",
+    "eid": 51,
+    "mechanism": "dll_emit",
+    "condition": "player pit entry: pittingStatus 0 or 1 -> 2 (limiter on)",
+    "source": "development/mods/pitstop_modding/dll/pit_commentary.c:1094",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Limiter On"
+   },
+   {
+    "mod": "pit_exit_commentary",
+    "mod_version": "dev (no registry row; FEATURE.md:7 RESTORED)",
+    "eid": 51,
+    "mechanism": "dll_emit",
+    "condition": "pittingStatus 1 -> 2 edge (same trigger as pitstop_modding)",
+    "source": "development/mods/pit_exit_commentary/pit_exit_commentary.c:62,162,175-177",
+    "release_status": "dev",
+    "live_verified": true,
+    "says": "Limiter On"
+   }
+  ],
+  "note": "PWS_PIT06 Limiter On - entering pit lane - restored via dll/pit_exit_commentary_v7.dll, eid 51 (isolation-tested before wiring), trigger = pittingStatus 1->2, live-confirmed 2026-07-28",
+  "triage": {
+   "sdt_index": 50,
+   "text": "Z, when player is detected to have entered the pit lane, existing red_flag script NUMPAD2 has detection for this when player enters the pit lane -> race restart, can copy this directly",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [
+    "HAS_LEAD"
+   ],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "DONE"
+ }
+}

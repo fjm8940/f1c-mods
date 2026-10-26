@@ -1,0 +1,373 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 197,
+ "clip": "PWS_2001_132",
+ "says": "AI driver jammed fuel hose",
+ "dump_rows_for_clip": [
+  {
+   "eid": 185,
+   "hex": "0x00B9",
+   "priority": 20,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 188,
+   "sdt_index": 197,
+   "clip_name": "PWS_2001_132.mp",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  188
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 185,
+   "hex": "0x00B9",
+   "priority": 20,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 188,
+   "sdt_index": 197,
+   "clip_name": "PWS_2001_132.mp",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  185
+ ],
+ "literal_hits": {
+  "185": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 123,
+       "text": "v5 = a4 != 0 ? 185 : 457;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 5,
+    "first": [
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "MapCollisionShapeToBoneIndex",
+     "TireModelDataInit",
+     "UIControlWindowInitialization",
+     "sub_530840"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 197 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": []
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:124: {\"ts\": \"2026-07-28\", \"tier\": \"OPEN\", \"topic\": \"pit-stop failure clips (wheel jam, fuel hose, wheel gun)\", \"claim\": \"Identified the pit-failure clip set for future restora"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:89: | 185 | PWS_2001_132 | Fuel level unchanged for >FUEL_JAM_TIMEOUT ticks during pit stop (pittingStatus==3). Emit  | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:134: - PWS_2001_132 (eid 185, 'AI driver jammed fuel hose') — what distinguishes this from PWS_2001_79 (fuel hose issue - slow refuel)? Both describe fuel hose problems. Possibly 2001_1",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:293: | `PWS_2001_132` | 197 | 185 | AI driver jammed fuel hose |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:77: | PWS_2001_132 | 197 | 185 | Fuel hose jammed |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PIT_STOP_COMPREHENSIVE_ANALYSIS.md:727: | AI jammed fuel hose | PWS_2001_132-136 | 183-188 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PIT_STOP_COMPREHENSIVE_ANALYSIS.md:728: | AI stuck wheel | PWS_2001_132-136 | 183-188 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:258: | `PWS_2001_132` | 197 | 185 | — | AI driver jammed fuel hose | user triage: X PLAY, fuel hose jammed, see above pit failures, block AI from refueling, gotta think of this if AI ju",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:250: | `PWS_2001_132` | 185 | AI driver jammed fuel hose | eid 185 has no call site |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:185: `PWS_2001_132, PWS_2001_133, PWS_2001_134, PWS_2001_135, PWS_2001_136,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:61: | 197 | `PWS_2001_132` | X PLAY | HAS_LEAD | X PLAY, fuel hose jammed, see above pit failures, block AI from refueling, gotta think of this if AI just takes off from the pits and t",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:325: | `PWS_2001_132` | 197 | 185 | AI driver jammed fuel hose |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:100: | `PWS_2001_132` | 197 | 185 | user triage: X PLAY, fuel hose jammed, see above pit failures, block AI from refueling, gotta think of this if AI just takes off from the pits and tr"
+ ],
+ "mod_sources": [
+  "development\\mods\\pitstop_modding\\mock\\pit_mock_provider.c:1068: m.eid = 185; /* PWS_2001_132 */"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "pitstop_modding",
+    "mod_version": "1.1.4 (RELEASE_REGISTRY 2026-10-11)",
+    "eid": 185,
+    "mechanism": "dll_emit",
+    "condition": "AI box stop: AI fuel-hose roll (6%) at AI box entry",
+    "source": "development/mods/pitstop_modding/dll/pit_commentary.c:588,1557",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "AI driver jammed fuel hose"
+   }
+  ],
+  "note": "user triage: X PLAY, fuel hose jammed, see above pit failures, block AI from refueling, gotta think of this if AI just takes off from the pits and tries to refuel later again OR if retires  [flags: HAS_LEAD]",
+  "triage": {
+   "sdt_index": 197,
+   "text": "X PLAY, fuel hose jammed, see above pit failures, block AI from refueling, gotta think of this if AI just takes off from the pits and tries to refuel later again OR if retires",
+   "subject": "X",
+   "play": true,
+   "verdict": "TODO",
+   "flags": [
+    "HAS_LEAD"
+   ],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

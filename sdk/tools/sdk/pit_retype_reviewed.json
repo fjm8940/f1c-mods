@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "purpose": "Reviewed allowlist for F1CPitMachine* owner typing in the isolated lab IDB.",
+    "reviewed_on": "2026-08-05"
+  },
+  "approved": [
+    {"addr":"0x004A5C40","func":"TeammatePartValueLookup","evidence":"ForcePitExit passes vehicle+0x32CC; function dereferences pit_machine->vehicle."},
+    {"addr":"0x004A5C80","func":"StateChangeNotify","evidence":"Direct relative accesses 0x184/0x18C and all pit-state-machine callers pass the embedded controller."},
+    {"addr":"0x004A5D10","func":"AIStateMachineWithModeDispatch","evidence":"StateChangeNotify preserves its F1CPitMachine in ecx and passes the event record on stack; disassembly 0x4A5CF9..0x4A5CFF."},
+    {"addr":"0x004A5E10","func":"SessionTransitionDispatch","evidence":"Reads relative status 0x184 and delegates unchanged this to StateChangeNotify."},
+    {"addr":"0x004A5E40","func":"StateConditionalAction","evidence":"ForcePitExit explicitly computes vehicle+0x32CC into ecx at 0x42A12D and calls this function."},
+    {"addr":"0x004A5EA0","func":"sub_4A5EA0","evidence":"Called unchanged from the pit event dispatcher; reads pit entry latch at relative 0x180 and owner vehicle at 0."},
+    {"addr":"0x004A5F20","func":"sub_4A5F20","evidence":"Called unchanged from pit dispatcher/state update; reads pit entry latch and owner vehicle."},
+    {"addr":"0x004A5FA0","func":"VehicleProximityCollisionDetection","evidence":"PitStateUpdateMachine passes unchanged controller; function uses pit_machine->vehicle and relative state transitions."},
+    {"addr":"0x004A6200","func":"PitStopReadyCheck","evidence":"Reviewed service-ready method and direct relative field accesses."},
+    {"addr":"0x004A6340","func":"PitStopOperationTimer","evidence":"PitStopReadyCheck calls with unchanged controller; computes operation flags and duration from controller fields."},
+    {"addr":"0x004A68B0","func":"PitStopProgress","evidence":"Reviewed service-progress method; owner vehicle reached indirectly through pit_machine->vehicle."},
+    {"addr":"0x004A6E50","func":"PitStateUpdateMachine","evidence":"Reviewed per-frame pit state-machine method and relative status accesses."}
+  ]
+}

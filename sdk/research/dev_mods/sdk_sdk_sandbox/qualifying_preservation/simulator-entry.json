@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "target": {
+    "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\F1 Challenge Online.exe",
+    "sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+    "file_size": 3141632,
+    "machine": "0x014C",
+    "timestamp": "0x3E9C24F6",
+    "image_base": "0x00400000",
+    "entry_rva": "0x004D8000",
+    "image_size": "0x005FA000",
+    "checksum": "0x00306F7B",
+    "dynamic_base": false,
+    "sections": [
+      {
+        "name": ".text",
+        "rva": 4096,
+        "virtual_size": 1689062,
+        "raw_size": 1691648,
+        "raw_pointer": 4096,
+        "characteristics": 1610612768,
+        "sha256": "EA2D00051E3F93C5E5C657314F42AA35325B2A4750D841EF9EAED6A085C52FB7"
+      },
+      {
+        "name": ".rdata",
+        "rva": 1695744,
+        "virtual_size": 127137,
+        "raw_size": 131072,
+        "raw_pointer": 1695744,
+        "characteristics": 1073741888,
+        "sha256": "91E96373C03C94D80E0543DB58501611E39B9CA0CF55443E1F7F30558A8F149D"
+      },
+      {
+        "name": ".data",
+        "rva": 1826816,
+        "virtual_size": 3242608,
+        "raw_size": 184320,
+        "raw_pointer": 1826816,
+        "characteristics": 3221225536,
+        "sha256": "FB0B747261A79385C6C9CA06A3FB37F51BE1E6F6FB33A36EC3952296F291059F"
+      },
+      {
+        "name": ".data1",
+        "rva": 5070848,
+        "virtual_size": 2272,
+        "raw_size": 4096,
+        "raw_pointer": 2011136,
+        "characteristics": 3221225536,
+        "sha256": "7BC5026FF577FF22CC1E5E0BA6E628F41CC2532D06802D3D973FC632D214A69D"
+      },
+      {
+        "name": "LBMPEG_D",
+        "rva": 5074944,
+        "virtual_size": 1024,
+        "raw_size": 4096,
+        "raw_pointer": 2015232,
+        "characteristics": 3221225536,
+        "sha256": "6B9610A3B3A5B3A5FD4B41F7DB813F376D92F6EE7DE78F518447F6559E3A4553"
+      },
+      {
+        "name": ".text1",
+        "rva": 5079040,
+        "virtual_size": 745472,
+        "raw_size": 745472,
+        "raw_pointer": 2019328,
+        "characteristics": 1610612768,
+        "sha256": "D5AFF8B32957751C7A9F51BB669550F414DA27141B5E7BBA73769925C4A33B2D"
+      },
+      {
+        "name": ".data2",
+        "rva": 5824512,
+        "virtual_size": 65536,
+        "raw_size": 65536,
+        "raw_pointer": 2084864,
+        "characteristics": 3221225536,
+        "sha256": "DE2F256064A0AF797747C2B97505DC0B9F3DF0DE4F489EAC731C23AE9CA9CC31"
+      },
+      {
+        "name": ".rsrc",
+        "rva": 5890048,
+        "virtual_size": 373052,
+        "raw_size": 376832,
+        "raw_pointer": 2764800,
+        "characteristics": 1073741888,
+        "sha256": "B49A76C207602F54B96091DE73299CC1D7E3B62A20B6E18F6595B6B60A2ECDF5"
+      }
+    ]
+  },
+  "code_bytes": {
+    "address": "0x004BEB10",
+    "length": 32,
+    "hex": "81 EC C4 01 00 00 8B 84 24 C8 01 00 00 C6 00 00 53 55 8B E9 D9 85 58 03 00 00 8B 0D 8C CF 8A 00"
+  }
+}

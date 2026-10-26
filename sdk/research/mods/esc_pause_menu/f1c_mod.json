@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "esc_pause_menu",
+  "title": "ESC Pause Menu",
+  "production": false,
+  "sdk_major": 1,
+  "language": "c",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "subsystems": [],
+  "seeds": [],
+  "hooks": [],
+  "writes": [],
+  "tracing": {
+    "driver": "",
+    "seconds": 180,
+    "hz": 20,
+    "wait_phase": 5,
+    "pit_cycle": false,
+    "semantics": [
+      "command_input",
+      "output",
+      "latched_control"
+    ]
+  },
+  "regressions": [],
+  "runtime_files": [
+    {
+      "source": "esc_pause_menu.ini",
+      "destination": "esc_pause_menu.ini"
+    }
+  ],
+  "build": {
+    "script": "build_r7_dq_20260923.bat",
+    "dll": "build/r7_dq_20260923/esc_pause_menu.dll"
+  }
+}

@@ -1,0 +1,7 @@
+Extended Damage Commentary 1.0.1 release candidate
+
+Use Lightloader Manager 2.0 to install this package. Manual review installs may
+copy extended_damage_commentary.dll into plugins\lightloader while the game is
+closed.
+
+. Exact-DLL in-game commentary validation is pending.

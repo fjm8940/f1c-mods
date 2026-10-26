@@ -1,0 +1,9 @@
+func,line,dec,hex,access,width,base,form,expr
+RideHeightDelta,6,8,0x8,W,float,a2,direct,*(float *)(a2 + 8) = this[467];
+RideHeightDelta,6,1868,0x74C,R,float,this,array,*(float *)(a2 + 8) = this[467];
+RideHeightDelta,7,4,0x4,W,_DWORD,a2,direct,*(_DWORD *)(a2 + 4) = 0;
+RideHeightDelta,9,4,0x4,W,float,a2,direct,*(float *)(a2 + 4) = (this[3490] - this[3522] + this[3428] - this[3460]) * 0.5;
+RideHeightDelta,9,13960,0x3688,R,float,this,array,*(float *)(a2 + 4) = (this[3490] - this[3522] + this[3428] - this[3460]) * 0.5;
+RideHeightDelta,9,14088,0x3708,R,float,this,array,*(float *)(a2 + 4) = (this[3490] - this[3522] + this[3428] - this[3460]) * 0.5;
+RideHeightDelta,9,13712,0x3590,R,float,this,array,*(float *)(a2 + 4) = (this[3490] - this[3522] + this[3428] - this[3460]) * 0.5;
+RideHeightDelta,9,13840,0x3610,R,float,this,array,*(float *)(a2 + 4) = (this[3490] - this[3522] + this[3428] - this[3460]) * 0.5;

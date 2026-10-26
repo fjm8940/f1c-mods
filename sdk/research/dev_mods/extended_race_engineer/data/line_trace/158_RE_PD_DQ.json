@@ -1,0 +1,549 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 158,
+ "clip": "RE_PD_DQ",
+ "says": "Disqualified - failed to serve stop/go",
+ "dump_rows_for_clip": [
+  {
+   "eid": 149,
+   "hex": "0x0095",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 152,
+   "sdt_index": 158,
+   "clip_name": "RE_PD_DQ.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 479,
+   "hex": "0x01DF",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 152,
+   "sdt_index": 158,
+   "clip_name": "RE_PD_DQ.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  152
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 149,
+   "hex": "0x0095",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 152,
+   "sdt_index": 158,
+   "clip_name": "RE_PD_DQ.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 479,
+   "hex": "0x01DF",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 152,
+   "sdt_index": 158,
+   "clip_name": "RE_PD_DQ.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  149
+ ],
+ "literal_hits": {
+  "149": {
+   "emitters": [
+    {
+     "function": "sub_41A940",
+     "file": "sub_41A940_0041a940.c",
+     "hits": [
+      {
+       "line": 12,
+       "text": "v2 = 149;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "DisqualificationHandler",
+       "callers": [
+        {
+         "caller": "LapCompletion",
+         "callers": [
+          {
+           "caller": "LapSplitTimeEvent",
+           "callers": [
+            {
+             "caller": "TimerFrameRateThrottle",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "sub_4B3400",
+           "callers": [
+            {
+             "caller": "BufferReset",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "caller": "sub_4A5EA0",
+         "callers": [
+          {
+           "caller": "AIStateMachineWithModeDispatch",
+           "callers": [
+            {
+             "caller": "StateChangeNotify",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B3400",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "TrackTemperatureDisplay",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "sub_4A5F20",
+         "callers": [
+          {
+           "caller": "AIStateMachineWithModeDispatch",
+           "callers": []
+          },
+          {
+           "caller": "PitStateUpdateMachine",
+           "callers": [
+            {
+             "caller": "VehiclePhysicsModeDispatcher",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "TrackTemperatureDisplay",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "sub_4BC9B0",
+         "callers": [
+          {
+           "caller": "PitCloseTeamReadyCheck",
+           "callers": [
+            {
+             "caller": "PitTimer",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "PitTimer",
+           "callers": [
+            {
+             "caller": "sub_4D4580",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "sub_4C6B60",
+           "callers": [
+            {
+             "caller": "SceneRenderUpdate",
+             "callers": []
+            },
+            {
+             "caller": "sub_42D140",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "sub_4D2170",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "sub_4BCCC0",
+         "callers": [
+          {
+           "caller": "MainGameTickUpdate",
+           "callers": [
+            {
+             "caller": "GamePostMainLoop",
+             "callers": []
+            },
+            {
+             "caller": "StateTriggerCheck",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 165,
+       "text": "v9 = a4 != 0 ? 149 : 203;"
+      },
+      {
+       "line": 714,
+       "text": "v9 = a4 != 0 ? 149 : 211;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 3,
+    "first": [
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "UIControlWindowInitialization",
+     "sub_530840"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 158 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": []
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:67: {\"tier\": \"CONFIRMED\", \"claim\": \"10 player-side damage/retirement/DQ commentary clips are silenced ONLY by a deliberate FLT_MAX cooldown in the event table - their emitters exist in",
+  "f1c_ida_decompiled\\findings.jsonl:82: {\"tier\": \"DERIVED\", \"claim\": \"Group F (T1 verify-and-wire): 3 of 7 clips have working emitters (RE_PD_DQ sub_41A940, RE_OD_STUCK_7 sub_41AC50, PWS_AIMECHPROB1 sub_41AC50+DriverName",
+  "f1c_ida_decompiled\\findings.jsonl:83: {\"tier\": \"FACT\", \"claim\": \"RE_PD_DQ (eid 149) is ALREADY unblocked in the live process - the player-dq-commentary patch is applied, not merely registered - so no patch action is re",
+  "f1c_ida_decompiled\\findings.jsonl:89: {\"tier\": \"FACT\", \"claim\": \"SYSTEMIC: data/full_event_dump.json was STALE against the patched exe - it marked 26 events blocked when only 16 are actually blocked live, causing two i",
+  "f1c_ida_decompiled\\findings.jsonl:91: {\"tier\": \"FACT\", \"claim\": \"PROVEN LIVE: RE_PD_DQ (eid 149) fires in-game on disqualification for an ignored stop-go penalty - the cut player DQ commentary is restored and needs no ",
+  "f1c_ida_decompiled\\findings.jsonl:131: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"Session wrap: low-hanging-fruit sweep landed at 48 clips SHIPPED, T4_CONDITION pool down to 30\", \"claim\": \"Continued t"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-002.md:126: | `RE_PD_DQ` | 158 | 149, 479 | stop/go not served within ~3 laps; believed done already |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-003.md:16: - `RE_PD_DQ` and `PWS_RETIRE02` are **DONE**, both heard in-game.",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-007.md:41: - the known FACT that `RE_PD_DQ` (eid 149) **fires from pure gameplay**: ignore a",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_PARALLEL_RULES.md:67: | `RE_PD_DQ` | fires in vanilla gameplay, no code | DONE |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\DUMP_RESULTS.md:86: MISC_02-09 (investigation notices), RE_PD_25_DD, RE_PD_DQ, RE_PD_INV_DD,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:151: | `RE_PD_DQ` | 158 | 149,479 | Disqualified - failed to serve stop/go |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\HANDOFF_2026-07-28.md:21: The old #1 task is answered: `RE_PD_DQ` and `PWS_RETIRE02` were both injected and",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\HANDOFF_2026-07-28.md:24: **RESOLVED — the 4 \"armed\" lines were tested.** `RE_PD_DQ` (eid 149) fires from",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\HANDOFF_2026-07-28c.md:44: rows (`PWS_RETIRE02`, `RE_PD_DQ` — the two live-proven restorations).",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:342: | `RE_PD_DQ` | 158 | 149, 479 | — | Disqualified - failed to serve stop/go | user triage: Z, I believe this was done already, basically when you do not serve your stop/go penalty w",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:232: | `RE_PD_DQ` | 149, 479 | Disqualified - failed to serve stop/go | eid 479 live, emitter literal SeasonDisplayIDResolver_0041daf0.c:453 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:120: `RE_OD_STUCK_7`, `RE_OD_WET`, `RE_PD_25_DD`, `RE_PD_DQ`, `RE_PD_EXIT_RED`,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002F_t1_verify_and_wire.md:5: RE_PD_DQ            [T1] emitter exists, FLT_MAX cooldown — apply registered player-dq patch",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002F_t1_verify_and_wire.md:15: offsets:      RE_PD_DQ/sub_41A940: this[..] (vehicle struct, confirmed write path)",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002F_t1_verify_and_wire.md:25: ## 1. RE_PD_DQ (eid 149) — T1: cooldown unblock",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002F_t1_verify_and_wire.md:178: | RE_PD_DQ | 158 | 149 | sub_41A940:12 ✓ | FLT_MAX cooldown | T1: patch registered, not applied |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:169: | 158 | `RE_PD_DQ` | Z | - | Z, I believe this was done already, basically when you do not serve your stop/go penalty within X laps, usually three if I remember correctly |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:68: ### RE_PD_DQ (SDT 158) - Disqualified - failed to serve stop/go"
+ ],
+ "mod_sources": [
+  "development\\mods\\player_dq_commentary\\source.c:4: * Restores: RE_PD_DQ"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "player_dq_commentary",
+    "mod_version": "dev (no version; no registry row)",
+    "eid": 149,
+    "mechanism": "cooldown_unblock",
+    "condition": "player disqualified: cooldown at eid 149 row patched FLT_MAX -> 1.0 s",
+    "source": "development/mods/player_dq_commentary/source.c:5,55-56 (site 0x005C0550 = eid 149 cooldown)",
+    "release_status": "dev",
+    "live_verified": true,
+    "says": "Disqualified - failed to serve stop/go"
+   }
+  ],
+  "note": "user triage: Z, I believe this was done already, basically when you do not serve your stop/go penalty within X laps, usually three if I remember correctly",
+  "triage": {
+   "sdt_index": 158,
+   "text": "Z, I believe this was done already, basically when you do not serve your stop/go penalty within X laps, usually three if I remember correctly",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

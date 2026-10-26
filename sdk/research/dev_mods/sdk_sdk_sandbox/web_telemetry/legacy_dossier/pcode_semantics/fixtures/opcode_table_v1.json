@@ -1,0 +1,9227 @@
+{
+  "schema": "f1c.legacy_pcode_opcode_table.v1",
+  "source_url": "https://www.vb-decompiler.org/vb_pcode_table.htm",
+  "source_title": "Visual Basic 5.0/6.0 P-Code Public Opcode Table (DotFix Software, 2006-08-25)",
+  "source_sha256": "C08F44A520EE634DD4A4BD32836FEBB0A0BB8D3CA95EFFE8CB566D6F37BDD75A",
+  "raw_rows": 1536,
+  "entries": {
+    "00": {
+      "name": "LargeBos",
+      "size": 2,
+      "size_raw": "2",
+      "is_lead": false
+    },
+    "01": {
+      "name": "InvalidExcode",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "02": {
+      "name": "SelectCaseByte",
+      "size": 2,
+      "size_raw": "2",
+      "is_lead": false
+    },
+    "03": {
+      "name": "DOC",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "04": {
+      "name": "FLdRfVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "05": {
+      "name": "ImpAdLdRf",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "06": {
+      "name": "MemLdRfVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "07": {
+      "name": "FMemLdRf",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "08": {
+      "name": "FLdPr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "09": {
+      "name": "ImpAdCallHresult",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "0A": {
+      "name": "ImpAdCallFPR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "0B": {
+      "name": "ImpAdCallI2",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "0C": {
+      "name": "ImpAdCallCy",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "0D": {
+      "name": "VCallHresult",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "0E": {
+      "name": "VCallFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "0F": {
+      "name": "VCallAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "10": {
+      "name": "ThisVCallHresult",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "11": {
+      "name": "ThisVCall",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "12": {
+      "name": "ThisVCallAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "13": {
+      "name": "ExitProcHresult",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "14": {
+      "name": "ExitProc",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "15": {
+      "name": "ExitProcI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "16": {
+      "name": "ExitProcR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "17": {
+      "name": "ExitProcR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "18": {
+      "name": "ExitProcCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "19": {
+      "name": "FStAdFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "1A": {
+      "name": "FFree1Ad",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "1B": {
+      "name": "LitStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "1C": {
+      "name": "BranchF",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "1D": {
+      "name": "BranchT",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "1E": {
+      "name": "Branch",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "1F": {
+      "name": "CRec2Ansi",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "20": {
+      "name": "CRec2Uni",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "21": {
+      "name": "FLdPrThis",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "22": {
+      "name": "ImpAdLdPr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "23": {
+      "name": "FStStrNoPop",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "24": {
+      "name": "NewIfNullPr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "25": {
+      "name": "PopAdLdVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "26": {
+      "name": "AryDescTemp",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "27": {
+      "name": "LitVar_Missing",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "28": {
+      "name": "LitVarI2",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "29": {
+      "name": "FFreeAd",
+      "size": -1,
+      "size_raw": "-1",
+      "is_lead": false
+    },
+    "2A": {
+      "name": "ConcatStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "2B": {
+      "name": "PopTmpLdAd2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "2C": {
+      "name": "LateIdSt",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "2D": {
+      "name": "AryUnlock",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "2E": {
+      "name": "AryLock",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "2F": {
+      "name": "FFree1Str",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "30": {
+      "name": "PopTmpLdAd8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "31": {
+      "name": "FStStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "32": {
+      "name": "FFreeStr",
+      "size": -1,
+      "size_raw": "-1",
+      "is_lead": false
+    },
+    "33": {
+      "name": "LdFixedStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "34": {
+      "name": "CStr2Ansi",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "35": {
+      "name": "FFree1Var",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "36": {
+      "name": "FFreeVar",
+      "size": -1,
+      "size_raw": "-1",
+      "is_lead": false
+    },
+    "37": {
+      "name": "PopFPR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "38": {
+      "name": "CopyBytes",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "39": {
+      "name": "PopFPR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "3A": {
+      "name": "LitVarStr",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "3B": {
+      "name": "Ary1StStrCopy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "3C": {
+      "name": "SetLastSystemError",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "3D": {
+      "name": "CastAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "3E": {
+      "name": "FLdZeroAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "3F": {
+      "name": "CVarCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "40": {
+      "name": "Ary1LdRf",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "41": {
+      "name": "Ary1LdPr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "42": {
+      "name": "CR4Var",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "43": {
+      "name": "FStStrCopy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "44": {
+      "name": "CVarI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "45": {
+      "name": "Error",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "46": {
+      "name": "CVarStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "47": {
+      "name": "StFixedStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "48": {
+      "name": "ILdPr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "49": {
+      "name": "PopAdLd4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "4A": {
+      "name": "FnLenStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "4B": {
+      "name": "OnErrorGoto",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "4C": {
+      "name": "FnLBound",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "4D": {
+      "name": "CVarRef",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "4E": {
+      "name": "FStVarCopyObj",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "4F": {
+      "name": "MidStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "50": {
+      "name": "CI4Str",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "51": {
+      "name": "DOC(FLdZeroAd)",
+      "size": 3,
+      "size_raw": "3E",
+      "is_lead": false
+    },
+    "52": {
+      "name": "Ary1StVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "53": {
+      "name": "CBoolCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "54": {
+      "name": "FMemStStrCopy",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "55": {
+      "name": "CI2Var",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "56": {
+      "name": "NewIfNullAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "57": {
+      "name": "LateMemLdVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "58": {
+      "name": "MemLdPr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "59": {
+      "name": "PopTmpLdAdStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "5A": {
+      "name": "Erase",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "5B": {
+      "name": "FStAdFuncNoPop",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "5C": {
+      "name": "BranchFVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "5D": {
+      "name": "HardType",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "5E": {
+      "name": "DOC(ImpAdCallI2)",
+      "size": 5,
+      "size_raw": "000B",
+      "is_lead": false
+    },
+    "5F": {
+      "name": "FMemLdPr",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "60": {
+      "name": "CStrVarTmp",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "61": {
+      "name": "LateIdLdVar",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "62": {
+      "name": "IStDarg",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "63": {
+      "name": "LitVar_TRUE",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "64": {
+      "name": "NextI2",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "65": {
+      "name": "NextStepI2",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "66": {
+      "name": "NextI4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "67": {
+      "name": "NextStepI4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "68": {
+      "name": "NextStepR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "69": {
+      "name": "NextStepR8",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "6A": {
+      "name": "NextStepCy",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "6B": {
+      "name": "FLdI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "6C": {
+      "name": "ILdRf",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "6D": {
+      "name": "FLdR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "6E": {
+      "name": "FLdFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "6F": {
+      "name": "FLdFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "70": {
+      "name": "FStI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "71": {
+      "name": "FStR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "72": {
+      "name": "FStR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "73": {
+      "name": "FStFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "74": {
+      "name": "FStFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "75": {
+      "name": "ImpAdLdI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "76": {
+      "name": "ImpAdLdI4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "77": {
+      "name": "ImpAdLdCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "78": {
+      "name": "ImpAdLdFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "79": {
+      "name": "ImpAdLdFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "7A": {
+      "name": "ImpAdStI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "7B": {
+      "name": "ImpAdStR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "7C": {
+      "name": "ImpAdStCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "7D": {
+      "name": "ImpAdStFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "7E": {
+      "name": "ImpAdStFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "7F": {
+      "name": "ILdI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "80": {
+      "name": "ILdI4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "81": {
+      "name": "ILdR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "82": {
+      "name": "ILdFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "83": {
+      "name": "ILdFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "84": {
+      "name": "IStI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "85": {
+      "name": "IStI4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "86": {
+      "name": "IStR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "87": {
+      "name": "IStFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "88": {
+      "name": "IStFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "89": {
+      "name": "MemLdI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "8A": {
+      "name": "MemLdStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "8B": {
+      "name": "MemLdR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "8C": {
+      "name": "MemLdFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "8D": {
+      "name": "MemLdFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "8E": {
+      "name": "MemStI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "8F": {
+      "name": "MemStI4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "90": {
+      "name": "MemStR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "91": {
+      "name": "MemStFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "92": {
+      "name": "MemStFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "93": {
+      "name": "FMemLdI2",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "94": {
+      "name": "FMemLdR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "95": {
+      "name": "FMemLdCy",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "96": {
+      "name": "FMemLdFPR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "97": {
+      "name": "FMemLdFPR8",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "98": {
+      "name": "FMemStI2",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "99": {
+      "name": "FMemStI4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "9A": {
+      "name": "FMemStR8",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "9B": {
+      "name": "FMemStFPR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "9C": {
+      "name": "FMemStFPR8",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "9D": {
+      "name": "Ary1LdI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "9E": {
+      "name": "Ary1LdI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "9F": {
+      "name": "Ary1LdCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "A0": {
+      "name": "Ary1LdFPR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "A1": {
+      "name": "Ary1LdFPR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "A2": {
+      "name": "Ary1StI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "A3": {
+      "name": "Ary1StI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "A4": {
+      "name": "Ary1StCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "A5": {
+      "name": "Ary1StFPR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "A6": {
+      "name": "Ary1StFPR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "A7": {
+      "name": "AryLdPr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "A8": {
+      "name": "AryLdRf",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "A9": {
+      "name": "AddI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "AA": {
+      "name": "AddI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "AB": {
+      "name": "AddR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "AC": {
+      "name": "AddCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "AD": {
+      "name": "SubI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "AE": {
+      "name": "SubI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "AF": {
+      "name": "SubR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "B0": {
+      "name": "SubCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "B1": {
+      "name": "MulI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "B2": {
+      "name": "MulI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "B3": {
+      "name": "MulR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "B4": {
+      "name": "MulCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "B5": {
+      "name": "MulCyI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "B6": {
+      "name": "DivR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "B7": {
+      "name": "UMiI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "B8": {
+      "name": "UMiI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "B9": {
+      "name": "UMiR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "BA": {
+      "name": "UMiCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "BB": {
+      "name": "FnAbsI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "BC": {
+      "name": "FnAbsI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "BD": {
+      "name": "FnAbsR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "BE": {
+      "name": "FnAbsCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "BF": {
+      "name": "IDvI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "C0": {
+      "name": "IDvI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "C1": {
+      "name": "ModI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "C2": {
+      "name": "ModI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "C3": {
+      "name": "NotI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "C4": {
+      "name": "AndI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "C5": {
+      "name": "OrI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "C6": {
+      "name": "EqI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "C7": {
+      "name": "EqI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "C8": {
+      "name": "EqR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "C9": {
+      "name": "EqCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "CA": {
+      "name": "EqCyR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "CB": {
+      "name": "NeI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "CC": {
+      "name": "NeI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "CD": {
+      "name": "NeR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "CE": {
+      "name": "NeCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "CF": {
+      "name": "NeCyR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "D0": {
+      "name": "LtI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "D1": {
+      "name": "LtI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "D2": {
+      "name": "LtR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "D3": {
+      "name": "LtCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "D4": {
+      "name": "LtCyR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "D5": {
+      "name": "LeI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "D6": {
+      "name": "LeI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "D7": {
+      "name": "LeR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "D8": {
+      "name": "LeCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "D9": {
+      "name": "LeCyR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "DA": {
+      "name": "GtI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "DB": {
+      "name": "GtI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "DC": {
+      "name": "GtR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "DD": {
+      "name": "GtCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "DE": {
+      "name": "GtCyR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "DF": {
+      "name": "GeI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "E0": {
+      "name": "GeI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "E1": {
+      "name": "GeR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "E2": {
+      "name": "GeCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "E3": {
+      "name": "GeCyR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "E4": {
+      "name": "CI2I4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "E5": {
+      "name": "CI2R8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "E6": {
+      "name": "CI2Cy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "E7": {
+      "name": "CI4UI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "E8": {
+      "name": "CI4R8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "E9": {
+      "name": "CI4Cy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "EA": {
+      "name": "CR4R4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "EB": {
+      "name": "CR8I2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "EC": {
+      "name": "CR8I4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "ED": {
+      "name": "CR8R8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "EE": {
+      "name": "CR8Cy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "EF": {
+      "name": "CCyI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "F0": {
+      "name": "CCyI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "F1": {
+      "name": "CCyR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "F2": {
+      "name": "CDateR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "F3": {
+      "name": "LitI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "F4": {
+      "name": "LitI2_Byte",
+      "size": 2,
+      "size_raw": "2",
+      "is_lead": false
+    },
+    "F5": {
+      "name": "LitI4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "F6": {
+      "name": "LitCy",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "F7": {
+      "name": "LitCy4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "F8": {
+      "name": "LitI2FP",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "F9": {
+      "name": "LitR4FP",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FA": {
+      "name": "LitDate",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FB": {
+      "name": "Lead0",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": true
+    },
+    "FC": {
+      "name": "Lead1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": true
+    },
+    "FD": {
+      "name": "Lead2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": true
+    },
+    "FE": {
+      "name": "Lead3",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": true
+    },
+    "FF": {
+      "name": "Lead4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": true
+    },
+    "FB00": {
+      "name": "DOC(InvalidExcode)",
+      "size": 5,
+      "size_raw": "0001",
+      "is_lead": false
+    },
+    "FB01": {
+      "name": "ImpUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB02": {
+      "name": "ImpI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB03": {
+      "name": "DOC(ImpI4)",
+      "size": 1,
+      "size_raw": "FB02",
+      "is_lead": false
+    },
+    "FB04": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB05": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB06": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB07": {
+      "name": "ImpVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB08": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB09": {
+      "name": "EqvUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB0A": {
+      "name": "EqvI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB0B": {
+      "name": "DOC(EqvI4)",
+      "size": 1,
+      "size_raw": "FB0A",
+      "is_lead": false
+    },
+    "FB0C": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB0D": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB0E": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB0F": {
+      "name": "EqvVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB10": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB11": {
+      "name": "XorI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB12": {
+      "name": "DOC(XorI4)",
+      "size": 1,
+      "size_raw": "FB11",
+      "is_lead": false
+    },
+    "FB13": {
+      "name": "DOC(XorI4)",
+      "size": 1,
+      "size_raw": "FB11",
+      "is_lead": false
+    },
+    "FB14": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB15": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB16": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB17": {
+      "name": "XorVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB18": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB19": {
+      "name": "OrI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB1A": {
+      "name": "DOC(OrI2)",
+      "size": 1,
+      "size_raw": "FB19",
+      "is_lead": false
+    },
+    "FB1B": {
+      "name": "DOC(OrI2)",
+      "size": 1,
+      "size_raw": "FB19",
+      "is_lead": false
+    },
+    "FB1C": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB1D": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB1E": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB1F": {
+      "name": "OrVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB20": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB21": {
+      "name": "AndUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB22": {
+      "name": "DOC(AndUI1)",
+      "size": 1,
+      "size_raw": "FB21",
+      "is_lead": false
+    },
+    "FB23": {
+      "name": "DOC(AndUI1)",
+      "size": 1,
+      "size_raw": "FB21",
+      "is_lead": false
+    },
+    "FB24": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB25": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB26": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB27": {
+      "name": "AndVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB28": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB29": {
+      "name": "EqI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB2A": {
+      "name": "EqI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB2B": {
+      "name": "EqI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB2C": {
+      "name": "EqR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB2D": {
+      "name": "EqR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB2E": {
+      "name": "EqCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB2F": {
+      "name": "EqVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB30": {
+      "name": "EqStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB31": {
+      "name": "EqTextVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB32": {
+      "name": "EqTextStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB33": {
+      "name": "EqVarBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB34": {
+      "name": "EqTextVarBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB35": {
+      "name": "EqCyR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB36": {
+      "name": "NeUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB37": {
+      "name": "NeUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB38": {
+      "name": "DOC(NeI4)",
+      "size": 1,
+      "size_raw": "00CC",
+      "is_lead": false
+    },
+    "FB39": {
+      "name": "NeR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB3A": {
+      "name": "NeR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB3B": {
+      "name": "NeCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB3C": {
+      "name": "NeVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB3D": {
+      "name": "NeStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB3E": {
+      "name": "NeTextVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB3F": {
+      "name": "NeTextStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB40": {
+      "name": "NeVarBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB41": {
+      "name": "NeTextVarBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB42": {
+      "name": "NeCyR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB43": {
+      "name": "LeUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB44": {
+      "name": "LeI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB45": {
+      "name": "DOC(LeI4)",
+      "size": 1,
+      "size_raw": "00D6",
+      "is_lead": false
+    },
+    "FB46": {
+      "name": "LeR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB47": {
+      "name": "LeR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB48": {
+      "name": "LeCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB49": {
+      "name": "LeVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB4A": {
+      "name": "LeStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB4B": {
+      "name": "LeTextVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB4C": {
+      "name": "LeTextStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB4D": {
+      "name": "LeVarBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB4E": {
+      "name": "LeTextVarBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB4F": {
+      "name": "LeCyR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB50": {
+      "name": "GeUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB51": {
+      "name": "GeI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB52": {
+      "name": "DOC(GeI4)",
+      "size": 1,
+      "size_raw": "00E0",
+      "is_lead": false
+    },
+    "FB53": {
+      "name": "GeR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB54": {
+      "name": "GeR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB55": {
+      "name": "GeCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB56": {
+      "name": "GeVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB57": {
+      "name": "GeStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB58": {
+      "name": "GeTextVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB59": {
+      "name": "GeTextStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB5A": {
+      "name": "GeVarBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB5B": {
+      "name": "GeTextVarBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB5C": {
+      "name": "GeCyR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB5D": {
+      "name": "LtUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB5E": {
+      "name": "LtI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB5F": {
+      "name": "LtI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB60": {
+      "name": "LtR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB61": {
+      "name": "LtR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB62": {
+      "name": "LtCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB63": {
+      "name": "LtVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB64": {
+      "name": "LtStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB65": {
+      "name": "LtTextVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB66": {
+      "name": "LtTextStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB67": {
+      "name": "LtVarBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB68": {
+      "name": "LtTextVarBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB69": {
+      "name": "LtCyR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB6A": {
+      "name": "GtUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB6B": {
+      "name": "GtI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB6C": {
+      "name": "DOC(GtI4)",
+      "size": 1,
+      "size_raw": "00DB",
+      "is_lead": false
+    },
+    "FB6D": {
+      "name": "GtR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB6E": {
+      "name": "GtR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB6F": {
+      "name": "GtCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB70": {
+      "name": "GtVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB71": {
+      "name": "GtStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB72": {
+      "name": "GtTextVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB73": {
+      "name": "GtTextStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB74": {
+      "name": "GtVarBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB75": {
+      "name": "GtTextVarBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB76": {
+      "name": "GtCyR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB77": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB78": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB79": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB7A": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB7B": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB7C": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB7D": {
+      "name": "LikeVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB7E": {
+      "name": "LikeStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB7F": {
+      "name": "LikeTextVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB80": {
+      "name": "LikeTextStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB81": {
+      "name": "LikeVarBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB82": {
+      "name": "LikeTextVarBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB83": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB84": {
+      "name": "BetweenUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB85": {
+      "name": "BetweenI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB86": {
+      "name": "BetweenI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB87": {
+      "name": "BetweenR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB88": {
+      "name": "BetweenR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB89": {
+      "name": "BetweenCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB8A": {
+      "name": "BetweenVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB8B": {
+      "name": "BetweenStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB8C": {
+      "name": "BetweenTextVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB8D": {
+      "name": "BetweenTextStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB8E": {
+      "name": "AddUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB8F": {
+      "name": "AddI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB90": {
+      "name": "DOC(AddI4)",
+      "size": 1,
+      "size_raw": "00AA",
+      "is_lead": false
+    },
+    "FB91": {
+      "name": "AddR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB92": {
+      "name": "AddR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB93": {
+      "name": "AddCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB94": {
+      "name": "AddVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB95": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB96": {
+      "name": "SubUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB97": {
+      "name": "SubI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB98": {
+      "name": "SubI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB99": {
+      "name": "SubR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB9A": {
+      "name": "SubR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB9B": {
+      "name": "SubCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB9C": {
+      "name": "SubVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FB9D": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FB9E": {
+      "name": "ModUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FB9F": {
+      "name": "ModI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBA0": {
+      "name": "ModI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBA1": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBA2": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBA3": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBA4": {
+      "name": "ModVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FBA5": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBA6": {
+      "name": "IDvUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBA7": {
+      "name": "IDvI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBA8": {
+      "name": "IDvI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBA9": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBAA": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBAB": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBAC": {
+      "name": "IDvVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FBAD": {
+      "name": "Unknow",
+      "size": 0,
+      "size_raw": "0",
+      "is_lead": false
+    },
+    "FBAE": {
+      "name": "MulUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBAF": {
+      "name": "MulI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBB0": {
+      "name": "MulI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBB1": {
+      "name": "MulR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBB2": {
+      "name": "MulR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBB3": {
+      "name": "MulCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBB4": {
+      "name": "MulVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FBB5": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBB6": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBB7": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBB8": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBB9": {
+      "name": "DOC(DivR8)",
+      "size": 1,
+      "size_raw": "00B6",
+      "is_lead": false
+    },
+    "FBBA": {
+      "name": "DOC(DivR8)",
+      "size": 1,
+      "size_raw": "00B6",
+      "is_lead": false
+    },
+    "FBBB": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBBC": {
+      "name": "DivVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FBBD": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBBE": {
+      "name": "NotUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBBF": {
+      "name": "NotI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBC0": {
+      "name": "NotI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBC1": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBC2": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBC3": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBC4": {
+      "name": "NotVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FBC5": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBC6": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBC7": {
+      "name": "UMiI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBC8": {
+      "name": "UMiI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBC9": {
+      "name": "UMiR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBCA": {
+      "name": "UMiR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBCB": {
+      "name": "UMiCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBCC": {
+      "name": "UMiVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FBCD": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBCE": {
+      "name": "PwrVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FBCF": {
+      "name": "PwrR8R8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBD0": {
+      "name": "PwrR8I2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBD1": {
+      "name": "MulCyI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBD2": {
+      "name": "Is",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBD3": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBD4": {
+      "name": "FnAbsI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBD5": {
+      "name": "FnAbsI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBD6": {
+      "name": "FnAbsR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBD7": {
+      "name": "FnAbsR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBD8": {
+      "name": "FnAbsCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBD9": {
+      "name": "FnAbsVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FBDA": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBDB": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBDC": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBDD": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBDE": {
+      "name": "FnFixR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBDF": {
+      "name": "FnFixR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBE0": {
+      "name": "FnFixCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBE1": {
+      "name": "FnFixVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FBE2": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBE3": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBE4": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBE5": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBE6": {
+      "name": "FnIntR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBE7": {
+      "name": "FnIntR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBE8": {
+      "name": "FnIntCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBE9": {
+      "name": "FnIntVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FBEA": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBEB": {
+      "name": "FnLenVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FBEC": {
+      "name": "FnLenStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBED": {
+      "name": "FnLenBVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FBEE": {
+      "name": "FnLenBStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBEF": {
+      "name": "ConcatVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FBF0": {
+      "name": "DOC(ConcatStr)",
+      "size": 1,
+      "size_raw": "2A",
+      "is_lead": false
+    },
+    "FBF1": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBF2": {
+      "name": "FnSgnUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBF3": {
+      "name": "FnSgnUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBF4": {
+      "name": "FnSgnI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBF5": {
+      "name": "FnSgnR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBF6": {
+      "name": "FnSgnR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBF7": {
+      "name": "FnSgnCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBF8": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBF9": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FBFA": {
+      "name": "SeekFile",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBFB": {
+      "name": "NameFile",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBFC": {
+      "name": "CStrI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBFD": {
+      "name": "CStrUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBFE": {
+      "name": "CStrI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FBFF": {
+      "name": "CStrR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC00": {
+      "name": "CStrR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC01": {
+      "name": "CStrCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC02": {
+      "name": "CStrVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC03": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FC04": {
+      "name": "DOC(CCyI2)",
+      "size": 1,
+      "size_raw": "00EF",
+      "is_lead": false
+    },
+    "FC05": {
+      "name": "DOC(CCyI2)",
+      "size": 1,
+      "size_raw": "00EF",
+      "is_lead": false
+    },
+    "FC06": {
+      "name": "CCyI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC07": {
+      "name": "CCyR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC08": {
+      "name": "CCyR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC09": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FC0A": {
+      "name": "CCyVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC0B": {
+      "name": "CCyStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC0C": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FC0D": {
+      "name": "CUI1I2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC0E": {
+      "name": "CUI1I4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC0F": {
+      "name": "CUI1R4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC10": {
+      "name": "CUI1R4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC11": {
+      "name": "CUI1Cy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC12": {
+      "name": "CUI1Var",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC13": {
+      "name": "CUI1Str",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC14": {
+      "name": "CI2UI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC15": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FC16": {
+      "name": "CI2I4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC17": {
+      "name": "CI2R8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC18": {
+      "name": "CI2R8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC19": {
+      "name": "CI2Cy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC1A": {
+      "name": "CI2Var",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC1B": {
+      "name": "CI2Str",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC1C": {
+      "name": "CI4UI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC1D": {
+      "name": "CI4UI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC1E": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FC1F": {
+      "name": "CI4R8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC20": {
+      "name": "CI4R8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC21": {
+      "name": "CI4Cy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC22": {
+      "name": "CI4Var",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC23": {
+      "name": "CI4Str",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC24": {
+      "name": "FnCSngI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC25": {
+      "name": "FnCSngI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC26": {
+      "name": "CR4I4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC27": {
+      "name": "CR4R8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC28": {
+      "name": "CR4R8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC29": {
+      "name": "CR8Cy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC2A": {
+      "name": "CR8Var",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC2B": {
+      "name": "CR4Str",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC2C": {
+      "name": "FnCSngI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC2D": {
+      "name": "FnCSngI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC2E": {
+      "name": "CR4I4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC2F": {
+      "name": "CR8R4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC30": {
+      "name": "CR8R4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC31": {
+      "name": "CR8Cy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC32": {
+      "name": "CR8Var",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC33": {
+      "name": "CR8Str",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC34": {
+      "name": "CAdVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC35": {
+      "name": "CRefVarAry",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC36": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FC37": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FC38": {
+      "name": "CUI1Bool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC39": {
+      "name": "FnCDblCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC3A": {
+      "name": "FnCDblR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC3B": {
+      "name": "FnCDblR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC3C": {
+      "name": "FnCSngI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC3D": {
+      "name": "FnCSngI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC3E": {
+      "name": "FnCSngI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC3F": {
+      "name": "CSng",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC40": {
+      "name": "CSng",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC41": {
+      "name": "FnCSngCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC42": {
+      "name": "FnCSngVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC43": {
+      "name": "FnCSngStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC44": {
+      "name": "FnCByteVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC45": {
+      "name": "FnCIntVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC46": {
+      "name": "FnCLngVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC47": {
+      "name": "CDateR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC48": {
+      "name": "FnCDblVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC49": {
+      "name": "FnCCurVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC4A": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FC4B": {
+      "name": "FnCStrVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC4C": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FC4D": {
+      "name": "FnCBoolVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC4E": {
+      "name": "FnCDateVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC4F": {
+      "name": "FnCDateVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC50": {
+      "name": "CBoolUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC51": {
+      "name": "CBoolUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC52": {
+      "name": "CBoolI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC53": {
+      "name": "CBoolR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC54": {
+      "name": "CBoolR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC55": {
+      "name": "CBoolCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC56": {
+      "name": "CBoolVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC57": {
+      "name": "CBoolStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC58": {
+      "name": "CStr2Uni",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC59": {
+      "name": "CStrAry2Uni",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC5A": {
+      "name": "CStr2Ansi",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC5B": {
+      "name": "CStrAry2Ansi",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC5C": {
+      "name": "PopAdLd4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC5D": {
+      "name": "CRecAnsi2Uni",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FC5E": {
+      "name": "CRecUni2Ansi",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FC5F": {
+      "name": "CStr2Vec",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FC60": {
+      "name": "CVar2Vec",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FC61": {
+      "name": "CVec2Var",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FC62": {
+      "name": "GetLastError",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC63": {
+      "name": "LitNothing",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC64": {
+      "name": "LitVar_NULL",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FC65": {
+      "name": "LitVar_TRUE",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FC66": {
+      "name": "LitVar_FALSE",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FC67": {
+      "name": "LitVar_Empty",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FC68": {
+      "name": "DOC(LitVar_Missing)",
+      "size": 3,
+      "size_raw": "27",
+      "is_lead": false
+    },
+    "FC69": {
+      "name": "DOC(VCallHresult)",
+      "size": 5,
+      "size_raw": "0D",
+      "is_lead": false
+    },
+    "FC6A": {
+      "name": "ThisVCallHresult",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FC6B": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FC6C": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FC6D": {
+      "name": "DOC(ExitProcHresult)",
+      "size": 1,
+      "size_raw": "0013",
+      "is_lead": false
+    },
+    "FC6E": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FC6F": {
+      "name": "CheckTypeVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FC70": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FC71": {
+      "name": "CUnkVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC72": {
+      "name": "CVarUnk",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FC73": {
+      "name": "LdPrUnkVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC74": {
+      "name": "FLdLateIdUnkVar",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FC75": {
+      "name": "GetRec3",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC76": {
+      "name": "GetRec4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC77": {
+      "name": "PutRec3",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC78": {
+      "name": "PutRec4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC79": {
+      "name": "GetRecOwner3",
+      "size": -1,
+      "size_raw": "-1",
+      "is_lead": false
+    },
+    "FC7A": {
+      "name": "GetRecOwner4",
+      "size": -1,
+      "size_raw": "-1",
+      "is_lead": false
+    },
+    "FC7B": {
+      "name": "PutRecOwner3",
+      "size": -1,
+      "size_raw": "-1",
+      "is_lead": false
+    },
+    "FC7C": {
+      "name": "PutRecOwner4",
+      "size": -1,
+      "size_raw": "-1",
+      "is_lead": false
+    },
+    "FC7D": {
+      "name": "Input",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC7E": {
+      "name": "InputDone",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC7F": {
+      "name": "InputItemUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC80": {
+      "name": "InputItemI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC81": {
+      "name": "InputItemI4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC82": {
+      "name": "InputItemR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC83": {
+      "name": "InputItemR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC84": {
+      "name": "InputItemCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC85": {
+      "name": "InputItemVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC86": {
+      "name": "InputItemStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC87": {
+      "name": "InputItemBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC88": {
+      "name": "InputItemDate",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC89": {
+      "name": "PopFPR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC8A": {
+      "name": "PopFPR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC8B": {
+      "name": "PopAd",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC8C": {
+      "name": "DOC(PopAdLdVar)",
+      "size": 1,
+      "size_raw": "25",
+      "is_lead": false
+    },
+    "FC8D": {
+      "name": "AryLdPr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FC8E": {
+      "name": "AryLdRf",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FC8F": {
+      "name": "ParmAry1St",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FC90": {
+      "name": "Ary1LdUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC91": {
+      "name": "Ary1LdI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC92": {
+      "name": "DOC(Ary1LdI4)",
+      "size": 1,
+      "size_raw": "009E",
+      "is_lead": false
+    },
+    "FC93": {
+      "name": "DOC(Ary1LdI4)",
+      "size": 1,
+      "size_raw": "009E",
+      "is_lead": false
+    },
+    "FC94": {
+      "name": "Ary1LdR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC95": {
+      "name": "Ary1LdR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC96": {
+      "name": "Ary1LdRfVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC97": {
+      "name": "DOC(Ary1LdI4)",
+      "size": 1,
+      "size_raw": "009E",
+      "is_lead": false
+    },
+    "FC98": {
+      "name": "DOC(Ary1LdI4)",
+      "size": 1,
+      "size_raw": "009E",
+      "is_lead": false
+    },
+    "FC99": {
+      "name": "Ary1LdFPR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC9A": {
+      "name": "Ary1LdFPR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC9B": {
+      "name": "Ary1LdPr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC9C": {
+      "name": "Ary1LdRf",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC9D": {
+      "name": "Ary1LdVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FC9E": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FC9F": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCA0": {
+      "name": "Ary1StUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCA1": {
+      "name": "Ary1StI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCA2": {
+      "name": "Ary1StR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCA3": {
+      "name": "Ary1StR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCA4": {
+      "name": "Ary1StCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCA5": {
+      "name": "Ary1StCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCA6": {
+      "name": "Ary1StVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCA7": {
+      "name": "Ary1StStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCA8": {
+      "name": "Ary1StAd",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCA9": {
+      "name": "Ary1StFPR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCAA": {
+      "name": "Ary1StFPR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCAB": {
+      "name": "Ary1StVarAd",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCAC": {
+      "name": "Ary1StVarAdFunc",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCAD": {
+      "name": "Ary1StVarUnk",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCAE": {
+      "name": "Ary1StVarUnkFunc",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCAF": {
+      "name": "Ary1StAdFunc",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCB0": {
+      "name": "Ary1StVarCopy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCB1": {
+      "name": "Ary1StStrCopy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCB2": {
+      "name": "Ary1LdRfVarg",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCB3": {
+      "name": "Ary1LdVarg",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCB4": {
+      "name": "Ary1LdRfVargParam",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCB5": {
+      "name": "Ary1StVarg",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCB6": {
+      "name": "Ary1StVargCopy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCB7": {
+      "name": "Ary1StVargAd",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCB8": {
+      "name": "Ary1StVargAdFunc",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCB9": {
+      "name": "Ary1StVargUnk",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCBA": {
+      "name": "Ary1StVargUnkFunc",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCBB": {
+      "name": "MidVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCBC": {
+      "name": "MidBStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCBD": {
+      "name": "MidBVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCBE": {
+      "name": "MidBStrB",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCBF": {
+      "name": "LineInputVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCC0": {
+      "name": "LineInputStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCC1": {
+      "name": "Error",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCC2": {
+      "name": "Stop",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCC3": {
+      "name": "Erase",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCC4": {
+      "name": "LargeBos",
+      "size": 2,
+      "size_raw": "2",
+      "is_lead": false
+    },
+    "FCC5": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCC6": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCC7": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCC8": {
+      "name": "End",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCC9": {
+      "name": "Return",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCCA": {
+      "name": "FnLBound",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCCB": {
+      "name": "FnUBound",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCCC": {
+      "name": "ExitProcUI1",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCCD": {
+      "name": "ExitProcI2",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCCE": {
+      "name": "ExitProcStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCCF": {
+      "name": "ExitProcR4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCD0": {
+      "name": "ExitProcR8",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCD1": {
+      "name": "ExitProcCy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCD2": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCD3": {
+      "name": "ExitProcStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCD4": {
+      "name": "ExitProcStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCD5": {
+      "name": "ExitProcStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FCD6": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCD7": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCD8": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCD9": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCDA": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCDB": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCDC": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCDD": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCDE": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCDF": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCE0": {
+      "name": "FLdUI1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCE1": {
+      "name": "FLdI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCE2": {
+      "name": "FLdR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCE3": {
+      "name": "FLdR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCE4": {
+      "name": "FLdR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCE5": {
+      "name": "FLdR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCE6": {
+      "name": "DOC(FLdRfVar)",
+      "size": 3,
+      "size_raw": "0004",
+      "is_lead": false
+    },
+    "FCE7": {
+      "name": "FLdR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCE8": {
+      "name": "FLdR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCE9": {
+      "name": "FLdFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCEA": {
+      "name": "DOC(FLdFPR8)",
+      "size": 3,
+      "size_raw": "006F",
+      "is_lead": false
+    },
+    "FCEB": {
+      "name": "DOC(FLdPr)",
+      "size": 3,
+      "size_raw": "08",
+      "is_lead": false
+    },
+    "FCEC": {
+      "name": "DOC(FLdRfVar)",
+      "size": 3,
+      "size_raw": "04",
+      "is_lead": false
+    },
+    "FCED": {
+      "name": "FLdVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCEE": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCEF": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FCF0": {
+      "name": "FStUI1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCF1": {
+      "name": "DOC(FStI2)",
+      "size": 3,
+      "size_raw": "0070",
+      "is_lead": false
+    },
+    "FCF2": {
+      "name": "DOC(FStR4)",
+      "size": 3,
+      "size_raw": "71",
+      "is_lead": false
+    },
+    "FCF3": {
+      "name": "DOC(FStR4)",
+      "size": 3,
+      "size_raw": "71",
+      "is_lead": false
+    },
+    "FCF4": {
+      "name": "DOC(FStR8)",
+      "size": 3,
+      "size_raw": "0072",
+      "is_lead": false
+    },
+    "FCF5": {
+      "name": "DOC(FStR8)",
+      "size": 3,
+      "size_raw": "0072",
+      "is_lead": false
+    },
+    "FCF6": {
+      "name": "FStVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCF7": {
+      "name": "DOC(FStStr)",
+      "size": 3,
+      "size_raw": "31",
+      "is_lead": false
+    },
+    "FCF8": {
+      "name": "FStAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCF9": {
+      "name": "DOC(FStFPR4)",
+      "size": 3,
+      "size_raw": "0073",
+      "is_lead": false
+    },
+    "FCFA": {
+      "name": "DOC(FStFPR8)",
+      "size": 3,
+      "size_raw": "0074",
+      "is_lead": false
+    },
+    "FCFB": {
+      "name": "FStVarAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCFC": {
+      "name": "FStVarAdFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCFD": {
+      "name": "FStVarUnk",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCFE": {
+      "name": "FStVarUnkFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FCFF": {
+      "name": "DOC(FStAdFunc)",
+      "size": 3,
+      "size_raw": "19",
+      "is_lead": false
+    },
+    "FD00": {
+      "name": "FStVarCopy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD01": {
+      "name": "DOC(FStStrCopy)",
+      "size": 3,
+      "size_raw": "43",
+      "is_lead": false
+    },
+    "FD02": {
+      "name": "HardType",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FD03": {
+      "name": "DOC(Branch)",
+      "size": 3,
+      "size_raw": "1E",
+      "is_lead": false
+    },
+    "FD04": {
+      "name": "DOC(BranchF)",
+      "size": 3,
+      "size_raw": "1C",
+      "is_lead": false
+    },
+    "FD05": {
+      "name": "BranchFVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD06": {
+      "name": "BranchFVarFree",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD07": {
+      "name": "DOC(BranchT)",
+      "size": 3,
+      "size_raw": "1D",
+      "is_lead": false
+    },
+    "FD08": {
+      "name": "BranchTVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD09": {
+      "name": "BranchTVarFree",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD0A": {
+      "name": "Gosub",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD0B": {
+      "name": "OnErrorGoto",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD0C": {
+      "name": "Resume",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD0D": {
+      "name": "AryLock",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD0E": {
+      "name": "AryUnlock",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD0F": {
+      "name": "AryDescTemp",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD10": {
+      "name": "ILdUI1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD11": {
+      "name": "DOC(ILdI2)",
+      "size": 3,
+      "size_raw": "7F",
+      "is_lead": false
+    },
+    "FD12": {
+      "name": "ILdAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD13": {
+      "name": "ILdAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD14": {
+      "name": "ILdR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD15": {
+      "name": "ILdR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD16": {
+      "name": "ILdRfDarg",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FD17": {
+      "name": "ILdAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD18": {
+      "name": "ILdAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD19": {
+      "name": "ILdFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD1A": {
+      "name": "ILdFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD1B": {
+      "name": "ILdPr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD1C": {
+      "name": "FLdR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD1D": {
+      "name": "ILdDarg",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD1E": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FD1F": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FD20": {
+      "name": "IStUI1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD21": {
+      "name": "IStI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD22": {
+      "name": "IStI4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD23": {
+      "name": "IStI4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD24": {
+      "name": "IStR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD25": {
+      "name": "IStR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD26": {
+      "name": "IStDarg",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD27": {
+      "name": "IStStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD28": {
+      "name": "IStAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD29": {
+      "name": "IStFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD2A": {
+      "name": "IStFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD2B": {
+      "name": "IStDargAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD2C": {
+      "name": "IStDargAdFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD2D": {
+      "name": "IStDargUnk",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD2E": {
+      "name": "IStDargUnkFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD2F": {
+      "name": "IStAdFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD30": {
+      "name": "IStDargCopy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD31": {
+      "name": "IStStrCopy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD32": {
+      "name": "PrintChan",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FD33": {
+      "name": "WriteChan",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FD34": {
+      "name": "PrintComma",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FD35": {
+      "name": "PrintEos",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FD36": {
+      "name": "PrintNL",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FD37": {
+      "name": "PrintItemComma",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FD38": {
+      "name": "PrintItemSemi",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FD39": {
+      "name": "PrintItemNL",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FD3A": {
+      "name": "PrintObj",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD3B": {
+      "name": "PrintSpc",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FD3C": {
+      "name": "PrintTab",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FD3D": {
+      "name": "Close",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FD3E": {
+      "name": "CloseAll",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FD3F": {
+      "name": "DOC(FLdZeroAd)",
+      "size": 3,
+      "size_raw": "3E",
+      "is_lead": false
+    },
+    "FD40": {
+      "name": "IWMemLdUI1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD41": {
+      "name": "IWMemLdI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD42": {
+      "name": "IWMemLdI4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD43": {
+      "name": "IWMemLdI4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD44": {
+      "name": "IWMemLdCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD45": {
+      "name": "IWMemLdCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD46": {
+      "name": "IWMemLdRfDarg",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FD47": {
+      "name": "IWMemLdI4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD48": {
+      "name": "IWMemLdI4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD49": {
+      "name": "IWMemLdFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD4A": {
+      "name": "IWMemLdFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD4B": {
+      "name": "IWMemLdPr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD4C": {
+      "name": "IWMemLdRf",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD4D": {
+      "name": "IWMemLdDarg",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD4E": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FD4F": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FD50": {
+      "name": "IWMemStUI1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD51": {
+      "name": "IWMemStI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD52": {
+      "name": "IWMemStR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD53": {
+      "name": "IWMemStR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD54": {
+      "name": "IWMemStCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD55": {
+      "name": "IWMemStCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD56": {
+      "name": "IWMemStDarg",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD57": {
+      "name": "IWMemStStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD58": {
+      "name": "IWMemStAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD59": {
+      "name": "IWMemStFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD5A": {
+      "name": "IWMemStFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD5B": {
+      "name": "IWMemStDargAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD5C": {
+      "name": "IWMemStDargAdFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD5D": {
+      "name": "IWMemStDargUnk",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD5E": {
+      "name": "IWMemStDargUnkFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD5F": {
+      "name": "IWMemStAdFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD60": {
+      "name": "IWMemStDargCopy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD61": {
+      "name": "IWMemStStrCopy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD62": {
+      "name": "DOC(FLdZeroAd)",
+      "size": 3,
+      "size_raw": "3E",
+      "is_lead": false
+    },
+    "FD63": {
+      "name": "FStVarNoPop",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD64": {
+      "name": "FStStrNoPop",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD65": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FD66": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FD67": {
+      "name": "CVarUI1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD68": {
+      "name": "CVarI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD69": {
+      "name": "CVarI4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD6A": {
+      "name": "CVarR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD6B": {
+      "name": "CVarR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD6C": {
+      "name": "CVarCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD6D": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FD6E": {
+      "name": "CVarStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD6F": {
+      "name": "CVarAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD70": {
+      "name": "MemLdUI1h%",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD71": {
+      "name": "MemLdI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD72": {
+      "name": "MemLdR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD73": {
+      "name": "MemLdR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD74": {
+      "name": "MemLdR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD75": {
+      "name": "MemLdR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD76": {
+      "name": "MemLdRfVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD77": {
+      "name": "MemLdR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD78": {
+      "name": "MemLdR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD79": {
+      "name": "MemLdFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD7A": {
+      "name": "MemLdFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD7B": {
+      "name": "MemLdPr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD7C": {
+      "name": "MemLdRfVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD7D": {
+      "name": "MemLdVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD7E": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FD7F": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FD80": {
+      "name": "MemStUI1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD81": {
+      "name": "MemStI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD82": {
+      "name": "MemStR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD83": {
+      "name": "MemStR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD84": {
+      "name": "MemStCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD85": {
+      "name": "MemStCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD86": {
+      "name": "MemStVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD87": {
+      "name": "MemStStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD88": {
+      "name": "MemStAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD89": {
+      "name": "MemStFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD8A": {
+      "name": "MemStFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD8B": {
+      "name": "MemStVarAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD8C": {
+      "name": "MemStVarAdFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD8D": {
+      "name": "MemStVarUnk",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD8E": {
+      "name": "MemStVarUnkFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD8F": {
+      "name": "MemStAdFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD90": {
+      "name": "MemStVarCopy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD91": {
+      "name": "MemStStrCopy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD92": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FD93": {
+      "name": "CDargRef",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD94": {
+      "name": "CVarRef",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FD95": {
+      "name": "ExitProcCb",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD96": {
+      "name": "ExitProcCbStack",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD97": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FD98": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FD99": {
+      "name": "DOC(FFree1Var)",
+      "size": 3,
+      "size_raw": "35",
+      "is_lead": false
+    },
+    "FD9A": {
+      "name": "DOC(FFree1Str)",
+      "size": 3,
+      "size_raw": "2F",
+      "is_lead": false
+    },
+    "FD9B": {
+      "name": "DOC(FFree1Ad)",
+      "size": 3,
+      "size_raw": "1A",
+      "is_lead": false
+    },
+    "FD9C": {
+      "name": "FStAdNoPop",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FD9D": {
+      "name": "DOC(FStAdFuncNoPop)",
+      "size": 3,
+      "size_raw": "5B",
+      "is_lead": false
+    },
+    "FD9E": {
+      "name": "DOC(FLdPrThis)",
+      "size": 1,
+      "size_raw": "21",
+      "is_lead": false
+    },
+    "FD9F": {
+      "name": "LdPrVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FDA0": {
+      "name": "ImpAdLdUI1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDA1": {
+      "name": "ImpAdLdI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDA2": {
+      "name": "ImpAdLdStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDA3": {
+      "name": "ImpAdLdStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDA4": {
+      "name": "ImpAdLdCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDA5": {
+      "name": "ImpAdLdCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDA6": {
+      "name": "DOC(ImpAdLdRf)",
+      "size": 3,
+      "size_raw": "0005",
+      "is_lead": false
+    },
+    "FDA7": {
+      "name": "ImpAdLdStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDA8": {
+      "name": "ImpAdLdStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDA9": {
+      "name": "ImpAdLdFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDAA": {
+      "name": "ImpAdLdFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDAB": {
+      "name": "ImpAdLdPr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDAC": {
+      "name": "DOC(ImpAdLdRf)",
+      "size": 3,
+      "size_raw": "0005",
+      "is_lead": false
+    },
+    "FDAD": {
+      "name": "ImpAdLdVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDAE": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FDAF": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FDB0": {
+      "name": "ImpAdStUI1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDB1": {
+      "name": "ImpAdStI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDB2": {
+      "name": "ImpAdStR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDB3": {
+      "name": "ImpAdStR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDB4": {
+      "name": "ImpAdStR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDB5": {
+      "name": "ImpAdStR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDB6": {
+      "name": "ImpAdStVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDB7": {
+      "name": "ImpAdStStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDB8": {
+      "name": "ImpAdStAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDB9": {
+      "name": "ImpAdStFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDBA": {
+      "name": "ImpAdStFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDBB": {
+      "name": "ImpAdStVarAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDBC": {
+      "name": "ImpAdStVarAdFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDBD": {
+      "name": "ImpAdStVarUnk",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDBE": {
+      "name": "ImpAdStVarUnkFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDBF": {
+      "name": "ImpAdStAdFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDC0": {
+      "name": "ImpAdStVarCopy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDC1": {
+      "name": "ImpAdStStrCopy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDC2": {
+      "name": "PopTmpLdAd1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDC3": {
+      "name": "PopTmpLdAd2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDC4": {
+      "name": "PopTmpLdAdStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDC5": {
+      "name": "PopTmpLdAd8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDC6": {
+      "name": "PopTmpLdAdVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDC7": {
+      "name": "PopTmpLdAdStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDC8": {
+      "name": "PopTmpLdAdFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDC9": {
+      "name": "PopTmpLdAdFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDCA": {
+      "name": "CopyBytes",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDCB": {
+      "name": "ExitForCollObj",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDCC": {
+      "name": "ExitForCollObj",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDCD": {
+      "name": "ExitForCollObj",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDCE": {
+      "name": "ExitForAryVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDCF": {
+      "name": "ExitForVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDD0": {
+      "name": "FMemLdUI1",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDD1": {
+      "name": "FMemLdI2",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDD2": {
+      "name": "FMemLdR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDD3": {
+      "name": "FMemLdR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDD4": {
+      "name": "FMemLdR8",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDD5": {
+      "name": "FMemLdR8",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDD6": {
+      "name": "FMemLdRf",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDD7": {
+      "name": "FMemLdR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDD8": {
+      "name": "FMemLdR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDD9": {
+      "name": "FMemLdFPR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDDA": {
+      "name": "FMemLdFPR8",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDDB": {
+      "name": "FMemLdPr",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDDC": {
+      "name": "FMemLdRf",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDDD": {
+      "name": "FMemLdVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDDE": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FDDF": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FDE0": {
+      "name": "FMemStUI1",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDE1": {
+      "name": "FMemStI2",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDE2": {
+      "name": "FMemStR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDE3": {
+      "name": "FMemStR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDE4": {
+      "name": "FMemStR8",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDE5": {
+      "name": "FMemStR8",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDE6": {
+      "name": "FMemStVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDE7": {
+      "name": "FMemStStr",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDE8": {
+      "name": "FMemStAd",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDE9": {
+      "name": "FMemStFPR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDEA": {
+      "name": "FMemStFPR8",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDEB": {
+      "name": "FMemStVarAd",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDEC": {
+      "name": "FMemStVarAdFunc",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDED": {
+      "name": "FMemStVarUnk",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDEE": {
+      "name": "FMemStVarUnkFunc",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDEF": {
+      "name": "FMemStAdFunc",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDF0": {
+      "name": "FMemStVarCopy",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDF1": {
+      "name": "FMemStStrCopy",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FDF2": {
+      "name": "CastAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDF3": {
+      "name": "CastAdVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDF4": {
+      "name": "New",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDF5": {
+      "name": "NewIfNullRf",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDF6": {
+      "name": "NewIfNullAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDF7": {
+      "name": "DOC(NewIfNullPr)",
+      "size": 3,
+      "size_raw": "24",
+      "is_lead": false
+    },
+    "FDF8": {
+      "name": "CVarBoolI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDF9": {
+      "name": "CVarDateVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDFA": {
+      "name": "CVarErrI4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDFB": {
+      "name": "CVarDate",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDFC": {
+      "name": "CVarAryVarg",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDFD": {
+      "name": "CStrVarTmp",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FDFE": {
+      "name": "CStrVarVal",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FDFF": {
+      "name": "DestructOFrame",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE00": {
+      "name": "ThisVCallUI1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE01": {
+      "name": "ThisVCallI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE02": {
+      "name": "ThisVCallI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE03": {
+      "name": "ThisVCallR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE04": {
+      "name": "ThisVCallR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE05": {
+      "name": "ThisVCallCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE06": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE07": {
+      "name": "ThisVCallI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE08": {
+      "name": "ThisVCallI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE09": {
+      "name": "ThisVCallHidden",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE0A": {
+      "name": "ThisVCallHidden",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE0B": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE0C": {
+      "name": "ThisVCallHidden",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE0D": {
+      "name": "ThisVCallCbFrame",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE0E": {
+      "name": "StLsetFixStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE0F": {
+      "name": "StFixedStrFree",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE10": {
+      "name": "VCallUI1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE11": {
+      "name": "VCallStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE12": {
+      "name": "VCallStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE13": {
+      "name": "VCallR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE14": {
+      "name": "VCallR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE15": {
+      "name": "VCallCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE16": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE17": {
+      "name": "VCallStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE18": {
+      "name": "VCallStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE19": {
+      "name": "VCallFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE1A": {
+      "name": "VCallFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE1B": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE1C": {
+      "name": "VCallFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE1D": {
+      "name": "VCallCbFrame",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE1E": {
+      "name": "StFixedStrR",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE1F": {
+      "name": "StFixedStrRFree",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE20": {
+      "name": "ImpAdCallUI1",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE21": {
+      "name": "ImpAdCallI4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE22": {
+      "name": "DOC(ImpAdCallI4)",
+      "size": 5,
+      "size_raw": "FE21",
+      "is_lead": false
+    },
+    "FE23": {
+      "name": "ImpAdCallR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE24": {
+      "name": "ImpAdCallR8",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE25": {
+      "name": "ImpAdCallCy",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE26": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE27": {
+      "name": "ImpAdCallI4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE28": {
+      "name": "DOC(ImpAdCallI4)",
+      "size": 5,
+      "size_raw": "FE27",
+      "is_lead": false
+    },
+    "FE29": {
+      "name": "DOC(ImpAdCallFPR4)",
+      "size": 5,
+      "size_raw": "0A",
+      "is_lead": false
+    },
+    "FE2A": {
+      "name": "DOC(ImpAdCallFPR4)",
+      "size": 5,
+      "size_raw": "0A",
+      "is_lead": false
+    },
+    "FE2B": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE2C": {
+      "name": "DOC(ImpAdCallFPR4)",
+      "size": 5,
+      "size_raw": "0A",
+      "is_lead": false
+    },
+    "FE2D": {
+      "name": "ImpAdCallCbFrame",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FE2E": {
+      "name": "LdStkRf",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE2F": {
+      "name": "LdFrameRf",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE30": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE31": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE32": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE33": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE34": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE35": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE36": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE37": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE38": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE39": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE3A": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE3B": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE3C": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE3D": {
+      "name": "LitVarUI1",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE3E": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE3F": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE40": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE41": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE42": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE43": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE44": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE45": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE46": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE47": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE48": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE49": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE4A": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE4B": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE4C": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE4D": {
+      "name": "SetVarVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FE4E": {
+      "name": "SetVarVarFunc",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FE4F": {
+      "name": "ImpAdCallHresult",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE50": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE51": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE52": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE53": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE54": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE55": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE56": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE57": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE58": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE59": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE5A": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE5B": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE5C": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE5D": {
+      "name": "OpenFile",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE5E": {
+      "name": "LockFile",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE5F": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE60": {
+      "name": "EraseDestruct",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE61": {
+      "name": "LdFixedStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE62": {
+      "name": "ForUI1",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE63": {
+      "name": "ForI2",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE64": {
+      "name": "ForI4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE65": {
+      "name": "ForR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE66": {
+      "name": "ForR8",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE67": {
+      "name": "ForCy",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE68": {
+      "name": "ForVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE69": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE6A": {
+      "name": "ForStepUI1",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE6B": {
+      "name": "ForStepI2",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE6C": {
+      "name": "ForStepI4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE6D": {
+      "name": "ForStepR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE6E": {
+      "name": "ForStepR8",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE6F": {
+      "name": "ForStepCy",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE70": {
+      "name": "ForStepVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE71": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE72": {
+      "name": "ForEachCollVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE73": {
+      "name": "NextEachCollVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE74": {
+      "name": "ForEachCollAd",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE75": {
+      "name": "NextEachCollAd",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE76": {
+      "name": "ForEachAryVar",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FE77": {
+      "name": "NextEachAryVar",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FE78": {
+      "name": "NextUI1",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE79": {
+      "name": "DOC(NextI2)",
+      "size": 5,
+      "size_raw": "0064",
+      "is_lead": false
+    },
+    "FE7A": {
+      "name": "DOC(NextI4)",
+      "size": 5,
+      "size_raw": "0066",
+      "is_lead": false
+    },
+    "FE7B": {
+      "name": "DOC(NextStepR4)",
+      "size": 5,
+      "size_raw": "0068",
+      "is_lead": false
+    },
+    "FE7C": {
+      "name": "NextR8",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE7D": {
+      "name": "DOC(NextStepCy)",
+      "size": 5,
+      "size_raw": "006A",
+      "is_lead": false
+    },
+    "FE7E": {
+      "name": "NextStepVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE7F": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE80": {
+      "name": "NextStepUI1",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE81": {
+      "name": "DOC(NextStepI2)",
+      "size": 5,
+      "size_raw": "65",
+      "is_lead": false
+    },
+    "FE82": {
+      "name": "NextStepI4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE83": {
+      "name": "NextStepR4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE84": {
+      "name": "DOC(NextR8)",
+      "size": 5,
+      "size_raw": "FE7C",
+      "is_lead": false
+    },
+    "FE85": {
+      "name": "DOC(NextStepCy)",
+      "size": 5,
+      "size_raw": "006A",
+      "is_lead": false
+    },
+    "FE86": {
+      "name": "DOC(NextStepVar)",
+      "size": 5,
+      "size_raw": "FE7E",
+      "is_lead": false
+    },
+    "FE87": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE88": {
+      "name": "ForEachCollObj",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FE89": {
+      "name": "ForEachVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE8A": {
+      "name": "ForEachVarFree",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE8B": {
+      "name": "NextEachCollObj",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FE8C": {
+      "name": "NextEachVar",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FE8D": {
+      "name": "CheckType",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE8E": {
+      "name": "Redim",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FE8F": {
+      "name": "RedimPreserve",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FE90": {
+      "name": "RedimVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE91": {
+      "name": "RedimPreserveVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE92": {
+      "name": "FDupVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE93": {
+      "name": "FDupStr",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE94": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FE95": {
+      "name": "OnGosub",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FE96": {
+      "name": "OnGoto",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FE97": {
+      "name": "AddRef",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FE98": {
+      "name": "LateMemCall",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE99": {
+      "name": "LateMemLdVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE9A": {
+      "name": "LateMemCallLdVar",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FE9B": {
+      "name": "LateMemSt",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FE9C": {
+      "name": "LateMemCallSt",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE9D": {
+      "name": "LateMemStAd",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FE9E": {
+      "name": "ExitProcFrameCb",
+      "size": 4,
+      "size_raw": "4",
+      "is_lead": false
+    },
+    "FE9F": {
+      "name": "ExitProcFrameCbStack",
+      "size": 4,
+      "size_raw": "4",
+      "is_lead": false
+    },
+    "FEA0": {
+      "name": "LateIdCall",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FEA1": {
+      "name": "LateIdLdVar",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FEA2": {
+      "name": "LateIdCallLdVar",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FEA3": {
+      "name": "LateIdSt",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FEA4": {
+      "name": "LateIdCallSt",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FEA5": {
+      "name": "LateIdStAd",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FEA6": {
+      "name": "LateMemNamedCall",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FEA7": {
+      "name": "LateMemNamedCallLdVar",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FEA8": {
+      "name": "LateMemNamedCallSt",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FEA9": {
+      "name": "LateMemNamedStAd",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FEAA": {
+      "name": "LateIdNamedCall",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FEAB": {
+      "name": "LateIdNamedCallLdVar",
+      "size": 11,
+      "size_raw": "11",
+      "is_lead": false
+    },
+    "FEAC": {
+      "name": "LateIdNamedCallSt",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FEAD": {
+      "name": "LateIdNamedStAd",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FEAE": {
+      "name": "VarIndexLdVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FEAF": {
+      "name": "VarIndexLdRfVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FEB0": {
+      "name": "VarIndexSt",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEB1": {
+      "name": "VarIndexStAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEB2": {
+      "name": "DOC(FFreeVar)",
+      "size": -1,
+      "size_raw": "36",
+      "is_lead": false
+    },
+    "FEB3": {
+      "name": "DOC(FFreeStr)",
+      "size": -1,
+      "size_raw": "0032",
+      "is_lead": false
+    },
+    "FEB4": {
+      "name": "DOC(FFreeAd)",
+      "size": -1,
+      "size_raw": "0029",
+      "is_lead": false
+    },
+    "FEB5": {
+      "name": "DOC(LitI2)",
+      "size": 3,
+      "size_raw": "00F3",
+      "is_lead": false
+    },
+    "FEB6": {
+      "name": "LitI2FP",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEB7": {
+      "name": "LitCy4",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FEB8": {
+      "name": "DOC(LitI4)",
+      "size": 5,
+      "size_raw": "F5",
+      "is_lead": false
+    },
+    "FEB9": {
+      "name": "DOC(LitI4)",
+      "size": 5,
+      "size_raw": "F5",
+      "is_lead": false
+    },
+    "FEBA": {
+      "name": "LitR4FP",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FEBB": {
+      "name": "LitR8",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FEBC": {
+      "name": "LitR8",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FEBD": {
+      "name": "LitR8FP",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FEBE": {
+      "name": "LitR8FP",
+      "size": 9,
+      "size_raw": "9",
+      "is_lead": false
+    },
+    "FEBF": {
+      "name": "DOC(LitStr)",
+      "size": 3,
+      "size_raw": "001B",
+      "is_lead": false
+    },
+    "FEC0": {
+      "name": "DOC(LitVarI2)",
+      "size": 5,
+      "size_raw": "0028",
+      "is_lead": false
+    },
+    "FEC1": {
+      "name": "LitVarI4",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FEC2": {
+      "name": "LitVarR4",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FEC3": {
+      "name": "LitVarCy",
+      "size": 11,
+      "size_raw": "11",
+      "is_lead": false
+    },
+    "FEC4": {
+      "name": "LitVarR8",
+      "size": 11,
+      "size_raw": "11",
+      "is_lead": false
+    },
+    "FEC5": {
+      "name": "LitVarDate",
+      "size": 11,
+      "size_raw": "11",
+      "is_lead": false
+    },
+    "FEC6": {
+      "name": "DOC(LitVarStr)",
+      "size": 5,
+      "size_raw": "3A",
+      "is_lead": false
+    },
+    "FEC7": {
+      "name": "CStrBool",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FEC8": {
+      "name": "CStrDate",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FEC9": {
+      "name": "CDateStr",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FECA": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FECB": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FECC": {
+      "name": "FreeStrNoPop",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FECD": {
+      "name": "FreeVarNoPop",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FECE": {
+      "name": "FreeAdNoPop",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FECF": {
+      "name": "EraseNoPop",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FED0": {
+      "name": "WMemLdUI1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FED1": {
+      "name": "WMemLdI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FED2": {
+      "name": "WMemLdStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FED3": {
+      "name": "WMemLdStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FED4": {
+      "name": "WMemLdCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FED5": {
+      "name": "WMemLdCy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FED6": {
+      "name": "WMemLdRfVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FED7": {
+      "name": "WMemLdStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FED8": {
+      "name": "WMemLdStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FED9": {
+      "name": "WMemLdFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEDA": {
+      "name": "WMemLdFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEDB": {
+      "name": "IWMemLdPr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEDC": {
+      "name": "WMemLdRfVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEDD": {
+      "name": "WMemLdVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEDE": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FEDF": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FEE0": {
+      "name": "WMemStUI1",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEE1": {
+      "name": "WMemStI2",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEE2": {
+      "name": "WMemStR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEE3": {
+      "name": "WMemStR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEE4": {
+      "name": "WMemStR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEE5": {
+      "name": "WMemStR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEE6": {
+      "name": "WMemStVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEE7": {
+      "name": "WMemStStr",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEE8": {
+      "name": "WMemStAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEE9": {
+      "name": "WMemStFPR4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEEA": {
+      "name": "WMemStFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEEB": {
+      "name": "WMemStVarAd",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEEC": {
+      "name": "WMemStVarAdFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEED": {
+      "name": "WMemStVarUnk",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEEE": {
+      "name": "WMemStVarUnkFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEEF": {
+      "name": "WMemStAdFunc",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEF0": {
+      "name": "WMemStVarCopy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEF1": {
+      "name": "WMemStStrCopy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEF2": {
+      "name": "VarIndexLdRfVarLock",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FEF3": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FEF4": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FEF5": {
+      "name": "AssignRecord",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEF6": {
+      "name": "DestructAnsiOFrame",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FEF7": {
+      "name": "FStVarZero",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEF8": {
+      "name": "DOC(FStVarCopyObj)",
+      "size": 3,
+      "size_raw": "4E",
+      "is_lead": false
+    },
+    "FEF9": {
+      "name": "VerifyVarObj",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FEFA": {
+      "name": "VerifyPVarObj",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FEFB": {
+      "name": "FnInStrB4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FEFC": {
+      "name": "FnInStrB4Var",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEFD": {
+      "name": "FnInStr4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FEFE": {
+      "name": "FnInStr4Var",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FEFF": {
+      "name": "FnStrComp3",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF00": {
+      "name": "FnStrComp3Var",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF01": {
+      "name": "StAryMove",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF02": {
+      "name": "StAryCopy",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF03": {
+      "name": "StAryRecMove",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF04": {
+      "name": "StAryRecCopy",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF05": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF06": {
+      "name": "AryInRecLdPr",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF07": {
+      "name": "AryInRecLdRf",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF08": {
+      "name": "CExtInstUnk",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF09": {
+      "name": "IStVarCopyObj",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF0A": {
+      "name": "ArrayRebase1Var",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF0B": {
+      "name": "Assert",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF0C": {
+      "name": "RaiseEvent",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FF0D": {
+      "name": "PrintObject",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF0E": {
+      "name": "PrintFile",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF0F": {
+      "name": "WriteFile",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF10": {
+      "name": "InputFile",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF11": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF12": {
+      "name": "GetRecFxStr3",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF13": {
+      "name": "GetRecFxStr4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF14": {
+      "name": "PutRecFxStr3",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF15": {
+      "name": "PutRecFxStr4",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF16": {
+      "name": "GetRecOwn3",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF17": {
+      "name": "GetRecOwn4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF18": {
+      "name": "PutRecOwn3",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF19": {
+      "name": "PutRecOwn4",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF1A": {
+      "name": "LitI2_Byte",
+      "size": 2,
+      "size_raw": "2",
+      "is_lead": false
+    },
+    "FF1B": {
+      "name": "CBoolVarNull",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF1C": {
+      "name": "LargeBos",
+      "size": 2,
+      "size_raw": "2",
+      "is_lead": false
+    },
+    "FF1D": {
+      "name": "Bos",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF1E": {
+      "name": "ImpAdCallNonVirt",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF1F": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF20": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF21": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF22": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF23": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF24": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF25": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF26": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF27": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF28": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF29": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF2A": {
+      "name": "DestructRecord",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF2B": {
+      "name": "VCallFPR8",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF2C": {
+      "name": "ThisVCallHidden",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF2D": {
+      "name": "ZeroRetVal",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF2E": {
+      "name": "ZeroRetValVar",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF2F": {
+      "name": "ExitProcCbHresult",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF30": {
+      "name": "ExitProcFrameCbHresult",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FF31": {
+      "name": "EraseDestrKeepData",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF32": {
+      "name": "CDargRefUdt",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF33": {
+      "name": "CVarRefUdt",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF34": {
+      "name": "CVarUdt",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF35": {
+      "name": "StUdtVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF36": {
+      "name": "StAryVar",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF37": {
+      "name": "CopyBytesZero",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF38": {
+      "name": "FLdZeroAry",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF39": {
+      "name": "FStVarZero",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF3A": {
+      "name": "CVarAryUdt",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FF3B": {
+      "name": "RedimVarUdt",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FF3C": {
+      "name": "RedimPreserveVarUdt",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FF3D": {
+      "name": "VarLateMemLdRfVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF3E": {
+      "name": "VarLateMemCallLdRfVar",
+      "size": 6,
+      "size_raw": "6",
+      "is_lead": false
+    },
+    "FF3F": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF40": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF41": {
+      "name": "VarLateMemLdVar",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF42": {
+      "name": "VarLateMemCallLdVar",
+      "size": 7,
+      "size_raw": "7",
+      "is_lead": false
+    },
+    "FF43": {
+      "name": "VarLateMemSt",
+      "size": 3,
+      "size_raw": "3",
+      "is_lead": false
+    },
+    "FF44": {
+      "name": "VarLateMemCallSt",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF45": {
+      "name": "VarLateMemStAd",
+      "size": 5,
+      "size_raw": "5",
+      "is_lead": false
+    },
+    "FF46": {
+      "name": "DOC(DOC)",
+      "size": 5,
+      "size_raw": "FB00",
+      "is_lead": false
+    },
+    "FF47": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF48": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF49": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF4A": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF4B": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF4C": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF4D": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF4E": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF4F": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF50": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF51": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF52": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF53": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF54": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF55": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF56": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF57": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF58": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF59": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF5A": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF5B": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF5C": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF5D": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF5E": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF5F": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF60": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF61": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF62": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF63": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF64": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF65": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF66": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF67": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF68": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF69": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF6A": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF6B": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF6C": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF6D": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF6E": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF6F": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF70": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF71": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF72": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF73": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF74": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF75": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF76": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF77": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF78": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF79": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF7A": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF7B": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF7C": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF7D": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF7E": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF7F": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF80": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF81": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF82": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF83": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF84": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF85": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF86": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF87": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF88": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF89": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF8A": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF8B": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF8C": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF8D": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF8E": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF8F": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF90": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF91": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF92": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF93": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF94": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF95": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF96": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF97": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF98": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF99": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF9A": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF9B": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF9C": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF9D": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF9E": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FF9F": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFA0": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFA1": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFA2": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFA3": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFA4": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFA5": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFA6": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFA7": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFA8": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFA9": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFAA": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFAB": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFAC": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFAD": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFAE": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFAF": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFB0": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFB1": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFB2": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFB3": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFB4": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFB5": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFB6": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFB7": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFB8": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFB9": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFBA": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFBB": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFBC": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFBD": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFBE": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFBF": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFC0": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFC1": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFC2": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFC3": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFC4": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFC5": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFC6": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFC7": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFC8": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFC9": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFCA": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFCB": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFCC": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFCD": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFCE": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFCF": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFD0": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFD1": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFD2": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFD3": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFD4": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFD5": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFD6": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFD7": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFD8": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFD9": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFDA": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFDB": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFDC": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFDD": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFDE": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFDF": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFE0": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFE1": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFE2": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFE3": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFE4": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFE5": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFE6": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFE7": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFE8": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFE9": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFEA": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFEB": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFEC": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFED": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFEE": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFEF": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFF0": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFF1": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFF2": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFF3": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFF4": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFF5": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFF6": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFF7": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFF8": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFF9": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFFA": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFFB": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFFC": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFFD": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFFE": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    },
+    "FFFF": {
+      "name": "Unknown",
+      "size": 1,
+      "size_raw": "1",
+      "is_lead": false
+    }
+  },
+  "unresolved_size_rows": [],
+  "note": "Sizes are total instruction bytes. -1 = variable length (opcode + u16 payload length + payload). DOC rows inherit the referenced opcode's size. This public table contains known errors; empirical corrections live in opcode_table_overrides.json and are applied by tools/opcode_table.py."
+}

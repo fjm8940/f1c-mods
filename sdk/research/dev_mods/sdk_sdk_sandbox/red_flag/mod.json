@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "id": "red_flag",
+  "name": "F1 Challenge Red Flag",
+  "sdk_version": "1.0.0",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "dll": "build/red_flag.dll",
+  "unload_event": "F1C_RED_FLAG_UNLOAD",
+  "production": false
+}
+

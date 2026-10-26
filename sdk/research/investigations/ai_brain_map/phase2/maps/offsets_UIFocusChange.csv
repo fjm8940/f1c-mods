@@ -1,0 +1,11 @@
+func,line,dec,hex,access,width,base,form,expr
+UIFocusChange,6,480,0x1E0,R,_DWORD,this,array,if ( (_DWORD *)a2 != this && this[120] )
+UIFocusChange,9,,,CALL,,,call,sub_54B570
+UIFocusChange,9,516,0x204,R,_DWORD,this,array,"sub_54B570((int)this, 0, this[129]);"
+UIFocusChange,10,516,0x204,R,_DWORD,this,array,v4 = this[129];
+UIFocusChange,11,20,0x14,R,_DWORD,v4,direct,v5 = *(_DWORD *)(v4 + 20);
+UIFocusChange,14,20,0x14,W,_DWORD,v4,direct,*(_DWORD *)(v4 + 20) = v5 | 0x20000000;
+UIFocusChange,17,516,0x204,R,_DWORD,this,array,"this[129] + 220,"
+UIFocusChange,18,516,0x204,R,_DWORD,this,array,"this[129] + 232,"
+UIFocusChange,21,,,CALL,,,call,RenderListIteration
+UIFocusChange,22,,,CALL,,,call,SceneBatchRenderCheck

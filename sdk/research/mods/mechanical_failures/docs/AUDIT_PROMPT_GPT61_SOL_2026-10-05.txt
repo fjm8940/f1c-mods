@@ -1,0 +1,71 @@
+AUDIT PROMPT - GPT-6.1 Sol - mechanical_failures (engine family), 2026-10-05
+Owner: Matias. Prepared by Claude. READ-ONLY AUDIT: you change nothing.
+
+ROLE
+You are an independent reviewer. Two other models (Claude, DeepSeek) built and reviewed this work in one
+long session. Your job is to find what they got wrong: defects, unsafe game-memory writes, broken
+cause -> effect chains, untested claims, and doc/code mismatches. Do not re-praise what works.
+
+PROJECT
+Mod for F1 Challenge 99-02 (32-bit Windows game, 2003). A DLL injected into the game simulates engine
+faults on top of the game's own engine model, and drives HUD texts, the native dash/wheel warning lamps
+and new race-engineer voice lines.
+Root: %USERPROFILE%\Desktop\F1\development\mods\mechanical_failures
+Start with: docs\HANDOFF_2026-10-05.md, then README.md (top lines), then
+docs\ENGINE_SIM_MODEL_DEEPSEEK_HANDOFF_2026-09-30.md section 8 (entries dated 2026-10-05).
+
+HARD RULES (breaking any ends the audit)
+1. Do not edit, move, rename, delete or create files anywhere, except ONE report file (see OUTPUT).
+2. Never touch the game folder %USERPROFILE%\Documents\F1 Challenge V10 (read-only allowed, small reads).
+3. Do not run build_merged.bat (it overwrites the dev DLL). You MAY compile tests into %TEMP% with
+   C:\msys64\mingw32\bin\gcc.exe -O2 -Wall -Wextra -Werror -I..\dll and run them.
+4. Do not start the game, injectors, debuggers or memory readers. Never read api1.txt or key files.
+5. Decompiled game code is in %USERPROFILE%\Desktop\F1\f1c_ida_decompiled\functions\ (Hex-Rays C, may be
+   misnamed). Treat function names as unreliable; cite addresses.
+
+SCOPE (in priority order)
+A. Game-memory safety (highest). Every detour and runtime write added 2026-10-05 in dll\engine_failure.c:
+   imp_hook (0x4EC1A0), lamp_eng_hook (0x49B9A0), lamp_fuel_hook (0x49BA50), voice_install/voice_restore
+   (event table 0x5BF9A0 rows, lookup 0x5BEBB0, read-only stitch guard 0x5BEE08).
+   Check: stolen-byte counts vs real prologues, calling conventions and stack args, return width (bool in
+   AL only), thread safety (hook runs on the game thread, worker writes flags), unload order and in-flight
+   counters, restore-only-if-still-ours logic, partial-install paths, what happens on a second load.
+B. Cause -> effect correctness per fault, against docs\FAULT_MESSAGING_REFERENCE_2026-10-05.md:
+   water leak, radiator debris, oil pressure, oil leak, valve air, over-rev, exhaust, blow-by, fuel
+   pressure, fuel leak, impacts. For each: what triggers the fault, which variable crosses which
+   threshold, which HUD text / voice line / lamp follows, in what order, and what kills the engine.
+   Flag any warning that can fire on a healthy car, any fault that can die silently, any line that can
+   play after death or in the wrong session type, and any doc value that differs from code.
+C. Thermal "normal" learning (dll\mf_engine_model.h: water_base_k, oil_base_k, mf_water_base,
+   MF_WATER_*_MIN_K, MF_OIL_WARN_DK). Live data: 1996 car at Indianapolis healthy water 94.5-96.7 C, oil
+   109.9-112.5 C (optimum 108.6), native hot icon at oil 135.4 C. Owner rule: no water warning at ~80 C.
+   Look for edge cases (cold start, pit stops, repair, fault armed before warm-up, faults that heat the
+   other fluid).
+D. Radio/voice logic (dll\mf_msg.h, dll\mf_voice.h, voice_pre/voice_crit/voice_instr/voice_pump,
+   radio_req, death_blowup_say): per-fault budget, 15 s spacing, death handling, session-type rules.
+E. Tests: are the harness tests (tools\engine_model_test.c, msg_test.c, voice_test.c, lamps_test.c)
+   actually able to fail for the bugs they claim to cover? Name important behaviour with no test.
+F. Tooling: tools\voice_build.py, sdt_append.py, sdt_restore.py, voice_uninstall.bat, voice_level.py -
+   can any of them damage the game file or the owner's originals (Desktop\mf_re_sounds)?
+
+EXPECTED BASELINE (verify, report differences)
+Dev DLL dll\mechanical_failures.dll SHA-256 starts 73F30551. Gates: engine_model_test ALL PASS 67630,
+msg_test 817, voice_test 330, lamps_test pass, ai_pulloff_test 81/0, ai_react_test 40.
+
+METHOD
+- Evidence for every finding: file:line (or address + decompiled file:line). Quote the minimal code.
+- Tier each claim FACT (read in code/disasm) / DERIVED / INFERENCE. No finding without evidence.
+- Prefer a few verified, important findings over many speculative ones.
+
+OUTPUT
+Write exactly one file:
+  %USERPROFILE%\Desktop\F1\development\mods\mechanical_failures\docs\AUDIT_GPT61_SOL_2026-10-05.md
+Structure:
+  1. Verdict (3 lines max): safe to keep testing live? yes/no and why.
+  2. Findings table, most severe first: id | severity (CRITICAL/HIGH/MEDIUM/LOW) | area (A-F) |
+     file:line | what is wrong | concrete failure scenario | suggested fix (one line) | tier.
+  3. Cause -> effect table per fault (section B) with OK / WRONG / UNTESTED per row.
+  4. Doc vs code mismatches.
+  5. Gate results you ran (commands + output lines).
+  6. Questions for the owner (max 5, plain English, one line each - the owner has quick-read).
+Stop after writing the report.

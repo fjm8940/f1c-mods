@@ -1,0 +1,3132 @@
+{
+ "schema": "ere.audit.v1",
+ "range": "B23_220-229",
+ "method_note": "Exhaustive per-line audit (owner 2026-10-18). Read: data/line_trace dossiers, every emitter and dynamic emitter in f1c_ida_decompiled/functions, eid-lookup tables, sub-clip resolver sub_412E50 (PC_RE_STITCH indices only, SUB-CLIP BANK FACT 2026-10-18), queue and pipeline functions, mod sources (mechanical_failures dev gearbox, damage and gear mods), EVF docs. No live game, no exe run, no writes outside the two output files. Verdicts rest on static code; the owner exe was read byte-wise (read only) for the event table.",
+ "owner_exe_check": {
+  "file": "<game folder>/F1 Challenge Online.exe",
+  "sha256_prefix": "1a70e5ed0c4a059f",
+  "image_base": "0x400000",
+  "table": "VA 0x5BF9A0 + eid*0x14 (+0 priority, +0x0C cooldown, +0x10 score)",
+  "result": "eids 207-217: priority 40, cooldown 15.0, score 210-220. TV eids 453, 457, 458, 462-467: priority 40, cooldown 1.0, scores match dump. No FLT_MAX in the batch."
+ },
+ "verdict_counts": {
+  "NOT_ACTIVATED": 2,
+  "NATIVE_ACTIVE": 7,
+  "MOD_ONLY": 1
+ },
+ "contradictions": [
+  "EVF PROGRESS.md:315 and RESTORATION_PLAN.md:195 say sub_41AC50 is live and dispatches 208 from the AI engine-countdown (EngineStressSimulation). Code: that object is the player record 0x7C7428 (docs/46 line 14; findings.jsonl line 172), and sub_41AC50:15 excludes the player. The AI route for 208 is FuelConsumptionAndWear case 0 (FuelConsumptionAndWear_004ed960.c:192). SDT 221 verdict rests on that route.",
+  "EVF VOICE_INDEX/PROGRESS notes for SDT 224 and 225-229 say the controlling veh+0x3D68 timer drains 1/s from 20000-41000 s and is effectively unsatisfiable (LIVE_UNPROVEN_PREDICATE). Code: the emitting branches for 211-217 use FuelConsumptionAndWear wheel timers this[3929+i], seeded at 0-300 (FuelConsumptionAndWear :204-218) and decremented by 1.0 per call (:116-119), so they can expire. The 3D68 field is not read by these branches in the code read here. Call rate needs calibration.",
+  "Dump and doc 56 (VOICE_LINES.md:481-505) map TV eids 453, 457, 458, 462-467 to SDT 220-229 with gear/mech clip names. The code queues those TV eids as track-name lines (RaceCommentary_0041d630.c:52-100, :147). One SDT index cannot be both; the content of SDT 220-229 is unresolved and needs an isolation test.",
+  "VOICE_LINES.md:178 groups eids 208, 449, 450, 451, 452, 453 under SDT 221. Dump: SDT 221 has only eid 208 (score 211); 449-452 map to SDT 216-219 (doc 56 rows 481-486).",
+  "EVF-008 B (SPEC_EVF-008_B_gearloss.md:55 region) says eids 212-217 share SDT name PWS_AIMECHPROB1. Dump and doc 56 list 212-216 as PWS_AIMECHPROB0 (SDT 225-229). Name conflict only; the eid-to-SDT pairs in the dump were used.",
+  "DriverNameIDLookup (sub_415D90, a4=1) returns 9/10 for Allan M and 207-216 for other names. Stitch re-check 2026-10-18 (SUB-CLIP BANK FACT): the earlier claim that these values reach sub_412E50 and make SDT 222-229 driver-name clips is withdrawn as evidence. Any sub-clip index it produces is a PC_RE_STITCH (or pc_tv_stitch) entry, not the PC_RE_MAIN clip SDT 222-229, so it does not contradict doc 56 for those rows.",
+  "TRIAGE_NOTES.txt:195-203 owner notes for 220-224 say 'X PLAY' or 'I think this already plays'. These are guesses. The only test evidence for this batch is EVF-008 B (eids 201-207 heard by injection) and the mech-gearbox comments (209 'heard in isolation tests', 213 'isolation-tested 2026-07-30').",
+  "RaceCommentary (sub_41D630) is reached only through sub_46BF10 (sub_46BF10_0046bf10.c:41); its dispatcher sub_46DC60 and DispatchChainWithVTableCalls have no static caller (vtable). Reach of the TV track twins is UNKNOWN; this does not change the PWS verdicts.",
+  "eid 220 (a2==3 in sub_41AC50, from FuelConsumption case 3) is the dump's PWS_AIHIT08 (SDT 233), not AIMECHPROB1. Recorded for the SDT 233 owner; not a verdict input here."
+ ],
+ "rows": [
+  {
+   "sdt_index": 220,
+   "eid": 207,
+   "clip": "PWS_AIMECHPROB1",
+   "says": "periodically slowing down (AI)",
+   "score": 210,
+   "priority": 40,
+   "cooldown": 15.0,
+   "tv_twin": {
+    "eid": 453,
+    "cooldown": 1.0,
+    "where": "Nurburgring track line, RaceCommentary_0041d630.c:92"
+   },
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "",
+   "mod": "",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No trigger in code and no writer of eid 207 in the corpus (EVF-008 B NO_KNOWN_WRITER, SPEC_EVF-008_B_gearloss.md:55). Nothing is suppressed.",
+   "emitters": [],
+   "call_path": null,
+   "gates": [],
+   "heard_evidence": "docs/SPEC_EVF-008_B_gearloss.md:55 'human heard these clips play during isolation-injection testing' (injection test, not organic play; covers eids 201-207)",
+   "tier": "DERIVED",
+   "notes": "Dump eid 207 score 210 cooldown 15.0; owner exe identical. DriverNameIDLookup_00415d90.c:698 returns 207 as a name-table value (Mika H); that value is not queued. TV twin eid 453 (cooldown 1.0, same score 210) is the Nurburgring track line (RaceCommentary_0041d630.c:92), so the dump maps SDT 220 to both 'periodically slowing down' and a TV track line: CONTRADICTION, see contradictions. The sub_412E50 PWS/TV entries for SDT 220 index PC_RE_STITCH / pc_tv_stitch (SUB-CLIP BANK FACT 2026-10-18) and are not a route for this clip.",
+   "checked": [
+    {
+     "function": "sub_41AC50 driver events",
+     "result": "cannot produce eid 207 (its eids are 208, 211-217, 220)",
+     "line": "sub_41AC50_0041ac50.c:21-58"
+    },
+    {
+     "function": "EngineStressSimulation sub_43EF20",
+     "result": "cannot produce eid 207 (only sub_41AC50 a2=0 gives 208)",
+     "line": "EngineStressSimulation_0043ef20.c:126-134,282"
+    },
+    {
+     "function": "FuelConsumptionAndWear sub_4ED960",
+     "result": "cannot produce eid 207 (case 0 gives 208; case 2 gives 211-217; case 3 gives 220)",
+     "line": "FuelConsumptionAndWear_004ed960.c:122-273"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 3",
+     "result": "emits eid 220 (SDT 233 PWS_AIHIT08), not this batch; its condition uses undecoded x87 flags (v47|v48)",
+     "line": "FuelConsumptionAndWear_004ed960.c:256-273"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 1",
+     "result": "no emit (sub_41AC50 a2=1 returns at :50)",
+     "line": "FuelConsumptionAndWear_004ed960.c:227-239"
+    },
+    {
+     "function": "VehiclePhysicsIntegrationStep sub_441650",
+     "result": "relay to EngineStressSimulation (:78); no eid",
+     "line": "VehiclePhysicsIntegrationStep_00441650.c:78"
+    },
+    {
+     "function": "VehiclePhysicsModeDispatcher sub_4E4930",
+     "result": "relay; called only from MainGameTickUpdate:42 under the player gate (+13000==0)",
+     "line": "VehiclePhysicsModeDispatcher_004e4930.c:29; MainGameTickUpdate_0042c690.c:37-43"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690",
+     "result": "race tick root; relays FuelConsumptionAndWear every 400 ticks for cars with +13000==1 (AI)",
+     "line": "MainGameTickUpdate_0042c690.c:67-73"
+    },
+    {
+     "function": "sub_4D21D0 (RacePhase gate)",
+     "result": "returns 1 only for RacePhase >= 5",
+     "line": "sub_4D21D0 lines 5-17"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce (eids 120, 259, 198 only)",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce (eids 6, 180, 181, 182 only)",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce (eids 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce (eids 42, 52)",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce (eids 7, 8, 9, 17, 18)",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce (eids 21, 22, 178, 179)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce (eids 52, 196); no AI puncture emit",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce (eids 157-161, 164-177, 158, 159, 260, 261)",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce (eids 397 and 516-535, incl. remapped 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (via sub_4203D0)",
+     "result": "cannot produce (returns 355-372 or -1)",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce (eids 293-336)",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce (eids 34, 35, 276-279)",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / jump start / blue flag)",
+     "result": "cannot produce (eids 151-155, 252-256, 123-125)",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce (eids 149, 243)",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce (eids 117-119, 235-238)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce (eids 338-354 via sub_420000)",
+     "line": "sub_41C440_0041c440.c:16; sub_420000 lines 1-47"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion sub_4144F0",
+     "result": "record writer; picks no eid. Fields: priority +0, window +4, delay +8, cooldown +0x0C, score +0x10",
+     "line": "DriverDataTableLookupAndTimeConversion_004144f0.c:5-21"
+    },
+    {
+     "function": "InsertDriverTableEntry sub_418560",
+     "result": "queue writer; score and priority gate, 20-slot priority list",
+     "line": "InsertDriverTableEntry_00418560.c:20-86"
+    },
+    {
+     "function": "ScoreThresholdGateCheck sub_418B90",
+     "result": "mode 0 sentinel only; 1 priority >= 70; 2 >= 40; 3 > 0. Priority 40 passes modes 2 and 3",
+     "line": "sub_418B90 lines 6-22"
+    },
+    {
+     "function": "ArraySlotCompactionWithGapFilling sub_418AC0",
+     "result": "drops expired entries; no eid",
+     "line": "sub_418AC0 lines 14-56"
+    },
+    {
+     "function": "TextOverlayDisplayTimer sub_4186F0",
+     "result": "per-eid cooldown via flt_5BF9AC (+0x0C) and per-eid last-played array; gate dword_7D0308 and flt_7CF3C8 at :19",
+     "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+    },
+    {
+     "function": "FontRenderingPrep sub_411840",
+     "result": "channel by eid range (ShortComputation_19d0: 1..290 PWS=0, 293..535 TV=1); calls RaceEventMessageDispatcher and SoundEventDispatcher",
+     "line": "FontRenderingPrep_00411840.c:12-53"
+    },
+    {
+     "function": "RaceEventMessageDispatcher sub_411BF0",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=1 path into sub_412E50 for item types 0xB, 0xC, 0x33 (line 37)",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:34-38"
+    },
+    {
+     "function": "SoundEventDispatcher sub_411E90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=0 path into sub_412E50 (:46, :57); flag-0 outputs are 240-266, never 220-229",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "CharacterCodeMapper sub_411B50",
+     "result": "sets item type from unk_5BEE08 / unk_5BF4C0; those tables are NOT decoded here, so which eids carry type 0xB/0xC/0x33 is UNKNOWN",
+     "line": "CharacterCodeMapper sub_411B50 lines 37-54"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: name-to-value table, not queued. With a4=1 returns small enums (Allan M 9/10) or 207-216 for other names (Mika H 207 at :698; Michael S 209 at :27, 210 at :247). Values feed the +16 field of eid 397 entries",
+     "line": "DriverNameIDLookup_00415d90.c:27,155,247,375,391,494,537,612,698,714,757,832"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList sub_415230 / sub_414600",
+     "result": "name-path wrapper; no queue write",
+     "line": "NamedEntryLookupInFormatList_00415230.c; sub_414600_00414600.c"
+    },
+    {
+     "function": "PositionChangeDetector sub_420490",
+     "result": "queues eid 397 with the name value as +16 (:111, :189); no eid 207",
+     "line": "PositionChangeDetector_00420490.c:110-112,188-190"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "queues the 478-503 family (478 :99; 502 :146; 494 :170); no eid 207",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99-453"
+    },
+    {
+     "function": "VehicleListBuilderFromGlobalArray sub_415780 / VehicleSetupDriverNumber sub_4C7B50 / ShortComputation_5730 sub_415730",
+     "result": "name-table consumers; grep finds no DriverDataTable or InsertDriverTableEntry call and no literal eid",
+     "line": "VehicleListBuilderFromGlobalArray_00415780.c; VehicleSetupDriverNumber_004c7b50.c; ShortComputation_5730_00415730.c"
+    },
+    {
+     "function": "sub_46BF10 AIOvertake + RaceCommentary caller",
+     "result": "calls RaceCommentary only when SessionType == 7 (sub_46BF10_0046bf10.c:36-41); its dispatcher sub_46DC60 / DispatchChainWithVTableCalls has no static caller (vtable): reach UNKNOWN",
+     "line": "sub_46BF10_0046bf10.c:36-41"
+    },
+    {
+     "function": "CameraViewportConfigBatch sub_453560",
+     "result": "literal 207, 209, 210, 211 are CollisionNodePropertySetter property ids, not eids",
+     "line": "CameraViewportConfigBatch_00453560.c:68-73"
+    },
+    {
+     "function": "EnumToIDMappingWithDefaultFallthrough sub_454C20",
+     "result": "207, 209, 210, 211 map to -1 (UI key-binding enum), not eids",
+     "line": "EnumToIDMappingWithDefaultFallthrough_00454c20.c:58-61"
+    },
+    {
+     "function": "StateMachineDispatcher sub_50F904",
+     "result": "state codes 205-210 (object state), not eids",
+     "line": "StateMachineDispatcher_0050f904.c:14-18"
+    },
+    {
+     "function": "StateMachineWithDispatch sub_50FB3B",
+     "result": "state code 207, not an eid",
+     "line": "StateMachineWithDispatch_0050fb3b.c:15"
+    },
+    {
+     "function": "CommandDispatchStateMachine sub_51126A",
+     "result": "numeric state compares (v2 > 207, <= 215, == 216/217), not eids",
+     "line": "CommandDispatchStateMachine_0051126a.c:16,123-130"
+    },
+    {
+     "function": "VehicleDataCopy sub_4C45D0",
+     "result": "this+207 and this+211 are field offsets, not eids",
+     "line": "VehicleDataCopy_004c45d0.c:127,134"
+    },
+    {
+     "function": "sub_512ACC",
+     "result": "trace listed it; re-grep found no literal 207-217 or 453-467",
+     "line": "sub_512ACC_00512acc.c"
+    },
+    {
+     "function": "mechanical_failures dev gearbox (gbx_sim_core.h, gbx_sim_pump.h)",
+     "result": "queues 201-209 and 211-217 in dev only (MF_DEV_TOOLS); not in installed 1.0.7",
+     "line": "gbx_sim_core.h:144-155; gbx_sim_pump.h:29,415-418"
+    },
+    {
+     "function": "extended_damage_commentary, player_damage_commentary, eighth_gear",
+     "result": "no source hit for eids 207-217 or 453-467 or the clip names (grep of .c/.h/.py)",
+     "line": "development/mods/* grep"
+    },
+    {
+     "function": "RaceCommentary sub_41D630 (TV twin 453)",
+     "result": "emits eid 453 (TV channel, not race engineer): Nurburgring track line, RaceCommentary_0041d630.c:92",
+     "line": "RaceCommentary_0041d630.c:92"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (PWS table, a2=0)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 220 for enum 7 with flag 1 (RaceEventMessageDispatcher only; types 0xB/0xC/0x33)",
+     "line": "sub_412E50_00412e50.c:114"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (TV table, a2=1)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 220 for enum 2 with flag 1 (TV channel)",
+     "line": "sub_412E50_00412e50.c:18"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Stitch re-check: sub-clip entries in this row are PC_RE_STITCH indices with no weight; verdict re-judged from the main-clip route only (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "AI car is periodically slowing down (doc 56 / EVF label). Owner note says 'no idea what this means' (TRIAGE_NOTES.txt:195). Real F1 meaning not established.",
+    "when_it_should_play": "Race (SessionType 7), an AI driver's car, only once a real AI mechanical symptom is active. No game trigger exists.",
+    "trigger": "UNKNOWN. Candidate predicate: an AI car's electronics or engine fault state is active (MF electronics is dev-only, so no owner-game state to read). Owner must fix the meaning first.",
+    "subject": "AI driver id veh+0x489C (sub_41AC50 pattern, sub_41AC50_0041ac50.c:58)",
+    "technique": "own_emitter (queue eid 207 through sub_4144F0 + sub_418560, same record ABI as sub_41AC50). Not lift_suppression: nothing is suppressed.",
+    "latch_cooldown": "once per fault; eid cooldown 15.0 (dump, owner exe)",
+    "must_not_play_when": "player car (sub_41AC50_0041ac50.c:15 rule); no fault; FinishState != 0",
+    "conflicts": "TV twin 453 is the Nurburgring track line on the same SDT 220; if SDT 220 is a track name, a PWS 207 queue would speak the wrong content. Resolve first.",
+    "calibration": "none until the meaning is fixed",
+    "live_test": "Owner first confirms the content of eid 207 by an isolation injection (EVF-008 B says it was heard by injection). Then decide the trigger.",
+    "confidence": "GUESS. Raise by resolving the SDT 220 content (EVF-008 B label vs dump TV 453 conflict)."
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "NOT_ACTIVATED (no_emitter) unchanged; the PWS/TV sub-clip entries for SDT 220 removed as evidence."
+   }
+  },
+  {
+   "sdt_index": 221,
+   "eid": 208,
+   "clip": "PWS_AIMECHPROB1",
+   "says": "smoke coming from engine (AI)",
+   "score": 211,
+   "priority": 40,
+   "cooldown": 15.0,
+   "tv_twin": null,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "",
+   "situation": "Green-flag race (SessionType 7, RacePhase 5+). An AI car's front-left (wheel index 0) wear countdown runs out while the wear test passes; the game queues 'smoke coming from engine' for that AI driver. The player car is excluded. Rare: timer seeding and wear values are UNKNOWN.",
+   "mod": "",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41AC50 a2=0 -> eid 208 (sub_41AC50_0041ac50.c:56), called from FuelConsumptionAndWear case 0 (FuelConsumptionAndWear_004ed960.c:190-192)",
+    "sub_41AC50 a2=0 also called from EngineStressSimulation (EngineStressSimulation_0043ef20.c:282), but that physics object is the player record (see notes); blocked for the player by sub_41AC50_0041ac50.c:15"
+   ],
+   "call_path": "MainGameTickUpdate (MainGameTickUpdate_0042c690.c:67-73, every 400 ticks, cars with +13000==1) -> sub_4ED960 FuelConsumptionAndWear(1.0) -> sub_41AC50(vehicle,0) -> sub_4144F0 -> sub_418560 InsertDriverTableEntry -> sub_4186F0 TextOverlayDisplayTimer -> sub_411840 FontRenderingPrep -> SoundEventDispatcher / RaceEventMessageDispatcher",
+   "gates": [
+    "sub_41AC50_0041ac50.c:6 dword_7D0308 != 0 (commentary/race flag; owner live value 3 per B15 audit note)",
+    "sub_41AC50_0041ac50.c:8 flt_7CF3C8 != 0.0 (commentary level; live value UNKNOWN here)",
+    "sub_41AC50_0041ac50.c:12 dword_7C56A8 != 8 and dword_7C56A4 == 7 (race)",
+    "sub_41AC50_0041ac50.c:15 vehicle != PlayerVehiclePtr (dword_7C54E8) and veh+0x4064 FinishState == 0",
+    "FuelConsumptionAndWear_004ed960.c:112 sub_4D21D0 true only for RacePhase >= 5 (sub_4D21D0 lines 5-17)",
+    "FuelConsumptionAndWear_004ed960.c:116-120 wheel-0 countdown this[3929] < 0 after decrement by a2=1.0",
+    "FuelConsumptionAndWear_004ed960.c:127 this[3686]*0.5 <= this[3685] (wear test, values UNKNOWN)",
+    "FuelConsumptionAndWear_004ed960.c:129-131 this[3922]!=0 or this[3923]!=0 or random table value >= 0.5 (no x87 flags on this path)",
+    "InsertDriverTableEntry_00418560.c:22 ScoreThresholdGateCheck: priority 40 passes dword_7D0308 modes 2 and 3",
+    "TextOverlayDisplayTimer_004186f0.c:19 and :60 per-eid cooldown 15 s"
+   ],
+   "heard_evidence": "TRIAGE_NOTES.txt:197 'smoke coming from engine, this is played already I think' (owner guess, not a test)",
+   "tier": "DERIVED",
+   "notes": "The engine-countdown route (EngineStressSimulation) does not reach AI cars: its physics object is the static player record 0x7C7428 (docs/46-player-specific-mechanical-failures.md:14; findings.jsonl line 172 'PLAYER CAR ONLY'). The vehicle pointer at 0x7C7428+7936 is set once by TireModelInit (TireModelInit_0043e050.c:22); equality with dword_7C54E8 is not proven here, but if equal, sub_41AC50:15 blocks it. The AI route is FuelConsumptionAndWear case 0. Calibration needed: dt per call (sub_42C690 tick math), wear values this[3685]/this[3686], flt_7CF3C8 live.",
+   "checked": [
+    {
+     "function": "sub_41AC50 driver events",
+     "result": "emits eid 208 under a2==0 (player excluded at :15)",
+     "line": "sub_41AC50_0041ac50.c:56"
+    },
+    {
+     "function": "EngineStressSimulation sub_43EF20",
+     "result": "emits eid 208 only (a2=0 at :282) from the countdown; object is the player physics record 0x7C7428 (docs/46 line 14; findings.jsonl line 172)",
+     "line": "EngineStressSimulation_0043ef20.c:126-134,282"
+    },
+    {
+     "function": "FuelConsumptionAndWear sub_4ED960",
+     "result": "emits eid 208 under wheel-0 timer < 0 and wear test and branch :129-131 (case 0, :192)",
+     "line": "FuelConsumptionAndWear_004ed960.c:112-131,190-192"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 3",
+     "result": "emits eid 220 (SDT 233 PWS_AIHIT08), not this batch; its condition uses undecoded x87 flags (v47|v48)",
+     "line": "FuelConsumptionAndWear_004ed960.c:256-273"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 1",
+     "result": "no emit (sub_41AC50 a2=1 returns at :50)",
+     "line": "FuelConsumptionAndWear_004ed960.c:227-239"
+    },
+    {
+     "function": "VehiclePhysicsIntegrationStep sub_441650",
+     "result": "relay to EngineStressSimulation (:78); no eid",
+     "line": "VehiclePhysicsIntegrationStep_00441650.c:78"
+    },
+    {
+     "function": "VehiclePhysicsModeDispatcher sub_4E4930",
+     "result": "relay; called only from MainGameTickUpdate:42 under the player gate (+13000==0)",
+     "line": "VehiclePhysicsModeDispatcher_004e4930.c:29; MainGameTickUpdate_0042c690.c:37-43"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690",
+     "result": "race tick root; relays FuelConsumptionAndWear every 400 ticks for cars with +13000==1 (AI)",
+     "line": "MainGameTickUpdate_0042c690.c:67-73"
+    },
+    {
+     "function": "sub_4D21D0 (RacePhase gate)",
+     "result": "returns 1 only for RacePhase >= 5",
+     "line": "sub_4D21D0 lines 5-17"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce (eids 120, 259, 198 only)",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce (eids 6, 180, 181, 182 only)",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce (eids 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce (eids 42, 52)",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce (eids 7, 8, 9, 17, 18)",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce (eids 21, 22, 178, 179)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce (eids 52, 196); no AI puncture emit",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce (eids 157-161, 164-177, 158, 159, 260, 261)",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce (eids 397 and 516-535, incl. remapped 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (via sub_4203D0)",
+     "result": "cannot produce (returns 355-372 or -1)",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce (eids 293-336)",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce (eids 34, 35, 276-279)",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / jump start / blue flag)",
+     "result": "cannot produce (eids 151-155, 252-256, 123-125)",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce (eids 149, 243)",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce (eids 117-119, 235-238)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce (eids 338-354 via sub_420000)",
+     "line": "sub_41C440_0041c440.c:16; sub_420000 lines 1-47"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion sub_4144F0",
+     "result": "record writer; picks no eid. Fields: priority +0, window +4, delay +8, cooldown +0x0C, score +0x10",
+     "line": "DriverDataTableLookupAndTimeConversion_004144f0.c:5-21"
+    },
+    {
+     "function": "InsertDriverTableEntry sub_418560",
+     "result": "queue writer; score and priority gate, 20-slot priority list",
+     "line": "InsertDriverTableEntry_00418560.c:20-86"
+    },
+    {
+     "function": "ScoreThresholdGateCheck sub_418B90",
+     "result": "mode 0 sentinel only; 1 priority >= 70; 2 >= 40; 3 > 0. Priority 40 passes modes 2 and 3",
+     "line": "sub_418B90 lines 6-22"
+    },
+    {
+     "function": "ArraySlotCompactionWithGapFilling sub_418AC0",
+     "result": "drops expired entries; no eid",
+     "line": "sub_418AC0 lines 14-56"
+    },
+    {
+     "function": "TextOverlayDisplayTimer sub_4186F0",
+     "result": "per-eid cooldown via flt_5BF9AC (+0x0C) and per-eid last-played array; gate dword_7D0308 and flt_7CF3C8 at :19",
+     "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+    },
+    {
+     "function": "FontRenderingPrep sub_411840",
+     "result": "channel by eid range (ShortComputation_19d0: 1..290 PWS=0, 293..535 TV=1); calls RaceEventMessageDispatcher and SoundEventDispatcher",
+     "line": "FontRenderingPrep_00411840.c:12-53"
+    },
+    {
+     "function": "RaceEventMessageDispatcher sub_411BF0",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=1 path into sub_412E50 for item types 0xB, 0xC, 0x33 (line 37)",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:34-38"
+    },
+    {
+     "function": "SoundEventDispatcher sub_411E90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=0 path into sub_412E50 (:46, :57); flag-0 outputs are 240-266, never 220-229",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "CharacterCodeMapper sub_411B50",
+     "result": "sets item type from unk_5BEE08 / unk_5BF4C0; those tables are NOT decoded here, so which eids carry type 0xB/0xC/0x33 is UNKNOWN",
+     "line": "CharacterCodeMapper sub_411B50 lines 37-54"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: name-to-value table, not queued. With a4=1 returns small enums (Allan M 9/10) or 207-216 for other names (Mika H 207 at :698; Michael S 209 at :27, 210 at :247). Values feed the +16 field of eid 397 entries",
+     "line": "DriverNameIDLookup_00415d90.c:27,155,247,375,391,494,537,612,698,714,757,832"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList sub_415230 / sub_414600",
+     "result": "name-path wrapper; no queue write",
+     "line": "NamedEntryLookupInFormatList_00415230.c; sub_414600_00414600.c"
+    },
+    {
+     "function": "PositionChangeDetector sub_420490",
+     "result": "queues eid 397 with the name value as +16 (:111, :189); no eid 208",
+     "line": "PositionChangeDetector_00420490.c:110-112,188-190"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "queues the 478-503 family (478 :99; 502 :146; 494 :170); no eid 208",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99-453"
+    },
+    {
+     "function": "VehicleListBuilderFromGlobalArray sub_415780 / VehicleSetupDriverNumber sub_4C7B50 / ShortComputation_5730 sub_415730",
+     "result": "name-table consumers; grep finds no DriverDataTable or InsertDriverTableEntry call and no literal eid",
+     "line": "VehicleListBuilderFromGlobalArray_00415780.c; VehicleSetupDriverNumber_004c7b50.c; ShortComputation_5730_00415730.c"
+    },
+    {
+     "function": "sub_46BF10 AIOvertake + RaceCommentary caller",
+     "result": "calls RaceCommentary only when SessionType == 7 (sub_46BF10_0046bf10.c:36-41); its dispatcher sub_46DC60 / DispatchChainWithVTableCalls has no static caller (vtable): reach UNKNOWN",
+     "line": "sub_46BF10_0046bf10.c:36-41"
+    },
+    {
+     "function": "CameraViewportConfigBatch sub_453560",
+     "result": "literal 207, 209, 210, 211 are CollisionNodePropertySetter property ids, not eids",
+     "line": "CameraViewportConfigBatch_00453560.c:68-73"
+    },
+    {
+     "function": "EnumToIDMappingWithDefaultFallthrough sub_454C20",
+     "result": "207, 209, 210, 211 map to -1 (UI key-binding enum), not eids",
+     "line": "EnumToIDMappingWithDefaultFallthrough_00454c20.c:58-61"
+    },
+    {
+     "function": "StateMachineDispatcher sub_50F904",
+     "result": "state codes 205-210 (object state), not eids",
+     "line": "StateMachineDispatcher_0050f904.c:14-18"
+    },
+    {
+     "function": "StateMachineWithDispatch sub_50FB3B",
+     "result": "state code 207, not an eid",
+     "line": "StateMachineWithDispatch_0050fb3b.c:15"
+    },
+    {
+     "function": "CommandDispatchStateMachine sub_51126A",
+     "result": "numeric state compares (v2 > 207, <= 215, == 216/217), not eids",
+     "line": "CommandDispatchStateMachine_0051126a.c:16,123-130"
+    },
+    {
+     "function": "VehicleDataCopy sub_4C45D0",
+     "result": "this+207 and this+211 are field offsets, not eids",
+     "line": "VehicleDataCopy_004c45d0.c:127,134"
+    },
+    {
+     "function": "sub_512ACC",
+     "result": "trace listed it; re-grep found no literal 207-217 or 453-467",
+     "line": "sub_512ACC_00512acc.c"
+    },
+    {
+     "function": "mechanical_failures dev gearbox (gbx_sim_core.h, gbx_sim_pump.h)",
+     "result": "queues 201-209 and 211-217 in dev only (MF_DEV_TOOLS); not in installed 1.0.7",
+     "line": "gbx_sim_core.h:144-155; gbx_sim_pump.h:29,415-418"
+    },
+    {
+     "function": "extended_damage_commentary, player_damage_commentary, eighth_gear",
+     "result": "no source hit for eids 207-217 or 453-467 or the clip names (grep of .c/.h/.py)",
+     "line": "development/mods/* grep"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "result": "cannot produce eid 208 (only track-name eids 447-473 and 397/454-456/459-461/474/476/477)",
+     "line": "RaceCommentary_0041d630.c:34-238"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (PWS table, a2=0)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 221 for enum 8 with flag 1 (RaceEventMessageDispatcher only; types 0xB/0xC/0x33)",
+     "line": "sub_412E50_00412e50.c:117"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (TV table, a2=1)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 221 for enum 3 with flag 1 (TV channel)",
+     "line": "sub_412E50_00412e50.c:21"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Stitch re-check: sub-clip entries in this row are PC_RE_STITCH indices with no weight; verdict re-judged from the main-clip route only (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "NATIVE_ACTIVE unchanged: verdict rests on FuelConsumptionAndWear case 0 (eid 208). Sub-clip checks carry no weight."
+   }
+  },
+  {
+   "sdt_index": 222,
+   "eid": 209,
+   "clip": "RE_OD_LOST_7",
+   "says": "Other driver lost 7th gear",
+   "score": 212,
+   "priority": 40,
+   "cooldown": 15.0,
+   "tv_twin": {
+    "eid": 457,
+    "cooldown": 1.0,
+    "where": "Magny-Cours track line, RaceCommentary_0041d630.c:64"
+   },
+   "verdict": "MOD_ONLY",
+   "reason": "no game emitter; the only writer is the DEV-ONLY mechanical_failures gearbox code",
+   "situation": "AI car loses its 7th gear (gearbox LOST fault on gear 7). Plays only in the dev gearbox build, which is not installed in the owner game.",
+   "mod": "mechanical_failures (gearbox, dev build only; installed 1.0.7 = engine family)",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No game trigger to suppress; the owner game has no gear-loss state in the code paths read here.",
+   "emitters": [
+    "mechanical_failures/dll/gbx_sim_core.h:145 gbx_eid_lost(g) returns 209 for gear 7 (dev-only), queued by gbx_say gbx_sim_core.h:147-155",
+    "mechanical_failures/dll/gbx_sim_pump.h:415 say_eid = gbx_eid_lost(o.gear) on terminal LOST (dev-only; MF_DEV_TOOLS block at gbx_sim_pump.h:29)"
+   ],
+   "call_path": "mechanical_failures gbx pump (dev) -> gbx_say -> sub_4144F0 -> sub_418560 (same ABI as sub_41AC50)",
+   "gates": [
+    "gbx_sim_core.h:150 eid 200..220, GBX_VOICE_ON (dword_7D0308), GBX_VOICE_LEVEL (flt_7CF3C8) != 0, FinishState == 0",
+    "native: no writer (sub_41AC50 emits only 208, 211-217, 220)"
+   ],
+   "heard_evidence": "mechanical_failures/dll/gbx_sim_core.h:133 'RE_OD_LOST_7 (heard in isolation tests, EVF-008 B)' (mod author comment, not re-tested here); TRIAGE_NOTES.txt:199 'seventh gear, same as above' (owner guess)",
+   "tier": "DERIVED",
+   "notes": "Dump eid 209 score 212 cooldown 15.0; owner exe identical. Native name use: DriverNameIDLookup_00415d90.c:27 returns 209 for a driver name with a4!=0 (Michael S); a name value, not a queued eid. The name value is also the +16 field of TV eid 397 entries (PositionChangeDetector_00420490.c:111,189), where a value 1..26 can select a clip (TV table clip = 218+N); 209 is out of that range. TV twin 457 is the Magny-Cours track line (RaceCommentary_0041d630.c:64).",
+   "checked": [
+    {
+     "function": "sub_41AC50 driver events",
+     "result": "cannot produce eid 209 (its eids are 208, 211-217, 220)",
+     "line": "sub_41AC50_0041ac50.c:21-58"
+    },
+    {
+     "function": "EngineStressSimulation sub_43EF20",
+     "result": "cannot produce eid 209 (only sub_41AC50 a2=0 gives 208)",
+     "line": "EngineStressSimulation_0043ef20.c:126-134,282"
+    },
+    {
+     "function": "FuelConsumptionAndWear sub_4ED960",
+     "result": "cannot produce eid 209 (case 0 gives 208; case 2 gives 211-217; case 3 gives 220)",
+     "line": "FuelConsumptionAndWear_004ed960.c:122-273"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 3",
+     "result": "emits eid 220 (SDT 233 PWS_AIHIT08), not this batch; its condition uses undecoded x87 flags (v47|v48)",
+     "line": "FuelConsumptionAndWear_004ed960.c:256-273"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 1",
+     "result": "no emit (sub_41AC50 a2=1 returns at :50)",
+     "line": "FuelConsumptionAndWear_004ed960.c:227-239"
+    },
+    {
+     "function": "VehiclePhysicsIntegrationStep sub_441650",
+     "result": "relay to EngineStressSimulation (:78); no eid",
+     "line": "VehiclePhysicsIntegrationStep_00441650.c:78"
+    },
+    {
+     "function": "VehiclePhysicsModeDispatcher sub_4E4930",
+     "result": "relay; called only from MainGameTickUpdate:42 under the player gate (+13000==0)",
+     "line": "VehiclePhysicsModeDispatcher_004e4930.c:29; MainGameTickUpdate_0042c690.c:37-43"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690",
+     "result": "race tick root; relays FuelConsumptionAndWear every 400 ticks for cars with +13000==1 (AI)",
+     "line": "MainGameTickUpdate_0042c690.c:67-73"
+    },
+    {
+     "function": "sub_4D21D0 (RacePhase gate)",
+     "result": "returns 1 only for RacePhase >= 5",
+     "line": "sub_4D21D0 lines 5-17"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce (eids 120, 259, 198 only)",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce (eids 6, 180, 181, 182 only)",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce (eids 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce (eids 42, 52)",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce (eids 7, 8, 9, 17, 18)",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce (eids 21, 22, 178, 179)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce (eids 52, 196); no AI puncture emit",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce (eids 157-161, 164-177, 158, 159, 260, 261)",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce (eids 397 and 516-535, incl. remapped 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (via sub_4203D0)",
+     "result": "cannot produce (returns 355-372 or -1)",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce (eids 293-336)",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce (eids 34, 35, 276-279)",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / jump start / blue flag)",
+     "result": "cannot produce (eids 151-155, 252-256, 123-125)",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce (eids 149, 243)",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce (eids 117-119, 235-238)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce (eids 338-354 via sub_420000)",
+     "line": "sub_41C440_0041c440.c:16; sub_420000 lines 1-47"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion sub_4144F0",
+     "result": "record writer; picks no eid. Fields: priority +0, window +4, delay +8, cooldown +0x0C, score +0x10",
+     "line": "DriverDataTableLookupAndTimeConversion_004144f0.c:5-21"
+    },
+    {
+     "function": "InsertDriverTableEntry sub_418560",
+     "result": "queue writer; score and priority gate, 20-slot priority list",
+     "line": "InsertDriverTableEntry_00418560.c:20-86"
+    },
+    {
+     "function": "ScoreThresholdGateCheck sub_418B90",
+     "result": "mode 0 sentinel only; 1 priority >= 70; 2 >= 40; 3 > 0. Priority 40 passes modes 2 and 3",
+     "line": "sub_418B90 lines 6-22"
+    },
+    {
+     "function": "ArraySlotCompactionWithGapFilling sub_418AC0",
+     "result": "drops expired entries; no eid",
+     "line": "sub_418AC0 lines 14-56"
+    },
+    {
+     "function": "TextOverlayDisplayTimer sub_4186F0",
+     "result": "per-eid cooldown via flt_5BF9AC (+0x0C) and per-eid last-played array; gate dword_7D0308 and flt_7CF3C8 at :19",
+     "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+    },
+    {
+     "function": "FontRenderingPrep sub_411840",
+     "result": "channel by eid range (ShortComputation_19d0: 1..290 PWS=0, 293..535 TV=1); calls RaceEventMessageDispatcher and SoundEventDispatcher",
+     "line": "FontRenderingPrep_00411840.c:12-53"
+    },
+    {
+     "function": "RaceEventMessageDispatcher sub_411BF0",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=1 path into sub_412E50 for item types 0xB, 0xC, 0x33 (line 37)",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:34-38"
+    },
+    {
+     "function": "SoundEventDispatcher sub_411E90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=0 path into sub_412E50 (:46, :57); flag-0 outputs are 240-266, never 220-229",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "CharacterCodeMapper sub_411B50",
+     "result": "sets item type from unk_5BEE08 / unk_5BF4C0; those tables are NOT decoded here, so which eids carry type 0xB/0xC/0x33 is UNKNOWN",
+     "line": "CharacterCodeMapper sub_411B50 lines 37-54"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: name-to-value table, not queued. With a4=1 returns small enums (Allan M 9/10) or 207-216 for other names (Mika H 207 at :698; Michael S 209 at :27, 210 at :247). Values feed the +16 field of eid 397 entries; eid 209 name value only",
+     "line": "DriverNameIDLookup_00415d90.c:27,155,247,375,391,494,537,612,698,714,757,832"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList sub_415230 / sub_414600",
+     "result": "name-path wrapper; no queue write",
+     "line": "NamedEntryLookupInFormatList_00415230.c; sub_414600_00414600.c"
+    },
+    {
+     "function": "PositionChangeDetector sub_420490",
+     "result": "queues eid 397 with the name value as +16 (:111, :189); no eid 209",
+     "line": "PositionChangeDetector_00420490.c:110-112,188-190"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "queues the 478-503 family (478 :99; 502 :146; 494 :170); no eid 209",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99-453"
+    },
+    {
+     "function": "VehicleListBuilderFromGlobalArray sub_415780 / VehicleSetupDriverNumber sub_4C7B50 / ShortComputation_5730 sub_415730",
+     "result": "name-table consumers; grep finds no DriverDataTable or InsertDriverTableEntry call and no literal eid",
+     "line": "VehicleListBuilderFromGlobalArray_00415780.c; VehicleSetupDriverNumber_004c7b50.c; ShortComputation_5730_00415730.c"
+    },
+    {
+     "function": "sub_46BF10 AIOvertake + RaceCommentary caller",
+     "result": "calls RaceCommentary only when SessionType == 7 (sub_46BF10_0046bf10.c:36-41); its dispatcher sub_46DC60 / DispatchChainWithVTableCalls has no static caller (vtable): reach UNKNOWN",
+     "line": "sub_46BF10_0046bf10.c:36-41"
+    },
+    {
+     "function": "CameraViewportConfigBatch sub_453560",
+     "result": "literal 207, 209, 210, 211 are CollisionNodePropertySetter property ids, not eids",
+     "line": "CameraViewportConfigBatch_00453560.c:68-73"
+    },
+    {
+     "function": "EnumToIDMappingWithDefaultFallthrough sub_454C20",
+     "result": "207, 209, 210, 211 map to -1 (UI key-binding enum), not eids",
+     "line": "EnumToIDMappingWithDefaultFallthrough_00454c20.c:58-61"
+    },
+    {
+     "function": "StateMachineDispatcher sub_50F904",
+     "result": "state codes 205-210 (object state), not eids",
+     "line": "StateMachineDispatcher_0050f904.c:14-18"
+    },
+    {
+     "function": "StateMachineWithDispatch sub_50FB3B",
+     "result": "state code 207, not an eid",
+     "line": "StateMachineWithDispatch_0050fb3b.c:15"
+    },
+    {
+     "function": "CommandDispatchStateMachine sub_51126A",
+     "result": "numeric state compares (v2 > 207, <= 215, == 216/217), not eids",
+     "line": "CommandDispatchStateMachine_0051126a.c:16,123-130"
+    },
+    {
+     "function": "VehicleDataCopy sub_4C45D0",
+     "result": "this+207 and this+211 are field offsets, not eids",
+     "line": "VehicleDataCopy_004c45d0.c:127,134"
+    },
+    {
+     "function": "sub_512ACC",
+     "result": "trace listed it; re-grep found no literal 207-217 or 453-467",
+     "line": "sub_512ACC_00512acc.c"
+    },
+    {
+     "function": "mechanical_failures dev gearbox (gbx_sim_core.h, gbx_sim_pump.h)",
+     "result": "queues 201-209 and 211-217 in dev only (MF_DEV_TOOLS); not in installed 1.0.7",
+     "line": "gbx_sim_core.h:144-155; gbx_sim_pump.h:29,415-418"
+    },
+    {
+     "function": "extended_damage_commentary, player_damage_commentary, eighth_gear",
+     "result": "no source hit for eids 207-217 or 453-467 or the clip names (grep of .c/.h/.py)",
+     "line": "development/mods/* grep"
+    },
+    {
+     "function": "RaceCommentary sub_41D630 (TV twin 457)",
+     "result": "emits eid 457 (TV channel, not race engineer): Magny-Cours track line, RaceCommentary_0041d630.c:64",
+     "line": "RaceCommentary_0041d630.c:64"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (PWS table, a2=0)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 222 for enum 9 with flag 1 (RaceEventMessageDispatcher only; types 0xB/0xC/0x33)",
+     "line": "sub_412E50_00412e50.c:120"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (TV table, a2=1)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 222 for enum 4 with flag 1 (TV channel)",
+     "line": "sub_412E50_00412e50.c:24"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Stitch re-check: sub-clip entries in this row are PC_RE_STITCH indices with no weight; verdict re-judged from the main-clip route only (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Other driver (AI) has lost 7th gear (RE_OD_LOST_7).",
+    "when_it_should_play": "Race, an AI car's gearbox has a LOST fault on gear 7 (real event). The fault exists only in the dev gearbox build, so the owner game does not produce it today.",
+    "trigger": "Gearbox LOST terminal fault on gear 7 for an AI car (mechanical_failures gbx_sim_pump.h:415, gear = o.gear). No native 'gear lost' state is present in the owner game.",
+    "subject": "AI driver id veh+0x489C (gbx_say gbx_sim_core.h:150-152)",
+    "technique": "own_emitter (copy the gbx_say ABI, eid 209). lift_suppression not applicable (native has no emitter).",
+    "latch_cooldown": "once per gear-loss event; eid cooldown 15.0",
+    "must_not_play_when": "player car; gears 1..6 (use 201-206, not this clip); an MF line already pending on eid 209 (DD-07)",
+    "conflicts": "DD-07: do not queue while an MF line is pending on the same eid. TV 457 Magny-Cours track line shares this SDT 222.",
+    "calibration": "none (fault timing comes from the gearbox sim)",
+    "live_test": "Owner runs the dev gearbox build with a forced LOST on gear 7 for an AI car. Not run by this agent (no live game).",
+    "confidence": "DERIVED from dev code; GUESS for an owner-game trigger. Raise by a live isolation test of eid 209."
+   },
+   "stitch_recheck": {
+    "old_verdict": "MOD_ONLY",
+    "new_verdict": "MOD_ONLY",
+    "why": "MOD_ONLY unchanged (dev gearbox eid 209). Sub-clip checks carry no weight."
+   }
+  },
+  {
+   "sdt_index": 223,
+   "eid": 210,
+   "clip": "RE_OD_PUNCTURE",
+   "says": "Other driver has a puncture",
+   "score": 213,
+   "priority": 40,
+   "cooldown": 15.0,
+   "tv_twin": {
+    "eid": 458,
+    "cooldown": 1.0,
+    "where": "Hockenheim track line, RaceCommentary_0041d630.c:76"
+   },
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "",
+   "mod": "",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No game trigger for an AI puncture in the code read here (AIVehicleDamageEvent sub_41A170 emits only 52 and 196). The external F1CUI Live plugin in the owner folder has puncture logic; whether it speaks SDT 223 is UNKNOWN.",
+   "emitters": [],
+   "call_path": null,
+   "gates": [],
+   "heard_evidence": "TRIAGE_NOTES.txt:201 'SIMULATED AI PUNCTURES, a separate mod called F1CUI already does the puncture mechanism' (owner note, not a test)",
+   "tier": "DERIVED",
+   "notes": "Dump eid 210 score 213 cooldown 15.0; owner exe identical. DriverNameIDLookup_00415d90.c:247 and :494 hold 210 as a name value (not queued). External plugin: '<game folder>/F1CUILive.jar' holds f1c_badEventsEngine.class and f1c_radioMessageEngine.class with puncture text (read-only zip scan); not in the ERE census; loaded state and output path UNKNOWN. TV twin 458 is the Hockenheim track line (RaceCommentary_0041d630.c:76).",
+   "checked": [
+    {
+     "function": "sub_41AC50 driver events",
+     "result": "cannot produce eid 210 (its eids are 208, 211-217, 220)",
+     "line": "sub_41AC50_0041ac50.c:21-58"
+    },
+    {
+     "function": "EngineStressSimulation sub_43EF20",
+     "result": "cannot produce eid 210 (only sub_41AC50 a2=0 gives 208)",
+     "line": "EngineStressSimulation_0043ef20.c:126-134,282"
+    },
+    {
+     "function": "FuelConsumptionAndWear sub_4ED960",
+     "result": "cannot produce eid 210 (case 0 gives 208; case 2 gives 211-217; case 3 gives 220)",
+     "line": "FuelConsumptionAndWear_004ed960.c:122-273"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 3",
+     "result": "emits eid 220 (SDT 233 PWS_AIHIT08), not this batch; its condition uses undecoded x87 flags (v47|v48)",
+     "line": "FuelConsumptionAndWear_004ed960.c:256-273"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 1",
+     "result": "no emit (sub_41AC50 a2=1 returns at :50)",
+     "line": "FuelConsumptionAndWear_004ed960.c:227-239"
+    },
+    {
+     "function": "VehiclePhysicsIntegrationStep sub_441650",
+     "result": "relay to EngineStressSimulation (:78); no eid",
+     "line": "VehiclePhysicsIntegrationStep_00441650.c:78"
+    },
+    {
+     "function": "VehiclePhysicsModeDispatcher sub_4E4930",
+     "result": "relay; called only from MainGameTickUpdate:42 under the player gate (+13000==0)",
+     "line": "VehiclePhysicsModeDispatcher_004e4930.c:29; MainGameTickUpdate_0042c690.c:37-43"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690",
+     "result": "race tick root; relays FuelConsumptionAndWear every 400 ticks for cars with +13000==1 (AI)",
+     "line": "MainGameTickUpdate_0042c690.c:67-73"
+    },
+    {
+     "function": "sub_4D21D0 (RacePhase gate)",
+     "result": "returns 1 only for RacePhase >= 5",
+     "line": "sub_4D21D0 lines 5-17"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce (eids 120, 259, 198 only)",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce (eids 6, 180, 181, 182 only)",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce (eids 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce (eids 42, 52)",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce (eids 7, 8, 9, 17, 18)",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce (eids 21, 22, 178, 179)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce (eids 52, 196); no AI puncture emit",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce (eids 157-161, 164-177, 158, 159, 260, 261)",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce (eids 397 and 516-535, incl. remapped 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (via sub_4203D0)",
+     "result": "cannot produce (returns 355-372 or -1)",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce (eids 293-336)",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce (eids 34, 35, 276-279)",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / jump start / blue flag)",
+     "result": "cannot produce (eids 151-155, 252-256, 123-125)",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce (eids 149, 243)",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce (eids 117-119, 235-238)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce (eids 338-354 via sub_420000)",
+     "line": "sub_41C440_0041c440.c:16; sub_420000 lines 1-47"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion sub_4144F0",
+     "result": "record writer; picks no eid. Fields: priority +0, window +4, delay +8, cooldown +0x0C, score +0x10",
+     "line": "DriverDataTableLookupAndTimeConversion_004144f0.c:5-21"
+    },
+    {
+     "function": "InsertDriverTableEntry sub_418560",
+     "result": "queue writer; score and priority gate, 20-slot priority list",
+     "line": "InsertDriverTableEntry_00418560.c:20-86"
+    },
+    {
+     "function": "ScoreThresholdGateCheck sub_418B90",
+     "result": "mode 0 sentinel only; 1 priority >= 70; 2 >= 40; 3 > 0. Priority 40 passes modes 2 and 3",
+     "line": "sub_418B90 lines 6-22"
+    },
+    {
+     "function": "ArraySlotCompactionWithGapFilling sub_418AC0",
+     "result": "drops expired entries; no eid",
+     "line": "sub_418AC0 lines 14-56"
+    },
+    {
+     "function": "TextOverlayDisplayTimer sub_4186F0",
+     "result": "per-eid cooldown via flt_5BF9AC (+0x0C) and per-eid last-played array; gate dword_7D0308 and flt_7CF3C8 at :19",
+     "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+    },
+    {
+     "function": "FontRenderingPrep sub_411840",
+     "result": "channel by eid range (ShortComputation_19d0: 1..290 PWS=0, 293..535 TV=1); calls RaceEventMessageDispatcher and SoundEventDispatcher",
+     "line": "FontRenderingPrep_00411840.c:12-53"
+    },
+    {
+     "function": "RaceEventMessageDispatcher sub_411BF0",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=1 path into sub_412E50 for item types 0xB, 0xC, 0x33 (line 37)",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:34-38"
+    },
+    {
+     "function": "SoundEventDispatcher sub_411E90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=0 path into sub_412E50 (:46, :57); flag-0 outputs are 240-266, never 220-229",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "CharacterCodeMapper sub_411B50",
+     "result": "sets item type from unk_5BEE08 / unk_5BF4C0; those tables are NOT decoded here, so which eids carry type 0xB/0xC/0x33 is UNKNOWN",
+     "line": "CharacterCodeMapper sub_411B50 lines 37-54"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: name-to-value table, not queued. With a4=1 returns small enums (Allan M 9/10) or 207-216 for other names (Mika H 207 at :698; Michael S 209 at :27, 210 at :247). Values feed the +16 field of eid 397 entries; eid 210 name value only",
+     "line": "DriverNameIDLookup_00415d90.c:27,155,247,375,391,494,537,612,698,714,757,832"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList sub_415230 / sub_414600",
+     "result": "name-path wrapper; no queue write",
+     "line": "NamedEntryLookupInFormatList_00415230.c; sub_414600_00414600.c"
+    },
+    {
+     "function": "PositionChangeDetector sub_420490",
+     "result": "queues eid 397 with the name value as +16 (:111, :189); no eid 210",
+     "line": "PositionChangeDetector_00420490.c:110-112,188-190"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "queues the 478-503 family (478 :99; 502 :146; 494 :170); no eid 210",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99-453"
+    },
+    {
+     "function": "VehicleListBuilderFromGlobalArray sub_415780 / VehicleSetupDriverNumber sub_4C7B50 / ShortComputation_5730 sub_415730",
+     "result": "name-table consumers; grep finds no DriverDataTable or InsertDriverTableEntry call and no literal eid",
+     "line": "VehicleListBuilderFromGlobalArray_00415780.c; VehicleSetupDriverNumber_004c7b50.c; ShortComputation_5730_00415730.c"
+    },
+    {
+     "function": "sub_46BF10 AIOvertake + RaceCommentary caller",
+     "result": "calls RaceCommentary only when SessionType == 7 (sub_46BF10_0046bf10.c:36-41); its dispatcher sub_46DC60 / DispatchChainWithVTableCalls has no static caller (vtable): reach UNKNOWN",
+     "line": "sub_46BF10_0046bf10.c:36-41"
+    },
+    {
+     "function": "CameraViewportConfigBatch sub_453560",
+     "result": "literal 207, 209, 210, 211 are CollisionNodePropertySetter property ids, not eids",
+     "line": "CameraViewportConfigBatch_00453560.c:68-73"
+    },
+    {
+     "function": "EnumToIDMappingWithDefaultFallthrough sub_454C20",
+     "result": "207, 209, 210, 211 map to -1 (UI key-binding enum), not eids",
+     "line": "EnumToIDMappingWithDefaultFallthrough_00454c20.c:58-61"
+    },
+    {
+     "function": "StateMachineDispatcher sub_50F904",
+     "result": "state codes 205-210 (object state), not eids",
+     "line": "StateMachineDispatcher_0050f904.c:14-18"
+    },
+    {
+     "function": "StateMachineWithDispatch sub_50FB3B",
+     "result": "state code 207, not an eid",
+     "line": "StateMachineWithDispatch_0050fb3b.c:15"
+    },
+    {
+     "function": "CommandDispatchStateMachine sub_51126A",
+     "result": "numeric state compares (v2 > 207, <= 215, == 216/217), not eids",
+     "line": "CommandDispatchStateMachine_0051126a.c:16,123-130"
+    },
+    {
+     "function": "VehicleDataCopy sub_4C45D0",
+     "result": "this+207 and this+211 are field offsets, not eids",
+     "line": "VehicleDataCopy_004c45d0.c:127,134"
+    },
+    {
+     "function": "sub_512ACC",
+     "result": "trace listed it; re-grep found no literal 207-217 or 453-467",
+     "line": "sub_512ACC_00512acc.c"
+    },
+    {
+     "function": "mechanical_failures dev gearbox (gbx_sim_core.h, gbx_sim_pump.h)",
+     "result": "queues 201-209 and 211-217 in dev only (MF_DEV_TOOLS); not in installed 1.0.7",
+     "line": "gbx_sim_core.h:144-155; gbx_sim_pump.h:29,415-418"
+    },
+    {
+     "function": "extended_damage_commentary, player_damage_commentary, eighth_gear",
+     "result": "no source hit for eids 207-217 or 453-467 or the clip names (grep of .c/.h/.py)",
+     "line": "development/mods/* grep"
+    },
+    {
+     "function": "RaceCommentary sub_41D630 (TV twin 458)",
+     "result": "emits eid 458 (TV channel, not race engineer): Hockenheim track line, RaceCommentary_0041d630.c:76",
+     "line": "RaceCommentary_0041d630.c:76"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (PWS table, a2=0)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 223 for enum 10 with flag 1 (RaceEventMessageDispatcher only; types 0xB/0xC/0x33)",
+     "line": "sub_412E50_00412e50.c:123"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (TV table, a2=1)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 223 for enum 5 with flag 1 (TV channel)",
+     "line": "sub_412E50_00412e50.c:27"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Stitch re-check: sub-clip entries in this row are PC_RE_STITCH indices with no weight; verdict re-judged from the main-clip route only (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Other driver (AI) has a puncture (RE_OD_PUNCTURE).",
+    "when_it_should_play": "Race, an AI car's tyre is punctured (real event).",
+    "trigger": "AI car tyre puncture state set. The player puncture fields are FACT (findings.jsonl, tyre puncture fields); the AI field is UNKNOWN in this pass.",
+    "subject": "AI driver id veh+0x489C",
+    "technique": "own_emitter (eid 210) on the AI puncture event. Do not add a second voice while the external F1CUI plugin speaks the same event.",
+    "latch_cooldown": "once per puncture; eid cooldown 15.0",
+    "must_not_play_when": "player car; no puncture; F1CUI already speaks this event",
+    "conflicts": "External F1CUI Live plugin in the owner folder (puncture logic, not in the ERE census). Double speaking if both run.",
+    "calibration": "AI puncture field offset (UNKNOWN; read the AI tyre puncture state live or from a verified field)",
+    "live_test": "Owner first checks whether F1CUI Live is running and speaks the puncture line. Then a real AI puncture on the test track, if the owner can cause one.",
+    "confidence": "GUESS (owner note only). Raise by identifying the AI puncture field and checking the F1CUI plugin output."
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "NOT_ACTIVATED (no_emitter) unchanged. Sub-clip checks carry no weight."
+   }
+  },
+  {
+   "sdt_index": 224,
+   "eid": 211,
+   "clip": "RE_OD_STUCK_7",
+   "says": "Other driver stuck in 7th gear",
+   "score": 214,
+   "priority": 40,
+   "cooldown": 15.0,
+   "tv_twin": {
+    "eid": 462,
+    "cooldown": 1.0,
+    "where": "Hungaroring track line, RaceCommentary_0041d630.c:80"
+   },
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "",
+   "situation": "Green-flag race. An AI car's rear-left wheel (wheel index 2; order FL,FR,RL,RR per findings.jsonl line 176) countdown runs out with the wear test passing, and CurrentGear is outside 0..6 (7th gear or any value the switch does not list). The game queues 'stuck in 7th gear' for that AI driver.",
+   "mod": "",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41AC50 default branch -> eid 211 (sub_41AC50_0041ac50.c:43), from FuelConsumptionAndWear case 2 (FuelConsumptionAndWear_004ed960.c:243-249, a2=2)",
+    "TV twin eid 462 Hungaroring track line: RaceCommentary_0041d630.c:80 (different eid, same SDT)"
+   ],
+   "call_path": "MainGameTickUpdate (MainGameTickUpdate_0042c690.c:67-73) -> sub_4ED960 -> sub_41AC50(vehicle,2) -> sub_4144F0 -> sub_418560 -> sub_4186F0 -> sub_411840",
+   "gates": [
+    "sub_41AC50_0041ac50.c:6 dword_7D0308 != 0 (commentary/race flag; owner live value 3 per B15 audit note)",
+    "sub_41AC50_0041ac50.c:8 flt_7CF3C8 != 0.0 (commentary level; live value UNKNOWN here)",
+    "sub_41AC50_0041ac50.c:12 dword_7C56A8 != 8 and dword_7C56A4 == 7 (race)",
+    "sub_41AC50_0041ac50.c:15 vehicle != PlayerVehiclePtr (dword_7C54E8) and veh+0x4064 FinishState == 0",
+    "sub_41AC50_0041ac50.c:21 switch(a1[3711]): veh+0x39FC CurrentGear (FACT, analysis/address_harvest_20260930/REVIEW.md:215); default -> 211 (line 43)",
+    "FuelConsumptionAndWear_004ed960.c:112 RacePhase >= 5 (sub_4D21D0)",
+    "FuelConsumptionAndWear_004ed960.c:116-120 wheel-2 countdown this[3931] < 0",
+    "FuelConsumptionAndWear_004ed960.c:243 this[3686]*0.5 <= this[3685]; otherwise the timer is set to 0 (line 253)"
+   ],
+   "heard_evidence": "TRIAGE_NOTES.txt:203 'stuck in seventh gear, I think this also plays already' (owner guess). gbx_sim_core.h:131-132 'eid 211 otherwise' (mod comment)",
+   "tier": "DERIVED",
+   "notes": "Doc 56 labels 211 as 'stuck in 7th'; the code proves only the default branch (7th or any other out-of-range gear). The EVF-008 timer claim (unsatisfiable) is contradicted for this path: see contradictions. Frequency UNKNOWN.",
+   "checked": [
+    {
+     "function": "sub_41AC50 driver events",
+     "result": "eid 211 under a2==2 and gear outside 0..6 (default branch)",
+     "line": "sub_41AC50_0041ac50.c:43"
+    },
+    {
+     "function": "EngineStressSimulation sub_43EF20",
+     "result": "cannot produce eid 211 (only sub_41AC50 a2=0 gives 208)",
+     "line": "EngineStressSimulation_0043ef20.c:126-134,282"
+    },
+    {
+     "function": "FuelConsumptionAndWear sub_4ED960",
+     "result": "emits eid 211 under wheel-2 timer < 0 and wear test (:243-249), gear-dependent",
+     "line": "FuelConsumptionAndWear_004ed960.c:240-250"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 3",
+     "result": "emits eid 220 (SDT 233 PWS_AIHIT08), not this batch; its condition uses undecoded x87 flags (v47|v48)",
+     "line": "FuelConsumptionAndWear_004ed960.c:256-273"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 1",
+     "result": "no emit (sub_41AC50 a2=1 returns at :50)",
+     "line": "FuelConsumptionAndWear_004ed960.c:227-239"
+    },
+    {
+     "function": "VehiclePhysicsIntegrationStep sub_441650",
+     "result": "relay to EngineStressSimulation (:78); no eid",
+     "line": "VehiclePhysicsIntegrationStep_00441650.c:78"
+    },
+    {
+     "function": "VehiclePhysicsModeDispatcher sub_4E4930",
+     "result": "relay; called only from MainGameTickUpdate:42 under the player gate (+13000==0)",
+     "line": "VehiclePhysicsModeDispatcher_004e4930.c:29; MainGameTickUpdate_0042c690.c:37-43"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690",
+     "result": "race tick root; relays FuelConsumptionAndWear every 400 ticks for cars with +13000==1 (AI)",
+     "line": "MainGameTickUpdate_0042c690.c:67-73"
+    },
+    {
+     "function": "sub_4D21D0 (RacePhase gate)",
+     "result": "returns 1 only for RacePhase >= 5",
+     "line": "sub_4D21D0 lines 5-17"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce (eids 120, 259, 198 only)",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce (eids 6, 180, 181, 182 only)",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce (eids 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce (eids 42, 52)",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce (eids 7, 8, 9, 17, 18)",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce (eids 21, 22, 178, 179)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce (eids 52, 196); no AI puncture emit",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce (eids 157-161, 164-177, 158, 159, 260, 261)",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce (eids 397 and 516-535, incl. remapped 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (via sub_4203D0)",
+     "result": "cannot produce (returns 355-372 or -1)",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce (eids 293-336)",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce (eids 34, 35, 276-279)",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / jump start / blue flag)",
+     "result": "cannot produce (eids 151-155, 252-256, 123-125)",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce (eids 149, 243)",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce (eids 117-119, 235-238)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce (eids 338-354 via sub_420000)",
+     "line": "sub_41C440_0041c440.c:16; sub_420000 lines 1-47"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion sub_4144F0",
+     "result": "record writer; picks no eid. Fields: priority +0, window +4, delay +8, cooldown +0x0C, score +0x10",
+     "line": "DriverDataTableLookupAndTimeConversion_004144f0.c:5-21"
+    },
+    {
+     "function": "InsertDriverTableEntry sub_418560",
+     "result": "queue writer; score and priority gate, 20-slot priority list",
+     "line": "InsertDriverTableEntry_00418560.c:20-86"
+    },
+    {
+     "function": "ScoreThresholdGateCheck sub_418B90",
+     "result": "mode 0 sentinel only; 1 priority >= 70; 2 >= 40; 3 > 0. Priority 40 passes modes 2 and 3",
+     "line": "sub_418B90 lines 6-22"
+    },
+    {
+     "function": "ArraySlotCompactionWithGapFilling sub_418AC0",
+     "result": "drops expired entries; no eid",
+     "line": "sub_418AC0 lines 14-56"
+    },
+    {
+     "function": "TextOverlayDisplayTimer sub_4186F0",
+     "result": "per-eid cooldown via flt_5BF9AC (+0x0C) and per-eid last-played array; gate dword_7D0308 and flt_7CF3C8 at :19",
+     "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+    },
+    {
+     "function": "FontRenderingPrep sub_411840",
+     "result": "channel by eid range (ShortComputation_19d0: 1..290 PWS=0, 293..535 TV=1); calls RaceEventMessageDispatcher and SoundEventDispatcher",
+     "line": "FontRenderingPrep_00411840.c:12-53"
+    },
+    {
+     "function": "RaceEventMessageDispatcher sub_411BF0",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=1 path into sub_412E50 for item types 0xB, 0xC, 0x33 (line 37)",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:34-38"
+    },
+    {
+     "function": "SoundEventDispatcher sub_411E90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=0 path into sub_412E50 (:46, :57); flag-0 outputs are 240-266, never 220-229",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "CharacterCodeMapper sub_411B50",
+     "result": "sets item type from unk_5BEE08 / unk_5BF4C0; those tables are NOT decoded here, so which eids carry type 0xB/0xC/0x33 is UNKNOWN",
+     "line": "CharacterCodeMapper sub_411B50 lines 37-54"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: name-to-value table, not queued. With a4=1 returns small enums (Allan M 9/10) or 207-216 for other names (Mika H 207 at :698; Michael S 209 at :27, 210 at :247). Values feed the +16 field of eid 397 entries",
+     "line": "DriverNameIDLookup_00415d90.c:27,155,247,375,391,494,537,612,698,714,757,832"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList sub_415230 / sub_414600",
+     "result": "name-path wrapper; no queue write",
+     "line": "NamedEntryLookupInFormatList_00415230.c; sub_414600_00414600.c"
+    },
+    {
+     "function": "PositionChangeDetector sub_420490",
+     "result": "queues eid 397 with the name value as +16 (:111, :189); no eid 211",
+     "line": "PositionChangeDetector_00420490.c:110-112,188-190"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "queues the 478-503 family (478 :99; 502 :146; 494 :170); no eid 211",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99-453"
+    },
+    {
+     "function": "VehicleListBuilderFromGlobalArray sub_415780 / VehicleSetupDriverNumber sub_4C7B50 / ShortComputation_5730 sub_415730",
+     "result": "name-table consumers; grep finds no DriverDataTable or InsertDriverTableEntry call and no literal eid",
+     "line": "VehicleListBuilderFromGlobalArray_00415780.c; VehicleSetupDriverNumber_004c7b50.c; ShortComputation_5730_00415730.c"
+    },
+    {
+     "function": "sub_46BF10 AIOvertake + RaceCommentary caller",
+     "result": "calls RaceCommentary only when SessionType == 7 (sub_46BF10_0046bf10.c:36-41); its dispatcher sub_46DC60 / DispatchChainWithVTableCalls has no static caller (vtable): reach UNKNOWN",
+     "line": "sub_46BF10_0046bf10.c:36-41"
+    },
+    {
+     "function": "CameraViewportConfigBatch sub_453560",
+     "result": "literal 207, 209, 210, 211 are CollisionNodePropertySetter property ids, not eids",
+     "line": "CameraViewportConfigBatch_00453560.c:68-73"
+    },
+    {
+     "function": "EnumToIDMappingWithDefaultFallthrough sub_454C20",
+     "result": "207, 209, 210, 211 map to -1 (UI key-binding enum), not eids",
+     "line": "EnumToIDMappingWithDefaultFallthrough_00454c20.c:58-61"
+    },
+    {
+     "function": "StateMachineDispatcher sub_50F904",
+     "result": "state codes 205-210 (object state), not eids",
+     "line": "StateMachineDispatcher_0050f904.c:14-18"
+    },
+    {
+     "function": "StateMachineWithDispatch sub_50FB3B",
+     "result": "state code 207, not an eid",
+     "line": "StateMachineWithDispatch_0050fb3b.c:15"
+    },
+    {
+     "function": "CommandDispatchStateMachine sub_51126A",
+     "result": "numeric state compares (v2 > 207, <= 215, == 216/217), not eids",
+     "line": "CommandDispatchStateMachine_0051126a.c:16,123-130"
+    },
+    {
+     "function": "VehicleDataCopy sub_4C45D0",
+     "result": "this+207 and this+211 are field offsets, not eids",
+     "line": "VehicleDataCopy_004c45d0.c:127,134"
+    },
+    {
+     "function": "sub_512ACC",
+     "result": "trace listed it; re-grep found no literal 207-217 or 453-467",
+     "line": "sub_512ACC_00512acc.c"
+    },
+    {
+     "function": "mechanical_failures dev gearbox (gbx_sim_core.h, gbx_sim_pump.h)",
+     "result": "queues 201-209 and 211-217 in dev only (MF_DEV_TOOLS); not in installed 1.0.7",
+     "line": "gbx_sim_core.h:144-155; gbx_sim_pump.h:29,415-418"
+    },
+    {
+     "function": "extended_damage_commentary, player_damage_commentary, eighth_gear",
+     "result": "no source hit for eids 207-217 or 453-467 or the clip names (grep of .c/.h/.py)",
+     "line": "development/mods/* grep"
+    },
+    {
+     "function": "RaceCommentary sub_41D630 (TV twin 462)",
+     "result": "emits eid 462 (TV channel, not race engineer): Hungaroring track line, RaceCommentary_0041d630.c:80",
+     "line": "RaceCommentary_0041d630.c:80"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (PWS table, a2=0)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 224 for enum 11 with flag 1 (RaceEventMessageDispatcher only; types 0xB/0xC/0x33)",
+     "line": "sub_412E50_00412e50.c:126"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (TV table, a2=1)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 224 for enum 6 with flag 1 (TV channel)",
+     "line": "sub_412E50_00412e50.c:30"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Stitch re-check: sub-clip entries in this row are PC_RE_STITCH indices with no weight; verdict re-judged from the main-clip route only (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "NATIVE_ACTIVE unchanged: sub_41AC50 / FuelConsumptionAndWear main route (eid 211). Sub-clip checks carry no weight."
+   }
+  },
+  {
+   "sdt_index": 225,
+   "eid": 212,
+   "clip": "PWS_AIMECHPROB0",
+   "says": "stuck in 1st gear (AI)",
+   "score": 215,
+   "priority": 40,
+   "cooldown": 15.0,
+   "tv_twin": {
+    "eid": 463,
+    "cooldown": 1.0,
+    "where": "Monza track line, RaceCommentary_0041d630.c:88"
+   },
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "",
+   "situation": "Green-flag race. AI car: wheel index 2 countdown expires with the wear test passing, and CurrentGear is gear 0 or 1; the game queues 'stuck in 1st gear' for that AI driver.",
+   "mod": "",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41AC50 case 0 or 1 -> eid 212 (sub_41AC50_0041ac50.c:25), from FuelConsumptionAndWear case 2 (FuelConsumptionAndWear_004ed960.c:249)",
+    "TV twin eid 463 Monza track line: RaceCommentary_0041d630.c"
+   ],
+   "call_path": "as SDT 224 (MainGameTickUpdate -> sub_4ED960 case 2 -> sub_41AC50 -> queue)",
+   "gates": [
+    "sub_41AC50_0041ac50.c:6 dword_7D0308 != 0 (commentary/race flag; owner live value 3 per B15 audit note)",
+    "sub_41AC50_0041ac50.c:8 flt_7CF3C8 != 0.0 (commentary level; live value UNKNOWN here)",
+    "sub_41AC50_0041ac50.c:12 dword_7C56A8 != 8 and dword_7C56A4 == 7 (race)",
+    "sub_41AC50_0041ac50.c:15 vehicle != PlayerVehiclePtr (dword_7C54E8) and veh+0x4064 FinishState == 0",
+    "sub_41AC50_0041ac50.c:21-25 gear test gear 0 or 1; FuelConsumptionAndWear_004ed960.c:112,116-120,243 as SDT 224"
+   ],
+   "heard_evidence": "TRIAGE_NOTES.txt:204 'stuck in first gear' (owner note, X PLAY marker). gbx_sim_core.h:131-132 'eid 212-217 = 1st..6th' (mod comment; gear 0 and 1 both give 212)",
+   "tier": "DERIVED",
+   "notes": "Gear 0 (neutral?) also gives 212: CurrentGear numbering UNKNOWN. EVF-008 B text says 212-217 share SDT name PWS_AIMECHPROB1; dump and doc 56 say PWS_AIMECHPROB0: name conflict only.",
+   "checked": [
+    {
+     "function": "sub_41AC50 driver events",
+     "result": "eid 212 under a2==2 and gear 0 or 1",
+     "line": "sub_41AC50_0041ac50.c:25"
+    },
+    {
+     "function": "EngineStressSimulation sub_43EF20",
+     "result": "cannot produce eid 212 (only sub_41AC50 a2=0 gives 208)",
+     "line": "EngineStressSimulation_0043ef20.c:126-134,282"
+    },
+    {
+     "function": "FuelConsumptionAndWear sub_4ED960",
+     "result": "emits eid 212 under wheel-2 timer < 0 and wear test (:243-249), gear-dependent",
+     "line": "FuelConsumptionAndWear_004ed960.c:240-250"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 3",
+     "result": "emits eid 220 (SDT 233 PWS_AIHIT08), not this batch; its condition uses undecoded x87 flags (v47|v48)",
+     "line": "FuelConsumptionAndWear_004ed960.c:256-273"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 1",
+     "result": "no emit (sub_41AC50 a2=1 returns at :50)",
+     "line": "FuelConsumptionAndWear_004ed960.c:227-239"
+    },
+    {
+     "function": "VehiclePhysicsIntegrationStep sub_441650",
+     "result": "relay to EngineStressSimulation (:78); no eid",
+     "line": "VehiclePhysicsIntegrationStep_00441650.c:78"
+    },
+    {
+     "function": "VehiclePhysicsModeDispatcher sub_4E4930",
+     "result": "relay; called only from MainGameTickUpdate:42 under the player gate (+13000==0)",
+     "line": "VehiclePhysicsModeDispatcher_004e4930.c:29; MainGameTickUpdate_0042c690.c:37-43"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690",
+     "result": "race tick root; relays FuelConsumptionAndWear every 400 ticks for cars with +13000==1 (AI)",
+     "line": "MainGameTickUpdate_0042c690.c:67-73"
+    },
+    {
+     "function": "sub_4D21D0 (RacePhase gate)",
+     "result": "returns 1 only for RacePhase >= 5",
+     "line": "sub_4D21D0 lines 5-17"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce (eids 120, 259, 198 only)",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce (eids 6, 180, 181, 182 only)",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce (eids 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce (eids 42, 52)",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce (eids 7, 8, 9, 17, 18)",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce (eids 21, 22, 178, 179)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce (eids 52, 196); no AI puncture emit",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce (eids 157-161, 164-177, 158, 159, 260, 261)",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce (eids 397 and 516-535, incl. remapped 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (via sub_4203D0)",
+     "result": "cannot produce (returns 355-372 or -1)",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce (eids 293-336)",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce (eids 34, 35, 276-279)",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / jump start / blue flag)",
+     "result": "cannot produce (eids 151-155, 252-256, 123-125)",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce (eids 149, 243)",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce (eids 117-119, 235-238)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce (eids 338-354 via sub_420000)",
+     "line": "sub_41C440_0041c440.c:16; sub_420000 lines 1-47"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion sub_4144F0",
+     "result": "record writer; picks no eid. Fields: priority +0, window +4, delay +8, cooldown +0x0C, score +0x10",
+     "line": "DriverDataTableLookupAndTimeConversion_004144f0.c:5-21"
+    },
+    {
+     "function": "InsertDriverTableEntry sub_418560",
+     "result": "queue writer; score and priority gate, 20-slot priority list",
+     "line": "InsertDriverTableEntry_00418560.c:20-86"
+    },
+    {
+     "function": "ScoreThresholdGateCheck sub_418B90",
+     "result": "mode 0 sentinel only; 1 priority >= 70; 2 >= 40; 3 > 0. Priority 40 passes modes 2 and 3",
+     "line": "sub_418B90 lines 6-22"
+    },
+    {
+     "function": "ArraySlotCompactionWithGapFilling sub_418AC0",
+     "result": "drops expired entries; no eid",
+     "line": "sub_418AC0 lines 14-56"
+    },
+    {
+     "function": "TextOverlayDisplayTimer sub_4186F0",
+     "result": "per-eid cooldown via flt_5BF9AC (+0x0C) and per-eid last-played array; gate dword_7D0308 and flt_7CF3C8 at :19",
+     "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+    },
+    {
+     "function": "FontRenderingPrep sub_411840",
+     "result": "channel by eid range (ShortComputation_19d0: 1..290 PWS=0, 293..535 TV=1); calls RaceEventMessageDispatcher and SoundEventDispatcher",
+     "line": "FontRenderingPrep_00411840.c:12-53"
+    },
+    {
+     "function": "RaceEventMessageDispatcher sub_411BF0",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=1 path into sub_412E50 for item types 0xB, 0xC, 0x33 (line 37)",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:34-38"
+    },
+    {
+     "function": "SoundEventDispatcher sub_411E90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=0 path into sub_412E50 (:46, :57); flag-0 outputs are 240-266, never 220-229",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "CharacterCodeMapper sub_411B50",
+     "result": "sets item type from unk_5BEE08 / unk_5BF4C0; those tables are NOT decoded here, so which eids carry type 0xB/0xC/0x33 is UNKNOWN",
+     "line": "CharacterCodeMapper sub_411B50 lines 37-54"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: name-to-value table, not queued. With a4=1 returns small enums (Allan M 9/10) or 207-216 for other names (Mika H 207 at :698; Michael S 209 at :27, 210 at :247). Values feed the +16 field of eid 397 entries",
+     "line": "DriverNameIDLookup_00415d90.c:27,155,247,375,391,494,537,612,698,714,757,832"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList sub_415230 / sub_414600",
+     "result": "name-path wrapper; no queue write",
+     "line": "NamedEntryLookupInFormatList_00415230.c; sub_414600_00414600.c"
+    },
+    {
+     "function": "PositionChangeDetector sub_420490",
+     "result": "queues eid 397 with the name value as +16 (:111, :189); no eid 212",
+     "line": "PositionChangeDetector_00420490.c:110-112,188-190"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "queues the 478-503 family (478 :99; 502 :146; 494 :170); no eid 212",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99-453"
+    },
+    {
+     "function": "VehicleListBuilderFromGlobalArray sub_415780 / VehicleSetupDriverNumber sub_4C7B50 / ShortComputation_5730 sub_415730",
+     "result": "name-table consumers; grep finds no DriverDataTable or InsertDriverTableEntry call and no literal eid",
+     "line": "VehicleListBuilderFromGlobalArray_00415780.c; VehicleSetupDriverNumber_004c7b50.c; ShortComputation_5730_00415730.c"
+    },
+    {
+     "function": "sub_46BF10 AIOvertake + RaceCommentary caller",
+     "result": "calls RaceCommentary only when SessionType == 7 (sub_46BF10_0046bf10.c:36-41); its dispatcher sub_46DC60 / DispatchChainWithVTableCalls has no static caller (vtable): reach UNKNOWN",
+     "line": "sub_46BF10_0046bf10.c:36-41"
+    },
+    {
+     "function": "CameraViewportConfigBatch sub_453560",
+     "result": "literal 207, 209, 210, 211 are CollisionNodePropertySetter property ids, not eids",
+     "line": "CameraViewportConfigBatch_00453560.c:68-73"
+    },
+    {
+     "function": "EnumToIDMappingWithDefaultFallthrough sub_454C20",
+     "result": "207, 209, 210, 211 map to -1 (UI key-binding enum), not eids",
+     "line": "EnumToIDMappingWithDefaultFallthrough_00454c20.c:58-61"
+    },
+    {
+     "function": "StateMachineDispatcher sub_50F904",
+     "result": "state codes 205-210 (object state), not eids",
+     "line": "StateMachineDispatcher_0050f904.c:14-18"
+    },
+    {
+     "function": "StateMachineWithDispatch sub_50FB3B",
+     "result": "state code 207, not an eid",
+     "line": "StateMachineWithDispatch_0050fb3b.c:15"
+    },
+    {
+     "function": "CommandDispatchStateMachine sub_51126A",
+     "result": "numeric state compares (v2 > 207, <= 215, == 216/217), not eids",
+     "line": "CommandDispatchStateMachine_0051126a.c:16,123-130"
+    },
+    {
+     "function": "VehicleDataCopy sub_4C45D0",
+     "result": "this+207 and this+211 are field offsets, not eids",
+     "line": "VehicleDataCopy_004c45d0.c:127,134"
+    },
+    {
+     "function": "sub_512ACC",
+     "result": "trace listed it; re-grep found no literal 207-217 or 453-467",
+     "line": "sub_512ACC_00512acc.c"
+    },
+    {
+     "function": "mechanical_failures dev gearbox (gbx_sim_core.h, gbx_sim_pump.h)",
+     "result": "queues 201-209 and 211-217 in dev only (MF_DEV_TOOLS); not in installed 1.0.7",
+     "line": "gbx_sim_core.h:144-155; gbx_sim_pump.h:29,415-418"
+    },
+    {
+     "function": "extended_damage_commentary, player_damage_commentary, eighth_gear",
+     "result": "no source hit for eids 207-217 or 453-467 or the clip names (grep of .c/.h/.py)",
+     "line": "development/mods/* grep"
+    },
+    {
+     "function": "RaceCommentary sub_41D630 (TV twin 463)",
+     "result": "emits eid 463 (TV channel, not race engineer): Monza track line, RaceCommentary_0041d630.c:88",
+     "line": "RaceCommentary_0041d630.c:88"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (PWS table, a2=0)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 225 for enum 12 with flag 1 (RaceEventMessageDispatcher only; types 0xB/0xC/0x33)",
+     "line": "sub_412E50_00412e50.c:129"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (TV table, a2=1)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 225 for enum 7 with flag 1 (TV channel)",
+     "line": "sub_412E50_00412e50.c:33"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Stitch re-check: sub-clip entries in this row are PC_RE_STITCH indices with no weight; verdict re-judged from the main-clip route only (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "NATIVE_ACTIVE unchanged: sub_41AC50 main route (eid 212). Sub-clip checks carry no weight."
+   }
+  },
+  {
+   "sdt_index": 226,
+   "eid": 213,
+   "clip": "PWS_AIMECHPROB0",
+   "says": "stuck in 2nd gear (AI)",
+   "score": 216,
+   "priority": 40,
+   "cooldown": 15.0,
+   "tv_twin": {
+    "eid": 464,
+    "cooldown": 1.0,
+    "where": "Suzuka track line, RaceCommentary_0041d630.c:100"
+   },
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "",
+   "situation": "Green-flag race. AI car: wheel index 2 countdown expires with the wear test passing, and CurrentGear is gear 2; the game queues 'stuck in 2nd gear' for that AI driver.",
+   "mod": "",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41AC50 case 2 -> eid 213 (sub_41AC50_0041ac50.c:28), from FuelConsumptionAndWear case 2 (FuelConsumptionAndWear_004ed960.c:249)",
+    "TV twin eid 464 Suzuka track line: RaceCommentary_0041d630.c"
+   ],
+   "call_path": "as SDT 224 (MainGameTickUpdate -> sub_4ED960 case 2 -> sub_41AC50 -> queue)",
+   "gates": [
+    "sub_41AC50_0041ac50.c:6 dword_7D0308 != 0 (commentary/race flag; owner live value 3 per B15 audit note)",
+    "sub_41AC50_0041ac50.c:8 flt_7CF3C8 != 0.0 (commentary level; live value UNKNOWN here)",
+    "sub_41AC50_0041ac50.c:12 dword_7C56A8 != 8 and dword_7C56A4 == 7 (race)",
+    "sub_41AC50_0041ac50.c:15 vehicle != PlayerVehiclePtr (dword_7C54E8) and veh+0x4064 FinishState == 0",
+    "sub_41AC50_0041ac50.c:21-25 gear test gear 2; FuelConsumptionAndWear_004ed960.c:112,116-120,243 as SDT 224"
+   ],
+   "heard_evidence": "gbx_sim_core.h:132 'eid 213 isolation-tested 2026-07-30' (mod author claim citing an owner-run test); TRIAGE_NOTES.txt:206 'second' (owner note)",
+   "tier": "DERIVED",
+   "notes": "The only SDT in this batch with a mod author's isolation-test citation for its eid (dev code); still not verified here.",
+   "checked": [
+    {
+     "function": "sub_41AC50 driver events",
+     "result": "eid 213 under a2==2 and gear 2",
+     "line": "sub_41AC50_0041ac50.c:28"
+    },
+    {
+     "function": "EngineStressSimulation sub_43EF20",
+     "result": "cannot produce eid 213 (only sub_41AC50 a2=0 gives 208)",
+     "line": "EngineStressSimulation_0043ef20.c:126-134,282"
+    },
+    {
+     "function": "FuelConsumptionAndWear sub_4ED960",
+     "result": "emits eid 213 under wheel-2 timer < 0 and wear test (:243-249), gear-dependent",
+     "line": "FuelConsumptionAndWear_004ed960.c:240-250"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 3",
+     "result": "emits eid 220 (SDT 233 PWS_AIHIT08), not this batch; its condition uses undecoded x87 flags (v47|v48)",
+     "line": "FuelConsumptionAndWear_004ed960.c:256-273"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 1",
+     "result": "no emit (sub_41AC50 a2=1 returns at :50)",
+     "line": "FuelConsumptionAndWear_004ed960.c:227-239"
+    },
+    {
+     "function": "VehiclePhysicsIntegrationStep sub_441650",
+     "result": "relay to EngineStressSimulation (:78); no eid",
+     "line": "VehiclePhysicsIntegrationStep_00441650.c:78"
+    },
+    {
+     "function": "VehiclePhysicsModeDispatcher sub_4E4930",
+     "result": "relay; called only from MainGameTickUpdate:42 under the player gate (+13000==0)",
+     "line": "VehiclePhysicsModeDispatcher_004e4930.c:29; MainGameTickUpdate_0042c690.c:37-43"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690",
+     "result": "race tick root; relays FuelConsumptionAndWear every 400 ticks for cars with +13000==1 (AI)",
+     "line": "MainGameTickUpdate_0042c690.c:67-73"
+    },
+    {
+     "function": "sub_4D21D0 (RacePhase gate)",
+     "result": "returns 1 only for RacePhase >= 5",
+     "line": "sub_4D21D0 lines 5-17"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce (eids 120, 259, 198 only)",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce (eids 6, 180, 181, 182 only)",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce (eids 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce (eids 42, 52)",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce (eids 7, 8, 9, 17, 18)",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce (eids 21, 22, 178, 179)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce (eids 52, 196); no AI puncture emit",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce (eids 157-161, 164-177, 158, 159, 260, 261)",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce (eids 397 and 516-535, incl. remapped 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (via sub_4203D0)",
+     "result": "cannot produce (returns 355-372 or -1)",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce (eids 293-336)",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce (eids 34, 35, 276-279)",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / jump start / blue flag)",
+     "result": "cannot produce (eids 151-155, 252-256, 123-125)",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce (eids 149, 243)",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce (eids 117-119, 235-238)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce (eids 338-354 via sub_420000)",
+     "line": "sub_41C440_0041c440.c:16; sub_420000 lines 1-47"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion sub_4144F0",
+     "result": "record writer; picks no eid. Fields: priority +0, window +4, delay +8, cooldown +0x0C, score +0x10",
+     "line": "DriverDataTableLookupAndTimeConversion_004144f0.c:5-21"
+    },
+    {
+     "function": "InsertDriverTableEntry sub_418560",
+     "result": "queue writer; score and priority gate, 20-slot priority list",
+     "line": "InsertDriverTableEntry_00418560.c:20-86"
+    },
+    {
+     "function": "ScoreThresholdGateCheck sub_418B90",
+     "result": "mode 0 sentinel only; 1 priority >= 70; 2 >= 40; 3 > 0. Priority 40 passes modes 2 and 3",
+     "line": "sub_418B90 lines 6-22"
+    },
+    {
+     "function": "ArraySlotCompactionWithGapFilling sub_418AC0",
+     "result": "drops expired entries; no eid",
+     "line": "sub_418AC0 lines 14-56"
+    },
+    {
+     "function": "TextOverlayDisplayTimer sub_4186F0",
+     "result": "per-eid cooldown via flt_5BF9AC (+0x0C) and per-eid last-played array; gate dword_7D0308 and flt_7CF3C8 at :19",
+     "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+    },
+    {
+     "function": "FontRenderingPrep sub_411840",
+     "result": "channel by eid range (ShortComputation_19d0: 1..290 PWS=0, 293..535 TV=1); calls RaceEventMessageDispatcher and SoundEventDispatcher",
+     "line": "FontRenderingPrep_00411840.c:12-53"
+    },
+    {
+     "function": "RaceEventMessageDispatcher sub_411BF0",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=1 path into sub_412E50 for item types 0xB, 0xC, 0x33 (line 37)",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:34-38"
+    },
+    {
+     "function": "SoundEventDispatcher sub_411E90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=0 path into sub_412E50 (:46, :57); flag-0 outputs are 240-266, never 220-229",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "CharacterCodeMapper sub_411B50",
+     "result": "sets item type from unk_5BEE08 / unk_5BF4C0; those tables are NOT decoded here, so which eids carry type 0xB/0xC/0x33 is UNKNOWN",
+     "line": "CharacterCodeMapper sub_411B50 lines 37-54"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: name-to-value table, not queued. With a4=1 returns small enums (Allan M 9/10) or 207-216 for other names (Mika H 207 at :698; Michael S 209 at :27, 210 at :247). Values feed the +16 field of eid 397 entries",
+     "line": "DriverNameIDLookup_00415d90.c:27,155,247,375,391,494,537,612,698,714,757,832"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList sub_415230 / sub_414600",
+     "result": "name-path wrapper; no queue write",
+     "line": "NamedEntryLookupInFormatList_00415230.c; sub_414600_00414600.c"
+    },
+    {
+     "function": "PositionChangeDetector sub_420490",
+     "result": "queues eid 397 with the name value as +16 (:111, :189); no eid 213",
+     "line": "PositionChangeDetector_00420490.c:110-112,188-190"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "queues the 478-503 family (478 :99; 502 :146; 494 :170); no eid 213",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99-453"
+    },
+    {
+     "function": "VehicleListBuilderFromGlobalArray sub_415780 / VehicleSetupDriverNumber sub_4C7B50 / ShortComputation_5730 sub_415730",
+     "result": "name-table consumers; grep finds no DriverDataTable or InsertDriverTableEntry call and no literal eid",
+     "line": "VehicleListBuilderFromGlobalArray_00415780.c; VehicleSetupDriverNumber_004c7b50.c; ShortComputation_5730_00415730.c"
+    },
+    {
+     "function": "sub_46BF10 AIOvertake + RaceCommentary caller",
+     "result": "calls RaceCommentary only when SessionType == 7 (sub_46BF10_0046bf10.c:36-41); its dispatcher sub_46DC60 / DispatchChainWithVTableCalls has no static caller (vtable): reach UNKNOWN",
+     "line": "sub_46BF10_0046bf10.c:36-41"
+    },
+    {
+     "function": "CameraViewportConfigBatch sub_453560",
+     "result": "literal 207, 209, 210, 211 are CollisionNodePropertySetter property ids, not eids",
+     "line": "CameraViewportConfigBatch_00453560.c:68-73"
+    },
+    {
+     "function": "EnumToIDMappingWithDefaultFallthrough sub_454C20",
+     "result": "207, 209, 210, 211 map to -1 (UI key-binding enum), not eids",
+     "line": "EnumToIDMappingWithDefaultFallthrough_00454c20.c:58-61"
+    },
+    {
+     "function": "StateMachineDispatcher sub_50F904",
+     "result": "state codes 205-210 (object state), not eids",
+     "line": "StateMachineDispatcher_0050f904.c:14-18"
+    },
+    {
+     "function": "StateMachineWithDispatch sub_50FB3B",
+     "result": "state code 207, not an eid",
+     "line": "StateMachineWithDispatch_0050fb3b.c:15"
+    },
+    {
+     "function": "CommandDispatchStateMachine sub_51126A",
+     "result": "numeric state compares (v2 > 207, <= 215, == 216/217), not eids",
+     "line": "CommandDispatchStateMachine_0051126a.c:16,123-130"
+    },
+    {
+     "function": "VehicleDataCopy sub_4C45D0",
+     "result": "this+207 and this+211 are field offsets, not eids",
+     "line": "VehicleDataCopy_004c45d0.c:127,134"
+    },
+    {
+     "function": "sub_512ACC",
+     "result": "trace listed it; re-grep found no literal 207-217 or 453-467",
+     "line": "sub_512ACC_00512acc.c"
+    },
+    {
+     "function": "mechanical_failures dev gearbox (gbx_sim_core.h, gbx_sim_pump.h)",
+     "result": "queues 201-209 and 211-217 in dev only (MF_DEV_TOOLS); not in installed 1.0.7",
+     "line": "gbx_sim_core.h:144-155; gbx_sim_pump.h:29,415-418"
+    },
+    {
+     "function": "extended_damage_commentary, player_damage_commentary, eighth_gear",
+     "result": "no source hit for eids 207-217 or 453-467 or the clip names (grep of .c/.h/.py)",
+     "line": "development/mods/* grep"
+    },
+    {
+     "function": "RaceCommentary sub_41D630 (TV twin 464)",
+     "result": "emits eid 464 (TV channel, not race engineer): Suzuka track line, RaceCommentary_0041d630.c:100",
+     "line": "RaceCommentary_0041d630.c:100"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (PWS table, a2=0)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 226 for enum 13 with flag 1 (RaceEventMessageDispatcher only; types 0xB/0xC/0x33)",
+     "line": "sub_412E50_00412e50.c:132"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (TV table, a2=1)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 226 for enum 8 with flag 1 (TV channel)",
+     "line": "sub_412E50_00412e50.c:36"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Stitch re-check: sub-clip entries in this row are PC_RE_STITCH indices with no weight; verdict re-judged from the main-clip route only (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "NATIVE_ACTIVE unchanged: sub_41AC50 main route (eid 213). Sub-clip checks carry no weight."
+   }
+  },
+  {
+   "sdt_index": 227,
+   "eid": 214,
+   "clip": "PWS_AIMECHPROB0",
+   "says": "stuck in 3rd gear (AI)",
+   "score": 217,
+   "priority": 40,
+   "cooldown": 15.0,
+   "tv_twin": {
+    "eid": 465,
+    "cooldown": 1.0,
+    "where": "dynamic line, RaceCommentary_0041d630.c:147 (only when 22 cars and car +16480==22)"
+   },
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "",
+   "situation": "Green-flag race. AI car: wheel index 2 countdown expires with the wear test passing, and CurrentGear is gear 3; the game queues 'stuck in 3rd gear' for that AI driver.",
+   "mod": "",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41AC50 case 3 -> eid 214 (sub_41AC50_0041ac50.c:31), from FuelConsumptionAndWear case 2 (FuelConsumptionAndWear_004ed960.c:249)",
+    "TV twin eid 465: RaceCommentary_0041d630.c:147 (dynamic: only with 22 cars and car +16480==22)"
+   ],
+   "call_path": "as SDT 224 (MainGameTickUpdate -> sub_4ED960 case 2 -> sub_41AC50 -> queue)",
+   "gates": [
+    "sub_41AC50_0041ac50.c:6 dword_7D0308 != 0 (commentary/race flag; owner live value 3 per B15 audit note)",
+    "sub_41AC50_0041ac50.c:8 flt_7CF3C8 != 0.0 (commentary level; live value UNKNOWN here)",
+    "sub_41AC50_0041ac50.c:12 dword_7C56A8 != 8 and dword_7C56A4 == 7 (race)",
+    "sub_41AC50_0041ac50.c:15 vehicle != PlayerVehiclePtr (dword_7C54E8) and veh+0x4064 FinishState == 0",
+    "sub_41AC50_0041ac50.c:21-31 gear test 3; FuelConsumptionAndWear_004ed960.c:112,116-120,243 as SDT 224"
+   ],
+   "heard_evidence": "none found (TRIAGE_NOTES.txt:207 has the number only)",
+   "tier": "DERIVED",
+   "notes": "Doc 56 label 'stuck in 3rd gear (AI)'.",
+   "checked": [
+    {
+     "function": "sub_41AC50 driver events",
+     "result": "eid 214 under a2==2 and gear 3",
+     "line": "sub_41AC50_0041ac50.c:31"
+    },
+    {
+     "function": "EngineStressSimulation sub_43EF20",
+     "result": "cannot produce eid 214 (only sub_41AC50 a2=0 gives 208)",
+     "line": "EngineStressSimulation_0043ef20.c:126-134,282"
+    },
+    {
+     "function": "FuelConsumptionAndWear sub_4ED960",
+     "result": "emits eid 214 under wheel-2 timer < 0 and wear test (:243-249), gear-dependent",
+     "line": "FuelConsumptionAndWear_004ed960.c:240-250"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 3",
+     "result": "emits eid 220 (SDT 233 PWS_AIHIT08), not this batch; its condition uses undecoded x87 flags (v47|v48)",
+     "line": "FuelConsumptionAndWear_004ed960.c:256-273"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 1",
+     "result": "no emit (sub_41AC50 a2=1 returns at :50)",
+     "line": "FuelConsumptionAndWear_004ed960.c:227-239"
+    },
+    {
+     "function": "VehiclePhysicsIntegrationStep sub_441650",
+     "result": "relay to EngineStressSimulation (:78); no eid",
+     "line": "VehiclePhysicsIntegrationStep_00441650.c:78"
+    },
+    {
+     "function": "VehiclePhysicsModeDispatcher sub_4E4930",
+     "result": "relay; called only from MainGameTickUpdate:42 under the player gate (+13000==0)",
+     "line": "VehiclePhysicsModeDispatcher_004e4930.c:29; MainGameTickUpdate_0042c690.c:37-43"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690",
+     "result": "race tick root; relays FuelConsumptionAndWear every 400 ticks for cars with +13000==1 (AI)",
+     "line": "MainGameTickUpdate_0042c690.c:67-73"
+    },
+    {
+     "function": "sub_4D21D0 (RacePhase gate)",
+     "result": "returns 1 only for RacePhase >= 5",
+     "line": "sub_4D21D0 lines 5-17"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce (eids 120, 259, 198 only)",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce (eids 6, 180, 181, 182 only)",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce (eids 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce (eids 42, 52)",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce (eids 7, 8, 9, 17, 18)",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce (eids 21, 22, 178, 179)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce (eids 52, 196); no AI puncture emit",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce (eids 157-161, 164-177, 158, 159, 260, 261)",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce (eids 397 and 516-535, incl. remapped 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (via sub_4203D0)",
+     "result": "cannot produce (returns 355-372 or -1)",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce (eids 293-336)",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce (eids 34, 35, 276-279)",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / jump start / blue flag)",
+     "result": "cannot produce (eids 151-155, 252-256, 123-125)",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce (eids 149, 243)",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce (eids 117-119, 235-238)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce (eids 338-354 via sub_420000)",
+     "line": "sub_41C440_0041c440.c:16; sub_420000 lines 1-47"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion sub_4144F0",
+     "result": "record writer; picks no eid. Fields: priority +0, window +4, delay +8, cooldown +0x0C, score +0x10",
+     "line": "DriverDataTableLookupAndTimeConversion_004144f0.c:5-21"
+    },
+    {
+     "function": "InsertDriverTableEntry sub_418560",
+     "result": "queue writer; score and priority gate, 20-slot priority list",
+     "line": "InsertDriverTableEntry_00418560.c:20-86"
+    },
+    {
+     "function": "ScoreThresholdGateCheck sub_418B90",
+     "result": "mode 0 sentinel only; 1 priority >= 70; 2 >= 40; 3 > 0. Priority 40 passes modes 2 and 3",
+     "line": "sub_418B90 lines 6-22"
+    },
+    {
+     "function": "ArraySlotCompactionWithGapFilling sub_418AC0",
+     "result": "drops expired entries; no eid",
+     "line": "sub_418AC0 lines 14-56"
+    },
+    {
+     "function": "TextOverlayDisplayTimer sub_4186F0",
+     "result": "per-eid cooldown via flt_5BF9AC (+0x0C) and per-eid last-played array; gate dword_7D0308 and flt_7CF3C8 at :19",
+     "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+    },
+    {
+     "function": "FontRenderingPrep sub_411840",
+     "result": "channel by eid range (ShortComputation_19d0: 1..290 PWS=0, 293..535 TV=1); calls RaceEventMessageDispatcher and SoundEventDispatcher",
+     "line": "FontRenderingPrep_00411840.c:12-53"
+    },
+    {
+     "function": "RaceEventMessageDispatcher sub_411BF0",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=1 path into sub_412E50 for item types 0xB, 0xC, 0x33 (line 37)",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:34-38"
+    },
+    {
+     "function": "SoundEventDispatcher sub_411E90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=0 path into sub_412E50 (:46, :57); flag-0 outputs are 240-266, never 220-229",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "CharacterCodeMapper sub_411B50",
+     "result": "sets item type from unk_5BEE08 / unk_5BF4C0; those tables are NOT decoded here, so which eids carry type 0xB/0xC/0x33 is UNKNOWN",
+     "line": "CharacterCodeMapper sub_411B50 lines 37-54"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: name-to-value table, not queued. With a4=1 returns small enums (Allan M 9/10) or 207-216 for other names (Mika H 207 at :698; Michael S 209 at :27, 210 at :247). Values feed the +16 field of eid 397 entries",
+     "line": "DriverNameIDLookup_00415d90.c:27,155,247,375,391,494,537,612,698,714,757,832"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList sub_415230 / sub_414600",
+     "result": "name-path wrapper; no queue write",
+     "line": "NamedEntryLookupInFormatList_00415230.c; sub_414600_00414600.c"
+    },
+    {
+     "function": "PositionChangeDetector sub_420490",
+     "result": "queues eid 397 with the name value as +16 (:111, :189); no eid 214",
+     "line": "PositionChangeDetector_00420490.c:110-112,188-190"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "queues the 478-503 family (478 :99; 502 :146; 494 :170); no eid 214",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99-453"
+    },
+    {
+     "function": "VehicleListBuilderFromGlobalArray sub_415780 / VehicleSetupDriverNumber sub_4C7B50 / ShortComputation_5730 sub_415730",
+     "result": "name-table consumers; grep finds no DriverDataTable or InsertDriverTableEntry call and no literal eid",
+     "line": "VehicleListBuilderFromGlobalArray_00415780.c; VehicleSetupDriverNumber_004c7b50.c; ShortComputation_5730_00415730.c"
+    },
+    {
+     "function": "sub_46BF10 AIOvertake + RaceCommentary caller",
+     "result": "calls RaceCommentary only when SessionType == 7 (sub_46BF10_0046bf10.c:36-41); its dispatcher sub_46DC60 / DispatchChainWithVTableCalls has no static caller (vtable): reach UNKNOWN",
+     "line": "sub_46BF10_0046bf10.c:36-41"
+    },
+    {
+     "function": "CameraViewportConfigBatch sub_453560",
+     "result": "literal 207, 209, 210, 211 are CollisionNodePropertySetter property ids, not eids",
+     "line": "CameraViewportConfigBatch_00453560.c:68-73"
+    },
+    {
+     "function": "EnumToIDMappingWithDefaultFallthrough sub_454C20",
+     "result": "207, 209, 210, 211 map to -1 (UI key-binding enum), not eids",
+     "line": "EnumToIDMappingWithDefaultFallthrough_00454c20.c:58-61"
+    },
+    {
+     "function": "StateMachineDispatcher sub_50F904",
+     "result": "state codes 205-210 (object state), not eids",
+     "line": "StateMachineDispatcher_0050f904.c:14-18"
+    },
+    {
+     "function": "StateMachineWithDispatch sub_50FB3B",
+     "result": "state code 207, not an eid",
+     "line": "StateMachineWithDispatch_0050fb3b.c:15"
+    },
+    {
+     "function": "CommandDispatchStateMachine sub_51126A",
+     "result": "numeric state compares (v2 > 207, <= 215, == 216/217), not eids",
+     "line": "CommandDispatchStateMachine_0051126a.c:16,123-130"
+    },
+    {
+     "function": "VehicleDataCopy sub_4C45D0",
+     "result": "this+207 and this+211 are field offsets, not eids",
+     "line": "VehicleDataCopy_004c45d0.c:127,134"
+    },
+    {
+     "function": "sub_512ACC",
+     "result": "trace listed it; re-grep found no literal 207-217 or 453-467",
+     "line": "sub_512ACC_00512acc.c"
+    },
+    {
+     "function": "mechanical_failures dev gearbox (gbx_sim_core.h, gbx_sim_pump.h)",
+     "result": "queues 201-209 and 211-217 in dev only (MF_DEV_TOOLS); not in installed 1.0.7",
+     "line": "gbx_sim_core.h:144-155; gbx_sim_pump.h:29,415-418"
+    },
+    {
+     "function": "extended_damage_commentary, player_damage_commentary, eighth_gear",
+     "result": "no source hit for eids 207-217 or 453-467 or the clip names (grep of .c/.h/.py)",
+     "line": "development/mods/* grep"
+    },
+    {
+     "function": "RaceCommentary sub_41D630 (TV twin 465)",
+     "result": "emits eid 465 (TV channel, not race engineer): dynamic line, RaceCommentary_0041d630.c:147 (only when 22 cars and car +16480==22)",
+     "line": "RaceCommentary_0041d630.c:147 (only when 22 cars and car +16480==22)"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (PWS table, a2=0)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 227 for enum 14 with flag 1 (RaceEventMessageDispatcher only; types 0xB/0xC/0x33)",
+     "line": "sub_412E50_00412e50.c:135"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (TV table, a2=1)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 227 for enum 9 with flag 1 (TV channel)",
+     "line": "sub_412E50_00412e50.c:39"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Stitch re-check: sub-clip entries in this row are PC_RE_STITCH indices with no weight; verdict re-judged from the main-clip route only (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "NATIVE_ACTIVE unchanged: sub_41AC50 main route (eid 214). Sub-clip checks carry no weight."
+   }
+  },
+  {
+   "sdt_index": 228,
+   "eid": 215,
+   "clip": "PWS_AIMECHPROB0",
+   "says": "stuck in 4th gear (AI)",
+   "score": 218,
+   "priority": 40,
+   "cooldown": 15.0,
+   "tv_twin": {
+    "eid": 466,
+    "cooldown": 1.0,
+    "where": "Sepang track line, RaceCommentary_0041d630.c:96"
+   },
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "",
+   "situation": "Green-flag race. AI car: wheel index 2 countdown expires with the wear test passing, and CurrentGear is gear 4; the game queues 'stuck in 4th gear' for that AI driver.",
+   "mod": "",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41AC50 case 4 -> eid 215 (sub_41AC50_0041ac50.c:34), from FuelConsumptionAndWear case 2 (FuelConsumptionAndWear_004ed960.c:249)",
+    "TV twin eid 466 Sepang track line: RaceCommentary_0041d630.c"
+   ],
+   "call_path": "as SDT 224 (MainGameTickUpdate -> sub_4ED960 case 2 -> sub_41AC50 -> queue)",
+   "gates": [
+    "sub_41AC50_0041ac50.c:6 dword_7D0308 != 0 (commentary/race flag; owner live value 3 per B15 audit note)",
+    "sub_41AC50_0041ac50.c:8 flt_7CF3C8 != 0.0 (commentary level; live value UNKNOWN here)",
+    "sub_41AC50_0041ac50.c:12 dword_7C56A8 != 8 and dword_7C56A4 == 7 (race)",
+    "sub_41AC50_0041ac50.c:15 vehicle != PlayerVehiclePtr (dword_7C54E8) and veh+0x4064 FinishState == 0",
+    "sub_41AC50_0041ac50.c:21-25 gear test gear 4; FuelConsumptionAndWear_004ed960.c:112,116-120,243 as SDT 224"
+   ],
+   "heard_evidence": "none found (TRIAGE_NOTES.txt:208 has the number only)",
+   "tier": "DERIVED",
+   "notes": "Doc 56 label 'stuck in 4th gear (AI)'.",
+   "checked": [
+    {
+     "function": "sub_41AC50 driver events",
+     "result": "eid 215 under a2==2 and gear 4",
+     "line": "sub_41AC50_0041ac50.c:34"
+    },
+    {
+     "function": "EngineStressSimulation sub_43EF20",
+     "result": "cannot produce eid 215 (only sub_41AC50 a2=0 gives 208)",
+     "line": "EngineStressSimulation_0043ef20.c:126-134,282"
+    },
+    {
+     "function": "FuelConsumptionAndWear sub_4ED960",
+     "result": "emits eid 215 under wheel-2 timer < 0 and wear test (:243-249), gear-dependent",
+     "line": "FuelConsumptionAndWear_004ed960.c:240-250"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 3",
+     "result": "emits eid 220 (SDT 233 PWS_AIHIT08), not this batch; its condition uses undecoded x87 flags (v47|v48)",
+     "line": "FuelConsumptionAndWear_004ed960.c:256-273"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 1",
+     "result": "no emit (sub_41AC50 a2=1 returns at :50)",
+     "line": "FuelConsumptionAndWear_004ed960.c:227-239"
+    },
+    {
+     "function": "VehiclePhysicsIntegrationStep sub_441650",
+     "result": "relay to EngineStressSimulation (:78); no eid",
+     "line": "VehiclePhysicsIntegrationStep_00441650.c:78"
+    },
+    {
+     "function": "VehiclePhysicsModeDispatcher sub_4E4930",
+     "result": "relay; called only from MainGameTickUpdate:42 under the player gate (+13000==0)",
+     "line": "VehiclePhysicsModeDispatcher_004e4930.c:29; MainGameTickUpdate_0042c690.c:37-43"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690",
+     "result": "race tick root; relays FuelConsumptionAndWear every 400 ticks for cars with +13000==1 (AI)",
+     "line": "MainGameTickUpdate_0042c690.c:67-73"
+    },
+    {
+     "function": "sub_4D21D0 (RacePhase gate)",
+     "result": "returns 1 only for RacePhase >= 5",
+     "line": "sub_4D21D0 lines 5-17"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce (eids 120, 259, 198 only)",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce (eids 6, 180, 181, 182 only)",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce (eids 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce (eids 42, 52)",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce (eids 7, 8, 9, 17, 18)",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce (eids 21, 22, 178, 179)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce (eids 52, 196); no AI puncture emit",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce (eids 157-161, 164-177, 158, 159, 260, 261)",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce (eids 397 and 516-535, incl. remapped 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (via sub_4203D0)",
+     "result": "cannot produce (returns 355-372 or -1)",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce (eids 293-336)",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce (eids 34, 35, 276-279)",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / jump start / blue flag)",
+     "result": "cannot produce (eids 151-155, 252-256, 123-125)",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce (eids 149, 243)",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce (eids 117-119, 235-238)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce (eids 338-354 via sub_420000)",
+     "line": "sub_41C440_0041c440.c:16; sub_420000 lines 1-47"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion sub_4144F0",
+     "result": "record writer; picks no eid. Fields: priority +0, window +4, delay +8, cooldown +0x0C, score +0x10",
+     "line": "DriverDataTableLookupAndTimeConversion_004144f0.c:5-21"
+    },
+    {
+     "function": "InsertDriverTableEntry sub_418560",
+     "result": "queue writer; score and priority gate, 20-slot priority list",
+     "line": "InsertDriverTableEntry_00418560.c:20-86"
+    },
+    {
+     "function": "ScoreThresholdGateCheck sub_418B90",
+     "result": "mode 0 sentinel only; 1 priority >= 70; 2 >= 40; 3 > 0. Priority 40 passes modes 2 and 3",
+     "line": "sub_418B90 lines 6-22"
+    },
+    {
+     "function": "ArraySlotCompactionWithGapFilling sub_418AC0",
+     "result": "drops expired entries; no eid",
+     "line": "sub_418AC0 lines 14-56"
+    },
+    {
+     "function": "TextOverlayDisplayTimer sub_4186F0",
+     "result": "per-eid cooldown via flt_5BF9AC (+0x0C) and per-eid last-played array; gate dword_7D0308 and flt_7CF3C8 at :19",
+     "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+    },
+    {
+     "function": "FontRenderingPrep sub_411840",
+     "result": "channel by eid range (ShortComputation_19d0: 1..290 PWS=0, 293..535 TV=1); calls RaceEventMessageDispatcher and SoundEventDispatcher",
+     "line": "FontRenderingPrep_00411840.c:12-53"
+    },
+    {
+     "function": "RaceEventMessageDispatcher sub_411BF0",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=1 path into sub_412E50 for item types 0xB, 0xC, 0x33 (line 37)",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:34-38"
+    },
+    {
+     "function": "SoundEventDispatcher sub_411E90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=0 path into sub_412E50 (:46, :57); flag-0 outputs are 240-266, never 220-229",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "CharacterCodeMapper sub_411B50",
+     "result": "sets item type from unk_5BEE08 / unk_5BF4C0; those tables are NOT decoded here, so which eids carry type 0xB/0xC/0x33 is UNKNOWN",
+     "line": "CharacterCodeMapper sub_411B50 lines 37-54"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: name-to-value table, not queued. With a4=1 returns small enums (Allan M 9/10) or 207-216 for other names (Mika H 207 at :698; Michael S 209 at :27, 210 at :247). Values feed the +16 field of eid 397 entries",
+     "line": "DriverNameIDLookup_00415d90.c:27,155,247,375,391,494,537,612,698,714,757,832"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList sub_415230 / sub_414600",
+     "result": "name-path wrapper; no queue write",
+     "line": "NamedEntryLookupInFormatList_00415230.c; sub_414600_00414600.c"
+    },
+    {
+     "function": "PositionChangeDetector sub_420490",
+     "result": "queues eid 397 with the name value as +16 (:111, :189); no eid 215",
+     "line": "PositionChangeDetector_00420490.c:110-112,188-190"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "queues the 478-503 family (478 :99; 502 :146; 494 :170); no eid 215",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99-453"
+    },
+    {
+     "function": "VehicleListBuilderFromGlobalArray sub_415780 / VehicleSetupDriverNumber sub_4C7B50 / ShortComputation_5730 sub_415730",
+     "result": "name-table consumers; grep finds no DriverDataTable or InsertDriverTableEntry call and no literal eid",
+     "line": "VehicleListBuilderFromGlobalArray_00415780.c; VehicleSetupDriverNumber_004c7b50.c; ShortComputation_5730_00415730.c"
+    },
+    {
+     "function": "sub_46BF10 AIOvertake + RaceCommentary caller",
+     "result": "calls RaceCommentary only when SessionType == 7 (sub_46BF10_0046bf10.c:36-41); its dispatcher sub_46DC60 / DispatchChainWithVTableCalls has no static caller (vtable): reach UNKNOWN",
+     "line": "sub_46BF10_0046bf10.c:36-41"
+    },
+    {
+     "function": "CameraViewportConfigBatch sub_453560",
+     "result": "literal 207, 209, 210, 211 are CollisionNodePropertySetter property ids, not eids",
+     "line": "CameraViewportConfigBatch_00453560.c:68-73"
+    },
+    {
+     "function": "EnumToIDMappingWithDefaultFallthrough sub_454C20",
+     "result": "207, 209, 210, 211 map to -1 (UI key-binding enum), not eids",
+     "line": "EnumToIDMappingWithDefaultFallthrough_00454c20.c:58-61"
+    },
+    {
+     "function": "StateMachineDispatcher sub_50F904",
+     "result": "state codes 205-210 (object state), not eids",
+     "line": "StateMachineDispatcher_0050f904.c:14-18"
+    },
+    {
+     "function": "StateMachineWithDispatch sub_50FB3B",
+     "result": "state code 207, not an eid",
+     "line": "StateMachineWithDispatch_0050fb3b.c:15"
+    },
+    {
+     "function": "CommandDispatchStateMachine sub_51126A",
+     "result": "numeric state compares (v2 > 207, <= 215, == 216/217), not eids",
+     "line": "CommandDispatchStateMachine_0051126a.c:16,123-130"
+    },
+    {
+     "function": "VehicleDataCopy sub_4C45D0",
+     "result": "this+207 and this+211 are field offsets, not eids",
+     "line": "VehicleDataCopy_004c45d0.c:127,134"
+    },
+    {
+     "function": "sub_512ACC",
+     "result": "trace listed it; re-grep found no literal 207-217 or 453-467",
+     "line": "sub_512ACC_00512acc.c"
+    },
+    {
+     "function": "mechanical_failures dev gearbox (gbx_sim_core.h, gbx_sim_pump.h)",
+     "result": "queues 201-209 and 211-217 in dev only (MF_DEV_TOOLS); not in installed 1.0.7",
+     "line": "gbx_sim_core.h:144-155; gbx_sim_pump.h:29,415-418"
+    },
+    {
+     "function": "extended_damage_commentary, player_damage_commentary, eighth_gear",
+     "result": "no source hit for eids 207-217 or 453-467 or the clip names (grep of .c/.h/.py)",
+     "line": "development/mods/* grep"
+    },
+    {
+     "function": "RaceCommentary sub_41D630 (TV twin 466)",
+     "result": "emits eid 466 (TV channel, not race engineer): Sepang track line, RaceCommentary_0041d630.c:96",
+     "line": "RaceCommentary_0041d630.c:96"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (PWS table, a2=0)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 228 for enum 15 with flag 1 (RaceEventMessageDispatcher only; types 0xB/0xC/0x33)",
+     "line": "sub_412E50_00412e50.c:138"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (TV table, a2=1)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 228 for enum 10 with flag 1 (TV channel)",
+     "line": "sub_412E50_00412e50.c:42"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Stitch re-check: sub-clip entries in this row are PC_RE_STITCH indices with no weight; verdict re-judged from the main-clip route only (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "NATIVE_ACTIVE unchanged: sub_41AC50 main route (eid 215). Sub-clip checks carry no weight."
+   }
+  },
+  {
+   "sdt_index": 229,
+   "eid": 216,
+   "clip": "PWS_AIMECHPROB0",
+   "says": "stuck in 5th gear (AI)",
+   "score": 219,
+   "priority": 40,
+   "cooldown": 15.0,
+   "tv_twin": {
+    "eid": 467,
+    "cooldown": 1.0,
+    "where": "Monaco track line, RaceCommentary_0041d630.c:52"
+   },
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "",
+   "situation": "Green-flag race. AI car: wheel index 2 countdown expires with the wear test passing, and CurrentGear is gear 5; the game queues 'stuck in 5th gear' for that AI driver.",
+   "mod": "",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41AC50 case 5 -> eid 216 (sub_41AC50_0041ac50.c:37), from FuelConsumptionAndWear case 2 (FuelConsumptionAndWear_004ed960.c:249)",
+    "TV twin eid 467 Monaco track line: RaceCommentary_0041d630.c"
+   ],
+   "call_path": "as SDT 224 (MainGameTickUpdate -> sub_4ED960 case 2 -> sub_41AC50 -> queue)",
+   "gates": [
+    "sub_41AC50_0041ac50.c:6 dword_7D0308 != 0 (commentary/race flag; owner live value 3 per B15 audit note)",
+    "sub_41AC50_0041ac50.c:8 flt_7CF3C8 != 0.0 (commentary level; live value UNKNOWN here)",
+    "sub_41AC50_0041ac50.c:12 dword_7C56A8 != 8 and dword_7C56A4 == 7 (race)",
+    "sub_41AC50_0041ac50.c:15 vehicle != PlayerVehiclePtr (dword_7C54E8) and veh+0x4064 FinishState == 0",
+    "sub_41AC50_0041ac50.c:21-25 gear test gear 5; FuelConsumptionAndWear_004ed960.c:112,116-120,243 as SDT 224"
+   ],
+   "heard_evidence": "none found (TRIAGE_NOTES.txt has the number only)",
+   "tier": "DERIVED",
+   "notes": "Doc 56 label 'stuck in 5th gear (AI)'. eid 217 (6th, SDT 230) is outside this batch.",
+   "checked": [
+    {
+     "function": "sub_41AC50 driver events",
+     "result": "eid 216 under a2==2 and gear 5",
+     "line": "sub_41AC50_0041ac50.c:37"
+    },
+    {
+     "function": "EngineStressSimulation sub_43EF20",
+     "result": "cannot produce eid 216 (only sub_41AC50 a2=0 gives 208)",
+     "line": "EngineStressSimulation_0043ef20.c:126-134,282"
+    },
+    {
+     "function": "FuelConsumptionAndWear sub_4ED960",
+     "result": "emits eid 216 under wheel-2 timer < 0 and wear test (:243-249), gear-dependent",
+     "line": "FuelConsumptionAndWear_004ed960.c:240-250"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 3",
+     "result": "emits eid 220 (SDT 233 PWS_AIHIT08), not this batch; its condition uses undecoded x87 flags (v47|v48)",
+     "line": "FuelConsumptionAndWear_004ed960.c:256-273"
+    },
+    {
+     "function": "FuelConsumptionAndWear case 1",
+     "result": "no emit (sub_41AC50 a2=1 returns at :50)",
+     "line": "FuelConsumptionAndWear_004ed960.c:227-239"
+    },
+    {
+     "function": "VehiclePhysicsIntegrationStep sub_441650",
+     "result": "relay to EngineStressSimulation (:78); no eid",
+     "line": "VehiclePhysicsIntegrationStep_00441650.c:78"
+    },
+    {
+     "function": "VehiclePhysicsModeDispatcher sub_4E4930",
+     "result": "relay; called only from MainGameTickUpdate:42 under the player gate (+13000==0)",
+     "line": "VehiclePhysicsModeDispatcher_004e4930.c:29; MainGameTickUpdate_0042c690.c:37-43"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690",
+     "result": "race tick root; relays FuelConsumptionAndWear every 400 ticks for cars with +13000==1 (AI)",
+     "line": "MainGameTickUpdate_0042c690.c:67-73"
+    },
+    {
+     "function": "sub_4D21D0 (RacePhase gate)",
+     "result": "returns 1 only for RacePhase >= 5",
+     "line": "sub_4D21D0 lines 5-17"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce (eids 120, 259, 198 only)",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce (eids 6, 180, 181, 182 only)",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce (eids 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce (eids 42, 52)",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce (eids 7, 8, 9, 17, 18)",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce (eids 21, 22, 178, 179)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce (eids 52, 196); no AI puncture emit",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce (eids 157-161, 164-177, 158, 159, 260, 261)",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce (eids 397 and 516-535, incl. remapped 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (via sub_4203D0)",
+     "result": "cannot produce (returns 355-372 or -1)",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce (eids 293-336)",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce (eids 34, 35, 276-279)",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / jump start / blue flag)",
+     "result": "cannot produce (eids 151-155, 252-256, 123-125)",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce (eids 149, 243)",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce (eids 117-119, 235-238)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce (eids 338-354 via sub_420000)",
+     "line": "sub_41C440_0041c440.c:16; sub_420000 lines 1-47"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion sub_4144F0",
+     "result": "record writer; picks no eid. Fields: priority +0, window +4, delay +8, cooldown +0x0C, score +0x10",
+     "line": "DriverDataTableLookupAndTimeConversion_004144f0.c:5-21"
+    },
+    {
+     "function": "InsertDriverTableEntry sub_418560",
+     "result": "queue writer; score and priority gate, 20-slot priority list",
+     "line": "InsertDriverTableEntry_00418560.c:20-86"
+    },
+    {
+     "function": "ScoreThresholdGateCheck sub_418B90",
+     "result": "mode 0 sentinel only; 1 priority >= 70; 2 >= 40; 3 > 0. Priority 40 passes modes 2 and 3",
+     "line": "sub_418B90 lines 6-22"
+    },
+    {
+     "function": "ArraySlotCompactionWithGapFilling sub_418AC0",
+     "result": "drops expired entries; no eid",
+     "line": "sub_418AC0 lines 14-56"
+    },
+    {
+     "function": "TextOverlayDisplayTimer sub_4186F0",
+     "result": "per-eid cooldown via flt_5BF9AC (+0x0C) and per-eid last-played array; gate dword_7D0308 and flt_7CF3C8 at :19",
+     "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+    },
+    {
+     "function": "FontRenderingPrep sub_411840",
+     "result": "channel by eid range (ShortComputation_19d0: 1..290 PWS=0, 293..535 TV=1); calls RaceEventMessageDispatcher and SoundEventDispatcher",
+     "line": "FontRenderingPrep_00411840.c:12-53"
+    },
+    {
+     "function": "RaceEventMessageDispatcher sub_411BF0",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=1 path into sub_412E50 for item types 0xB, 0xC, 0x33 (line 37)",
+     "line": "RaceEventMessageDispatcher_00411bf0.c:34-38"
+    },
+    {
+     "function": "SoundEventDispatcher sub_411E90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: flag=0 path into sub_412E50 (:46, :57); flag-0 outputs are 240-266, never 220-229",
+     "line": "SoundEventDispatcher_00411e90.c:46,57"
+    },
+    {
+     "function": "CharacterCodeMapper sub_411B50",
+     "result": "sets item type from unk_5BEE08 / unk_5BF4C0; those tables are NOT decoded here, so which eids carry type 0xB/0xC/0x33 is UNKNOWN",
+     "line": "CharacterCodeMapper sub_411B50 lines 37-54"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: name-to-value table, not queued. With a4=1 returns small enums (Allan M 9/10) or 207-216 for other names (Mika H 207 at :698; Michael S 209 at :27, 210 at :247). Values feed the +16 field of eid 397 entries",
+     "line": "DriverNameIDLookup_00415d90.c:27,155,247,375,391,494,537,612,698,714,757,832"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList sub_415230 / sub_414600",
+     "result": "name-path wrapper; no queue write",
+     "line": "NamedEntryLookupInFormatList_00415230.c; sub_414600_00414600.c"
+    },
+    {
+     "function": "PositionChangeDetector sub_420490",
+     "result": "queues eid 397 with the name value as +16 (:111, :189); no eid 216",
+     "line": "PositionChangeDetector_00420490.c:110-112,188-190"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "queues the 478-503 family (478 :99; 502 :146; 494 :170); no eid 216",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99-453"
+    },
+    {
+     "function": "VehicleListBuilderFromGlobalArray sub_415780 / VehicleSetupDriverNumber sub_4C7B50 / ShortComputation_5730 sub_415730",
+     "result": "name-table consumers; grep finds no DriverDataTable or InsertDriverTableEntry call and no literal eid",
+     "line": "VehicleListBuilderFromGlobalArray_00415780.c; VehicleSetupDriverNumber_004c7b50.c; ShortComputation_5730_00415730.c"
+    },
+    {
+     "function": "sub_46BF10 AIOvertake + RaceCommentary caller",
+     "result": "calls RaceCommentary only when SessionType == 7 (sub_46BF10_0046bf10.c:36-41); its dispatcher sub_46DC60 / DispatchChainWithVTableCalls has no static caller (vtable): reach UNKNOWN",
+     "line": "sub_46BF10_0046bf10.c:36-41"
+    },
+    {
+     "function": "CameraViewportConfigBatch sub_453560",
+     "result": "literal 207, 209, 210, 211 are CollisionNodePropertySetter property ids, not eids",
+     "line": "CameraViewportConfigBatch_00453560.c:68-73"
+    },
+    {
+     "function": "EnumToIDMappingWithDefaultFallthrough sub_454C20",
+     "result": "207, 209, 210, 211 map to -1 (UI key-binding enum), not eids",
+     "line": "EnumToIDMappingWithDefaultFallthrough_00454c20.c:58-61"
+    },
+    {
+     "function": "StateMachineDispatcher sub_50F904",
+     "result": "state codes 205-210 (object state), not eids",
+     "line": "StateMachineDispatcher_0050f904.c:14-18"
+    },
+    {
+     "function": "StateMachineWithDispatch sub_50FB3B",
+     "result": "state code 207, not an eid",
+     "line": "StateMachineWithDispatch_0050fb3b.c:15"
+    },
+    {
+     "function": "CommandDispatchStateMachine sub_51126A",
+     "result": "numeric state compares (v2 > 207, <= 215, == 216/217), not eids",
+     "line": "CommandDispatchStateMachine_0051126a.c:16,123-130"
+    },
+    {
+     "function": "VehicleDataCopy sub_4C45D0",
+     "result": "this+207 and this+211 are field offsets, not eids",
+     "line": "VehicleDataCopy_004c45d0.c:127,134"
+    },
+    {
+     "function": "sub_512ACC",
+     "result": "trace listed it; re-grep found no literal 207-217 or 453-467",
+     "line": "sub_512ACC_00512acc.c"
+    },
+    {
+     "function": "mechanical_failures dev gearbox (gbx_sim_core.h, gbx_sim_pump.h)",
+     "result": "queues 201-209 and 211-217 in dev only (MF_DEV_TOOLS); not in installed 1.0.7",
+     "line": "gbx_sim_core.h:144-155; gbx_sim_pump.h:29,415-418"
+    },
+    {
+     "function": "extended_damage_commentary, player_damage_commentary, eighth_gear",
+     "result": "no source hit for eids 207-217 or 453-467 or the clip names (grep of .c/.h/.py)",
+     "line": "development/mods/* grep"
+    },
+    {
+     "function": "RaceCommentary sub_41D630 (TV twin 467)",
+     "result": "emits eid 467 (TV channel, not race engineer): Monaco track line, RaceCommentary_0041d630.c:52",
+     "line": "RaceCommentary_0041d630.c:52"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (PWS table, a2=0)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 229 for enum 16 with flag 1 (RaceEventMessageDispatcher only; types 0xB/0xC/0x33)",
+     "line": "sub_412E50_00412e50.c:141"
+    },
+    {
+     "function": "sub_412E50 subclip resolver (TV table, a2=1)",
+     "result": "SUB-CLIP BANK FACT (2026-10-18): this is a sub-clip index into PC_RE_STITCH, not a PC_RE_MAIN route; no weight in the verdict. Original check: returns SDT 229 for enum 11 with flag 1 (TV channel)",
+     "line": "sub_412E50_00412e50.c:45"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Stitch re-check: sub-clip entries in this row are PC_RE_STITCH indices with no weight; verdict re-judged from the main-clip route only (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "NATIVE_ACTIVE unchanged: sub_41AC50 main route (eid 216). Sub-clip checks carry no weight."
+   }
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+func,line,dec,hex,access,width,base,form,expr
+IndexedStructDataRead,7,344,0x158,R,_DWORD,this,array,v5 = (_DWORD *)(this[86] + 28 * (a2 + a3 * this[89]));
+IndexedStructDataRead,7,356,0x164,R,_DWORD,this,array,v5 = (_DWORD *)(this[86] + 28 * (a2 + a3 * this[89]));
+IndexedStructDataRead,9,4,0x4,W,_DWORD,a4,array,a4[1] = v5[1];
+IndexedStructDataRead,9,4,0x4,R,_DWORD,v5,array,a4[1] = v5[1];
+IndexedStructDataRead,10,8,0x8,W,_DWORD,a4,array,a4[2] = v5[2];
+IndexedStructDataRead,10,8,0x8,R,_DWORD,v5,array,a4[2] = v5[2];
+IndexedStructDataRead,11,356,0x164,R,_DWORD,this,array,v6 = (_DWORD *)(28 * (a2 + a3 * this[89]) + this[86] + 12);
+IndexedStructDataRead,11,344,0x158,R,_DWORD,this,array,v6 = (_DWORD *)(28 * (a2 + a3 * this[89]) + this[86] + 12);
+IndexedStructDataRead,13,4,0x4,R,_DWORD,v6,array,result = v6[1];
+IndexedStructDataRead,14,4,0x4,W,_DWORD,a5,array,a5[1] = result;
+IndexedStructDataRead,15,8,0x8,W,_DWORD,a5,array,a5[2] = v6[2];
+IndexedStructDataRead,15,8,0x8,R,_DWORD,v6,array,a5[2] = v6[2];

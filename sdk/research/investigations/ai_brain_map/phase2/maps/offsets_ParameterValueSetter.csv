@@ -1,0 +1,3 @@
+func,line,dec,hex,access,width,base,form,expr
+ParameterValueSetter,4,17720,0x4538,W,float,this,array,this[4430] = flt_8ACFB4;
+ParameterValueSetter,6,17720,0x4538,W,float,this,array,this[4430] = (float)a2;

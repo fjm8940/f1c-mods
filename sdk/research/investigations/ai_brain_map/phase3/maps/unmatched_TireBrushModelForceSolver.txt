@@ -1,0 +1,7 @@
+# TireBrushModelForceSolver: offset-like lines with no extracted row (6)
+L102: v4 = (float *)(this + 13868);
+L103: v85 = (float *)(this + 15552);
+L267: v46 = (float *)(this + 13840);
+L269: v48 = (float *)(this + 13840);
+L299: v56 = this + 15424;
+L334: v61 = (float *)(this + 15616);

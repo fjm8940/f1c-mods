@@ -1,0 +1,421 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 212,
+ "clip": "PWS_2001_141",
+ "says": "Team positioned to secure WCC",
+ "dump_rows_for_clip": [
+  {
+   "eid": 199,
+   "hex": "0x00C7",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 202,
+   "sdt_index": 212,
+   "clip_name": "PWS_2001_141.mp",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 513,
+   "hex": "0x0201",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 202,
+   "sdt_index": 212,
+   "clip_name": "PWS_2001_141.mp",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  202
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 199,
+   "hex": "0x00C7",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 202,
+   "sdt_index": 212,
+   "clip_name": "PWS_2001_141.mp",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 513,
+   "hex": "0x0201",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 202,
+   "sdt_index": 212,
+   "clip_name": "PWS_2001_141.mp",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  199
+ ],
+ "literal_hits": {
+  "199": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 187,
+       "text": "v5 = a4 != 0 ? 199 : 461;"
+      },
+      {
+       "line": 810,
+       "text": "v9 = a4 != 0 ? 407 : 199;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 61,
+    "first": [
+     "AudioChannelInit",
+     "CameraViewportConfigBatch",
+     "ComplexConstructor",
+     "ConditionalInitWithGlobalRefSetup",
+     "ConstructorLEDIndicatorSetup",
+     "ConstructorSimilarUIElement",
+     "ConstructorWithDefaults",
+     "ConstructorWithMultipleFieldInitsAndGlobalRef",
+     "ConstructorWithVTableAndFieldInit",
+     "Constructor",
+     "DoubleDelegateCall_bbe0",
+     "EnumToIDMappingWithDefaultFallthrough",
+     "GraphicsConstructorWithConstants",
+     "GraphicsConstructor",
+     "KeyboardInputActionMapper",
+     "LinkedListNodeAppend",
+     "LinkedListSizeCalcWithMaxTracking",
+     "ObjectConstructorWithGlobalReferences",
+     "ObjectConstructorWithParameterSetup",
+     "ObjectConstructorWithVTableAndFieldInit",
+     "ObjectConstructorWithZeroedFields",
+     "ObjectConstructor_1a00",
+     "ObjectConstructor_3cc0",
+     "ObjectInitWithDefaults",
+     "ObjectInitWithGlobalRef",
+     "ObjectInitWithVTablePathRegistration",
+     "ObjectInitWithVTableRenderStateConfig",
+     "ObjectInitializerWithGlobals",
+     "ObjectInitializerWithVtableIndex",
+     "PerIndexStructFieldResetter",
+     "ReferencesGlobalState_33a0",
+     "Render_Init",
+     "RotatingIndexSearchWithThreshold",
+     "SelectedSeasonUIInit",
+     "ShortComputation_1540",
+     "ShortComputation_15d0",
+     "ShortComputation_1970",
+     "ShortComputation_3330",
+     "ShortComputation_3c40",
+     "ShortComputation_6d60"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 212 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": []
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:137: {\"tier\": \"DERIVED\", \"needs_review\": true, \"group\": \"EVF-008_E\", \"summary\": \"Pit-related cluster (7 rows): mixed verdicts. PWS_2001_131 (eid 184) = MENU_TRAP -- emitted via CarSelec"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-008.md:145: | `PWS_2001_141` | 212 | 199 | Team positioned to secure WCC |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:213: | `PWS_2001_141` | 212 | 513 | 0x0041be60 | Team positioned to secure WCC |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:129: | PWS_2001_141 | 212 | 199 | Stub — probably not to be done yet |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:263: | `PWS_2001_141` | 212 | 199, 513 | — | Team positioned to secure WCC | EVF-008 audit: NO_KNOWN_WRITER, eid 199, same as sdt204. docs/SPEC_EVF-008_E_pit.md |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:167: | `PWS_2001_141` | 199, 513 | Team positioned to secure WCC | eid 513 live, emitter literal PitRaceStatusMessageDispatcher_0041be60.c:44 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:107: `PWS_2001_13`, `PWS_2001_131`, `PWS_2001_138`, `PWS_2001_14`, `PWS_2001_141`,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-008_E_pit.md:58: ### PWS_2001_141 — \"Team positioned to secure WCC\" (eid 199, sdt 212)",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-008_E_pit.md:66: | PWS_2001_141 | 212 | 199 | NO_KNOWN_WRITER |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-008_E_pit.md:109: | PWS_2001_141 | 212 | 199 | NO_KNOWN_WRITER |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:25: | 212 | `PWS_2001_141` | Y | STUB | Y, stub, probably not to be done yet |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:133: | `PWS_2001_141` | 212 | 513 | Team positioned to secure WCC |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:108: | `PWS_2001_141` | 212 | 199, 513 | user triage: Y, stub, probably not to be done yet |"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [],
+  "note": "EVF-008 audit: NO_KNOWN_WRITER, eid 199, same as sdt204. docs/SPEC_EVF-008_E_pit.md",
+  "triage": {
+   "sdt_index": 212,
+   "text": "Y, stub, probably not to be done yet",
+   "subject": "Y",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [
+    "REDUNDANT_SUSPECT",
+    "STUB"
+   ],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

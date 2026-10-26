@@ -1,0 +1,93 @@
+; home #39
+; RTMI 0x0043343C  code 0x00433318  ProcSize 292  FrameSize 132
+  0x0000: LitI2_Byte               raw=FF
+  0x0002: ImpAdStI2                raw=4300
+  0x0005: OnErrorGoto              target=+0x11C
+  0x0008: LitVar_TRUE              var[-164]
+  0x000B: PopAdLdVar               
+  0x000C: FLdRfVar                 var[-148]
+  0x000F: VarLateMemSt             raw=C800
+  0x0013: FLdVar                   raw=3CFF
+  0x0017: FLdRfVar                 var[-148]
+  0x001A: VarLateMemSt             raw=C900
+  0x001E: LitStr                   pool[202]="All Files (*.*)|*.*|LAP Files"
+  0x0021: LitStr                   pool[203]="(*.lap)|*.lap"
+  0x0024: ConcatStr                
+  0x0025: CVarStr                  raw=2CFF
+  0x0028: PopAdLdVar               
+  0x0029: FLdRfVar                 var[-148]
+  0x002C: VarLateMemSt             raw=CC00
+  0x0030: FFree1Var                var[-212]
+  0x0033: LitVarI2                 var[-164] = 2
+  0x0038: PopAdLdVar               
+  0x0039: FLdRfVar                 var[-148]
+  0x003C: VarLateMemSt             raw=CD00
+  0x0040: FLdRfVar                 var[-220]
+  0x0043: FLdRfVar                 var[-216]
+  0x0046: ImpAdLdRf                raw=1300
+  0x0049: NewIfNullPr              raw=1400
+  0x004C: VCallHresult             raw=14001500
+  0x0051: FLdPr                    var[-216]
+  0x0054: VCallHresult             raw=60003D00
+  0x0059: FLdRfVar                 var[-228]
+  0x005C: FLdRfVar                 var[-224]
+  0x005F: ImpAdLdRf                raw=1300
+  0x0062: NewIfNullPr              raw=1400
+  0x0065: VCallHresult             raw=14001500
+  0x006A: FLdPr                    var[-224]
+  0x006D: VCallHresult             raw=50003D00
+  0x0072: FLdZeroAd                var[-228]
+  0x0075: CVarStr                  raw=2CFF
+  0x0078: PopAdLdVar               
+  0x0079: LitStr                   pool[206]="LAST_LAP"
+  0x007C: LitStr                   pool[76]="Filepaths"
+  0x007F: ILdRf                    var[-220]
+  0x0082: ImpAdCallI2              raw=CF001C00
+  0x0087: FStStr                   raw=18FF
+  0x008A: FFree1Str                var[-220]
+  0x008D: FFreeAd                  raw=040028FF20FF
+  0x0094: FFree1Var                var[-212]
+  0x0097: ILdRf                    var[-232]
+  0x009A: CVarStr                  raw=5CFF
+  0x009D: PopAdLdVar               
+  0x009E: FLdRfVar                 var[-148]
+  0x00A1: VarLateMemSt             raw=D100
+  0x00A5: FLdRfVar                 var[-148]
+  0x00A8: LdPrVar                  
+  0x00AA: LateMemCall              raw=DC000000
+  0x00B0: FLdRfVar                 var[-148]
+  0x00B3: VarLateMemLdVar          raw=2CFFD100
+  0x00B9: CStrVarTmp               
+  0x00BA: FStStr                   raw=18FF
+  0x00BD: FFree1Var                var[-212]
+  0x00C0: OnErrorGoto              target=+0xFFFE
+  0x00C3: ILdRf                    var[-232]
+  0x00C6: LitStr                   pool[30]="Ooops...Error in File "
+  0x00C9: GtStr                    
+  0x00CB: BranchF                  target=+0x117
+  0x00CE: FLdRfVar                 var[-220]
+  0x00D1: FLdRfVar                 var[-216]
+  0x00D4: ImpAdLdRf                raw=1300
+  0x00D7: NewIfNullPr              raw=1400
+  0x00DA: VCallHresult             raw=14001500
+  0x00DF: FLdPr                    var[-216]
+  0x00E2: VCallHresult             raw=60003D00
+  0x00E7: ILdRf                    var[-232]
+  0x00EA: LitStr                   pool[206]="LAST_LAP"
+  0x00ED: LitStr                   pool[76]="Filepaths"
+  0x00F0: ILdRf                    var[-220]
+  0x00F3: ImpAdCallFPR4            pool[77](MSVBVM60!__imp_rtcSaveSetting) stack+16
+  0x00F8: FFree1Str                var[-220]
+  0x00FB: FFree1Ad                 var[-216]
+  0x00FE: ImpAdLdRf                raw=0600
+  0x0101: FStVarCopy               raw=08FF
+  0x0105: FLdRfVar                 var[-232]
+  0x0108: FLdRfVar                 var[-212]
+  0x010B: ImpAdCallFPR4            pool[221](call Data_management#10) stack+8
+  0x0110: FLdRfVar                 var[-212]
+  0x0113: FStVar                   raw=F8FE
+  0x0117: ThisVCallHresult         raw=04070000
+  0x011C: LitI2_Byte               raw=00
+  0x011E: ImpAdStI2                raw=4300
+  0x0121: ExitProcHresult          
+; status: {'unknown': None, 'truncated': None, 'stop_offset': 292, 'last_exit_end': 290, 'filler_len': 2, 'filler_hex': '0000', 'ok': True}

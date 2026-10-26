@@ -1,0 +1,7962 @@
+{
+  "schema": "f1c.legacy_method_index.v1",
+  "generated": "2026-10-09+0300",
+  "source_exe": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\f1_telemetry.exe",
+  "source_sha256": "0AA34C51C30C3113BF6B6C2F1B59A8B3346AD1322F6AB519E60757BAF8573BEB",
+  "method_count": 207,
+  "rtmi_methods": 195,
+  "methods_without_rtmi": [
+    {
+      "object": "General_utility_routines",
+      "method_index": 0,
+      "name": null,
+      "target": "0xf6fcfe7c",
+      "target_kind": "other"
+    },
+    {
+      "object": "General_utility_routines",
+      "method_index": 1,
+      "name": null,
+      "target": "0x6404fd64",
+      "target_kind": "other"
+    },
+    {
+      "object": "General_Declarations",
+      "method_index": 0,
+      "name": null,
+      "target": "0xff7404ff",
+      "target_kind": "other"
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "method_index": 0,
+      "name": null,
+      "target": "0x0",
+      "target_kind": "zero"
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "method_index": 1,
+      "name": null,
+      "target": "0x0",
+      "target_kind": "zero"
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "method_index": 2,
+      "name": null,
+      "target": "0x0",
+      "target_kind": "zero"
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "method_index": 3,
+      "name": null,
+      "target": "0x0",
+      "target_kind": "zero"
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "method_index": 4,
+      "name": null,
+      "target": "0x0",
+      "target_kind": "zero"
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "method_index": 5,
+      "name": null,
+      "target": "0x0",
+      "target_kind": "zero"
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "method_index": 6,
+      "name": null,
+      "target": "0x0",
+      "target_kind": "zero"
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "method_index": 7,
+      "name": null,
+      "target": "0x0",
+      "target_kind": "zero"
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "method_index": 8,
+      "name": null,
+      "target": "0x0",
+      "target_kind": "zero"
+    }
+  ],
+  "category_counts": {
+    "unknown": 33,
+    "upload": 35,
+    "metadata": 77,
+    "render_transform": 2,
+    "lap_check": 44,
+    "axis_distance": 47,
+    "lap_management": 26,
+    "filter": 16,
+    "render": 13,
+    "file_io_spt_read": 24,
+    "layout_io": 39,
+    "shutdown": 9,
+    "ui_event_handler": 15
+  },
+  "note": "String references are resolved through the object constant pool with a 2-byte operand scan; opcode boundaries are not fully resolved, so a reference is evidence of use by the method, not proof of a particular opcode. Runtime references are candidates under the same caveat.",
+  "methods": [
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 0,
+      "name": null,
+      "slot_va": "0x40a920",
+      "target": "0xf6fcfe7c",
+      "target_kind": "other",
+      "rtmi_va": null,
+      "size": null,
+      "terminator": null,
+      "padding": null,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": []
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 1,
+      "name": null,
+      "slot_va": "0x40a924",
+      "target": "0x6404fd64",
+      "target_kind": "other",
+      "rtmi_va": null,
+      "size": null,
+      "terminator": null,
+      "padding": null,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": []
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 2,
+      "name": null,
+      "slot_va": "0x40a928",
+      "target": "0x42f198",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42f198",
+      "size": 118,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [
+        "DrawStyle"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 3,
+      "name": null,
+      "slot_va": "0x40a92c",
+      "target": "0x42efac",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42efac",
+      "size": 103,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "[header string too long]",
+        "http://f1lap.ea-europe.com"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 4,
+      "name": null,
+      "slot_va": "0x40a930",
+      "target": "0x433740",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x433740",
+      "size": 366,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [
+        "[header string too long]",
+        "\\debug.log"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromAnsi"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 5,
+      "name": null,
+      "slot_va": "0x40a934",
+      "target": "0x42e5c4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e5c4",
+      "size": 49,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 3,
+      "string_refs": [
+        "[header string too long]"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 6,
+      "name": null,
+      "slot_va": "0x40a938",
+      "target": "0x42e434",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e434",
+      "size": 49,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 3,
+      "string_refs": [
+        "[header string too long]"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 7,
+      "name": null,
+      "slot_va": "0x40a93c",
+      "target": "0x432e7c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x432e7c",
+      "size": 297,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "BREAK",
+        "McLaren",
+        "Monte Carlo",
+        "United States",
+        "[header string too long]",
+        "\\f1_telemetry.cfg",
+        "http://f1lap.ea-europe.com",
+        "sanmarino",
+        "upload_url"
+      ],
+      "runtime_refs": [
+        "rtcDir"
+      ],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com",
+            "upload_url"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 8,
+      "name": null,
+      "slot_va": "0x40a940",
+      "target": "0x42ec54",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42ec54",
+      "size": 85,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "[header string too long]"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 9,
+      "name": null,
+      "slot_va": "0x40a944",
+      "target": "0x42e20c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e20c",
+      "size": 43,
+      "terminator": "ExitProc 0x14",
+      "padding": 1,
+      "string_refs": [
+        "[header string too long]"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 10,
+      "name": null,
+      "slot_va": "0x40a948",
+      "target": "0x42e164",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e164",
+      "size": 33,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "Line",
+        "[header string too long]",
+        "http://f1lap.ea-europe.com",
+        "upload_url"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com",
+            "upload_url"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 11,
+      "name": null,
+      "slot_va": "0x40a94c",
+      "target": "0x43210c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43210c",
+      "size": 276,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [
+        "United States",
+        "http://f1lap.ea-europe.com/LapData.ASP",
+        "unknown"
+      ],
+      "runtime_refs": [
+        "rtcGetPresentDate"
+      ],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com/LapData.ASP"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 12,
+      "name": null,
+      "slot_va": "0x40a950",
+      "target": "0x42f698",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42f698",
+      "size": 159,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "Circuit",
+        "Safety-2002"
+      ],
+      "runtime_refs": [
+        "rtcFreeFile"
+      ],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "Circuit"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 13,
+      "name": null,
+      "slot_va": "0x40a954",
+      "target": "0x42f44c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42f44c",
+      "size": 158,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [
+        "Arrows-2-Seater-2002",
+        "Date",
+        "Great Britain",
+        "Monte Carlo",
+        "Renault",
+        "San Marino",
+        "United States",
+        "greatbritain",
+        "http://f1lap.ea-europe.com/LapData.ASP",
+        "monaco",
+        "sanmarino",
+        "unitedstates"
+      ],
+      "runtime_refs": [
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com/LapData.ASP"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "Date"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 14,
+      "name": null,
+      "slot_va": "0x40a958",
+      "target": "0x431e9c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x431e9c",
+      "size": 266,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 2,
+      "string_refs": [
+        "[header string too long]",
+        "http://f1lap.ea-europe.com/LapData.ASP"
+      ],
+      "runtime_refs": [
+        "rtcFreeFile"
+      ],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com/LapData.ASP"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 15,
+      "name": null,
+      "slot_va": "0x40a95c",
+      "target": "0x42f3a0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42f3a0",
+      "size": 123,
+      "terminator": "ExitProc 0x14",
+      "padding": 1,
+      "string_refs": [
+        "Date",
+        "home_url"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromAnsi"
+      ],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "Date"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 16,
+      "name": null,
+      "slot_va": "0x40a960",
+      "target": "0x42e844",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e844",
+      "size": 77,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        "[header string too long]"
+      ],
+      "runtime_refs": [
+        "rtcSaveSetting"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 17,
+      "name": null,
+      "slot_va": "0x40a964",
+      "target": "0x437870",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x437870",
+      "size": 816,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        "[header string too long]",
+        "\\f1_telemetry.cfg"
+      ],
+      "runtime_refs": [
+        "rtcGetDateValue"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 18,
+      "name": null,
+      "slot_va": "0x40a968",
+      "target": "0x4342c8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4342c8",
+      "size": 454,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [
+        "\\Reference\\reference_"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 19,
+      "name": null,
+      "slot_va": "0x40a96c",
+      "target": "0x4382bc",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4382bc",
+      "size": 895,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "Circuit",
+        "LAPTIME",
+        "Ooops...Error in File ",
+        "Renault",
+        "Safety-2002",
+        "United States",
+        "\\debug.log",
+        "\\f1_telemetry.cfg",
+        "http://f1lap.ea-europe.com",
+        "http://f1lap.ea-europe.com/LapData.ASP",
+        "upload_url"
+      ],
+      "runtime_refs": [
+        "rtcFreeFile"
+      ],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com",
+            "http://f1lap.ea-europe.com/LapData.ASP",
+            "upload_url"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "Circuit"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 20,
+      "name": null,
+      "slot_va": "0x40a970",
+      "target": "0x4365cc",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4365cc",
+      "size": 755,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "Circuit",
+        "DrawStyle",
+        "FillStyle",
+        "ForeColor",
+        "Line",
+        "United States",
+        "[header string too long]",
+        "track_table_url"
+      ],
+      "runtime_refs": [
+        "rtcStrFromVar"
+      ],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "track_table_url"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "Circuit",
+            "track_table_url"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 21,
+      "name": null,
+      "slot_va": "0x40a974",
+      "target": "0x4328b4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4328b4",
+      "size": 347,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "Circuit",
+        "LBL_Email",
+        "Ooops...Error in File "
+      ],
+      "runtime_refs": [
+        "rtcBstrFromAnsi"
+      ],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "Circuit"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 22,
+      "name": null,
+      "slot_va": "0x40a978",
+      "target": "0x42fac8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42fac8",
+      "size": 176,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        "Toyota"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 23,
+      "name": null,
+      "slot_va": "0x40a97c",
+      "target": "0x4335ac",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4335ac",
+      "size": 356,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [
+        "United States",
+        "[header string too long]"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 24,
+      "name": null,
+      "slot_va": "0x40a980",
+      "target": "0x433a80",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x433a80",
+      "size": 359,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "Circuit",
+        "LBL_Email",
+        "[header string too long]"
+      ],
+      "runtime_refs": [
+        "rtcDir"
+      ],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "Circuit"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 25,
+      "name": null,
+      "slot_va": "0x40a984",
+      "target": "0x42d6c0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42d6c0",
+      "size": 336,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        "BREAK",
+        "McLaren",
+        "Monte Carlo",
+        "United States",
+        "\\debug.log"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 26,
+      "name": null,
+      "slot_va": "0x40a988",
+      "target": "0x430fd0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x430fd0",
+      "size": 212,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [
+        "United States",
+        "[header string too long]",
+        "http://f1lap.ea-europe.com/LapData.ASP"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com/LapData.ASP"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 27,
+      "name": null,
+      "slot_va": "0x40a98c",
+      "target": "0x430dac",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x430dac",
+      "size": 217,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "[header string too long]",
+        "http://f1lap.ea-europe.com",
+        "http://f1lap.ea-europe.com/LapData.ASP"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromAnsi",
+        "rtcDir"
+      ],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com",
+            "http://f1lap.ea-europe.com/LapData.ASP"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 28,
+      "name": null,
+      "slot_va": "0x40a990",
+      "target": "0x432608",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x432608",
+      "size": 306,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 2,
+      "string_refs": [
+        "H:mm",
+        "LBL_Password",
+        "[header string too long]",
+        "dd MMMM yyyy "
+      ],
+      "runtime_refs": [
+        "rtcGetDateValue",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 29,
+      "name": null,
+      "slot_va": "0x40a994",
+      "target": "0x4310d4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4310d4",
+      "size": 510,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 2,
+      "string_refs": [
+        "Line",
+        "Medical-2002",
+        "[header string too long]",
+        "\\debug.log"
+      ],
+      "runtime_refs": [
+        "rtcSaveSetting"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 30,
+      "name": null,
+      "slot_va": "0x40a998",
+      "target": "0x42f910",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42f910",
+      "size": 178,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        "Circuit",
+        "Safety-2002",
+        "\\f1_telemetry.cfg",
+        "http://f1lap.ea-europe.com"
+      ],
+      "runtime_refs": [
+        "rtcFreeFile"
+      ],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "Circuit"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 31,
+      "name": null,
+      "slot_va": "0x40a99c",
+      "target": "0x4306a8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4306a8",
+      "size": 218,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        "ForeColor",
+        "dd MMMM yyyy ",
+        "http://f1lap.ea-europe.com",
+        "http://f1lap.ea-europe.com/LapData.ASP"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com",
+            "http://f1lap.ea-europe.com/LapData.ASP"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 32,
+      "name": null,
+      "slot_va": "0x40a9a0",
+      "target": "0x42e498",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e498",
+      "size": 49,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 3,
+      "string_refs": [
+        "[header string too long]"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 33,
+      "name": null,
+      "slot_va": "0x40a9a4",
+      "target": "0x42e560",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e560",
+      "size": 49,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 3,
+      "string_refs": [
+        "[header string too long]"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 34,
+      "name": null,
+      "slot_va": "0x40a9a8",
+      "target": "0x43002c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43002c",
+      "size": 182,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [
+        "San Marino",
+        "Sauber",
+        "[header string too long]",
+        "http://f1lap.ea-europe.com/lapup/lapup.asmx/LapUp"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromAnsi"
+      ],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com/lapup/lapup.asmx/LapUp"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 35,
+      "name": null,
+      "slot_va": "0x40a9ac",
+      "target": "0x42e8c4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e8c4",
+      "size": 80,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        "DrawStyle",
+        "FillStyle",
+        "ForeColor",
+        "http://f1lap.ea-europe.com",
+        "upload_url"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com",
+            "upload_url"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 36,
+      "name": null,
+      "slot_va": "0x40a9b0",
+      "target": "0x42df20",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42df20",
+      "size": 29,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        "[header string too long]"
+      ],
+      "runtime_refs": [
+        "rtcSaveSetting"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 37,
+      "name": null,
+      "slot_va": "0x40a9b4",
+      "target": "0x42ded0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42ded0",
+      "size": 29,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        "[header string too long]"
+      ],
+      "runtime_refs": [
+        "rtcSaveSetting"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 38,
+      "name": null,
+      "slot_va": "0x40a9b8",
+      "target": "0x431304",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x431304",
+      "size": 237,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "[header string too long]",
+        "http://f1lap.ea-europe.com/LapData.ASP",
+        "track_table_url"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com/LapData.ASP",
+            "track_table_url"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "track_table_url"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 39,
+      "name": null,
+      "slot_va": "0x40a9bc",
+      "target": "0x4318d0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4318d0",
+      "size": 238,
+      "terminator": "ExitProc 0x16",
+      "padding": 2,
+      "string_refs": [
+        "San Marino",
+        "[header string too long]"
+      ],
+      "runtime_refs": [
+        "rtcSaveSetting"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 40,
+      "name": null,
+      "slot_va": "0x40a9c0",
+      "target": "0x430114",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x430114",
+      "size": 205,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "Renault",
+        "[header string too long]"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromAnsi",
+        "rtcDir"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 41,
+      "name": null,
+      "slot_va": "0x40a9c4",
+      "target": "0x42fe5c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42fe5c",
+      "size": 185,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "BREAK",
+        "Date",
+        "Toyota",
+        "http://f1lap.ea-europe.com"
+      ],
+      "runtime_refs": [
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "Date"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 42,
+      "name": null,
+      "slot_va": "0x40a9c8",
+      "target": "0x42e9b4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e9b4",
+      "size": 217,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        "statistics"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 43,
+      "name": null,
+      "slot_va": "0x40a9cc",
+      "target": "0x42f83c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42f83c",
+      "size": 161,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        "Normal",
+        "greatbritain"
+      ],
+      "runtime_refs": [
+        "rtcGetDateValue",
+        "rtcLeftCharBstr"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 44,
+      "name": null,
+      "slot_va": "0x40a9d0",
+      "target": "0x42f51c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42f51c",
+      "size": 135,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "United States",
+        "\\debug.log",
+        "\\f1_telemetry.cfg",
+        "http://f1lap.ea-europe.com",
+        "http://f1lap.ea-europe.com/LapData.ASP",
+        "upload_url"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com",
+            "http://f1lap.ea-europe.com/LapData.ASP",
+            "upload_url"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 45,
+      "name": null,
+      "slot_va": "0x40a9d4",
+      "target": "0x4395a8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4395a8",
+      "size": 1195,
+      "terminator": "ExitProc 0x14",
+      "padding": 1,
+      "string_refs": [
+        "Date",
+        "Line",
+        "Must stop now!",
+        "Ooops...Error in File ",
+        "[header string too long]",
+        "home_url",
+        "http://f1lap.ea-europe.com",
+        "http://f1lap.ea-europe.com/LapData.ASP",
+        "http://f1lap.ea-europe.com/lapup/lapup.asmx/LapUp",
+        "track_table_url",
+        "upload_url"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromAnsi",
+        "rtcGetDateValue"
+      ],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com",
+            "http://f1lap.ea-europe.com/LapData.ASP",
+            "http://f1lap.ea-europe.com/lapup/lapup.asmx/LapUp",
+            "track_table_url",
+            "upload_url"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "Date",
+            "track_table_url"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 46,
+      "name": null,
+      "slot_va": "0x40a9d8",
+      "target": "0x433de4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x433de4",
+      "size": 295,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 1,
+      "string_refs": [
+        "Minardi",
+        "[header string too long]",
+        "\\f1_telemetry.cfg"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 47,
+      "name": null,
+      "slot_va": "0x40a9dc",
+      "target": "0x42e694",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e694",
+      "size": 57,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "http://f1lap.ea-europe.com"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 48,
+      "name": null,
+      "slot_va": "0x40a9e0",
+      "target": "0x42f0e8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42f0e8",
+      "size": 128,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [
+        "[header string too long]",
+        "greatbritain"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_utility_routines",
+      "object_role": "utility",
+      "method_index": 49,
+      "name": null,
+      "slot_va": "0x40a9e4",
+      "target": "0x43276c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43276c",
+      "size": 280,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [
+        "Line"
+      ],
+      "runtime_refs": [
+        "rtcStrFromVar",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 0,
+      "name": null,
+      "slot_va": "0x40a538",
+      "target": "0x42ed78",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42ed78",
+      "size": 73,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "tyre average temp",
+        "wheelspin"
+      ],
+      "runtime_refs": [
+        "rtcR8ValFromBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "render_transform",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 1,
+      "name": null,
+      "slot_va": "0x40a53c",
+      "target": "0x42eac0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42eac0",
+      "size": 73,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        "BTN_LapCheckCorners"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 2,
+      "name": null,
+      "slot_va": "0x40a540",
+      "target": "0x42db28",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42db28",
+      "size": 31,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "engine rpm",
+        "throttle"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "render_transform",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 3,
+      "name": null,
+      "slot_va": "0x40a544",
+      "target": "0x431660",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x431660",
+      "size": 255,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 1,
+      "string_refs": [
+        "*begin_object",
+        "04D0911F-5319-4652-9F31-410835B41955",
+        "06728457-6421-4EDE-802D-C6D149EBEEEA",
+        "?Track={",
+        "BTN_LapCheckCorners",
+        "air temp",
+        "b.a.r.",
+        "distance",
+        "lat accel"
+      ],
+      "runtime_refs": [
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "?Track={"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 4,
+      "name": null,
+      "slot_va": "0x40a548",
+      "target": "0x440310",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x440310",
+      "size": 2787,
+      "terminator": "ExitProc 0x14",
+      "padding": 1,
+      "string_refs": [
+        "*begin_object",
+        "04D0911F-5319-4652-9F31-410835B41955",
+        "06728457-6421-4EDE-802D-C6D149EBEEEA",
+        "BTN_LapCheckCorners",
+        "CHECKSUM=",
+        "LAPTIME",
+        "Open",
+        "Saving lap...",
+        "air temp",
+        "brake",
+        "clutch",
+        "clutch rpm",
+        "distance",
+        "engine rpm",
+        "gear",
+        "lap desc$",
+        "lat accel",
+        "load lap",
+        "long accel",
+        "rain",
+        "steering",
+        "suspension deflection",
+        "throttle",
+        "time",
+        "track dampness",
+        "track temp",
+        "tyre average temp",
+        "tyre camber temp",
+        "tyre crown temp",
+        "tyre pressure",
+        "velocity",
+        "vert accel",
+        "wheelspin"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromAnsi",
+        "rtcDir",
+        "rtcFreeFile",
+        "rtcKillFiles",
+        "rtcLeftCharBstr",
+        "rtcR8ValFromBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "Saving lap...",
+            "load lap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners",
+            "CHECKSUM="
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "rain",
+            "track dampness",
+            "track temp"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 5,
+      "name": null,
+      "slot_va": "0x40a54c",
+      "target": "0x439a84",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x439a84",
+      "size": 1157,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        " UPLOAD_ALLOWED=NO",
+        "*begin_object",
+        "*end_object",
+        "06728457-6421-4EDE-802D-C6D149EBEEEA",
+        "BTN_Export_to_file",
+        "BTN_LapCheckCorners",
+        "CHECK",
+        "CHECKSUM",
+        "Cannot load file",
+        "Checksum header missing",
+        "File fails checksum...",
+        "It cannot be loaded",
+        "TRACK",
+        "VERSION",
+        "belgium",
+        "brake",
+        "distance",
+        "invalid checksum in lap timing data",
+        "lap desc$",
+        "lat accel",
+        "long accel",
+        "time",
+        "track dampness",
+        "track temp",
+        "tyre camber temp",
+        "vert accel",
+        "wheelspin"
+      ],
+      "runtime_refs": [
+        "rtcDir",
+        "rtcFileLen",
+        "rtcMsgBox",
+        "rtcR8ValFromBstr",
+        "rtcStrFromVar",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners",
+            "CHECK",
+            "CHECKSUM",
+            "Checksum header missing",
+            "File fails checksum...",
+            "invalid checksum in lap timing data"
+          ]
+        },
+        {
+          "category": "upload",
+          "strings": [
+            " UPLOAD_ALLOWED=NO"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "TRACK",
+            "track dampness",
+            "track temp"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 6,
+      "name": null,
+      "slot_va": "0x40a550",
+      "target": "0x430c90",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x430c90",
+      "size": 233,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        "*begin_object",
+        "BTN_Export_to_file",
+        "BTN_LapCheckCorners",
+        "D9C281B9-4F1C-44A2-BAC4-829089F5B7D3",
+        "EraseLap",
+        "Open",
+        "air temp",
+        "clutch",
+        "clutch rpm",
+        "filter",
+        "malaysia",
+        "steering",
+        "tyre camber temp"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "lap_management",
+          "strings": [
+            "EraseLap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners"
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "filter"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 7,
+      "name": null,
+      "slot_va": "0x40a554",
+      "target": "0x431790",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x431790",
+      "size": 272,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 0,
+      "string_refs": [
+        "BTN_LapCheckCorners",
+        "distance",
+        "filter",
+        "germany",
+        "offroad"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners"
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "filter"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 8,
+      "name": null,
+      "slot_va": "0x40a558",
+      "target": "0x444e14",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x444e14",
+      "size": 4418,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        "04D0911F-5319-4652-9F31-410835B41955",
+        "06728457-6421-4EDE-802D-C6D149EBEEEA",
+        "2B9D0811-DB93-4EF3-A756-A3E0FCA11A91",
+        "3CBDAF7A-F4E4-4E02-AB07-8512AEA35AD2",
+        "42C9E8DB-4FE1-4EE0-A129-ED59A20B3351",
+        "4737611D-FF73-4DF4-A691-D4E309CFA69A",
+        "60F1A78C-5E1F-4FE6-820C-AAAA13118F35",
+        "7D1A21CD-505F-426D-B8C0-4FF7ADD91A20",
+        "8F4D5E8C-F776-4768-A073-6760DC450005",
+        "9266CADE-7DAF-4A60-9D32-FFB2ECC9DE78",
+        "BTN_LapCheckCorners",
+        "CHECK",
+        "D3D5C1DB-C804-4FD5-AF76-EE7BDCAFAAC7",
+        "DRIVER",
+        "E6F3BB5A-BA2B-4ED2-A59B-38330CD0BC78",
+        "EraseLap",
+        "Open",
+        "Track_Table_URL",
+        "\\debug.log",
+        "arrows",
+        "distance",
+        "filter",
+        "home_URL",
+        "hungary",
+        "rr wheelspin"
+      ],
+      "runtime_refs": [
+        "rtcDir",
+        "rtcLeftCharBstr",
+        "rtcR8ValFromBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "EraseLap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners",
+            "CHECK"
+          ]
+        },
+        {
+          "category": "upload",
+          "strings": [
+            "Track_Table_URL"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "DRIVER",
+            "Track_Table_URL"
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "filter"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 9,
+      "name": null,
+      "slot_va": "0x40a55c",
+      "target": "0x440e24",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x440e24",
+      "size": 2969,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        " UPLOAD_ALLOWED=NO",
+        "*begin_object",
+        "04D0911F-5319-4652-9F31-410835B41955",
+        "7D1A21CD-505F-426D-B8C0-4FF7ADD91A20",
+        "896FB8DC-8D7F-4056-961A-9391F91D4496",
+        "BTN_LapCheckCorners",
+        "E-mail Address",
+        "EA Password",
+        "EraseLap",
+        "FB54D3EE-24E6-4B77-B1EA-7BC61EFDDB9C",
+        "\\Reference\\Reference_",
+        "air temp",
+        "distance",
+        "filter",
+        "fr wheelspin",
+        "gear",
+        "home_URL",
+        "sauber",
+        "time",
+        "tyre crown temp",
+        "wheelspin"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr",
+        "rtcR8ValFromBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "EraseLap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners"
+          ]
+        },
+        {
+          "category": "upload",
+          "strings": [
+            " UPLOAD_ALLOWED=NO"
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "filter"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 10,
+      "name": null,
+      "slot_va": "0x40a560",
+      "target": "0x43f82c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43f82c",
+      "size": 2740,
+      "terminator": "ExitProc 0x16",
+      "padding": 0,
+      "string_refs": [
+        "*begin_object",
+        "04D0911F-5319-4652-9F31-410835B41955",
+        "644E219E-4F98-4447-AA6F-6754171FF6C3",
+        "Arrows-2-Seater-2002",
+        "BTN_LapCheckCorners",
+        "Calculating...",
+        "DRIVER",
+        "E-mail Address",
+        "EA Password",
+        "Great Britain",
+        "LBL_Password",
+        "OFFTRACK=PASS",
+        "air temp",
+        "distance",
+        "filter",
+        "lat accel",
+        "password_text",
+        "time",
+        "tyre crown temp"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr",
+        "rtcR8ValFromBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners",
+            "OFFTRACK=PASS"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "DRIVER",
+            "OFFTRACK=PASS"
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "filter"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 11,
+      "name": null,
+      "slot_va": "0x40a564",
+      "target": "0x43da80",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43da80",
+      "size": 2419,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "*begin_object",
+        "*end_object",
+        "BTN_Export_to_file",
+        "BTN_LapCheckCorners",
+        "Circuit",
+        "D9C281B9-4F1C-44A2-BAC4-829089F5B7D3",
+        "E-mail Address",
+        "EA Password",
+        "VALID",
+        "b.a.r.",
+        "filter",
+        "lat accel",
+        "track temp",
+        "wheelspin"
+      ],
+      "runtime_refs": [
+        "rtcKillFiles",
+        "rtcLeftCharBstr",
+        "rtcR8ValFromBstr",
+        "rtcSaveSetting",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "Circuit",
+            "track temp"
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "filter"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 12,
+      "name": null,
+      "slot_va": "0x40a568",
+      "target": "0x42dde0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42dde0",
+      "size": 30,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        " UPLOAD_ALLOWED=NO",
+        "brake",
+        "http://f1lap.ea-europe.com/LapData.ASP"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            " UPLOAD_ALLOWED=NO",
+            "http://f1lap.ea-europe.com/LapData.ASP"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 13,
+      "name": null,
+      "slot_va": "0x40a56c",
+      "target": "0x43ecf4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43ecf4",
+      "size": 2821,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 3,
+      "string_refs": [
+        " UPLOAD_ALLOWED=NO",
+        "*begin_object",
+        "04D0911F-5319-4652-9F31-410835B41955",
+        "06728457-6421-4EDE-802D-C6D149EBEEEA",
+        "3CBDAF7A-F4E4-4E02-AB07-8512AEA35AD2",
+        "896FB8DC-8D7F-4056-961A-9391F91D4496",
+        "BTN_LapCheckCorners",
+        "CHECK",
+        "CHECKSUM",
+        "Cannot load file",
+        "Checksum header missing",
+        "E-mail Address",
+        "EA Password",
+        "File fails checksum...",
+        "It cannot be loaded",
+        "Open",
+        "TRACK",
+        "VERSION",
+        "\\debug.log",
+        "air temp",
+        "belgium",
+        "clutch rpm",
+        "distance",
+        "france",
+        "home_url",
+        "invalid checksum in lap timing data",
+        "lat accel",
+        "password_text",
+        "unknown"
+      ],
+      "runtime_refs": [
+        "rtcFileLen",
+        "rtcFreeFile",
+        "rtcLeftCharBstr",
+        "rtcMsgBox",
+        "rtcStrFromVar",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners",
+            "CHECK",
+            "CHECKSUM",
+            "Checksum header missing",
+            "File fails checksum...",
+            "invalid checksum in lap timing data"
+          ]
+        },
+        {
+          "category": "upload",
+          "strings": [
+            " UPLOAD_ALLOWED=NO"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "TRACK"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 14,
+      "name": null,
+      "slot_va": "0x40a570",
+      "target": "0x433138",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x433138",
+      "size": 358,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [
+        "*begin_object",
+        "BTN_Export_to_file",
+        "BTN_LapCheckCorners",
+        "distance",
+        "filter",
+        "time"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromAnsi",
+        "rtcLeftCharBstr",
+        "rtcR8ValFromBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners"
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "filter"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 15,
+      "name": null,
+      "slot_va": "0x40a574",
+      "target": "0x43c110",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43c110",
+      "size": 1846,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 2,
+      "string_refs": [
+        "*begin_object",
+        "04D0911F-5319-4652-9F31-410835B41955",
+        "896FB8DC-8D7F-4056-961A-9391F91D4496",
+        "BTN_LapCheckCorners",
+        "E-mail Address",
+        "EA Password",
+        "Filepaths",
+        "\\debug.log",
+        "air temp",
+        "brake",
+        "canada",
+        "distance",
+        "filter",
+        "lat accel",
+        "long accel",
+        "monaco",
+        "offroad",
+        "time",
+        "wheelspin"
+      ],
+      "runtime_refs": [
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners"
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "filter"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 16,
+      "name": null,
+      "slot_va": "0x40a578",
+      "target": "0x43c878",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43c878",
+      "size": 2358,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [
+        " (child of ",
+        "*begin_object",
+        "*end_object",
+        ".lap",
+        "4D71C84A-28B9-4713-B9CE-ACDF3D3E74CF",
+        "896FB8DC-8D7F-4056-961A-9391F91D4496",
+        "BTN_Export_to_file",
+        "BTN_LapSetRef",
+        "CHECK",
+        "CHECKSUM",
+        "CHECKSUM=",
+        "Cannot load file",
+        "EA Password",
+        "EraseLap",
+        "File fails checksum...",
+        "It cannot be loaded",
+        "LBL_Email",
+        "Renault",
+        "[header string too long]",
+        "air temp",
+        "brake",
+        "clutch",
+        "clutch rpm",
+        "distance",
+        "engine rpm",
+        "filter",
+        "fl wheelspin",
+        "fr wheelspin",
+        "gear",
+        "home_url",
+        "lap desc$",
+        "lat accel",
+        "long accel",
+        "rain",
+        "rl wheelspin",
+        "rr wheelspin",
+        "steering",
+        "suspension deflection",
+        "throttle",
+        "time",
+        "track dampness",
+        "track temp",
+        "tyre average temp",
+        "tyre camber temp",
+        "tyre crown temp",
+        "tyre pressure",
+        "unknown",
+        "velocity",
+        "vert accel",
+        "wheelspin"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromAnsi",
+        "rtcDir",
+        "rtcFreeFile",
+        "rtcKillFiles",
+        "rtcLeftCharBstr",
+        "rtcMsgBox",
+        "rtcR8ValFromBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "EraseLap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "CHECK",
+            "CHECKSUM",
+            "CHECKSUM=",
+            "File fails checksum..."
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "rain",
+            "track dampness",
+            "track temp"
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "filter"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 17,
+      "name": null,
+      "slot_va": "0x40a57c",
+      "target": "0x431fd8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x431fd8",
+      "size": 257,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        "*begin_object",
+        "BTN_LapCheckCorners",
+        "Open",
+        "distance",
+        "time"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr",
+        "rtcR8ValFromBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 18,
+      "name": null,
+      "slot_va": "0x40a580",
+      "target": "0x43a430",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43a430",
+      "size": 1277,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        " UPLOAD_ALLOWED=NO",
+        "*end_object",
+        "06728457-6421-4EDE-802D-C6D149EBEEEA",
+        "4737611D-FF73-4DF4-A691-D4E309CFA69A",
+        "7D1A21CD-505F-426D-B8C0-4FF7ADD91A20",
+        "BTN_LapCheckCorners",
+        "CHECK",
+        "CHECKSUM",
+        "Checksum header missing",
+        "Cut Track",
+        "D9C281B9-4F1C-44A2-BAC4-829089F5B7D3",
+        "EraseLap",
+        "FB54D3EE-24E6-4B77-B1EA-7BC61EFDDB9C",
+        "Open",
+        "arrows",
+        "brake",
+        "dtime",
+        "fr wheelspin",
+        "long accel",
+        "offroad",
+        "time",
+        "track dampness"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr",
+        "rtcR8ValFromBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "dtime"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "EraseLap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners",
+            "CHECK",
+            "CHECKSUM",
+            "Checksum header missing"
+          ]
+        },
+        {
+          "category": "upload",
+          "strings": [
+            " UPLOAD_ALLOWED=NO"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "Cut Track",
+            "track dampness"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 19,
+      "name": null,
+      "slot_va": "0x40a584",
+      "target": "0x435874",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x435874",
+      "size": 592,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        " (child of ",
+        "*begin_object",
+        "*end_object",
+        "06728457-6421-4EDE-802D-C6D149EBEEEA",
+        "7D1A21CD-505F-426D-B8C0-4FF7ADD91A20",
+        "BTN_LapCheckCorners",
+        "CHECK",
+        "CHECKSUM",
+        "Checksum header missing",
+        "EraseLap",
+        "FB54D3EE-24E6-4B77-B1EA-7BC61EFDDB9C",
+        "It cannot be loaded",
+        "VALID",
+        "belgium",
+        "brake",
+        "distance",
+        "fr wheelspin",
+        "long accel",
+        "monaco",
+        "track dampness",
+        "track temp",
+        "tyre average temp",
+        "tyre camber temp",
+        "vert accel"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr",
+        "rtcMsgBox",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "EraseLap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners",
+            "CHECK",
+            "CHECKSUM",
+            "Checksum header missing"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "track dampness",
+            "track temp"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 20,
+      "name": null,
+      "slot_va": "0x40a588",
+      "target": "0x42e628",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e628",
+      "size": 58,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 2,
+      "string_refs": [
+        "*begin_object",
+        "BTN_LapCheckCorners",
+        "canada",
+        "distance",
+        "monaco"
+      ],
+      "runtime_refs": [
+        "rtcFreeFile"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 21,
+      "name": null,
+      "slot_va": "0x40a58c",
+      "target": "0x42e4fc",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e4fc",
+      "size": 49,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 3,
+      "string_refs": [
+        "*begin_object",
+        "BTN_LapCheckCorners",
+        "distance",
+        "fl wheelspin"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 22,
+      "name": null,
+      "slot_va": "0x40a590",
+      "target": "0x435120",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x435120",
+      "size": 583,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        " UPLOAD_ALLOWED=NO",
+        "7D1A21CD-505F-426D-B8C0-4FF7ADD91A20",
+        "BTN_LapCheckCorners",
+        "CHECK",
+        "CHECKSUM",
+        "Cut Track",
+        "Monte Carlo",
+        "OFFTRACK=PASS",
+        "Open",
+        "belgium",
+        "brake",
+        "lat accel",
+        "offroad"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr",
+        "rtcR8ValFromBstr"
+      ],
+      "classification": [
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners",
+            "CHECK",
+            "CHECKSUM",
+            "OFFTRACK=PASS"
+          ]
+        },
+        {
+          "category": "upload",
+          "strings": [
+            " UPLOAD_ALLOWED=NO"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "Cut Track",
+            "OFFTRACK=PASS"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 23,
+      "name": null,
+      "slot_va": "0x40a594",
+      "target": "0x434ef8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x434ef8",
+      "size": 503,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 1,
+      "string_refs": [
+        "BTN_LapCheckCorners",
+        "OFFTRACK",
+        "distance",
+        "fr wheelspin",
+        "lat accel"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners",
+            "OFFTRACK"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "OFFTRACK"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 24,
+      "name": null,
+      "slot_va": "0x40a598",
+      "target": "0x435dbc",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x435dbc",
+      "size": 613,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "*begin_object",
+        "*end_object",
+        "42C9E8DB-4FE1-4EE0-A129-ED59A20B3351",
+        "BTN_Export_to_file",
+        "BTN_LapCheckCorners",
+        "C00F43C0-383D-4632-9D7E-3371745B2634",
+        "EraseLap",
+        "F47EDAE4-5D96-4C76-B5DF-1A2E1EC39A5C",
+        "FB54D3EE-24E6-4B77-B1EA-7BC61EFDDB9C",
+        "OFFTRACK=PASS",
+        "belgium",
+        "distance",
+        "germany",
+        "mclaren",
+        "minardi",
+        "offroad",
+        "toyata",
+        "track temp",
+        "tyre average temp",
+        "unitedstates"
+      ],
+      "runtime_refs": [
+        "rtcKillFiles",
+        "rtcLeftCharBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "EraseLap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners",
+            "OFFTRACK=PASS"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "OFFTRACK=PASS",
+            "track temp"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 25,
+      "name": null,
+      "slot_va": "0x40a59c",
+      "target": "0x432250",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x432250",
+      "size": 269,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "8AFC4979-BCCA-480D-B658-4E1246BDC661",
+        "BTN_LapCheckCorners",
+        "EraseLap",
+        "F47EDAE4-5D96-4C76-B5DF-1A2E1EC39A5C",
+        "fr wheelspin",
+        "home_URL",
+        "wheelspin"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr",
+        "rtcR8ValFromBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "lap_management",
+          "strings": [
+            "EraseLap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "Data_management",
+      "object_role": "render_transform",
+      "method_index": 26,
+      "name": null,
+      "slot_va": "0x40a5a0",
+      "target": "0x433f3c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x433f3c",
+      "size": 438,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        "*begin_object",
+        "3CBDAF7A-F4E4-4E02-AB07-8512AEA35AD2",
+        "896FB8DC-8D7F-4056-961A-9391F91D4496",
+        "BTN_LapCheckCorners",
+        "E6F3BB5A-BA2B-4ED2-A59B-38330CD0BC78",
+        "EraseLap",
+        "spain",
+        "upload_url",
+        "vert accel"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "lap_management",
+          "strings": [
+            "EraseLap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "BTN_LapCheckCorners"
+          ]
+        },
+        {
+          "category": "upload",
+          "strings": [
+            "upload_url"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 0,
+      "name": "redraw_graph",
+      "slot_va": "0x40d550",
+      "target": "0x431424",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x431424",
+      "size": 233,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        " (fastest lap)",
+        "Current data limit=",
+        "Current data size=",
+        "OFFTRACK=FAIL",
+        "full ="
+      ],
+      "runtime_refs": [
+        "rtcBstrFromFormatVar",
+        "rtcMsgBox",
+        "rtcStrFromVar"
+      ],
+      "classification": [
+        {
+          "category": "lap_check",
+          "strings": [
+            "OFFTRACK=FAIL"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "OFFTRACK=FAIL"
+          ]
+        },
+        {
+          "category": "render",
+          "strings": [
+            "Current data limit=",
+            "Current data size="
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 1,
+      "name": "add_item_to_graphs",
+      "slot_va": "0x40d554",
+      "target": "0x42ecdc",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42ecdc",
+      "size": 106,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [
+        " (fastest lap)",
+        "NoDataFrame",
+        "OFFTRACK",
+        "OFFTRACK=FAIL",
+        "outing_scroll"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "lap_check",
+          "strings": [
+            "OFFTRACK",
+            "OFFTRACK=FAIL"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "OFFTRACK",
+            "OFFTRACK=FAIL"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 2,
+      "name": "draw_item",
+      "slot_va": "0x40d558",
+      "target": "0x449778",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x449778",
+      "size": 9225,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        " (fastest lap)",
+        " DOTS ",
+        " MINORGRID ",
+        " NOLINES ",
+        " NOTONCHANGE ",
+        " OFFTRACK=PASS",
+        " TOOLTIP=",
+        " WIDELINES ",
+        "(no data loaded)",
+        "(shaded according to ",
+        "*.ini",
+        "/layouts/",
+        "About",
+        "Arial",
+        "CURRENT",
+        "DATE",
+        "DRIVER",
+        "Exit",
+        "F1 Challenge 99-02 Telemetry",
+        "F1-2001.exe set to \"",
+        "Filepaths",
+        "Filter",
+        "Help",
+        "LOADME",
+        "Layout exported to layout.ini",
+        "NOGRID",
+        "NULL",
+        "OFFTRACK",
+        "OFFTRACK=FAIL",
+        "OFFTRACK=PASS",
+        "Open",
+        "Options\\Telemetry.doc",
+        "TEAM",
+        "TITLE",
+        "TRACK",
+        "TRUE",
+        "VALID",
+        "ZVALUE",
+        "\\layouts\\",
+        "\\layouts\\_revert_layout.ini",
+        "\\layouts\\_single_layout.ini",
+        "avg.",
+        "current layout",
+        "display_in_mph",
+        "distance",
+        "dtime",
+        "lap=",
+        "load lap",
+        "lostfocus",
+        "max.",
+        "min.",
+        "minimise",
+        "return to F1 Challenge",
+        "single graph layout",
+        "t2-t1",
+        "telemetry.spt",
+        "time",
+        "velocity",
+        "view world rankings"
+      ],
+      "runtime_refs": [
+        "rtcAppActivate",
+        "rtcBstrFromFormatVar",
+        "rtcDir",
+        "rtcFreeFile",
+        "rtcLeftCharBstr",
+        "rtcR8ValFromBstr",
+        "rtcRandomize",
+        "rtcSaveSetting",
+        "rtcSpaceVar",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "telemetry.spt"
+          ]
+        },
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS ",
+            " MINORGRID ",
+            " NOLINES ",
+            " NOTONCHANGE ",
+            " TOOLTIP=",
+            " WIDELINES ",
+            "*.ini",
+            "/layouts/"
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE",
+            "distance",
+            "dtime",
+            "t2-t1"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "lap=",
+            "load lap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            " OFFTRACK=PASS",
+            "OFFTRACK",
+            "OFFTRACK=FAIL",
+            "OFFTRACK=PASS"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            " OFFTRACK=PASS",
+            "DATE",
+            "DRIVER",
+            "OFFTRACK",
+            "OFFTRACK=FAIL",
+            "OFFTRACK=PASS",
+            "TEAM",
+            "TRACK"
+          ]
+        },
+        {
+          "category": "render",
+          "strings": [
+            "(no data loaded)",
+            "Arial",
+            "avg.",
+            "max.",
+            "single graph layout"
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "Filter"
+          ]
+        },
+        {
+          "category": "shutdown",
+          "strings": [
+            "Exit"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 3,
+      "name": null,
+      "slot_va": "0x40d55c",
+      "target": "0x42db78",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42db78",
+      "size": 24,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [
+        "gz.exe -f -d temp.gz",
+        "return to F1 Challenge"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 4,
+      "name": null,
+      "slot_va": "0x40d560",
+      "target": "0x42e76c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e76c",
+      "size": 53,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 3,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 5,
+      "name": null,
+      "slot_va": "0x40d564",
+      "target": "0x42e1b8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e1b8",
+      "size": 36,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 0,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 6,
+      "name": null,
+      "slot_va": "0x40d568",
+      "target": "0x432cec",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x432cec",
+      "size": 352,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 0,
+      "string_refs": [
+        " TOOLTIP=",
+        "(*.spt)|*.SPT",
+        "SORRY!!!",
+        "\\layout.ini"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "(*.spt)|*.SPT"
+          ]
+        },
+        {
+          "category": "layout_io",
+          "strings": [
+            " TOOLTIP=",
+            "\\layout.ini"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 7,
+      "name": null,
+      "slot_va": "0x40d56c",
+      "target": "0x42e2bc",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e2bc",
+      "size": 43,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        " TOOLTIP=",
+        "OFFTRACK",
+        "max."
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " TOOLTIP="
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "OFFTRACK"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "OFFTRACK"
+          ]
+        },
+        {
+          "category": "render",
+          "strings": [
+            "max."
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 8,
+      "name": null,
+      "slot_va": "0x40d570",
+      "target": "0x42ebcc",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42ebcc",
+      "size": 87,
+      "terminator": "ExitProc 0x14",
+      "padding": 1,
+      "string_refs": [
+        " TOOLTIP=",
+        "Options\\Telemetry.doc"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " TOOLTIP="
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 9,
+      "name": null,
+      "slot_va": "0x40d574",
+      "target": "0x42d5a0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42d5a0",
+      "size": 6,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 10,
+      "name": null,
+      "slot_va": "0x40d578",
+      "target": "0x42ef20",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42ef20",
+      "size": 91,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 1,
+      "string_refs": [
+        " TOOLTIP="
+      ],
+      "runtime_refs": [
+        "rtcAppActivate"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " TOOLTIP="
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 11,
+      "name": null,
+      "slot_va": "0x40d57c",
+      "target": "0x42dc0c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42dc0c",
+      "size": 27,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "Show"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 12,
+      "name": null,
+      "slot_va": "0x40d580",
+      "target": "0x439f3c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x439f3c",
+      "size": 1218,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [
+        " (fastest lap)",
+        " DOTS ",
+        " OFFTRACK=FAILED",
+        " TOOLTIP=",
+        "CancelError",
+        "LayoutList",
+        "Options\\Telemetry.doc",
+        "TIME",
+        "http://www.the-best.racesim.net/php/track_show_table.php?track=",
+        "offroad"
+      ],
+      "runtime_refs": [
+        "rtcStrFromVar"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS ",
+            " TOOLTIP="
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            " OFFTRACK=FAILED"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            " OFFTRACK=FAILED",
+            "http://www.the-best.racesim.net/php/track_show_table.php?track="
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 13,
+      "name": null,
+      "slot_va": "0x40d584",
+      "target": "0x43ae1c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43ae1c",
+      "size": 1471,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        " DOTS ",
+        " MINORGRID ",
+        " NOLINES ",
+        " NOTONCHANGE ",
+        " TOOLTIP=",
+        " WIDELINES ",
+        "CancelError",
+        "DRIVER",
+        "OFFTRACK",
+        "Options\\Telemetry.doc",
+        "SETUP NOT AVAILABLE",
+        "TIME",
+        "This program will now terminate",
+        "ZVALUE",
+        "avg.",
+        "http://www.the-best.racesim.net/php/track_show_table.php?track=",
+        "load lap"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS ",
+            " MINORGRID ",
+            " NOLINES ",
+            " NOTONCHANGE ",
+            " TOOLTIP=",
+            " WIDELINES "
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "load lap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "OFFTRACK"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "DRIVER",
+            "OFFTRACK",
+            "http://www.the-best.racesim.net/php/track_show_table.php?track="
+          ]
+        },
+        {
+          "category": "render",
+          "strings": [
+            "avg."
+          ]
+        },
+        {
+          "category": "shutdown",
+          "strings": [
+            "This program will now terminate"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 14,
+      "name": null,
+      "slot_va": "0x40d588",
+      "target": "0x4425a4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4425a4",
+      "size": 3143,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        " (fastest lap)",
+        " DOTS ",
+        " MINORGRID ",
+        " NOLINES ",
+        " NOTONCHANGE ",
+        " TOOLTIP=",
+        " WIDELINES ",
+        "(shaded according to ",
+        "/layouts/",
+        "About",
+        "Arial",
+        "CURRENT",
+        "DATE",
+        "NOGRID",
+        "Options\\Telemetry.doc",
+        "TITLE",
+        "This program will now terminate",
+        "ZVALUE",
+        "display_in_mph",
+        "distance",
+        "max.",
+        "time"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromFormatVar",
+        "rtcFreeFile",
+        "rtcR8ValFromBstr",
+        "rtcSpaceVar"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS ",
+            " MINORGRID ",
+            " NOLINES ",
+            " NOTONCHANGE ",
+            " TOOLTIP=",
+            " WIDELINES ",
+            "/layouts/",
+            "NOGRID"
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE",
+            "distance"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "DATE"
+          ]
+        },
+        {
+          "category": "render",
+          "strings": [
+            "Arial",
+            "max."
+          ]
+        },
+        {
+          "category": "shutdown",
+          "strings": [
+            "This program will now terminate"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 15,
+      "name": null,
+      "slot_va": "0x40d58c",
+      "target": "0x44791c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x44791c",
+      "size": 7724,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        " (fastest lap)",
+        " DOTS ",
+        " NOLINES ",
+        " NOTONCHANGE ",
+        " TOOLTIP=",
+        " WIDELINES ",
+        "(no data loaded)",
+        "ButtonFrame",
+        "CancelError",
+        "DATE",
+        "Image1",
+        "LayoutList",
+        "OFFTRACK",
+        "Options\\Telemetry.doc",
+        "SETUP NOT AVAILABLE",
+        "SORRY!!!",
+        "TIME",
+        "ZVALUE",
+        "\\layouts\\",
+        "avg.",
+        "distance",
+        "dtime",
+        "http://www.the-best.racesim.net/php/track_show_table.php?track=",
+        "layoutflick",
+        "max.",
+        "min.",
+        "t2-t1",
+        "time",
+        "velocity"
+      ],
+      "runtime_refs": [
+        "rtcR8ValFromBstr",
+        "rtcStrFromVar",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS ",
+            " NOLINES ",
+            " NOTONCHANGE ",
+            " TOOLTIP=",
+            " WIDELINES ",
+            "\\layouts\\"
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE",
+            "distance",
+            "dtime",
+            "t2-t1"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "OFFTRACK"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "DATE",
+            "OFFTRACK",
+            "http://www.the-best.racesim.net/php/track_show_table.php?track="
+          ]
+        },
+        {
+          "category": "render",
+          "strings": [
+            "(no data loaded)",
+            "avg.",
+            "max."
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 16,
+      "name": null,
+      "slot_va": "0x40d590",
+      "target": "0x42e110",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e110",
+      "size": 36,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 0,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 17,
+      "name": null,
+      "slot_va": "0x40d594",
+      "target": "0x42de30",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42de30",
+      "size": 29,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 18,
+      "name": null,
+      "slot_va": "0x40d598",
+      "target": "0x43a960",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43a960",
+      "size": 1164,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        " (fastest lap)",
+        " TOOLTIP=",
+        "*.ini",
+        "TimingWindow",
+        "\\layouts\\"
+      ],
+      "runtime_refs": [
+        "rtcDir",
+        "rtcLeftCharBstr",
+        "rtcSpaceVar"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " TOOLTIP=",
+            "*.ini",
+            "\\layouts\\"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 19,
+      "name": null,
+      "slot_va": "0x40d59c",
+      "target": "0x437bd0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x437bd0",
+      "size": 813,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        " DOTS ",
+        " NOLINES ",
+        " NOTONCHANGE ",
+        " TOOLTIP=",
+        " WIDELINES ",
+        "BTN_Minimise",
+        "OFFTRACK",
+        "SORRY!!!",
+        "ZVALUE",
+        "display_in_mph",
+        "distance",
+        "dtime",
+        "time",
+        "velocity"
+      ],
+      "runtime_refs": [
+        "rtcR8ValFromBstr"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS ",
+            " NOLINES ",
+            " NOTONCHANGE ",
+            " TOOLTIP=",
+            " WIDELINES "
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE",
+            "distance",
+            "dtime"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "OFFTRACK"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "OFFTRACK"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 20,
+      "name": null,
+      "slot_va": "0x40d5a0",
+      "target": "0x436054",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x436054",
+      "size": 660,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        " DOTS ",
+        "Options\\Telemetry.doc",
+        "ZVALUE",
+        "distance",
+        "telemetry.spt",
+        "time"
+      ],
+      "runtime_refs": [
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "telemetry.spt"
+          ]
+        },
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS "
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE",
+            "distance"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 21,
+      "name": null,
+      "slot_va": "0x40d5a4",
+      "target": "0x430eb8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x430eb8",
+      "size": 229,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        " DOTS ",
+        "ZVALUE"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS "
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 22,
+      "name": null,
+      "slot_va": "0x40d5a8",
+      "target": "0x436318",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x436318",
+      "size": 642,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 2,
+      "string_refs": [
+        " DOTS ",
+        "ZVALUE",
+        "avg.",
+        "distance"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS "
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE",
+            "distance"
+          ]
+        },
+        {
+          "category": "render",
+          "strings": [
+            "avg."
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 23,
+      "name": null,
+      "slot_va": "0x40d5ac",
+      "target": "0x4419f0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4419f0",
+      "size": 2948,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        " (fastest lap)",
+        " DOTS ",
+        " MINORGRID ",
+        " TOOLTIP=",
+        "/layouts/",
+        "About",
+        "CURRENT",
+        "CancelError",
+        "DATE",
+        "F1-2001.exe set to \"",
+        "FileName",
+        "Options\\Telemetry.doc",
+        "SORRY!!!",
+        "ShowOpen",
+        "TITLE",
+        "ZVALUE",
+        "\\layouts\\_revert_layout.ini",
+        "distance",
+        "telemetry.spt",
+        "time"
+      ],
+      "runtime_refs": [
+        "rtcFreeFile",
+        "rtcLeftCharBstr"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "telemetry.spt"
+          ]
+        },
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS ",
+            " MINORGRID ",
+            " TOOLTIP=",
+            "/layouts/",
+            "\\layouts\\_revert_layout.ini"
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE",
+            "distance"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "DATE"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 24,
+      "name": null,
+      "slot_va": "0x40d5b0",
+      "target": "0x42f044",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42f044",
+      "size": 114,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 2,
+      "string_refs": [
+        " DOTS ",
+        "avg.",
+        "return to F1 Challenge",
+        "telemetry.spt"
+      ],
+      "runtime_refs": [
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "telemetry.spt"
+          ]
+        },
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS "
+          ]
+        },
+        {
+          "category": "render",
+          "strings": [
+            "avg."
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 25,
+      "name": null,
+      "slot_va": "0x40d5b4",
+      "target": "0x42d8c0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42d8c0",
+      "size": 144,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        " TOOLTIP=",
+        "Options\\Telemetry.doc"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " TOOLTIP="
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 26,
+      "name": null,
+      "slot_va": "0x40d5b8",
+      "target": "0x42d880",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42d880",
+      "size": 16,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        " TOOLTIP="
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " TOOLTIP="
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 27,
+      "name": null,
+      "slot_va": "0x40d5bc",
+      "target": "0x430a90",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x430a90",
+      "size": 197,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        "NULL",
+        "dtime"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "dtime"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 28,
+      "name": null,
+      "slot_va": "0x40d5c0",
+      "target": "0x43098c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43098c",
+      "size": 211,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        " TOOLTIP=",
+        "About",
+        "Fastest Lap",
+        "ZVALUE"
+      ],
+      "runtime_refs": [
+        "rtcSpaceVar"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " TOOLTIP="
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 29,
+      "name": null,
+      "slot_va": "0x40d5c4",
+      "target": "0x42e944",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e944",
+      "size": 63,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 1,
+      "string_refs": [
+        "Open",
+        "Options\\Telemetry.doc"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 30,
+      "name": null,
+      "slot_va": "0x40d5c8",
+      "target": "0x437534",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x437534",
+      "size": 779,
+      "terminator": "ExitProc 0x14",
+      "padding": 1,
+      "string_refs": [
+        " (fastest lap)",
+        " TOOLTIP=",
+        "BTN_Exit",
+        "distance",
+        "time"
+      ],
+      "runtime_refs": [
+        "rtcR8ValFromBstr",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " TOOLTIP="
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "shutdown",
+          "strings": [
+            "BTN_Exit"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 31,
+      "name": null,
+      "slot_va": "0x40d5cc",
+      "target": "0x431540",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x431540",
+      "size": 238,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 2,
+      "string_refs": [
+        " TOOLTIP=",
+        "Filter",
+        "Open",
+        "ZVALUE"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " TOOLTIP="
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE"
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "Filter"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 32,
+      "name": null,
+      "slot_va": "0x40d5d0",
+      "target": "0x42dcf0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42dcf0",
+      "size": 26,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        "This program will now terminate"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "shutdown",
+          "strings": [
+            "This program will now terminate"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 33,
+      "name": null,
+      "slot_va": "0x40d5d4",
+      "target": "0x436bac",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x436bac",
+      "size": 773,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        " (fastest lap)",
+        " MINORGRID ",
+        " WIDELINES ",
+        "dtime",
+        "load lap"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " MINORGRID ",
+            " WIDELINES "
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "dtime"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "load lap"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 34,
+      "name": "redraw_all_data",
+      "slot_va": "0x40d5d8",
+      "target": "0x435398",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x435398",
+      "size": 562,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        " DOTS ",
+        " TOOLTIP=",
+        "(shaded according to ",
+        "Fastest Lap",
+        "Image1",
+        "TIME",
+        "ZVALUE"
+      ],
+      "runtime_refs": [
+        "rtcSaveSetting"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS ",
+            " TOOLTIP="
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 35,
+      "name": null,
+      "slot_va": "0x40d5dc",
+      "target": "0x438dfc",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x438dfc",
+      "size": 961,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        "Enter password",
+        "F1 Challenge 99-02 Telemetry",
+        "Filepaths",
+        "FilterIndex",
+        "LOADME",
+        "Open",
+        "Options\\Telemetry.doc",
+        "dtime",
+        "lap=",
+        "t2-t1",
+        "telemetry.spt"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "telemetry.spt"
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "dtime",
+            "t2-t1"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "lap="
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "FilterIndex"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 36,
+      "name": null,
+      "slot_va": "0x40d5e0",
+      "target": "0x42dc58",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42dc58",
+      "size": 27,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "DATE"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "DATE"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 37,
+      "name": null,
+      "slot_va": "0x40d5e4",
+      "target": "0x42f5d4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42f5d4",
+      "size": 148,
+      "terminator": "ExitProc 0x16",
+      "padding": 0,
+      "string_refs": [],
+      "runtime_refs": [
+        "rtcSpaceVar"
+      ],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 38,
+      "name": null,
+      "slot_va": "0x40d5e8",
+      "target": "0x42f9f4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42f9f4",
+      "size": 161,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        "CURRENT",
+        "avg.",
+        "min."
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "render",
+          "strings": [
+            "avg."
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 39,
+      "name": null,
+      "slot_va": "0x40d5ec",
+      "target": "0x43343c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43343c",
+      "size": 317,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        " (fastest lap)",
+        "ADMIN PERMISSIONS REQUIRED",
+        "avg.",
+        "dtime",
+        "t2-t1"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "dtime",
+            "t2-t1"
+          ]
+        },
+        {
+          "category": "render",
+          "strings": [
+            "avg."
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 40,
+      "name": null,
+      "slot_va": "0x40d5f0",
+      "target": "0x432fd8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x432fd8",
+      "size": 301,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 3,
+      "string_refs": [
+        " DOTS ",
+        "LAST_SPT",
+        "Open",
+        "ZVALUE"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS "
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "LAST_SPT"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 41,
+      "name": null,
+      "slot_va": "0x40d5f4",
+      "target": "0x42e378",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e378",
+      "size": 43,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        " WIDELINES ",
+        "BTN_Minimise",
+        "SORRY!!!"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " WIDELINES "
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 42,
+      "name": null,
+      "slot_va": "0x40d5f8",
+      "target": "0x42f2e4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42f2e4",
+      "size": 138,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [
+        " DOTS ",
+        " NOLINES ",
+        "ZVALUE"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS ",
+            " NOLINES "
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 43,
+      "name": "refresh_timing_window",
+      "slot_va": "0x40d5fc",
+      "target": "0x445f88",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x445f88",
+      "size": 6500,
+      "terminator": "ExitProc 0x16",
+      "padding": 0,
+      "string_refs": [
+        " (fastest lap)",
+        " MINORGRID ",
+        " TOOLTIP=",
+        "(shaded according to ",
+        "Arial",
+        "ButtonFrame",
+        "CancelError",
+        "Command2",
+        "DRIVER",
+        "Enter password",
+        "Image1",
+        "NOGRID",
+        "Options\\Telemetry.doc",
+        "SETUP NOT AVAILABLE",
+        "SORRY!!!",
+        "TIME",
+        "This program will now terminate",
+        "ZVALUE",
+        "avg.",
+        "http://www.the-best.racesim.net/php/track_show_table.php?track=",
+        "layoutflick",
+        "load lap",
+        "temp_setup.txt",
+        "velocity"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromFormatVar",
+        "rtcR8ValFromBstr",
+        "rtcStrFromVar"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " MINORGRID ",
+            " TOOLTIP=",
+            "NOGRID"
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "load lap"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "DRIVER",
+            "http://www.the-best.racesim.net/php/track_show_table.php?track="
+          ]
+        },
+        {
+          "category": "render",
+          "strings": [
+            "Arial",
+            "avg."
+          ]
+        },
+        {
+          "category": "shutdown",
+          "strings": [
+            "This program will now terminate"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 44,
+      "name": null,
+      "slot_va": "0x40d600",
+      "target": "0x4355fc",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4355fc",
+      "size": 584,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [
+        " (fastest lap)",
+        " DOTS ",
+        " OFFTRACK=FAILED",
+        "Options\\Telemetry.doc"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS "
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            " OFFTRACK=FAILED"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            " OFFTRACK=FAILED"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 45,
+      "name": null,
+      "slot_va": "0x40d604",
+      "target": "0x430214",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x430214",
+      "size": 16,
+      "terminator": "ExitProc 0x16",
+      "padding": 148,
+      "string_refs": [
+        " NOTONCHANGE ",
+        "Open",
+        "lostfocus"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " NOTONCHANGE "
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 46,
+      "name": null,
+      "slot_va": "0x40d608",
+      "target": "0x42d5d8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42d5d8",
+      "size": 6,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        "\\layouts\\"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            "\\layouts\\"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 47,
+      "name": null,
+      "slot_va": "0x40d60c",
+      "target": "0x42f768",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42f768",
+      "size": 163,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 1,
+      "string_refs": [
+        " NOTONCHANGE ",
+        " WIDELINES ",
+        "(no data loaded)",
+        "ZVALUE",
+        "telemetry.spt"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "telemetry.spt"
+          ]
+        },
+        {
+          "category": "layout_io",
+          "strings": [
+            " NOTONCHANGE ",
+            " WIDELINES "
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE"
+          ]
+        },
+        {
+          "category": "render",
+          "strings": [
+            "(no data loaded)"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 48,
+      "name": null,
+      "slot_va": "0x40d610",
+      "target": "0x4304cc",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4304cc",
+      "size": 428,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [
+        "CURRENT",
+        "F1 Challenge 99-02 Telemetry"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 49,
+      "name": null,
+      "slot_va": "0x40d614",
+      "target": "0x43866c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43866c",
+      "size": 931,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        " (fastest lap)",
+        " DOTS ",
+        " TOOLTIP=",
+        "OFFTRACK",
+        "Options\\Telemetry.doc",
+        "TOOLTIP=",
+        "lap="
+      ],
+      "runtime_refs": [
+        "rtcR8ValFromBstr"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS ",
+            " TOOLTIP=",
+            "TOOLTIP="
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "lap="
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "OFFTRACK"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "OFFTRACK"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 50,
+      "name": null,
+      "slot_va": "0x40d618",
+      "target": "0x42d840",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42d840",
+      "size": 16,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        " TOOLTIP="
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " TOOLTIP="
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 51,
+      "name": null,
+      "slot_va": "0x40d61c",
+      "target": "0x42d980",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42d980",
+      "size": 18,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        "ButtonFrame"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 52,
+      "name": null,
+      "slot_va": "0x40d620",
+      "target": "0x42ff48",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42ff48",
+      "size": 178,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [
+        " (fastest lap)",
+        " DOTS ",
+        "ZVALUE"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS "
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 53,
+      "name": null,
+      "slot_va": "0x40d624",
+      "target": "0x435af4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x435af4",
+      "size": 662,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [
+        " MINORGRID ",
+        " OFFTRACK=FAILED",
+        " OFFTRACK=PASS",
+        " TOOLTIP=",
+        " red flags",
+        "(shaded according to ",
+        "*** FAILED ***",
+        "Arial",
+        "Current data limit=",
+        "Current data size=",
+        "DRIVER",
+        "Filter",
+        "LAST_SPT",
+        "Layout exported to layout.ini",
+        "LayoutName",
+        "NOGRID",
+        "OFFTRACK",
+        "OFFTRACK=FAIL",
+        "OFFTRACK=PASS",
+        "Options\\Telemetry.doc",
+        "PASS",
+        "TITLE",
+        "This lap has FAILED",
+        "This lap is CLEAN",
+        "\\layout.ini",
+        "\\layouts\\_revert_layout.ini",
+        "\\layouts\\_single_layout.ini",
+        "current layout",
+        "full =",
+        "lap=",
+        "lostfocus",
+        "single graph layout"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromFormatVar",
+        "rtcFreeFile",
+        "rtcMsgBox",
+        "rtcStrFromVar"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " MINORGRID ",
+            " TOOLTIP=",
+            "Layout exported to layout.ini",
+            "NOGRID",
+            "\\layout.ini",
+            "\\layouts\\_revert_layout.ini",
+            "\\layouts\\_single_layout.ini",
+            "current layout"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "LAST_SPT",
+            "lap="
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            " OFFTRACK=FAILED",
+            " OFFTRACK=PASS",
+            "OFFTRACK",
+            "OFFTRACK=FAIL",
+            "OFFTRACK=PASS",
+            "This lap has FAILED",
+            "This lap is CLEAN"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            " OFFTRACK=FAILED",
+            " OFFTRACK=PASS",
+            "DRIVER",
+            "OFFTRACK",
+            "OFFTRACK=FAIL",
+            "OFFTRACK=PASS"
+          ]
+        },
+        {
+          "category": "render",
+          "strings": [
+            "Arial",
+            "Current data limit=",
+            "Current data size=",
+            "single graph layout"
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "Filter"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 54,
+      "name": null,
+      "slot_va": "0x40d628",
+      "target": "0x434124",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x434124",
+      "size": 371,
+      "terminator": "ExitProc 0x14",
+      "padding": 1,
+      "string_refs": [
+        " (fastest lap)",
+        " DOTS ",
+        "ZVALUE"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " DOTS "
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 55,
+      "name": null,
+      "slot_va": "0x40d62c",
+      "target": "0x438a40",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x438a40",
+      "size": 908,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        " (fastest lap)",
+        "(*.lap)|*.lap",
+        ".lap",
+        "All Files (*.*)|*.*|LAP Files",
+        "CancelError",
+        "DATE",
+        "DRIVER",
+        "FILE SAVED",
+        "File Saved to ...",
+        "FileName",
+        "Filepaths",
+        "Filter",
+        "FilterIndex",
+        "Flags",
+        "LAST_LAP",
+        "Options\\Telemetry.doc",
+        "TEAM",
+        "TRACK",
+        "VALID",
+        "ZVALUE",
+        "display_in_mph",
+        "lap="
+      ],
+      "runtime_refs": [
+        "rtcMsgBox",
+        "rtcR8ValFromBstr",
+        "rtcSaveSetting"
+      ],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "ZVALUE"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "LAST_LAP",
+            "lap="
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "DATE",
+            "DRIVER",
+            "TEAM",
+            "TRACK"
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "Filter",
+            "FilterIndex"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 56,
+      "name": null,
+      "slot_va": "0x40d630",
+      "target": "0x434698",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x434698",
+      "size": 473,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        " MINORGRID ",
+        " TOOLTIP=",
+        "/layouts/",
+        "ADMIN PERMISSIONS REQUIRED",
+        "Enter password",
+        "load lap"
+      ],
+      "runtime_refs": [
+        "rtcAppActivate"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " MINORGRID ",
+            " TOOLTIP=",
+            "/layouts/"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "load lap"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 57,
+      "name": null,
+      "slot_va": "0x40d634",
+      "target": "0x42fc98",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42fc98",
+      "size": 189,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "t2-t1"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "axis_distance",
+          "strings": [
+            "t2-t1"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 58,
+      "name": null,
+      "slot_va": "0x40d638",
+      "target": "0x43e424",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43e424",
+      "size": 2205,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        " (fastest lap)",
+        " TOOLTIP=",
+        "*.ini",
+        "DATE",
+        "NoDataFrame",
+        "OFFTRACK",
+        "OFFTRACK=FAIL",
+        "\\layouts\\",
+        "display_in_mph",
+        "http://www.the-best.racesim.net/php/track_show_table.php?track=",
+        "load lap",
+        "velocity"
+      ],
+      "runtime_refs": [
+        "rtcDir",
+        "rtcSpaceVar"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            " TOOLTIP=",
+            "*.ini",
+            "\\layouts\\"
+          ]
+        },
+        {
+          "category": "lap_management",
+          "strings": [
+            "load lap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "OFFTRACK",
+            "OFFTRACK=FAIL"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "DATE",
+            "OFFTRACK",
+            "OFFTRACK=FAIL",
+            "http://www.the-best.racesim.net/php/track_show_table.php?track="
+          ]
+        }
+      ]
+    },
+    {
+      "object": "home",
+      "object_role": "ui_main",
+      "method_index": 59,
+      "name": "set_high_priority",
+      "slot_va": "0x40d63c",
+      "target": "0x42d9c4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42d9c4",
+      "size": 96,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_Declarations",
+      "object_role": "declarations",
+      "method_index": 0,
+      "name": null,
+      "slot_va": "0x408e98",
+      "target": "0xff7404ff",
+      "target_kind": "other",
+      "rtmi_va": null,
+      "size": null,
+      "terminator": null,
+      "padding": null,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": []
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "object_role": "winapi_declarations",
+      "method_index": 0,
+      "name": null,
+      "slot_va": "0x40903c",
+      "target": "0x0",
+      "target_kind": "zero",
+      "rtmi_va": null,
+      "size": null,
+      "terminator": null,
+      "padding": null,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": []
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "object_role": "winapi_declarations",
+      "method_index": 1,
+      "name": null,
+      "slot_va": "0x409040",
+      "target": "0x0",
+      "target_kind": "zero",
+      "rtmi_va": null,
+      "size": null,
+      "terminator": null,
+      "padding": null,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": []
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "object_role": "winapi_declarations",
+      "method_index": 2,
+      "name": null,
+      "slot_va": "0x409044",
+      "target": "0x0",
+      "target_kind": "zero",
+      "rtmi_va": null,
+      "size": null,
+      "terminator": null,
+      "padding": null,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": []
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "object_role": "winapi_declarations",
+      "method_index": 3,
+      "name": null,
+      "slot_va": "0x409048",
+      "target": "0x0",
+      "target_kind": "zero",
+      "rtmi_va": null,
+      "size": null,
+      "terminator": null,
+      "padding": null,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": []
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "object_role": "winapi_declarations",
+      "method_index": 4,
+      "name": null,
+      "slot_va": "0x40904c",
+      "target": "0x0",
+      "target_kind": "zero",
+      "rtmi_va": null,
+      "size": null,
+      "terminator": null,
+      "padding": null,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": []
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "object_role": "winapi_declarations",
+      "method_index": 5,
+      "name": null,
+      "slot_va": "0x409050",
+      "target": "0x0",
+      "target_kind": "zero",
+      "rtmi_va": null,
+      "size": null,
+      "terminator": null,
+      "padding": null,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": []
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "object_role": "winapi_declarations",
+      "method_index": 6,
+      "name": null,
+      "slot_va": "0x409054",
+      "target": "0x0",
+      "target_kind": "zero",
+      "rtmi_va": null,
+      "size": null,
+      "terminator": null,
+      "padding": null,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": []
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "object_role": "winapi_declarations",
+      "method_index": 7,
+      "name": null,
+      "slot_va": "0x409058",
+      "target": "0x0",
+      "target_kind": "zero",
+      "rtmi_va": null,
+      "size": null,
+      "terminator": null,
+      "padding": null,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": []
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "object_role": "winapi_declarations",
+      "method_index": 8,
+      "name": null,
+      "slot_va": "0x40905c",
+      "target": "0x0",
+      "target_kind": "zero",
+      "rtmi_va": null,
+      "size": null,
+      "terminator": null,
+      "padding": null,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": []
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "object_role": "winapi_declarations",
+      "method_index": 9,
+      "name": null,
+      "slot_va": "0x409060",
+      "target": "0x42da9c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42da9c",
+      "size": 24,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [
+        "RL Tyre Camber Temperature"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "object_role": "winapi_declarations",
+      "method_index": 10,
+      "name": null,
+      "slot_va": "0x409064",
+      "target": "0x42dae4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42dae4",
+      "size": 18,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "object_role": "winapi_declarations",
+      "method_index": 11,
+      "name": null,
+      "slot_va": "0x409068",
+      "target": "0x42dbc0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42dbc0",
+      "size": 26,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "object_role": "winapi_declarations",
+      "method_index": 12,
+      "name": null,
+      "slot_va": "0x40906c",
+      "target": "0x42eb3c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42eb3c",
+      "size": 96,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        " TRK_TEMP=",
+        "1999 Williams",
+        "BTN_NO",
+        "FL Tyre Crown Temperature",
+        "RL Tyre Crown Temperature",
+        "damper velocity front lh"
+      ],
+      "runtime_refs": [
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            " TRK_TEMP="
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_WinAPI_Declarations",
+      "object_role": "winapi_declarations",
+      "method_index": 13,
+      "name": null,
+      "slot_va": "0x409070",
+      "target": "0x4332d0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4332d0",
+      "size": 314,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        " RAIN=",
+        " TRK_TEMP=",
+        "1999 Williams",
+        "2002 Williams",
+        "FL Tyre Temp. (Average)",
+        "RL Damper Velocity",
+        "RL Tyre Crown Temperature",
+        "damper velocity rear rh"
+      ],
+      "runtime_refs": [
+        "rtcAppActivate"
+      ],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            " RAIN=",
+            " TRK_TEMP="
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 0,
+      "name": null,
+      "slot_va": "0x40a0e8",
+      "target": "0x44e478",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x44e478",
+      "size": 1089,
+      "terminator": "ExitProc 0x15",
+      "padding": 255,
+      "string_refs": [
+        "BREAK",
+        "ForeColor",
+        "Jaguar",
+        "Loading Telemetry ...",
+        "Must stop now!",
+        "clutch",
+        "distance",
+        "fl tyre center temp",
+        "fl tyre left temp",
+        "fl undertray ride height",
+        "home_url",
+        "http://f1lap.ea-europe.com",
+        "http://f1lap.ea-europe.com/LapData.ASP",
+        "reading from telemetry file",
+        "rl tyre center temp",
+        "sanmarino",
+        "track_table_url",
+        "upload_url"
+      ],
+      "runtime_refs": [
+        "rtcStrFromVar"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ...",
+            "reading from telemetry file"
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com",
+            "http://f1lap.ea-europe.com/LapData.ASP",
+            "track_table_url",
+            "upload_url"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "track_table_url"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 1,
+      "name": null,
+      "slot_va": "0x40a0ec",
+      "target": "0x4338e0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4338e0",
+      "size": 366,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [
+        "Loading Telemetry ...",
+        "aids1",
+        "engine rpm",
+        "file=",
+        "fl tyre average temp",
+        "fl undertray ride height",
+        "fr tyre average temp",
+        "front ride height",
+        "gear",
+        "pos z",
+        "reading from telemetry file",
+        "rear ride height",
+        "rl tyre average temp",
+        "rr tyre average temp",
+        "track dampness"
+      ],
+      "runtime_refs": [
+        "rtcStrFromVar"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ...",
+            "reading from telemetry file"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "aids1",
+            "track dampness"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 2,
+      "name": null,
+      "slot_va": "0x40a0f0",
+      "target": "0x43bab4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43bab4",
+      "size": 1579,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 1,
+      "string_refs": [
+        ".lap",
+        "BTN_Export_to_file",
+        "FB54D3EE-24E6-4B77-B1EA-7BC61EFDDB9C",
+        "Filepaths",
+        "Loading Telemetry ...",
+        "STOP - old format telemetry detected",
+        "damper velocity front lh",
+        "file=",
+        "fl suspension deflection",
+        "fl tyre center temp",
+        "fl tyre left temp",
+        "fl undertray ride height",
+        "fr tyre center temp",
+        "fr tyre left temp",
+        "fr undertray ride height",
+        "pos x",
+        "pos y",
+        "pos z",
+        "reading from telemetry file",
+        "rl suspension deflection",
+        "rl tyre center temp",
+        "rl tyre left temp",
+        "rl undertray ride height",
+        "rl wheelspin",
+        "rr suspension deflection",
+        "rr undertray ride height",
+        "steering",
+        "unknown"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromFormatVar",
+        "rtcStrFromVar"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ...",
+            "pos x",
+            "pos y",
+            "reading from telemetry file"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 3,
+      "name": null,
+      "slot_va": "0x40a0f4",
+      "target": "0x42e268",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e268",
+      "size": 33,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "Loading Telemetry ...",
+        "file="
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ..."
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 4,
+      "name": null,
+      "slot_va": "0x40a0f8",
+      "target": "0x42df70",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42df70",
+      "size": 30,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        "File fails checksum...",
+        "Loading Telemetry ..."
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ..."
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "File fails checksum..."
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 5,
+      "name": null,
+      "slot_va": "0x40a0fc",
+      "target": "0x42de80",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42de80",
+      "size": 29,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        "Loading Telemetry ...",
+        "reading from telemetry file"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ...",
+            "reading from telemetry file"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 6,
+      "name": null,
+      "slot_va": "0x40a100",
+      "target": "0x42e7d4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e7d4",
+      "size": 64,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [
+        "Loading Telemetry ...",
+        "elapsed time",
+        "pos x",
+        "pos y",
+        "reading from telemetry file",
+        "time"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ...",
+            "elapsed time",
+            "pos x",
+            "pos y",
+            "reading from telemetry file"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 7,
+      "name": null,
+      "slot_va": "0x40a104",
+      "target": "0x42f240",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42f240",
+      "size": 116,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        "Loading Telemetry ...",
+        "aids1",
+        "pos x",
+        "reading from telemetry file"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ...",
+            "pos x",
+            "reading from telemetry file"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "aids1"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 8,
+      "name": null,
+      "slot_va": "0x40a108",
+      "target": "0x4344c0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4344c0",
+      "size": 424,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        " (child of ",
+        "*begin_object",
+        "*end_object",
+        "Loading Telemetry ...",
+        "canada",
+        "damper velocity front rh",
+        "distance",
+        "fl tyre average temp",
+        "reading from telemetry file",
+        "throttle",
+        "time",
+        "validating telemetry"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ...",
+            "reading from telemetry file"
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 9,
+      "name": null,
+      "slot_va": "0x40a10c",
+      "target": "0x432b98",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x432b98",
+      "size": 290,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        "Loading Telemetry ...",
+        "aids3",
+        "damper velocity front rh",
+        "fl suspension deflection",
+        "fr tyre left temp",
+        "pos y",
+        "reading from telemetry file",
+        "rear wheel speed differential",
+        "rr tyre left temp"
+      ],
+      "runtime_refs": [
+        "rtcFileLen"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ...",
+            "pos y",
+            "reading from telemetry file"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "aids3"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 10,
+      "name": null,
+      "slot_va": "0x40a110",
+      "target": "0x4303d8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4303d8",
+      "size": 194,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        "Loading Telemetry ...",
+        "aids3",
+        "damper velocity front rh",
+        "pos x",
+        "pos y",
+        "unknown"
+      ],
+      "runtime_refs": [
+        "rtcFileLen"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ...",
+            "pos x",
+            "pos y"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "aids3"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 11,
+      "name": null,
+      "slot_va": "0x40a114",
+      "target": "0x430868",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x430868",
+      "size": 243,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "Loading Telemetry ...",
+        "file=",
+        "fr tyre left temp",
+        "fr undertray ride height",
+        "reading from telemetry file"
+      ],
+      "runtime_refs": [
+        "rtcDir",
+        "rtcFileLen",
+        "rtcStrFromVar"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ...",
+            "reading from telemetry file"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 12,
+      "name": null,
+      "slot_va": "0x40a118",
+      "target": "0x431b1c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x431b1c",
+      "size": 244,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        ".lap",
+        "5EB3448A-16CF-4BC7-9087-81199A3B4D50",
+        "Loading Telemetry ...",
+        "STOP - old format telemetry detected",
+        "elapsed time",
+        "fl tyre camber temp",
+        "fl tyre crown temp",
+        "pos x",
+        "pos y",
+        "pos z",
+        "rain",
+        "reading from telemetry file",
+        "rl tyre crown temp",
+        "rr tyre camber temp",
+        "rr tyre crown temp",
+        "rr wheelspin",
+        "time"
+      ],
+      "runtime_refs": [
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ...",
+            "elapsed time",
+            "pos x",
+            "pos y",
+            "reading from telemetry file"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "rain"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 13,
+      "name": null,
+      "slot_va": "0x40a11c",
+      "target": "0x4319f0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4319f0",
+      "size": 250,
+      "terminator": "ExitProc 0x16",
+      "padding": 2,
+      "string_refs": [
+        "Loading Telemetry ...",
+        "_bin.tmp",
+        "pos z",
+        "reading from telemetry file",
+        "validating telemetry"
+      ],
+      "runtime_refs": [
+        "rtcFreeFile",
+        "rtcKillFiles",
+        "rtcStrFromVar"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ...",
+            "reading from telemetry file"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "FileReading",
+      "object_role": "file_io",
+      "method_index": 14,
+      "name": null,
+      "slot_va": "0x40a120",
+      "target": "0x44bbb4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x44bbb4",
+      "size": 10388,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [
+        "    AIR_TEMP=",
+        " DATE=",
+        " RAIN=",
+        " TEAM=",
+        " TER=",
+        " TRACK=",
+        " TRK_TEMP=",
+        " TRK_WET=",
+        " VERSION=",
+        " hh:mm ",
+        " temp",
+        ".ini",
+        ".lap",
+        ".svm",
+        "AIDS=[",
+        "BTN_LapSetRef",
+        "Calculating...",
+        "DRIVER=",
+        "FillStyle",
+        "Form",
+        "LBL_Email",
+        "Loading Telemetry ...",
+        "Loading Telemetry...",
+        "STOP - old format telemetry detected",
+        "Total Checksum FAILED - telemetry not validated",
+        "VEH=",
+        "\\Reference\\Default_",
+        "\\Reference\\Reference_",
+        "aids1",
+        "aids2",
+        "aids3",
+        "aids4",
+        "air temp",
+        "brake",
+        "clutch",
+        "damper velocity front lh",
+        "damper velocity front rh",
+        "damper velocity rear lh",
+        "damper velocity rear rh",
+        "dd-mm-yyyy",
+        "distance",
+        "elapsed time",
+        "file=",
+        "fl suspension deflection",
+        "fl tyre average temp",
+        "fl tyre camber temp",
+        "fl tyre center temp",
+        "fl tyre crown temp",
+        "fl tyre left temp",
+        "fl tyre right temp",
+        "fl undertray ride height",
+        "fr suspension deflection",
+        "fr tyre average temp",
+        "fr tyre camber temp",
+        "fr tyre center temp",
+        "fr tyre crown temp",
+        "fr tyre left temp",
+        "fr tyre right temp",
+        "fr undertray ride height",
+        "front ride height",
+        "none",
+        "pos x",
+        "pos y",
+        "pos z",
+        "rain",
+        "reading from telemetry file",
+        "rear ride height",
+        "rear wheel speed differential",
+        "renault",
+        "rl suspension deflection",
+        "rl tyre average temp",
+        "rl tyre camber temp",
+        "rl tyre center temp",
+        "rl tyre crown temp",
+        "rl tyre left temp",
+        "rl tyre right temp",
+        "rl undertray ride height",
+        "rl wheelspin",
+        "rr suspension deflection",
+        "rr tyre average temp",
+        "rr tyre camber temp",
+        "rr tyre center temp",
+        "rr tyre crown temp",
+        "rr tyre left temp",
+        "rr tyre right temp",
+        "rr undertray ride height",
+        "rr wheelspin",
+        "steering",
+        "throttle",
+        "time",
+        "track dampness",
+        "track temp",
+        "unknown",
+        "validating telemetry",
+        "velocity"
+      ],
+      "runtime_refs": [
+        "rtcBstrFromFormatVar",
+        "rtcDir",
+        "rtcFileLen",
+        "rtcFreeFile",
+        "rtcKillFiles",
+        "rtcLeftCharBstr",
+        "rtcStrFromVar",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "Loading Telemetry ...",
+            "Loading Telemetry...",
+            "elapsed time",
+            "pos x",
+            "pos y",
+            "reading from telemetry file"
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "Total Checksum FAILED - telemetry not validated"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "    AIR_TEMP=",
+            " DATE=",
+            " RAIN=",
+            " TEAM=",
+            " TRACK=",
+            " TRK_TEMP=",
+            " TRK_WET=",
+            "AIDS=["
+          ]
+        }
+      ]
+    },
+    {
+      "object": "frmAbout",
+      "object_role": "ui",
+      "method_index": 0,
+      "name": null,
+      "slot_va": "0x409a8c",
+      "target": "0x42dd3c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42dd3c",
+      "size": 33,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "Software (C) 2003 Electronic Arts Inc. All rights reserved."
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "frmAbout",
+      "object_role": "ui",
+      "method_index": 1,
+      "name": null,
+      "slot_va": "0x409a90",
+      "target": "0x433c18",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x433c18",
+      "size": 411,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 1,
+      "string_refs": [
+        " TER=",
+        "*begin_object",
+        "BTN_Exit",
+        "Form",
+        "pos y",
+        "rl tyre average temp",
+        "rr tyre left temp"
+      ],
+      "runtime_refs": [
+        "rtcFileLen"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "pos y"
+          ]
+        },
+        {
+          "category": "shutdown",
+          "strings": [
+            "BTN_Exit"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 0,
+      "name": null,
+      "slot_va": "0x40b8d8",
+      "target": "0x42e3d4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e3d4",
+      "size": 45,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 3,
+      "string_refs": [
+        "Team"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "Team"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 1,
+      "name": null,
+      "slot_va": "0x40b8dc",
+      "target": "0x436ee4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x436ee4",
+      "size": 739,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "CHECK",
+        "Circuit",
+        "DRIVER",
+        "Date",
+        "Driver",
+        "Loading Lap...",
+        "Team"
+      ],
+      "runtime_refs": [
+        "rtcDir",
+        "rtcLeftCharBstr"
+      ],
+      "classification": [
+        {
+          "category": "lap_check",
+          "strings": [
+            "CHECK"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "Circuit",
+            "DRIVER",
+            "Date",
+            "Driver",
+            "Team"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 2,
+      "name": null,
+      "slot_va": "0x40b8e0",
+      "target": "0x4371f8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4371f8",
+      "size": 779,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "&CarID=",
+        "*.lap",
+        "BTN_Exit",
+        "Filepaths",
+        "Team",
+        "delete",
+        "laplist",
+        "load lap"
+      ],
+      "runtime_refs": [
+        "rtcDir",
+        "rtcFreeFile",
+        "rtcSaveSetting"
+      ],
+      "classification": [
+        {
+          "category": "lap_management",
+          "strings": [
+            "load lap"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "Team"
+          ]
+        },
+        {
+          "category": "shutdown",
+          "strings": [
+            "BTN_Exit"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 3,
+      "name": null,
+      "slot_va": "0x40b8e4",
+      "target": "0x43b40c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43b40c",
+      "size": 1653,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        "*.lap",
+        "BTN_Exit",
+        "CHECK",
+        "Label1"
+      ],
+      "runtime_refs": [
+        "rtcDir",
+        "rtcFreeFile"
+      ],
+      "classification": [
+        {
+          "category": "lap_check",
+          "strings": [
+            "CHECK"
+          ]
+        },
+        {
+          "category": "shutdown",
+          "strings": [
+            "BTN_Exit"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 4,
+      "name": null,
+      "slot_va": "0x40b8e8",
+      "target": "0x42d684",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42d684",
+      "size": 12,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [],
+      "runtime_refs": [
+        "rtcDir"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 5,
+      "name": null,
+      "slot_va": "0x40b8ec",
+      "target": "0x42edf4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42edf4",
+      "size": 105,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "Team"
+      ],
+      "runtime_refs": [
+        "rtcDir"
+      ],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "Team"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 6,
+      "name": null,
+      "slot_va": "0x40b8f0",
+      "target": "0x434cbc",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x434cbc",
+      "size": 524,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [
+        "Command5",
+        "TRACK"
+      ],
+      "runtime_refs": [
+        "rtcDir"
+      ],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "TRACK"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 7,
+      "name": null,
+      "slot_va": "0x40b8f4",
+      "target": "0x42dca4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42dca4",
+      "size": 28,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        "Date",
+        "Driver",
+        "Team"
+      ],
+      "runtime_refs": [
+        "rtcDir"
+      ],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "Date",
+            "Driver",
+            "Team"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 8,
+      "name": null,
+      "slot_va": "0x40b8f8",
+      "target": "0x434acc",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x434acc",
+      "size": 448,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        "FilterCombo",
+        "delete"
+      ],
+      "runtime_refs": [
+        "rtcDir",
+        "rtcKillFiles"
+      ],
+      "classification": [
+        {
+          "category": "filter",
+          "strings": [
+            "FilterCombo"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 9,
+      "name": null,
+      "slot_va": "0x40b8fc",
+      "target": "0x42da54",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42da54",
+      "size": 24,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [],
+      "runtime_refs": [
+        "rtcDir"
+      ],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 10,
+      "name": null,
+      "slot_va": "0x40b900",
+      "target": "0x42fba8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42fba8",
+      "size": 189,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "*.lap",
+        "Driver",
+        "Team"
+      ],
+      "runtime_refs": [
+        "rtcDir"
+      ],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "Driver",
+            "Team"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 11,
+      "name": null,
+      "slot_va": "0x40b904",
+      "target": "0x4368f0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4368f0",
+      "size": 649,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "*.lap",
+        "CHECK",
+        "Date",
+        "Driver",
+        "EraseLap",
+        "Team",
+        "VScroll1",
+        "\\Reference\\Default_",
+        "delete"
+      ],
+      "runtime_refs": [
+        "rtcDir"
+      ],
+      "classification": [
+        {
+          "category": "lap_management",
+          "strings": [
+            "EraseLap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "CHECK"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "Date",
+            "Driver",
+            "Team"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 12,
+      "name": null,
+      "slot_va": "0x40b908",
+      "target": "0x42dd90",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42dd90",
+      "size": 30,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 13,
+      "name": null,
+      "slot_va": "0x40b90c",
+      "target": "0x42d568",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42d568",
+      "size": 6,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        "Driver",
+        "TRACK"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "Driver",
+            "TRACK"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 14,
+      "name": null,
+      "slot_va": "0x40b910",
+      "target": "0x42d648",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42d648",
+      "size": 11,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "Driver"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "Driver"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 15,
+      "name": null,
+      "slot_va": "0x40b914",
+      "target": "0x4348a4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4348a4",
+      "size": 503,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "CHECK",
+        "Driver",
+        "Team",
+        "Time",
+        "\\Laps\\",
+        "delete",
+        "load lap"
+      ],
+      "runtime_refs": [
+        "rtcDir"
+      ],
+      "classification": [
+        {
+          "category": "lap_management",
+          "strings": [
+            "load lap"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "CHECK"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "Driver",
+            "Team"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 16,
+      "name": null,
+      "slot_va": "0x40b918",
+      "target": "0x4391f0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4391f0",
+      "size": 902,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 2,
+      "string_refs": [
+        "*.lap",
+        "Team",
+        "email"
+      ],
+      "runtime_refs": [
+        "rtcDir",
+        "rtcR8ValFromBstr"
+      ],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "Team"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapBrowser",
+      "object_role": "lap_management",
+      "method_index": 17,
+      "name": null,
+      "slot_va": "0x40b91c",
+      "target": "0x432390",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x432390",
+      "size": 301,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "*.lap",
+        "Driver"
+      ],
+      "runtime_refs": [
+        "rtcDir"
+      ],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "Driver"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapOptions",
+      "object_role": "lap_management",
+      "method_index": 0,
+      "name": null,
+      "slot_va": "0x40ad7c",
+      "target": "0x437f30",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x437f30",
+      "size": 860,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 0,
+      "string_refs": [
+        " UPLOAD_ALLOWED=NO",
+        ".lap",
+        "VALID",
+        "\\Reference\\Default_",
+        "password_text"
+      ],
+      "runtime_refs": [
+        "rtcKillFiles"
+      ],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            " UPLOAD_ALLOWED=NO"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapOptions",
+      "object_role": "lap_management",
+      "method_index": 1,
+      "name": null,
+      "slot_va": "0x40ad80",
+      "target": "0x42e700",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e700",
+      "size": 59,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "DATE",
+        "Saving lap..."
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "lap_management",
+          "strings": [
+            "Saving lap..."
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "DATE"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapOptions",
+      "object_role": "lap_management",
+      "method_index": 2,
+      "name": null,
+      "slot_va": "0x40ad84",
+      "target": "0x42e318",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e318",
+      "size": 45,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "DATE",
+        "Saving lap..."
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "lap_management",
+          "strings": [
+            "Saving lap..."
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "DATE"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapOptions",
+      "object_role": "lap_management",
+      "method_index": 3,
+      "name": null,
+      "slot_va": "0x40ad88",
+      "target": "0x431c40",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x431c40",
+      "size": 257,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "DATE",
+        "TRK_WET"
+      ],
+      "runtime_refs": [
+        "rtcFreeFile"
+      ],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "DATE",
+            "TRK_WET"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapOptions",
+      "object_role": "lap_management",
+      "method_index": 4,
+      "name": null,
+      "slot_va": "0x40ad8c",
+      "target": "0x42fd88",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42fd88",
+      "size": 162,
+      "terminator": "ExitProc 0x14",
+      "padding": 2,
+      "string_refs": [
+        "DRIVER",
+        "LapOptionsColour",
+        "VALID"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "DRIVER"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapOptions",
+      "object_role": "lap_management",
+      "method_index": 5,
+      "name": null,
+      "slot_va": "0x40ad90",
+      "target": "0x4307b4",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4307b4",
+      "size": 131,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 1,
+      "string_refs": [
+        "VALID"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "LapInfo",
+      "object_role": "lap_metadata",
+      "method_index": 0,
+      "name": null,
+      "slot_va": "0x40c3c8",
+      "target": "0x42dfc0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42dfc0",
+      "size": 33,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "Querying Servers",
+        "Unable To Connect"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "Querying Servers"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapInfo",
+      "object_role": "lap_metadata",
+      "method_index": 1,
+      "name": null,
+      "slot_va": "0x40c3cc",
+      "target": "0x443f58",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x443f58",
+      "size": 3724,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [
+        "AIDS",
+        "AIR_TEMP",
+        "Checking failed.",
+        "DATE",
+        "DRIVER",
+        "F1 Challenge 99-02 Telemetry",
+        "OFFTRACK",
+        "Open",
+        "Querying Servers",
+        "RAIN",
+        "SECTOR1",
+        "SECTOR2",
+        "TRACK",
+        "TRK_TEMP",
+        "TRK_WET",
+        "email",
+        "password",
+        "telemetry.spt"
+      ],
+      "runtime_refs": [
+        "rtcLeftCharBstr"
+      ],
+      "classification": [
+        {
+          "category": "file_io_spt_read",
+          "strings": [
+            "telemetry.spt"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "Checking failed.",
+            "OFFTRACK"
+          ]
+        },
+        {
+          "category": "upload",
+          "strings": [
+            "Querying Servers"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "AIDS",
+            "AIR_TEMP",
+            "DATE",
+            "DRIVER",
+            "OFFTRACK",
+            "RAIN",
+            "SECTOR1",
+            "SECTOR2"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapInfo",
+      "object_role": "lap_metadata",
+      "method_index": 2,
+      "name": null,
+      "slot_va": "0x40c3d0",
+      "target": "0x42d610",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42d610",
+      "size": 6,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        "Filepaths"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "unknown",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "LapInfo",
+      "object_role": "lap_metadata",
+      "method_index": 3,
+      "name": null,
+      "slot_va": "0x40c3d4",
+      "target": "0x431d74",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x431d74",
+      "size": 247,
+      "terminator": "ExitProc 0x14",
+      "padding": 1,
+      "string_refs": [
+        "Please enter your EA registration details.",
+        "Querying Servers",
+        "SECTOR1",
+        "email",
+        "password",
+        "userinfo"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "Querying Servers"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "SECTOR1"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapInfo",
+      "object_role": "lap_metadata",
+      "method_index": 4,
+      "name": null,
+      "slot_va": "0x40c3d8",
+      "target": "0x44321c",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x44321c",
+      "size": 3339,
+      "terminator": "ExitProcHresult",
+      "padding": 1,
+      "string_refs": [
+        "&Aids=",
+        "&CarID=",
+        "&LapID=",
+        "&LapTime=",
+        "&Password=",
+        "&Sect1=",
+        "&Sect2=",
+        "&TrackID=",
+        "&Version=",
+        "&lang=",
+        "&valcode=",
+        "<string",
+        "ABCDEFGHIJKL",
+        "AIDS",
+        "AIR_TEMP",
+        "All Files (*.*)|*.*|LAP Files",
+        "BREAK",
+        "DATE",
+        "DRIVER",
+        "Email=",
+        "LAPTIME",
+        "LOADME",
+        "LOCALE",
+        "OFFTRACK",
+        "OFFTRACK=FAIL",
+        "Please enter your EA registration details.",
+        "Querying Servers",
+        "RAIN",
+        "SECTOR1",
+        "SECTOR2",
+        "TRACK",
+        "TRK_TEMP",
+        "TRK_WET",
+        "Unable To Connect",
+        "Upload_URL",
+        "VERSION",
+        "\\layout.ini",
+        "distance",
+        "email",
+        "en-gb",
+        "password",
+        "pt-br",
+        "return to F1 Challenge",
+        "unable to connect",
+        "uploading lap...",
+        "userinfo"
+      ],
+      "runtime_refs": [
+        "rtcFreeFile",
+        "rtcLeftCharBstr",
+        "rtcR8ValFromBstr",
+        "rtcSaveSetting",
+        "rtcSpaceVar",
+        "rtcVarFromFormatVar"
+      ],
+      "classification": [
+        {
+          "category": "layout_io",
+          "strings": [
+            "\\layout.ini"
+          ]
+        },
+        {
+          "category": "axis_distance",
+          "strings": [
+            "distance"
+          ]
+        },
+        {
+          "category": "lap_check",
+          "strings": [
+            "OFFTRACK",
+            "OFFTRACK=FAIL"
+          ]
+        },
+        {
+          "category": "upload",
+          "strings": [
+            "Querying Servers",
+            "Upload_URL"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "&Aids=",
+            "&TrackID=",
+            "AIDS",
+            "AIR_TEMP",
+            "DATE",
+            "DRIVER",
+            "OFFTRACK",
+            "OFFTRACK=FAIL"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapInfo",
+      "object_role": "lap_metadata",
+      "method_index": 5,
+      "name": null,
+      "slot_va": "0x40c3dc",
+      "target": "0x430b88",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x430b88",
+      "size": 215,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 1,
+      "string_refs": [
+        "Querying Servers",
+        "RAIN",
+        "ShowOpen",
+        "Unable To Connect"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "Querying Servers"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "RAIN"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "LapInfo",
+      "object_role": "lap_metadata",
+      "method_index": 6,
+      "name": null,
+      "slot_va": "0x40c3e0",
+      "target": "0x4302e8",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4302e8",
+      "size": 191,
+      "terminator": "ExitProc 0x14",
+      "padding": 1,
+      "string_refs": [
+        "&CarID=",
+        "&TrackID=",
+        "Options\\Telemetry.doc",
+        "RAIN",
+        "email"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "&TrackID=",
+            "RAIN"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "General_Translation",
+      "object_role": "translation",
+      "method_index": 0,
+      "name": null,
+      "slot_va": "0x409220",
+      "target": "0x43d1e0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x43d1e0",
+      "size": 2160,
+      "terminator": "ExitProcR4/R8 form (lead2 FD95)",
+      "padding": 0,
+      "string_refs": [
+        ".tbc",
+        "1999 Williams",
+        "1999 WilliamsF1 Team",
+        "2000 Williams",
+        "2000 WilliamsF1 Team",
+        "2001 Williams",
+        "2001 WilliamsF1 Team",
+        "2002 Williams",
+        "2002 WilliamsF1 Team",
+        "2B9D0811-DB93-4EF3-A756-A3E0FCA11A91",
+        "60F1A78C-5E1F-4FE6-820C-AAAA13118F35",
+        "8F4D5E8C-F776-4768-A073-6760DC450005",
+        "FL Damper Velocity",
+        "FR Damper Velocity",
+        "FillStyle",
+        "Medical-2002",
+        "RL Damper Velocity",
+        "RL Tyre Temp. (Average)",
+        "Toyota",
+        "Track Temperature",
+        "brazil",
+        "canada",
+        "filter",
+        "fl tyre average temp",
+        "germany",
+        "http://f1lap.ea-europe.com/lapup/lapup.asmx/LapUp",
+        "italy",
+        "japan",
+        "unknown"
+      ],
+      "runtime_refs": [
+        "rtcFileLen"
+      ],
+      "classification": [
+        {
+          "category": "upload",
+          "strings": [
+            "http://f1lap.ea-europe.com/lapup/lapup.asmx/LapUp"
+          ]
+        },
+        {
+          "category": "metadata",
+          "strings": [
+            "1999 WilliamsF1 Team",
+            "2000 WilliamsF1 Team",
+            "2001 WilliamsF1 Team",
+            "2002 WilliamsF1 Team",
+            "Track Temperature"
+          ]
+        },
+        {
+          "category": "filter",
+          "strings": [
+            "filter"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "frmPasswordBox",
+      "object_role": "ui",
+      "method_index": 0,
+      "name": null,
+      "slot_va": "0x40b234",
+      "target": "0x42e0bc",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e0bc",
+      "size": 36,
+      "terminator": "ExitProcHresult",
+      "padding": 0,
+      "string_refs": [
+        "RAIN"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "RAIN"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "frmPasswordBox",
+      "object_role": "ui",
+      "method_index": 1,
+      "name": null,
+      "slot_va": "0x40b238",
+      "target": "0x42ee90",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42ee90",
+      "size": 93,
+      "terminator": "ExitProcHresult",
+      "padding": 3,
+      "string_refs": [
+        "RAIN",
+        "TRK_WET"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "RAIN",
+            "TRK_WET"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "frmPasswordBox",
+      "object_role": "ui",
+      "method_index": 2,
+      "name": null,
+      "slot_va": "0x40b23c",
+      "target": "0x432a40",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x432a40",
+      "size": 296,
+      "terminator": "ExitProc 0x14",
+      "padding": 0,
+      "string_refs": [
+        "&Aids=",
+        "BTN_YES",
+        "EA Password",
+        "RAIN",
+        "TRK_WET",
+        "unknown"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "&Aids=",
+            "RAIN",
+            "TRK_WET"
+          ]
+        }
+      ]
+    },
+    {
+      "object": "frmMsgBox",
+      "object_role": "ui",
+      "method_index": 0,
+      "name": null,
+      "slot_va": "0x409744",
+      "target": "0x42e068",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e068",
+      "size": 34,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        "fl undertray ride height",
+        "steering",
+        "suspension deflection"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "frmMsgBox",
+      "object_role": "ui",
+      "method_index": 1,
+      "name": null,
+      "slot_va": "0x409748",
+      "target": "0x42e014",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x42e014",
+      "size": 34,
+      "terminator": "ExitProcHresult",
+      "padding": 2,
+      "string_refs": [
+        "fl undertray ride height",
+        "suspension deflection"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "ui_event_handler",
+          "strings": []
+        }
+      ]
+    },
+    {
+      "object": "frmMsgBox",
+      "object_role": "ui",
+      "method_index": 2,
+      "name": null,
+      "slot_va": "0x40974c",
+      "target": "0x4324f0",
+      "target_kind": "rtmi",
+      "rtmi_va": "0x4324f0",
+      "size": 229,
+      "terminator": "ExitProc 0x14",
+      "padding": 3,
+      "string_refs": [
+        "LBL_message",
+        "Software (C) 2003 Electronic Arts Inc. All rights reserved.",
+        "engine rpm",
+        "track temp"
+      ],
+      "runtime_refs": [],
+      "classification": [
+        {
+          "category": "metadata",
+          "strings": [
+            "track temp"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+ "exe": "%USERPROFILE%\\Desktop\\F1 Challenge V10\\F1 Challenge Online.exe",
+ "patches": {
+  "blister-tolerance": {
+   "desc": "PWS_TYRES01/light-blister threshold 0.7->0.9 (raise so LIGHT trips at fresher tread)",
+   "sites": [
+    {
+     "va": 5891816,
+     "orig": "3333333f",
+     "new": "6666663f"
+    },
+    {
+     "va": 5892296,
+     "orig": "cdcccc3e",
+     "new": "9a99193f"
+    }
+   ]
+  },
+  "player-damage-commentary": {
+   "desc": "BL-15 eid108 Hit01 player lost front wing: cooldown FLT_MAX->15.0 (mirrors AIHit01 eid222)",
+   "sites": [
+    {
+     "va": 6029852,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029912,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029812,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029832,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029872,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029892,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    }
+   ]
+  },
+  "player-retire-commentary": {
+   "desc": "BL-21 eid118 Retire01 player engine stall: cooldown FLT_MAX->6.0 (mirrors AIRetire eids235-238)",
+   "sites": [
+    {
+     "va": 6030052,
+     "orig": "ffff7f7f",
+     "new": "0000c040"
+    },
+    {
+     "va": 6030032,
+     "orig": "ffff7f7f",
+     "new": "0000c040"
+    },
+    {
+     "va": 6030072,
+     "orig": "ffff7f7f",
+     "new": "0000c040"
+    }
+   ]
+  },
+  "player-dq-commentary": {
+   "desc": "BL-24 eid149 RE_PD_DQ player DSQ for failing to serve stop/go: FLT_MAX->1.0 (mirrors RE_PD_SG_* eids151-153)",
+   "sites": [
+    {
+     "va": 6030672,
+     "orig": "ffff7f7f",
+     "new": "0000803f"
+    }
+   ]
+  },
+  "gearbox-commentary-unblock": {
+   "desc": "eid 80 PWS_MECHPROB: 'Lost 1 gear' cooldown FLT_MAX -> 15.0 (player gearbox line, was unplayable)",
+   "sites": [
+    {
+     "va": 6029292,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029312,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029332,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029352,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029372,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029392,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029412,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029432,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029452,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029472,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029492,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029512,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029532,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    },
+    {
+     "va": 6029552,
+     "orig": "ffff7f7f",
+     "new": "00007041"
+    }
+   ]
+  }
+ }
+}

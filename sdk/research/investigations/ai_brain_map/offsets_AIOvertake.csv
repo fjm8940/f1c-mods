@@ -1,0 +1,14 @@
+func,line,dec,hex,access,width,base,form,expr
+AIOvertake,10,856,0x358,R,float,this,direct,v4 = *(float *)(this + 856);
+AIOvertake,11,860,0x35C,W,_DWORD,this,direct,*(_DWORD *)(this + 860) = dword_8ACF8C;
+AIOvertake,14,864,0x360,W,_DWORD,this,direct,*(_DWORD *)(this + 864) = dword_7C56A4;
+AIOvertake,16,852,0x354,R,float,this,direct,if ( v4 <= 0.0 || *(float *)(this + 852) < (double)*(float *)(this + 856) )
+AIOvertake,16,856,0x358,R,float,this,direct,if ( v4 <= 0.0 || *(float *)(this + 852) < (double)*(float *)(this + 856) )
+AIOvertake,32,834,0x342,R,_BYTE,this,direct,if ( !*(_BYTE *)(this + 834) )
+AIOvertake,33,,,CALL,,,call,AIBehaviorInitialization
+AIOvertake,34,852,0x354,W,float,this,direct,*(float *)(this + 852) = *(float *)(this + 852) + *(float *)(this + 848);
+AIOvertake,34,852,0x354,R,float,this,direct,*(float *)(this + 852) = *(float *)(this + 852) + *(float *)(this + 848);
+AIOvertake,34,848,0x350,R,float,this,direct,*(float *)(this + 852) = *(float *)(this + 852) + *(float *)(this + 848);
+AIOvertake,38,,,CALL,,,call,JUMPOUT
+AIOvertake,39,,,CALL,,,call,JUMPOUT
+AIOvertake,41,,,CALL,,,call,JUMPOUT

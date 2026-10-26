@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "id": "fisheye_probe",
+  "name": "Fisheye probe (research, Camera Editor)",
+  "version": "0.0.1",
+  "author": "Matias",
+  "description": "Research only: logs how the game draws a frame. Remove after the test.",
+  "homepage": "https://mods.palloset.com/camera_editor",
+  "lightloader": ">=2.2.0"
+}

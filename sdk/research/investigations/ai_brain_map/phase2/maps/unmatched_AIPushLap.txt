@@ -1,0 +1,2 @@
+# AIPushLap: offset-like lines with no extracted row (1)
+L42: v7 = TireNameAccessor(this + 3);

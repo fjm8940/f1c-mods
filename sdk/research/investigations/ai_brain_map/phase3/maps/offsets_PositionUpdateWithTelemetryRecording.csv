@@ -1,0 +1,6 @@
+func,line,dec,hex,access,width,base,form,expr
+PositionUpdateWithTelemetryRecording,5,16404,0x4014,R,float,this,direct,if ( dbl_8AFEA0 > *(float *)(this + 16404) + 4.5 )
+PositionUpdateWithTelemetryRecording,7,16404,0x4014,W,float,this,direct,*(float *)(this + 16404) = dbl_8AFEA0;
+PositionUpdateWithTelemetryRecording,18,,,CALL,,,call,ProgressBarEventEncode
+PositionUpdateWithTelemetryRecording,18,4,0x4,R,_DWORD,this,direct,"ProgressBarEventEncode(v1, 2, 0, 0, *(_DWORD *)(this + 4), *(_DWORD *)(this + 13484), 0);"
+PositionUpdateWithTelemetryRecording,18,13484,0x34AC,R,_DWORD,this,direct,"ProgressBarEventEncode(v1, 2, 0, 0, *(_DWORD *)(this + 4), *(_DWORD *)(this + 13484), 0);"

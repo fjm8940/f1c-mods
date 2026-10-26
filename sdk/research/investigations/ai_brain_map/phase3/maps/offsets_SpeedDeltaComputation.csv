@@ -1,0 +1,4 @@
+func,line,dec,hex,access,width,base,form,expr
+SpeedDeltaComputation,9,17236,0x4354,R,_DWORD,this,array,v3 = this[4309];
+SpeedDeltaComputation,11,76,0x4C,R,float,a2,direct,return *(float *)(a2 + 76) - *(float *)(v3 + 76);
+SpeedDeltaComputation,11,76,0x4C,R,float,v3,direct,return *(float *)(a2 + 76) - *(float *)(v3 + 76);

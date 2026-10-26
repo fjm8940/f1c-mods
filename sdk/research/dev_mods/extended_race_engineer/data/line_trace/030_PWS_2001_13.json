@@ -1,0 +1,431 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 30,
+ "clip": "PWS_2001_13",
+ "says": "AI driver ahead on Out Lap",
+ "dump_rows_for_clip": [
+  {
+   "eid": 32,
+   "hex": "0x0020",
+   "priority": 1,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 30,
+   "sdt_index": 30,
+   "clip_name": "PWS_2001_13.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 323,
+   "hex": "0x0143",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 30,
+   "sdt_index": 30,
+   "clip_name": "PWS_2001_13.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  30
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 32,
+   "hex": "0x0020",
+   "priority": 1,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 30,
+   "sdt_index": 30,
+   "clip_name": "PWS_2001_13.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 323,
+   "hex": "0x0143",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 30,
+   "sdt_index": 30,
+   "clip_name": "PWS_2001_13.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  32
+ ],
+ "literal_hits": {
+  "32": {
+   "emitters": [],
+   "lookups": [],
+   "other_functions": {
+    "count": 676,
+    "first": [
+     "AISteering",
+     "AddressRangeCriticalSectionLeave",
+     "AlignedStringConcat",
+     "AnimationStateCheck",
+     "ArithmeticComparison_0f90",
+     "ArithmeticComparison_a010",
+     "ArrayProcessingWithValidation",
+     "AudioBufferFormatSetup",
+     "AudioBufferReset",
+     "AudioBufferSizeCalc",
+     "AudioChannelInit",
+     "AudioDriverInit",
+     "AudioEngineInitialization",
+     "AudioFIRConvolutionFilter",
+     "AudioFilterParameterCalculation",
+     "AudioMixLookupTableInit",
+     "AudioMixerChannelInitializer",
+     "AudioMixerFloatingPointTo16BitPCMConversion",
+     "AudioMixing",
+     "AudioResampler",
+     "AudioSamplePositionVolumeSetter",
+     "AudioSampleStream",
+     "AudioSubbandSynthesisFilterbank",
+     "AutoLoadEntryListLoader",
+     "BezierPatchTessellation",
+     "BigIntegerRightShift",
+     "BinkVideoFrameDecoder",
+     "BinkVideoFrameRender",
+     "Bit5FlagSetReset",
+     "BitArrayClearBitAndZeroFillSubsequentWords",
+     "BitFlagDecoderViaBitTests",
+     "BitmapBlitWithClipping",
+     "BitstreamDecoder_dd50",
+     "BitstreamTextureBlockCopy",
+     "BlockLDLTSparseConstraintFactorization",
+     "BlockTextureDecompression",
+     "BoundingBoxComputationFromTriangles",
+     "BoundsCheckAgainstDAT008b8e48",
+     "BrakeTemperatureFadeModel",
+     "BufferInitWith10fDefaults"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 30 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "MapCollisionShapeToBoneIndex",
+    "file": "MapCollisionShapeToBoneIndex_00412c30.c",
+    "hits": [
+     {
+      "line": 56,
+      "text": "case 30:"
+     }
+    ]
+   },
+   {
+    "function": "RaceEventMessageDispatcher",
+    "file": "RaceEventMessageDispatcher_00411bf0.c",
+    "hits": [
+     {
+      "line": 52,
+      "text": "case 0x1E:"
+     }
+    ]
+   },
+   {
+    "function": "SoundEventDispatcher",
+    "file": "SoundEventDispatcher_00411e90.c",
+    "hits": [
+     {
+      "line": 70,
+      "text": "case 0x1E:"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:121: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"TeamNameDisplayIDLookup 21-line group - low-eid twins exist for all\", \"claim\": \"All 18 remaining clips in the TeamName",
+  "f1c_ida_decompiled\\findings.jsonl:124: {\"ts\": \"2026-07-28\", \"tier\": \"OPEN\", \"topic\": \"pit-stop failure clips (wheel jam, fuel hose, wheel gun)\", \"claim\": \"Identified the pit-failure clip set for future restora",
+  "f1c_ida_decompiled\\findings.jsonl:130: {\"ts\": \"2026-07-28\", \"tier\": \"DISPROVEN\", \"topic\": \"TeamNameDisplayIDLookup_0041b980 emitter-candidate cluster in T4_CONDITION is bogus for 11 clips\", \"claim\": \"evf_class",
+  "f1c_ida_decompiled\\findings.jsonl:131: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"Session wrap: low-hanging-fruit sweep landed at 48 clips SHIPPED, T4_CONDITION pool down to 30\", \"claim\": \"Continued t",
+  "f1c_ida_decompiled\\findings.jsonl:132: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"Audit of todays SHIPPED sweep - one methodology gap found, most of the batch holds up\", \"claim\": \"Audited every clip f",
+  "f1c_ida_decompiled\\findings.jsonl:137: {\"tier\": \"DERIVED\", \"needs_review\": true, \"group\": \"EVF-008_E\", \"summary\": \"Pit-related cluster (7 rows): mixed verdicts. PWS_2001_131 (eid 184) = MENU_TRAP -- emitted via CarSelec",
+  "f1c_ida_decompiled\\findings.jsonl:139: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"EVF-008 DeepSeek re-verification of the injection-only batch: 26 of 39 reverted\", \"claim\": \"DeepSeek V4 Pro produced 6",
+  "f1c_ida_decompiled\\findings.jsonl:157: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"pit_stop_failure\", \"claim\": \"None of the 21 pit-stop-failure commentary clips has an emitter anywhere in the game, and none is b"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-004.md:59: | `PWS_2001_131` | 196 | 184, 516 | AI stalls the engine in the pits; note points at red_flag NUMPAD2's AI-pit-retirement handling |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-004.md:71: | `PWS_2001_133` | 198 | 186 | AI front-left wheel stuck; should the AI be able to continue? |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-008.md:144: | `PWS_2001_138` | 213 | 200 | AI driver positioned to secure WDC |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-008.md:150: | `PWS_2001_131` | 196 | 184 | AI driver engine stalled in pits |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-008.md:153: per-car simulation tick, not a menu. But `PWS_2001_131`'s caller chain also",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:89: | 185 | PWS_2001_132 | Fuel level unchanged for >FUEL_JAM_TIMEOUT ticks during pit stop (pittingStatus==3). Emit  | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:134: - PWS_2001_132 (eid 185, 'AI driver jammed fuel hose') — what distinguishes this from PWS_2001_79 (fuel hose issue - slow refuel)? Both describe fuel hose problems. Possibly 2001_1",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:181: | 186 | PWS_2001_133 | SessionType==7; AI vehicle; carConditions (veh+0x3D6C) transitions to 2; front-left wheel  | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:182: | 187 | PWS_2001_134 | Same as 186, front-right wheel | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:183: | 188 | PWS_2001_135 | Same as 186, rear-left wheel | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:184: | 189 | PWS_2001_136 | Same as 186, rear-right wheel | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:172: | `PWS_2001_13` | 30 | 323 | 0x0041b980? | AI driver ahead on Out Lap |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:208: | `PWS_2001_131` | 196 | 516 | 0x0041c0f0? | AI driver engine stalled in pits |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:214: | `PWS_2001_138` | 213 | 506 | 0x0041be60 | AI driver positioned to secure WDC |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:293: | `PWS_2001_132` | 197 | 185 | AI driver jammed fuel hose |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:294: | `PWS_2001_133` | 198 | 186 | AI driver stuck Front Left wheel |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:295: | `PWS_2001_134` | 199 | 187 | AI driver stuck Front Right wheel |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:296: | `PWS_2001_135` | 200 | 188 | AI driver stuck Rear Left wheel |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:297: | `PWS_2001_136` | 201 | 189 | AI driver stuck Rear Right wheel |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:77: | PWS_2001_132 | 197 | 185 | Fuel hose jammed |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:104: | PWS_2001_13 | 30 | 32 | Practice/qualifying lap review |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:123: | PWS_2001_136 | 201 | 189 | AI driver leaves pits, position said out loud |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PIT_STOP_COMPREHENSIVE_ANALYSIS.md:727: | AI jammed fuel hose | PWS_2001_132-136 | 183-188 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PIT_STOP_COMPREHENSIVE_ANALYSIS.md:728: | AI stuck wheel | PWS_2001_132-136 | 183-188 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:239: | `PWS_2001_13` | 30 | 32, 323 | — | AI driver ahead on Out Lap | user triage: X PLAY |"
+ ],
+ "mod_sources": [
+  "development\\mods\\pitstop_modding\\mock\\pit_mock_provider.c:1068: m.eid = 185; /* PWS_2001_132 */"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "mechanical_failures",
+    "mod_version": "1.0.7 public (RELEASE_REGISTRY); donor table in mf_voice.h",
+    "eid": 32,
+    "mechanism": "token_only",
+    "condition": "TOKEN ONLY (owner correction 2026-10-18): MF borrows this eid as an internal radio-queue token and plays its own WAV; the vanilla clip never plays. MF V3 line MF_GASKET01 \"Head gasket's gone.\": donor eid row rewritten at load when PWS_MF01 SDT is installed; fired via commentary queue / radio_req",
+    "source": "development/mods/mechanical_failures/dll/mf_voice.h:69; engine_failure.c:1722-1760 (row write), 4040-4062 (voice_native_say)",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "AI driver ahead on Out Lap"
+   }
+  ],
+  "note": "user triage: X PLAY",
+  "triage": {
+   "sdt_index": 30,
+   "text": "X PLAY",
+   "subject": "X",
+   "play": true,
+   "verdict": "TODO",
+   "flags": [],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

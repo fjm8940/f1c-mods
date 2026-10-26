@@ -1,0 +1,4894 @@
+{
+ "A": [
+  {
+   "clip": "PWS_2001_04",
+   "status": "SHIPPED",
+   "desc": "AI driver fails to improve qualifying position",
+   "sdt": 7,
+   "eids": [
+    9,
+    300
+   ],
+   "emit_eids": [
+    300
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_05",
+   "status": "SHIPPED",
+   "desc": "Player is on Pole Position",
+   "sdt": 14,
+   "eids": [
+    16,
+    307
+   ],
+   "emit_eids": [
+    307
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_08",
+   "status": "SHIPPED",
+   "desc": "AI driver is on Pole Position",
+   "sdt": 31,
+   "eids": [
+    33,
+    324
+   ],
+   "emit_eids": [
+    324
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_09",
+   "status": "SHIPPED",
+   "desc": "AI driver is on Pole Position (alt)",
+   "sdt": 32,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_2001_124",
+   "status": "SHIPPED",
+   "desc": "Player wins WDC with X rounds to go",
+   "sdt": 168,
+   "eids": [
+    159,
+    500
+   ],
+   "emit_eids": [
+    159,
+    500
+   ],
+   "funcs": [
+    "0x00419c50",
+    "0x00420cf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_155",
+   "status": "SHIPPED",
+   "desc": "15 minutes until session ends",
+   "sdt": 295,
+   "eids": [
+    277
+   ],
+   "emit_eids": [
+    277
+   ],
+   "funcs": [
+    "0x0041a500?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_156",
+   "status": "SHIPPED",
+   "desc": "10 minutes until session ends",
+   "sdt": 294,
+   "eids": [
+    276
+   ],
+   "emit_eids": [
+    276
+   ],
+   "funcs": [
+    "0x0041a500?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_157",
+   "status": "SHIPPED",
+   "desc": "5 minutes until session ends",
+   "sdt": 297,
+   "eids": [
+    279
+   ],
+   "emit_eids": [
+    279
+   ],
+   "funcs": [
+    "0x0041a500?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_158",
+   "status": "SHIPPED",
+   "desc": "3 minutes until session ends",
+   "sdt": 296,
+   "eids": [
+    278
+   ],
+   "emit_eids": [
+    278
+   ],
+   "funcs": [
+    "0x0041a500?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_16",
+   "status": "SHIPPED",
+   "desc": "AI driver pits, completed X laps",
+   "sdt": 19,
+   "eids": [
+    21,
+    312
+   ],
+   "emit_eids": [
+    21,
+    312
+   ],
+   "funcs": [
+    "0x0041a2b0?",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_160",
+   "status": "SHIPPED",
+   "desc": "X laps to go (short)",
+   "sdt": 289,
+   "eids": [
+    272
+   ],
+   "emit_eids": [
+    272
+   ],
+   "funcs": [
+    "0x004199e0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_161",
+   "status": "SHIPPED",
+   "desc": "X laps to go (long)",
+   "sdt": 290,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_2001_167",
+   "status": "SHIPPED",
+   "desc": "Final lap of the race",
+   "sdt": 291,
+   "eids": [
+    273
+   ],
+   "emit_eids": [
+    273
+   ],
+   "funcs": [
+    "0x004199e0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_21",
+   "status": "SHIPPED",
+   "desc": "AI driver pits, all qualifying laps done",
+   "sdt": 20,
+   "eids": [
+    22,
+    313
+   ],
+   "emit_eids": [
+    22,
+    313
+   ],
+   "funcs": [
+    "0x0041a2b0?",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_223",
+   "status": "SHIPPED",
+   "desc": "Player driving wrong way (1)",
+   "sdt": 304,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_2001_224",
+   "status": "SHIPPED",
+   "desc": "Player driving wrong way (2)",
+   "sdt": 303,
+   "eids": [
+    284
+   ],
+   "emit_eids": [
+    284
+   ],
+   "funcs": [
+    "0x0041a4a0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_225",
+   "status": "SHIPPED",
+   "desc": "Player driving wrong way (3)",
+   "sdt": 305,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_AIFASTLAP01",
+   "status": "SHIPPED",
+   "desc": "AI sets fastest lap of race",
+   "sdt": 279,
+   "eids": [
+    262
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIHIT01",
+   "status": "SHIPPED",
+   "desc": "AI lost front wing",
+   "sdt": 235,
+   "eids": [
+    222
+   ],
+   "emit_eids": [
+    222
+   ],
+   "funcs": [
+    "0x0041afd0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIHIT02",
+   "status": "SHIPPED",
+   "desc": "AI lost rear wing",
+   "sdt": 236,
+   "eids": [
+    223
+   ],
+   "emit_eids": [
+    223
+   ],
+   "funcs": [
+    "0x0041afd0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIHIT07",
+   "status": "SHIPPED",
+   "desc": "AI lost wheel",
+   "sdt": 234,
+   "eids": [
+    221
+   ],
+   "emit_eids": [
+    221
+   ],
+   "funcs": [
+    "0x0041afd0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIHIT08",
+   "status": "SHIPPED",
+   "desc": "AI has suspension damage",
+   "sdt": 233,
+   "eids": [
+    220,
+    477
+   ],
+   "emit_eids": [
+    220,
+    477
+   ],
+   "funcs": [
+    "0x0041ac50?",
+    "0x0041d630?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIINCID10",
+   "status": "SHIPPED",
+   "desc": "AI drivers collide (1)",
+   "sdt": 238,
+   "eids": [
+    225
+   ],
+   "emit_eids": [
+    225
+   ],
+   "funcs": [
+    "0x0041ad80"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIINCID11",
+   "status": "SHIPPED",
+   "desc": "AI drivers collide (2)",
+   "sdt": 239,
+   "eids": [
+    226
+   ],
+   "emit_eids": [
+    226
+   ],
+   "funcs": [
+    "0x0041ad80"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AILAPPIN02",
+   "status": "SHIPPED",
+   "desc": "Player under blue flag (1st)",
+   "sdt": 127,
+   "eids": [
+    123,
+    401
+   ],
+   "emit_eids": [
+    123
+   ],
+   "funcs": [
+    "0x0041b3c0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AILAPPIN03",
+   "status": "SHIPPED",
+   "desc": "Player under blue flag (2nd)",
+   "sdt": 128,
+   "eids": [
+    124,
+    422
+   ],
+   "emit_eids": [
+    124
+   ],
+   "funcs": [
+    "0x0041b3c0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AILAPPIN04",
+   "status": "SHIPPED",
+   "desc": "Player under blue flag (3rd)",
+   "sdt": 129,
+   "eids": [
+    125,
+    414
+   ],
+   "emit_eids": [
+    125
+   ],
+   "funcs": [
+    "0x0041b3c0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPIT01",
+   "status": "SHIPPED",
+   "desc": "Team ready in the pits",
+   "sdt": 208,
+   "eids": [
+    196
+   ],
+   "emit_eids": [
+    196
+   ],
+   "funcs": [
+    "0x0041a170?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPIT04",
+   "status": "SHIPPED",
+   "desc": "AI driver pits",
+   "sdt": 188,
+   "eids": [
+    178
+   ],
+   "emit_eids": [
+    178
+   ],
+   "funcs": [
+    "0x0041a2b0?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPIT05",
+   "status": "SHIPPED",
+   "desc": "AI driver pits (alt)",
+   "sdt": 189,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_AIPIT06",
+   "status": "SHIPPED",
+   "desc": "Race leader pits",
+   "sdt": 190,
+   "eids": [
+    179
+   ],
+   "emit_eids": [
+    179
+   ],
+   "funcs": [
+    "0x0041a2b0?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPIT07",
+   "status": "SHIPPED",
+   "desc": "AI driver pits (alt 2)",
+   "sdt": 191,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_AIPIT08",
+   "status": "SHIPPED",
+   "desc": "AI has 1-stop strategy",
+   "sdt": 192,
+   "eids": [
+    180
+   ],
+   "emit_eids": [
+    180
+   ],
+   "funcs": [
+    "0x0041a3a0?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPIT09",
+   "status": "SHIPPED",
+   "desc": "AI has 2-stop strategy",
+   "sdt": 193,
+   "eids": [
+    181
+   ],
+   "emit_eids": [
+    181
+   ],
+   "funcs": [
+    "0x0041a3a0?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPIT10",
+   "status": "SHIPPED",
+   "desc": "AI has 3-stop strategy",
+   "sdt": 194,
+   "eids": [
+    182
+   ],
+   "emit_eids": [
+    182
+   ],
+   "funcs": [
+    "0x0041a3a0?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIRETIRE01",
+   "status": "SHIPPED",
+   "desc": "AI retired (generic 1)",
+   "sdt": 253,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_AIRETIRE02",
+   "status": "SHIPPED",
+   "desc": "AI retired (generic 2)",
+   "sdt": 252,
+   "eids": [
+    237
+   ],
+   "emit_eids": [
+    237
+   ],
+   "funcs": [
+    "0x0041b250"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIRETIRE03",
+   "status": "SHIPPED",
+   "desc": "AI ran out of fuel",
+   "sdt": 251,
+   "eids": [
+    236
+   ],
+   "emit_eids": [
+    236
+   ],
+   "funcs": [
+    "0x0041b250"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIRETIRE04",
+   "status": "SHIPPED",
+   "desc": "AI suspension collapsed",
+   "sdt": 254,
+   "eids": [
+    238
+   ],
+   "emit_eids": [
+    238
+   ],
+   "funcs": [
+    "0x0041b250?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIRETIRE05",
+   "status": "SHIPPED",
+   "desc": "AI blown engine",
+   "sdt": 250,
+   "eids": [
+    235
+   ],
+   "emit_eids": [
+    235
+   ],
+   "funcs": [
+    "0x0041b250?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIWIN01",
+   "status": "SHIPPED",
+   "desc": "AI wins race",
+   "sdt": 278,
+   "eids": [
+    261
+   ],
+   "emit_eids": [
+    261
+   ],
+   "funcs": [
+    "0x00419c50"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIWIN02",
+   "status": "SHIPPED",
+   "desc": "AI finishes X position (1)",
+   "sdt": 276,
+   "eids": [
+    260
+   ],
+   "emit_eids": [
+    260
+   ],
+   "funcs": [
+    "0x00419c50"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIWIN03",
+   "status": "SHIPPED",
+   "desc": "AI finishes X position (2)",
+   "sdt": 277,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_CHANGEPIT01",
+   "status": "SHIPPED",
+   "desc": "Change pit instructions",
+   "sdt": 41,
+   "eids": [
+    42,
+    333
+   ],
+   "emit_eids": [
+    333
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_HIT08",
+   "status": "SHIPPED",
+   "desc": "Player hits AI driver (1)",
+   "sdt": 114,
+   "eids": [
+    115,
+    408
+   ],
+   "emit_eids": [
+    115
+   ],
+   "funcs": [
+    "0x0041ad80"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_HIT09",
+   "status": "SHIPPED",
+   "desc": "Player hits AI driver (2)",
+   "sdt": 115,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_HIT10",
+   "status": "SHIPPED",
+   "desc": "Player hits AI driver (3)",
+   "sdt": 113,
+   "eids": [
+    114,
+    407
+   ],
+   "emit_eids": [
+    114
+   ],
+   "funcs": [
+    "0x0041ad80"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB15",
+   "status": "SHIPPED",
+   "desc": "Engine overheating",
+   "sdt": 76,
+   "eids": [
+    77,
+    350
+   ],
+   "emit_eids": [
+    77
+   ],
+   "funcs": [
+    "0x0041b190"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB18",
+   "status": "SHIPPED",
+   "desc": "Overheated brakes",
+   "sdt": 73,
+   "eids": [
+    74,
+    347
+   ],
+   "emit_eids": [
+    74
+   ],
+   "funcs": [
+    "0x0041b200"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC02",
+   "status": "SHIPPED",
+   "desc": "Player false start - investigation",
+   "sdt": 154,
+   "eids": [
+    145,
+    498
+   ],
+   "emit_eids": [
+    498
+   ],
+   "funcs": [
+    "0x0041daf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC12",
+   "status": "SHIPPED",
+   "desc": "AI takes race lead (1)",
+   "sdt": 211,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_MISC14",
+   "status": "SHIPPED",
+   "desc": "AI takes race lead (2)",
+   "sdt": 210,
+   "eids": [
+    198,
+    512
+   ],
+   "emit_eids": [
+    198,
+    512
+   ],
+   "funcs": [
+    "0x00419120?",
+    "0x0041be60"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC16",
+   "status": "SHIPPED",
+   "desc": "Switch camera to AI driver",
+   "sdt": 281,
+   "eids": [
+    264
+   ],
+   "emit_eids": [
+    264
+   ],
+   "funcs": [
+    "0x0041a0c0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_OFFROAD01",
+   "status": "SHIPPED",
+   "desc": "Player went off track (1)",
+   "sdt": 116,
+   "eids": [
+    116,
+    409
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_OVERTAKE01",
+   "status": "SHIPPED",
+   "desc": "Player overtakes AI (1)",
+   "sdt": 122,
+   "eids": [
+    120,
+    413
+   ],
+   "emit_eids": [
+    120
+   ],
+   "funcs": [
+    "0x00419120",
+    "0x00419120?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PENALTY02",
+   "status": "SHIPPED",
+   "desc": "Speeding in pits penalty",
+   "sdt": 164,
+   "eids": [
+    155,
+    493
+   ],
+   "emit_eids": [
+    155
+   ],
+   "funcs": [
+    "0x0041a720?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PENALTY05",
+   "status": "SHIPPED",
+   "desc": "Cutting track penalty",
+   "sdt": 151,
+   "eids": [
+    142,
+    495
+   ],
+   "emit_eids": [
+    495
+   ],
+   "funcs": [
+    "0x0041daf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PENALTY14",
+   "status": "SHIPPED",
+   "desc": "Penalty (type 14)",
+   "sdt": 149,
+   "eids": [
+    140,
+    491
+   ],
+   "emit_eids": [
+    491
+   ],
+   "funcs": [
+    "0x0041daf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PIT02",
+   "status": "SHIPPED",
+   "desc": "Pit crew is ready",
+   "sdt": 51,
+   "eids": [
+    52,
+    360
+   ],
+   "emit_eids": [
+    52
+   ],
+   "funcs": [
+    "0x0041a170?",
+    "0x0041a200?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PIT14",
+   "status": "SHIPPED",
+   "desc": "Pit this lap for Stop-Go",
+   "sdt": 54,
+   "eids": [
+    55,
+    364
+   ],
+   "emit_eids": [
+    55
+   ],
+   "funcs": [
+    "0x0041a8c0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_POSUPDATE01",
+   "status": "SHIPPED",
+   "desc": "Position update",
+   "sdt": 40,
+   "eids": [
+    41,
+    332
+   ],
+   "emit_eids": [
+    41,
+    332
+   ],
+   "funcs": [
+    "0x004199e0",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL01",
+   "status": "SHIPPED",
+   "desc": "AI driver is going out",
+   "sdt": 4,
+   "eids": [
+    6,
+    297
+   ],
+   "emit_eids": [
+    6,
+    297
+   ],
+   "funcs": [
+    "0x0041a3a0?",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL02",
+   "status": "SHIPPED",
+   "desc": "AI driver set fastest Sector 1",
+   "sdt": 2,
+   "eids": [
+    4,
+    295
+   ],
+   "emit_eids": [
+    4,
+    295
+   ],
+   "funcs": [
+    "0x00419690?",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL03",
+   "status": "SHIPPED",
+   "desc": "AI driver set fastest Sector 2",
+   "sdt": 3,
+   "eids": [
+    5,
+    296
+   ],
+   "emit_eids": [
+    5,
+    296
+   ],
+   "funcs": [
+    "0x00419690?",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL06",
+   "status": "SHIPPED",
+   "desc": "AI driver moved up position",
+   "sdt": 6,
+   "eids": [
+    8,
+    299
+   ],
+   "emit_eids": [
+    299
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL07",
+   "status": "SHIPPED",
+   "desc": "Pole sitter AI beats own time",
+   "sdt": 1,
+   "eids": [
+    3,
+    294
+   ],
+   "emit_eids": [
+    294
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL08",
+   "status": "SHIPPED",
+   "desc": "AI driver sets initial lap time",
+   "sdt": 5,
+   "eids": [
+    7,
+    298
+   ],
+   "emit_eids": [
+    7,
+    298
+   ],
+   "funcs": [
+    "0x004198b0?",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL12",
+   "status": "SHIPPED",
+   "desc": "Player faster than pole Sector 1",
+   "sdt": 17,
+   "eids": [
+    19,
+    310
+   ],
+   "emit_eids": [
+    19,
+    310
+   ],
+   "funcs": [
+    "0x00419500",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL13",
+   "status": "SHIPPED",
+   "desc": "Player faster than pole Sector 2",
+   "sdt": 18,
+   "eids": [
+    20,
+    311
+   ],
+   "emit_eids": [
+    20,
+    311
+   ],
+   "funcs": [
+    "0x00419500",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL15",
+   "status": "SHIPPED",
+   "desc": "Player slower than pole Sector 1",
+   "sdt": 11,
+   "eids": [
+    13,
+    304
+   ],
+   "emit_eids": [
+    13,
+    304
+   ],
+   "funcs": [
+    "0x00419500",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL16",
+   "status": "SHIPPED",
+   "desc": "Player slower than pole Sector 2",
+   "sdt": 12,
+   "eids": [
+    14,
+    305
+   ],
+   "emit_eids": [
+    14,
+    305
+   ],
+   "funcs": [
+    "0x00419500",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL21",
+   "status": "SHIPPED",
+   "desc": "Player fails to improve position",
+   "sdt": 16,
+   "eids": [
+    18,
+    309
+   ],
+   "emit_eids": [
+    18,
+    309
+   ],
+   "funcs": [
+    "0x004198b0?",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL22",
+   "status": "SHIPPED",
+   "desc": "Player moves up to X position",
+   "sdt": 15,
+   "eids": [
+    17,
+    308
+   ],
+   "emit_eids": [
+    17,
+    308
+   ],
+   "funcs": [
+    "0x004198b0?",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL23",
+   "status": "SHIPPED",
+   "desc": "Pole sitter player beats own time",
+   "sdt": 8,
+   "eids": [
+    10,
+    301
+   ],
+   "emit_eids": [
+    301
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_RACEFAST02",
+   "status": "SHIPPED",
+   "desc": "Player sets fastest race lap",
+   "sdt": 71,
+   "eids": [
+    72,
+    354
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_TYRES01",
+   "status": "SHIPPED",
+   "desc": "Light blistering warning",
+   "sdt": 104,
+   "eids": [
+    105,
+    388
+   ],
+   "emit_eids": [
+    105
+   ],
+   "funcs": [
+    "0x0041aa10"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_TYRES02",
+   "status": "SHIPPED",
+   "desc": "Severe blistering warning",
+   "sdt": 103,
+   "eids": [
+    104,
+    399,
+    400
+   ],
+   "emit_eids": [
+    104
+   ],
+   "funcs": [
+    "0x0041ab30"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN01",
+   "status": "SHIPPED",
+   "desc": "Player wins Australian GP",
+   "sdt": 170,
+   "eids": [
+    161,
+    482
+   ],
+   "emit_eids": [
+    161
+   ],
+   "funcs": [
+    "0x00419c50?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN02",
+   "status": "SHIPPED",
+   "desc": "Player wins Malaysian GP",
+   "sdt": 173,
+   "eids": [
+    164,
+    485
+   ],
+   "emit_eids": [
+    164,
+    485
+   ],
+   "funcs": [
+    "0x00419c50?",
+    "0x0041e320"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN03",
+   "status": "SHIPPED",
+   "desc": "Player wins Brazilian GP",
+   "sdt": 185,
+   "eids": [
+    175
+   ],
+   "emit_eids": [
+    175
+   ],
+   "funcs": [
+    "0x00419c50?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN04",
+   "status": "SHIPPED",
+   "desc": "Player wins San Marino GP",
+   "sdt": 184,
+   "eids": [
+    174,
+    518
+   ],
+   "emit_eids": [
+    174,
+    518
+   ],
+   "funcs": [
+    "0x00419c50?",
+    "0x0041c0f0?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN05",
+   "status": "SHIPPED",
+   "desc": "Player wins Spanish GP",
+   "sdt": 186,
+   "eids": [
+    176
+   ],
+   "emit_eids": [
+    176
+   ],
+   "funcs": [
+    "0x00419c50?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN06",
+   "status": "SHIPPED",
+   "desc": "Player wins Austrian GP",
+   "sdt": 174,
+   "eids": [
+    165,
+    487
+   ],
+   "emit_eids": [
+    165,
+    487
+   ],
+   "funcs": [
+    "0x00419c50?",
+    "0x0041e320"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN07",
+   "status": "SHIPPED",
+   "desc": "Player wins Monaco GP",
+   "sdt": 175,
+   "eids": [
+    166,
+    486
+   ],
+   "emit_eids": [
+    166,
+    486
+   ],
+   "funcs": [
+    "0x00419c50?",
+    "0x0041e320"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN08",
+   "status": "SHIPPED",
+   "desc": "Player wins Canadian GP",
+   "sdt": 179,
+   "eids": [
+    169
+   ],
+   "emit_eids": [
+    169
+   ],
+   "funcs": [
+    "0x00419c50?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN09",
+   "status": "SHIPPED",
+   "desc": "Player wins European GP",
+   "sdt": 171,
+   "eids": [
+    162,
+    483
+   ],
+   "emit_eids": [
+    162,
+    483
+   ],
+   "funcs": [
+    "0x00419c50?",
+    "0x0041e320"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN10",
+   "status": "SHIPPED",
+   "desc": "Player wins French GP",
+   "sdt": 178,
+   "eids": [
+    168
+   ],
+   "emit_eids": [
+    168
+   ],
+   "funcs": [
+    "0x00419c50?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN11",
+   "status": "SHIPPED",
+   "desc": "Player wins British GP",
+   "sdt": 180,
+   "eids": [
+    170
+   ],
+   "emit_eids": [
+    170
+   ],
+   "funcs": [
+    "0x00419c50?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN12",
+   "status": "SHIPPED",
+   "desc": "Player wins German GP",
+   "sdt": 172,
+   "eids": [
+    163,
+    484
+   ],
+   "emit_eids": [
+    163,
+    484
+   ],
+   "funcs": [
+    "0x00419c50?",
+    "0x0041e320"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN13",
+   "status": "SHIPPED",
+   "desc": "Player wins Hungarian GP",
+   "sdt": 181,
+   "eids": [
+    171,
+    519
+   ],
+   "emit_eids": [
+    171,
+    519
+   ],
+   "funcs": [
+    "0x00419c50?",
+    "0x0041c0f0?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN15",
+   "status": "SHIPPED",
+   "desc": "Player wins Italian GP",
+   "sdt": 183,
+   "eids": [
+    173
+   ],
+   "emit_eids": [
+    173
+   ],
+   "funcs": [
+    "0x00419c50?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN16",
+   "status": "SHIPPED",
+   "desc": "Player wins US GP",
+   "sdt": 182,
+   "eids": [
+    172,
+    517
+   ],
+   "emit_eids": [
+    172,
+    517
+   ],
+   "funcs": [
+    "0x00419c50?",
+    "0x0041c0f0?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN17",
+   "status": "SHIPPED",
+   "desc": "Player wins Japanese GP",
+   "sdt": 187,
+   "eids": [
+    177
+   ],
+   "emit_eids": [
+    177
+   ],
+   "funcs": [
+    "0x00419c50?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN19",
+   "status": "SHIPPED",
+   "desc": "Player wins generic Grand Prix",
+   "sdt": 176,
+   "eids": [
+    167
+   ],
+   "emit_eids": [
+    167
+   ],
+   "funcs": [
+    "0x00419c50?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN20",
+   "status": "SHIPPED",
+   "desc": "Player finishes at X position",
+   "sdt": 167,
+   "eids": [
+    158,
+    504
+   ],
+   "emit_eids": [
+    158,
+    504
+   ],
+   "funcs": [
+    "0x00419c50?",
+    "0x00420cf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_WIN21",
+   "status": "SHIPPED",
+   "desc": "Player finishes outside points",
+   "sdt": 166,
+   "eids": [
+    157,
+    492
+   ],
+   "emit_eids": [
+    157,
+    492
+   ],
+   "funcs": [
+    "0x00419c50?",
+    "0x00420cf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_YELLOW01",
+   "status": "SHIPPED",
+   "desc": "Yellow flag Sector 1",
+   "sdt": 143,
+   "eids": [
+    134
+   ],
+   "emit_eids": [
+    134
+   ],
+   "funcs": [
+    "0x004193a0",
+    "0x0041b3c0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_YELLOW02",
+   "status": "SHIPPED",
+   "desc": "Yellow flag Sector 2",
+   "sdt": 145,
+   "eids": [
+    136
+   ],
+   "emit_eids": [
+    136
+   ],
+   "funcs": [
+    "0x004193a0",
+    "0x0041b3c0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_YELLOW03",
+   "status": "SHIPPED",
+   "desc": "Yellow flag Sector 3",
+   "sdt": 147,
+   "eids": [
+    138
+   ],
+   "emit_eids": [
+    138
+   ],
+   "funcs": [
+    "0x004193a0",
+    "0x0041b3c0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_30_MINS_LEFT",
+   "status": "SHIPPED",
+   "desc": "30 minutes remain",
+   "sdt": 33,
+   "eids": [
+    34,
+    325
+   ],
+   "emit_eids": [
+    34,
+    325
+   ],
+   "funcs": [
+    "0x0041a500?",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_45_MINS_LEFT",
+   "status": "SHIPPED",
+   "desc": "45 minutes remain",
+   "sdt": 34,
+   "eids": [
+    35,
+    326
+   ],
+   "emit_eids": [
+    35,
+    326
+   ],
+   "funcs": [
+    "0x0041a500?",
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_FL_BAD_BL",
+   "status": "SHIPPED",
+   "desc": "Front Left severe blistering",
+   "sdt": 93,
+   "eids": [
+    94,
+    384
+   ],
+   "emit_eids": [
+    94
+   ],
+   "funcs": [
+    "0x0041ab30"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_SG_CUT",
+   "status": "SHIPPED",
+   "desc": "Stop/Go penalty - cutting track",
+   "sdt": 160,
+   "eids": [
+    151,
+    481
+   ],
+   "emit_eids": [
+    151,
+    481
+   ],
+   "funcs": [
+    "0x0041a720?",
+    "0x0041daf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_WIN_EUR",
+   "status": "SHIPPED",
+   "desc": "Player wins European GP",
+   "sdt": 169,
+   "eids": [
+    160,
+    488
+   ],
+   "emit_eids": [
+    160,
+    488
+   ],
+   "funcs": [
+    "0x00419c50?",
+    "0x00420820"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  }
+ ],
+ "B": [
+  {
+   "clip": "PWS_HIT01",
+   "status": "DONE",
+   "desc": "Player lost front wing",
+   "sdt": 107,
+   "eids": [
+    108,
+    398
+   ],
+   "emit_eids": [
+    108
+   ],
+   "funcs": [
+    "0x0041afd0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_HIT02",
+   "status": "DONE",
+   "desc": "Player lost rear wing",
+   "sdt": 110,
+   "eids": [
+    111,
+    404
+   ],
+   "emit_eids": [
+    111
+   ],
+   "funcs": [
+    "0x0041afd0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_HIT03",
+   "status": "DONE",
+   "desc": "Player lost Front Left wheel",
+   "sdt": 105,
+   "eids": [
+    106,
+    389
+   ],
+   "emit_eids": [
+    106
+   ],
+   "funcs": [
+    "0x0041afd0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_HIT04",
+   "status": "DONE",
+   "desc": "Player lost Front Right wheel",
+   "sdt": 106,
+   "eids": [
+    107,
+    373
+   ],
+   "emit_eids": [
+    107
+   ],
+   "funcs": [
+    "0x0041afd0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_HIT05",
+   "status": "DONE",
+   "desc": "Player lost Rear Left wheel",
+   "sdt": 108,
+   "eids": [
+    109,
+    402
+   ],
+   "emit_eids": [
+    109
+   ],
+   "funcs": [
+    "0x0041afd0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_HIT06",
+   "status": "DONE",
+   "desc": "Player lost Rear Right wheel",
+   "sdt": 109,
+   "eids": [
+    110,
+    403
+   ],
+   "emit_eids": [
+    110
+   ],
+   "funcs": [
+    "0x0041afd0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_RED01",
+   "status": "DONE",
+   "desc": "Red flag - session stopped",
+   "sdt": 135,
+   "eids": [
+    131,
+    416
+   ],
+   "emit_eids": [
+    131
+   ],
+   "funcs": [
+    "0x0041b3c0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_RETIRE02",
+   "status": "DONE",
+   "desc": "Player retired (generic 1)",
+   "sdt": 118,
+   "eids": [
+    117,
+    410
+   ],
+   "emit_eids": [
+    117
+   ],
+   "funcs": [
+    "0x0041b250"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_DQ",
+   "status": "DONE",
+   "desc": "Disqualified - failed to serve stop/go",
+   "sdt": 158,
+   "eids": [
+    149,
+    479
+   ],
+   "emit_eids": [
+    149,
+    479
+   ],
+   "funcs": [
+    "0x0041a940?",
+    "0x0041daf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  }
+ ],
+ "C": [
+  {
+   "clip": "PWS_2001_13",
+   "status": "WIP",
+   "desc": "AI driver ahead on Out Lap",
+   "sdt": 30,
+   "eids": [
+    32,
+    323
+   ],
+   "emit_eids": [
+    323
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_131",
+   "status": "WIP",
+   "desc": "AI driver engine stalled in pits",
+   "sdt": 196,
+   "eids": [
+    184,
+    516
+   ],
+   "emit_eids": [
+    516
+   ],
+   "funcs": [
+    "0x0041c0f0?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_138",
+   "status": "SILENT",
+   "desc": "AI driver positioned to secure WDC",
+   "sdt": 213,
+   "eids": [
+    200,
+    506
+   ],
+   "emit_eids": [
+    506
+   ],
+   "funcs": [
+    "0x0041be60"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_14",
+   "status": "WIP",
+   "desc": "AI driver ahead on Flying Lap",
+   "sdt": 28,
+   "eids": [
+    30,
+    321
+   ],
+   "emit_eids": [
+    321
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_141",
+   "status": "WIP",
+   "desc": "Team positioned to secure WCC",
+   "sdt": 212,
+   "eids": [
+    199,
+    513
+   ],
+   "emit_eids": [
+    513
+   ],
+   "funcs": [
+    "0x0041be60"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_15",
+   "status": "WIP",
+   "desc": "AI driver ahead on In Lap",
+   "sdt": 29,
+   "eids": [
+    31,
+    322
+   ],
+   "emit_eids": [
+    322
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_159",
+   "status": "WIP",
+   "desc": "Session ends",
+   "sdt": 293,
+   "eids": [
+    275
+   ],
+   "emit_eids": [
+    275
+   ],
+   "funcs": [
+    "0x0041a6b0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_17",
+   "status": "WIP",
+   "desc": "AI driver starting 1st run",
+   "sdt": 21,
+   "eids": [
+    23,
+    314
+   ],
+   "emit_eids": [
+    314
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_18",
+   "status": "WIP",
+   "desc": "AI driver starting 2nd run",
+   "sdt": 22,
+   "eids": [
+    24,
+    315
+   ],
+   "emit_eids": [
+    315
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_19",
+   "status": "WIP",
+   "desc": "AI driver starting 3rd run",
+   "sdt": 23,
+   "eids": [
+    25,
+    316
+   ],
+   "emit_eids": [
+    316
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_20",
+   "status": "WIP",
+   "desc": "AI driver starting 4th run",
+   "sdt": 24,
+   "eids": [
+    26,
+    317
+   ],
+   "emit_eids": [
+    317
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_22",
+   "status": "SILENT",
+   "desc": "Rain expected - make run ASAP",
+   "sdt": 25,
+   "eids": [
+    27,
+    318
+   ],
+   "emit_eids": [
+    318
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_24",
+   "status": "SILENT",
+   "desc": "Rain expected to ease - wait",
+   "sdt": 26,
+   "eids": [
+    28,
+    319
+   ],
+   "emit_eids": [
+    319
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_25",
+   "status": "SILENT",
+   "desc": "Rain expected to continue - make run ASAP",
+   "sdt": 27,
+   "eids": [
+    29,
+    320
+   ],
+   "emit_eids": [
+    320
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_33",
+   "status": "WIP",
+   "desc": "X position or better secures WDC",
+   "sdt": 39,
+   "eids": [
+    40,
+    331
+   ],
+   "emit_eids": [
+    331
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_80",
+   "status": "WIP",
+   "desc": "Engine stalled - will get refired",
+   "sdt": 53,
+   "eids": [
+    54,
+    337
+   ],
+   "emit_eids": [
+    337
+   ],
+   "funcs": [
+    "0x0041c3e0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIBLUE03",
+   "status": "WIP",
+   "desc": "Player passes AI driver",
+   "sdt": 275,
+   "eids": [
+    259
+   ],
+   "emit_eids": [
+    259
+   ],
+   "funcs": [
+    "0x00419120"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIMECHPROB0",
+   "status": "WIP",
+   "desc": "",
+   "sdt": 230,
+   "eids": [
+    201,
+    202,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    447,
+    448,
+    463,
+    464,
+    465,
+    466,
+    467,
+    471
+   ],
+   "emit_eids": [
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    447,
+    448,
+    463,
+    464,
+    465,
+    466,
+    467,
+    471
+   ],
+   "funcs": [
+    "0x0041ac50?",
+    "0x0041d630?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIMECHPROB1",
+   "status": "WIP",
+   "desc": "",
+   "sdt": 221,
+   "eids": [
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    449,
+    450,
+    451,
+    452,
+    453
+   ],
+   "emit_eids": [
+    208,
+    449,
+    450,
+    451,
+    452,
+    453
+   ],
+   "funcs": [
+    "0x0041ac50?",
+    "0x0041d630?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPENALTY01",
+   "status": "WIP",
+   "desc": "AI penalty (type 1)",
+   "sdt": 272,
+   "eids": [
+    256
+   ],
+   "emit_eids": [
+    256
+   ],
+   "funcs": [
+    "0x0041a720?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPENALTY02",
+   "status": "WIP",
+   "desc": "AI speeding in pits penalty",
+   "sdt": 270,
+   "eids": [
+    254
+   ],
+   "emit_eids": [
+    254
+   ],
+   "funcs": [
+    "0x0041a720?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPENALTY04",
+   "status": "WIP",
+   "desc": "AI blocking blue penalty",
+   "sdt": 268,
+   "eids": [
+    252
+   ],
+   "emit_eids": [
+    252
+   ],
+   "funcs": [
+    "0x0041a720?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPENALTY13",
+   "status": "WIP",
+   "desc": "AI penalty (type 13)",
+   "sdt": 269,
+   "eids": [
+    253
+   ],
+   "emit_eids": [
+    253
+   ],
+   "funcs": [
+    "0x0041a720?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPENALTY22",
+   "status": "WIP",
+   "desc": "AI penalty (type 22)",
+   "sdt": 259,
+   "eids": [
+    243
+   ],
+   "emit_eids": [
+    243
+   ],
+   "funcs": [
+    "0x0041a940?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPIT11",
+   "status": "WIP",
+   "desc": "AI pits to serve stop-go penalty",
+   "sdt": 207,
+   "eids": [
+    195,
+    510
+   ],
+   "emit_eids": [
+    510
+   ],
+   "funcs": [
+    "0x0041be60"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AITYRES01",
+   "status": "WIP",
+   "desc": "AI light blistering",
+   "sdt": 232,
+   "eids": [
+    219,
+    473
+   ],
+   "emit_eids": [
+    473
+   ],
+   "funcs": [
+    "0x0041d630?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AITYRES02",
+   "status": "WIP",
+   "desc": "AI severe blistering",
+   "sdt": 231,
+   "eids": [
+    218,
+    472
+   ],
+   "emit_eids": [
+    472
+   ],
+   "funcs": [
+    "0x0041d630?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_GREEN01",
+   "status": "WIP",
+   "desc": "Green flag conditions",
+   "sdt": 130,
+   "eids": [
+    126,
+    419
+   ],
+   "emit_eids": [
+    126
+   ],
+   "funcs": [
+    "0x0041b3c0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC03",
+   "status": "WIP",
+   "desc": "Player speeding pits - investigation",
+   "sdt": 156,
+   "eids": [
+    147,
+    502
+   ],
+   "emit_eids": [
+    502
+   ],
+   "funcs": [
+    "0x0041daf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC04",
+   "status": "WIP",
+   "desc": "Player overtaking yellow - investigation",
+   "sdt": 155,
+   "eids": [
+    146,
+    503
+   ],
+   "emit_eids": [
+    503
+   ],
+   "funcs": [
+    "0x0041daf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC05",
+   "status": "WIP",
+   "desc": "Player blocking blue - investigation",
+   "sdt": 152,
+   "eids": [
+    143,
+    494
+   ],
+   "emit_eids": [
+    494
+   ],
+   "funcs": [
+    "0x0041daf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC46",
+   "status": "WIP",
+   "desc": "AI driver laps another AI",
+   "sdt": 209,
+   "eids": [
+    197,
+    507
+   ],
+   "emit_eids": [
+    507
+   ],
+   "funcs": [
+    "0x0041be60"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC47",
+   "status": "WIP",
+   "desc": "Player cutting track - investigation",
+   "sdt": 153,
+   "eids": [
+    144,
+    499
+   ],
+   "emit_eids": [
+    499
+   ],
+   "funcs": [
+    "0x0041daf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PENALTY03",
+   "status": "WIP",
+   "desc": "Overtaking yellow penalty",
+   "sdt": 165,
+   "eids": [
+    156,
+    496
+   ],
+   "emit_eids": [
+    496
+   ],
+   "funcs": [
+    "0x00420cf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PENALTY04",
+   "status": "WIP",
+   "desc": "Blocking blue penalty",
+   "sdt": 163,
+   "eids": [
+    154,
+    497
+   ],
+   "emit_eids": [
+    154
+   ],
+   "funcs": [
+    "0x0041a720?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PENALTY07",
+   "status": "WIP",
+   "desc": "Stop/go penalty",
+   "sdt": 150,
+   "eids": [
+    141,
+    490
+   ],
+   "emit_eids": [
+    490
+   ],
+   "funcs": [
+    "0x0041daf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PIT09",
+   "status": "WIP",
+   "desc": "Gear (pit procedure)",
+   "sdt": 43,
+   "eids": [
+    44,
+    335
+   ],
+   "emit_eids": [
+    335
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PIT10",
+   "status": "WIP",
+   "desc": "Go (pit procedure)",
+   "sdt": 44,
+   "eids": [
+    45,
+    336
+   ],
+   "emit_eids": [
+    336
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PIT12",
+   "status": "WIP",
+   "desc": "Limiter Off - clear of pit lane",
+   "sdt": 42,
+   "eids": [
+    43,
+    334
+   ],
+   "emit_eids": [
+    334
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL28",
+   "status": "SILENT",
+   "desc": "Very few drivers on track",
+   "sdt": 10,
+   "eids": [
+    12,
+    303
+   ],
+   "emit_eids": [
+    303
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL29",
+   "status": "SILENT",
+   "desc": "Some drivers on track",
+   "sdt": 9,
+   "eids": [
+    11,
+    302
+   ],
+   "emit_eids": [
+    302
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL30",
+   "status": "SILENT",
+   "desc": "Most drivers on track",
+   "sdt": 13,
+   "eids": [
+    15,
+    306
+   ],
+   "emit_eids": [
+    306
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_QUAL32",
+   "status": "SILENT",
+   "desc": "Team front row lockout",
+   "sdt": 0,
+   "eids": [
+    293,
+    397,
+    426
+   ],
+   "emit_eids": [
+    293,
+    397
+   ],
+   "funcs": [
+    "0x0041b980?",
+    "0x0041c0f0?",
+    "0x0041d630?",
+    "0x0041daf0",
+    "0x00420490"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_RETIRE01",
+   "status": "WIP",
+   "desc": "Player engine stall",
+   "sdt": 120,
+   "eids": [
+    118,
+    411
+   ],
+   "emit_eids": [
+    118
+   ],
+   "funcs": [
+    "0x0041b250"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_RETIRE04",
+   "status": "WIP",
+   "desc": "Player blown engine",
+   "sdt": 121,
+   "eids": [
+    119,
+    412
+   ],
+   "emit_eids": [
+    119
+   ],
+   "funcs": [
+    "0x0041b250"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_SCAR01",
+   "status": "SILENT",
+   "desc": "Safety car deployed - exiting pits",
+   "sdt": 138,
+   "eids": [
+    423
+   ],
+   "emit_eids": [
+    423
+   ],
+   "funcs": [
+    "0x00420820"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_SCAR03",
+   "status": "SILENT",
+   "desc": "Safety car ending - green this lap",
+   "sdt": 140,
+   "eids": [
+    424
+   ],
+   "emit_eids": [
+    424
+   ],
+   "funcs": [
+    "0x00420820"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_SLOWCAR01",
+   "status": "WIP",
+   "desc": "Slow car ahead",
+   "sdt": 136,
+   "eids": [
+    132,
+    427
+   ],
+   "emit_eids": [
+    427
+   ],
+   "funcs": [
+    "0x0041e320"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_YELLOW04",
+   "status": "WIP",
+   "desc": "Sector 1 cleared",
+   "sdt": 142,
+   "eids": [
+    133
+   ],
+   "emit_eids": [
+    133
+   ],
+   "funcs": [
+    "0x0041b3c0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_YELLOW05",
+   "status": "WIP",
+   "desc": "Sector 2 cleared",
+   "sdt": 144,
+   "eids": [
+    135
+   ],
+   "emit_eids": [
+    135
+   ],
+   "funcs": [
+    "0x0041b3c0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_YELLOW06",
+   "status": "WIP",
+   "desc": "Sector 3 cleared",
+   "sdt": 146,
+   "eids": [
+    137
+   ],
+   "emit_eids": [
+    137
+   ],
+   "funcs": [
+    "0x0041b3c0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_OD_EXIT_RED",
+   "status": "WIP",
+   "desc": "Other driver under investigation - exiting red",
+   "sdt": 35,
+   "eids": [
+    36,
+    327
+   ],
+   "emit_eids": [
+    327
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_OD_LAP_DISAL",
+   "status": "WIP",
+   "desc": "Other driver lap disallowed - exited under red",
+   "sdt": 36,
+   "eids": [
+    37,
+    328
+   ],
+   "emit_eids": [
+    328
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_OD_LOST_7",
+   "status": "WIP",
+   "desc": "Other driver lost 7th gear",
+   "sdt": 222,
+   "eids": [
+    209,
+    457
+   ],
+   "emit_eids": [
+    457
+   ],
+   "funcs": [
+    "0x0041d630?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_OD_MONSOON",
+   "status": "WIP",
+   "desc": "Other driver leaves pits on Monsoons",
+   "sdt": 204,
+   "eids": [
+    192,
+    511
+   ],
+   "emit_eids": [
+    511
+   ],
+   "funcs": [
+    "0x0041be60"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_OD_PUNCTURE",
+   "status": "WIP",
+   "desc": "Other driver has a puncture",
+   "sdt": 223,
+   "eids": [
+    210,
+    458
+   ],
+   "emit_eids": [
+    458
+   ],
+   "funcs": [
+    "0x0041d630?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_OD_STUCK_7",
+   "status": "WIP",
+   "desc": "Other driver stuck in 7th gear",
+   "sdt": 224,
+   "eids": [
+    211,
+    462
+   ],
+   "emit_eids": [
+    211,
+    462
+   ],
+   "funcs": [
+    "0x0041ac50?",
+    "0x0041d630?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_OD_WET",
+   "status": "WIP",
+   "desc": "Other driver leaves pits on Wets",
+   "sdt": 206,
+   "eids": [
+    194,
+    509
+   ],
+   "emit_eids": [
+    509
+   ],
+   "funcs": [
+    "0x0041be60"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_25_DD",
+   "status": "WIP",
+   "desc": "25 sec penalty - dangerous driving",
+   "sdt": 157,
+   "eids": [
+    148,
+    478
+   ],
+   "emit_eids": [
+    478
+   ],
+   "funcs": [
+    "0x0041daf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_EXIT_RED",
+   "status": "SILENT",
+   "desc": "Under investigation - exiting under red",
+   "sdt": 37,
+   "eids": [
+    38,
+    329
+   ],
+   "emit_eids": [
+    329
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_FL_BLIST",
+   "status": "WIP",
+   "desc": "Front Left light blistering",
+   "sdt": 94,
+   "eids": [
+    95,
+    385
+   ],
+   "emit_eids": [
+    95
+   ],
+   "funcs": [
+    "0x0041aa10"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_FR_BAD_BL",
+   "status": "SILENT",
+   "desc": "Front Right severe blistering",
+   "sdt": 95,
+   "eids": [
+    96,
+    386
+   ],
+   "emit_eids": [
+    96
+   ],
+   "funcs": [
+    "0x0041ab30"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_FR_BLIST",
+   "status": "SILENT",
+   "desc": "Front Right light blistering",
+   "sdt": 96,
+   "eids": [
+    97,
+    392
+   ],
+   "emit_eids": [
+    97
+   ],
+   "funcs": [
+    "0x0041aa10"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_INV_DD",
+   "status": "WIP",
+   "desc": "Under investigation - dangerous driving",
+   "sdt": 159,
+   "eids": [
+    150,
+    480
+   ],
+   "emit_eids": [
+    480
+   ],
+   "funcs": [
+    "0x0041daf0"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_LAP_DISAL",
+   "status": "SILENT",
+   "desc": "Fastest lap disallowed - exited under red",
+   "sdt": 38,
+   "eids": [
+    39,
+    330
+   ],
+   "emit_eids": [
+    330
+   ],
+   "funcs": [
+    "0x0041b980?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_RL_BAD_BL",
+   "status": "SILENT",
+   "desc": "Rear Left severe blistering",
+   "sdt": 97,
+   "eids": [
+    98,
+    391
+   ],
+   "emit_eids": [
+    98
+   ],
+   "funcs": [
+    "0x0041ab30"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_RL_BLIST",
+   "status": "SILENT",
+   "desc": "Rear Left light blistering",
+   "sdt": 98,
+   "eids": [
+    99,
+    394
+   ],
+   "emit_eids": [
+    99
+   ],
+   "funcs": [
+    "0x0041aa10"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_RR_BAD_BL",
+   "status": "SILENT",
+   "desc": "Rear Right severe blistering",
+   "sdt": 99,
+   "eids": [
+    100,
+    395
+   ],
+   "emit_eids": [
+    100
+   ],
+   "funcs": [
+    "0x0041ab30"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_RR_BLIST",
+   "status": "SILENT",
+   "desc": "Rear Right light blistering",
+   "sdt": 100,
+   "eids": [
+    101,
+    396
+   ],
+   "emit_eids": [
+    101
+   ],
+   "funcs": [
+    "0x0041aa10"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_SG_SPEED",
+   "status": "WIP",
+   "desc": "Stop/Go penalty - speeding in pits",
+   "sdt": 162,
+   "eids": [
+    153,
+    505
+   ],
+   "emit_eids": [
+    153
+   ],
+   "funcs": [
+    "0x0041a720?"
+   ],
+   "all_blocked": false,
+   "orphaned": false
+  }
+ ],
+ "D": [],
+ "E": [
+  {
+   "clip": "PWS_2001_102",
+   "status": "WIP",
+   "desc": "Player sets personal best lap",
+   "sdt": 72,
+   "eids": [
+    73,
+    344
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_132",
+   "status": "WIP",
+   "desc": "AI driver jammed fuel hose",
+   "sdt": 197,
+   "eids": [
+    185
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_133",
+   "status": "WIP",
+   "desc": "AI driver stuck Front Left wheel",
+   "sdt": 198,
+   "eids": [
+    186
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_134",
+   "status": "SILENT",
+   "desc": "AI driver stuck Front Right wheel",
+   "sdt": 199,
+   "eids": [
+    187
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_135",
+   "status": "SILENT",
+   "desc": "AI driver stuck Rear Left wheel",
+   "sdt": 200,
+   "eids": [
+    188
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_136",
+   "status": "WIP",
+   "desc": "AI driver stuck Rear Right wheel",
+   "sdt": 201,
+   "eids": [
+    189
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_149",
+   "status": "WIP",
+   "desc": "AI driver held up by another AI",
+   "sdt": 249,
+   "eids": [
+    234
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_163",
+   "status": "WIP",
+   "desc": "25% race distance complete",
+   "sdt": 292,
+   "eids": [
+    274
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_164",
+   "status": "WIP",
+   "desc": "50% race distance complete",
+   "sdt": 288,
+   "eids": [
+    271
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_165",
+   "status": "WIP",
+   "desc": "75% race distance complete",
+   "sdt": 287,
+   "eids": [
+    270
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_218",
+   "status": "WIP",
+   "desc": "Overcast conditions - possible rain",
+   "sdt": 300,
+   "eids": [
+    282
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_220",
+   "status": "WIP",
+   "desc": "Rain starts - short shower",
+   "sdt": 301,
+   "eids": [
+    283
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_221",
+   "status": "WIP",
+   "desc": "Rain starts - monsoon likely",
+   "sdt": 298,
+   "eids": [
+    280
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_222",
+   "status": "WIP",
+   "desc": "Rain eases off",
+   "sdt": 299,
+   "eids": [
+    281
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_308",
+   "status": "WIP",
+   "desc": "You are being chased by AI driver",
+   "sdt": 310,
+   "eids": [
+    289
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_309",
+   "status": "WIP",
+   "desc": "AI team uses driver orders",
+   "sdt": 309,
+   "eids": [
+    288
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_310",
+   "status": "WIP",
+   "desc": "Fastest AI is on Slicks",
+   "sdt": 307,
+   "eids": [
+    286
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_311",
+   "status": "WIP",
+   "desc": "Fastest AI is on Inters",
+   "sdt": 306,
+   "eids": [
+    285
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_312",
+   "status": "WIP",
+   "desc": "Fastest AI is on Wets",
+   "sdt": 308,
+   "eids": [
+    287
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_68",
+   "status": "WIP",
+   "desc": "Front Left tire change successful",
+   "sdt": 61,
+   "eids": [
+    62,
+    369
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_69",
+   "status": "WIP",
+   "desc": "Front Right tire change successful",
+   "sdt": 63,
+   "eids": [
+    64,
+    357
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_70",
+   "status": "WIP",
+   "desc": "Rear Left tire change successful",
+   "sdt": 66,
+   "eids": [
+    67,
+    338
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_71",
+   "status": "WIP",
+   "desc": "Rear Right tire change successful",
+   "sdt": 68,
+   "eids": [
+    69,
+    349
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_72",
+   "status": "WIP",
+   "desc": "Slow Front Left tire change",
+   "sdt": 62,
+   "eids": [
+    63,
+    358
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_73",
+   "status": "WIP",
+   "desc": "Slow Front Right tire change",
+   "sdt": 64,
+   "eids": [
+    65,
+    359
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_74",
+   "status": "WIP",
+   "desc": "Slow Rear Left tire change",
+   "sdt": 67,
+   "eids": [
+    68,
+    346
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_75",
+   "status": "WIP",
+   "desc": "Slow Rear Right tire change",
+   "sdt": 69,
+   "eids": [
+    70,
+    339
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_76",
+   "status": "WIP",
+   "desc": "Wheel gun failure",
+   "sdt": 60,
+   "eids": [
+    61,
+    372
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_77",
+   "status": "WIP",
+   "desc": "Wheel is jammed",
+   "sdt": 65,
+   "eids": [
+    66,
+    371
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_78",
+   "status": "WIP",
+   "desc": "Refuel successful",
+   "sdt": 56,
+   "eids": [
+    57,
+    362
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_79",
+   "status": "WIP",
+   "desc": "Fuel hose issue - slow refuel",
+   "sdt": 55,
+   "eids": [
+    56,
+    365
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_2001_96",
+   "status": "WIP",
+   "desc": "Player rejoins track at X position",
+   "sdt": 59,
+   "eids": [
+    60,
+    370
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIBLUE01",
+   "status": "WIP",
+   "desc": "Player approaches AI driver (blue flag)",
+   "sdt": 274,
+   "eids": [
+    258
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIBLUE02",
+   "status": "WIP",
+   "desc": "AI driver under blue flag - be ready",
+   "sdt": 273,
+   "eids": [
+    257
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIFASTLAP03",
+   "status": "WIP",
+   "desc": "AI sets all-time fastest lap",
+   "sdt": 280,
+   "eids": [
+    263
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIINCID01",
+   "status": "WIP",
+   "desc": "AI stalls on the grid",
+   "sdt": 248,
+   "eids": [
+    233
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIINCID03",
+   "status": "WIP",
+   "desc": "AI went off track",
+   "sdt": 241,
+   "eids": [
+    228
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIINCID04",
+   "status": "WIP",
+   "desc": "AI spun off sector X",
+   "sdt": 246,
+   "eids": [
+    232
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIINCID06",
+   "status": "WIP",
+   "desc": "Car off track just ahead",
+   "sdt": 240,
+   "eids": [
+    227
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIINCID07",
+   "status": "WIP",
+   "desc": "Car spun off just ahead",
+   "sdt": 245,
+   "eids": [
+    231
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIINCID08",
+   "status": "WIP",
+   "desc": "Cars all over in sector X",
+   "sdt": 243,
+   "eids": [
+    229
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AILAPPIN01",
+   "status": "WIP",
+   "desc": "AI driver approaches player",
+   "sdt": 126,
+   "eids": [
+    122,
+    421
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AILAPPIN05",
+   "status": "WIP",
+   "desc": "AI driver passes player",
+   "sdt": 125,
+   "eids": [
+    121
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIOFFTRACK0",
+   "status": "WIP",
+   "desc": "AI recovers from spin",
+   "sdt": 237,
+   "eids": [
+    224
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPENALTY03",
+   "status": "WIP",
+   "desc": "AI overtaking yellow penalty",
+   "sdt": 271,
+   "eids": [
+    255
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPENALTY05",
+   "status": "WIP",
+   "desc": "AI cutting track penalty",
+   "sdt": 258,
+   "eids": [
+    242
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPENALTY07",
+   "status": "WIP",
+   "desc": "AI stop/go penalty",
+   "sdt": 257,
+   "eids": [
+    241
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPENALTY08",
+   "status": "WIP",
+   "desc": "AI penalty (type 8)",
+   "sdt": 255,
+   "eids": [
+    239
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPENALTY14",
+   "status": "WIP",
+   "desc": "AI penalty (type 14)",
+   "sdt": 256,
+   "eids": [
+    240
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_AIPIT13",
+   "status": "SILENT",
+   "desc": "AI rejoins track at X position",
+   "sdt": 202,
+   "eids": [
+    190
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHANWARN0",
+   "status": "WIP",
+   "desc": "Meatball flag - must pit",
+   "sdt": 134,
+   "eids": [
+    130,
+    415
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB06",
+   "status": "WIP",
+   "desc": "Front Left puncture",
+   "sdt": 77,
+   "eids": [
+    78,
+    352
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB07",
+   "status": "WIP",
+   "desc": "Front Right puncture",
+   "sdt": 78,
+   "eids": [
+    79,
+    351
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB08",
+   "status": "WIP",
+   "desc": "Rear Left puncture",
+   "sdt": 101,
+   "eids": [
+    102,
+    390,
+    393
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB09",
+   "status": "WIP",
+   "desc": "Rear Right puncture",
+   "sdt": 102,
+   "eids": [
+    103,
+    387
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB14",
+   "status": "WIP",
+   "desc": "Electronics malfunction",
+   "sdt": 75,
+   "eids": [
+    76,
+    348
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB16",
+   "status": "WIP",
+   "desc": "Damaged suspension - avoid kerbs",
+   "sdt": 74,
+   "eids": [
+    75,
+    345
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB20",
+   "status": "WIP",
+   "desc": "Lost 1st gear",
+   "sdt": 79,
+   "eids": [
+    80,
+    341
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB21",
+   "status": "SILENT",
+   "desc": "Lost 2nd gear",
+   "sdt": 80,
+   "eids": [
+    81,
+    340
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB22",
+   "status": "SILENT",
+   "desc": "Lost 3rd gear",
+   "sdt": 81,
+   "eids": [
+    82,
+    342
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB23",
+   "status": "SILENT",
+   "desc": "Lost 4th gear",
+   "sdt": 82,
+   "eids": [
+    83,
+    353
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB24",
+   "status": "SILENT",
+   "desc": "Lost 5th gear",
+   "sdt": 83,
+   "eids": [
+    84,
+    374
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB25",
+   "status": "SILENT",
+   "desc": "Lost 6th gear",
+   "sdt": 84,
+   "eids": [
+    85,
+    375
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB26",
+   "status": "SILENT",
+   "desc": "Lost 7th gear",
+   "sdt": 85,
+   "eids": [
+    86,
+    376
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB27",
+   "status": "WIP",
+   "desc": "Stuck in 1st gear",
+   "sdt": 86,
+   "eids": [
+    87,
+    377
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB28",
+   "status": "SILENT",
+   "desc": "Stuck in 2nd gear",
+   "sdt": 87,
+   "eids": [
+    88,
+    378
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB29",
+   "status": "SILENT",
+   "desc": "Stuck in 3rd gear",
+   "sdt": 88,
+   "eids": [
+    89,
+    379
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB30",
+   "status": "SILENT",
+   "desc": "Stuck in 4th gear",
+   "sdt": 89,
+   "eids": [
+    90,
+    380
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB31",
+   "status": "SILENT",
+   "desc": "Stuck in 5th gear",
+   "sdt": 90,
+   "eids": [
+    91,
+    381
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB32",
+   "status": "SILENT",
+   "desc": "Stuck in 6th gear",
+   "sdt": 91,
+   "eids": [
+    92,
+    382
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MECHPROB33",
+   "status": "SILENT",
+   "desc": "Stuck in 7th gear",
+   "sdt": 92,
+   "eids": [
+    93,
+    383
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC06",
+   "status": "WIP",
+   "desc": "AI false start - investigation",
+   "sdt": 262,
+   "eids": [
+    246
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC07",
+   "status": "WIP",
+   "desc": "AI speeding pits - investigation",
+   "sdt": 264,
+   "eids": [
+    248
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC08",
+   "status": "WIP",
+   "desc": "AI overtaking yellow - investigation",
+   "sdt": 263,
+   "eids": [
+    247
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC09",
+   "status": "WIP",
+   "desc": "AI blocking blue - investigation",
+   "sdt": 260,
+   "eids": [
+    244
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC18",
+   "status": "WIP",
+   "desc": "Stop next lap",
+   "sdt": 46,
+   "eids": [
+    47
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC25",
+   "status": "WIP",
+   "desc": "AI increases pace",
+   "sdt": 286,
+   "eids": [
+    269
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC26",
+   "status": "WIP",
+   "desc": "AI reduces pace (1)",
+   "sdt": 285,
+   "eids": [
+    268
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC27",
+   "status": "WIP",
+   "desc": "AI maintains position (1)",
+   "sdt": 284,
+   "eids": [
+    267
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC28",
+   "status": "WIP",
+   "desc": "AI maintains position (2)",
+   "sdt": 283,
+   "eids": [
+    266
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC29",
+   "status": "WIP",
+   "desc": "AI reduces pace (2)",
+   "sdt": 282,
+   "eids": [
+    265
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC30",
+   "status": "WIP",
+   "desc": "AI has pit stop issue",
+   "sdt": 195,
+   "eids": [
+    183
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC48",
+   "status": "WIP",
+   "desc": "AI cutting track - investigation",
+   "sdt": 261,
+   "eids": [
+    245
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_MISC54",
+   "status": "WIP",
+   "desc": "Box! Pit now",
+   "sdt": 45,
+   "eids": [
+    46
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_OD_HOLDING",
+   "status": "WIP",
+   "desc": "AI driver holds up another AI",
+   "sdt": 244,
+   "eids": [
+    230
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_OIL01",
+   "status": "WIP",
+   "desc": "Oil on track Sector 1",
+   "sdt": 131,
+   "eids": [
+    127,
+    420
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_OIL02",
+   "status": "WIP",
+   "desc": "Oil on track Sector 2",
+   "sdt": 132,
+   "eids": [
+    128,
+    417
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_OIL03",
+   "status": "WIP",
+   "desc": "Oil on track Sector 3",
+   "sdt": 133,
+   "eids": [
+    129,
+    418
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PENALTY08",
+   "status": "WIP",
+   "desc": "Penalty (type 8)",
+   "sdt": 148,
+   "eids": [
+    139
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PIT01",
+   "status": "WIP",
+   "desc": "Pit on this lap",
+   "sdt": 48,
+   "eids": [
+    49,
+    363
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PIT03",
+   "status": "WIP",
+   "desc": "Watch for pit lane entrance",
+   "sdt": 49,
+   "eids": [
+    50,
+    367
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PIT06",
+   "status": "WIP",
+   "desc": "Limiter On",
+   "sdt": 50,
+   "eids": [
+    51,
+    356
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PIT08",
+   "status": "WIP",
+   "desc": "Brake (pit procedure)",
+   "sdt": 52,
+   "eids": [
+    53,
+    361
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_PIT13",
+   "status": "WIP",
+   "desc": "Stop-go penalty countdown",
+   "sdt": 47,
+   "eids": [
+    48,
+    355
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_RACEFAST03",
+   "status": "WIP",
+   "desc": "Player sets all-time lap record",
+   "sdt": 70,
+   "eids": [
+    71,
+    343
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_SCAR02",
+   "status": "SILENT",
+   "desc": "Safety car on track",
+   "sdt": 139,
+   "eids": [
+    425
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_SCAR05",
+   "status": "WIP",
+   "desc": "Safety car in pit lane (2)",
+   "sdt": 137,
+   "eids": [
+    428
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_TEAMPIT01",
+   "status": "WIP",
+   "desc": "Teammate pits this lap - stay out",
+   "sdt": 57,
+   "eids": [
+    58,
+    366
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "PWS_TEAMPIT02",
+   "status": "WIP",
+   "desc": "Player can now pit",
+   "sdt": 58,
+   "eids": [
+    59,
+    368
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_OD_25_DD",
+   "status": "WIP",
+   "desc": "Other driver 25 sec penalty - dangerous driving",
+   "sdt": 265,
+   "eids": [
+    249
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_OD_FASTEST_M",
+   "status": "WIP",
+   "desc": "Other driver fastest - on Monsoon tires",
+   "sdt": 311,
+   "eids": [
+    290
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_OD_INTER",
+   "status": "WIP",
+   "desc": "Other driver leaves pits on Inters",
+   "sdt": 203,
+   "eids": [
+    191
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_OD_INV_DD",
+   "status": "WIP",
+   "desc": "Other driver under investigation - dangerous driving",
+   "sdt": 266,
+   "eids": [
+    250
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_OD_SG_DD",
+   "status": "WIP",
+   "desc": "Other driver stop/go - dangerous driving",
+   "sdt": 267,
+   "eids": [
+    251
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_OD_SLICKS",
+   "status": "WIP",
+   "desc": "Other driver leaves pits on Slicks",
+   "sdt": 205,
+   "eids": [
+    193,
+    508
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_SG_DD",
+   "status": "WIP",
+   "desc": "Stop/Go penalty - dangerous driving",
+   "sdt": 161,
+   "eids": [
+    152,
+    501
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_STALLED",
+   "status": "WIP",
+   "desc": "Engine stalled - T-car prepared",
+   "sdt": 111,
+   "eids": [
+    112,
+    405
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  },
+  {
+   "clip": "RE_PD_STALLED_T",
+   "status": "WIP",
+   "desc": "T-car also stalled - session over",
+   "sdt": 112,
+   "eids": [
+    113,
+    406
+   ],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": false
+  }
+ ],
+ "F": [
+  {
+   "clip": "PWS_2001_110",
+   "status": "WIP",
+   "desc": "Player wins race",
+   "sdt": 177,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_2001_219",
+   "status": "WIP",
+   "desc": "Rain starts - light drizzle",
+   "sdt": 302,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_AIINCID02",
+   "status": "WIP",
+   "desc": "AI went off track sector X",
+   "sdt": 242,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_AIINCID05",
+   "status": "WIP",
+   "desc": "AI spun off",
+   "sdt": 247,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_OFFROAD02",
+   "status": "WIP",
+   "desc": "Player went off track (2)",
+   "sdt": 117,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_OVERTAKE02",
+   "status": "WIP",
+   "desc": "Player overtakes AI (2)",
+   "sdt": 123,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_OVERTAKE03",
+   "status": "WIP",
+   "desc": "Player overtakes AI (3)",
+   "sdt": 124,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_RETIRE03",
+   "status": "WIP",
+   "desc": "Player retired (generic 2)",
+   "sdt": 119,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "PWS_SCAR04",
+   "status": "SILENT",
+   "desc": "Safety car in pit lane (1)",
+   "sdt": 141,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "RE_PORSCHE_03",
+   "status": "SILENT",
+   "desc": "Porsche Cup line 03",
+   "sdt": 315,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "RE_PORSCHE_23",
+   "status": "SILENT",
+   "desc": "Porsche Cup line 23",
+   "sdt": 312,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "RE_PORSCHE_24",
+   "status": "SILENT",
+   "desc": "Porsche Cup line 24",
+   "sdt": 313,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  },
+  {
+   "clip": "RE_PORSCHE_25",
+   "status": "SILENT",
+   "desc": "Porsche Cup line 25",
+   "sdt": 314,
+   "eids": [],
+   "emit_eids": [],
+   "funcs": [],
+   "all_blocked": false,
+   "orphaned": true
+  }
+ ]
+}

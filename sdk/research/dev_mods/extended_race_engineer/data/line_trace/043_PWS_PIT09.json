@@ -1,0 +1,445 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 43,
+ "clip": "PWS_PIT09",
+ "says": "Gear (pit procedure)",
+ "dump_rows_for_clip": [
+  {
+   "eid": 44,
+   "hex": "0x002C",
+   "priority": 20,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 42,
+   "sdt_index": 43,
+   "clip_name": "PWS_PIT09.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 335,
+   "hex": "0x014F",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 42,
+   "sdt_index": 43,
+   "clip_name": "PWS_PIT09.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  42
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 44,
+   "hex": "0x002C",
+   "priority": 20,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 42,
+   "sdt_index": 43,
+   "clip_name": "PWS_PIT09.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 335,
+   "hex": "0x014F",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 42,
+   "sdt_index": 43,
+   "clip_name": "PWS_PIT09.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  44
+ ],
+ "literal_hits": {
+  "44": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 85,
+       "text": "v8 = a4 != 0 ? 44 : 65;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 362,
+    "first": [
+     "AllocationWrapper",
+     "ArithmeticComparison_2dc0",
+     "ArrayDestructorViaVirtualDispatch",
+     "ArrayIndexedAccessor",
+     "ArrayProcessingWithValidation",
+     "AudioMixerChannelInitializer",
+     "AudioParameterInterpolation",
+     "AudioResampler",
+     "AudioResourceFree",
+     "AudioSampleCrossFadeInterpolation",
+     "AudioSampleStream",
+     "BestFitPlaneFitting",
+     "BinaryDataDeserialization",
+     "BooleanFlagSetterVirtualCall",
+     "BrakeTemperatureFadeModel",
+     "BufferLockAllocate",
+     "BufferPoolAllocatorInitialization",
+     "ByteAlignedMemoryCopyFromStruct",
+     "ByteFieldOffsetGetter",
+     "COMInterfaceVectorProcessingMethod",
+     "CallWrapper_73f0",
+     "CameraShakeRingBufferWrite",
+     "CameraViewSystem",
+     "CameraViewportConfigBatch",
+     "CameraViewportRenderSetup",
+     "CarFlagByteSetter",
+     "CircularBufferRingAdvance",
+     "CollisionContactGenerationAndFrictionResponse",
+     "CollisionDetectionSystem",
+     "CollisionEffectDispatch",
+     "CollisionFilterAABBCull",
+     "CollisionMaterialInit_da60",
+     "CollisionPositionStepper",
+     "CollisionProxyListBuilder",
+     "CollisionShapeSizeClassify",
+     "CollisionStructCopy",
+     "ColorPaletteLookupByIndex",
+     "ComplexStateValidator",
+     "ConditionalDelegationViaVTable",
+     "ConditionalDispatchWithCleanup"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 43 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "CharacterCodeMapper",
+    "file": "CharacterCodeMapper_00411b50.c",
+    "hits": [
+     {
+      "line": 33,
+      "text": "v4 = 43;"
+     }
+    ]
+   },
+   {
+    "function": "CollisionShapeSizeClassify",
+    "file": "CollisionShapeSizeClassify_004139c0.c",
+    "hits": [
+     {
+      "line": 56,
+      "text": "v6 = 43;"
+     }
+    ]
+   },
+   {
+    "function": "RaceEventMessageDispatcher",
+    "file": "RaceEventMessageDispatcher_00411bf0.c",
+    "hits": [
+     {
+      "line": 43,
+      "text": "case 0x2B:"
+     }
+    ]
+   },
+   {
+    "function": "SoundEventDispatcher",
+    "file": "SoundEventDispatcher_00411e90.c",
+    "hits": [
+     {
+      "line": 89,
+      "text": "case 0x2B:"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:121: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"TeamNameDisplayIDLookup 21-line group - low-eid twins exist for all\", \"claim\": \"All 18 remaining clips in the TeamName",
+  "f1c_ida_decompiled\\findings.jsonl:122: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"pittingStatus full enum + pit-procedure companion offsets\", \"claim\": \"Live full-struct diff trace, player car, 3 real ",
+  "f1c_ida_decompiled\\findings.jsonl:123: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"PWS_PIT09/10/12 trigger candidates\", \"claim\": \"PIT10 (Go) and PIT12 (Limiter Off - clear of pit lane) have clean pitti",
+  "f1c_ida_decompiled\\findings.jsonl:125: {\"ts\": \"2026-07-28\", \"tier\": \"FACT\", \"topic\": \"PWS_PIT10/PIT12 eid bug - wrong column used\", \"claim\": \"dll/pit_exit_commentary.c v1/v2 used the WRONG low-eid twins: EID_P"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-004.md:39: | `PWS_PIT09` | 43 | 44, 335 | second-to-last sound, \"lollipop turns\" — mechanism unknown |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:179: | `PWS_PIT09` | 43 | 335 | 0x0041b980? | Gear (pit procedure) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:97: | `PWS_PIT09` | 43 | 44, 335 | — | Gear (pit procedure) | PWS_PIT09 Gear - fires NATIVELY in vanilla play, heard live 2026-07-28 during real pit stops before any of our code touche",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:112: | `PWS_PIT09` | 44, 335 | Gear (pit procedure) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:115: `PWS_PENALTY05`, `PWS_PENALTY07`, `PWS_PENALTY14`, `PWS_PIT09`, `PWS_PIT10`,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-004A_pit_timeline.md:96: **PWS_PIT09 (eid 44) should fire here** — the \"lollipop turns\" moment, second-to-last sound before the car is released.",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-004A_pit_timeline.md:174: ### ROW: PWS_PIT09 (SDT 43, eid 44 / 335)",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-004A_pit_timeline.md:341: distinguishes: calibrates the \"2s before end\" window for PWS_PIT09.",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:77: | 43 | `PWS_PIT09` | Z PLAY | NEEDS_RESEARCH | Z, should play as the second last sound, especially when the lollipop man turns the lollipop, uncertain what the mechanism would be s",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TRIAGE_NOTES.txt:289: SDT43 X PLAY, \"Gear\" (PWS_PIT09), fires NATIVELY in vanilla play (heard live 2026-07-28 during real pit stops, no code involved) - LOW PRIORITY, not blocking, deferred: trigger con",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:110: | `PWS_PIT09` | 43 | 335 | 44 | Gear (pit procedure) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:161: | `PWS_PIT09` | 43 | 44, 335 | user triage: Z, should play as the second last sound, especially when the lollipop man turns the lollipop, uncertain what the mechanism would be so n"
+ ],
+ "mod_sources": [
+  "development\\mods\\pit_exit_commentary\\pit_exit_commentary.c:6: * PWS_PIT09 (\"Gear\") is NOT covered - it fires NATIVELY in vanilla play",
+  "development\\mods\\pit_exit_commentary\\pit_exit_commentary.c:57: * instead of the eid twin for PIT12, and PIT09's twin instead of PIT10's).",
+  "development\\mods\\pit_exit_commentary\\pit_exit_commentary.c:59: * that's PWS_PIT09's twin, not PIT10's. Re-checked against",
+  "development\\mods\\pit_exit_commentary\\pit_exit_commentary.c:60: * data/full_event_dump.json directly: PWS_PIT09=(44,42,43), PWS_PIT10=(45,43,44),",
+  "development\\mods\\pit_exit_commentary\\source.c:10: *   clear of pit lane' crossing the exit line. PWS_PIT09 ('Gear') fires"
+ ],
+ "voice_index_row": {
+  "vanilla": true,
+  "vanilla_source": "evf_user",
+  "modded_by": [],
+  "note": "PWS_PIT09 Gear - fires NATIVELY in vanilla play, heard live 2026-07-28 during real pit stops before any of our code touched it. No mod needed. Trigger condition unidentified (CurrentGear does not correlate) - OPEN if ever needed for reference",
+  "triage": {
+   "sdt_index": 43,
+   "text": "Z, should play as the second last sound, especially when the lollipop man turns the lollipop, uncertain what the mechanism would be so needs investigation",
+   "subject": "Z",
+   "play": true,
+   "verdict": "TODO",
+   "flags": [
+    "NEEDS_RESEARCH"
+   ],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "SHIPPED"
+ }
+}

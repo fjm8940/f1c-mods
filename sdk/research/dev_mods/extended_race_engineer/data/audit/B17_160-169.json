@@ -1,0 +1,1718 @@
+{
+ "schema": "ere.audit.v1",
+ "range": "B17_160-169",
+ "method_note": "Owner EXHAUSTIVE PER-LINE METHOD. 10 clips from data/audit_batches.json B17_160-169. Dossiers from data/line_trace. Corpus census: 135 DriverDataTableLookupAndTimeConversion call sites in f1c_ida_decompiled/functions (114 literal, 21 variable in 18 functions); the literal and dynamic emitters for eids 151-160 and the sub-clip resolver chain were read in full. Owner exe read-only (F1 Challenge Online.exe in 99-02 (V10)): event table 0x5BF9A0 + eid*0x14. No live game.",
+ "owner_exe_check": "Event rows 151-169 read from owner exe: priority 70 for 151-156 and 55 for 157-169; cooldown 20.0 only for 154, else 1.0 (matches dump); score = dump score.",
+ "subclip_findings": "The sub-clip resolver (MapCollisionShapeToBoneIndex, sub_412C30) maps number N to SDT indices 153-189 (odd when a4=0, even when a4=1). Two live number routes exist: (a) eid 272 'X laps to go' (AIRetirementVehicleFailureEvent:75, player, race) -> even slots 160-168 for X=11,12,15,20,25; (b) eid 21 'AI pits, completed X laps' (AISessionPhaseChange:17, qualifying, AI, X<12) -> odd slot 169 for X=11. So SDT 160-169 are also lap-number slots. The SDT names at these indices (penalties and wins) conflict with that use: isolation test needed before any play plan relies on them.",
+ "verdict_counts": {
+  "NATIVE_ACTIVE": 8,
+  "NOT_ACTIVATED": 2,
+  "MOD_ONLY": 0,
+  "UNKNOWN": 0
+ },
+ "contradictions": [
+  "doc56 / dump label of eid 155 (PWS_PENALTY02, SDT 164) is 'Speeding in pits penalty'; code emits 155 for 'Jumped start' (AI counterpart 254) and owner triage says jump start. Speeding in pits is eid 153 (SDT 162).",
+  "doc56 label of eid 154 (SDT 163) is 'Blocking blue penalty'; code emits 154 for 'Ignored Blue Flags'.",
+  "Lap-number slots: SDT 160-169 are the number-word sub-clips used by 'X laps to go' (eid 272) and 'AI pits completed X laps' (eid 21), while doc56 and the dump name these indices as penalty and win clips. Either the names are wrong or the number route plays a different clip. Not resolved.",
+  "findings.jsonl (2026-07-28) said the game has no 'overtaking under yellow' infraction; consistent with this batch (eid 156 has no emitter). The SC trial source uses 156 for its own stop-go, which is a mod use, not a game emit.",
+  "PWS eid 159 (PWS_2001_124) fires for any finishing position in RaceMode 4 when the title is clinched; doc56 'wins WDC' implies P1. Code has no P1 check (PerDriverRaceCommentary:115-151).",
+  "RaceMode dword_7D0410 meaning: doc 12 says 'RaceMode (4=?)' and 'championship == 4'; EVF says 'single-season'. Both unproven; owner mode unknown.",
+  "EVF status SHIPPED for 151, 153, 155, 157-160 has no live note of natural play; voice_index 'EXISTS' is triage text, not a play record."
+ ],
+ "rows": [
+  {
+   "eid": 151,
+   "clip": "RE_PD_SG_CUT.mp",
+   "sdt_index": 160,
+   "says": "Stop/Go penalty - cutting track",
+   "score": 154,
+   "cooldown": 1.0,
+   "priority": 70,
+   "owner_exe_cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "emitter_reached_in_race",
+   "situation": "Race (SessionType 7). Player cuts the track: after a cut-zone exit with overshoot v66 > 2.75, or v66 > 1.75 once a cut already happened (this[52] > 1), the game issues Stop/Go 'Cut Track' (eid 151). First cut with v66 in (1.75, 2.75] gives only a warning (WarningHandler, text, no eid).",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41A720 (functions/sub_41A720_0041a720.c:18)"
+   ],
+   "call_path": "MainGameTickUpdate (sub_42C690:86-87) -> sub_4BCCC0 (:184) -> StopGoPenaltyHandler (sub_4BBD60:43) -> sub_41A720 (:18)",
+   "gates": [
+    "dword_7CEF84 PenaltiesEnabled (sub_4BCCC0:181)",
+    "dword_7C56A4 == 7 (sub_4BCCC0:183)",
+    "sub_4BC340 true: dword_7C569C == 5, RacePhase dword_7C56A8 in {5,6,8}, this[12] not 1/3 (sub_4BC340_004bc340.c:6-8; called :135)",
+    "this[180] cut latch set at :214 and cleared at :145; v68 < 1.0 (:143); v66 > 1.75 (:181)",
+    "sub_41A720 dword_7D0308 && flt_7CF3C8 != 0 (:6) and player check (:8)",
+    "StopGoPenaltyHandler this[12]==0 and player +13000==0 (sub_4BBD60:11,13)"
+   ],
+   "mod": "none (no active mod emits 151)",
+   "heard_evidence": "No owner live note for this clip. evf_docs/voice_index: 'user triage: EXISTS', SHIPPED. findings.jsonl:91 proves the same StopGo chain live for eid 149 (RE_PD_DQ), not for 151.",
+   "tier": "DERIVED",
+   "notes": "Name check: the SDT name is RE_PD_SG_CUT (row clip). The earlier 'X laps to go' number-25 identity conflict is withdrawn: sub-clip indices come from PC_RE_STITCH.SDT (SUB-CLIP BANK FACT). Isolation test still needed: inject 151 alone and listen. Not a live verification. Cooldown 1.0 (owner exe matches dump).",
+   "checked": [
+    {
+     "function": "sub_41A720 (literal emitter)",
+     "result": "emits 151 at L18 under player (L8), dword_7D0308 && flt_7CF3C8 != 0 (L6), string 'Cut Track' (L16)",
+     "line": "functions/sub_41A720_0041a720.c:6-37"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 151: its track eids are 158-177 and 261/260 (AI); see L29-113",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:17-170"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) and literal search",
+     "result": "DriverNameIDLookup L144 (a4!=0 gives 151, stores only), L762 (389 alternative); the function has no DriverDataTableLookupAndTimeConversion call (grep), sub_414600 is only a file-existence loader",
+     "line": "functions/DriverNameIDLookup_00415d90.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eid 151: value set 120 (L37), 259 (L39), 120/198 (L50,L57)",
+     "line": "functions/AIDriverStateTransition_00419120.c:L37,L39,L59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eid 151: value set 6 only (L22)",
+     "line": "functions/AIFormationLap_0041a3a0.c:L24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eid 151: value set 5 (L12), 10/16/3/33 (L21,L27), 4 (L41), 262/72 (L57)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:L61"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eid 151: value set 42/52 (L13,L14)",
+     "line": "functions/AIPitStrategyState_0041a200.c:L15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eid 151: value set 17/18 (L30,L34), 7/8/9 (L45,L47)",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eid 151: value set 21 (L21, AI, SessionType 5, v3<12 at L17), 22 (L25), 178/179 (L32,L34)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eid 151: value set 52 (L10), 196 (L16)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:L19"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eid 151: value set 397 or 516-535 (L38-118; seed branch L97 gives 534/535)",
+     "line": "functions/PitExit_0041c0f0.c:L127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eid 151: value set ThunkToFUN004201e0 -> sub_4203D0 track table, values 355+ or -1 (L25)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:L26"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eid 151: value set 447-477 (L34-104), literal 474 (L158), 397/465 (L145-147), 459-461 (L165-171)",
+     "line": "functions/RaceCommentary_0041d630.c:L107,L148,L158,L173"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eid 151: value set 293-336 (L13-187)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:L189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eid 151: value set 34/35/276-279 (L22-61)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:L25"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 151: value set 149 (L12, Ignored Stop/Go string), 243 (L21)",
+     "line": "functions/sub_41A940_0041a940.c:L15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 151: value set 208-220 (L25-56)",
+     "line": "functions/sub_41AC50_0041ac50.c:L58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 151: value set 117/118/119/236/237 literal (L15-47), 235/238 (L38,L51)",
+     "line": "functions/sub_41B250_0041b250.c:L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 151: value set sub_420000 track table 338-354 or -1 (L13-16)",
+     "line": "functions/sub_41C440_0041c440.c:L16"
+    },
+    {
+     "function": "MainGameTickUpdate (sub_42C690)",
+     "result": "calls sub_4BCCC0(0.025) at L87 only when dword_7C54E8+13000 == 0 (L86): the infraction tick runs for the player driver struct",
+     "line": "functions/MainGameTickUpdate_0042c690.c:86-87"
+    },
+    {
+     "function": "sub_4BCCC0 (infraction tick)",
+     "result": "cut, pit-speed, blue-flag and wrong-way branches; PenaltiesEnabled dword_7CEF84 gates the emits (L113, L181, L377); AI never reaches it (findings.jsonl RETRACTED row, 281 calls, one ECX)",
+     "line": "functions/sub_4BCCC0_004bccc0.c:77-381"
+    },
+    {
+     "function": "StopGoPenaltyHandler (sub_4BBD60)",
+     "result": "calls sub_41A720(*this, string) at L43 after text and progress-bar work; gate this[12]==0 and player+13000==0 (L11,L13)",
+     "line": "functions/StopGoPenaltyHandler_004bbd60.c:11-43"
+    },
+    {
+     "function": "FontRenderingPrep / TextOverlayDisplayTimer (display path)",
+     "result": "reads the eid of a queued message (ShortComputation_19d0: 0 = PWS, 1 = TV) and resolves its clip list; sub-clip part excluded by SUB-CLIP BANK FACT",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45; TextOverlayDisplayTimer_004186f0.c:19"
+    },
+    {
+     "function": "MapCollisionShapeToBoneIndex (sub-clip resolver)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/MapCollisionShapeToBoneIndex_00412c30.c:42-54"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent (eid 272 laps-to-go, lead SDT 289 type 49)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/AIRetirementVehicleFailureEvent_004199e0.c:14-75; functions/RaceEventMessageDispatcher_00411bf0.c:65"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Sub-clip routes removed as evidence; verdict unchanged (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "Verdict rests on the row's own eid 151 emitter (sub_41A720:18) and its gate chain; the number-25 sub-clip identity note was removed."
+   }
+  },
+  {
+   "eid": 152,
+   "clip": "RE_PD_SG_DD.mp2",
+   "sdt_index": 161,
+   "says": "Stop/Go penalty - dangerous driving",
+   "score": 155,
+   "cooldown": 1.0,
+   "priority": 70,
+   "owner_exe_cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "Would be race, player driving dangerously, stop/go. The game has no dangerous-driving infraction: sub_4BCCC0 passes only Cut Track, Speeding In Pitlane, Ignored Blue Flags, Jumped start and Wrong Way to its handlers.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [],
+   "call_path": "none. eid 152 appears only in the name table DriverNameIDLookup L364 (stores, does not emit)",
+   "gates": [
+    "No code path: 135 emit call sites enumerated; no literal 152 emitter; no dynamic emitter yields 152"
+   ],
+   "mod": "none",
+   "heard_evidence": "findings.jsonl CORRECTED row (five infraction strings, sub_4BCCC0); findings.jsonl DERIVED PENALTY_STEWARD row (4 clips need a dangerous-driving notion with no code path); voice_index triage 'not sure if exists' (WIP).",
+   "tier": "DERIVED",
+   "notes": "DD-11 (DESIGN_DECISIONS.md:17) excludes lines for infractions the game lacks. Sub-clip routes do not apply (SUB-CLIP BANK FACT): no main-clip emitter for eid 152 exists.",
+   "checked": [
+    {
+     "function": "sub_41A720 (literal emitter)",
+     "result": "cannot produce eid 152: player branch yields 151/153/154/155 only; AI branch yields 252-256 (L43-59)",
+     "line": "functions/sub_41A720_0041a720.c:6-61"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 152: its track eids are 158-177 and 261/260 (AI); see L29-113",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:17-170"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) and literal search",
+     "result": "DriverNameIDLookup L364 (a4!=0 ? 152 : 12), stores only; the function has no DriverDataTableLookupAndTimeConversion call (grep), sub_414600 is only a file-existence loader",
+     "line": "functions/DriverNameIDLookup_00415d90.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eid 152: value set 120 (L37), 259 (L39), 120/198 (L50,L57)",
+     "line": "functions/AIDriverStateTransition_00419120.c:L37,L39,L59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eid 152: value set 6 only (L22)",
+     "line": "functions/AIFormationLap_0041a3a0.c:L24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eid 152: value set 5 (L12), 10/16/3/33 (L21,L27), 4 (L41), 262/72 (L57)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:L61"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eid 152: value set 42/52 (L13,L14)",
+     "line": "functions/AIPitStrategyState_0041a200.c:L15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eid 152: value set 17/18 (L30,L34), 7/8/9 (L45,L47)",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eid 152: value set 21 (L21, AI, SessionType 5, v3<12 at L17), 22 (L25), 178/179 (L32,L34)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eid 152: value set 52 (L10), 196 (L16)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:L19"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eid 152: value set 397 or 516-535 (L38-118; seed branch L97 gives 534/535)",
+     "line": "functions/PitExit_0041c0f0.c:L127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eid 152: value set ThunkToFUN004201e0 -> sub_4203D0 track table, values 355+ or -1 (L25)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:L26"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eid 152: value set 447-477 (L34-104), literal 474 (L158), 397/465 (L145-147), 459-461 (L165-171)",
+     "line": "functions/RaceCommentary_0041d630.c:L107,L148,L158,L173"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eid 152: value set 293-336 (L13-187)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:L189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eid 152: value set 34/35/276-279 (L22-61)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:L25"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 152: value set 149 (L12, Ignored Stop/Go string), 243 (L21)",
+     "line": "functions/sub_41A940_0041a940.c:L15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 152: value set 208-220 (L25-56)",
+     "line": "functions/sub_41AC50_0041ac50.c:L58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 152: value set 117/118/119/236/237 literal (L15-47), 235/238 (L38,L51)",
+     "line": "functions/sub_41B250_0041b250.c:L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 152: value set sub_420000 track table 338-354 or -1 (L13-16)",
+     "line": "functions/sub_41C440_0041c440.c:L16"
+    },
+    {
+     "function": "MainGameTickUpdate (sub_42C690)",
+     "result": "calls sub_4BCCC0(0.025) at L87 only when dword_7C54E8+13000 == 0 (L86): the infraction tick runs for the player driver struct",
+     "line": "functions/MainGameTickUpdate_0042c690.c:86-87"
+    },
+    {
+     "function": "sub_4BCCC0 (infraction tick)",
+     "result": "cut, pit-speed, blue-flag and wrong-way branches; PenaltiesEnabled dword_7CEF84 gates the emits (L113, L181, L377); AI never reaches it (findings.jsonl RETRACTED row, 281 calls, one ECX)",
+     "line": "functions/sub_4BCCC0_004bccc0.c:77-381"
+    },
+    {
+     "function": "StopGoPenaltyHandler (sub_4BBD60)",
+     "result": "calls sub_41A720(*this, string) at L43 after text and progress-bar work; gate this[12]==0 and player+13000==0 (L11,L13)",
+     "line": "functions/StopGoPenaltyHandler_004bbd60.c:11-43"
+    },
+    {
+     "function": "FontRenderingPrep / TextOverlayDisplayTimer (display path)",
+     "result": "reads the eid of a queued message (ShortComputation_19d0: 0 = PWS, 1 = TV) and resolves its clip list; sub-clip part excluded by SUB-CLIP BANK FACT",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45; TextOverlayDisplayTimer_004186f0.c:19"
+    },
+    {
+     "function": "MapCollisionShapeToBoneIndex (sub-clip resolver)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/MapCollisionShapeToBoneIndex_00412c30.c:42-54"
+    },
+    {
+     "function": "AISessionPhaseChange (eid 21 lead, lead SDT 19 type 50)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:17"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Sub-clip routes removed as evidence; verdict unchanged (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Stop/Go penalty for dangerous driving (F1 steward decision)",
+    "when_it_should_play": "EXCLUDED by DD-11",
+    "trigger": "EXCLUDED by DD-11 (game has no dangerous-driving judgement; no state read exists)",
+    "subject": "player (-1) only",
+    "technique": "none (EXCLUDED)",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "always (no infraction in game)",
+    "conflicts": "RE_PD_25_DD (157) and RE_PD_INV_DD (159) are the same family, also excluded",
+    "calibration": null,
+    "live_test": "none; excluded by owner decision DD-11",
+    "confidence": "DERIVED"
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "Verdict rests on no_emitter for eid 152 (checked list); the number-25 sub-clip reach note was removed as not PC_RE_MAIN evidence."
+   }
+  },
+  {
+   "eid": 153,
+   "clip": "RE_PD_SG_SPEED.",
+   "sdt_index": 162,
+   "says": "Stop/Go penalty - speeding in pits",
+   "score": 156,
+   "cooldown": 1.0,
+   "priority": 70,
+   "owner_exe_cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "emitter_reached_in_race",
+   "situation": "Race. Player leaves the pit lane over the limit: sub_4BCCC0 accumulates (speed - flt_8ACFB4) while the pit-lane zone byte is set (this[43]); when the zone is left (this[168] 1->0) with this[43] > 7.5 and PenaltiesEnabled, Stop/Go 'Speeding In Pitlane' (eid 153) is issued. Outside race (SessionType != 7) only the fine path sub_4BBA90 runs (no eid).",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41A720 (functions/sub_41A720_0041a720.c:14)"
+   ],
+   "call_path": "MainGameTickUpdate (:86-87) -> sub_4BCCC0 (:117) -> StopGoPenaltyHandler (sub_4BBD60:43) -> sub_41A720 (:14)",
+   "gates": [
+    "dword_7CEF84 (sub_4BCCC0:113)",
+    "dword_7C56A4 == 7 (:115)",
+    "this[43] > 7.5 at zone exit (:111); zone byte *(this+13388) = veh+0x344C, name UNKNOWN (:92-106)",
+    "sub_41A720 gates as row 160"
+   ],
+   "mod": "none",
+   "heard_evidence": "EVF voice_index: 'EXISTS, double check' then confirmed live 2026-07-28 by injection of eid 153 (findings.jsonl:129,139-140); owner reconfirmed hearing it under injection. Natural trigger in a real race not logged.",
+   "tier": "DERIVED",
+   "notes": "Speed threshold flt_8ACFB4 value UNKNOWN (calibration). The earlier number-20 sub-clip identity note is withdrawn (SUB-CLIP BANK FACT). Name check as row 160 (isolation test).",
+   "checked": [
+    {
+     "function": "sub_41A720 (literal emitter)",
+     "result": "emits 153 at L14 under player (L8), string 'Speeding In Pitlane' (L12)",
+     "line": "functions/sub_41A720_0041a720.c:6-37"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 153: its track eids are 158-177 and 261/260 (AI); see L29-113",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:17-170"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) and literal search",
+     "result": "DriverNameIDLookup L133 (8*(a4!=0)+153), stores only; the function has no DriverDataTableLookupAndTimeConversion call (grep), sub_414600 is only a file-existence loader",
+     "line": "functions/DriverNameIDLookup_00415d90.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eid 153: value set 120 (L37), 259 (L39), 120/198 (L50,L57)",
+     "line": "functions/AIDriverStateTransition_00419120.c:L37,L39,L59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eid 153: value set 6 only (L22)",
+     "line": "functions/AIFormationLap_0041a3a0.c:L24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eid 153: value set 5 (L12), 10/16/3/33 (L21,L27), 4 (L41), 262/72 (L57)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:L61"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eid 153: value set 42/52 (L13,L14)",
+     "line": "functions/AIPitStrategyState_0041a200.c:L15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eid 153: value set 17/18 (L30,L34), 7/8/9 (L45,L47)",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eid 153: value set 21 (L21, AI, SessionType 5, v3<12 at L17), 22 (L25), 178/179 (L32,L34)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eid 153: value set 52 (L10), 196 (L16)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:L19"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eid 153: value set 397 or 516-535 (L38-118; seed branch L97 gives 534/535)",
+     "line": "functions/PitExit_0041c0f0.c:L127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eid 153: value set ThunkToFUN004201e0 -> sub_4203D0 track table, values 355+ or -1 (L25)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:L26"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eid 153: value set 447-477 (L34-104), literal 474 (L158), 397/465 (L145-147), 459-461 (L165-171)",
+     "line": "functions/RaceCommentary_0041d630.c:L107,L148,L158,L173"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eid 153: value set 293-336 (L13-187)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:L189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eid 153: value set 34/35/276-279 (L22-61)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:L25"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 153: value set 149 (L12, Ignored Stop/Go string), 243 (L21)",
+     "line": "functions/sub_41A940_0041a940.c:L15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 153: value set 208-220 (L25-56)",
+     "line": "functions/sub_41AC50_0041ac50.c:L58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 153: value set 117/118/119/236/237 literal (L15-47), 235/238 (L38,L51)",
+     "line": "functions/sub_41B250_0041b250.c:L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 153: value set sub_420000 track table 338-354 or -1 (L13-16)",
+     "line": "functions/sub_41C440_0041c440.c:L16"
+    },
+    {
+     "function": "MainGameTickUpdate (sub_42C690)",
+     "result": "calls sub_4BCCC0(0.025) at L87 only when dword_7C54E8+13000 == 0 (L86): the infraction tick runs for the player driver struct",
+     "line": "functions/MainGameTickUpdate_0042c690.c:86-87"
+    },
+    {
+     "function": "sub_4BCCC0 (infraction tick)",
+     "result": "cut, pit-speed, blue-flag and wrong-way branches; PenaltiesEnabled dword_7CEF84 gates the emits (L113, L181, L377); AI never reaches it (findings.jsonl RETRACTED row, 281 calls, one ECX)",
+     "line": "functions/sub_4BCCC0_004bccc0.c:77-381"
+    },
+    {
+     "function": "StopGoPenaltyHandler (sub_4BBD60)",
+     "result": "calls sub_41A720(*this, string) at L43 after text and progress-bar work; gate this[12]==0 and player+13000==0 (L11,L13)",
+     "line": "functions/StopGoPenaltyHandler_004bbd60.c:11-43"
+    },
+    {
+     "function": "FontRenderingPrep / TextOverlayDisplayTimer (display path)",
+     "result": "reads the eid of a queued message (ShortComputation_19d0: 0 = PWS, 1 = TV) and resolves its clip list; sub-clip part excluded by SUB-CLIP BANK FACT",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45; TextOverlayDisplayTimer_004186f0.c:19"
+    },
+    {
+     "function": "MapCollisionShapeToBoneIndex (sub-clip resolver)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/MapCollisionShapeToBoneIndex_00412c30.c:42-54"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent (eid 272 laps-to-go, lead SDT 289 type 49)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/AIRetirementVehicleFailureEvent_004199e0.c:14-75; functions/RaceEventMessageDispatcher_00411bf0.c:65"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Sub-clip routes removed as evidence; verdict unchanged (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "Verdict rests on the row's own eid 153 emitter (sub_41A720:14) and gates; the number-20 sub-clip identity note was removed."
+   }
+  },
+  {
+   "eid": 154,
+   "clip": "PWS_PENALTY04.m",
+   "sdt_index": 163,
+   "says": "Blocking blue penalty (doc56) / code: Ignored Blue Flags",
+   "score": 157,
+   "cooldown": 20.0,
+   "priority": 70,
+   "owner_exe_cooldown": 20.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "emitter_reached_in_race_with_conflict",
+   "situation": "Race. Player keeps a blue-flag condition for more than 30 s (sub_4BCCC0 timer this[55], :373-375): Stop/Go 'Ignored Blue Flags' (eid 154) and blue flags 123/124/125 are queued. Cooldown 20 s in owner exe.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41A720 (functions/sub_41A720_0041a720.c:28)"
+   ],
+   "call_path": "MainGameTickUpdate (:86-87) -> sub_4BCCC0 (:379-380) -> StopGoPenaltyHandler (sub_4BBD60:43) and direct sub_41A720 (:380)",
+   "gates": [
+    "dword_7CEF84 (:377)",
+    "dword_7C56A4 == 7 (blue branch gate :353 requires v47 == 7)",
+    "this[212] blue byte (veh+0x4108) and this[54] == v76 (:353; v76 UNKNOWN)",
+    "this[55] > 30.0 (:375)",
+    "sub_41A720 gates as row 160"
+   ],
+   "mod": "none",
+   "heard_evidence": "voice_index REVERTED 2026-07-28: owner reports the line never plays; game goes straight to the penalty. Code wins over notes but the note is cited.",
+   "tier": "DERIVED",
+   "notes": "Label conflict: doc56 says 'Blocking blue penalty' but eid 154 is the Ignored Blue Flags infraction. Eid 154 is queued twice in one tick (StopGoPenaltyHandler:43 and sub_4BCCC0:380); effect of the second insert is UNKNOWN. Owner 'never heard' note is not explained by the code: isolation test needed.",
+   "checked": [
+    {
+     "function": "sub_41A720 (literal emitter)",
+     "result": "emits 154 at L28 under player (L8), string 'Ignored Blue Flags' (L26); also BooleanOR 123/124/125 (L29-31)",
+     "line": "functions/sub_41A720_0041a720.c:6-37"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 154: its track eids are 158-177 and 261/260 (AI); see L29-113",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:17-170"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) and literal search",
+     "result": "DriverNameIDLookup L353 (8*(a4!=0)+154), stores only; the function has no DriverDataTableLookupAndTimeConversion call (grep), sub_414600 is only a file-existence loader",
+     "line": "functions/DriverNameIDLookup_00415d90.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eid 154: value set 120 (L37), 259 (L39), 120/198 (L50,L57)",
+     "line": "functions/AIDriverStateTransition_00419120.c:L37,L39,L59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eid 154: value set 6 only (L22)",
+     "line": "functions/AIFormationLap_0041a3a0.c:L24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eid 154: value set 5 (L12), 10/16/3/33 (L21,L27), 4 (L41), 262/72 (L57)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:L61"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eid 154: value set 42/52 (L13,L14)",
+     "line": "functions/AIPitStrategyState_0041a200.c:L15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eid 154: value set 17/18 (L30,L34), 7/8/9 (L45,L47)",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eid 154: value set 21 (L21, AI, SessionType 5, v3<12 at L17), 22 (L25), 178/179 (L32,L34)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eid 154: value set 52 (L10), 196 (L16)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:L19"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eid 154: value set 397 or 516-535 (L38-118; seed branch L97 gives 534/535)",
+     "line": "functions/PitExit_0041c0f0.c:L127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eid 154: value set ThunkToFUN004201e0 -> sub_4203D0 track table, values 355+ or -1 (L25)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:L26"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eid 154: value set 447-477 (L34-104), literal 474 (L158), 397/465 (L145-147), 459-461 (L165-171)",
+     "line": "functions/RaceCommentary_0041d630.c:L107,L148,L158,L173"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eid 154: value set 293-336 (L13-187)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:L189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eid 154: value set 34/35/276-279 (L22-61)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:L25"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 154: value set 149 (L12, Ignored Stop/Go string), 243 (L21)",
+     "line": "functions/sub_41A940_0041a940.c:L15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 154: value set 208-220 (L25-56)",
+     "line": "functions/sub_41AC50_0041ac50.c:L58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 154: value set 117/118/119/236/237 literal (L15-47), 235/238 (L38,L51)",
+     "line": "functions/sub_41B250_0041b250.c:L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 154: value set sub_420000 track table 338-354 or -1 (L13-16)",
+     "line": "functions/sub_41C440_0041c440.c:L16"
+    },
+    {
+     "function": "MainGameTickUpdate (sub_42C690)",
+     "result": "calls sub_4BCCC0(0.025) at L87 only when dword_7C54E8+13000 == 0 (L86): the infraction tick runs for the player driver struct",
+     "line": "functions/MainGameTickUpdate_0042c690.c:86-87"
+    },
+    {
+     "function": "sub_4BCCC0 (infraction tick)",
+     "result": "cut, pit-speed, blue-flag and wrong-way branches; PenaltiesEnabled dword_7CEF84 gates the emits (L113, L181, L377); AI never reaches it (findings.jsonl RETRACTED row, 281 calls, one ECX)",
+     "line": "functions/sub_4BCCC0_004bccc0.c:77-381"
+    },
+    {
+     "function": "StopGoPenaltyHandler (sub_4BBD60)",
+     "result": "calls sub_41A720(*this, string) at L43 after text and progress-bar work; gate this[12]==0 and player+13000==0 (L11,L13)",
+     "line": "functions/StopGoPenaltyHandler_004bbd60.c:11-43"
+    },
+    {
+     "function": "FontRenderingPrep / TextOverlayDisplayTimer (display path)",
+     "result": "reads the eid of a queued message (ShortComputation_19d0: 0 = PWS, 1 = TV) and resolves its clip list; sub-clip part excluded by SUB-CLIP BANK FACT",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45; TextOverlayDisplayTimer_004186f0.c:19"
+    },
+    {
+     "function": "MapCollisionShapeToBoneIndex (sub-clip resolver)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/MapCollisionShapeToBoneIndex_00412c30.c:42-54"
+    },
+    {
+     "function": "AISessionPhaseChange (eid 21 lead, lead SDT 19 type 50)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:17"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Sub-clip routes removed as evidence; verdict unchanged (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "Verdict rests on the row's own eid 154 emitter (sub_41A720:28); only sub-clip checked entries were rewritten."
+   }
+  },
+  {
+   "eid": 155,
+   "clip": "PWS_PENALTY02.m",
+   "sdt_index": 164,
+   "says": "Speeding in pits penalty (doc56) / code: Jumped start",
+   "score": 158,
+   "cooldown": 1.0,
+   "priority": 70,
+   "owner_exe_cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "emitter_reached_via_pit_box_check_with_conflict",
+   "situation": "Player leaves the pit box before the team-ready close (PitCloseTeamReadyCheck calls sub_4BC9B0 with a2=1). If the car is out of the box limits (L13-14 test) and within 15 m (225 m^2) with PenaltiesEnabled, Stop/Go 'Jumped start' (eid 155) is issued; beyond 15 m it is a disqualification.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41A720 (functions/sub_41A720_0041a720.c:22)"
+   ],
+   "call_path": "PitTimer (sub_4D2E50:218) -> PitCloseTeamReadyCheck (sub_4D2210:12) -> sub_4BC9B0 (a2=1) -> StopGoPenaltyHandler (sub_4BBD60:43; sub_4BC9B0:51) -> sub_41A720 (:22)",
+   "gates": [
+    "sub_4BC9B0 a2 branch: distance/heading tests (:44-47)",
+    "dword_7CEF84 && *(v5+3247) != 1 (:48)",
+    "distance squared <= 225 -> stop-go, else DisqualificationHandler (:50-53)",
+    "PitCloseTeamReadyCheck runs when +13000 <= 1 (sub_4D2210:11); session gate of PitTimer:218 NOT read (UNKNOWN)"
+   ],
+   "mod": "none",
+   "heard_evidence": "voice_index: 'Z, stop go for jumpstart, exists as far as I know' (EXISTS_VANILLA, SHIPPED). Owner's triage text agrees with the code (jump start), not with doc56.",
+   "tier": "DERIVED",
+   "notes": "Label conflict: doc56 and dump say 'Speeding in pits penalty' for this clip; code and owner triage say Jumped start. Speeding in pits is eid 153 (SDT 162). Session gating of PitTimer:218 not read.",
+   "checked": [
+    {
+     "function": "sub_41A720 (literal emitter)",
+     "result": "emits 155 at L22 under player (L8), string 'Jumped start' (L20)",
+     "line": "functions/sub_41A720_0041a720.c:6-37"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 155: its track eids are 158-177 and 261/260 (AI); see L29-113",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:17-170"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) and literal search",
+     "result": "DriverNameIDLookup L59 (a4!=0 ? 167 : 155), stores only; the function has no DriverDataTableLookupAndTimeConversion call (grep), sub_414600 is only a file-existence loader",
+     "line": "functions/DriverNameIDLookup_00415d90.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eid 155: value set 120 (L37), 259 (L39), 120/198 (L50,L57)",
+     "line": "functions/AIDriverStateTransition_00419120.c:L37,L39,L59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eid 155: value set 6 only (L22)",
+     "line": "functions/AIFormationLap_0041a3a0.c:L24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eid 155: value set 5 (L12), 10/16/3/33 (L21,L27), 4 (L41), 262/72 (L57)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:L61"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eid 155: value set 42/52 (L13,L14)",
+     "line": "functions/AIPitStrategyState_0041a200.c:L15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eid 155: value set 17/18 (L30,L34), 7/8/9 (L45,L47)",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eid 155: value set 21 (L21, AI, SessionType 5, v3<12 at L17), 22 (L25), 178/179 (L32,L34)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eid 155: value set 52 (L10), 196 (L16)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:L19"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eid 155: value set 397 or 516-535 (L38-118; seed branch L97 gives 534/535)",
+     "line": "functions/PitExit_0041c0f0.c:L127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eid 155: value set ThunkToFUN004201e0 -> sub_4203D0 track table, values 355+ or -1 (L25)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:L26"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eid 155: value set 447-477 (L34-104), literal 474 (L158), 397/465 (L145-147), 459-461 (L165-171)",
+     "line": "functions/RaceCommentary_0041d630.c:L107,L148,L158,L173"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eid 155: value set 293-336 (L13-187)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:L189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eid 155: value set 34/35/276-279 (L22-61)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:L25"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 155: value set 149 (L12, Ignored Stop/Go string), 243 (L21)",
+     "line": "functions/sub_41A940_0041a940.c:L15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 155: value set 208-220 (L25-56)",
+     "line": "functions/sub_41AC50_0041ac50.c:L58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 155: value set 117/118/119/236/237 literal (L15-47), 235/238 (L38,L51)",
+     "line": "functions/sub_41B250_0041b250.c:L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 155: value set sub_420000 track table 338-354 or -1 (L13-16)",
+     "line": "functions/sub_41C440_0041c440.c:L16"
+    },
+    {
+     "function": "MainGameTickUpdate (sub_42C690)",
+     "result": "calls sub_4BCCC0(0.025) at L87 only when dword_7C54E8+13000 == 0 (L86): the infraction tick runs for the player driver struct",
+     "line": "functions/MainGameTickUpdate_0042c690.c:86-87"
+    },
+    {
+     "function": "sub_4BCCC0 (infraction tick)",
+     "result": "cut, pit-speed, blue-flag and wrong-way branches; PenaltiesEnabled dword_7CEF84 gates the emits (L113, L181, L377); AI never reaches it (findings.jsonl RETRACTED row, 281 calls, one ECX)",
+     "line": "functions/sub_4BCCC0_004bccc0.c:77-381"
+    },
+    {
+     "function": "StopGoPenaltyHandler (sub_4BBD60)",
+     "result": "calls sub_41A720(*this, string) at L43 after text and progress-bar work; gate this[12]==0 and player+13000==0 (L11,L13)",
+     "line": "functions/StopGoPenaltyHandler_004bbd60.c:11-43"
+    },
+    {
+     "function": "FontRenderingPrep / TextOverlayDisplayTimer (display path)",
+     "result": "reads the eid of a queued message (ShortComputation_19d0: 0 = PWS, 1 = TV) and resolves its clip list; sub-clip part excluded by SUB-CLIP BANK FACT",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45; TextOverlayDisplayTimer_004186f0.c:19"
+    },
+    {
+     "function": "MapCollisionShapeToBoneIndex (sub-clip resolver)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/MapCollisionShapeToBoneIndex_00412c30.c:42-54"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent (eid 272 laps-to-go, lead SDT 289 type 49)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/AIRetirementVehicleFailureEvent_004199e0.c:14-75; functions/RaceEventMessageDispatcher_00411bf0.c:65"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Sub-clip routes removed as evidence; verdict unchanged (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "Verdict rests on the row's own eid 155 emitter (sub_41A720:22); only sub-clip checked entries were rewritten."
+   }
+  },
+  {
+   "eid": 156,
+   "clip": "PWS_PENALTY03.m",
+   "sdt_index": 165,
+   "says": "Overtaking yellow penalty",
+   "score": 159,
+   "cooldown": 1.0,
+   "priority": 70,
+   "owner_exe_cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "Would be: player overtakes under yellow and gets a penalty. The game has no emitter for eid 156 and no 'overtaking under yellow' infraction string exists in the binary.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [],
+   "call_path": "none. eid 156 appears only in the name table DriverNameIDLookup L279 (stores, does not emit)",
+   "gates": [
+    "No code path: 135 emit call sites enumerated; no literal or dynamic emitter yields 156"
+   ],
+   "mod": "full_safety_car trials source calls sc_say_eid_later(SC_NP_STOP_GO?156:149) (development/mods/full_safety_car/trials/v0.10.91*/safety_car_guardrails.c:6105). Mechanism unverified (not in census), and the SC mod is disabled in the owner game (LightloaderDisabled.ini). Candidate MOD_ONLY only.",
+   "heard_evidence": "findings.jsonl CORRECTED row: 'overtaking under yellow' has no string in the binary; eids 146/156 unbuildable. voice_index REVERTED (WIP).",
+   "tier": "DERIVED",
+   "notes": "DD-11 excludes it. Sub-clip number routes are not evidence for this PC_RE_MAIN clip (SUB-CLIP BANK FACT); no emitter for eid 156 exists.",
+   "checked": [
+    {
+     "function": "sub_41A720 (literal emitter)",
+     "result": "cannot produce eid 156: player branch yields 151/153/154/155 only; AI branch yields 252-256 (L43-59)",
+     "line": "functions/sub_41A720_0041a720.c:6-61"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 156: its track eids are 158-177 and 261/260 (AI); see L29-113",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:17-170"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) and literal search",
+     "result": "DriverNameIDLookup L279 (a4!=0 ? 168 : 156), stores only; SC mod trials use 156 (not a game emitter); the function has no DriverDataTableLookupAndTimeConversion call (grep), sub_414600 is only a file-existence loader",
+     "line": "functions/DriverNameIDLookup_00415d90.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eid 156: value set 120 (L37), 259 (L39), 120/198 (L50,L57)",
+     "line": "functions/AIDriverStateTransition_00419120.c:L37,L39,L59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eid 156: value set 6 only (L22)",
+     "line": "functions/AIFormationLap_0041a3a0.c:L24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eid 156: value set 5 (L12), 10/16/3/33 (L21,L27), 4 (L41), 262/72 (L57)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:L61"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eid 156: value set 42/52 (L13,L14)",
+     "line": "functions/AIPitStrategyState_0041a200.c:L15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eid 156: value set 17/18 (L30,L34), 7/8/9 (L45,L47)",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eid 156: value set 21 (L21, AI, SessionType 5, v3<12 at L17), 22 (L25), 178/179 (L32,L34)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eid 156: value set 52 (L10), 196 (L16)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:L19"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eid 156: value set 397 or 516-535 (L38-118; seed branch L97 gives 534/535)",
+     "line": "functions/PitExit_0041c0f0.c:L127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eid 156: value set ThunkToFUN004201e0 -> sub_4203D0 track table, values 355+ or -1 (L25)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:L26"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eid 156: value set 447-477 (L34-104), literal 474 (L158), 397/465 (L145-147), 459-461 (L165-171)",
+     "line": "functions/RaceCommentary_0041d630.c:L107,L148,L158,L173"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eid 156: value set 293-336 (L13-187)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:L189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eid 156: value set 34/35/276-279 (L22-61)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:L25"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 156: value set 149 (L12, Ignored Stop/Go string), 243 (L21)",
+     "line": "functions/sub_41A940_0041a940.c:L15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 156: value set 208-220 (L25-56)",
+     "line": "functions/sub_41AC50_0041ac50.c:L58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 156: value set 117/118/119/236/237 literal (L15-47), 235/238 (L38,L51)",
+     "line": "functions/sub_41B250_0041b250.c:L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 156: value set sub_420000 track table 338-354 or -1 (L13-16)",
+     "line": "functions/sub_41C440_0041c440.c:L16"
+    },
+    {
+     "function": "MainGameTickUpdate (sub_42C690)",
+     "result": "calls sub_4BCCC0(0.025) at L87 only when dword_7C54E8+13000 == 0 (L86): the infraction tick runs for the player driver struct",
+     "line": "functions/MainGameTickUpdate_0042c690.c:86-87"
+    },
+    {
+     "function": "sub_4BCCC0 (infraction tick)",
+     "result": "cut, pit-speed, blue-flag and wrong-way branches; PenaltiesEnabled dword_7CEF84 gates the emits (L113, L181, L377); AI never reaches it (findings.jsonl RETRACTED row, 281 calls, one ECX)",
+     "line": "functions/sub_4BCCC0_004bccc0.c:77-381"
+    },
+    {
+     "function": "StopGoPenaltyHandler (sub_4BBD60)",
+     "result": "calls sub_41A720(*this, string) at L43 after text and progress-bar work; gate this[12]==0 and player+13000==0 (L11,L13)",
+     "line": "functions/StopGoPenaltyHandler_004bbd60.c:11-43"
+    },
+    {
+     "function": "FontRenderingPrep / TextOverlayDisplayTimer (display path)",
+     "result": "reads the eid of a queued message (ShortComputation_19d0: 0 = PWS, 1 = TV) and resolves its clip list; sub-clip part excluded by SUB-CLIP BANK FACT",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45; TextOverlayDisplayTimer_004186f0.c:19"
+    },
+    {
+     "function": "MapCollisionShapeToBoneIndex (sub-clip resolver)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/MapCollisionShapeToBoneIndex_00412c30.c:42-54"
+    },
+    {
+     "function": "AISessionPhaseChange (eid 21 lead, lead SDT 19 type 50)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:17"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Sub-clip routes removed as evidence; verdict unchanged (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Yellow flag overtaking penalty (F1 steward decision)",
+    "when_it_should_play": "EXCLUDED by DD-11 (no infraction in the game)",
+    "trigger": "EXCLUDED by DD-11",
+    "subject": "player (-1) only",
+    "technique": "none (EXCLUDED)",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "always (no infraction)",
+    "conflicts": "SC mod trial sends 156 for stop-go no-pass (not game)",
+    "calibration": null,
+    "live_test": "none; excluded by DD-11",
+    "confidence": "DERIVED"
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "Verdict rests on no_emitter for eid 156; the sub-clip number-15 note was removed."
+   }
+  },
+  {
+   "eid": 157,
+   "clip": "PWS_WIN21.mp2",
+   "sdt_index": 166,
+   "says": "Player finishes outside points",
+   "score": 160,
+   "cooldown": 1.0,
+   "priority": 55,
+   "owner_exe_cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "emitter_reached_in_race_mode_4",
+   "situation": "Race finish of the player, RaceMode dword_7D0410 == 4 and finishing position > 6: 'outside points' (eid 157) replaces the position line (158). Other RaceModes never produce 157.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "PerDriverRaceCommentary (functions/PerDriverRaceCommentary_00419c50.c:111)"
+   ],
+   "call_path": "LapCompletion (sub_4BC4E0:180, SessionType 7 at :125) -> RaceFinishHandler (sub_4A0BA0:6) -> PerDriverRaceCommentary (sub_419C50)",
+   "gates": [
+    "dword_7D0308 && flt_7CF3C8 != 0 (:17,:19)",
+    "player (:25)",
+    "a1[4121]==1 && !a1[4124] (:22)",
+    "finish position a1[4120] (veh+0x4060) != 1 (:27)",
+    "dword_7D0410 == 4 && position > 6 (:110)",
+    "LapCompletion finish branch: lap count at or past total laps (sub_4BC4E0:134 false, :180 call)"
+   ],
+   "mod": "none",
+   "heard_evidence": "voice_index SHIPPED (evf_user, no note).",
+   "tier": "DERIVED",
+   "notes": "RaceMode 4 meaning is not proven (doc12: 'championship', EVF: 'single-season'); the owner's mode must be checked live. Line 158 is queued at the same time for non-mode-4 cases.",
+   "checked": [
+    {
+     "function": "sub_41A720 (literal emitter)",
+     "result": "cannot produce eid 157: player branch yields 151/153/154/155 only; AI branch yields 252-256 (L43-59)",
+     "line": "functions/sub_41A720_0041a720.c:6-61"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "emits 157 at L111 (player, state a1[4121]==1 and !a1[4124] at L22, RaceMode dword_7D0410==4 and finish position >6, overrides 158 at L109)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:17-170"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) and literal search",
+     "result": "DriverNameIDLookup L117 (a4!=0 ? 157 : 205), stores only; the function has no DriverDataTableLookupAndTimeConversion call (grep), sub_414600 is only a file-existence loader",
+     "line": "functions/DriverNameIDLookup_00415d90.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eid 157: value set 120 (L37), 259 (L39), 120/198 (L50,L57)",
+     "line": "functions/AIDriverStateTransition_00419120.c:L37,L39,L59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eid 157: value set 6 only (L22)",
+     "line": "functions/AIFormationLap_0041a3a0.c:L24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eid 157: value set 5 (L12), 10/16/3/33 (L21,L27), 4 (L41), 262/72 (L57)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:L61"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eid 157: value set 42/52 (L13,L14)",
+     "line": "functions/AIPitStrategyState_0041a200.c:L15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eid 157: value set 17/18 (L30,L34), 7/8/9 (L45,L47)",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eid 157: value set 21 (L21, AI, SessionType 5, v3<12 at L17), 22 (L25), 178/179 (L32,L34)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eid 157: value set 52 (L10), 196 (L16)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:L19"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eid 157: value set 397 or 516-535 (L38-118; seed branch L97 gives 534/535)",
+     "line": "functions/PitExit_0041c0f0.c:L127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eid 157: value set ThunkToFUN004201e0 -> sub_4203D0 track table, values 355+ or -1 (L25)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:L26"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eid 157: value set 447-477 (L34-104), literal 474 (L158), 397/465 (L145-147), 459-461 (L165-171)",
+     "line": "functions/RaceCommentary_0041d630.c:L107,L148,L158,L173"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eid 157: value set 293-336 (L13-187)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:L189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eid 157: value set 34/35/276-279 (L22-61)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:L25"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 157: value set 149 (L12, Ignored Stop/Go string), 243 (L21)",
+     "line": "functions/sub_41A940_0041a940.c:L15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 157: value set 208-220 (L25-56)",
+     "line": "functions/sub_41AC50_0041ac50.c:L58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 157: value set 117/118/119/236/237 literal (L15-47), 235/238 (L38,L51)",
+     "line": "functions/sub_41B250_0041b250.c:L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 157: value set sub_420000 track table 338-354 or -1 (L13-16)",
+     "line": "functions/sub_41C440_0041c440.c:L16"
+    },
+    {
+     "function": "MainGameTickUpdate (sub_42C690)",
+     "result": "calls sub_4BCCC0(0.025) at L87 only when dword_7C54E8+13000 == 0 (L86): the infraction tick runs for the player driver struct",
+     "line": "functions/MainGameTickUpdate_0042c690.c:86-87"
+    },
+    {
+     "function": "sub_4BCCC0 (infraction tick)",
+     "result": "cut, pit-speed, blue-flag and wrong-way branches; PenaltiesEnabled dword_7CEF84 gates the emits (L113, L181, L377); AI never reaches it (findings.jsonl RETRACTED row, 281 calls, one ECX)",
+     "line": "functions/sub_4BCCC0_004bccc0.c:77-381"
+    },
+    {
+     "function": "StopGoPenaltyHandler (sub_4BBD60)",
+     "result": "calls sub_41A720(*this, string) at L43 after text and progress-bar work; gate this[12]==0 and player+13000==0 (L11,L13)",
+     "line": "functions/StopGoPenaltyHandler_004bbd60.c:11-43"
+    },
+    {
+     "function": "FontRenderingPrep / TextOverlayDisplayTimer (display path)",
+     "result": "reads the eid of a queued message (ShortComputation_19d0: 0 = PWS, 1 = TV) and resolves its clip list; sub-clip part excluded by SUB-CLIP BANK FACT",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45; TextOverlayDisplayTimer_004186f0.c:19"
+    },
+    {
+     "function": "MapCollisionShapeToBoneIndex (sub-clip resolver)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/MapCollisionShapeToBoneIndex_00412c30.c:42-54"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent (eid 272 laps-to-go, lead SDT 289 type 49)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/AIRetirementVehicleFailureEvent_004199e0.c:14-75; functions/RaceEventMessageDispatcher_00411bf0.c:65"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Sub-clip routes removed as evidence; verdict unchanged (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "Verdict rests on the row's own eid 157 emitter (PerDriverRaceCommentary:111); only sub-clip checked entries were rewritten."
+   }
+  },
+  {
+   "eid": 158,
+   "clip": "PWS_WIN20.mp2",
+   "sdt_index": 167,
+   "says": "Player finishes at X position",
+   "score": 161,
+   "cooldown": 1.0,
+   "priority": 55,
+   "owner_exe_cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "emitter_reached_in_race",
+   "situation": "Race finish of the player who is not the winner: 'Player finishes at X position' (eid 158), with X = finish position. In RaceMode 4 positions 7+ use eid 157 instead.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "PerDriverRaceCommentary (functions/PerDriverRaceCommentary_00419c50.c:109)"
+   ],
+   "call_path": "LapCompletion (sub_4BC4E0:180) -> RaceFinishHandler (sub_4A0BA0:6) -> PerDriverRaceCommentary (sub_419C50:109)",
+   "gates": [
+    "as row 166 (player, state 1, finish)",
+    "finish position != 1 (:27 else branch :107)"
+   ],
+   "mod": "none",
+   "heard_evidence": "voice_index SHIPPED (evf_user, no note).",
+   "tier": "DERIVED",
+   "notes": "The X value in 'Player finishes at X position' is a PC_RE_STITCH sub-clip (sub_412490 table, SUB-CLIP BANK FACT) and is not assessed here. The row plays via its own eid 158 emitter. Identity check of SDT 167 itself still open.",
+   "checked": [
+    {
+     "function": "sub_41A720 (literal emitter)",
+     "result": "cannot produce eid 158: player branch yields 151/153/154/155 only; AI branch yields 252-256 (L43-59)",
+     "line": "functions/sub_41A720_0041a720.c:6-61"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "emits 158 at L109 (player, finish position != 1 in the else branch at L107; any RaceMode, overridden to 157 by L110-111)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:17-170"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) and literal search",
+     "result": "DriverNameIDLookup L337 (a4!=0 ? 158 : 206), stores only; the function has no DriverDataTableLookupAndTimeConversion call (grep), sub_414600 is only a file-existence loader",
+     "line": "functions/DriverNameIDLookup_00415d90.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eid 158: value set 120 (L37), 259 (L39), 120/198 (L50,L57)",
+     "line": "functions/AIDriverStateTransition_00419120.c:L37,L39,L59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eid 158: value set 6 only (L22)",
+     "line": "functions/AIFormationLap_0041a3a0.c:L24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eid 158: value set 5 (L12), 10/16/3/33 (L21,L27), 4 (L41), 262/72 (L57)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:L61"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eid 158: value set 42/52 (L13,L14)",
+     "line": "functions/AIPitStrategyState_0041a200.c:L15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eid 158: value set 17/18 (L30,L34), 7/8/9 (L45,L47)",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eid 158: value set 21 (L21, AI, SessionType 5, v3<12 at L17), 22 (L25), 178/179 (L32,L34)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eid 158: value set 52 (L10), 196 (L16)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:L19"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eid 158: value set 397 or 516-535 (L38-118; seed branch L97 gives 534/535)",
+     "line": "functions/PitExit_0041c0f0.c:L127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eid 158: value set ThunkToFUN004201e0 -> sub_4203D0 track table, values 355+ or -1 (L25)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:L26"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eid 158: value set 447-477 (L34-104), literal 474 (L158), 397/465 (L145-147), 459-461 (L165-171)",
+     "line": "functions/RaceCommentary_0041d630.c:L107,L148,L158,L173"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eid 158: value set 293-336 (L13-187)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:L189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eid 158: value set 34/35/276-279 (L22-61)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:L25"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 158: value set 149 (L12, Ignored Stop/Go string), 243 (L21)",
+     "line": "functions/sub_41A940_0041a940.c:L15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 158: value set 208-220 (L25-56)",
+     "line": "functions/sub_41AC50_0041ac50.c:L58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 158: value set 117/118/119/236/237 literal (L15-47), 235/238 (L38,L51)",
+     "line": "functions/sub_41B250_0041b250.c:L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 158: value set sub_420000 track table 338-354 or -1 (L13-16)",
+     "line": "functions/sub_41C440_0041c440.c:L16"
+    },
+    {
+     "function": "MainGameTickUpdate (sub_42C690)",
+     "result": "calls sub_4BCCC0(0.025) at L87 only when dword_7C54E8+13000 == 0 (L86): the infraction tick runs for the player driver struct",
+     "line": "functions/MainGameTickUpdate_0042c690.c:86-87"
+    },
+    {
+     "function": "sub_4BCCC0 (infraction tick)",
+     "result": "cut, pit-speed, blue-flag and wrong-way branches; PenaltiesEnabled dword_7CEF84 gates the emits (L113, L181, L377); AI never reaches it (findings.jsonl RETRACTED row, 281 calls, one ECX)",
+     "line": "functions/sub_4BCCC0_004bccc0.c:77-381"
+    },
+    {
+     "function": "StopGoPenaltyHandler (sub_4BBD60)",
+     "result": "calls sub_41A720(*this, string) at L43 after text and progress-bar work; gate this[12]==0 and player+13000==0 (L11,L13)",
+     "line": "functions/StopGoPenaltyHandler_004bbd60.c:11-43"
+    },
+    {
+     "function": "FontRenderingPrep / TextOverlayDisplayTimer (display path)",
+     "result": "reads the eid of a queued message (ShortComputation_19d0: 0 = PWS, 1 = TV) and resolves its clip list; sub-clip part excluded by SUB-CLIP BANK FACT",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45; TextOverlayDisplayTimer_004186f0.c:19"
+    },
+    {
+     "function": "MapCollisionShapeToBoneIndex (sub-clip resolver)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/MapCollisionShapeToBoneIndex_00412c30.c:42-54"
+    },
+    {
+     "function": "AISessionPhaseChange (eid 21 lead, lead SDT 19 type 50)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:17"
+    },
+    {
+     "function": "sub_412490 (number table for lead type 16)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/sub_412490_00412490.c:253-300; functions/SoundEventDispatcher_00411e90.c:49"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Sub-clip routes removed as evidence; verdict unchanged (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "Verdict rests on the row's own eid 158 emitter (PerDriverRaceCommentary:109); the X-word sub-clip route was removed from notes as evidence."
+   }
+  },
+  {
+   "eid": 159,
+   "clip": "PWS_2001_124.mp",
+   "sdt_index": 168,
+   "says": "Player wins WDC with X rounds to go",
+   "score": 162,
+   "cooldown": 1.0,
+   "priority": 55,
+   "owner_exe_cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "emitter_reached_in_race_mode_4_with_conflict",
+   "situation": "Race finish of the player in RaceMode 4 when the points gap clinches the title with more than one round left (v8 > 1, points test L147). The line is queued with arg3 = rounds left. The code has no finish-position-1 test (L115-151 sit after the position block), so a non-winning clinch also queues it.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "PerDriverRaceCommentary (functions/PerDriverRaceCommentary_00419c50.c:149, literal)"
+   ],
+   "call_path": "LapCompletion (sub_4BC4E0:180) -> RaceFinishHandler (sub_4A0BA0:6) -> PerDriverRaceCommentary (sub_419C50:149)",
+   "gates": [
+    "as row 166",
+    "dword_7D0410 == 4 (:115)",
+    "v8 = SceneOrderReader - v6 - 1 > 1 (:122-123)",
+    "FixedOffsetReturn(v11) player points > v9 + 10*v8 (:144-147)"
+   ],
+   "mod": "none",
+   "heard_evidence": "voice_index SHIPPED (evf_user, no note).",
+   "tier": "DERIVED",
+   "notes": "Deviation from the clip meaning: the clinch line is not limited to P1 (source fact). Two lines (158/157 and 159) are queued in the same finish tick.",
+   "checked": [
+    {
+     "function": "sub_41A720 (literal emitter)",
+     "result": "cannot produce eid 159: player branch yields 151/153/154/155 only; AI branch yields 252-256 (L43-59)",
+     "line": "functions/sub_41A720_0041a720.c:6-61"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "literal emit at L149 (player, RaceMode 4 at L115, rounds-to-go v8 > 1 at L123, points-clinch test at L147); no finish-position check",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:17-170"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) and literal search",
+     "result": "DriverNameIDLookup L219 (a4!=0 ? 197 : 159), stores only; the function has no DriverDataTableLookupAndTimeConversion call (grep), sub_414600 is only a file-existence loader",
+     "line": "functions/DriverNameIDLookup_00415d90.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eid 159: value set 120 (L37), 259 (L39), 120/198 (L50,L57)",
+     "line": "functions/AIDriverStateTransition_00419120.c:L37,L39,L59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eid 159: value set 6 only (L22)",
+     "line": "functions/AIFormationLap_0041a3a0.c:L24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eid 159: value set 5 (L12), 10/16/3/33 (L21,L27), 4 (L41), 262/72 (L57)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:L61"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eid 159: value set 42/52 (L13,L14)",
+     "line": "functions/AIPitStrategyState_0041a200.c:L15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eid 159: value set 17/18 (L30,L34), 7/8/9 (L45,L47)",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eid 159: value set 21 (L21, AI, SessionType 5, v3<12 at L17), 22 (L25), 178/179 (L32,L34)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eid 159: value set 52 (L10), 196 (L16)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:L19"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eid 159: value set 397 or 516-535 (L38-118; seed branch L97 gives 534/535)",
+     "line": "functions/PitExit_0041c0f0.c:L127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eid 159: value set ThunkToFUN004201e0 -> sub_4203D0 track table, values 355+ or -1 (L25)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:L26"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eid 159: value set 447-477 (L34-104), literal 474 (L158), 397/465 (L145-147), 459-461 (L165-171)",
+     "line": "functions/RaceCommentary_0041d630.c:L107,L148,L158,L173"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eid 159: value set 293-336 (L13-187)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:L189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eid 159: value set 34/35/276-279 (L22-61)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:L25"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 159: value set 149 (L12, Ignored Stop/Go string), 243 (L21)",
+     "line": "functions/sub_41A940_0041a940.c:L15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 159: value set 208-220 (L25-56)",
+     "line": "functions/sub_41AC50_0041ac50.c:L58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 159: value set 117/118/119/236/237 literal (L15-47), 235/238 (L38,L51)",
+     "line": "functions/sub_41B250_0041b250.c:L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 159: value set sub_420000 track table 338-354 or -1 (L13-16)",
+     "line": "functions/sub_41C440_0041c440.c:L16"
+    },
+    {
+     "function": "MainGameTickUpdate (sub_42C690)",
+     "result": "calls sub_4BCCC0(0.025) at L87 only when dword_7C54E8+13000 == 0 (L86): the infraction tick runs for the player driver struct",
+     "line": "functions/MainGameTickUpdate_0042c690.c:86-87"
+    },
+    {
+     "function": "sub_4BCCC0 (infraction tick)",
+     "result": "cut, pit-speed, blue-flag and wrong-way branches; PenaltiesEnabled dword_7CEF84 gates the emits (L113, L181, L377); AI never reaches it (findings.jsonl RETRACTED row, 281 calls, one ECX)",
+     "line": "functions/sub_4BCCC0_004bccc0.c:77-381"
+    },
+    {
+     "function": "StopGoPenaltyHandler (sub_4BBD60)",
+     "result": "calls sub_41A720(*this, string) at L43 after text and progress-bar work; gate this[12]==0 and player+13000==0 (L11,L13)",
+     "line": "functions/StopGoPenaltyHandler_004bbd60.c:11-43"
+    },
+    {
+     "function": "FontRenderingPrep / TextOverlayDisplayTimer (display path)",
+     "result": "reads the eid of a queued message (ShortComputation_19d0: 0 = PWS, 1 = TV) and resolves its clip list; sub-clip part excluded by SUB-CLIP BANK FACT",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45; TextOverlayDisplayTimer_004186f0.c:19"
+    },
+    {
+     "function": "MapCollisionShapeToBoneIndex (sub-clip resolver)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/MapCollisionShapeToBoneIndex_00412c30.c:42-54"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent (eid 272 laps-to-go, lead SDT 289 type 49)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/AIRetirementVehicleFailureEvent_004199e0.c:14-75; functions/RaceEventMessageDispatcher_00411bf0.c:65"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Sub-clip routes removed as evidence; verdict unchanged (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "Verdict rests on the row's own eid 159 emitter (PerDriverRaceCommentary:149); the number-11 sub-clip note was removed."
+   }
+  },
+  {
+   "eid": 160,
+   "clip": "RE_PD_WIN_EUR.m",
+   "sdt_index": 169,
+   "says": "Player wins European GP",
+   "score": 163,
+   "cooldown": 1.0,
+   "priority": 55,
+   "owner_exe_cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "emitter_reached_in_race_at_nurburgring",
+   "situation": "Race finish of the player in P1 at the Nurburgring (track string aNurburgring) with RaceMode 2-5: 'Player wins European GP' (eid 160). Other tracks use their own win eids (161-177); other RaceModes use 167.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "PerDriverRaceCommentary (functions/PerDriverRaceCommentary_00419c50.c:90)"
+   ],
+   "call_path": "LapCompletion (sub_4BC4E0:180) -> RaceFinishHandler (sub_4A0BA0:6) -> PerDriverRaceCommentary (sub_419C50:27,30,88,90)",
+   "gates": [
+    "as row 166",
+    "finish position == 1 (:27)",
+    "dword_7D0410 in [2,5] (:30)",
+    "track string sub_566810(v4, aNurburgring) (:88), v4 = v3+260"
+   ],
+   "mod": "none",
+   "heard_evidence": "voice_index SHIPPED (evf_user, no note).",
+   "tier": "DERIVED",
+   "notes": "Shared-role note withdrawn (SUB-CLIP BANK FACT): the number-11 'AI driver pits, completed 11 laps' sub-clip indexes PC_RE_STITCH and is not a competing main clip. Name check as row 160 (isolation test).",
+   "checked": [
+    {
+     "function": "sub_41A720 (literal emitter)",
+     "result": "cannot produce eid 160: player branch yields 151/153/154/155 only; AI branch yields 252-256 (L43-59)",
+     "line": "functions/sub_41A720_0041a720.c:6-61"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "emits 160 at L90 (player, finish position 1 at L27, RaceMode 2-5 at L30, track string aNurburgring at L88)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:17-170"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) and literal search",
+     "result": "DriverNameIDLookup L439 (a4!=0 ? 198 : 160), stores only; the function has no DriverDataTableLookupAndTimeConversion call (grep), sub_414600 is only a file-existence loader",
+     "line": "functions/DriverNameIDLookup_00415d90.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eid 160: value set 120 (L37), 259 (L39), 120/198 (L50,L57)",
+     "line": "functions/AIDriverStateTransition_00419120.c:L37,L39,L59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eid 160: value set 6 only (L22)",
+     "line": "functions/AIFormationLap_0041a3a0.c:L24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eid 160: value set 5 (L12), 10/16/3/33 (L21,L27), 4 (L41), 262/72 (L57)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:L61"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eid 160: value set 42/52 (L13,L14)",
+     "line": "functions/AIPitStrategyState_0041a200.c:L15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eid 160: value set 17/18 (L30,L34), 7/8/9 (L45,L47)",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eid 160: value set 21 (L21, AI, SessionType 5, v3<12 at L17), 22 (L25), 178/179 (L32,L34)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eid 160: value set 52 (L10), 196 (L16)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:L19"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eid 160: value set 397 or 516-535 (L38-118; seed branch L97 gives 534/535)",
+     "line": "functions/PitExit_0041c0f0.c:L127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eid 160: value set ThunkToFUN004201e0 -> sub_4203D0 track table, values 355+ or -1 (L25)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:L26"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eid 160: value set 447-477 (L34-104), literal 474 (L158), 397/465 (L145-147), 459-461 (L165-171)",
+     "line": "functions/RaceCommentary_0041d630.c:L107,L148,L158,L173"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eid 160: value set 293-336 (L13-187)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:L189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eid 160: value set 34/35/276-279 (L22-61)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:L25"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 160: value set 149 (L12, Ignored Stop/Go string), 243 (L21)",
+     "line": "functions/sub_41A940_0041a940.c:L15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 160: value set 208-220 (L25-56)",
+     "line": "functions/sub_41AC50_0041ac50.c:L58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 160: value set 117/118/119/236/237 literal (L15-47), 235/238 (L38,L51)",
+     "line": "functions/sub_41B250_0041b250.c:L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 160: value set sub_420000 track table 338-354 or -1 (L13-16)",
+     "line": "functions/sub_41C440_0041c440.c:L16"
+    },
+    {
+     "function": "MainGameTickUpdate (sub_42C690)",
+     "result": "calls sub_4BCCC0(0.025) at L87 only when dword_7C54E8+13000 == 0 (L86): the infraction tick runs for the player driver struct",
+     "line": "functions/MainGameTickUpdate_0042c690.c:86-87"
+    },
+    {
+     "function": "sub_4BCCC0 (infraction tick)",
+     "result": "cut, pit-speed, blue-flag and wrong-way branches; PenaltiesEnabled dword_7CEF84 gates the emits (L113, L181, L377); AI never reaches it (findings.jsonl RETRACTED row, 281 calls, one ECX)",
+     "line": "functions/sub_4BCCC0_004bccc0.c:77-381"
+    },
+    {
+     "function": "StopGoPenaltyHandler (sub_4BBD60)",
+     "result": "calls sub_41A720(*this, string) at L43 after text and progress-bar work; gate this[12]==0 and player+13000==0 (L11,L13)",
+     "line": "functions/StopGoPenaltyHandler_004bbd60.c:11-43"
+    },
+    {
+     "function": "FontRenderingPrep / TextOverlayDisplayTimer (display path)",
+     "result": "reads the eid of a queued message (ShortComputation_19d0: 0 = PWS, 1 = TV) and resolves its clip list; sub-clip part excluded by SUB-CLIP BANK FACT",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45; TextOverlayDisplayTimer_004186f0.c:19"
+    },
+    {
+     "function": "MapCollisionShapeToBoneIndex (sub-clip resolver)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/MapCollisionShapeToBoneIndex_00412c30.c:42-54"
+    },
+    {
+     "function": "AISessionPhaseChange (eid 21 lead, lead SDT 19 type 50)",
+     "result": "Sub-clip number/bank route (PC_RE_STITCH.SDT table index) excluded by SUB-CLIP BANK FACT; no bearing on this PC_RE_MAIN clip's verdict.",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:17,21; functions/SoundEventDispatcher_00411e90.c:98"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Sub-clip routes removed as evidence; verdict unchanged (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "Verdict rests on the row's own eid 160 emitter and the Nurburgring/RaceMode gates; the shared-role sub-clip note was removed."
+   }
+  }
+ ]
+}

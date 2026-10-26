@@ -1,0 +1,83 @@
+[
+  {
+    "function": "ProcessDriverEntries",
+    "handler": "process_driver_entries_hook",
+    "stolen_length": 6,
+    "expected_bytes": "81 EC 8C 00 00 00",
+    "address": "0x004B8DA0",
+    "thread": "game_thread",
+    "calling_convention": "thiscall"
+  },
+  {
+    "function": "MultiplayerQualificationGridAssignment",
+    "handler": "multiplayer_qualification_grid_hook",
+    "stolen_length": 5,
+    "expected_bytes": "83 EC 10 55 56",
+    "address": "0x00462E20",
+    "thread": "game_thread",
+    "calling_convention": "thiscall"
+  },
+  {
+    "function": "NetCommPlayerSlotSync",
+    "handler": "netcomm_slot_sync_hook",
+    "stolen_length": 6,
+    "expected_bytes": "55 8B EC 83 E4 F8",
+    "address": "0x0045FC50",
+    "thread": "game_thread",
+    "calling_convention": "thiscall"
+  },
+  {
+    "function": "SceneRenderUpdate",
+    "handler": "scene_render_update_hook",
+    "stolen_length": 8,
+    "expected_bytes": "83 EC 18 53 8B 5C 24 20",
+    "address": "0x004C6D90",
+    "thread": "game_thread",
+    "calling_convention": "thiscall"
+  },
+  {
+    "function": "SuspensionForceComputationWithPerCornerVirtualDevices",
+    "handler": "suspension_force_hook",
+    "stolen_length": 6,
+    "expected_bytes": "83 EC 24 56 8B F1",
+    "address": "0x004F8440",
+    "thread": "game_thread",
+    "calling_convention": "thiscall"
+  },
+  {
+    "function": "DriverNameIDLookup",
+    "handler": "driver_name_lookup_hook",
+    "stolen_length": 5,
+    "expected_bytes": "53 8B 5C 24 10",
+    "address": "0x00415D90",
+    "thread": "game_thread",
+    "calling_convention": "stdcall"
+  },
+  {
+    "function": "CommentaryDriverEntryInit",
+    "handler": "commentary_entry_hook",
+    "stolen_length": 6,
+    "expected_bytes": "81 EC 00 01 00 00",
+    "address": "0x00414600",
+    "thread": "game_thread",
+    "calling_convention": "thiscall"
+  },
+  {
+    "function": "CommentaryEventQueue",
+    "handler": "commentary_event_hook",
+    "stolen_length": 8,
+    "expected_bytes": "8B 44 24 08 8B 54 24 0C",
+    "address": "0x004144F0",
+    "thread": "game_thread",
+    "calling_convention": "thiscall"
+  },
+  {
+    "function": "MultiplayerVehiclePlacement",
+    "handler": "multiplayer_vehicle_placement_hook",
+    "stolen_length": 5,
+    "expected_bytes": "53 55 56 8B E9",
+    "address": "0x0042CF10",
+    "thread": "game_thread",
+    "calling_convention": "thiscall"
+  }
+]

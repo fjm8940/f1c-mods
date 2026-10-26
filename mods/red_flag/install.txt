@@ -1,0 +1,13 @@
+Red Flag 1.1.6 release candidate
+
+Needs Lightloader 2.2.3 or newer (built-in shared broker; no separate
+f1c_game_update_broker.dll is needed). Copy redflag.dll and redflag.ini into the
+game's plugins\lightloader folder while the game is closed. Keep your existing
+redflag.ini when upgrading.
+
+1.1.6 adds no gameplay change: it writes one consent-gated usage summary per
+session to plugins\lightloader\reports\usage\ (uploaded by Lightloader only when
+the player's "Send crash, bug and mod usage reports automatically" switch is on)
+and reports a crash summary through the shared crash handler.
+
+Development build. Matias must complete the pending in-game test first.

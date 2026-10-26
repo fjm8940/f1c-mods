@@ -1,0 +1,9 @@
+# OpponentProximityScanTeamRecognition: offset-like lines with no extracted row (8)
+L45: v2 = this + 16820;
+L46: v3 = this + 17100;
+L100: || F_2DVectorDirectionProjection((float *)this + 4387, v42) >= -5.5 )
+L180: v28 = this + 16756;
+L187: v31 = this + 17104;
+L203: v32 = (int *)(this + 16820);
+L211: v36 = this + 17100;
+L236: v38 = this + 17116;

@@ -1,0 +1,2410 @@
+{
+ "schema": "ere.audit.v1",
+ "range": "B25_240-249",
+ "rows": [
+  {
+   "eid": 227,
+   "sdt_index": 240,
+   "clip": "PWS_AIINCID06",
+   "says": "Car off track just ahead",
+   "score": 230,
+   "cooldown": 1.0,
+   "priority": 55,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter (no function queues eid 227; its only route was a sub-clip tail of AIRETIRE03/02, rejected by SUB-CLIP BANK FACT)",
+   "situation": "AI car off track just ahead. No code queues eid 227 and no code detects an AI car going off track for this call.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No off-track trigger in code for eid 227 (nothing emits it); no suppression involved.",
+   "emitters": [],
+   "call_path": "none (no function queues eid 227)",
+   "gates": [
+    "none (no emitter for eid 227)"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt:216 owner: 'X PLAY ... this doesn't exist yet I think' (agrees: own eid has no emitter). RESTORATION_PLAN.md:286 'eid 227 has no call site' (agrees). VOICE_LINES.md:334.",
+   "tier": "DERIVED",
+   "notes": "Owner exe (F1 Challenge Online.exe, sha256 prefix 1A70E5ED) read-only: event row at 0x5BF9A0+eid*0x14 gives score at +0x10 and cooldown float at +0x0C; cooldown 1.0 and not FLT_MAX. Earlier UNKNOWN came only from the sub-clip tail of AIRETIRE03/02 (sub_412E50 index 240, PC_RE_STITCH), which is not evidence for this PC_RE_MAIN clip.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 227",
+     "line": "functions/AIDriverStateTransition_00419120.c:37,39,57,59",
+     "observed": "emits 120 (l.37), 259 (l.39), 198 (l.57)"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 227",
+     "line": "functions/AIFormationLap_0041a3a0.c:22-41",
+     "observed": "emits 6, 180, 181, 182 (l.22,35-38,41)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 227",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:21-61",
+     "observed": "v5 in {3,4,5,10,16,33,72,262} (l.21,27,29,41,47,57,61)"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 227",
+     "line": "functions/AIPitStrategyState_0041a200.c:13-20",
+     "observed": "emits 42 or 52 (l.13-15,20)"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 227",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:34-48",
+     "observed": "emits 7,8,9,17,18 (l.34,36,44-48)"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 227",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:21-36",
+     "observed": "emits 21,22,178,179 (l.21,25,32,34,36)"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 227",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:10-19",
+     "observed": "emits 52 or 196 (l.10,16,19)"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 227",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:29-164",
+     "observed": "emits 157-177, 158-159, 260, 261 (l.29-164)"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 227",
+     "line": "functions/PitExit_0041c0f0.c:29-127",
+     "observed": "default 397; emits 516-535 range (l.38-118)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 227",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:25-26",
+     "observed": "eid = ThunkToFUN004201e0 result: returns 355-371 or -1 (thunk body file ThunkToFUN004201e0_004203d0.c:7-49)"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 227",
+     "line": "functions/RaceCommentary_0041d630.c:34-236",
+     "observed": "emits 397, 447-477, 454-456, 459-461, 465, 474, 476 (l.34-236)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 227",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:13-189",
+     "observed": "emits 293-336 (l.13-189)"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 227",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:22-61",
+     "observed": "emits 34,35,276-279 (l.22-61)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eid 227",
+     "line": "functions/sub_41A720_0041a720.c:14-57",
+     "observed": "emits 123-125, 151, 153-155, 252-254, 256 (l.14-57)"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 227 (eid 243 is another clip)",
+     "line": "functions/sub_41A940_0041a940.c:12,21",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): emits 149 (player, l.15) and 243 (AI, l.21). Eid 243 = PWS_AIPENALTY22 in full_event_dump (sdt 259), not a batch clip"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 227",
+     "line": "functions/sub_41AC50_0041ac50.c:25-58",
+     "observed": "emits 208, 211-217, 220 (l.25-58)"
+    },
+    {
+     "function": "sub_41B250 (AI/player retirement)",
+     "result": "cannot produce eid 227 as own eid; PRODUCES parent eids 236 and 237, both sdt type 0x13 (type 0x13: its stitch-bank tail is not counted)",
+     "line": "functions/sub_41B250_0041b250.c:35-53",
+     "observed": "player 117-119 (l.13-24); AI 235 (16488==1), 238 (==4), 236 (==9), 237 (other) (l.35-53)"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 227",
+     "line": "functions/sub_41C440_0041c440.c:8-17; functions/sub_420000_00420000.c:12-47",
+     "observed": "eid = sub_420000 result: returns 338-354 or -1 (l.12-16)"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "stitch-bank tail path for type 0x13 parents (not counted); type 0x0B has no sound-path tail",
+     "line": "functions/SoundEventDispatcher_00411e90.c:45-58,100-104",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): case 0x13/0x29 -> sub_412E50(a4,a1,a3[5],0) (l.55-58); case 0x0E -> a3[4] (l.45-47); default returns 0 for types 0x0B,0x0C (l.100-104)"
+    },
+    {
+     "function": "sub_412E50 (sub-clip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a3 in {1,2,3} gives sdt 240,241,242; a3 4..10 gives 243..249 only through type-0x13 parents, none emitted live",
+     "line": "functions/sub_412E50_00412e50.c:96-183",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a2=0 (PWS channel), a4=0: a3=1..25 -> sdt 240..264 (l.95-169; l.96 a3=1, l.99 a3=2, l.102 a3=3); a2=1 gives TV-channel indices 243..266; default -1 (l.183)"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): text-channel tail only (flag 1)",
+     "line": "functions/RaceEventMessageDispatcher_00411bf0.c:7-37",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): types 0x0B,0x0C,0x33 -> sub_412E50(a4,a1,a3[4],1): text tail 214..238 (l.34-38); type 0x13 -> SessionStringNameLookup (l.15,27)"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840)",
+     "result": "sound path reached when FCRD returns 1",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45",
+     "observed": "ShortComputation chain l.12-18; CharacterCodeMapper(v9+v8) l.34; RaceEventMessageDispatcher l.36; FontCharacterRenderDispatcher l.41; SoundEventDispatcher l.45 (only after FCRD==1)"
+    },
+    {
+     "function": "FontCharacterRenderDispatcher (sub_411DB0)",
+     "result": "writes the parent clip itself (a2+8) into the output slot",
+     "line": "functions/FontCharacterRenderDispatcher_00411db0.c:31-42; functions/GlobalFieldSelectorByIndex_00414160.c:6-7",
+     "observed": "returns 1 when GlobalFieldSelectorByIndex(channel) >= 0 (l.31-42); channel 0 -> dword_5BF8C8 = 30 in owner exe initial data (static; runtime may differ)"
+    },
+    {
+     "function": "CharacterCodeMapper (sub_411B50)",
+     "result": "type per clip index: 240=3, 241=3, 242=0x13, 243=0x0B, 244=9, 245=3, 246=0x13, 248=3, 249=9, 247=3, 251/252=0x13",
+     "line": "functions/CharacterCodeMapper_00411b50.c:46,52-53",
+     "observed": "clip type = unk_5BEE08[sdt] dword table (l.46, 52-53); owner exe table extracted read-only"
+    },
+    {
+     "function": "ShortComputation_19d0 (sub_4119D0)",
+     "result": "PWS eids of this batch are channel 0",
+     "line": "functions/ShortComputation_19d0_004119d0.c:6-7",
+     "observed": "channel 0 for 0<eid<291 (l.6-7); 1 for 292<eid<536 (l.8-9)"
+    },
+    {
+     "function": "ShortComputation_1a00 (sub_411A00)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): scores 230..237 -> sdt 240,241,243,244,245,246,248,249; no score maps to 242 or 247 (0 of 300)",
+     "line": "functions/ShortComputation_1a00_00411a00.c:8-11",
+     "observed": "score -> sdt through word_5BEBB0[score] (l.11); owner exe table read-only"
+    },
+    {
+     "function": "ShortComputation_1a50 + CircularBufferIndexIncrement (sub_411A50, sub_411650)",
+     "result": "UNKNOWN: if N>=2 for an eid, its clip becomes sdt+k",
+     "line": "functions/ShortComputation_1a50_00411a50.c:7-25; functions/CircularBufferIndexIncrement_00411650.c:6-15",
+     "observed": "adds a per-eid cursor k in [0, N-1] to the sdt (FontRenderingPrep l.34: CharacterCodeMapper(v9+v8)); N is runtime state"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion (sub_4144F0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): arg4 is the sub-clip selector for type 0x13 parents",
+     "line": "functions/DriverDataTableLookupAndTimeConversion_004144f0.c:5-9",
+     "observed": "entry struct: [0]=eid, [4]=arg3, [5]=arg4, [6]=arg5, [7]=arg6 (l.5-9); SoundEventDispatcher reads a3[4]/a3[5] from this entry"
+    },
+    {
+     "function": "TextOverlayDisplayTimer (sub_4186F0)",
+     "result": "pipeline root for every queued line",
+     "line": "functions/TextOverlayDisplayTimer_004186f0.c:19-76",
+     "observed": "gate l.19 dword_7D0308 && flt_7CF3C8 > 0 && *(this+2800); FontRenderingPrep call l.76; caller RenderTickUpdate (per frame)"
+    },
+    {
+     "function": "FloatRangeIndexLookup (sub_4D7C10)",
+     "result": "bucket v1 of sub_41B250 (l.29-31) is UNKNOWN at runtime",
+     "line": "functions/FloatRangeIndexLookup_004d7c10.c:11-26",
+     "observed": "returns -1, 0, 1 or 2 (l.11-26); thresholds flt_5EA404.. are runtime data (zero in exe initial image)"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "result": "retirement/spin route UNKNOWN on live state",
+     "line": "functions/sub_4F1FE0_004f1fe0.c:36,50,113,135",
+     "observed": "calls sub_41B250 at l.135 after yaw-timer latch l.113 (v14 > flt_7D0A8C); gates l.36, 50, 70-109 incl. sub_4D21D0() and DistanceComparison; FPU-flag gates v8/v9 not decodable"
+    },
+    {
+     "function": "sub_412E50 a3=1 (sdt 240) via parents 236/237",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sdt 240 when parent 236 or 237 queued and bucket v1==1",
+     "line": "functions/sub_412E50_00412e50.c:96; functions/sub_41B250_0041b250.c:45-53",
+     "observed": "type 0x13 parent"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "An AI car is off track just ahead of the player (real F1 call-out).",
+    "when_it_should_play": "race (phase 5, green), an AI car ahead of the player on track goes off track; not in the pit lane",
+    "trigger": "per-car off-track state: no broker field or game code for AI off-track is proven (UNKNOWN); candidate reads = AI lap distance veh+0x4044 (ahead of player) and speed; choose broker fields from f1c_broker_abi.h",
+    "subject": "AI driver id veh+0x489C (a1+18588)",
+    "technique": "own_emitter (ERE queues eid 227 from a hook; no native writer exists)",
+    "latch_cooldown": "once per car per off-track event, 30 s (proposal)",
+    "must_not_play_when": "player off track; car behind the player; AI retirement already queued for that car (236/237); same event already called as eid 228",
+    "conflicts": "AIRETIRE 236/237 (same yaw controller sub_4F1FE0); eid 228 (AIINCID03) for the same event - pick one",
+    "calibration": "off-track detector thresholds and ahead distance (live measurement)",
+    "live_test": "In a race put an AI car off track just ahead of the player (e.g. a corner); log the detector state",
+    "confidence": "GUESS on the detector; DERIVED that no native route exists"
+   },
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "The only route was the sub-clip tail of AIRETIRE03/02 (sub_412E50 index 240, a PC_RE_STITCH index). No function queues eid 227 and no native emitter exists, so the line is never queued."
+   }
+  },
+  {
+   "eid": 228,
+   "sdt_index": 241,
+   "clip": "PWS_AIINCID03",
+   "says": "AI went off track",
+   "score": 231,
+   "cooldown": 1.0,
+   "priority": 20,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter (no function queues eid 228; its only route was a sub-clip tail of AIRETIRE03/02, rejected by SUB-CLIP BANK FACT)",
+   "situation": "An AI car went off track. No code queues eid 228 and no code detects the event.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No trigger in code for eid 228 and no emitter; no suppression involved.",
+   "emitters": [],
+   "call_path": "none (no function queues eid 228)",
+   "gates": [
+    "none (no emitter for eid 228)"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt:217 'same as above'; VOICE_LINES.md:335 'AI went off track'.",
+   "tier": "DERIVED",
+   "notes": "Owner exe (F1 Challenge Online.exe, sha256 prefix 1A70E5ED) read-only: event row at 0x5BF9A0+eid*0x14 gives score at +0x10 and cooldown float at +0x0C; cooldown 1.0 and not FLT_MAX. Earlier UNKNOWN came only from the sub-clip tail (sub_412E50 index 241, PC_RE_STITCH), which is not evidence for this clip.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 228",
+     "line": "functions/AIDriverStateTransition_00419120.c:37,39,57,59",
+     "observed": "emits 120 (l.37), 259 (l.39), 198 (l.57)"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 228",
+     "line": "functions/AIFormationLap_0041a3a0.c:22-41",
+     "observed": "emits 6, 180, 181, 182 (l.22,35-38,41)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 228",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:21-61",
+     "observed": "v5 in {3,4,5,10,16,33,72,262} (l.21,27,29,41,47,57,61)"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 228",
+     "line": "functions/AIPitStrategyState_0041a200.c:13-20",
+     "observed": "emits 42 or 52 (l.13-15,20)"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 228",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:34-48",
+     "observed": "emits 7,8,9,17,18 (l.34,36,44-48)"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 228",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:21-36",
+     "observed": "emits 21,22,178,179 (l.21,25,32,34,36)"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 228",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:10-19",
+     "observed": "emits 52 or 196 (l.10,16,19)"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 228",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:29-164",
+     "observed": "emits 157-177, 158-159, 260, 261 (l.29-164)"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 228",
+     "line": "functions/PitExit_0041c0f0.c:29-127",
+     "observed": "default 397; emits 516-535 range (l.38-118)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 228",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:25-26",
+     "observed": "eid = ThunkToFUN004201e0 result: returns 355-371 or -1 (thunk body file ThunkToFUN004201e0_004203d0.c:7-49)"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 228",
+     "line": "functions/RaceCommentary_0041d630.c:34-236",
+     "observed": "emits 397, 447-477, 454-456, 459-461, 465, 474, 476 (l.34-236)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 228",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:13-189",
+     "observed": "emits 293-336 (l.13-189)"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 228",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:22-61",
+     "observed": "emits 34,35,276-279 (l.22-61)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eid 228",
+     "line": "functions/sub_41A720_0041a720.c:14-57",
+     "observed": "emits 123-125, 151, 153-155, 252-254, 256 (l.14-57)"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 228 (eid 243 is another clip)",
+     "line": "functions/sub_41A940_0041a940.c:12,21",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): emits 149 (player, l.15) and 243 (AI, l.21). Eid 243 = PWS_AIPENALTY22 in full_event_dump (sdt 259), not a batch clip"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 228",
+     "line": "functions/sub_41AC50_0041ac50.c:25-58",
+     "observed": "emits 208, 211-217, 220 (l.25-58)"
+    },
+    {
+     "function": "sub_41B250 (AI/player retirement)",
+     "result": "cannot produce eid 228 as own eid; PRODUCES parent eids 236 and 237, both sdt type 0x13 (type 0x13: its stitch-bank tail is not counted)",
+     "line": "functions/sub_41B250_0041b250.c:35-53",
+     "observed": "player 117-119 (l.13-24); AI 235 (16488==1), 238 (==4), 236 (==9), 237 (other) (l.35-53)"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 228",
+     "line": "functions/sub_41C440_0041c440.c:8-17; functions/sub_420000_00420000.c:12-47",
+     "observed": "eid = sub_420000 result: returns 338-354 or -1 (l.12-16)"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "stitch-bank tail path for type 0x13 parents (not counted); type 0x0B has no sound-path tail",
+     "line": "functions/SoundEventDispatcher_00411e90.c:45-58,100-104",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): case 0x13/0x29 -> sub_412E50(a4,a1,a3[5],0) (l.55-58); case 0x0E -> a3[4] (l.45-47); default returns 0 for types 0x0B,0x0C (l.100-104)"
+    },
+    {
+     "function": "sub_412E50 (sub-clip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a3 in {1,2,3} gives sdt 240,241,242; a3 4..10 gives 243..249 only through type-0x13 parents, none emitted live",
+     "line": "functions/sub_412E50_00412e50.c:96-183",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a2=0 (PWS channel), a4=0: a3=1..25 -> sdt 240..264 (l.95-169; l.96 a3=1, l.99 a3=2, l.102 a3=3); a2=1 gives TV-channel indices 243..266; default -1 (l.183)"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): text-channel tail only (flag 1)",
+     "line": "functions/RaceEventMessageDispatcher_00411bf0.c:7-37",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): types 0x0B,0x0C,0x33 -> sub_412E50(a4,a1,a3[4],1): text tail 214..238 (l.34-38); type 0x13 -> SessionStringNameLookup (l.15,27)"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840)",
+     "result": "sound path reached when FCRD returns 1",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45",
+     "observed": "ShortComputation chain l.12-18; CharacterCodeMapper(v9+v8) l.34; RaceEventMessageDispatcher l.36; FontCharacterRenderDispatcher l.41; SoundEventDispatcher l.45 (only after FCRD==1)"
+    },
+    {
+     "function": "FontCharacterRenderDispatcher (sub_411DB0)",
+     "result": "writes the parent clip itself (a2+8) into the output slot",
+     "line": "functions/FontCharacterRenderDispatcher_00411db0.c:31-42; functions/GlobalFieldSelectorByIndex_00414160.c:6-7",
+     "observed": "returns 1 when GlobalFieldSelectorByIndex(channel) >= 0 (l.31-42); channel 0 -> dword_5BF8C8 = 30 in owner exe initial data (static; runtime may differ)"
+    },
+    {
+     "function": "CharacterCodeMapper (sub_411B50)",
+     "result": "type per clip index: 240=3, 241=3, 242=0x13, 243=0x0B, 244=9, 245=3, 246=0x13, 248=3, 249=9, 247=3, 251/252=0x13",
+     "line": "functions/CharacterCodeMapper_00411b50.c:46,52-53",
+     "observed": "clip type = unk_5BEE08[sdt] dword table (l.46, 52-53); owner exe table extracted read-only"
+    },
+    {
+     "function": "ShortComputation_19d0 (sub_4119D0)",
+     "result": "PWS eids of this batch are channel 0",
+     "line": "functions/ShortComputation_19d0_004119d0.c:6-7",
+     "observed": "channel 0 for 0<eid<291 (l.6-7); 1 for 292<eid<536 (l.8-9)"
+    },
+    {
+     "function": "ShortComputation_1a00 (sub_411A00)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): scores 230..237 -> sdt 240,241,243,244,245,246,248,249; no score maps to 242 or 247 (0 of 300)",
+     "line": "functions/ShortComputation_1a00_00411a00.c:8-11",
+     "observed": "score -> sdt through word_5BEBB0[score] (l.11); owner exe table read-only"
+    },
+    {
+     "function": "ShortComputation_1a50 + CircularBufferIndexIncrement (sub_411A50, sub_411650)",
+     "result": "UNKNOWN: if N>=2 for an eid, its clip becomes sdt+k",
+     "line": "functions/ShortComputation_1a50_00411a50.c:7-25; functions/CircularBufferIndexIncrement_00411650.c:6-15",
+     "observed": "adds a per-eid cursor k in [0, N-1] to the sdt (FontRenderingPrep l.34: CharacterCodeMapper(v9+v8)); N is runtime state"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion (sub_4144F0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): arg4 is the sub-clip selector for type 0x13 parents",
+     "line": "functions/DriverDataTableLookupAndTimeConversion_004144f0.c:5-9",
+     "observed": "entry struct: [0]=eid, [4]=arg3, [5]=arg4, [6]=arg5, [7]=arg6 (l.5-9); SoundEventDispatcher reads a3[4]/a3[5] from this entry"
+    },
+    {
+     "function": "TextOverlayDisplayTimer (sub_4186F0)",
+     "result": "pipeline root for every queued line",
+     "line": "functions/TextOverlayDisplayTimer_004186f0.c:19-76",
+     "observed": "gate l.19 dword_7D0308 && flt_7CF3C8 > 0 && *(this+2800); FontRenderingPrep call l.76; caller RenderTickUpdate (per frame)"
+    },
+    {
+     "function": "FloatRangeIndexLookup (sub_4D7C10)",
+     "result": "bucket v1 of sub_41B250 (l.29-31) is UNKNOWN at runtime",
+     "line": "functions/FloatRangeIndexLookup_004d7c10.c:11-26",
+     "observed": "returns -1, 0, 1 or 2 (l.11-26); thresholds flt_5EA404.. are runtime data (zero in exe initial image)"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "result": "retirement/spin route UNKNOWN on live state",
+     "line": "functions/sub_4F1FE0_004f1fe0.c:36,50,113,135",
+     "observed": "calls sub_41B250 at l.135 after yaw-timer latch l.113 (v14 > flt_7D0A8C); gates l.36, 50, 70-109 incl. sub_4D21D0() and DistanceComparison; FPU-flag gates v8/v9 not decodable"
+    },
+    {
+     "function": "sub_412E50 a3=2",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sdt 241 when parent 236/237 queued and bucket v1==2",
+     "line": "functions/sub_412E50_00412e50.c:99",
+     "observed": "type 0x13 parent"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "An AI car went off track (generic call-out).",
+    "when_it_should_play": "race (phase 5, green), any AI car goes off track; not in the pit lane",
+    "trigger": "per-car off-track state: no broker field or game code for AI off-track is proven (UNKNOWN); candidate reads = AI lap distance veh+0x4044 (ahead of player) and speed; choose broker fields from f1c_broker_abi.h",
+    "subject": "AI driver id veh+0x489C (a1+18588)",
+    "technique": "own_emitter (ERE queues eid 228 from a hook; no native writer exists)",
+    "latch_cooldown": "once per car per off-track event, 30 s (proposal)",
+    "must_not_play_when": "player off track; car already in AI retirement (236/237); same event already called as eid 227",
+    "conflicts": "AIRETIRE 236/237; eid 227 (AIINCID06) for the same event - pick one",
+    "calibration": "off-track detector thresholds and ahead distance (live measurement)",
+    "live_test": "In a race put an AI car off track just ahead of the player (e.g. a corner); log the detector state",
+    "confidence": "GUESS on the detector; DERIVED that no native route exists"
+   },
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "The only route was the sub-clip tail of AIRETIRE03/02 (sub_412E50 index 241, PC_RE_STITCH). No function queues eid 228, so the line is never queued."
+   }
+  },
+  {
+   "eid": null,
+   "sdt_index": 242,
+   "clip": "PWS_AIINCID02",
+   "says": "<driver> is off in <sector>",
+   "score": null,
+   "cooldown": 1.0,
+   "priority": null,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "orphan_clip (no eid and no score maps to sdt 242; its only route was the default sub-clip tail, rejected by SUB-CLIP BANK FACT)",
+   "situation": "AI car off in a sector (sector phrase in the clip). No code plays it.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No eid and no score: nothing emits it.",
+   "emitters": [],
+   "call_path": "none",
+   "gates": [
+    "none"
+   ],
+   "mod": "",
+   "heard_evidence": "VOICE_LINES.md:336 eid 'none'; TRIAGE_NOTES.txt:218 'X PLAY Z ... same as above'; findings.jsonl:71 says all orphans unreachable (true for own eid only).",
+   "tier": "DERIVED",
+   "notes": "findings.jsonl:1695 (H8) says 242 shares a score with a base clip: no score maps to 242 in the owner exe table (0 of 300), so that claim is not supported. Owner exe (F1 Challenge Online.exe, sha256 prefix 1A70E5ED) read-only: event row at 0x5BF9A0+eid*0x14 gives score at +0x10 and cooldown float at +0x0C; cooldown 1.0 and not FLT_MAX.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/AIDriverStateTransition_00419120.c:37,39,57,59",
+     "observed": "emits 120 (l.37), 259 (l.39), 198 (l.57)"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/AIFormationLap_0041a3a0.c:22-41",
+     "observed": "emits 6, 180, 181, 182 (l.22,35-38,41)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:21-61",
+     "observed": "v5 in {3,4,5,10,16,33,72,262} (l.21,27,29,41,47,57,61)"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/AIPitStrategyState_0041a200.c:13-20",
+     "observed": "emits 42 or 52 (l.13-15,20)"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:34-48",
+     "observed": "emits 7,8,9,17,18 (l.34,36,44-48)"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:21-36",
+     "observed": "emits 21,22,178,179 (l.21,25,32,34,36)"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:10-19",
+     "observed": "emits 52 or 196 (l.10,16,19)"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:29-164",
+     "observed": "emits 157-177, 158-159, 260, 261 (l.29-164)"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/PitExit_0041c0f0.c:29-127",
+     "observed": "default 397; emits 516-535 range (l.38-118)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:25-26",
+     "observed": "eid = ThunkToFUN004201e0 result: returns 355-371 or -1 (thunk body file ThunkToFUN004201e0_004203d0.c:7-49)"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/RaceCommentary_0041d630.c:34-236",
+     "observed": "emits 397, 447-477, 454-456, 459-461, 465, 474, 476 (l.34-236)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:13-189",
+     "observed": "emits 293-336 (l.13-189)"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:22-61",
+     "observed": "emits 34,35,276-279 (l.22-61)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/sub_41A720_0041a720.c:14-57",
+     "observed": "emits 123-125, 151, 153-155, 252-254, 256 (l.14-57)"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce its own eid (none) (eid 243 is another clip)",
+     "line": "functions/sub_41A940_0041a940.c:12,21",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): emits 149 (player, l.15) and 243 (AI, l.21). Eid 243 = PWS_AIPENALTY22 in full_event_dump (sdt 259), not a batch clip"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/sub_41AC50_0041ac50.c:25-58",
+     "observed": "emits 208, 211-217, 220 (l.25-58)"
+    },
+    {
+     "function": "sub_41B250 (AI/player retirement)",
+     "result": "cannot produce its own eid (none) as own eid; PRODUCES parent eids 236 and 237, both sdt type 0x13 (type 0x13: its stitch-bank tail is not counted)",
+     "line": "functions/sub_41B250_0041b250.c:35-53",
+     "observed": "player 117-119 (l.13-24); AI 235 (16488==1), 238 (==4), 236 (==9), 237 (other) (l.35-53)"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/sub_41C440_0041c440.c:8-17; functions/sub_420000_00420000.c:12-47",
+     "observed": "eid = sub_420000 result: returns 338-354 or -1 (l.12-16)"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "stitch-bank tail path for type 0x13 parents (not counted); type 0x0B has no sound-path tail",
+     "line": "functions/SoundEventDispatcher_00411e90.c:45-58,100-104",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): case 0x13/0x29 -> sub_412E50(a4,a1,a3[5],0) (l.55-58); case 0x0E -> a3[4] (l.45-47); default returns 0 for types 0x0B,0x0C (l.100-104)"
+    },
+    {
+     "function": "sub_412E50 (sub-clip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a3 in {1,2,3} gives sdt 240,241,242; a3 4..10 gives 243..249 only through type-0x13 parents, none emitted live",
+     "line": "functions/sub_412E50_00412e50.c:96-183",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a2=0 (PWS channel), a4=0: a3=1..25 -> sdt 240..264 (l.95-169; l.96 a3=1, l.99 a3=2, l.102 a3=3); a2=1 gives TV-channel indices 243..266; default -1 (l.183)"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): text-channel tail only (flag 1)",
+     "line": "functions/RaceEventMessageDispatcher_00411bf0.c:7-37",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): types 0x0B,0x0C,0x33 -> sub_412E50(a4,a1,a3[4],1): text tail 214..238 (l.34-38); type 0x13 -> SessionStringNameLookup (l.15,27)"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840)",
+     "result": "sound path reached when FCRD returns 1",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45",
+     "observed": "ShortComputation chain l.12-18; CharacterCodeMapper(v9+v8) l.34; RaceEventMessageDispatcher l.36; FontCharacterRenderDispatcher l.41; SoundEventDispatcher l.45 (only after FCRD==1)"
+    },
+    {
+     "function": "FontCharacterRenderDispatcher (sub_411DB0)",
+     "result": "writes the parent clip itself (a2+8) into the output slot",
+     "line": "functions/FontCharacterRenderDispatcher_00411db0.c:31-42; functions/GlobalFieldSelectorByIndex_00414160.c:6-7",
+     "observed": "returns 1 when GlobalFieldSelectorByIndex(channel) >= 0 (l.31-42); channel 0 -> dword_5BF8C8 = 30 in owner exe initial data (static; runtime may differ)"
+    },
+    {
+     "function": "CharacterCodeMapper (sub_411B50)",
+     "result": "type per clip index: 240=3, 241=3, 242=0x13, 243=0x0B, 244=9, 245=3, 246=0x13, 248=3, 249=9, 247=3, 251/252=0x13",
+     "line": "functions/CharacterCodeMapper_00411b50.c:46,52-53",
+     "observed": "clip type = unk_5BEE08[sdt] dword table (l.46, 52-53); owner exe table extracted read-only"
+    },
+    {
+     "function": "ShortComputation_19d0 (sub_4119D0)",
+     "result": "PWS eids of this batch are channel 0",
+     "line": "functions/ShortComputation_19d0_004119d0.c:6-7",
+     "observed": "channel 0 for 0<eid<291 (l.6-7); 1 for 292<eid<536 (l.8-9)"
+    },
+    {
+     "function": "ShortComputation_1a00 (sub_411A00)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): scores 230..237 -> sdt 240,241,243,244,245,246,248,249; no score maps to 242 or 247 (0 of 300)",
+     "line": "functions/ShortComputation_1a00_00411a00.c:8-11",
+     "observed": "score -> sdt through word_5BEBB0[score] (l.11); owner exe table read-only"
+    },
+    {
+     "function": "ShortComputation_1a50 + CircularBufferIndexIncrement (sub_411A50, sub_411650)",
+     "result": "UNKNOWN: if N>=2 for an eid, its clip becomes sdt+k",
+     "line": "functions/ShortComputation_1a50_00411a50.c:7-25; functions/CircularBufferIndexIncrement_00411650.c:6-15",
+     "observed": "adds a per-eid cursor k in [0, N-1] to the sdt (FontRenderingPrep l.34: CharacterCodeMapper(v9+v8)); N is runtime state"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion (sub_4144F0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): arg4 is the sub-clip selector for type 0x13 parents",
+     "line": "functions/DriverDataTableLookupAndTimeConversion_004144f0.c:5-9",
+     "observed": "entry struct: [0]=eid, [4]=arg3, [5]=arg4, [6]=arg5, [7]=arg6 (l.5-9); SoundEventDispatcher reads a3[4]/a3[5] from this entry"
+    },
+    {
+     "function": "TextOverlayDisplayTimer (sub_4186F0)",
+     "result": "pipeline root for every queued line",
+     "line": "functions/TextOverlayDisplayTimer_004186f0.c:19-76",
+     "observed": "gate l.19 dword_7D0308 && flt_7CF3C8 > 0 && *(this+2800); FontRenderingPrep call l.76; caller RenderTickUpdate (per frame)"
+    },
+    {
+     "function": "FloatRangeIndexLookup (sub_4D7C10)",
+     "result": "bucket v1 of sub_41B250 (l.29-31) is UNKNOWN at runtime",
+     "line": "functions/FloatRangeIndexLookup_004d7c10.c:11-26",
+     "observed": "returns -1, 0, 1 or 2 (l.11-26); thresholds flt_5EA404.. are runtime data (zero in exe initial image)"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "result": "retirement/spin route UNKNOWN on live state",
+     "line": "functions/sub_4F1FE0_004f1fe0.c:36,50,113,135",
+     "observed": "calls sub_41B250 at l.135 after yaw-timer latch l.113 (v14 > flt_7D0A8C); gates l.36, 50, 70-109 incl. sub_4D21D0() and DistanceComparison; FPU-flag gates v8/v9 not decodable"
+    },
+    {
+     "function": "FloatRangeIndexLookup / bucket default",
+     "result": "bucket 3 when a1+16452 <= 0 or lookup returns 0",
+     "line": "functions/sub_41B250_0041b250.c:28-34; functions/FloatRangeIndexLookup_004d7c10.c:15-16",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): default tail"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "An AI car is off in a sector (sector phrase in the clip).",
+    "when_it_should_play": "race, an AI car goes off track in a known sector",
+    "trigger": "no score and no eid: needs a carrier (AI off-track state UNKNOWN, see sdt 240); sector from lap distance veh+0x4044 mapping (not proven)",
+    "subject": "AI driver id veh+0x489C",
+    "technique": "carrier_score (a free PWS score row rewritten to sdt 242; runtime table write, not a disk patch)",
+    "latch_cooldown": "once per car per off-track event, 30 s (proposal)",
+    "must_not_play_when": "player off track; car already in AI retirement; same event already called as eid 227/228",
+    "conflicts": "any carrier row is shared by every eid using that score; eid 227/228 designs",
+    "calibration": "sector thresholds (live)",
+    "live_test": "After a carrier is designed, put an AI car off track in a sector and listen",
+    "confidence": "GUESS (carrier not designed; sector token unproven)"
+   },
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "The only route was the default sub-clip tail of AIRETIRE03/02 (sub_412E50 index 242, PC_RE_STITCH). No eid and no score maps to sdt 242, so the clip is never queued."
+   }
+  },
+  {
+   "eid": 229,
+   "sdt_index": 243,
+   "clip": "PWS_AIINCID08",
+   "says": "Cars all over in sector X",
+   "score": 232,
+   "cooldown": 1.0,
+   "priority": 70,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "Several cars are off track or crashed in one sector.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No trigger in code for eid 229 and no emitter.",
+   "emitters": [],
+   "call_path": "none (no function queues eid 229)",
+   "gates": [
+    "none"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt:220 'can't tell if it should count cars that have clearly crashed ... red_flag script'; VOICE_LINES.md:337.",
+   "tier": "DERIVED",
+   "notes": "sdt type 0x0B: the sound path returns 0 (SoundEventDispatcher l.100-104); the clip itself plays through FontCharacterRenderDispatcher. RaceEventMessageDispatcher appends a text-channel tail (index 214..238 chosen by arg3, flag 1; a PC_RE_STITCH index per SUB-CLIP BANK FACT, not this clip). A design must pass arg3 = -1 or prove a sector mapping. Owner exe (F1 Challenge Online.exe, sha256 prefix 1A70E5ED) read-only: event row at 0x5BF9A0+eid*0x14 gives score at +0x10 and cooldown float at +0x0C; cooldown 1.0 and not FLT_MAX.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 229",
+     "line": "functions/AIDriverStateTransition_00419120.c:37,39,57,59",
+     "observed": "emits 120 (l.37), 259 (l.39), 198 (l.57)"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 229",
+     "line": "functions/AIFormationLap_0041a3a0.c:22-41",
+     "observed": "emits 6, 180, 181, 182 (l.22,35-38,41)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 229",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:21-61",
+     "observed": "v5 in {3,4,5,10,16,33,72,262} (l.21,27,29,41,47,57,61)"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 229",
+     "line": "functions/AIPitStrategyState_0041a200.c:13-20",
+     "observed": "emits 42 or 52 (l.13-15,20)"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 229",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:34-48",
+     "observed": "emits 7,8,9,17,18 (l.34,36,44-48)"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 229",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:21-36",
+     "observed": "emits 21,22,178,179 (l.21,25,32,34,36)"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 229",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:10-19",
+     "observed": "emits 52 or 196 (l.10,16,19)"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 229",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:29-164",
+     "observed": "emits 157-177, 158-159, 260, 261 (l.29-164)"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 229",
+     "line": "functions/PitExit_0041c0f0.c:29-127",
+     "observed": "default 397; emits 516-535 range (l.38-118)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 229",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:25-26",
+     "observed": "eid = ThunkToFUN004201e0 result: returns 355-371 or -1 (thunk body file ThunkToFUN004201e0_004203d0.c:7-49)"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 229",
+     "line": "functions/RaceCommentary_0041d630.c:34-236",
+     "observed": "emits 397, 447-477, 454-456, 459-461, 465, 474, 476 (l.34-236)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 229",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:13-189",
+     "observed": "emits 293-336 (l.13-189)"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 229",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:22-61",
+     "observed": "emits 34,35,276-279 (l.22-61)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eid 229",
+     "line": "functions/sub_41A720_0041a720.c:14-57",
+     "observed": "emits 123-125, 151, 153-155, 252-254, 256 (l.14-57)"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 229 (eid 243 is another clip)",
+     "line": "functions/sub_41A940_0041a940.c:12,21",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): emits 149 (player, l.15) and 243 (AI, l.21). Eid 243 = PWS_AIPENALTY22 in full_event_dump (sdt 259), not a batch clip"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 229",
+     "line": "functions/sub_41AC50_0041ac50.c:25-58",
+     "observed": "emits 208, 211-217, 220 (l.25-58)"
+    },
+    {
+     "function": "sub_41B250 (AI/player retirement)",
+     "result": "cannot produce eid 229 as own eid; PRODUCES parent eids 236 and 237, both sdt type 0x13 (type 0x13: its stitch-bank tail is not counted)",
+     "line": "functions/sub_41B250_0041b250.c:35-53",
+     "observed": "player 117-119 (l.13-24); AI 235 (16488==1), 238 (==4), 236 (==9), 237 (other) (l.35-53)"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 229",
+     "line": "functions/sub_41C440_0041c440.c:8-17; functions/sub_420000_00420000.c:12-47",
+     "observed": "eid = sub_420000 result: returns 338-354 or -1 (l.12-16)"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "stitch-bank tail path for type 0x13 parents (not counted); type 0x0B has no sound-path tail",
+     "line": "functions/SoundEventDispatcher_00411e90.c:45-58,100-104",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): case 0x13/0x29 -> sub_412E50(a4,a1,a3[5],0) (l.55-58); case 0x0E -> a3[4] (l.45-47); default returns 0 for types 0x0B,0x0C (l.100-104)"
+    },
+    {
+     "function": "sub_412E50 (sub-clip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a3 in {1,2,3} gives sdt 240,241,242; a3 4..10 gives 243..249 only through type-0x13 parents, none emitted live",
+     "line": "functions/sub_412E50_00412e50.c:96-183",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a2=0 (PWS channel), a4=0: a3=1..25 -> sdt 240..264 (l.95-169; l.96 a3=1, l.99 a3=2, l.102 a3=3); a2=1 gives TV-channel indices 243..266; default -1 (l.183)"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): text-channel tail only (flag 1)",
+     "line": "functions/RaceEventMessageDispatcher_00411bf0.c:7-37",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): types 0x0B,0x0C,0x33 -> sub_412E50(a4,a1,a3[4],1): text tail 214..238 (l.34-38); type 0x13 -> SessionStringNameLookup (l.15,27)"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840)",
+     "result": "sound path reached when FCRD returns 1",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45",
+     "observed": "ShortComputation chain l.12-18; CharacterCodeMapper(v9+v8) l.34; RaceEventMessageDispatcher l.36; FontCharacterRenderDispatcher l.41; SoundEventDispatcher l.45 (only after FCRD==1)"
+    },
+    {
+     "function": "FontCharacterRenderDispatcher (sub_411DB0)",
+     "result": "writes the parent clip itself (a2+8) into the output slot",
+     "line": "functions/FontCharacterRenderDispatcher_00411db0.c:31-42; functions/GlobalFieldSelectorByIndex_00414160.c:6-7",
+     "observed": "returns 1 when GlobalFieldSelectorByIndex(channel) >= 0 (l.31-42); channel 0 -> dword_5BF8C8 = 30 in owner exe initial data (static; runtime may differ)"
+    },
+    {
+     "function": "CharacterCodeMapper (sub_411B50)",
+     "result": "type per clip index: 240=3, 241=3, 242=0x13, 243=0x0B, 244=9, 245=3, 246=0x13, 248=3, 249=9, 247=3, 251/252=0x13",
+     "line": "functions/CharacterCodeMapper_00411b50.c:46,52-53",
+     "observed": "clip type = unk_5BEE08[sdt] dword table (l.46, 52-53); owner exe table extracted read-only"
+    },
+    {
+     "function": "ShortComputation_19d0 (sub_4119D0)",
+     "result": "PWS eids of this batch are channel 0",
+     "line": "functions/ShortComputation_19d0_004119d0.c:6-7",
+     "observed": "channel 0 for 0<eid<291 (l.6-7); 1 for 292<eid<536 (l.8-9)"
+    },
+    {
+     "function": "ShortComputation_1a00 (sub_411A00)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): scores 230..237 -> sdt 240,241,243,244,245,246,248,249; no score maps to 242 or 247 (0 of 300)",
+     "line": "functions/ShortComputation_1a00_00411a00.c:8-11",
+     "observed": "score -> sdt through word_5BEBB0[score] (l.11); owner exe table read-only"
+    },
+    {
+     "function": "ShortComputation_1a50 + CircularBufferIndexIncrement (sub_411A50, sub_411650)",
+     "result": "UNKNOWN: if N>=2 for an eid, its clip becomes sdt+k",
+     "line": "functions/ShortComputation_1a50_00411a50.c:7-25; functions/CircularBufferIndexIncrement_00411650.c:6-15",
+     "observed": "adds a per-eid cursor k in [0, N-1] to the sdt (FontRenderingPrep l.34: CharacterCodeMapper(v9+v8)); N is runtime state"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion (sub_4144F0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): arg4 is the sub-clip selector for type 0x13 parents",
+     "line": "functions/DriverDataTableLookupAndTimeConversion_004144f0.c:5-9",
+     "observed": "entry struct: [0]=eid, [4]=arg3, [5]=arg4, [6]=arg5, [7]=arg6 (l.5-9); SoundEventDispatcher reads a3[4]/a3[5] from this entry"
+    },
+    {
+     "function": "TextOverlayDisplayTimer (sub_4186F0)",
+     "result": "pipeline root for every queued line",
+     "line": "functions/TextOverlayDisplayTimer_004186f0.c:19-76",
+     "observed": "gate l.19 dword_7D0308 && flt_7CF3C8 > 0 && *(this+2800); FontRenderingPrep call l.76; caller RenderTickUpdate (per frame)"
+    },
+    {
+     "function": "FloatRangeIndexLookup (sub_4D7C10)",
+     "result": "bucket v1 of sub_41B250 (l.29-31) is UNKNOWN at runtime",
+     "line": "functions/FloatRangeIndexLookup_004d7c10.c:11-26",
+     "observed": "returns -1, 0, 1 or 2 (l.11-26); thresholds flt_5EA404.. are runtime data (zero in exe initial image)"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "result": "retirement/spin route UNKNOWN on live state",
+     "line": "functions/sub_4F1FE0_004f1fe0.c:36,50,113,135",
+     "observed": "calls sub_41B250 at l.135 after yaw-timer latch l.113 (v14 > flt_7D0A8C); gates l.36, 50, 70-109 incl. sub_4D21D0() and DistanceComparison; FPU-flag gates v8/v9 not decodable"
+    },
+    {
+     "function": "RaceEventMessageDispatcher 0x0B path",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): sub_412E50 flag 1 -> tail 214 + arg3 - 1",
+     "line": "functions/RaceEventMessageDispatcher_00411bf0.c:34-38",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): text tail"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Several cars are out (off track or crashed) in one sector: a warning about a sector-wide incident.",
+    "when_it_should_play": "race (phase 5, green), at least 3 cars in the same sector off track or stopped (under 5 km/h for 3 s); pit-lane cars excluded",
+    "trigger": "per-car lap distance veh+0x4044 mapped to sector; off-track flag (name UNKNOWN; owner note hints at an isOutOfTrack-style variable); speed; broker snapshot fields to be chosen from f1c_broker_abi.h",
+    "subject": "team (no driver name)",
+    "technique": "own_emitter: queue eid 229 with arg3 = -1 so the 214..238 text tail is not added; the sector token needs its own proven mapping",
+    "latch_cooldown": "once per sector per 60 s (proposal)",
+    "must_not_play_when": "lone parked or crashed car; red flag already active",
+    "conflicts": "Red Flag detection (disabled in owner game); Safety Car; AIRETIRE 236/237 retire lines",
+    "calibration": "N cars (3), speed (5 km/h), window (3 s): all need live measurement",
+    "live_test": "Create a multi-car incident in one sector in a race and watch the detector state",
+    "confidence": "GUESS on the sector token; DERIVED on the eid route"
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "Verdict rested on no_emitter, which is unchanged. The text-tail note was reworded: the tail indexes PC_RE_STITCH and is not an audio route for this clip."
+   }
+  },
+  {
+   "eid": 230,
+   "sdt_index": 244,
+   "clip": "PWS_OD_HOLDING",
+   "says": "AI driver holds up another AI",
+   "score": 233,
+   "cooldown": 1.0,
+   "priority": 20,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "A higher-placed AI is fighting an attacking AI and holds it up.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No trigger in code for eid 230 and no emitter.",
+   "emitters": [],
+   "call_path": "none (no function queues eid 230)",
+   "gates": [
+    "none"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt:222 owner: 'driver1 (higher position) is fighting driver2 ... under 0.5 s for 5 s'; VOICE_LINES.md:338.",
+   "tier": "DERIVED",
+   "notes": "sdt 244 has type 9 (name route). Name tables are PC_RE_STITCH-bank builders (SUB-CLIP BANK FACT), so they are not a PC_RE_MAIN route here. Owner exe (F1 Challenge Online.exe, sha256 prefix 1A70E5ED) read-only: event row at 0x5BF9A0+eid*0x14 gives score at +0x10 and cooldown float at +0x0C; cooldown 1.0 and not FLT_MAX.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 230",
+     "line": "functions/AIDriverStateTransition_00419120.c:37,39,57,59",
+     "observed": "emits 120 (l.37), 259 (l.39), 198 (l.57)"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 230",
+     "line": "functions/AIFormationLap_0041a3a0.c:22-41",
+     "observed": "emits 6, 180, 181, 182 (l.22,35-38,41)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 230",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:21-61",
+     "observed": "v5 in {3,4,5,10,16,33,72,262} (l.21,27,29,41,47,57,61)"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 230",
+     "line": "functions/AIPitStrategyState_0041a200.c:13-20",
+     "observed": "emits 42 or 52 (l.13-15,20)"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 230",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:34-48",
+     "observed": "emits 7,8,9,17,18 (l.34,36,44-48)"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 230",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:21-36",
+     "observed": "emits 21,22,178,179 (l.21,25,32,34,36)"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 230",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:10-19",
+     "observed": "emits 52 or 196 (l.10,16,19)"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 230",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:29-164",
+     "observed": "emits 157-177, 158-159, 260, 261 (l.29-164)"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 230",
+     "line": "functions/PitExit_0041c0f0.c:29-127",
+     "observed": "default 397; emits 516-535 range (l.38-118)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 230",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:25-26",
+     "observed": "eid = ThunkToFUN004201e0 result: returns 355-371 or -1 (thunk body file ThunkToFUN004201e0_004203d0.c:7-49)"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 230",
+     "line": "functions/RaceCommentary_0041d630.c:34-236",
+     "observed": "emits 397, 447-477, 454-456, 459-461, 465, 474, 476 (l.34-236)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 230",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:13-189",
+     "observed": "emits 293-336 (l.13-189)"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 230",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:22-61",
+     "observed": "emits 34,35,276-279 (l.22-61)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eid 230",
+     "line": "functions/sub_41A720_0041a720.c:14-57",
+     "observed": "emits 123-125, 151, 153-155, 252-254, 256 (l.14-57)"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 230 (eid 243 is another clip)",
+     "line": "functions/sub_41A940_0041a940.c:12,21",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): emits 149 (player, l.15) and 243 (AI, l.21). Eid 243 = PWS_AIPENALTY22 in full_event_dump (sdt 259), not a batch clip"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 230",
+     "line": "functions/sub_41AC50_0041ac50.c:25-58",
+     "observed": "emits 208, 211-217, 220 (l.25-58)"
+    },
+    {
+     "function": "sub_41B250 (AI/player retirement)",
+     "result": "cannot produce eid 230 as own eid; PRODUCES parent eids 236 and 237, both sdt type 0x13 (type 0x13: its stitch-bank tail is not counted)",
+     "line": "functions/sub_41B250_0041b250.c:35-53",
+     "observed": "player 117-119 (l.13-24); AI 235 (16488==1), 238 (==4), 236 (==9), 237 (other) (l.35-53)"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 230",
+     "line": "functions/sub_41C440_0041c440.c:8-17; functions/sub_420000_00420000.c:12-47",
+     "observed": "eid = sub_420000 result: returns 338-354 or -1 (l.12-16)"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "stitch-bank tail path for type 0x13 parents (not counted); type 0x0B has no sound-path tail",
+     "line": "functions/SoundEventDispatcher_00411e90.c:45-58,100-104",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): case 0x13/0x29 -> sub_412E50(a4,a1,a3[5],0) (l.55-58); case 0x0E -> a3[4] (l.45-47); default returns 0 for types 0x0B,0x0C (l.100-104)"
+    },
+    {
+     "function": "sub_412E50 (sub-clip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a3 in {1,2,3} gives sdt 240,241,242; a3 4..10 gives 243..249 only through type-0x13 parents, none emitted live",
+     "line": "functions/sub_412E50_00412e50.c:96-183",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a2=0 (PWS channel), a4=0: a3=1..25 -> sdt 240..264 (l.95-169; l.96 a3=1, l.99 a3=2, l.102 a3=3); a2=1 gives TV-channel indices 243..266; default -1 (l.183)"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): text-channel tail only (flag 1)",
+     "line": "functions/RaceEventMessageDispatcher_00411bf0.c:7-37",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): types 0x0B,0x0C,0x33 -> sub_412E50(a4,a1,a3[4],1): text tail 214..238 (l.34-38); type 0x13 -> SessionStringNameLookup (l.15,27)"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840)",
+     "result": "sound path reached when FCRD returns 1",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45",
+     "observed": "ShortComputation chain l.12-18; CharacterCodeMapper(v9+v8) l.34; RaceEventMessageDispatcher l.36; FontCharacterRenderDispatcher l.41; SoundEventDispatcher l.45 (only after FCRD==1)"
+    },
+    {
+     "function": "FontCharacterRenderDispatcher (sub_411DB0)",
+     "result": "writes the parent clip itself (a2+8) into the output slot",
+     "line": "functions/FontCharacterRenderDispatcher_00411db0.c:31-42; functions/GlobalFieldSelectorByIndex_00414160.c:6-7",
+     "observed": "returns 1 when GlobalFieldSelectorByIndex(channel) >= 0 (l.31-42); channel 0 -> dword_5BF8C8 = 30 in owner exe initial data (static; runtime may differ)"
+    },
+    {
+     "function": "CharacterCodeMapper (sub_411B50)",
+     "result": "type per clip index: 240=3, 241=3, 242=0x13, 243=0x0B, 244=9, 245=3, 246=0x13, 248=3, 249=9, 247=3, 251/252=0x13",
+     "line": "functions/CharacterCodeMapper_00411b50.c:46,52-53",
+     "observed": "clip type = unk_5BEE08[sdt] dword table (l.46, 52-53); owner exe table extracted read-only"
+    },
+    {
+     "function": "ShortComputation_19d0 (sub_4119D0)",
+     "result": "PWS eids of this batch are channel 0",
+     "line": "functions/ShortComputation_19d0_004119d0.c:6-7",
+     "observed": "channel 0 for 0<eid<291 (l.6-7); 1 for 292<eid<536 (l.8-9)"
+    },
+    {
+     "function": "ShortComputation_1a00 (sub_411A00)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): scores 230..237 -> sdt 240,241,243,244,245,246,248,249; no score maps to 242 or 247 (0 of 300)",
+     "line": "functions/ShortComputation_1a00_00411a00.c:8-11",
+     "observed": "score -> sdt through word_5BEBB0[score] (l.11); owner exe table read-only"
+    },
+    {
+     "function": "ShortComputation_1a50 + CircularBufferIndexIncrement (sub_411A50, sub_411650)",
+     "result": "UNKNOWN: if N>=2 for an eid, its clip becomes sdt+k",
+     "line": "functions/ShortComputation_1a50_00411a50.c:7-25; functions/CircularBufferIndexIncrement_00411650.c:6-15",
+     "observed": "adds a per-eid cursor k in [0, N-1] to the sdt (FontRenderingPrep l.34: CharacterCodeMapper(v9+v8)); N is runtime state"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion (sub_4144F0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): arg4 is the sub-clip selector for type 0x13 parents",
+     "line": "functions/DriverDataTableLookupAndTimeConversion_004144f0.c:5-9",
+     "observed": "entry struct: [0]=eid, [4]=arg3, [5]=arg4, [6]=arg5, [7]=arg6 (l.5-9); SoundEventDispatcher reads a3[4]/a3[5] from this entry"
+    },
+    {
+     "function": "TextOverlayDisplayTimer (sub_4186F0)",
+     "result": "pipeline root for every queued line",
+     "line": "functions/TextOverlayDisplayTimer_004186f0.c:19-76",
+     "observed": "gate l.19 dword_7D0308 && flt_7CF3C8 > 0 && *(this+2800); FontRenderingPrep call l.76; caller RenderTickUpdate (per frame)"
+    },
+    {
+     "function": "FloatRangeIndexLookup (sub_4D7C10)",
+     "result": "bucket v1 of sub_41B250 (l.29-31) is UNKNOWN at runtime",
+     "line": "functions/FloatRangeIndexLookup_004d7c10.c:11-26",
+     "observed": "returns -1, 0, 1 or 2 (l.11-26); thresholds flt_5EA404.. are runtime data (zero in exe initial image)"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "result": "retirement/spin route UNKNOWN on live state",
+     "line": "functions/sub_4F1FE0_004f1fe0.c:36,50,113,135",
+     "observed": "calls sub_41B250 at l.135 after yaw-timer latch l.113 (v14 > flt_7D0A8C); gates l.36, 50, 70-109 incl. sub_4D21D0() and DistanceComparison; FPU-flag gates v8/v9 not decodable"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "queues 3,4,5,10,16,33,72,262 only; not 230",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:21-61",
+     "observed": "overtake/defend states"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Two AI cars are battling and the car ahead is holding the attacker up.",
+    "when_it_should_play": "race, two AI cars with gap under 0.5 s for at least 5 s; the player not one of the two",
+    "trigger": "gap from lap distance veh+0x4044 plus lap number (never race_position in qualifying); both subjects AI",
+    "subject": "AI driver id veh+0x489C of the car ahead (the holder)",
+    "technique": "own_emitter (queue eid 230)",
+    "latch_cooldown": "once per pair per 45 s (proposal)",
+    "must_not_play_when": "player is one of the two; pit lane; yellow or blue flag event active",
+    "conflicts": "PWS_OVERTAKE lines (eids 123,124); AIOvertakeDefendStateChange states",
+    "calibration": "0.5 s gap and 5 s hold: live measurement",
+    "live_test": "Race with two AIs close together and check the gap log",
+    "confidence": "GUESS on thresholds; DERIVED on the state reads"
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "no_emitter verified unchanged; the only non-emitter hint (name route) is a stitch-bank builder, not a route."
+   }
+  },
+  {
+   "eid": 231,
+   "sdt_index": 245,
+   "clip": "PWS_AIINCID07",
+   "says": "Car spun off just ahead",
+   "score": 234,
+   "cooldown": 1.0,
+   "priority": 70,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "An AI car just ahead of the player has spun off.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No trigger for eid 231 and no emitter.",
+   "emitters": [],
+   "call_path": "none (no function queues eid 231)",
+   "gates": [
+    "none"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt:224 owner: 'has spun JUST AHEAD ... less than 10 seconds ... no idea how to determine AI spin'; VOICE_LINES.md:339.",
+   "tier": "DERIVED",
+   "notes": "sub_4F1FE0 (VehicleYawRotationRecoveryController) is the only AI spin-like state machine found, and it queues only the retirement lines (236/237) via sub_41B250. It is not an eid-231 trigger. Owner exe (F1 Challenge Online.exe, sha256 prefix 1A70E5ED) read-only: event row at 0x5BF9A0+eid*0x14 gives score at +0x10 and cooldown float at +0x0C; eids 227-234 read score 230-237 and cooldown 1.0, matching full_event_dump (not blocked). No eid of this batch is FLT_MAX.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 231",
+     "line": "functions/AIDriverStateTransition_00419120.c:37,39,57,59",
+     "observed": "emits 120 (l.37), 259 (l.39), 198 (l.57)"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 231",
+     "line": "functions/AIFormationLap_0041a3a0.c:22-41",
+     "observed": "emits 6, 180, 181, 182 (l.22,35-38,41)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 231",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:21-61",
+     "observed": "v5 in {3,4,5,10,16,33,72,262} (l.21,27,29,41,47,57,61)"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 231",
+     "line": "functions/AIPitStrategyState_0041a200.c:13-20",
+     "observed": "emits 42 or 52 (l.13-15,20)"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 231",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:34-48",
+     "observed": "emits 7,8,9,17,18 (l.34,36,44-48)"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 231",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:21-36",
+     "observed": "emits 21,22,178,179 (l.21,25,32,34,36)"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 231",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:10-19",
+     "observed": "emits 52 or 196 (l.10,16,19)"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 231",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:29-164",
+     "observed": "emits 157-177, 158-159, 260, 261 (l.29-164)"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 231",
+     "line": "functions/PitExit_0041c0f0.c:29-127",
+     "observed": "default 397; emits 516-535 range (l.38-118)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 231",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:25-26",
+     "observed": "eid = ThunkToFUN004201e0 result: returns 355-371 or -1 (thunk body file ThunkToFUN004201e0_004203d0.c:7-49)"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 231",
+     "line": "functions/RaceCommentary_0041d630.c:34-236",
+     "observed": "emits 397, 447-477, 454-456, 459-461, 465, 474, 476 (l.34-236)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 231",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:13-189",
+     "observed": "emits 293-336 (l.13-189)"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 231",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:22-61",
+     "observed": "emits 34,35,276-279 (l.22-61)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eid 231",
+     "line": "functions/sub_41A720_0041a720.c:14-57",
+     "observed": "emits 123-125, 151, 153-155, 252-254, 256 (l.14-57)"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 231 (eid 243 is another clip)",
+     "line": "functions/sub_41A940_0041a940.c:12,21",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): emits 149 (player, l.15) and 243 (AI, l.21). Eid 243 = PWS_AIPENALTY22 in full_event_dump (sdt 259), not a batch clip"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 231",
+     "line": "functions/sub_41AC50_0041ac50.c:25-58",
+     "observed": "emits 208, 211-217, 220 (l.25-58)"
+    },
+    {
+     "function": "sub_41B250 (AI/player retirement)",
+     "result": "cannot produce eid 231 as own eid; PRODUCES parent eids 236 and 237, both sdt type 0x13 (type 0x13: its stitch-bank tail is not counted)",
+     "line": "functions/sub_41B250_0041b250.c:35-53",
+     "observed": "player 117-119 (l.13-24); AI 235 (16488==1), 238 (==4), 236 (==9), 237 (other) (l.35-53)"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 231",
+     "line": "functions/sub_41C440_0041c440.c:8-17; functions/sub_420000_00420000.c:12-47",
+     "observed": "eid = sub_420000 result: returns 338-354 or -1 (l.12-16)"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "stitch-bank tail path for type 0x13 parents (not counted); type 0x0B has no sound-path tail",
+     "line": "functions/SoundEventDispatcher_00411e90.c:45-58,100-104",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): case 0x13/0x29 -> sub_412E50(a4,a1,a3[5],0) (l.55-58); case 0x0E -> a3[4] (l.45-47); default returns 0 for types 0x0B,0x0C (l.100-104)"
+    },
+    {
+     "function": "sub_412E50 (sub-clip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a3 in {1,2,3} gives sdt 240,241,242; a3 4..10 gives 243..249 only through type-0x13 parents, none emitted live",
+     "line": "functions/sub_412E50_00412e50.c:96-183",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a2=0 (PWS channel), a4=0: a3=1..25 -> sdt 240..264 (l.95-169; l.96 a3=1, l.99 a3=2, l.102 a3=3); a2=1 gives TV-channel indices 243..266; default -1 (l.183)"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): text-channel tail only (flag 1)",
+     "line": "functions/RaceEventMessageDispatcher_00411bf0.c:7-37",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): types 0x0B,0x0C,0x33 -> sub_412E50(a4,a1,a3[4],1): text tail 214..238 (l.34-38); type 0x13 -> SessionStringNameLookup (l.15,27)"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840)",
+     "result": "sound path reached when FCRD returns 1",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45",
+     "observed": "ShortComputation chain l.12-18; CharacterCodeMapper(v9+v8) l.34; RaceEventMessageDispatcher l.36; FontCharacterRenderDispatcher l.41; SoundEventDispatcher l.45 (only after FCRD==1)"
+    },
+    {
+     "function": "FontCharacterRenderDispatcher (sub_411DB0)",
+     "result": "writes the parent clip itself (a2+8) into the output slot",
+     "line": "functions/FontCharacterRenderDispatcher_00411db0.c:31-42; functions/GlobalFieldSelectorByIndex_00414160.c:6-7",
+     "observed": "returns 1 when GlobalFieldSelectorByIndex(channel) >= 0 (l.31-42); channel 0 -> dword_5BF8C8 = 30 in owner exe initial data (static; runtime may differ)"
+    },
+    {
+     "function": "CharacterCodeMapper (sub_411B50)",
+     "result": "type per clip index: 240=3, 241=3, 242=0x13, 243=0x0B, 244=9, 245=3, 246=0x13, 248=3, 249=9, 247=3, 251/252=0x13",
+     "line": "functions/CharacterCodeMapper_00411b50.c:46,52-53",
+     "observed": "clip type = unk_5BEE08[sdt] dword table (l.46, 52-53); owner exe table extracted read-only"
+    },
+    {
+     "function": "ShortComputation_19d0 (sub_4119D0)",
+     "result": "PWS eids of this batch are channel 0",
+     "line": "functions/ShortComputation_19d0_004119d0.c:6-7",
+     "observed": "channel 0 for 0<eid<291 (l.6-7); 1 for 292<eid<536 (l.8-9)"
+    },
+    {
+     "function": "ShortComputation_1a00 (sub_411A00)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): scores 230..237 -> sdt 240,241,243,244,245,246,248,249; no score maps to 242 or 247 (0 of 300)",
+     "line": "functions/ShortComputation_1a00_00411a00.c:8-11",
+     "observed": "score -> sdt through word_5BEBB0[score] (l.11); owner exe table read-only"
+    },
+    {
+     "function": "ShortComputation_1a50 + CircularBufferIndexIncrement (sub_411A50, sub_411650)",
+     "result": "UNKNOWN: if N>=2 for an eid, its clip becomes sdt+k",
+     "line": "functions/ShortComputation_1a50_00411a50.c:7-25; functions/CircularBufferIndexIncrement_00411650.c:6-15",
+     "observed": "adds a per-eid cursor k in [0, N-1] to the sdt (FontRenderingPrep l.34: CharacterCodeMapper(v9+v8)); N is runtime state"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion (sub_4144F0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): arg4 is the sub-clip selector for type 0x13 parents",
+     "line": "functions/DriverDataTableLookupAndTimeConversion_004144f0.c:5-9",
+     "observed": "entry struct: [0]=eid, [4]=arg3, [5]=arg4, [6]=arg5, [7]=arg6 (l.5-9); SoundEventDispatcher reads a3[4]/a3[5] from this entry"
+    },
+    {
+     "function": "TextOverlayDisplayTimer (sub_4186F0)",
+     "result": "pipeline root for every queued line",
+     "line": "functions/TextOverlayDisplayTimer_004186f0.c:19-76",
+     "observed": "gate l.19 dword_7D0308 && flt_7CF3C8 > 0 && *(this+2800); FontRenderingPrep call l.76; caller RenderTickUpdate (per frame)"
+    },
+    {
+     "function": "FloatRangeIndexLookup (sub_4D7C10)",
+     "result": "bucket v1 of sub_41B250 (l.29-31) is UNKNOWN at runtime",
+     "line": "functions/FloatRangeIndexLookup_004d7c10.c:11-26",
+     "observed": "returns -1, 0, 1 or 2 (l.11-26); thresholds flt_5EA404.. are runtime data (zero in exe initial image)"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "result": "retirement/spin route UNKNOWN on live state",
+     "line": "functions/sub_4F1FE0_004f1fe0.c:36,50,113,135",
+     "observed": "calls sub_41B250 at l.135 after yaw-timer latch l.113 (v14 > flt_7D0A8C); gates l.36, 50, 70-109 incl. sub_4D21D0() and DistanceComparison; FPU-flag gates v8/v9 not decodable"
+    },
+    {
+     "function": "sub_4F1FE0 yaw recovery",
+     "result": "does not queue eid 231; its emit is sub_41B250 (236/237)",
+     "line": "functions/sub_4F1FE0_004f1fe0.c:107-135",
+     "observed": "spin-like controller"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "An AI car ahead of the player has spun out.",
+    "when_it_should_play": "race; AI car ahead of the player (within 10 s, by lap distance) enters a spin or stop state",
+    "trigger": "AI yaw-recovery state of sub_4F1FE0 (timer this+4097, latch flt_7D0A8C) or speed under 5 km/h for 2 s with heading change; both UNKNOWN as broker fields",
+    "subject": "AI driver id veh+0x489C",
+    "technique": "own_emitter (queue eid 231) from a hook beside sub_4F1FE0; must not also queue 236/237",
+    "latch_cooldown": "once per car per spin",
+    "must_not_play_when": "player spun; car behind the player; retirement already queued for that car",
+    "conflicts": "AIRETIRE 236/237 queued by the same controller",
+    "calibration": "spin speed and time threshold (live)",
+    "live_test": "Make an AI car spin ahead of the player and read the state",
+    "confidence": "GUESS (no proven spin signal yet)"
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "no_emitter unchanged; the sub_4F1FE0 link is to eids 236/237 only, not to this clip."
+   }
+  },
+  {
+   "eid": 232,
+   "sdt_index": 246,
+   "clip": "PWS_AIINCID04",
+   "says": "AI spun off sector X",
+   "score": 235,
+   "cooldown": 1.0,
+   "priority": 20,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "An AI car spun off in one sector.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No trigger or emitter for eid 232.",
+   "emitters": [],
+   "call_path": "none (no function queues eid 232)",
+   "gates": [
+    "none"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt:225 'spun off in sector 1/2/3, same as above'; VOICE_LINES.md:340.",
+   "tier": "DERIVED",
+   "notes": "sdt 246 has type 0x13: if eid 232 were ever queued, SoundEventDispatcher would add a stitch-bank tail (index 240 + arg4 - 1 into PC_RE_STITCH, SUB-CLIP BANK FACT) unless arg4 is outside 1..25. Owner exe (F1 Challenge Online.exe, sha256 prefix 1A70E5ED) read-only: event row at 0x5BF9A0+eid*0x14 gives score at +0x10 and cooldown float at +0x0C; cooldown 1.0 and not FLT_MAX.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 232",
+     "line": "functions/AIDriverStateTransition_00419120.c:37,39,57,59",
+     "observed": "emits 120 (l.37), 259 (l.39), 198 (l.57)"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 232",
+     "line": "functions/AIFormationLap_0041a3a0.c:22-41",
+     "observed": "emits 6, 180, 181, 182 (l.22,35-38,41)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 232",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:21-61",
+     "observed": "v5 in {3,4,5,10,16,33,72,262} (l.21,27,29,41,47,57,61)"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 232",
+     "line": "functions/AIPitStrategyState_0041a200.c:13-20",
+     "observed": "emits 42 or 52 (l.13-15,20)"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 232",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:34-48",
+     "observed": "emits 7,8,9,17,18 (l.34,36,44-48)"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 232",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:21-36",
+     "observed": "emits 21,22,178,179 (l.21,25,32,34,36)"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 232",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:10-19",
+     "observed": "emits 52 or 196 (l.10,16,19)"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 232",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:29-164",
+     "observed": "emits 157-177, 158-159, 260, 261 (l.29-164)"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 232",
+     "line": "functions/PitExit_0041c0f0.c:29-127",
+     "observed": "default 397; emits 516-535 range (l.38-118)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 232",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:25-26",
+     "observed": "eid = ThunkToFUN004201e0 result: returns 355-371 or -1 (thunk body file ThunkToFUN004201e0_004203d0.c:7-49)"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 232",
+     "line": "functions/RaceCommentary_0041d630.c:34-236",
+     "observed": "emits 397, 447-477, 454-456, 459-461, 465, 474, 476 (l.34-236)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 232",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:13-189",
+     "observed": "emits 293-336 (l.13-189)"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 232",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:22-61",
+     "observed": "emits 34,35,276-279 (l.22-61)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eid 232",
+     "line": "functions/sub_41A720_0041a720.c:14-57",
+     "observed": "emits 123-125, 151, 153-155, 252-254, 256 (l.14-57)"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 232 (eid 243 is another clip)",
+     "line": "functions/sub_41A940_0041a940.c:12,21",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): emits 149 (player, l.15) and 243 (AI, l.21). Eid 243 = PWS_AIPENALTY22 in full_event_dump (sdt 259), not a batch clip"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 232",
+     "line": "functions/sub_41AC50_0041ac50.c:25-58",
+     "observed": "emits 208, 211-217, 220 (l.25-58)"
+    },
+    {
+     "function": "sub_41B250 (AI/player retirement)",
+     "result": "cannot produce eid 232 as own eid; PRODUCES parent eids 236 and 237, both sdt type 0x13 (type 0x13: its stitch-bank tail is not counted)",
+     "line": "functions/sub_41B250_0041b250.c:35-53",
+     "observed": "player 117-119 (l.13-24); AI 235 (16488==1), 238 (==4), 236 (==9), 237 (other) (l.35-53)"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 232",
+     "line": "functions/sub_41C440_0041c440.c:8-17; functions/sub_420000_00420000.c:12-47",
+     "observed": "eid = sub_420000 result: returns 338-354 or -1 (l.12-16)"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "stitch-bank tail path for type 0x13 parents (not counted); type 0x0B has no sound-path tail",
+     "line": "functions/SoundEventDispatcher_00411e90.c:45-58,100-104",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): case 0x13/0x29 -> sub_412E50(a4,a1,a3[5],0) (l.55-58); case 0x0E -> a3[4] (l.45-47); default returns 0 for types 0x0B,0x0C (l.100-104)"
+    },
+    {
+     "function": "sub_412E50 (sub-clip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a3 in {1,2,3} gives sdt 240,241,242; a3 4..10 gives 243..249 only through type-0x13 parents, none emitted live",
+     "line": "functions/sub_412E50_00412e50.c:96-183",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a2=0 (PWS channel), a4=0: a3=1..25 -> sdt 240..264 (l.95-169; l.96 a3=1, l.99 a3=2, l.102 a3=3); a2=1 gives TV-channel indices 243..266; default -1 (l.183)"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): text-channel tail only (flag 1)",
+     "line": "functions/RaceEventMessageDispatcher_00411bf0.c:7-37",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): types 0x0B,0x0C,0x33 -> sub_412E50(a4,a1,a3[4],1): text tail 214..238 (l.34-38); type 0x13 -> SessionStringNameLookup (l.15,27)"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840)",
+     "result": "sound path reached when FCRD returns 1",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45",
+     "observed": "ShortComputation chain l.12-18; CharacterCodeMapper(v9+v8) l.34; RaceEventMessageDispatcher l.36; FontCharacterRenderDispatcher l.41; SoundEventDispatcher l.45 (only after FCRD==1)"
+    },
+    {
+     "function": "FontCharacterRenderDispatcher (sub_411DB0)",
+     "result": "writes the parent clip itself (a2+8) into the output slot",
+     "line": "functions/FontCharacterRenderDispatcher_00411db0.c:31-42; functions/GlobalFieldSelectorByIndex_00414160.c:6-7",
+     "observed": "returns 1 when GlobalFieldSelectorByIndex(channel) >= 0 (l.31-42); channel 0 -> dword_5BF8C8 = 30 in owner exe initial data (static; runtime may differ)"
+    },
+    {
+     "function": "CharacterCodeMapper (sub_411B50)",
+     "result": "type per clip index: 240=3, 241=3, 242=0x13, 243=0x0B, 244=9, 245=3, 246=0x13, 248=3, 249=9, 247=3, 251/252=0x13",
+     "line": "functions/CharacterCodeMapper_00411b50.c:46,52-53",
+     "observed": "clip type = unk_5BEE08[sdt] dword table (l.46, 52-53); owner exe table extracted read-only"
+    },
+    {
+     "function": "ShortComputation_19d0 (sub_4119D0)",
+     "result": "PWS eids of this batch are channel 0",
+     "line": "functions/ShortComputation_19d0_004119d0.c:6-7",
+     "observed": "channel 0 for 0<eid<291 (l.6-7); 1 for 292<eid<536 (l.8-9)"
+    },
+    {
+     "function": "ShortComputation_1a00 (sub_411A00)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): scores 230..237 -> sdt 240,241,243,244,245,246,248,249; no score maps to 242 or 247 (0 of 300)",
+     "line": "functions/ShortComputation_1a00_00411a00.c:8-11",
+     "observed": "score -> sdt through word_5BEBB0[score] (l.11); owner exe table read-only"
+    },
+    {
+     "function": "ShortComputation_1a50 + CircularBufferIndexIncrement (sub_411A50, sub_411650)",
+     "result": "UNKNOWN: if N>=2 for an eid, its clip becomes sdt+k",
+     "line": "functions/ShortComputation_1a50_00411a50.c:7-25; functions/CircularBufferIndexIncrement_00411650.c:6-15",
+     "observed": "adds a per-eid cursor k in [0, N-1] to the sdt (FontRenderingPrep l.34: CharacterCodeMapper(v9+v8)); N is runtime state"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion (sub_4144F0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): arg4 is the sub-clip selector for type 0x13 parents",
+     "line": "functions/DriverDataTableLookupAndTimeConversion_004144f0.c:5-9",
+     "observed": "entry struct: [0]=eid, [4]=arg3, [5]=arg4, [6]=arg5, [7]=arg6 (l.5-9); SoundEventDispatcher reads a3[4]/a3[5] from this entry"
+    },
+    {
+     "function": "TextOverlayDisplayTimer (sub_4186F0)",
+     "result": "pipeline root for every queued line",
+     "line": "functions/TextOverlayDisplayTimer_004186f0.c:19-76",
+     "observed": "gate l.19 dword_7D0308 && flt_7CF3C8 > 0 && *(this+2800); FontRenderingPrep call l.76; caller RenderTickUpdate (per frame)"
+    },
+    {
+     "function": "FloatRangeIndexLookup (sub_4D7C10)",
+     "result": "bucket v1 of sub_41B250 (l.29-31) is UNKNOWN at runtime",
+     "line": "functions/FloatRangeIndexLookup_004d7c10.c:11-26",
+     "observed": "returns -1, 0, 1 or 2 (l.11-26); thresholds flt_5EA404.. are runtime data (zero in exe initial image)"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "result": "retirement/spin route UNKNOWN on live state",
+     "line": "functions/sub_4F1FE0_004f1fe0.c:36,50,113,135",
+     "observed": "calls sub_41B250 at l.135 after yaw-timer latch l.113 (v14 > flt_7D0A8C); gates l.36, 50, 70-109 incl. sub_4D21D0() and DistanceComparison; FPU-flag gates v8/v9 not decodable"
+    },
+    {
+     "function": "SoundEventDispatcher case 0x13 on sdt 246",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): tail 240 + arg4 - 1 unless arg4 outside 1..25",
+     "line": "functions/SoundEventDispatcher_00411e90.c:55-58",
+     "observed": "type 0x13 parent"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "An AI car spun off in one sector.",
+    "when_it_should_play": "race; AI car spins (see sdt 245); sector known",
+    "trigger": "as sdt 245 (spin state UNKNOWN)",
+    "subject": "AI driver id veh+0x489C",
+    "technique": "own_emitter: queue eid 232 with arg4 = -1 so no stitch-bank tail is added",
+    "latch_cooldown": "once per car per spin",
+    "must_not_play_when": "player spin",
+    "conflicts": "as sdt 245",
+    "calibration": "as sdt 245",
+    "live_test": "As sdt 245",
+    "confidence": "GUESS (sector token and tail behaviour unproven)"
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "no_emitter unchanged; the type-0x13 tail note now names the stitch-bank index, not a PC_RE_MAIN route."
+   }
+  },
+  {
+   "eid": null,
+   "sdt_index": 247,
+   "clip": "PWS_AIINCID05",
+   "says": "<driver> has spun",
+   "score": null,
+   "cooldown": 1.0,
+   "priority": null,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "orphan_clip",
+   "situation": "An AI car has spun (no sector).",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No score maps to sdt 247 (0 of 300 entries in the owner exe table) and no route reaches it.",
+   "emitters": [],
+   "call_path": "none",
+   "gates": [
+    "none"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt:226 'has spun, played whether any driver fills the criteria'; VOICE_LINES.md:341 eid 'none'; full_event_dump orphaned_clips['247'].",
+   "tier": "DERIVED",
+   "notes": "findings.jsonl:1695 (H8) says 247 shares a score with a base clip. The owner exe score table has no entry for 247 (0 of 300 scores), so that claim is contradicted for this clip. Owner exe (F1 Challenge Online.exe, sha256 prefix 1A70E5ED) read-only: event row at 0x5BF9A0+eid*0x14 gives score at +0x10 and cooldown float at +0x0C; eids 227-234 read score 230-237 and cooldown 1.0, matching full_event_dump (not blocked). No eid of this batch is FLT_MAX.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/AIDriverStateTransition_00419120.c:37,39,57,59",
+     "observed": "emits 120 (l.37), 259 (l.39), 198 (l.57)"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/AIFormationLap_0041a3a0.c:22-41",
+     "observed": "emits 6, 180, 181, 182 (l.22,35-38,41)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:21-61",
+     "observed": "v5 in {3,4,5,10,16,33,72,262} (l.21,27,29,41,47,57,61)"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/AIPitStrategyState_0041a200.c:13-20",
+     "observed": "emits 42 or 52 (l.13-15,20)"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:34-48",
+     "observed": "emits 7,8,9,17,18 (l.34,36,44-48)"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:21-36",
+     "observed": "emits 21,22,178,179 (l.21,25,32,34,36)"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:10-19",
+     "observed": "emits 52 or 196 (l.10,16,19)"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:29-164",
+     "observed": "emits 157-177, 158-159, 260, 261 (l.29-164)"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/PitExit_0041c0f0.c:29-127",
+     "observed": "default 397; emits 516-535 range (l.38-118)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:25-26",
+     "observed": "eid = ThunkToFUN004201e0 result: returns 355-371 or -1 (thunk body file ThunkToFUN004201e0_004203d0.c:7-49)"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/RaceCommentary_0041d630.c:34-236",
+     "observed": "emits 397, 447-477, 454-456, 459-461, 465, 474, 476 (l.34-236)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:13-189",
+     "observed": "emits 293-336 (l.13-189)"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:22-61",
+     "observed": "emits 34,35,276-279 (l.22-61)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/sub_41A720_0041a720.c:14-57",
+     "observed": "emits 123-125, 151, 153-155, 252-254, 256 (l.14-57)"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce its own eid (none) (eid 243 is another clip)",
+     "line": "functions/sub_41A940_0041a940.c:12,21",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): emits 149 (player, l.15) and 243 (AI, l.21). Eid 243 = PWS_AIPENALTY22 in full_event_dump (sdt 259), not a batch clip"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/sub_41AC50_0041ac50.c:25-58",
+     "observed": "emits 208, 211-217, 220 (l.25-58)"
+    },
+    {
+     "function": "sub_41B250 (AI/player retirement)",
+     "result": "cannot produce its own eid (none) as own eid; PRODUCES parent eids 236 and 237, both sdt type 0x13 (type 0x13: its stitch-bank tail is not counted)",
+     "line": "functions/sub_41B250_0041b250.c:35-53",
+     "observed": "player 117-119 (l.13-24); AI 235 (16488==1), 238 (==4), 236 (==9), 237 (other) (l.35-53)"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce its own eid (none)",
+     "line": "functions/sub_41C440_0041c440.c:8-17; functions/sub_420000_00420000.c:12-47",
+     "observed": "eid = sub_420000 result: returns 338-354 or -1 (l.12-16)"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "stitch-bank tail path for type 0x13 parents (not counted); type 0x0B has no sound-path tail",
+     "line": "functions/SoundEventDispatcher_00411e90.c:45-58,100-104",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): case 0x13/0x29 -> sub_412E50(a4,a1,a3[5],0) (l.55-58); case 0x0E -> a3[4] (l.45-47); default returns 0 for types 0x0B,0x0C (l.100-104)"
+    },
+    {
+     "function": "sub_412E50 (sub-clip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a3 in {1,2,3} gives sdt 240,241,242; a3 4..10 gives 243..249 only through type-0x13 parents, none emitted live",
+     "line": "functions/sub_412E50_00412e50.c:96-183",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a2=0 (PWS channel), a4=0: a3=1..25 -> sdt 240..264 (l.95-169; l.96 a3=1, l.99 a3=2, l.102 a3=3); a2=1 gives TV-channel indices 243..266; default -1 (l.183)"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): text-channel tail only (flag 1)",
+     "line": "functions/RaceEventMessageDispatcher_00411bf0.c:7-37",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): types 0x0B,0x0C,0x33 -> sub_412E50(a4,a1,a3[4],1): text tail 214..238 (l.34-38); type 0x13 -> SessionStringNameLookup (l.15,27)"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840)",
+     "result": "sound path reached when FCRD returns 1",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45",
+     "observed": "ShortComputation chain l.12-18; CharacterCodeMapper(v9+v8) l.34; RaceEventMessageDispatcher l.36; FontCharacterRenderDispatcher l.41; SoundEventDispatcher l.45 (only after FCRD==1)"
+    },
+    {
+     "function": "FontCharacterRenderDispatcher (sub_411DB0)",
+     "result": "writes the parent clip itself (a2+8) into the output slot",
+     "line": "functions/FontCharacterRenderDispatcher_00411db0.c:31-42; functions/GlobalFieldSelectorByIndex_00414160.c:6-7",
+     "observed": "returns 1 when GlobalFieldSelectorByIndex(channel) >= 0 (l.31-42); channel 0 -> dword_5BF8C8 = 30 in owner exe initial data (static; runtime may differ)"
+    },
+    {
+     "function": "CharacterCodeMapper (sub_411B50)",
+     "result": "type per clip index: 240=3, 241=3, 242=0x13, 243=0x0B, 244=9, 245=3, 246=0x13, 248=3, 249=9, 247=3, 251/252=0x13",
+     "line": "functions/CharacterCodeMapper_00411b50.c:46,52-53",
+     "observed": "clip type = unk_5BEE08[sdt] dword table (l.46, 52-53); owner exe table extracted read-only"
+    },
+    {
+     "function": "ShortComputation_19d0 (sub_4119D0)",
+     "result": "PWS eids of this batch are channel 0",
+     "line": "functions/ShortComputation_19d0_004119d0.c:6-7",
+     "observed": "channel 0 for 0<eid<291 (l.6-7); 1 for 292<eid<536 (l.8-9)"
+    },
+    {
+     "function": "ShortComputation_1a00 (sub_411A00)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): scores 230..237 -> sdt 240,241,243,244,245,246,248,249; no score maps to 242 or 247 (0 of 300)",
+     "line": "functions/ShortComputation_1a00_00411a00.c:8-11",
+     "observed": "score -> sdt through word_5BEBB0[score] (l.11); owner exe table read-only"
+    },
+    {
+     "function": "ShortComputation_1a50 + CircularBufferIndexIncrement (sub_411A50, sub_411650)",
+     "result": "UNKNOWN: if N>=2 for an eid, its clip becomes sdt+k",
+     "line": "functions/ShortComputation_1a50_00411a50.c:7-25; functions/CircularBufferIndexIncrement_00411650.c:6-15",
+     "observed": "adds a per-eid cursor k in [0, N-1] to the sdt (FontRenderingPrep l.34: CharacterCodeMapper(v9+v8)); N is runtime state"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion (sub_4144F0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): arg4 is the sub-clip selector for type 0x13 parents",
+     "line": "functions/DriverDataTableLookupAndTimeConversion_004144f0.c:5-9",
+     "observed": "entry struct: [0]=eid, [4]=arg3, [5]=arg4, [6]=arg5, [7]=arg6 (l.5-9); SoundEventDispatcher reads a3[4]/a3[5] from this entry"
+    },
+    {
+     "function": "TextOverlayDisplayTimer (sub_4186F0)",
+     "result": "pipeline root for every queued line",
+     "line": "functions/TextOverlayDisplayTimer_004186f0.c:19-76",
+     "observed": "gate l.19 dword_7D0308 && flt_7CF3C8 > 0 && *(this+2800); FontRenderingPrep call l.76; caller RenderTickUpdate (per frame)"
+    },
+    {
+     "function": "FloatRangeIndexLookup (sub_4D7C10)",
+     "result": "bucket v1 of sub_41B250 (l.29-31) is UNKNOWN at runtime",
+     "line": "functions/FloatRangeIndexLookup_004d7c10.c:11-26",
+     "observed": "returns -1, 0, 1 or 2 (l.11-26); thresholds flt_5EA404.. are runtime data (zero in exe initial image)"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "result": "retirement/spin route UNKNOWN on live state",
+     "line": "functions/sub_4F1FE0_004f1fe0.c:36,50,113,135",
+     "observed": "calls sub_41B250 at l.135 after yaw-timer latch l.113 (v14 > flt_7D0A8C); gates l.36, 50, 70-109 incl. sub_4D21D0() and DistanceComparison; FPU-flag gates v8/v9 not decodable"
+    },
+    {
+     "function": "word_5BEBB0 inverse",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): no score value maps to sdt 247",
+     "line": "owner exe read-only, table 0x5BEBB0 (300 entries)",
+     "observed": "no hit"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "An AI car has spun.",
+    "when_it_should_play": "race; AI car spins (see sdt 245)",
+    "trigger": "as sdt 245",
+    "subject": "AI driver id veh+0x489C",
+    "technique": "carrier_score: needs a score value mapped to 247 through a runtime table write (not a disk patch; owner rule: no exe patching on disk)",
+    "latch_cooldown": "once per car per spin",
+    "must_not_play_when": "as sdt 245",
+    "conflicts": "as sdt 245; a word-table write affects every eid using that score",
+    "calibration": "as sdt 245",
+    "live_test": "After a carrier is designed, spin an AI car",
+    "confidence": "GUESS"
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "orphan_clip unchanged; the tail-target statement was removed."
+   }
+  },
+  {
+   "eid": 233,
+   "sdt_index": 248,
+   "clip": "PWS_AIINCID01",
+   "says": "AI stalls on the grid",
+   "score": 236,
+   "cooldown": 1.0,
+   "priority": 40,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "An AI car stalls at the start on the grid.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "A stall mechanism exists per prior static work (StartStalls -> veh+0x44BC); no emitter reads it and nothing suppresses it. Not re-verified in this batch.",
+   "emitters": [],
+   "call_path": "none (no function queues eid 233)",
+   "gates": [
+    "none"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt:228 'StartStalls in .rcd gives a path to the mechanism'; VOICE_LINES.md:342; findings.jsonl:86 (EVF SPEC_EVF-002D, DERIVED, not re-read here).",
+   "tier": "DERIVED",
+   "notes": "No suppression found. Owner exe (F1 Challenge Online.exe, sha256 prefix 1A70E5ED) read-only: event row at 0x5BF9A0+eid*0x14 gives score at +0x10 and cooldown float at +0x0C; eids 227-234 read score 230-237 and cooldown 1.0, matching full_event_dump (not blocked). No eid of this batch is FLT_MAX.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 233",
+     "line": "functions/AIDriverStateTransition_00419120.c:37,39,57,59",
+     "observed": "emits 120 (l.37), 259 (l.39), 198 (l.57)"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 233",
+     "line": "functions/AIFormationLap_0041a3a0.c:22-41",
+     "observed": "emits 6, 180, 181, 182 (l.22,35-38,41)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 233",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:21-61",
+     "observed": "v5 in {3,4,5,10,16,33,72,262} (l.21,27,29,41,47,57,61)"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 233",
+     "line": "functions/AIPitStrategyState_0041a200.c:13-20",
+     "observed": "emits 42 or 52 (l.13-15,20)"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 233",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:34-48",
+     "observed": "emits 7,8,9,17,18 (l.34,36,44-48)"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 233",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:21-36",
+     "observed": "emits 21,22,178,179 (l.21,25,32,34,36)"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 233",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:10-19",
+     "observed": "emits 52 or 196 (l.10,16,19)"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 233",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:29-164",
+     "observed": "emits 157-177, 158-159, 260, 261 (l.29-164)"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 233",
+     "line": "functions/PitExit_0041c0f0.c:29-127",
+     "observed": "default 397; emits 516-535 range (l.38-118)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 233",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:25-26",
+     "observed": "eid = ThunkToFUN004201e0 result: returns 355-371 or -1 (thunk body file ThunkToFUN004201e0_004203d0.c:7-49)"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 233",
+     "line": "functions/RaceCommentary_0041d630.c:34-236",
+     "observed": "emits 397, 447-477, 454-456, 459-461, 465, 474, 476 (l.34-236)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 233",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:13-189",
+     "observed": "emits 293-336 (l.13-189)"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 233",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:22-61",
+     "observed": "emits 34,35,276-279 (l.22-61)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eid 233",
+     "line": "functions/sub_41A720_0041a720.c:14-57",
+     "observed": "emits 123-125, 151, 153-155, 252-254, 256 (l.14-57)"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 233 (eid 243 is another clip)",
+     "line": "functions/sub_41A940_0041a940.c:12,21",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): emits 149 (player, l.15) and 243 (AI, l.21). Eid 243 = PWS_AIPENALTY22 in full_event_dump (sdt 259), not a batch clip"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 233",
+     "line": "functions/sub_41AC50_0041ac50.c:25-58",
+     "observed": "emits 208, 211-217, 220 (l.25-58)"
+    },
+    {
+     "function": "sub_41B250 (AI/player retirement)",
+     "result": "cannot produce eid 233 as own eid; PRODUCES parent eids 236 and 237, both sdt type 0x13 (type 0x13: its stitch-bank tail is not counted)",
+     "line": "functions/sub_41B250_0041b250.c:35-53",
+     "observed": "player 117-119 (l.13-24); AI 235 (16488==1), 238 (==4), 236 (==9), 237 (other) (l.35-53)"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 233",
+     "line": "functions/sub_41C440_0041c440.c:8-17; functions/sub_420000_00420000.c:12-47",
+     "observed": "eid = sub_420000 result: returns 338-354 or -1 (l.12-16)"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "stitch-bank tail path for type 0x13 parents (not counted); type 0x0B has no sound-path tail",
+     "line": "functions/SoundEventDispatcher_00411e90.c:45-58,100-104",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): case 0x13/0x29 -> sub_412E50(a4,a1,a3[5],0) (l.55-58); case 0x0E -> a3[4] (l.45-47); default returns 0 for types 0x0B,0x0C (l.100-104)"
+    },
+    {
+     "function": "sub_412E50 (sub-clip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a3 in {1,2,3} gives sdt 240,241,242; a3 4..10 gives 243..249 only through type-0x13 parents, none emitted live",
+     "line": "functions/sub_412E50_00412e50.c:96-183",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a2=0 (PWS channel), a4=0: a3=1..25 -> sdt 240..264 (l.95-169; l.96 a3=1, l.99 a3=2, l.102 a3=3); a2=1 gives TV-channel indices 243..266; default -1 (l.183)"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): text-channel tail only (flag 1)",
+     "line": "functions/RaceEventMessageDispatcher_00411bf0.c:7-37",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): types 0x0B,0x0C,0x33 -> sub_412E50(a4,a1,a3[4],1): text tail 214..238 (l.34-38); type 0x13 -> SessionStringNameLookup (l.15,27)"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840)",
+     "result": "sound path reached when FCRD returns 1",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45",
+     "observed": "ShortComputation chain l.12-18; CharacterCodeMapper(v9+v8) l.34; RaceEventMessageDispatcher l.36; FontCharacterRenderDispatcher l.41; SoundEventDispatcher l.45 (only after FCRD==1)"
+    },
+    {
+     "function": "FontCharacterRenderDispatcher (sub_411DB0)",
+     "result": "writes the parent clip itself (a2+8) into the output slot",
+     "line": "functions/FontCharacterRenderDispatcher_00411db0.c:31-42; functions/GlobalFieldSelectorByIndex_00414160.c:6-7",
+     "observed": "returns 1 when GlobalFieldSelectorByIndex(channel) >= 0 (l.31-42); channel 0 -> dword_5BF8C8 = 30 in owner exe initial data (static; runtime may differ)"
+    },
+    {
+     "function": "CharacterCodeMapper (sub_411B50)",
+     "result": "type per clip index: 240=3, 241=3, 242=0x13, 243=0x0B, 244=9, 245=3, 246=0x13, 248=3, 249=9, 247=3, 251/252=0x13",
+     "line": "functions/CharacterCodeMapper_00411b50.c:46,52-53",
+     "observed": "clip type = unk_5BEE08[sdt] dword table (l.46, 52-53); owner exe table extracted read-only"
+    },
+    {
+     "function": "ShortComputation_19d0 (sub_4119D0)",
+     "result": "PWS eids of this batch are channel 0",
+     "line": "functions/ShortComputation_19d0_004119d0.c:6-7",
+     "observed": "channel 0 for 0<eid<291 (l.6-7); 1 for 292<eid<536 (l.8-9)"
+    },
+    {
+     "function": "ShortComputation_1a00 (sub_411A00)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): scores 230..237 -> sdt 240,241,243,244,245,246,248,249; no score maps to 242 or 247 (0 of 300)",
+     "line": "functions/ShortComputation_1a00_00411a00.c:8-11",
+     "observed": "score -> sdt through word_5BEBB0[score] (l.11); owner exe table read-only"
+    },
+    {
+     "function": "ShortComputation_1a50 + CircularBufferIndexIncrement (sub_411A50, sub_411650)",
+     "result": "UNKNOWN: if N>=2 for an eid, its clip becomes sdt+k",
+     "line": "functions/ShortComputation_1a50_00411a50.c:7-25; functions/CircularBufferIndexIncrement_00411650.c:6-15",
+     "observed": "adds a per-eid cursor k in [0, N-1] to the sdt (FontRenderingPrep l.34: CharacterCodeMapper(v9+v8)); N is runtime state"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion (sub_4144F0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): arg4 is the sub-clip selector for type 0x13 parents",
+     "line": "functions/DriverDataTableLookupAndTimeConversion_004144f0.c:5-9",
+     "observed": "entry struct: [0]=eid, [4]=arg3, [5]=arg4, [6]=arg5, [7]=arg6 (l.5-9); SoundEventDispatcher reads a3[4]/a3[5] from this entry"
+    },
+    {
+     "function": "TextOverlayDisplayTimer (sub_4186F0)",
+     "result": "pipeline root for every queued line",
+     "line": "functions/TextOverlayDisplayTimer_004186f0.c:19-76",
+     "observed": "gate l.19 dword_7D0308 && flt_7CF3C8 > 0 && *(this+2800); FontRenderingPrep call l.76; caller RenderTickUpdate (per frame)"
+    },
+    {
+     "function": "FloatRangeIndexLookup (sub_4D7C10)",
+     "result": "bucket v1 of sub_41B250 (l.29-31) is UNKNOWN at runtime",
+     "line": "functions/FloatRangeIndexLookup_004d7c10.c:11-26",
+     "observed": "returns -1, 0, 1 or 2 (l.11-26); thresholds flt_5EA404.. are runtime data (zero in exe initial image)"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "result": "retirement/spin route UNKNOWN on live state",
+     "line": "functions/sub_4F1FE0_004f1fe0.c:36,50,113,135",
+     "observed": "calls sub_41B250 at l.135 after yaw-timer latch l.113 (v14 > flt_7D0A8C); gates l.36, 50, 70-109 incl. sub_4D21D0() and DistanceComparison; FPU-flag gates v8/v9 not decodable"
+    },
+    {
+     "function": "StartStalls mechanism",
+     "result": "not re-read in this batch; prior claim veh+0x44BC",
+     "line": "findings.jsonl:86",
+     "observed": "prior static claim"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "An AI car has stalled on the grid at the start.",
+    "when_it_should_play": "race start; AI car has its stall flag set (StartStalls) and does not move at the start",
+    "trigger": "veh+0x44BC stall flag (prior EVF claim, not re-verified) and the grid phase value (UNKNOWN)",
+    "subject": "AI driver id veh+0x489C",
+    "technique": "own_emitter: queue eid 233 once at the start",
+    "latch_cooldown": "once per race start",
+    "must_not_play_when": "player stalled (no line for that here)",
+    "conflicts": "none found",
+    "calibration": "grid phase value (live)",
+    "live_test": "Set StartStalls in the race .rcd, start a race and check whether the stall flag is set",
+    "confidence": "DERIVED (mechanism per EVF finding, not re-read)"
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "no_emitter unchanged; no sub-clip route was used."
+   }
+  },
+  {
+   "eid": 234,
+   "sdt_index": 249,
+   "clip": "PWS_2001_149",
+   "says": "AI driver held up by another AI",
+   "score": 237,
+   "cooldown": 1.0,
+   "priority": 20,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "An AI driver is held up by an AI driver in front.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No trigger or emitter for eid 234.",
+   "emitters": [],
+   "call_path": "none (no function queues eid 234)",
+   "gates": [
+    "none"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt:230 'same as 244 but reverse, maybe these should play 50/50'; VOICE_LINES.md:343.",
+   "tier": "DERIVED",
+   "notes": "sdt 249 has type 9 (name route; name tables are PC_RE_STITCH-bank builders per SUB-CLIP BANK FACT, not a PC_RE_MAIN route). Owner exe (F1 Challenge Online.exe, sha256 prefix 1A70E5ED) read-only: event row at 0x5BF9A0+eid*0x14 gives score at +0x10 and cooldown float at +0x0C; cooldown 1.0 and not FLT_MAX.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 234",
+     "line": "functions/AIDriverStateTransition_00419120.c:37,39,57,59",
+     "observed": "emits 120 (l.37), 259 (l.39), 198 (l.57)"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 234",
+     "line": "functions/AIFormationLap_0041a3a0.c:22-41",
+     "observed": "emits 6, 180, 181, 182 (l.22,35-38,41)"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 234",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c:21-61",
+     "observed": "v5 in {3,4,5,10,16,33,72,262} (l.21,27,29,41,47,57,61)"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 234",
+     "line": "functions/AIPitStrategyState_0041a200.c:13-20",
+     "observed": "emits 42 or 52 (l.13-15,20)"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 234",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:34-48",
+     "observed": "emits 7,8,9,17,18 (l.34,36,44-48)"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 234",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c:21-36",
+     "observed": "emits 21,22,178,179 (l.21,25,32,34,36)"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 234",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c:10-19",
+     "observed": "emits 52 or 196 (l.10,16,19)"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 234",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c:29-164",
+     "observed": "emits 157-177, 158-159, 260, 261 (l.29-164)"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 234",
+     "line": "functions/PitExit_0041c0f0.c:29-127",
+     "observed": "default 397; emits 516-535 range (l.38-118)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 234",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c:25-26",
+     "observed": "eid = ThunkToFUN004201e0 result: returns 355-371 or -1 (thunk body file ThunkToFUN004201e0_004203d0.c:7-49)"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 234",
+     "line": "functions/RaceCommentary_0041d630.c:34-236",
+     "observed": "emits 397, 447-477, 454-456, 459-461, 465, 474, 476 (l.34-236)"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 234",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c:13-189",
+     "observed": "emits 293-336 (l.13-189)"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 234",
+     "line": "functions/TimeBasedMessageChain_0041a500.c:22-61",
+     "observed": "emits 34,35,276-279 (l.22-61)"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eid 234",
+     "line": "functions/sub_41A720_0041a720.c:14-57",
+     "observed": "emits 123-125, 151, 153-155, 252-254, 256 (l.14-57)"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eid 234 (eid 243 is another clip)",
+     "line": "functions/sub_41A940_0041a940.c:12,21",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): emits 149 (player, l.15) and 243 (AI, l.21). Eid 243 = PWS_AIPENALTY22 in full_event_dump (sdt 259), not a batch clip"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 234",
+     "line": "functions/sub_41AC50_0041ac50.c:25-58",
+     "observed": "emits 208, 211-217, 220 (l.25-58)"
+    },
+    {
+     "function": "sub_41B250 (AI/player retirement)",
+     "result": "cannot produce eid 234 as own eid; PRODUCES parent eids 236 and 237, both sdt type 0x13 (type 0x13: its stitch-bank tail is not counted)",
+     "line": "functions/sub_41B250_0041b250.c:35-53",
+     "observed": "player 117-119 (l.13-24); AI 235 (16488==1), 238 (==4), 236 (==9), 237 (other) (l.35-53)"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 234",
+     "line": "functions/sub_41C440_0041c440.c:8-17; functions/sub_420000_00420000.c:12-47",
+     "observed": "eid = sub_420000 result: returns 338-354 or -1 (l.12-16)"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90)",
+     "result": "stitch-bank tail path for type 0x13 parents (not counted); type 0x0B has no sound-path tail",
+     "line": "functions/SoundEventDispatcher_00411e90.c:45-58,100-104",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): case 0x13/0x29 -> sub_412E50(a4,a1,a3[5],0) (l.55-58); case 0x0E -> a3[4] (l.45-47); default returns 0 for types 0x0B,0x0C (l.100-104)"
+    },
+    {
+     "function": "sub_412E50 (sub-clip resolver)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a3 in {1,2,3} gives sdt 240,241,242; a3 4..10 gives 243..249 only through type-0x13 parents, none emitted live",
+     "line": "functions/sub_412E50_00412e50.c:96-183",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): a2=0 (PWS channel), a4=0: a3=1..25 -> sdt 240..264 (l.95-169; l.96 a3=1, l.99 a3=2, l.102 a3=3); a2=1 gives TV-channel indices 243..266; default -1 (l.183)"
+    },
+    {
+     "function": "RaceEventMessageDispatcher (sub_411BF0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): text-channel tail only (flag 1)",
+     "line": "functions/RaceEventMessageDispatcher_00411bf0.c:7-37",
+     "observed": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): types 0x0B,0x0C,0x33 -> sub_412E50(a4,a1,a3[4],1): text tail 214..238 (l.34-38); type 0x13 -> SessionStringNameLookup (l.15,27)"
+    },
+    {
+     "function": "FontRenderingPrep (sub_411840)",
+     "result": "sound path reached when FCRD returns 1",
+     "line": "functions/FontRenderingPrep_00411840.c:12-45",
+     "observed": "ShortComputation chain l.12-18; CharacterCodeMapper(v9+v8) l.34; RaceEventMessageDispatcher l.36; FontCharacterRenderDispatcher l.41; SoundEventDispatcher l.45 (only after FCRD==1)"
+    },
+    {
+     "function": "FontCharacterRenderDispatcher (sub_411DB0)",
+     "result": "writes the parent clip itself (a2+8) into the output slot",
+     "line": "functions/FontCharacterRenderDispatcher_00411db0.c:31-42; functions/GlobalFieldSelectorByIndex_00414160.c:6-7",
+     "observed": "returns 1 when GlobalFieldSelectorByIndex(channel) >= 0 (l.31-42); channel 0 -> dword_5BF8C8 = 30 in owner exe initial data (static; runtime may differ)"
+    },
+    {
+     "function": "CharacterCodeMapper (sub_411B50)",
+     "result": "type per clip index: 240=3, 241=3, 242=0x13, 243=0x0B, 244=9, 245=3, 246=0x13, 248=3, 249=9, 247=3, 251/252=0x13",
+     "line": "functions/CharacterCodeMapper_00411b50.c:46,52-53",
+     "observed": "clip type = unk_5BEE08[sdt] dword table (l.46, 52-53); owner exe table extracted read-only"
+    },
+    {
+     "function": "ShortComputation_19d0 (sub_4119D0)",
+     "result": "PWS eids of this batch are channel 0",
+     "line": "functions/ShortComputation_19d0_004119d0.c:6-7",
+     "observed": "channel 0 for 0<eid<291 (l.6-7); 1 for 292<eid<536 (l.8-9)"
+    },
+    {
+     "function": "ShortComputation_1a00 (sub_411A00)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): scores 230..237 -> sdt 240,241,243,244,245,246,248,249; no score maps to 242 or 247 (0 of 300)",
+     "line": "functions/ShortComputation_1a00_00411a00.c:8-11",
+     "observed": "score -> sdt through word_5BEBB0[score] (l.11); owner exe table read-only"
+    },
+    {
+     "function": "ShortComputation_1a50 + CircularBufferIndexIncrement (sub_411A50, sub_411650)",
+     "result": "UNKNOWN: if N>=2 for an eid, its clip becomes sdt+k",
+     "line": "functions/ShortComputation_1a50_00411a50.c:7-25; functions/CircularBufferIndexIncrement_00411650.c:6-15",
+     "observed": "adds a per-eid cursor k in [0, N-1] to the sdt (FontRenderingPrep l.34: CharacterCodeMapper(v9+v8)); N is runtime state"
+    },
+    {
+     "function": "DriverDataTableLookupAndTimeConversion (sub_4144F0)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): arg4 is the sub-clip selector for type 0x13 parents",
+     "line": "functions/DriverDataTableLookupAndTimeConversion_004144f0.c:5-9",
+     "observed": "entry struct: [0]=eid, [4]=arg3, [5]=arg4, [6]=arg5, [7]=arg6 (l.5-9); SoundEventDispatcher reads a3[4]/a3[5] from this entry"
+    },
+    {
+     "function": "TextOverlayDisplayTimer (sub_4186F0)",
+     "result": "pipeline root for every queued line",
+     "line": "functions/TextOverlayDisplayTimer_004186f0.c:19-76",
+     "observed": "gate l.19 dword_7D0308 && flt_7CF3C8 > 0 && *(this+2800); FontRenderingPrep call l.76; caller RenderTickUpdate (per frame)"
+    },
+    {
+     "function": "FloatRangeIndexLookup (sub_4D7C10)",
+     "result": "bucket v1 of sub_41B250 (l.29-31) is UNKNOWN at runtime",
+     "line": "functions/FloatRangeIndexLookup_004d7c10.c:11-26",
+     "observed": "returns -1, 0, 1 or 2 (l.11-26); thresholds flt_5EA404.. are runtime data (zero in exe initial image)"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "result": "retirement/spin route UNKNOWN on live state",
+     "line": "functions/sub_4F1FE0_004f1fe0.c:36,50,113,135",
+     "observed": "calls sub_41B250 at l.135 after yaw-timer latch l.113 (v14 > flt_7D0A8C); gates l.36, 50, 70-109 incl. sub_4D21D0() and DistanceComparison; FPU-flag gates v8/v9 not decodable"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "The attacking AI is held up by the AI in front (mirror of sdt 244).",
+    "when_it_should_play": "as sdt 244, with the attacker as subject",
+    "trigger": "as sdt 244",
+    "subject": "AI driver id veh+0x489C of the attacker",
+    "technique": "own_emitter: queue eid 234; 50/50 with eid 230 per owner note (needs a pair latch)",
+    "latch_cooldown": "as sdt 244",
+    "must_not_play_when": "as sdt 244",
+    "conflicts": "sdt 244 (same pair; pick one)",
+    "calibration": "as sdt 244",
+    "live_test": "as sdt 244",
+    "confidence": "GUESS"
+   },
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "no_emitter unchanged; the name-route mention is a stitch-bank builder, not a route."
+   }
+  }
+ ]
+}

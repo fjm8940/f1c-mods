@@ -1,0 +1,487 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 29,
+ "clip": "PWS_2001_15",
+ "says": "AI driver ahead on In Lap",
+ "dump_rows_for_clip": [
+  {
+   "eid": 31,
+   "hex": "0x001F",
+   "priority": 1,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 29,
+   "sdt_index": 29,
+   "clip_name": "PWS_2001_15.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 322,
+   "hex": "0x0142",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 29,
+   "sdt_index": 29,
+   "clip_name": "PWS_2001_15.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  29
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 31,
+   "hex": "0x001F",
+   "priority": 1,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 29,
+   "sdt_index": 29,
+   "clip_name": "PWS_2001_15.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 322,
+   "hex": "0x0142",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 29,
+   "sdt_index": 29,
+   "clip_name": "PWS_2001_15.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  31
+ ],
+ "literal_hits": {
+  "31": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 693,
+       "text": "v5 = a4 != 0 ? 397 : 31;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 40,
+       "text": "v8 = a4 != 0 ? 31 : 52;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 177,
+    "first": [
+     "AudioDriverInit",
+     "AudioMixLookupTableInit",
+     "AudioResampler",
+     "AudioSamplePlaybackWithPitchModulationAndStereoP",
+     "AudioSamplePositionVolumeSetter",
+     "AudioSubbandSynthesisFilterbank",
+     "BitArrayClearBitAndZeroFillSubsequentWords",
+     "BitfieldManager",
+     "BufferAllocationWithSizeRounding",
+     "CRTAllshl",
+     "CameraShakeRingBufferWrite",
+     "CameraViewportRenderSetup",
+     "CheckIfBitRangeIsClearAcrossDwords",
+     "CloudSceneObjectRandomSelector",
+     "CollisionStateInit4",
+     "ColorPack",
+     "CompressedAudioDecoder",
+     "ConditionalArrayAlloc",
+     "ConstructorZeroInitSubCalls",
+     "ControllerShifterMapping",
+     "CriticalSectionEnterWithLazyInit",
+     "DDSHeaderParsing",
+     "DDSTextureFormatValidationDecoding",
+     "DeferredTextureObjectLoader",
+     "DirectXTextureSurfaceFactoryDispatchingFourCCCod",
+     "DriverEntrantSetupEntry",
+     "DriverNameTeamCopy",
+     "DualListDestructionWithDeepCleanup",
+     "EmptyStub",
+     "EntityVisibilityGridManager",
+     "FAILOverviewSays96BitBitmapButSourceIsArbitraryS",
+     "FAILTriageUnknownUnidentifiedButIsActuallyConstr",
+     "F_16BitColorToFloat4Decoder",
+     "F_32PointMDCTAudioTransform",
+     "F_3DAABBOverlapTestWithSlidingResponse",
+     "F_3DTransformObjectInit",
+     "F_3DTransformWithSIMD",
+     "F_96BitLeftShiftBy1",
+     "F_96BitRightShift",
+     "FileCriticalSectionLeave"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 29 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "RaceEventMessageDispatcher",
+    "file": "RaceEventMessageDispatcher_00411bf0.c",
+    "hits": [
+     {
+      "line": 51,
+      "text": "case 0x1D:"
+     }
+    ]
+   },
+   {
+    "function": "SoundEventDispatcher",
+    "file": "SoundEventDispatcher_00411e90.c",
+    "hits": [
+     {
+      "line": 29,
+      "text": "case 0x1D:"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:138: {\"tier\": \"DERIVED\", \"needs_review\": true, \"group\": \"EVF-008_F\", \"summary\": \"Misc singles (6 clips): PWS_OVERTAKE01 (120) and PWS_AIBLUE03 (259) = LIVE_TRUSTED via human real-play r",
+  "f1c_ida_decompiled\\findings.jsonl:139: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"EVF-008 DeepSeek re-verification of the injection-only batch: 26 of 39 reverted\", \"claim\": \"DeepSeek V4 Pro produced 6"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-008.md:167: | `PWS_2001_159` | 293 | 275 | `DisplayMessage0x113_0041a6b0`, via `PitTimer` directly | Session ends |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:129: | `PWS_2001_156` | 294 | 276 | 10 minutes until session ends |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:130: | `PWS_2001_155` | 295 | 277 | 15 minutes until session ends |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:131: | `PWS_2001_158` | 296 | 278 | 3 minutes until session ends |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:132: | `PWS_2001_157` | 297 | 279 | 5 minutes until session ends |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:171: | `PWS_2001_15` | 29 | 322 | 0x0041b980? | AI driver ahead on In Lap |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:228: | `PWS_2001_159` | 293 | 275 | 0x0041a6b0 | Session ends |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:100: | PWS_2001_159 | 293 | 275 | Session over (time reached 0:00) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:167: | PWS_2001_15 | 29 | 31 | Practice/qualifying line |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:65: | `PWS_2001_156` | 294 | 276 | — | 10 minutes until session ends |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:66: | `PWS_2001_155` | 295 | 277 | — | 15 minutes until session ends |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:67: | `PWS_2001_158` | 296 | 278 | — | 3 minutes until session ends |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:68: | `PWS_2001_157` | 297 | 279 | — | 5 minutes until session ends |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:238: | `PWS_2001_15` | 29 | 31, 322 | — | AI driver ahead on In Lap | user triage: X play |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:269: | `PWS_2001_159` | 293 | 275 | — | Session ends | EVF-008 audit: UNKNOWN. Emitter DisplayMessage0x113_0041a6b0 (caller PitTimer, confirmed live) dispatches a variable eid, not a li",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:57: | `PWS_2001_155` | 277 | 15 minutes until session ends |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:58: | `PWS_2001_156` | 276 | 10 minutes until session ends |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:59: | `PWS_2001_157` | 279 | 5 minutes until session ends |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:60: | `PWS_2001_158` | 278 | 3 minutes until session ends |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:168: | `PWS_2001_15` | 31, 322 | AI driver ahead on In Lap | eid 322 live, emitter candidate TeamNameDisplayIDLookup_0041b980.c:189 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:169: | `PWS_2001_159` | 275 | Session ends | eid 275 live, emitter literal DisplayMessage0x113_0041a6b0.c:10 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SHIPPED_MECHANISMS.md:97: | PWS_2001_155 | 277 | 15 minutes until session ends | Same function, crosses 900s (15min) → eid277 | DERIVED | `functions/TimeBasedMessageChain_0041a500.c:36-41` |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SHIPPED_MECHANISMS.md:98: | PWS_2001_156 | 276 | 10 minutes until session ends | Same function, crosses 600s (10min) → eid276 | DERIVED | `functions/TimeBasedMessageChain_0041a500.c:43-48` |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SHIPPED_MECHANISMS.md:99: | PWS_2001_157 | 279 | 5 minutes until session ends | Same function, crosses 300s (5min) → eid279 | DERIVED | `functions/TimeBasedMessageChain_0041a500.c:50-55` |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SHIPPED_MECHANISMS.md:100: | PWS_2001_158 | 278 | 3 minutes until session ends | Same function, crosses 180s (3min) → eid278 | DERIVED | `functions/TimeBasedMessageChain_0041a500.c:57-62` |"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "mechanical_failures",
+    "mod_version": "1.0.7 public (RELEASE_REGISTRY); donor table in mf_voice.h",
+    "eid": 31,
+    "mechanism": "token_only",
+    "condition": "TOKEN ONLY (owner correction 2026-10-18): MF borrows this eid as an internal radio-queue token and plays its own WAV; the vanilla clip never plays. MF V3 line MF_RAD03 \"Radiator's clear now.\": donor eid row rewritten at load when PWS_MF01 SDT is installed; fired via commentary queue / radio_req",
+    "source": "development/mods/mechanical_failures/dll/mf_voice.h:68; engine_failure.c:1722-1760 (row write), 4040-4062 (voice_native_say)",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "AI driver ahead on In Lap"
+   }
+  ],
+  "note": "user triage: X play",
+  "triage": {
+   "sdt_index": 29,
+   "text": "X play",
+   "subject": "X",
+   "play": true,
+   "verdict": "TODO",
+   "flags": [],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

@@ -1,0 +1,2 @@
+# AICommandMessageQueueDispatcher: offset-like lines with no extracted row (1)
+L24: v4 = *(_DWORD *)(*this + 16484) == 0;

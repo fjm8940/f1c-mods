@@ -1,0 +1,499 @@
+{
+  "schema": "abl.rules.v1",
+  "note": "AI rule constants exposed as live sliders.. Edited by Claude (curated from DeepSeek batch D TUNABLES census + own capstone checks). tools/gen_rules.py verifies every site against the exe and writes dll/abl_rules.h; the panel reads this file for labels. Order = slot index (append only).",
+  "exe": "F1 Challenge Online.exe",
+  "exe_sha256": "1a70e5ed0c4a059f7f66741b1682d0aedb14921aa6140cdb70b09549fdf3a003",
+  "rules": [
+    {
+      "id": "yield_radius_sq",
+      "family": "Yielding",
+      "label": "Blue-flag yield radius (m squared; 625 = 25 m)",
+      "units": "m^2",
+      "int": false,
+      "orig": 625.0,
+      "lo": 25.0,
+      "hi": 3600.0,
+      "tier": "DERIVED",
+      "help": "A lapped AI car starts making room for the lapping PLAYER inside this squared distance (race only). 100 = 10 m, 2500 = 50 m.",
+      "source": "investigations/ai_interaction_role/README.md 2026-08-18 blue-flag diagnosis; capstone 2026-10-03",
+      "sites": [
+        {
+          "insn": "0x42A8CA",
+          "kind": "abs",
+          "const": "0x59E988"
+        }
+      ]
+    },
+    {
+      "id": "sidestep_plus",
+      "family": "Overtaking & side-step",
+      "label": "Side-step offset, mode 2 (m)",
+      "units": "m",
+      "int": false,
+      "orig": 3.0,
+      "lo": 0.0,
+      "hi": 8.0,
+      "tier": "DERIVED",
+      "help": "How far a car asked to side-step (Overtaking mode 2) moves its line. Lapped cars and qualifying traffic use it.",
+      "source": "Overtaking 0x42AF70 store; IR 2026-08-18 'Exact Overtaking lateral-offset mode values'",
+      "sites": [
+        {
+          "insn": "0x42B0B8",
+          "kind": "imm32"
+        }
+      ]
+    },
+    {
+      "id": "sidestep_minus",
+      "family": "Overtaking & side-step",
+      "label": "Side-step offset, modes 1/7/8 (m)",
+      "units": "m",
+      "int": false,
+      "orig": -3.0,
+      "lo": -8.0,
+      "hi": 0.0,
+      "tier": "DERIVED",
+      "help": "Same as above for the other side (modes 1, 7, 8).",
+      "source": "Overtaking 0x42AF70 store; IR 2026-08-18",
+      "sites": [
+        {
+          "insn": "0x42B0C9",
+          "kind": "imm32"
+        }
+      ]
+    },
+    {
+      "id": "traffic_lift_factor",
+      "family": "Traffic awareness",
+      "label": "Traffic throttle cap (x difficulty)",
+      "units": "ratio",
+      "int": false,
+      "orig": 0.75,
+      "lo": 0.2,
+      "hi": 1.0,
+      "tier": "DERIVED",
+      "help": "While a car has an interaction target (yielding / side-stepping) its throttle is capped at difficulty x this. 1.0 = no lift.",
+      "source": "AISteeringCorrection 0x426CF0 (fmul then fstp 0x457C); IR 2026-08-18 6593",
+      "sites": [
+        {
+          "insn": "0x426D08",
+          "kind": "abs",
+          "const": "0x59E7FC"
+        }
+      ]
+    },
+    {
+      "id": "offtrack_throttle_fast",
+      "family": "Off-track rejoin",
+      "label": "Off-track throttle above 90 km/h",
+      "units": "ratio",
+      "int": false,
+      "orig": 0.5,
+      "lo": 0.2,
+      "hi": 1.0,
+      "tier": "CONFIRMED",
+      "help": "When an AI car is off the racing corridor (+1.5 m) and not braking, the game holds its throttle at this value until it is back on track. 1.0 = full throttle rejoin (risk: spins on grass).",
+      "source": "AIRacingLine 0x425920 L302-326: on_track 0x445C = inside line corridor + 1.5 m; off track and no braking -> throttle target 0.5 (> 25 m/s) or 0.4 (<= 25 m/s). Live 2026-10-03 Coulthard: 0.50 flat while on_track 0, 1.0 once back on.",
+      "sites": [
+        {
+          "insn": "0x42608A",
+          "kind": "abs",
+          "const": "0x59E450"
+        }
+      ]
+    },
+    {
+      "id": "offtrack_throttle_slow",
+      "family": "Off-track rejoin",
+      "label": "Off-track throttle at 90 km/h or less",
+      "units": "ratio",
+      "int": false,
+      "orig": 0.4,
+      "lo": 0.1,
+      "hi": 1.0,
+      "tier": "DERIVED",
+      "help": "Same rule for slow cars (at or below 25 m/s = 90 km/h).",
+      "source": "AIRacingLine 0x425920 L302-326: on_track 0x445C = inside line corridor + 1.5 m; off track and no braking -> throttle target 0.5 (> 25 m/s) or 0.4 (<= 25 m/s). Live 2026-10-03 Coulthard: 0.50 flat while on_track 0, 1.0 once back on.",
+      "sites": [
+        {
+          "insn": "0x426092",
+          "kind": "abs",
+          "const": "0x59E8C8"
+        }
+      ]
+    },
+    {
+      "id": "tc_grip_threshold",
+      "family": "Traction control",
+      "label": "TC kicks in below grip",
+      "units": "",
+      "int": false,
+      "orig": 0.9,
+      "lo": 0.0,
+      "hi": 1.0,
+      "tier": "CONFIRMED",
+      "help": "Traction control acts when the smoothed wheel grip (1.0 = full grip) drops below this. 0 = traction control OFF. Higher = earlier, more cautious.",
+      "source": "AISteeringCorrection 0x426CF0 (decompile L24-66; exe disassembly 0x426D14-0x426E92); DeepSeek phase3/TRACTION_CONTROL.md (Monza: active 5.4 % of samples, 1st-2nd gear)",
+      "sites": [
+        {
+          "insn": "0x426DB3",
+          "kind": "abs",
+          "const": "0x59E824"
+        }
+      ]
+    },
+    {
+      "id": "tc_cut_steepness",
+      "family": "Traction control",
+      "label": "TC cut steepness",
+      "units": "",
+      "int": false,
+      "orig": 1.1111112,
+      "lo": 0.5,
+      "hi": 3.0,
+      "tier": "CONFIRMED",
+      "help": "How hard the cut grows as grip falls: depth = 2 x (1 - this x grip), clamped 0..1. Game 1.111 = no cut at 0.9, full cut at 0.45. Lower = gentler.",
+      "source": "AISteeringCorrection 0x426CF0 (decompile L24-66; exe disassembly 0x426D14-0x426E92); DeepSeek phase3/TRACTION_CONTROL.md (Monza: active 5.4 % of samples, 1st-2nd gear)",
+      "sites": [
+        {
+          "insn": "0x426DEF",
+          "kind": "abs",
+          "const": "0x59E8E8"
+        }
+      ]
+    },
+    {
+      "id": "tc_min_speed",
+      "family": "Traction control",
+      "label": "TC only above speed (m/s)",
+      "units": "",
+      "int": false,
+      "orig": 4.0,
+      "lo": 0.0,
+      "hi": 40.0,
+      "tier": "CONFIRMED",
+      "help": "Traction control is skipped below this speed (m/s; 4 = 14 km/h) unless the car is stuck. Raise it to allow wheelspin when launching.",
+      "source": "AISteeringCorrection 0x426CF0 (decompile L24-66; exe disassembly 0x426D14-0x426E92); DeepSeek phase3/TRACTION_CONTROL.md (Monza: active 5.4 % of samples, 1st-2nd gear)",
+      "sites": [
+        {
+          "insn": "0x426DCA",
+          "kind": "abs",
+          "const": "0x59E46C"
+        }
+      ]
+    },
+    {
+      "id": "tc_weight_worse",
+      "family": "Traction control",
+      "label": "TC weight of the worse wheel",
+      "units": "",
+      "int": false,
+      "orig": 0.7,
+      "lo": 0.0,
+      "hi": 1.0,
+      "tier": "CONFIRMED",
+      "help": "The two grip readings are blended; this is the share of the WORSE one. With the next slider they should add to 1.0. Higher = reacts to the slipping wheel.",
+      "source": "AISteeringCorrection 0x426CF0 (decompile L24-66; exe disassembly 0x426D14-0x426E92); DeepSeek phase3/TRACTION_CONTROL.md (Monza: active 5.4 % of samples, 1st-2nd gear)",
+      "sites": [
+        {
+          "insn": "0x426D7B",
+          "kind": "abs",
+          "const": "0x59E6E8"
+        },
+        {
+          "insn": "0x426D93",
+          "kind": "abs",
+          "const": "0x59E6E8"
+        }
+      ]
+    },
+    {
+      "id": "tc_weight_better",
+      "family": "Traction control",
+      "label": "TC weight of the better wheel",
+      "units": "",
+      "int": false,
+      "orig": 0.3,
+      "lo": 0.0,
+      "hi": 1.0,
+      "tier": "CONFIRMED",
+      "help": "Share of the BETTER grip reading in the blend (game 0.3). Keep worse + better = 1.0.",
+      "source": "AISteeringCorrection 0x426CF0 (decompile L24-66; exe disassembly 0x426D14-0x426E92); DeepSeek phase3/TRACTION_CONTROL.md (Monza: active 5.4 % of samples, 1st-2nd gear)",
+      "sites": [
+        {
+          "insn": "0x426D83",
+          "kind": "abs",
+          "const": "0x59E8B4"
+        },
+        {
+          "insn": "0x426D8B",
+          "kind": "abs",
+          "const": "0x59E8B4"
+        }
+      ]
+    },
+    {
+      "id": "tc_brake_gain",
+      "family": "Traction control",
+      "label": "TC brake-on-slip gain",
+      "units": "",
+      "int": false,
+      "orig": 4.0,
+      "lo": 0.0,
+      "hi": 10.0,
+      "tier": "DERIVED",
+      "help": "Brake added = this x throttle removed by the cut (output 0x4028). Never seen firing in 90 559 Monza samples: probably no visible effect.",
+      "source": "AISteeringCorrection 0x426CF0 (decompile L24-66; exe disassembly 0x426D14-0x426E92); DeepSeek phase3/TRACTION_CONTROL.md (Monza: active 5.4 % of samples, 1st-2nd gear)",
+      "sites": [
+        {
+          "insn": "0x426E58",
+          "kind": "abs",
+          "const": "0x59E46C"
+        }
+      ]
+    },
+    {
+      "id": "steerlift_min_steer",
+      "family": "Steer lift",
+      "label": "Steer lift from steering above",
+      "units": "",
+      "int": false,
+      "orig": 0.1,
+      "lo": 0.0,
+      "hi": 1.0,
+      "tier": "CONFIRMED",
+      "help": "Throttle is lifted while steering more than this (0..1). 1.0 = steer lift OFF.",
+      "source": "AISteeringCorrection 0x426CF0 (decompile L24-66; exe disassembly 0x426D14-0x426E92); DeepSeek phase3/TRACTION_CONTROL.md (Monza: active 5.4 % of samples, 1st-2nd gear)",
+      "sites": [
+        {
+          "insn": "0x426D20",
+          "kind": "abs",
+          "const": "0x59E84C"
+        }
+      ]
+    },
+    {
+      "id": "steerlift_min_speed",
+      "family": "Steer lift",
+      "label": "Steer lift only above speed (m/s)",
+      "units": "",
+      "int": false,
+      "orig": 20.0,
+      "lo": 0.0,
+      "hi": 100.0,
+      "tier": "CONFIRMED",
+      "help": "Steer lift only acts above this speed (m/s; 20 = 72 km/h).",
+      "source": "AISteeringCorrection 0x426CF0 (decompile L24-66; exe disassembly 0x426D14-0x426E92); DeepSeek phase3/TRACTION_CONTROL.md (Monza: active 5.4 % of samples, 1st-2nd gear)",
+      "sites": [
+        {
+          "insn": "0x426D33",
+          "kind": "abs",
+          "const": "0x59E8EC"
+        }
+      ]
+    },
+    {
+      "id": "steerlift_amount",
+      "family": "Steer lift",
+      "label": "Steer lift amount",
+      "units": "",
+      "int": false,
+      "orig": 0.7,
+      "lo": 0.0,
+      "hi": 1.0,
+      "tier": "CONFIRMED",
+      "help": "throttle x (1 - this x steering). Game 0.7: half-lock steering = 35 % less throttle. 0 = steer lift OFF.",
+      "source": "AISteeringCorrection 0x426CF0 (decompile L24-66; exe disassembly 0x426D14-0x426E92); DeepSeek phase3/TRACTION_CONTROL.md (Monza: active 5.4 % of samples, 1st-2nd gear)",
+      "sites": [
+        {
+          "insn": "0x426D44",
+          "kind": "abs",
+          "const": "0x59E6E8"
+        }
+      ]
+    },
+    {
+      "id": "follow_min_gap",
+      "family": "Following & overtake decision",
+      "label": "Too close behind (m)",
+      "units": "",
+      "int": false,
+      "orig": 4.0,
+      "lo": 0.5,
+      "hi": 15.0,
+      "tier": "DERIVED",
+      "help": "Closer than this directly behind (overlap under 1.25 m) the AI backs off and treats the car as \"hold\". Lower = sits closer to the gearbox before deciding (more crash risk).",
+      "source": "AISteering 0x4270A0 opponent-record loop (decompile L606-629, L668-672, L762, L950-1051; exe sites anchored on the record gap [rec+0x4180], the per-record patience 0x42DC+28k and speed 0x4440); phase3/OVERTAKE_DEFEND.md",
+      "sites": [
+        {
+          "insn": "0x427EEA",
+          "kind": "abs",
+          "const": "0x59E46C"
+        },
+        {
+          "insn": "0x42824E",
+          "kind": "abs",
+          "const": "0x59E46C"
+        }
+      ]
+    },
+    {
+      "id": "follow_backoff",
+      "family": "Following & overtake decision",
+      "label": "Back-off when too close (m/s)",
+      "units": "",
+      "int": false,
+      "orig": 5.0,
+      "lo": 0.0,
+      "hi": 20.0,
+      "tier": "DERIVED",
+      "help": "When too close, the AI aims this much below its own speed. 0 = no back-off (it keeps pushing).",
+      "source": "AISteering 0x4270A0 opponent-record loop (decompile L606-629, L668-672, L762, L950-1051; exe sites anchored on the record gap [rec+0x4180], the per-record patience 0x42DC+28k and speed 0x4440); phase3/OVERTAKE_DEFEND.md",
+      "sites": [
+        {
+          "insn": "0x428233",
+          "kind": "abs",
+          "const": "0x59E7EC"
+        }
+      ]
+    },
+    {
+      "id": "attack_range",
+      "family": "Following & overtake decision",
+      "label": "Attack interest range (m per aggression+1)",
+      "units": "",
+      "int": false,
+      "orig": 20.0,
+      "lo": 5.0,
+      "hi": 100.0,
+      "tier": "DERIVED",
+      "help": "Within (aggression+1) x this metres of a car ahead, attack patience builds up; outside it decays. Game: 40 m at aggression 1.",
+      "source": "AISteering 0x4270A0 opponent-record loop (decompile L606-629, L668-672, L762, L950-1051; exe sites anchored on the record gap [rec+0x4180], the per-record patience 0x42DC+28k and speed 0x4440); phase3/OVERTAKE_DEFEND.md",
+      "sites": [
+        {
+          "insn": "0x427C97",
+          "kind": "abs",
+          "const": "0x59E8EC"
+        }
+      ]
+    },
+    {
+      "id": "attack_patience_decay",
+      "family": "Following & overtake decision",
+      "label": "Patience decay outside range (per tick)",
+      "units": "",
+      "int": false,
+      "orig": 5.0,
+      "lo": 0.0,
+      "hi": 50.0,
+      "tier": "DERIVED",
+      "help": "How fast the built-up attack patience drains when the car ahead is out of range (40 ticks/s).",
+      "source": "AISteering 0x4270A0 opponent-record loop (decompile L606-629, L668-672, L762, L950-1051; exe sites anchored on the record gap [rec+0x4180], the per-record patience 0x42DC+28k and speed 0x4440); phase3/OVERTAKE_DEFEND.md",
+      "sites": [
+        {
+          "insn": "0x427D71",
+          "kind": "abs",
+          "const": "0x59E7EC"
+        }
+      ]
+    },
+    {
+      "id": "attack_threshold",
+      "family": "Following & overtake decision",
+      "label": "Attack threshold (higher = stays in line longer)",
+      "units": "",
+      "int": false,
+      "orig": 500.0,
+      "lo": 50.0,
+      "hi": 2000.0,
+      "tier": "DERIVED",
+      "help": "The AI switches lane (+/-3 m) when its pass-cost score is below this minus the built-up patience. HIGHER = it follows in line longer before pulling out; lower = pulls out early.",
+      "source": "AISteering 0x4270A0 opponent-record loop (decompile L606-629, L668-672, L762, L950-1051; exe sites anchored on the record gap [rec+0x4180], the per-record patience 0x42DC+28k and speed 0x4440); phase3/OVERTAKE_DEFEND.md",
+      "sites": [
+        {
+          "insn": "0x428904",
+          "kind": "abs",
+          "const": "0x59E91C"
+        },
+        {
+          "insn": "0x4289EA",
+          "kind": "abs",
+          "const": "0x59E91C"
+        }
+      ]
+    },
+    {
+      "id": "attack_patience_cap",
+      "family": "Following & overtake decision",
+      "label": "Patience cap",
+      "units": "",
+      "int": false,
+      "orig": 450.0,
+      "lo": 0.0,
+      "hi": 2000.0,
+      "tier": "DERIVED",
+      "help": "Maximum built-up attack patience (game caps at 450, so the threshold never drops below 50). Both the compare and the clamp store use this.",
+      "source": "AISteering 0x4270A0 opponent-record loop (decompile L606-629, L668-672, L762, L950-1051; exe sites anchored on the record gap [rec+0x4180], the per-record patience 0x42DC+28k and speed 0x4440); phase3/OVERTAKE_DEFEND.md",
+      "sites": [
+        {
+          "insn": "0x427D12",
+          "kind": "abs",
+          "const": "0x59E93C"
+        },
+        {
+          "insn": "0x427D26",
+          "kind": "imm32"
+        }
+      ]
+    },
+    {
+      "id": "alongside_gap",
+      "family": "Following & overtake decision",
+      "label": "Alongside below gap (m)",
+      "units": "",
+      "int": false,
+      "orig": 5.5,
+      "lo": 0.0,
+      "hi": 20.0,
+      "tier": "DERIVED",
+      "help": "Below this gap (and laterally apart) the pair counts as alongside (modes 7/8); above it the follower is in approach (16).",
+      "source": "AISteering 0x4270A0 opponent-record loop (decompile L606-629, L668-672, L762, L950-1051; exe sites anchored on the record gap [rec+0x4180], the per-record patience 0x42DC+28k and speed 0x4440); phase3/OVERTAKE_DEFEND.md",
+      "sites": [
+        {
+          "insn": "0x428A7B",
+          "kind": "abs",
+          "const": "0x59E918"
+        }
+      ]
+    },
+    {
+      "id": "approach_patience_keep",
+      "family": "Following & overtake decision",
+      "label": "Patience kept when dropping to approach",
+      "units": "",
+      "int": false,
+      "orig": 0.85,
+      "lo": 0.0,
+      "hi": 1.0,
+      "tier": "DERIVED",
+      "help": "When the follower falls back to approach, its built-up patience is multiplied by this. 1.0 = keeps it all; 0 = starts over.",
+      "source": "AISteering 0x4270A0 opponent-record loop (decompile L606-629, L668-672, L762, L950-1051; exe sites anchored on the record gap [rec+0x4180], the per-record patience 0x42DC+28k and speed 0x4440); phase3/OVERTAKE_DEFEND.md",
+      "sites": [
+        {
+          "insn": "0x428BA2",
+          "kind": "abs",
+          "const": "0x59E908"
+        }
+      ]
+    }
+  ],
+  "family_help": {
+    "Yielding": "Blue flags: how close the lapping PLAYER must be before a lapped AI car makes room.",
+    "Overtaking & side-step": "How far a car moves sideways when it is asked to step aside (and when it attacks: +/-3 m).",
+    "Traffic awareness": "The throttle cut while a car is yielding / side-stepping (game 0.75 x difficulty). The cap is never restored by the game afterwards: use \"Never cap throttle at 75 %\" too.",
+    "Off-track rejoin": "Outside the racing corridor + 1.5 m (pure geometry, not grass detection) the AI holds 50 % throttle (40 % at or below 90 km/h) until it is back.",
+    "Traction control": "Two wheel-grip readings (1.0 = gripping) are blended (70 % worse wheel), smoothed, and below 0.9 the throttle is pulled toward a safe value, harder as grip falls (full cut at 0.45). Mostly 1st-2nd gear wheelspin.",
+    "Steer lift": "Throttle x (1 - 0.7 x steering) while steering more than 10 % above 72 km/h.",
+    "Following & overtake decision": "How a follower decides to pull out: within (aggression+1) x 20 m of the car ahead an attack PATIENCE builds up each tick (cap 450) and drains outside; the car switches lane (+/-3 m) when its pass-cost score drops below 500 - patience. Closer than 4 m directly behind it backs off 5 m/s and holds. Alongside = gap under 5.5 m. \"Tailgate before passing\" sets 1.5 m / 1 m/s / threshold 900."
+  }
+}

@@ -1,0 +1,87 @@
+{
+ "mode": "evf_spec",
+ "workers": 10,
+ "total_items": 10,
+ "assignments": [
+  {
+   "letter": "A",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\prompts\\worker_A_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\output\\worker_A.jsonl",
+   "items": [
+    "SPEC-pit_procedure"
+   ]
+  },
+  {
+   "letter": "B",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\prompts\\worker_B_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\output\\worker_B.jsonl",
+   "items": [
+    "SPEC-unclassified"
+   ]
+  },
+  {
+   "letter": "C",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\prompts\\worker_C_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\output\\worker_C.jsonl",
+   "items": [
+    "SPEC-mechanical"
+   ]
+  },
+  {
+   "letter": "D",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\prompts\\worker_D_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\output\\worker_D.jsonl",
+   "items": [
+    "SPEC-penalty_steward"
+   ]
+  },
+  {
+   "letter": "E",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\prompts\\worker_E_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\output\\worker_E.jsonl",
+   "items": [
+    "SPEC-weather_track"
+   ]
+  },
+  {
+   "letter": "F",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\prompts\\worker_F_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\output\\worker_F.jsonl",
+   "items": [
+    "SPEC-flags_incident"
+   ]
+  },
+  {
+   "letter": "G",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\prompts\\worker_G_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\output\\worker_G.jsonl",
+   "items": [
+    "SPEC-standings_champ"
+   ]
+  },
+  {
+   "letter": "H",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\prompts\\worker_H_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\output\\worker_H.jsonl",
+   "items": [
+    "SPEC-tyre_condition"
+   ]
+  },
+  {
+   "letter": "I",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\prompts\\worker_I_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\output\\worker_I.jsonl",
+   "items": [
+    "SPEC-session_phase"
+   ]
+  },
+  {
+   "letter": "J",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\prompts\\worker_J_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_spec\\output\\worker_J.jsonl",
+   "items": [
+    "SPEC-qualifying_runs"
+   ]
+  }
+ ]
+}

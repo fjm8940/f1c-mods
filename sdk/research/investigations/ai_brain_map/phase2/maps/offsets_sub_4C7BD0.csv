@@ -1,0 +1,2 @@
+func,line,dec,hex,access,width,base,form,expr
+sub_4C7BD0,3,18580,0x4894,R,_DWORD,this,array,return this[4645] == *(_DWORD *)(dword_7C54F0[dword_7C54E4] + 18580);

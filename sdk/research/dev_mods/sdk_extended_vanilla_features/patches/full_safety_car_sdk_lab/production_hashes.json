@@ -1,0 +1,7 @@
+{
+  "purpose": "Read-only boundary for the production full_safety_car implementation",
+  "files": {
+    "../full_safety_car/dll/pace_probe.c": "90E72CDE1D3ACAC26BC36AC821CA2A98B424CB951EAB2055F706770E71F1075A",
+    "../full_safety_car/dll/pace_probe.dll": "77591E81ECF4D3B9ECAC01BC92DC143101F057216B42C3AEE271D7D110D8A513"
+  }
+}

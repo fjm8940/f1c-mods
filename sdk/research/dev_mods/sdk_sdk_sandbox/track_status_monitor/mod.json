@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "id": "track_status_monitor",
+  "name": "Track Status Monitor",
+  "sdk_version": "1.0.0",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "dll": "build/track_status_monitor.dll",
+  "unload_event": "F1C_TRACK_STATUS_MONITOR_UNLOAD",
+  "production": false
+}
+

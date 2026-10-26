@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(%USERPROFILE%/Desktop/f1c_ida_decompiled/**)",
+      "Bash(python3 tools/ask.py findings \"tyre temperature\")",
+      "Bash(python3 tools/ask.py findings \"brake temp\")",
+      "Bash(python tools/ask.py findings 42ACD0)",
+      "Bash(\"%USERPROFILE%/AppData/Local/Python/bin/python3.exe\" tools/sc_pitbox_trial.py state)",
+      "Bash(python tools/ask.py findings native-sc)"
+    ]
+  }
+}

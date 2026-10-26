@@ -1,0 +1,6 @@
+func,line,dec,hex,access,width,base,form,expr
+SoundEffectTrigger,14,14752,0x39A0,R,float,*(_DWORD*)this,deref2,v2 = *(float *)(*(_DWORD *)this + 14752) / *(float *)(*(_DWORD *)this + 14756);
+SoundEffectTrigger,14,14756,0x39A4,R,float,*(_DWORD*)this,deref2,v2 = *(float *)(*(_DWORD *)this + 14752) / *(float *)(*(_DWORD *)this + 14756);
+SoundEffectTrigger,27,,,CALL,,,call,RatioComputationWithClamping
+SoundEffectTrigger,29,,,CALL,,,call,RandLCGRandomNumberGenerator
+SoundEffectTrigger,35,,,CALL,,,call,HUDElementConfig

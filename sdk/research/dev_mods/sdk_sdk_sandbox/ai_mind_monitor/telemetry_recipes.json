@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "recipes": {
+    "speed": {
+      "description": "Per-vehicle Speed field; read-only field-mapping observation.",
+      "object": "vehicle", "encoding": "float32", "known_offset": "0x4440",
+      "scan": {"start": "0x4440", "end": "0x4440", "alignment": 4},
+      "value_range": {"minimum": 0.0, "maximum": 2000.0},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1,
+                   "minimum_slots": 2, "expected_stability": 0.0},
+      "static_evidence": ["F1CVehicle::Speed is FACT in the canonical SDK."],
+      "limitations": ["Float deltas are deliberately not treated as a semantic validation rule.", "This trace reads only; it does not establish units."]
+    },
+    "throttleFactor": {
+      "description": "Per-vehicle ThrottleFactor; read-only field-mapping observation.",
+      "object": "vehicle", "encoding": "float32", "known_offset": "0x357C",
+      "scan": {"start": "0x357C", "end": "0x357C", "alignment": 4},
+      "value_range": {"minimum": -0.1, "maximum": 1.1},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1,
+                   "minimum_slots": 2, "expected_stability": 0.0},
+      "static_evidence": ["F1CVehicle::ThrottleFactor is CONFIRMED in the canonical SDK."],
+      "limitations": ["Pending event-correlated validation against actual throttle behaviour."]
+    },
+    "brakeFactor": {
+      "description": "Per-vehicle BrakeFactor; read-only field-mapping observation.",
+      "object": "vehicle", "encoding": "float32", "known_offset": "0x3584",
+      "scan": {"start": "0x3584", "end": "0x3584", "alignment": 4},
+      "value_range": {"minimum": -0.1, "maximum": 1.1},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1,
+                   "minimum_slots": 2, "expected_stability": 0.0},
+      "static_evidence": ["F1CVehicle::BrakeFactor is CONFIRMED in the canonical SDK."],
+      "limitations": ["Pending event-correlated validation against actual braking behaviour."]
+    },
+    "currentWaypoint": {
+      "description": "Current AI waypoint pointer; read-only pointer-liveness observation.",
+      "object": "vehicle", "encoding": "uint32", "known_offset": "0x4354",
+      "scan": {"start": "0x4354", "end": "0x4354", "alignment": 4},
+      "value_range": {"minimum": 0, "maximum": 4294967295},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1,
+                   "minimum_slots": 2, "expected_stability": 0.0},
+      "static_evidence": ["CurrentWaypointPtr is FACT in the canonical SDK."],
+      "limitations": ["Pointer identity establishes waypoint progression, not a human-readable track location yet."]
+    },
+    "overtakeTargetCandidate": {
+      "description": "Historical key: session-initialized teammate/paired-entry vehicle pointer read by a race-session Overtaking gate.",
+      "object": "vehicle", "encoding": "uint32", "known_offset": "0x45F8",
+      "scan": {"start": "0x45F8", "end": "0x45F8", "alignment": 4},
+      "value_range": {"minimum": 0, "maximum": 4294967295},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1,
+                   "minimum_slots": 1, "expected_stability": 0.0},
+      "static_evidence": ["AIDriverStructInit initializes this+0x45F8 by comparing the vehicle text field at +0x46B8 across active cars.", "The 60-second live capture resolved 24 of 25 entries into 12 reciprocal pointer pairs; AIAbility also reads the partner's pit state through this field.", "Overtaking_0042AF70 requires a supplied candidate to equal this pointer on one race-session continuation path."],
+      "limitations": ["It is not populated by the nearby-candidate scan and must not be labelled a current overtake target. The exact source-string label at +0x46B8 is less important than the confirmed paired-entry relationship."]
+    },
+    "teammateVehicle": {
+      "description": "Canonical name for the session-initialized teammate/paired-entry vehicle pointer.",
+      "object": "vehicle", "encoding": "uint32", "known_offset": "0x45F8",
+      "scan": {"start": "0x45F8", "end": "0x45F8", "alignment": 4},
+      "value_range": {"minimum": 0, "maximum": 4294967295},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 0, "minimum_slots": 1, "expected_stability": 1.0},
+      "static_evidence": ["AIDriverStructInit pairs active vehicles by their shared +0x46B8 identifier.", "AIAbility reads this paired vehicle for pit-strategy logic.", "Live evidence resolved 12 reciprocal pairs among 25 active entries."],
+      "limitations": ["The historical overtakeTargetCandidate alias remains only for compatibility with prior captures; use teammateVehicle for new analysis."]
+    },
+    "overtakeSideOffset": {
+      "description": "Lateral planner value read from the field written by Overtaking on one commit branch.",
+      "object": "vehicle", "encoding": "float32", "known_offset": "0x4420",
+      "scan": {"start": "0x4420", "end": "0x4420", "alignment": 4},
+      "value_range": {"minimum": -100.0, "maximum": 100.0},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1,
+                   "minimum_slots": 1, "expected_stability": 0.0},
+      "static_evidence": ["Overtaking writes +3.0 or -3.0 to this field after one committed-decision branch."],
+      "limitations": ["Live restarted-race samples reached approximately +/-12, proving the field has additional writers or state meanings. A non-zero value is not pass-left/pass-right intent."]
+    },
+    "newOvertakeTargetCandidate": {
+      "description": "Shared transient selected-steering-candidate pointer: written by Overtaking and by the pre-racing-line proximity/lapping scan.",
+      "object": "vehicle", "encoding": "uint32", "known_offset": "0x45FC",
+      "scan": {"start": "0x45FC", "end": "0x45FC", "alignment": 4},
+      "value_range": {"minimum": 0, "maximum": 4294967295},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1,
+                   "minimum_slots": 1, "expected_stability": 0.0},
+      "static_evidence": ["Overtaking writes this+0x45FC after a non-zero pass decision and writes +/-3.0 to +0x4420.", "OpponentProximityScanTeamRecognition writes this+0x45FC for a nearby lap-ahead vehicle in race state 7 and writes +/-2.5 to +0x4420."],
+      "limitations": ["A pointer transition alone is not a completed pass. Treat it as a transient steering-candidate selection only; a pass claim additionally needs exact +/-3.0, active race context, and later pit-free same-pair progress/standing evidence. Exact writes can select either teammates or non-teammates, depending on race state. A named Monza join showed the source can subsequently lose the standing, so this field does not establish source-to-target pass direction."]
+    },
+    "aiBrakeTarget": {
+      "description": "AI racing-line throttle command candidate; historical key name retained for evidence compatibility.",
+      "object": "vehicle", "encoding": "float32", "known_offset": "0x4434",
+      "scan": {"start": "0x4434", "end": "0x4434", "alignment": 4},
+      "value_range": {"minimum": -0.1, "maximum": 1.1},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0},
+      "static_evidence": ["AIRacingLine writes this field."],
+      "limitations": ["Live correlation shows it follows ThrottleFactor, not BrakeFactor; historical key name is incorrect."]
+    },
+    "aiThrottleTarget": {
+      "description": "AI racing-line brake command candidate; historical key name retained for evidence compatibility.",
+      "object": "vehicle", "encoding": "float32", "known_offset": "0x4438",
+      "scan": {"start": "0x4438", "end": "0x4438", "alignment": 4},
+      "value_range": {"minimum": -0.1, "maximum": 1.1},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0},
+      "static_evidence": ["AIRacingLine writes this field."],
+      "limitations": ["Live correlation shows it follows BrakeFactor, not ThrottleFactor; historical key name is incorrect."]
+    },
+    "passScoreAdditive": {
+      "description": "RCD CorneringAdd value; historical recipe key retained for evidence compatibility.", "object": "vehicle", "encoding": "float32", "known_offset": "0x4500",
+      "scan": {"start": "0x4500", "end": "0x4500", "alignment": 4}, "value_range": {"minimum": -1000000.0, "maximum": 1000000.0},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["sub_424080 loads the RCD CorneringAdd key here; sub_42A780 uses it as an additive corner-speed term."], "limitations": ["Historical key name is misleading; this is not established as a pass-score term."]
+    },
+    "passScoreMultiplier": {
+      "description": "RCD CorneringMult value; historical recipe key retained for evidence compatibility.", "object": "vehicle", "encoding": "float32", "known_offset": "0x4504",
+      "scan": {"start": "0x4504", "end": "0x4504", "alignment": 4}, "value_range": {"minimum": -1000000.0, "maximum": 1000000.0},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["sub_424080 loads the RCD CorneringMult key here; sub_42A780 uses it as a corner-speed multiplier."], "limitations": ["Historical key name is misleading; this is not established as a pass-score term."]
+    },
+    "passScoreAbility": {
+      "description": "Dynamic AI corner-speed multiplier candidate consumed by sub_42A780.", "object": "vehicle", "encoding": "float32", "known_offset": "0x453C",
+      "scan": {"start": "0x453C", "end": "0x453C", "alignment": 4}, "value_range": {"minimum": -1000000.0, "maximum": 1000000.0},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["Multiplies the corner-speed expression in sub_42A780.", "AIAbility_00429470 recalculates it from RaceAbility-derived state."], "limitations": ["Exact semantic name and complete probability model remain unmapped."]
+    },
+    "passScoreGlobal": {
+      "description": "Race/rain-ability multiplier consumed by the AI corner-speed expression.", "object": "vehicle", "encoding": "float32", "known_offset": "0x4580",
+      "scan": {"start": "0x4580", "end": "0x4580", "alignment": 4}, "value_range": {"minimum": -1000000.0, "maximum": 1000000.0},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["sub_424080 computes it from rain ability and global track conditions; sub_42A780 consumes it."], "limitations": ["Historical key name is misleading; exact environmental inputs need separate validation."]
+    },
+    "rcdPassing": {
+      "description": "RaceAbility-derived speed scalar candidate; historical recipe key retained for evidence compatibility.", "object": "vehicle", "encoding": "float32", "known_offset": "0x44D4",
+      "scan": {"start": "0x44D4", "end": "0x44D4", "alignment": 4}, "value_range": {"minimum": -1000.0, "maximum": 1000.0},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["sub_424080 derives this field from RCD RaceAbility."], "limitations": ["Historical key name was incorrect; exact downstream speed consumers still need controlled validation."]
+    },
+    "rcdCorneringAdd": {
+      "description": "Per-driver RaceAbility-derived corner-speed/push scalar candidate.", "object": "vehicle", "encoding": "float32", "known_offset": "0x44D8",
+      "scan": {"start": "0x44D8", "end": "0x44D8", "alignment": 4}, "value_range": {"minimum": -1000.0, "maximum": 1000.0},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["Canonical SDK derived alias: RaceAbilityPushScalar; the RCD parser decompile had a conflicting CorneringAdd label."], "limitations": ["Live values are inconsistent with literal CorneringAdd storage. Exact transform and consumers still need a controlled RCD-difference test."]
+    },
+    "raceAbilityScalar": {
+      "description": "Computed per-driver RaceAbility candidate after difficulty scaling.", "object": "vehicle", "encoding": "float32", "known_offset": "0x44F4",
+      "scan": {"start": "0x44F4", "end": "0x44F4", "alignment": 4}, "value_range": {"minimum": -1000.0, "maximum": 1000.0},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["The RCD setup routine computes a race-ability scalar at this candidate offset."], "limitations": ["Candidate only; its exact transformation and all consumers still need controlled validation."]
+    },
+    "trackAggression": {
+      "description": "Transformed RCD Passing value candidate; historical recipe key retained for evidence compatibility.", "object": "vehicle", "encoding": "float32", "known_offset": "0x44CC",
+      "scan": {"start": "0x44CC", "end": "0x44CC", "alignment": 4}, "value_range": {"minimum": -1000.0, "maximum": 1000.0},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["sub_424080 computes this as 0.9 + RCD Passing * 0.001, capped at 1.0."], "limitations": ["Historical key name was incorrect; one-value RCD difference test will provide final proof."]
+    },
+    "rcdTrackAggression": {
+      "description": "RCD TrackAggression value after global scaling and minimum clamp.", "object": "vehicle", "encoding": "float32", "known_offset": "0x44F8",
+      "scan": {"start": "0x44F8", "end": "0x44F8", "alignment": 4}, "value_range": {"minimum": -1000.0, "maximum": 1000.0},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["sub_424080 applies a global multiplier and 0.01 minimum clamp to RCD TrackAggression here."], "limitations": ["Needs a controlled RCD-difference test for final validation."]
+    },
+    "rcdRaceAbilityRaw": {
+      "description": "RaceAbility normalized scalar after driver initialization; historical recipe key retained for evidence compatibility.", "object": "vehicle", "encoding": "float32", "known_offset": "0x44C4",
+      "scan": {"start": "0x44C4", "end": "0x44C4", "alignment": 4}, "value_range": {"minimum": -1000.0, "maximum": 1000.0},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["sub_424080 first loads RCD RaceAbility then overwrites this field with (22 - RaceAbility) / 22, optionally difficulty-scaled."], "limitations": ["The literal RCD input is transient at initialization and is not expected in a race-time snapshot."]
+    },
+    "overtakeGateFuel": {
+      "description": "Overtaking gate: commit requires this value to exceed 0.001.", "object": "vehicle", "encoding": "float32", "known_offset": "0x3984",
+      "scan": {"start": "0x3984", "end": "0x3984", "alignment": 4}, "value_range": {"minimum": -1000000.0, "maximum": 1000000.0},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["Overtaking_0042af70 blocks a commit unless this+0x3984 > 0.001."], "limitations": ["Its human-facing semantic name is not final; only the gate behavior is static evidence."]
+    },
+    "overtakeGateCarConditions": {
+      "description": "Overtaking gate: commit requires car conditions not equal to 2.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x3D6C",
+      "scan": {"start": "0x3D6C", "end": "0x3D6C", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 4294967295},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["Overtaking_0042af70 blocks a commit when this+0x3D6C equals 2."], "limitations": ["The exact meaning of state 2 remains to be correlated with gameplay."]
+    },
+    "overtakeSharedMetric": {
+      "description": "Overtaking routine's stored maximum of its own and candidate normalized RaceAbility scalars.", "object": "vehicle", "encoding": "float32", "known_offset": "0x450C",
+      "scan": {"start": "0x450C", "end": "0x450C", "alignment": 4}, "value_range": {"minimum": -1000000.0, "maximum": 1000000.0},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["Overtaking_0042af70 stores max(candidate[+0x44C4], previous value) here."], "limitations": ["It is deliberately not named speed: its inputs and downstream consumer need correlation."]
+    },
+    "aiThrottleCommand": {
+      "description": "AI racing-line throttle command, live-correlated with ThrottleFactor.", "object": "vehicle", "encoding": "float32", "known_offset": "0x4434",
+      "scan": {"start": "0x4434", "end": "0x4434", "alignment": 4}, "value_range": {"minimum": -0.1, "maximum": 1.1},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AIRacingLine writes this field."], "limitations": ["Live correlation supports command alignment; it does not prove the exact final-control ownership chain."]
+    },
+    "aiBrakeCommand": {
+      "description": "AI racing-line brake command, live-correlated with BrakeFactor.", "object": "vehicle", "encoding": "float32", "known_offset": "0x4438",
+      "scan": {"start": "0x4438", "end": "0x4438", "alignment": 4}, "value_range": {"minimum": -0.1, "maximum": 1.1},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AIRacingLine writes this field."], "limitations": ["Live correlation supports command alignment; it does not prove the exact final-control ownership chain."]
+    },
+    "steeringLaneModeSlots": {
+      "description": "AISteering transient per-neighbor lane/conflict mode slots, scanned as a bounded candidate set.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x42D4",
+      "scan": {"start": "0x42D4", "end": "0x4350", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 16},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering stores per-neighbor modes at this+0x42D4 + 28*index; modes 1, 2, 7, and 8 call Overtaking."], "limitations": ["Discovery capture only: candidate offsets must be correlated with a side transition before naming a particular neighbor slot."]
+    },
+    "steeringLaneMode0": {
+      "description": "AISteering transient lane/conflict mode for candidate slot 0.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x42D4",
+      "scan": {"start": "0x42D4", "end": "0x42D4", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 16},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering stores a candidate lane mode at this+0x42D4 + 28*index."], "limitations": ["Candidate ordering is internal and does not yet identify another named driver."]
+    },
+    "steeringLaneMode1": {
+      "description": "AISteering transient lane/conflict mode for candidate slot 1.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x42F0",
+      "scan": {"start": "0x42F0", "end": "0x42F0", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 16},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering stores a candidate lane mode at this+0x42D4 + 28*index."], "limitations": ["Candidate ordering is internal and does not yet identify another named driver."]
+    },
+    "steeringLaneMode2": {
+      "description": "AISteering transient lane/conflict mode for candidate slot 2.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x430C",
+      "scan": {"start": "0x430C", "end": "0x430C", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 16},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering stores a candidate lane mode at this+0x42D4 + 28*index."], "limitations": ["Candidate ordering is internal and does not yet identify another named driver."]
+    },
+    "steeringLaneMode3": {
+      "description": "AISteering transient lane/conflict mode for candidate slot 3.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x4328",
+      "scan": {"start": "0x4328", "end": "0x4328", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 16},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering stores a candidate lane mode at this+0x42D4 + 28*index."], "limitations": ["Candidate ordering is internal and does not yet identify another named driver."]
+    },
+    "steeringLaneMode4": {
+      "description": "AISteering transient lane/conflict mode for candidate slot 4.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x4344",
+      "scan": {"start": "0x4344", "end": "0x4344", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 16},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering stores a candidate lane mode at this+0x42D4 + 28*index."], "limitations": ["Candidate ordering is internal and does not yet identify another named driver."]
+    },
+    "steeringLanePressure0": {"description":"Accumulated pass-pressure/history value for steering-lane slot 0.","object":"vehicle","encoding":"float32","known_offset":"0x42DC","scan":{"start":"0x42DC","end":"0x42DC","alignment":4},"value_range":{"minimum":0.0,"maximum":500.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering accumulates max(1,-candidateMotion) times TrackAggressionEffective into this field while a candidate is within (TrackAggressionEffective+1)*20 and eligible, caps it at 450, subtracts 5 when outside that condition, and multiplies it by 0.85 on a transition into mode 16."],"limitations":["The field clearly records candidate/lane persistence but its original developer name is unknown; observation does not authorize writing it."]},
+    "steeringLanePressure1": {"description":"Accumulated pass-pressure/history value for steering-lane slot 1.","object":"vehicle","encoding":"float32","known_offset":"0x42F8","scan":{"start":"0x42F8","end":"0x42F8","alignment":4},"value_range":{"minimum":0.0,"maximum":500.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering uses a 28-byte lane-state stride beginning at +0x42D4; the pressure/history member is +8."],"limitations":["Original developer name unknown; observation does not authorize writing it."]},
+    "steeringLanePressure2": {"description":"Accumulated pass-pressure/history value for steering-lane slot 2.","object":"vehicle","encoding":"float32","known_offset":"0x4314","scan":{"start":"0x4314","end":"0x4314","alignment":4},"value_range":{"minimum":0.0,"maximum":500.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering uses a 28-byte lane-state stride beginning at +0x42D4; the pressure/history member is +8."],"limitations":["Original developer name unknown; observation does not authorize writing it."]},
+    "steeringLanePressure3": {"description":"Accumulated pass-pressure/history value for steering-lane slot 3.","object":"vehicle","encoding":"float32","known_offset":"0x4330","scan":{"start":"0x4330","end":"0x4330","alignment":4},"value_range":{"minimum":0.0,"maximum":500.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering uses a 28-byte lane-state stride beginning at +0x42D4; the pressure/history member is +8."],"limitations":["Original developer name unknown; observation does not authorize writing it."]},
+    "steeringLanePressure4": {"description":"Accumulated pass-pressure/history value for steering-lane slot 4.","object":"vehicle","encoding":"float32","known_offset":"0x434C","scan":{"start":"0x434C","end":"0x434C","alignment":4},"value_range":{"minimum":0.0,"maximum":500.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering uses a 28-byte lane-state stride beginning at +0x42D4; the pressure/history member is +8."],"limitations":["Original developer name unknown; observation does not authorize writing it."]},
+    "steeringCandidateProfileIndex0": {"description":"Candidate slot 0 index into the 20-value racing-line profile.","object":"vehicle","encoding":"int32","known_offset":"0x42C8","scan":{"start":"0x42C8","end":"0x42C8","alignment":4},"value_range":{"minimum":-1,"maximum":19},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering stores a per-candidate profile index at this+0x42C8 + 28*index, then reads this+0x43A4 + 4*index."],"limitations":["Static mapping; live profile-index correlation is pending."]},
+    "steeringCandidateProfileIndex1": {"description":"Candidate slot 1 index into the 20-value racing-line profile.","object":"vehicle","encoding":"int32","known_offset":"0x42E4","scan":{"start":"0x42E4","end":"0x42E4","alignment":4},"value_range":{"minimum":-1,"maximum":19},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate profile-index field."],"limitations":["Static mapping; live profile-index correlation is pending."]},
+    "steeringCandidateProfileIndex2": {"description":"Candidate slot 2 index into the 20-value racing-line profile.","object":"vehicle","encoding":"int32","known_offset":"0x4300","scan":{"start":"0x4300","end":"0x4300","alignment":4},"value_range":{"minimum":-1,"maximum":19},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate profile-index field."],"limitations":["Static mapping; live profile-index correlation is pending."]},
+    "steeringCandidateProfileIndex3": {"description":"Candidate slot 3 index into the 20-value racing-line profile.","object":"vehicle","encoding":"int32","known_offset":"0x431C","scan":{"start":"0x431C","end":"0x431C","alignment":4},"value_range":{"minimum":-1,"maximum":19},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate profile-index field."],"limitations":["Static mapping; live profile-index correlation is pending."]},
+    "steeringCandidateProfileIndex4": {"description":"Candidate slot 4 index into the 20-value racing-line profile.","object":"vehicle","encoding":"int32","known_offset":"0x4338","scan":{"start":"0x4338","end":"0x4338","alignment":4},"value_range":{"minimum":-1,"maximum":19},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate profile-index field."],"limitations":["Static mapping; live profile-index correlation is pending."]},
+    "steeringCandidatePtr0": {
+      "description": "AISteering nearby-candidate entry 0 pointer.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x4174",
+      "scan": {"start": "0x4174", "end": "0x4174", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 4294967295},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering iterates five 0x44-byte candidate entries beginning at this+0x4174."], "limitations": ["Pointer-to-vehicle identity is live-correlated; a pointer alone does not prove an overtake target."]
+    },
+    "steeringCandidatePtr1": {
+      "description": "AISteering nearby-candidate entry 1 pointer.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x41B8",
+      "scan": {"start": "0x41B8", "end": "0x41B8", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 4294967295},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering iterates five 0x44-byte candidate entries beginning at this+0x4174."], "limitations": ["Pointer-to-vehicle identity is live-correlated; a pointer alone does not prove an overtake target."]
+    },
+    "steeringCandidatePtr2": {
+      "description": "AISteering nearby-candidate entry 2 pointer.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x41FC",
+      "scan": {"start": "0x41FC", "end": "0x41FC", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 4294967295},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering iterates five 0x44-byte candidate entries beginning at this+0x4174."], "limitations": ["Pointer-to-vehicle identity is live-correlated; a pointer alone does not prove an overtake target."]
+    },
+    "steeringCandidatePtr3": {
+      "description": "AISteering nearby-candidate entry 3 pointer.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x4240",
+      "scan": {"start": "0x4240", "end": "0x4240", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 4294967295},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering iterates five 0x44-byte candidate entries beginning at this+0x4174."], "limitations": ["Pointer-to-vehicle identity is live-correlated; a pointer alone does not prove an overtake target."]
+    },
+    "steeringCandidatePtr4": {
+      "description": "AISteering nearby-candidate entry 4 pointer.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x4284",
+      "scan": {"start": "0x4284", "end": "0x4284", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 4294967295},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering iterates five 0x44-byte candidate entries beginning at this+0x4174."], "limitations": ["Pointer-to-vehicle identity is live-correlated; the entry-to-mode index must still be captured."]
+    },
+    "steeringCandidateIndex0": {
+      "description": "AISteering candidate-entry 0 mode-array index.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x41B4",
+      "scan": {"start": "0x41B4", "end": "0x41B4", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 4},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering indexes its mode array through entry+0x40."], "limitations": ["Use with the candidate pointer and mode slots; no semantic mode label is implied."]
+    },
+    "steeringCandidateIndex1": {
+      "description": "AISteering candidate-entry 1 mode-array index.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x41F8",
+      "scan": {"start": "0x41F8", "end": "0x41F8", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 4},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering indexes its mode array through entry+0x40."], "limitations": ["Use with the candidate pointer and mode slots; no semantic mode label is implied."]
+    },
+    "steeringCandidateIndex2": {
+      "description": "AISteering candidate-entry 2 mode-array index.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x423C",
+      "scan": {"start": "0x423C", "end": "0x423C", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 4},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering indexes its mode array through entry+0x40."], "limitations": ["Use with the candidate pointer and mode slots; no semantic mode label is implied."]
+    },
+    "steeringCandidateIndex3": {
+      "description": "AISteering candidate-entry 3 mode-array index.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x4280",
+      "scan": {"start": "0x4280", "end": "0x4280", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 4},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering indexes its mode array through entry+0x40."], "limitations": ["Use with the candidate pointer and mode slots; no semantic mode label is implied."]
+    },
+    "steeringCandidateIndex4": {
+      "description": "AISteering candidate-entry 4 mode-array index.", "object": "vehicle", "encoding": "uint32", "known_offset": "0x42C4",
+      "scan": {"start": "0x42C4", "end": "0x42C4", "alignment": 4}, "value_range": {"minimum": 0, "maximum": 4},
+      "behavior": {"allowed_change_deltas": [], "minimum_changes": 1, "minimum_slots": 1, "expected_stability": 0.0}, "static_evidence": ["AISteering indexes its mode array through entry+0x40."], "limitations": ["Use with the candidate pointer and mode slots; no semantic mode label is implied."]
+    },
+    "candidateDistance0": {"description":"Candidate-entry 0 distance/progress-like input.","object":"vehicle","encoding":"float32","known_offset":"0x4180","scan":{"start":"0x4180","end":"0x4180","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering compares entry+0x0C equivalent values against 4, 5.5, 10, 15, and 20."],"limitations":["Exact physical units remain unverified."]},
+    "candidateDistance1": {"description":"Candidate-entry 1 distance/progress-like input.","object":"vehicle","encoding":"float32","known_offset":"0x41C4","scan":{"start":"0x41C4","end":"0x41C4","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate entry field."],"limitations":["Exact physical units remain unverified."]},
+    "candidateDistance2": {"description":"Candidate-entry 2 distance/progress-like input.","object":"vehicle","encoding":"float32","known_offset":"0x4208","scan":{"start":"0x4208","end":"0x4208","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate entry field."],"limitations":["Exact physical units remain unverified."]},
+    "candidateDistance3": {"description":"Candidate-entry 3 distance/progress-like input.","object":"vehicle","encoding":"float32","known_offset":"0x424C","scan":{"start":"0x424C","end":"0x424C","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate entry field."],"limitations":["Exact physical units remain unverified."]},
+    "candidateDistance4": {"description":"Candidate-entry 4 distance/progress-like input.","object":"vehicle","encoding":"float32","known_offset":"0x4290","scan":{"start":"0x4290","end":"0x4290","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate entry field."],"limitations":["Exact physical units remain unverified."]},
+    "candidateLateral0": {"description":"Candidate-entry 0 lateral-relation input.","object":"vehicle","encoding":"float32","known_offset":"0x4178","scan":{"start":"0x4178","end":"0x4178","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering uses abs(entry field) against 0.3, 2, and 3 in lane selection."],"limitations":["Exact units remain unverified."]},
+    "candidateLateral1": {"description":"Candidate-entry 1 lateral-relation input.","object":"vehicle","encoding":"float32","known_offset":"0x41BC","scan":{"start":"0x41BC","end":"0x41BC","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate entry field."],"limitations":["Exact units remain unverified."]},
+    "candidateLateral2": {"description":"Candidate-entry 2 lateral-relation input.","object":"vehicle","encoding":"float32","known_offset":"0x4200","scan":{"start":"0x4200","end":"0x4200","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate entry field."],"limitations":["Exact units remain unverified."]},
+    "candidateLateral3": {"description":"Candidate-entry 3 lateral-relation input.","object":"vehicle","encoding":"float32","known_offset":"0x4244","scan":{"start":"0x4244","end":"0x4244","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate entry field."],"limitations":["Exact units remain unverified."]},
+    "candidateLateral4": {"description":"Candidate-entry 4 lateral-relation input.","object":"vehicle","encoding":"float32","known_offset":"0x4288","scan":{"start":"0x4288","end":"0x4288","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate entry field."],"limitations":["Exact units remain unverified."]},
+    "candidateMotion0": {"description":"Candidate-entry 0 relative-motion input.","object":"vehicle","encoding":"float32","known_offset":"0x418C","scan":{"start":"0x418C","end":"0x418C","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering compares this field against -4, -2, 0.5, and 1 and uses it in a ratio."],"limitations":["Exact sign/units remain unverified."]},
+    "candidateMotion1": {"description":"Candidate-entry 1 relative-motion input.","object":"vehicle","encoding":"float32","known_offset":"0x41D0","scan":{"start":"0x41D0","end":"0x41D0","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate entry field."],"limitations":["Exact sign/units remain unverified."]},
+    "candidateMotion2": {"description":"Candidate-entry 2 relative-motion input.","object":"vehicle","encoding":"float32","known_offset":"0x4214","scan":{"start":"0x4214","end":"0x4214","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate entry field."],"limitations":["Exact sign/units remain unverified."]},
+    "candidateMotion3": {"description":"Candidate-entry 3 relative-motion input.","object":"vehicle","encoding":"float32","known_offset":"0x4258","scan":{"start":"0x4258","end":"0x4258","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate entry field."],"limitations":["Exact sign/units remain unverified."]},
+    "candidateMotion4": {"description":"Candidate-entry 4 relative-motion input.","object":"vehicle","encoding":"float32","known_offset":"0x429C","scan":{"start":"0x429C","end":"0x429C","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AISteering candidate entry field."],"limitations":["Exact sign/units remain unverified."]},
+    "trafficSpeedCap": {"description":"Composite per-frame AI speed ceiling reset before planning, lowered by traffic logic in AISteering and by the separate max-speed restriction before AISteeringCorrection modulates throttle, coasts, or brakes.","object":"vehicle","encoding":"float32","known_offset":"0x4484","scan":{"start":"0x4484","end":"0x4484","alignment":4},"value_range":{"minimum":0.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AIMainUpdate resets vehicle+0x4484 to the 999999 sentinel immediately before AIRacingLine and AISteering.","TrackParameterMinimumClamp_0042A740 only lowers +0x4484 to its supplied ceiling with a 5.0 floor; AISteering calls it from candidate-traffic branches.","AISteeringCorrection also clamps +0x4484 against vehicle+0x4538, the independently commanded max-speed restriction.","AISteeringCorrection compares Speed (+0x4440) with +0x4484: a positive deficit through 1 modulates throttle, over 1 through 3 commands coasting, over 3 through 10 adds partial braking, and over 10 adds full braking."],"limitations":["A +0x4484 observation alone cannot distinguish an AISteering traffic clamp from the +0x4538 max-speed restriction; capture both on one clock.","The individual AISteering branch that supplied a particular traffic ceiling still requires same-clock candidate-state correlation.","This is a safety-critical command input and observation does not authorize writing it."]},
+    "maxSpeedRestriction": {"description":"Independent AI maximum-speed restriction folded into the composite +0x4484 ceiling by AISteeringCorrection.","object":"vehicle","encoding":"float32","known_offset":"0x4538","scan":{"start":"0x4538","end":"0x4538","alignment":4},"value_range":{"minimum":0.0,"maximum":1100000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AIDriverStructInit initializes vehicle+0x4538 to the 999999 sentinel.","ParameterValueSetter_0042ACD0 writes an externally commanded ceiling to +0x4538.","AISteeringCorrection passes +0x4538 through TrackParameterMinimumClamp before applying the +0x4484 response bands."],"limitations":["This field can represent race-control or another externally commanded speed restriction; its complete writer set and state mapping are not yet reviewed.","Observation does not authorize writing it."]},
+    "racingLineProfile0": {"description":"First stored forward racing-line speed-profile value.","object":"vehicle","encoding":"float32","known_offset":"0x43A4","scan":{"start":"0x43A4","end":"0x43A4","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AIRacingLine writes a 20-float forward speed profile beginning at this+0x43A4."],"limitations":["This is the first profile element only; its exact waypoint index and units need event correlation."]},
+    "racingLineTargetSpeed": {"description":"AIRacingLine current selected waypoint/path target-speed value.","object":"vehicle","encoding":"float32","known_offset":"0x43FC","scan":{"start":"0x43FC","end":"0x43FC","alignment":4},"value_range":{"minimum":-1000000.0,"maximum":1000000.0},"behavior":{"allowed_change_deltas":[],"minimum_changes":1,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["AIRacingLine initializes this to 9999 then replaces it with the selected forward-path speed target."],"limitations":["A planner target, not a direct physical speed measurement; units and target waypoint identity remain to be correlated."]},
+    "lapNumber": {"description":"Vehicle lap counter used by the race-session branch of Overtaking.","object":"vehicle","encoding":"int32","known_offset":"0x403C","scan":{"start":"0x403C","end":"0x403C","alignment":4},"value_range":{"minimum":-1,"maximum":10000},"behavior":{"allowed_change_deltas":[],"minimum_changes":0,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["F1CVehicle::lapNumber is CONFIRMED in the canonical SDK.","Overtaking_0042AF70 compares the candidate and local lap counters in its race-session gate."],"limitations":["A lap counter proves lap progression only; it does not itself establish an overtake."]},
+    "racePosition": {"description":"Game-maintained race-standing position for completion correlation.","object":"vehicle","encoding":"int32","known_offset":"0x4060","scan":{"start":"0x4060","end":"0x4060","alignment":4},"value_range":{"minimum":-1,"maximum":1000},"behavior":{"allowed_change_deltas":[],"minimum_changes":0,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["F1CVehicle::position is CONFIRMED in the canonical SDK."],"limitations":["A standing-position swap must be joined to the committed target identity and lap context; pit stops and lapping can otherwise produce false matches."]},
+    "pitStatus": {"description":"Game-owned pit-state output, captured to exclude pit-driven standing swaps from pass-completion evidence.","object":"vehicle","encoding":"int32","known_offset":"0x3450","scan":{"start":"0x3450","end":"0x3450","alignment":4},"value_range":{"minimum":-1,"maximum":16},"behavior":{"allowed_change_deltas":[],"minimum_changes":0,"minimum_slots":1,"expected_stability":0.0},"static_evidence":["F1CVehicle::PitStatus is FACT in the canonical SDK."],"limitations":["PitStatus 1 is an in-lap state on track, so nonzero status is exclusion context, not proof that the car is stationary."]}
+    ,"driverDataId": {"description":"Per-vehicle driver-data identity used by the AI event tracker.","object":"vehicle","encoding":"uint32","known_offset":"0x489C","scan":{"start":"0x489C","end":"0x489C","alignment":4},"value_range":{"minimum":0,"maximum":4294967295},"behavior":{"allowed_change_deltas":[],"minimum_changes":0,"minimum_slots":1,"expected_stability":1.0},"static_evidence":["OvertakingEventTracker passes vehicle+0x489C identities into the event-record constructor."],"limitations":["Identity is a game-internal driver-data key; resolve it to a capture slot before presenting a driver name."]}
+    ,"driverName": {"description":"Fixed vehicle-local display name, captured with the driver-data identity for human-readable event reports.","object":"vehicle","encoding":"ascii64","known_offset":"0x4620","static_evidence":["F1CVehicle::DriverName is FACT at vehicle+0x4620 with a 0x40-byte buffer in the canonical SDK."],"limitations":["Display text labels an active vehicle slot; the immutable driverDataId remains the event-join key."]}
+    ,"aiIncidentPairQueue": {"description":"Bounded direct read of the commentary controller's 20-record queue, filtered to collision/proximity tracker variants 225/226.","object":"controller_event_queue","module_offset":"0x1EA618","table_start":"0x864","record_count":20,"event_codes":[225,226],"static_evidence":["CollisionDetectionSystem calls OvertakingEventTracker, which emits 225 or 226 after its cooldown and geometry gate.","InsertDriverTableEntry retains twenty 0x20-byte records at controller+0x864.","Tracker pair identities survive in each record at +0x10 and +0x14."],"limitations":["Read-only capture detects retained queue changes; a later event may evict an earlier record before sampling.","These events are not lane-commit or completed-pass proof."]}
+    ,"aiIncident225Timestamp": {"description":"Read-only dispatch timestamp for the positive-noise collision/proximity variant (event 225).","object":"global","encoding":"float32","module_offset":"0x1EA618","known_offset":"0xE7C","behavior":{"allowed_change_deltas":[],"minimum_changes":0,"minimum_slots":0,"expected_stability":0.0},"static_evidence":["OvertakingEventTracker emits 225 when its sampled noise-table value is positive, ordering the pair by projected track distance.","The controller has independently live-validated per-event timestamps at +0xAF8; 0xAF8 + 225*4 = 0xE7C."],"limitations":["A timestamp change proves controller dispatch only. The two involved AI drivers cannot be identified from this field alone, and the event is not proof of a pass."]}
+    ,"aiIncident226Timestamp": {"description":"Read-only dispatch timestamp for the non-positive-noise collision/proximity variant (event 226).","object":"global","encoding":"float32","module_offset":"0x1EA618","known_offset":"0xE80","behavior":{"allowed_change_deltas":[],"minimum_changes":0,"minimum_slots":0,"expected_stability":0.0},"static_evidence":["OvertakingEventTracker emits 226 when its sampled noise-table value is non-positive, reversing the projected-distance pair order used by 225.","The controller has independently live-validated per-event timestamps at +0xAF8; 0xAF8 + 226*4 = 0xE80."],"limitations":["A timestamp change proves controller dispatch only. The two involved AI drivers cannot be identified from this field alone, and the event is not proof of a pass."]}
+    }
+}

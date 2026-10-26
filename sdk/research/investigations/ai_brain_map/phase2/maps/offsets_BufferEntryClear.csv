@@ -1,0 +1,8 @@
+func,line,dec,hex,access,width,base,form,expr
+BufferEntryClear,8,480,0x1E0,R,_DWORD,this,array,v2 = this[120];
+BufferEntryClear,13,8,0x8,R,_DWORD *,v2,direct,v3 = *(_DWORD **)(v2 + 8);
+BufferEntryClear,15,4,0x4,R,int,v2,direct,if ( *(int *)(v2 + 4) > 0 )
+BufferEntryClear,20,64,0x40,W,_DWORD,v3,array,v3[16] = 0;
+BufferEntryClear,24,480,0x1E0,R,_DWORD,this,array,while ( v4 < *(_DWORD *)(this[120] + 4) );
+BufferEntryClear,29,8,0x8,R,_DWORD,v2,direct,v5 = (_DWORD *)(*(_DWORD *)(v2 + 8) + 116 * a2);
+BufferEntryClear,31,64,0x40,W,_DWORD,v5,array,v5[16] = 0;

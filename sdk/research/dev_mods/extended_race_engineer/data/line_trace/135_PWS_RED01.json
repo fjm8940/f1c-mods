@@ -1,0 +1,451 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 135,
+ "clip": "PWS_RED01",
+ "says": "Red flag - session stopped",
+ "dump_rows_for_clip": [
+  {
+   "eid": 131,
+   "hex": "0x0083",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 129,
+   "sdt_index": 135,
+   "clip_name": "PWS_RED01.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 416,
+   "hex": "0x01A0",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 129,
+   "sdt_index": 135,
+   "clip_name": "PWS_RED01.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  129
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 131,
+   "hex": "0x0083",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 129,
+   "sdt_index": 135,
+   "clip_name": "PWS_RED01.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 416,
+   "hex": "0x01A0",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 129,
+   "sdt_index": 135,
+   "clip_name": "PWS_RED01.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  131
+ ],
+ "literal_hits": {
+  "131": {
+   "emitters": [
+    {
+     "function": "PitSelectionStateMachine",
+     "file": "PitSelectionStateMachine_0041b3c0.c",
+     "hits": [
+      {
+       "line": 151,
+       "text": "DriverDataTableLookupAndTimeConversion(v13, 131, -1, -1, -1, -1, -2.0, -2.0);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_4BCCC0",
+       "callers": [
+        {
+         "caller": "MainGameTickUpdate",
+         "callers": [
+          {
+           "caller": "GamePostMainLoop",
+           "callers": [
+            {
+             "caller": "GameMainEntry",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "StateTriggerCheck",
+           "callers": [
+            {
+             "caller": "LoadingPhase1",
+             "callers": []
+            },
+            {
+             "caller": "LoadingPhase2",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B9890",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "caller": "sub_4D1730",
+       "callers": [
+        {
+         "caller": "sub_4D1D80",
+         "callers": []
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [],
+   "other_functions": {
+    "count": 22,
+    "first": [
+     "AudioResampler",
+     "CleanupFunction",
+     "EnumValueTranslation",
+     "FileSeekWithModeFlagValidation",
+     "FileTellSeekPositionQuery",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "MSVCCRTFileClose",
+     "TireModelDataInit",
+     "UIControlWindowInitialization",
+     "VertexBufferResourceAllocation",
+     "sub_417AF0",
+     "sub_530840",
+     "sub_54A600",
+     "sub_556D60",
+     "sub_557240",
+     "sub_58A0BF",
+     "sub_58C255",
+     "sub_58C411",
+     "sub_58C5AC",
+     "sub_592924",
+     "sub_595AF9",
+     "sub_59C30E"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 135 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": []
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:74: {\"tier\": \"DERIVED\", \"claim\": \"Triage-merge classifier had three status misclassifications; SHIPPED must mean vanilla-only\", \"evidence\": \"apply_triage_notes.py classify() originally",
+  "f1c_ida_decompiled\\findings.jsonl:96: {\"tier\": \"CONFIRMED\", \"claim\": \"CORRECTION to the same-day claim that player retire commentary needs FinishState != 0 - it is the OPPOSITE: sub_41B250 is reached only when FinishSt",
+  "f1c_ida_decompiled\\findings.jsonl:321: {\"id\": \"f1c-tv-only-clips-playable-via-score-swap\", \"date\": \"2026-07-31\", \"tier\": \"FACT\", \"claim\": \"A clip that has NO event in the PWS range can still be played on the race-engine",
+  "f1c_ida_decompiled\\findings.jsonl:328: {\"id\": \"f1c-flag-event-dispatcher-is-41b3c0\", \"date\": \"2026-08-01\", \"tier\": \"CONFIRMED\", \"claim\": \"PitSelectionStateMachine_0041b3c0 is F1C's FLAG EVENT DISPATCHER, not a pit funct",
+  "f1c_ida_decompiled\\findings.jsonl:562: {\"id\": \"pws-mechanwarn0-eid130-confirmed-not-131\", \"tier\": \"FACT\", \"date\": \"2026-08-07\", \"what\": \"PWS_MECHANWARN0 ('pit on this laps, the marshals are indicating you have a mechani"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:150: | `PWS_RED01` | 135 | 131,416 | Red flag - session stopped |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\HANDOFF_2026-07-28d.md:9: line 1341 (`inject_commentary(0x0083)`, PWS_RED01) — that's the SAME raw-write",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:223: | `PWS_RED01` | 135 | 131, 416 | — | Red flag - session stopped | user triage: EXISTS VIA ANOTHER MOD  [auto: exists via a MOD, not vanilla -> DONE not SHIPPED] |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:46: | `PWS_RED01` | 131, 416 | Red flag - session stopped |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:70: | `PWS_RED01` | 131, 416 | same function | `functions/PitSelectionStateMachine_0041b3c0.c:151` |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:64: ### PWS_RED01 (SDT 135) - Red flag - session stopped"
+ ],
+ "mod_sources": [
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:448: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:393: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.1\\src\\engine_failure.c:399: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.2\\src\\engine_failure.c:407: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.3\\src\\engine_failure.c:407: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.4\\src\\engine_failure.c:407: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.5\\src\\engine_failure.c:448: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.6\\src\\engine_failure.c:448: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.7\\src\\engine_failure.c:448: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\releases\\WIP_2026-10-12_gearbox_G8\\src\\engine_failure.c:448: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AI_LAT_STAGE1_BEFORE_2026-10-03\\engine_failure.c:378: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AI_RATE_FIX_BEFORE_2026-10-01\\engine_failure.c:375: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X1\\dll\\engine_failure.c:388: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X1B\\dll\\engine_failure.c:390: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X2\\dll\\engine_failure.c:391: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X4\\dll\\engine_failure.c:391: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X5\\dll\\engine_failure.c:392: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDIT_BATCH1_BEFORE_2026-10-07\\dll\\engine_failure.c:399: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDIT_BATCH2_BEFORE_2026-10-07\\dll\\engine_failure.c:399: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDIT_BATCH3_BEFORE_2026-10-07\\dll\\engine_failure.c:400: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDIT_BATCH4_BEFORE_2026-10-07\\dll\\engine_failure.c:400: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\BLOW_FREEZE_BEFORE_2026-10-06\\engine_failure.c:393: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\CONTAINMENT_BEFORE_2026-09-29\\engine_failure.c:180: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\COOLING_FIX_BEFORE_2026-09-28\\engine_failure.c:180: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\COOLING_HEAT_BEFORE_2026-09-28\\engine_failure.c:180: * pending). NOTE eid 131 is a DIFFERENT clip (PWS_RED01, red flag) - do not"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "EVF archive (progress.json DONE)",
+    "eid": null,
+    "mechanism": "see note",
+    "release_status": "archived",
+    "live_verified": true,
+    "source": "seed",
+    "condition": null
+   },
+   {
+    "mod": "red_flag",
+    "mod_version": "1.1.5 public (RELEASE_REGISTRY 2026-09-29); dev src gr44.c, candidate 1.1.8-rc.1",
+    "eid": 131,
+    "mechanism": "dll_emit",
+    "condition": "red flag armed (NUMPAD1 / auto monitor): inject_commentary(131) with EVENT_TS cleared",
+    "source": "development/mods/red_flag/src/gr44.c:3480-3600 (inject 3536-3546, play 3595)",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Red flag - session stopped"
+   }
+  ],
+  "note": "user triage: EXISTS VIA ANOTHER MOD  [auto: exists via a MOD, not vanilla -> DONE not SHIPPED]",
+  "triage": {
+   "sdt_index": 135,
+   "text": "EXISTS VIA ANOTHER MOD",
+   "subject": "",
+   "play": false,
+   "verdict": "EXISTS_VIA_MOD",
+   "flags": [],
+   "inherited": false,
+   "status": "DONE"
+  },
+  "evf_status": "DONE"
+ }
+}

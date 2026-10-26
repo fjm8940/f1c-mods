@@ -1,0 +1,11 @@
+func,line,dec,hex,access,width,base,form,expr
+ArrayOfStructIndexedFieldCopy,7,340,0x154,R,_DWORD,this,array,v4 = (_DWORD *)(28 * a2 + this[85]);
+ArrayOfStructIndexedFieldCopy,9,4,0x4,W,_DWORD,a3,array,a3[1] = v4[1];
+ArrayOfStructIndexedFieldCopy,9,4,0x4,R,_DWORD,v4,array,a3[1] = v4[1];
+ArrayOfStructIndexedFieldCopy,10,8,0x8,W,_DWORD,a3,array,a3[2] = v4[2];
+ArrayOfStructIndexedFieldCopy,10,8,0x8,R,_DWORD,v4,array,a3[2] = v4[2];
+ArrayOfStructIndexedFieldCopy,11,340,0x154,R,_DWORD,this,array,v5 = (_DWORD *)(28 * a2 + this[85] + 12);
+ArrayOfStructIndexedFieldCopy,14,4,0x4,W,_DWORD,a4,array,a4[1] = v5[1];
+ArrayOfStructIndexedFieldCopy,14,4,0x4,R,_DWORD,v5,array,a4[1] = v5[1];
+ArrayOfStructIndexedFieldCopy,15,8,0x8,W,_DWORD,a4,array,a4[2] = v5[2];
+ArrayOfStructIndexedFieldCopy,15,8,0x8,R,_DWORD,v5,array,a4[2] = v5[2];

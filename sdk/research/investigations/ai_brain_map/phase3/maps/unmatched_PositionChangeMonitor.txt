@@ -1,0 +1,2 @@
+# PositionChangeMonitor: offset-like lines with no extracted row (1)
+L11: v2 = this + 3381;

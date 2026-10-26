@@ -1,0 +1,47 @@
+{
+  "schema": "f1c.telemetry_doc_extraction.v1",
+  "doc_path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Options\\Telemetry.doc",
+  "doc_sha256": "3A0B8B1FD84181DCF5A552A54915B6FBF0B40FB62495EC69C7AA285D5C4FD541",
+  "doc_size": 1673216,
+  "streams": {
+    "WordDocument": {
+      "size": 1652748,
+      "sha256": "D607CE5C3770842CE424EDA99CB28DFDB0334659C1106BB69DEA95BEE2F0BE66"
+    },
+    "\u0001CompObj": {
+      "size": 106,
+      "sha256": "0193989856D5BA647DB3C766BB0D3F19BF6056AF328006E7CA86D604EF1ADAFB"
+    },
+    "\u0005SummaryInformation": {
+      "size": 464,
+      "sha256": "188925296FD8219184F3CF54B49F36C5CCED9C9788CF79E78C6BE4D0C5A23C4E"
+    },
+    "\u0005DocumentSummaryInformation": {
+      "size": 236,
+      "sha256": "46940152048FC53790AAF61D31DABE6296D11EC7B6912E8F9D76FE29BDB102A9"
+    }
+  },
+  "fib": {
+    "w_ident": "0xa5dc",
+    "n_fib": 104,
+    "which_table": 0,
+    "format": "word6_95",
+    "fc_min": "0x300",
+    "fc_mac": "0x34e5",
+    "pieces": [
+      {
+        "cp_start": 0,
+        "cp_end": 12773,
+        "fc": 768,
+        "encoding": "cp1252",
+        "chars": 12773
+      }
+    ]
+  },
+  "text_chars": 12773,
+  "text_sha256": "34BF078C403EE3676D9661C27197638C72024D2C46E151C2DD6843BC3BC750CB",
+  "text_output": "%USERPROFILE%\\AppData\\Local\\Temp\\f1c_analysis\\f1c-legacy-cfb\\Telemetry_doc_text.txt",
+  "images_carved": [],
+  "picf_records": [],
+  "tool": "minimal own CFB reader (no third-party packages)"
+}

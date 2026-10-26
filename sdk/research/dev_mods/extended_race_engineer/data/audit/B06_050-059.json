@@ -1,0 +1,2719 @@
+{
+ "schema": "ere.audit.v1",
+ "range": "B06_050-059",
+ "method": "EXHAUSTIVE PER-LINE (docs/AUDIT_BRIEF.md): one clip at a time; read dossier, every emitter (literal and dynamic), lookup, reachability and gates; cooldown from dump; mods from modded_lines.json and the installed pitstop_failures build (1.1.4-rc.1).",
+ "corpus_check": "Corpus check: exactly 40 functions/*.c files call DriverDataTableLookupAndTimeConversion and InsertDriverTableEntry (same 40 names); every eid argument is either a literal (LIT list) or one of the 19 dynamic emitters (DYN list). Number hits in the dossier's other_functions are not emitters.",
+ "rows": [
+  {
+   "eid": 51,
+   "clip": "PWS_PIT06",
+   "says": "Limiter On",
+   "score": 49,
+   "sdt_index": 50,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no_native_emitter",
+   "situation": "Player enters the pit lane (pittingStatus 1 or 0 -> 2). The first-party pit mod queues eid 51 'Limiter On'. The native game never queues it.",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No native trigger: eid 51 has no emitter in any of the 40 emitter files; the pittingStatus 1->2 edge is only in the mods (pit_live_voice.h:52). Not a suppression case.",
+   "emitters": [],
+   "twin_eid": 356,
+   "twin_emitters": [
+    "sub_4203D0 ThunkToFUN004201e0 l.14-15 (aInterlagos -> 356)",
+    "sub_41C4C0 PositionBasedMessageDisplay l.26 (reached only via sub_40DE60 PitTimer chain; reachability UNKNOWN)"
+   ],
+   "twin_contradiction": "Dump maps TV eid 356 to PWS_PIT06 (full_event_dump.json). If the Interlagos track-name cue (TV) reaches sub_41C4C0, the TV channel would play 'Limiter On'. UNKNOWN until isolation test.",
+   "call_path": "Mod only: pit_live_voice.h pit_voice_edge (l.50-52) called from live_client.cpp:1210 (edge_voice).",
+   "gates": [
+    "pitstop: player (controller_role==0), previous pit_status 0 or 1 and current 2 (pit_live_voice.h:52)"
+   ],
+   "mod": "pitstop_failures (= pitstop_modding, installed 1.1.4-rc.1 per coordinator hash check): pit_live_voice.h:52 (edge 51), live_client.cpp:1210; census pitstop_modding/dll/pit_commentary.c:1094",
+   "heard_evidence": "Owner log pitstop_failures.log: 'voice 51 subject -1 queued' (43 lines; queued, not heard). pit_exit_commentary FEATURE.md:7 says heard in game 2026-07-28 (mod not loaded now). TRIAGE_NOTES.txt:34 (sdt 50) is a request note, not a heard claim. progress.json sdt 50: 'not in blog bolded list - unverified'.",
+   "tier": "CONFIRMED",
+   "notes": "Owner loads the mod, so the line is played by the mod, not by the game. Census modded_lines.json already lists eid 51 (pitstop_modding). Blog-based progress.json note is not evidence.",
+   "play_plan": null,
+   "override": {
+    "AIPitStrategyState": "no emit for 51 (set {42,52}); cannot produce this eid"
+   },
+   "checked": [
+    {
+     "function": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (set {120,198,259})",
+     "line": "37,39,59"
+    },
+    {
+     "function": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (set {6,180-182})",
+     "line": "24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (set {3-5,10,16,33,72,262})",
+     "line": "61"
+    },
+    {
+     "function": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (set {42,52})",
+     "line": "14-15"
+    },
+    {
+     "function": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (set {7-9,17-18})",
+     "line": "36,48"
+    },
+    {
+     "function": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (set {21-22,178-179})",
+     "line": "36"
+    },
+    {
+     "function": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (set {52,196})",
+     "line": "19"
+    },
+    {
+     "function": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (set {157-177,260-261})",
+     "line": "113,149,159,164"
+    },
+    {
+     "function": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (set {397,516-519,521-535})",
+     "line": "127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (set {355-372})",
+     "line": "26"
+    },
+    {
+     "function": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (set {397,447-467,471-474,476-477})",
+     "line": "107,148,158,173,191,201,213,226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (set {293-336})",
+     "line": "189"
+    },
+    {
+     "function": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (set {34-35,276-279})",
+     "line": "25"
+    },
+    {
+     "function": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (set {151,153-155,252-254,256})",
+     "line": "35"
+    },
+    {
+     "function": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (set {149,243})",
+     "line": "15"
+    },
+    {
+     "function": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (set {208,211-217,220})",
+     "line": "58"
+    },
+    {
+     "function": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (set {117-119,235-238})",
+     "line": "15,19,23,45,47,53"
+    },
+    {
+     "function": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (set {338-354})",
+     "line": "16"
+    },
+    {
+     "function": "AISessionEventAudio_0041a8c0.c",
+     "result": "literal set {55}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "AICornerSpeedComparison_00419500.c",
+     "result": "literal set {13-14,19-20}; cannot produce this number",
+     "line": "22,26,31,35"
+    },
+    {
+     "function": "AIOutOfTrackEvent_0041a0c0.c",
+     "result": "literal set {264}; cannot produce this number",
+     "line": "11"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "literal set {1-2,41,272-273}; cannot produce this number",
+     "line": "20,29,47,54,75"
+    },
+    {
+     "function": "AISessionModeTransition_004193a0.c",
+     "result": "literal set {134,136,138}; cannot produce this number",
+     "line": "23,29,35"
+    },
+    {
+     "function": "AISessionPhaseCounter_0041aa10.c",
+     "result": "literal set {95,97,99,101,105}; cannot produce this number",
+     "line": "28,31,34,37,45"
+    },
+    {
+     "function": "ConstructorStandingsParser_00420820.c",
+     "result": "literal set {423-424,488}; cannot produce this number",
+     "line": "163,245,255"
+    },
+    {
+     "function": "DisplayMessage0x113_0041a6b0.c",
+     "result": "literal set {275}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "DisplayMessage0x11c_0041a4a0.c",
+     "result": "literal set {284}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x151_0041c3e0.c",
+     "result": "literal set {337}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x202_0041c090.c",
+     "result": "literal set {514}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x4a_0041b200.c",
+     "result": "literal set {74}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "GdbSeasonSelector_00420cf0.c",
+     "result": "literal set {492,496,500,504}; cannot produce this number",
+     "line": "349,358,367,376"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher_0041be60.c",
+     "result": "literal set {506-513}; cannot produce this number",
+     "line": "17-52"
+    },
+    {
+     "function": "PitSelectionStateMachine_0041b3c0.c",
+     "result": "literal set {123-126,131,133-138}; cannot produce this number",
+     "line": "55-168"
+    },
+    {
+     "function": "PitStateSlotActivation_0041ab30.c",
+     "result": "literal set {94,96,98,100,104}; cannot produce this number",
+     "line": "28-45"
+    },
+    {
+     "function": "PositionChangeDetector_00420490.c",
+     "result": "literal set {397}; cannot produce this number",
+     "line": "111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay_0041e320.c",
+     "result": "literal set {427,483-487}; cannot produce this number",
+     "line": "98-245"
+    },
+    {
+     "function": "SeasonDisplayIDResolver_0041daf0.c",
+     "result": "literal set {397,478-481,490-491,494-495,498-499,502-503}; cannot produce this number",
+     "line": "99-453"
+    },
+    {
+     "function": "sub_41AD80_0041ad80.c",
+     "result": "literal set {114-115,225-226}; cannot produce this number",
+     "line": "35-88"
+    },
+    {
+     "function": "sub_41AFD0_0041afd0.c",
+     "result": "literal set {106-111,221-223}; cannot produce this number",
+     "line": "13-48"
+    },
+    {
+     "function": "sub_41B190_0041b190.c",
+     "result": "literal set {77}; cannot produce this number",
+     "line": "7"
+    },
+    {
+     "function": "DriverNameIDLookup_00415d90.c",
+     "result": "lookup/ID builder, not an event emitter: writes name-clip ID to struct a1+8 (l.907-914) and returns 0/1; no DriverDataTable call in file",
+     "line": "-"
+    },
+    {
+     "function": "sub_414600_00414600.c",
+     "result": "lookup/ID builder, not an event emitter: return value of DriverNameIDLookup discarded; no emit",
+     "line": "-"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList_00415230.c",
+     "result": "lookup/ID builder, not an event emitter: format-list lookup; not among the 40 DriverDataTable callers; no emit",
+     "line": "-"
+    },
+    {
+     "function": "TrackNameDisplayIDLookup_00417f60.c",
+     "result": "lookup/ID builder, not an event emitter: writes track-clip ID to struct a1+8 (l.209-213); not among the 40 emitter files; no emit",
+     "line": "-"
+    },
+    {
+     "function": "CommentaryTVPWSPathBuilder_00414e60.c",
+     "result": "lookup/ID builder, not an event emitter: builds file paths (l.29-38); no DriverDataTable call; no emit",
+     "line": "-"
+    },
+    {
+     "function": "ThunkToFUN004201e0_004203d0.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 355-372 (l.13-45); feeds PositionBasedMessageDisplay l.26; see twin notes",
+     "line": "-"
+    },
+    {
+     "function": "sub_420000_00420000.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 338-354 (l.13-45); feeds sub_41C440 l.16",
+     "line": "-"
+    }
+   ]
+  },
+  {
+   "eid": 52,
+   "clip": "PWS_PIT02",
+   "says": "Pit crew is ready",
+   "score": 50,
+   "sdt_index": 51,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native_trigger_live",
+   "situation": "Player is on an in-lap (pittingStatus veh+0x3450 == 1). When the car crosses timing split 2 with a valid split time, the game plays 'Pit crew is ready' (player-only). Second route: the player's pit-state transition in AIPitStrategyState when veh+0x4040 is 2 or -1.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41A170 AIVehicleDamageEvent (AIVehicleDamageEvent_0041a170.c:10,19)",
+    "sub_41A200 AIPitStrategyState (AIPitStrategyState_0041a200.c:14-15)"
+   ],
+   "twin_eid": 360,
+   "twin_emitters": [
+    "sub_4203D0 ThunkToFUN004201e0 l.22-23 (aMontreal -> 360)"
+   ],
+   "twin_contradiction": "TV eid 360 is a track-name table value for Montreal; dump maps 360 to PWS_PIT02. Same TV collision as PIT06 (UNKNOWN which wins).",
+   "call_path": "Route A: TimerFrameRateThrottle (0x4D3740, timing callback registered in Steward_Setup l.6) -> LapSplitTimeEvent (0x4BC390 l.51) -> LapCompletion (0x4BC4E0 l.193) -> AICornerSpeedComparison (0x419500 l.42-43) -> AIVehicleDamageEvent (0x41A170 l.19). Route B: GamePostMainLoop (0x42D8A0) -> BufferReset (0x4B3B40 l.12) -> sub_4B3400 (l.261) or StateChangeNotify (l.21) -> AIStateMachineWithModeDispatch (0x4A5D10 l.21) -> AIPitStrategyState (0x41A200 l.15).",
+   "gates": [
+    "dword_7D0308 nonzero (RaceActiveFlag; docs/38-confirmed-offsets.md:20) && flt_7CF3C8 != 0 (AICornerSpeedComparison l.7, AIVehicleDamageEvent l.6)",
+    "dword_7C56A8 != 8 (AICornerSpeedComparison l.7)",
+    "LapCompletion: (*this)[3250] != 3 (l.26); split branch a4 != 0 (l.28) and a2 > 0.0 (l.187)",
+    "AICornerSpeedComparison l.42: a2 == 2 (split 2) && *(a1+13392) == 1 (veh+0x3450 pittingStatus == 1 in-lap; 13392 = 0x3450)",
+    "AIVehicleDamageEvent l.9-10: sub_4C7BD0(a1) true (player: this[4645] == player index) -> eid 52 (AI in race gets 196)",
+    "Route B: AIPitStrategyState l.8 player test; l.10 veh+0x3450 == 1; l.12 v1 = veh+0x4040 must be 2 or -1 (0x4040 'secondary track-position index' per functions/AIAbility_00429470.md:18, DERIVED)"
+   ],
+   "heard_evidence": "progress.json sdt 51: 'blog-confirmed heard (j21csblog 2023-01-21)' (third-party blog, not owner evidence). No TRIAGE_NOTES entry for sdt 51. No owner log line for eid 52.",
+   "tier": "DERIVED",
+   "notes": "Subject passed to DriverDataTable is veh+0x48A0 (constructor index), not a driver id (AIVehicleDamageEvent l.19; finding f1c-veh-48a0-is-constructor-index CONFIRMED). Not confirmed live: whether split 2 falls before pit-lane entry on the owner's tracks is UNKNOWN. Consistent with doc 56 status SHIPPED.",
+   "play_plan": null,
+   "override": {
+    "AIVehicleDamageEvent": "emits 52 for the PLAYER under dword_7D0308 && flt_7CF3C8 != 0 (l.6), sub_4C7BD0 true (l.9-10); reached only when AICornerSpeedComparison l.42 holds (a2 == 2 && veh+0x3450 == 1)",
+    "AIPitStrategyState": "emits 52 for the PLAYER when dword_7D0308 && flt_7CF3C8 != 0 && dword_7C56A8 != 8 (l.8), veh+0x3450 == 1 (l.10), veh+0x4040 in {2,-1} (l.12-14)"
+   },
+   "checked": [
+    {
+     "function": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (set {120,198,259})",
+     "line": "37,39,59"
+    },
+    {
+     "function": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (set {6,180-182})",
+     "line": "24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (set {3-5,10,16,33,72,262})",
+     "line": "61"
+    },
+    {
+     "function": "AIPitStrategyState_0041a200.c",
+     "result": "emits this eid under: v3 = 52 if a1[4112] (l.12) is 2 or -1, else 42 (l.13-14); reached only if a1[3348]==1 (l.10); player only (l.8)",
+     "line": "14-15"
+    },
+    {
+     "function": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (set {7-9,17-18})",
+     "line": "36,48"
+    },
+    {
+     "function": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (set {21-22,178-179})",
+     "line": "36"
+    },
+    {
+     "function": "AIVehicleDamageEvent_0041a170.c",
+     "result": "emits this eid under: v1 = 52 if sub_4C7BD0(a1) (player, l.10), else 196 when dword_7C56A4==7 (l.12-14); subject a1+18592 = veh+0x48A0 (constructor index)",
+     "line": "19"
+    },
+    {
+     "function": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (set {157-177,260-261})",
+     "line": "113,149,159,164"
+    },
+    {
+     "function": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (set {397,516-519,521-535})",
+     "line": "127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (set {355-372})",
+     "line": "26"
+    },
+    {
+     "function": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (set {397,447-467,471-474,476-477})",
+     "line": "107,148,158,173,191,201,213,226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (set {293-336})",
+     "line": "189"
+    },
+    {
+     "function": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (set {34-35,276-279})",
+     "line": "25"
+    },
+    {
+     "function": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (set {151,153-155,252-254,256})",
+     "line": "35"
+    },
+    {
+     "function": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (set {149,243})",
+     "line": "15"
+    },
+    {
+     "function": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (set {208,211-217,220})",
+     "line": "58"
+    },
+    {
+     "function": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (set {117-119,235-238})",
+     "line": "15,19,23,45,47,53"
+    },
+    {
+     "function": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (set {338-354})",
+     "line": "16"
+    },
+    {
+     "function": "AISessionEventAudio_0041a8c0.c",
+     "result": "literal set {55}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "AICornerSpeedComparison_00419500.c",
+     "result": "literal set {13-14,19-20}; cannot produce this number",
+     "line": "22,26,31,35"
+    },
+    {
+     "function": "AIOutOfTrackEvent_0041a0c0.c",
+     "result": "literal set {264}; cannot produce this number",
+     "line": "11"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "literal set {1-2,41,272-273}; cannot produce this number",
+     "line": "20,29,47,54,75"
+    },
+    {
+     "function": "AISessionModeTransition_004193a0.c",
+     "result": "literal set {134,136,138}; cannot produce this number",
+     "line": "23,29,35"
+    },
+    {
+     "function": "AISessionPhaseCounter_0041aa10.c",
+     "result": "literal set {95,97,99,101,105}; cannot produce this number",
+     "line": "28,31,34,37,45"
+    },
+    {
+     "function": "ConstructorStandingsParser_00420820.c",
+     "result": "literal set {423-424,488}; cannot produce this number",
+     "line": "163,245,255"
+    },
+    {
+     "function": "DisplayMessage0x113_0041a6b0.c",
+     "result": "literal set {275}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "DisplayMessage0x11c_0041a4a0.c",
+     "result": "literal set {284}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x151_0041c3e0.c",
+     "result": "literal set {337}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x202_0041c090.c",
+     "result": "literal set {514}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x4a_0041b200.c",
+     "result": "literal set {74}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "GdbSeasonSelector_00420cf0.c",
+     "result": "literal set {492,496,500,504}; cannot produce this number",
+     "line": "349,358,367,376"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher_0041be60.c",
+     "result": "literal set {506-513}; cannot produce this number",
+     "line": "17-52"
+    },
+    {
+     "function": "PitSelectionStateMachine_0041b3c0.c",
+     "result": "literal set {123-126,131,133-138}; cannot produce this number",
+     "line": "55-168"
+    },
+    {
+     "function": "PitStateSlotActivation_0041ab30.c",
+     "result": "literal set {94,96,98,100,104}; cannot produce this number",
+     "line": "28-45"
+    },
+    {
+     "function": "PositionChangeDetector_00420490.c",
+     "result": "literal set {397}; cannot produce this number",
+     "line": "111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay_0041e320.c",
+     "result": "literal set {427,483-487}; cannot produce this number",
+     "line": "98-245"
+    },
+    {
+     "function": "SeasonDisplayIDResolver_0041daf0.c",
+     "result": "literal set {397,478-481,490-491,494-495,498-499,502-503}; cannot produce this number",
+     "line": "99-453"
+    },
+    {
+     "function": "sub_41AD80_0041ad80.c",
+     "result": "literal set {114-115,225-226}; cannot produce this number",
+     "line": "35-88"
+    },
+    {
+     "function": "sub_41AFD0_0041afd0.c",
+     "result": "literal set {106-111,221-223}; cannot produce this number",
+     "line": "13-48"
+    },
+    {
+     "function": "sub_41B190_0041b190.c",
+     "result": "literal set {77}; cannot produce this number",
+     "line": "7"
+    },
+    {
+     "function": "DriverNameIDLookup_00415d90.c",
+     "result": "lookup/ID builder, not an event emitter: writes name-clip ID to struct a1+8 (l.907-914) and returns 0/1; no DriverDataTable call in file",
+     "line": "-"
+    },
+    {
+     "function": "sub_414600_00414600.c",
+     "result": "lookup/ID builder, not an event emitter: return value of DriverNameIDLookup discarded; no emit",
+     "line": "-"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList_00415230.c",
+     "result": "lookup/ID builder, not an event emitter: format-list lookup; not among the 40 DriverDataTable callers; no emit",
+     "line": "-"
+    },
+    {
+     "function": "TrackNameDisplayIDLookup_00417f60.c",
+     "result": "lookup/ID builder, not an event emitter: writes track-clip ID to struct a1+8 (l.209-213); not among the 40 emitter files; no emit",
+     "line": "-"
+    },
+    {
+     "function": "CommentaryTVPWSPathBuilder_00414e60.c",
+     "result": "lookup/ID builder, not an event emitter: builds file paths (l.29-38); no DriverDataTable call; no emit",
+     "line": "-"
+    },
+    {
+     "function": "ThunkToFUN004201e0_004203d0.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 355-372 (l.13-45); feeds PositionBasedMessageDisplay l.26; see twin notes",
+     "line": "-"
+    },
+    {
+     "function": "sub_420000_00420000.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 338-354 (l.13-45); feeds sub_41C440 l.16",
+     "line": "-"
+    }
+   ]
+  },
+  {
+   "eid": 53,
+   "clip": "PWS_PIT08",
+   "says": "Brake (pit procedure)",
+   "score": 51,
+   "sdt_index": 52,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no_native_emitter",
+   "situation": "Player enters the pit box (pittingStatus 2 -> 3). The pit mod queues eid 53 'Brake (pit procedure)'. The native game never queues it.",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No native trigger for eid 53 in code; the 2->3 edge exists only in the pit mod (pit_live_voice.h:53).",
+   "emitters": [],
+   "twin_eid": 361,
+   "twin_emitters": [
+    "sub_4203D0 ThunkToFUN004201e0 l.24-25 (aMagnyCours -> 361)"
+   ],
+   "twin_contradiction": "Dump maps TV eid 361 to PWS_PIT08. Same TV track-name collision as PIT06 (UNKNOWN).",
+   "call_path": "Mod only: pit_live_voice.h pit_voice_edge (l.53) via live_client.cpp:1210.",
+   "gates": [
+    "pitstop: player, previous pit_status 2 and current 3 (pit_live_voice.h:53)"
+   ],
+   "mod": "pitstop_failures 1.1.4-rc.1: pit_live_voice.h:53; live_client.cpp:1210; census pitstop_modding/dll/pit_commentary.c:1095",
+   "heard_evidence": "Owner log: 'voice 53 subject -1 queued' (about 37 lines; queued, not heard). TRIAGE_NOTES.txt:35 (sdt 52): 'when player enters the pit box and the pit timer starts'. progress.json sdt 52: unverified.",
+   "tier": "CONFIRMED",
+   "notes": "Owner-game install includes the mod. Census row exists (modded_lines.json eid 53).",
+   "play_plan": null,
+   "override": {},
+   "checked": [
+    {
+     "function": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (set {120,198,259})",
+     "line": "37,39,59"
+    },
+    {
+     "function": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (set {6,180-182})",
+     "line": "24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (set {3-5,10,16,33,72,262})",
+     "line": "61"
+    },
+    {
+     "function": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (set {42,52})",
+     "line": "14-15"
+    },
+    {
+     "function": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (set {7-9,17-18})",
+     "line": "36,48"
+    },
+    {
+     "function": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (set {21-22,178-179})",
+     "line": "36"
+    },
+    {
+     "function": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (set {52,196})",
+     "line": "19"
+    },
+    {
+     "function": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (set {157-177,260-261})",
+     "line": "113,149,159,164"
+    },
+    {
+     "function": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (set {397,516-519,521-535})",
+     "line": "127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (set {355-372})",
+     "line": "26"
+    },
+    {
+     "function": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (set {397,447-467,471-474,476-477})",
+     "line": "107,148,158,173,191,201,213,226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (set {293-336})",
+     "line": "189"
+    },
+    {
+     "function": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (set {34-35,276-279})",
+     "line": "25"
+    },
+    {
+     "function": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (set {151,153-155,252-254,256})",
+     "line": "35"
+    },
+    {
+     "function": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (set {149,243})",
+     "line": "15"
+    },
+    {
+     "function": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (set {208,211-217,220})",
+     "line": "58"
+    },
+    {
+     "function": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (set {117-119,235-238})",
+     "line": "15,19,23,45,47,53"
+    },
+    {
+     "function": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (set {338-354})",
+     "line": "16"
+    },
+    {
+     "function": "AISessionEventAudio_0041a8c0.c",
+     "result": "literal set {55}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "AICornerSpeedComparison_00419500.c",
+     "result": "literal set {13-14,19-20}; cannot produce this number",
+     "line": "22,26,31,35"
+    },
+    {
+     "function": "AIOutOfTrackEvent_0041a0c0.c",
+     "result": "literal set {264}; cannot produce this number",
+     "line": "11"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "literal set {1-2,41,272-273}; cannot produce this number",
+     "line": "20,29,47,54,75"
+    },
+    {
+     "function": "AISessionModeTransition_004193a0.c",
+     "result": "literal set {134,136,138}; cannot produce this number",
+     "line": "23,29,35"
+    },
+    {
+     "function": "AISessionPhaseCounter_0041aa10.c",
+     "result": "literal set {95,97,99,101,105}; cannot produce this number",
+     "line": "28,31,34,37,45"
+    },
+    {
+     "function": "ConstructorStandingsParser_00420820.c",
+     "result": "literal set {423-424,488}; cannot produce this number",
+     "line": "163,245,255"
+    },
+    {
+     "function": "DisplayMessage0x113_0041a6b0.c",
+     "result": "literal set {275}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "DisplayMessage0x11c_0041a4a0.c",
+     "result": "literal set {284}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x151_0041c3e0.c",
+     "result": "literal set {337}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x202_0041c090.c",
+     "result": "literal set {514}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x4a_0041b200.c",
+     "result": "literal set {74}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "GdbSeasonSelector_00420cf0.c",
+     "result": "literal set {492,496,500,504}; cannot produce this number",
+     "line": "349,358,367,376"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher_0041be60.c",
+     "result": "literal set {506-513}; cannot produce this number",
+     "line": "17-52"
+    },
+    {
+     "function": "PitSelectionStateMachine_0041b3c0.c",
+     "result": "literal set {123-126,131,133-138}; cannot produce this number",
+     "line": "55-168"
+    },
+    {
+     "function": "PitStateSlotActivation_0041ab30.c",
+     "result": "literal set {94,96,98,100,104}; cannot produce this number",
+     "line": "28-45"
+    },
+    {
+     "function": "PositionChangeDetector_00420490.c",
+     "result": "literal set {397}; cannot produce this number",
+     "line": "111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay_0041e320.c",
+     "result": "literal set {427,483-487}; cannot produce this number",
+     "line": "98-245"
+    },
+    {
+     "function": "SeasonDisplayIDResolver_0041daf0.c",
+     "result": "literal set {397,478-481,490-491,494-495,498-499,502-503}; cannot produce this number",
+     "line": "99-453"
+    },
+    {
+     "function": "sub_41AD80_0041ad80.c",
+     "result": "literal set {114-115,225-226}; cannot produce this number",
+     "line": "35-88"
+    },
+    {
+     "function": "sub_41AFD0_0041afd0.c",
+     "result": "literal set {106-111,221-223}; cannot produce this number",
+     "line": "13-48"
+    },
+    {
+     "function": "sub_41B190_0041b190.c",
+     "result": "literal set {77}; cannot produce this number",
+     "line": "7"
+    },
+    {
+     "function": "DriverNameIDLookup_00415d90.c",
+     "result": "lookup/ID builder, not an event emitter: writes name-clip ID to struct a1+8 (l.907-914) and returns 0/1; no DriverDataTable call in file",
+     "line": "-"
+    },
+    {
+     "function": "sub_414600_00414600.c",
+     "result": "lookup/ID builder, not an event emitter: return value of DriverNameIDLookup discarded; no emit",
+     "line": "-"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList_00415230.c",
+     "result": "lookup/ID builder, not an event emitter: format-list lookup; not among the 40 DriverDataTable callers; no emit",
+     "line": "-"
+    },
+    {
+     "function": "TrackNameDisplayIDLookup_00417f60.c",
+     "result": "lookup/ID builder, not an event emitter: writes track-clip ID to struct a1+8 (l.209-213); not among the 40 emitter files; no emit",
+     "line": "-"
+    },
+    {
+     "function": "CommentaryTVPWSPathBuilder_00414e60.c",
+     "result": "lookup/ID builder, not an event emitter: builds file paths (l.29-38); no DriverDataTable call; no emit",
+     "line": "-"
+    },
+    {
+     "function": "ThunkToFUN004201e0_004203d0.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 355-372 (l.13-45); feeds PositionBasedMessageDisplay l.26; see twin notes",
+     "line": "-"
+    },
+    {
+     "function": "sub_420000_00420000.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 338-354 (l.13-45); feeds sub_41C440 l.16",
+     "line": "-"
+    }
+   ]
+  },
+  {
+   "eid": 54,
+   "clip": "PWS_2001_80",
+   "says": "Engine stalled - will get refired",
+   "score": 52,
+   "sdt_index": 53,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no_native_emitter",
+   "situation": "Player pit stop with the stall-delay outcome (pit mod roll, engine_stall weight 4 in PitStopFailures.ini). The mod queues eid 54 'Engine stalled'. The native game never queues it.",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No native trigger for eid 54. The EVF 'UNKNOWN emitter' note (progress.json line 241) is now resolved: no native emitter exists for PWS 54.",
+   "emitters": [],
+   "twin_eid": 337,
+   "twin_emitters": [
+    "DisplayMessage0x151 (sub_41C3E0) DisplayMessage0x151_0041c3e0.c:9 (literal 337, TV)",
+    "called from sub_40DE60 l.101 (timeline case 7 sub 0; timeline writer UNKNOWN)"
+   ],
+   "twin_contradiction": "TV eid 337 HAS a native emitter (DisplayMessage0x151). If its timeline item is ever written, the TV channel plays this clip natively. Reachability UNKNOWN. PWS 54 has none.",
+   "call_path": "Mod only: pit_voice_fault (pit_live_voice.h:38, player PF_OUTCOME_STALL_DELAY -> 54) from live_client.cpp.",
+   "gates": [
+    "pitstop: player and pit outcome == stall delay (pit_live_voice.h:38)"
+   ],
+   "mod": "pitstop_failures 1.1.4-rc.1: pit_live_voice.h:38 (eid 54); pit_commentary.c:74 (EID_P_STALL 54) census row",
+   "heard_evidence": "No owner log line for eid 54 (outcome never rolled in logged sessions). Quiet log does not prove non-play (coordinator). TRIAGE_NOTES.txt:36 (sdt 53) describes a grid stall, not a pit stall: different concept.",
+   "tier": "CONFIRMED",
+   "notes": "Mod active; outcome rare (stall weight 4 of 100 in PitStopFailures.ini). Owner TRIAGE note concerns a start-grid stall (StartStalls, sdt 248), so the owner's wiring question differs from the mod's.",
+   "play_plan": null,
+   "override": {},
+   "checked": [
+    {
+     "function": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (set {120,198,259})",
+     "line": "37,39,59"
+    },
+    {
+     "function": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (set {6,180-182})",
+     "line": "24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (set {3-5,10,16,33,72,262})",
+     "line": "61"
+    },
+    {
+     "function": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (set {42,52})",
+     "line": "14-15"
+    },
+    {
+     "function": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (set {7-9,17-18})",
+     "line": "36,48"
+    },
+    {
+     "function": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (set {21-22,178-179})",
+     "line": "36"
+    },
+    {
+     "function": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (set {52,196})",
+     "line": "19"
+    },
+    {
+     "function": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (set {157-177,260-261})",
+     "line": "113,149,159,164"
+    },
+    {
+     "function": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (set {397,516-519,521-535})",
+     "line": "127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (set {355-372})",
+     "line": "26"
+    },
+    {
+     "function": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (set {397,447-467,471-474,476-477})",
+     "line": "107,148,158,173,191,201,213,226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (set {293-336})",
+     "line": "189"
+    },
+    {
+     "function": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (set {34-35,276-279})",
+     "line": "25"
+    },
+    {
+     "function": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (set {151,153-155,252-254,256})",
+     "line": "35"
+    },
+    {
+     "function": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (set {149,243})",
+     "line": "15"
+    },
+    {
+     "function": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (set {208,211-217,220})",
+     "line": "58"
+    },
+    {
+     "function": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (set {117-119,235-238})",
+     "line": "15,19,23,45,47,53"
+    },
+    {
+     "function": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (set {338-354})",
+     "line": "16"
+    },
+    {
+     "function": "AISessionEventAudio_0041a8c0.c",
+     "result": "literal set {55}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "AICornerSpeedComparison_00419500.c",
+     "result": "literal set {13-14,19-20}; cannot produce this number",
+     "line": "22,26,31,35"
+    },
+    {
+     "function": "AIOutOfTrackEvent_0041a0c0.c",
+     "result": "literal set {264}; cannot produce this number",
+     "line": "11"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "literal set {1-2,41,272-273}; cannot produce this number",
+     "line": "20,29,47,54,75"
+    },
+    {
+     "function": "AISessionModeTransition_004193a0.c",
+     "result": "literal set {134,136,138}; cannot produce this number",
+     "line": "23,29,35"
+    },
+    {
+     "function": "AISessionPhaseCounter_0041aa10.c",
+     "result": "literal set {95,97,99,101,105}; cannot produce this number",
+     "line": "28,31,34,37,45"
+    },
+    {
+     "function": "ConstructorStandingsParser_00420820.c",
+     "result": "literal set {423-424,488}; cannot produce this number",
+     "line": "163,245,255"
+    },
+    {
+     "function": "DisplayMessage0x113_0041a6b0.c",
+     "result": "literal set {275}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "DisplayMessage0x11c_0041a4a0.c",
+     "result": "literal set {284}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x151_0041c3e0.c",
+     "result": "literal set {337}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x202_0041c090.c",
+     "result": "literal set {514}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x4a_0041b200.c",
+     "result": "literal set {74}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "GdbSeasonSelector_00420cf0.c",
+     "result": "literal set {492,496,500,504}; cannot produce this number",
+     "line": "349,358,367,376"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher_0041be60.c",
+     "result": "literal set {506-513}; cannot produce this number",
+     "line": "17-52"
+    },
+    {
+     "function": "PitSelectionStateMachine_0041b3c0.c",
+     "result": "literal set {123-126,131,133-138}; cannot produce this number",
+     "line": "55-168"
+    },
+    {
+     "function": "PitStateSlotActivation_0041ab30.c",
+     "result": "literal set {94,96,98,100,104}; cannot produce this number",
+     "line": "28-45"
+    },
+    {
+     "function": "PositionChangeDetector_00420490.c",
+     "result": "literal set {397}; cannot produce this number",
+     "line": "111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay_0041e320.c",
+     "result": "literal set {427,483-487}; cannot produce this number",
+     "line": "98-245"
+    },
+    {
+     "function": "SeasonDisplayIDResolver_0041daf0.c",
+     "result": "literal set {397,478-481,490-491,494-495,498-499,502-503}; cannot produce this number",
+     "line": "99-453"
+    },
+    {
+     "function": "sub_41AD80_0041ad80.c",
+     "result": "literal set {114-115,225-226}; cannot produce this number",
+     "line": "35-88"
+    },
+    {
+     "function": "sub_41AFD0_0041afd0.c",
+     "result": "literal set {106-111,221-223}; cannot produce this number",
+     "line": "13-48"
+    },
+    {
+     "function": "sub_41B190_0041b190.c",
+     "result": "literal set {77}; cannot produce this number",
+     "line": "7"
+    },
+    {
+     "function": "DriverNameIDLookup_00415d90.c",
+     "result": "lookup/ID builder, not an event emitter: writes name-clip ID to struct a1+8 (l.907-914) and returns 0/1; no DriverDataTable call in file",
+     "line": "-"
+    },
+    {
+     "function": "sub_414600_00414600.c",
+     "result": "lookup/ID builder, not an event emitter: return value of DriverNameIDLookup discarded; no emit",
+     "line": "-"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList_00415230.c",
+     "result": "lookup/ID builder, not an event emitter: format-list lookup; not among the 40 DriverDataTable callers; no emit",
+     "line": "-"
+    },
+    {
+     "function": "TrackNameDisplayIDLookup_00417f60.c",
+     "result": "lookup/ID builder, not an event emitter: writes track-clip ID to struct a1+8 (l.209-213); not among the 40 emitter files; no emit",
+     "line": "-"
+    },
+    {
+     "function": "CommentaryTVPWSPathBuilder_00414e60.c",
+     "result": "lookup/ID builder, not an event emitter: builds file paths (l.29-38); no DriverDataTable call; no emit",
+     "line": "-"
+    },
+    {
+     "function": "ThunkToFUN004201e0_004203d0.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 355-372 (l.13-45); feeds PositionBasedMessageDisplay l.26; see twin notes",
+     "line": "-"
+    },
+    {
+     "function": "sub_420000_00420000.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 338-354 (l.13-45); feeds sub_41C440 l.16",
+     "line": "-"
+    }
+   ]
+  },
+  {
+   "eid": 55,
+   "clip": "PWS_PIT14",
+   "says": "Pit this lap for Stop-Go",
+   "score": 53,
+   "sdt_index": 54,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native_trigger_live",
+   "situation": "Player has a stop-go penalty pending (jump start, speeding in the pit lane, cut track, or ignored blue flag in a race, each only when the penalties-enabled global dword_7CEF84 is set). When the penalty counter reads 1 at timing split 2 of a lap, the game plays 'Pit this lap for Stop-Go' (player only, race phase != 8).",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_41A8C0 AISessionEventAudio (AISessionEventAudio_0041a8c0.c:10)"
+   ],
+   "twin_eid": 364,
+   "twin_emitters": [
+    "sub_4203D0 ThunkToFUN004201e0 l.32-33 (aHockenheim -> 364)"
+   ],
+   "twin_contradiction": "TV eid 364 is a track-name table value (Hockenheim); dump maps 364 to PWS_PIT14. Same TV collision (UNKNOWN which wins).",
+   "call_path": "TimerFrameRateThrottle (0x4D3740 l.7) -> LapSplitTimeEvent (0x4BC390 l.51) -> LapCompletion (0x4BC4E0 l.197-211, a4 == 2) -> AISessionEventAudio (0x41A8C0 l.211). Counter source: sub_4BCCC0 l.117/184/379 or sub_4BC9B0 l.51 -> StopGoPenaltyHandler (0x4BBD60 l.41 ProgressBarEventEncode type 23) -> BufferReset (l.12) -> sub_4B3400 case 23 (l.230-231) -> AccumulatorWithFixedArray (0x4BBED0, sets counter to 3).",
+   "gates": [
+    "AISessionEventAudio l.5-8: dword_7D0308 && flt_7CF3C8 != 0 && player (dword_7C54E8+18580 == a1+18580) && dword_7C56A8 != 8",
+    "LapCompletion l.197 a4 == 2 (split 2); l.204-207 loop finds a stop-go entry with value 1 (this[16+2k] == 1)",
+    "Counter is set to 3 when a stop-go is recorded (AccumulatorWithFixedArray) and decremented each race lap-line (LapCompletion case 7, l.125; loop at LABEL_28 l.138)",
+    "Stop-go sources (all need dword_7CEF84 PenaltiesEnabled, read at 0x007CEF84): sub_4BCCC0 l.117 (speeding in pit lane, race), l.181-184 (cut track, race), l.377-379 (ignored blue flag at 30 s); sub_4BC9B0 l.48-51 (jump start, car flag 3247 != 1)",
+    "sub_4BCCC0 is player-only: MainGameTickUpdate l.86-87 calls it only when player (dword_7C54E8) +13000 == 0"
+   ],
+   "heard_evidence": "progress.json sdt 54: 'blog-confirmed heard (j21csblog 2023-01-21)' (third-party blog). No TRIAGE_NOTES entry for sdt 54. No owner log line for eid 55.",
+   "tier": "DERIVED",
+   "notes": "Calibration needed: dword_7CEF84 (PenaltiesEnabled, SDK name tools/sdk/f1c_race_penalty_issue.h:27); no writer found in the decompiled functions, so its value in the owner's game is UNKNOWN. Split-2 position relative to pit entry UNKNOWN. Native line, not a mod line. Penalty-system work (DD-11) does not block it: it is an existing game penalty, not a new infraction.",
+   "play_plan": null,
+   "override": {
+    "AISessionEventAudio": "emits 55 for the PLAYER under dword_7D0308 && flt_7CF3C8 != 0 && dword_7C56A8 != 8 (l.5-8), called from LapCompletion l.211 only when a4 == 2 and a stop-go counter == 1 (l.197-207)"
+   },
+   "checked": [
+    {
+     "function": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (set {120,198,259})",
+     "line": "37,39,59"
+    },
+    {
+     "function": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (set {6,180-182})",
+     "line": "24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (set {3-5,10,16,33,72,262})",
+     "line": "61"
+    },
+    {
+     "function": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (set {42,52})",
+     "line": "14-15"
+    },
+    {
+     "function": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (set {7-9,17-18})",
+     "line": "36,48"
+    },
+    {
+     "function": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (set {21-22,178-179})",
+     "line": "36"
+    },
+    {
+     "function": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (set {52,196})",
+     "line": "19"
+    },
+    {
+     "function": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (set {157-177,260-261})",
+     "line": "113,149,159,164"
+    },
+    {
+     "function": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (set {397,516-519,521-535})",
+     "line": "127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (set {355-372})",
+     "line": "26"
+    },
+    {
+     "function": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (set {397,447-467,471-474,476-477})",
+     "line": "107,148,158,173,191,201,213,226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (set {293-336})",
+     "line": "189"
+    },
+    {
+     "function": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (set {34-35,276-279})",
+     "line": "25"
+    },
+    {
+     "function": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (set {151,153-155,252-254,256})",
+     "line": "35"
+    },
+    {
+     "function": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (set {149,243})",
+     "line": "15"
+    },
+    {
+     "function": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (set {208,211-217,220})",
+     "line": "58"
+    },
+    {
+     "function": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (set {117-119,235-238})",
+     "line": "15,19,23,45,47,53"
+    },
+    {
+     "function": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (set {338-354})",
+     "line": "16"
+    },
+    {
+     "function": "AISessionEventAudio_0041a8c0.c",
+     "result": "literal emit of this eid (gate l.5-8)",
+     "line": "10"
+    },
+    {
+     "function": "AICornerSpeedComparison_00419500.c",
+     "result": "literal set {13-14,19-20}; cannot produce this number",
+     "line": "22,26,31,35"
+    },
+    {
+     "function": "AIOutOfTrackEvent_0041a0c0.c",
+     "result": "literal set {264}; cannot produce this number",
+     "line": "11"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "literal set {1-2,41,272-273}; cannot produce this number",
+     "line": "20,29,47,54,75"
+    },
+    {
+     "function": "AISessionModeTransition_004193a0.c",
+     "result": "literal set {134,136,138}; cannot produce this number",
+     "line": "23,29,35"
+    },
+    {
+     "function": "AISessionPhaseCounter_0041aa10.c",
+     "result": "literal set {95,97,99,101,105}; cannot produce this number",
+     "line": "28,31,34,37,45"
+    },
+    {
+     "function": "ConstructorStandingsParser_00420820.c",
+     "result": "literal set {423-424,488}; cannot produce this number",
+     "line": "163,245,255"
+    },
+    {
+     "function": "DisplayMessage0x113_0041a6b0.c",
+     "result": "literal set {275}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "DisplayMessage0x11c_0041a4a0.c",
+     "result": "literal set {284}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x151_0041c3e0.c",
+     "result": "literal set {337}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x202_0041c090.c",
+     "result": "literal set {514}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x4a_0041b200.c",
+     "result": "literal set {74}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "GdbSeasonSelector_00420cf0.c",
+     "result": "literal set {492,496,500,504}; cannot produce this number",
+     "line": "349,358,367,376"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher_0041be60.c",
+     "result": "literal set {506-513}; cannot produce this number",
+     "line": "17-52"
+    },
+    {
+     "function": "PitSelectionStateMachine_0041b3c0.c",
+     "result": "literal set {123-126,131,133-138}; cannot produce this number",
+     "line": "55-168"
+    },
+    {
+     "function": "PitStateSlotActivation_0041ab30.c",
+     "result": "literal set {94,96,98,100,104}; cannot produce this number",
+     "line": "28-45"
+    },
+    {
+     "function": "PositionChangeDetector_00420490.c",
+     "result": "literal set {397}; cannot produce this number",
+     "line": "111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay_0041e320.c",
+     "result": "literal set {427,483-487}; cannot produce this number",
+     "line": "98-245"
+    },
+    {
+     "function": "SeasonDisplayIDResolver_0041daf0.c",
+     "result": "literal set {397,478-481,490-491,494-495,498-499,502-503}; cannot produce this number",
+     "line": "99-453"
+    },
+    {
+     "function": "sub_41AD80_0041ad80.c",
+     "result": "literal set {114-115,225-226}; cannot produce this number",
+     "line": "35-88"
+    },
+    {
+     "function": "sub_41AFD0_0041afd0.c",
+     "result": "literal set {106-111,221-223}; cannot produce this number",
+     "line": "13-48"
+    },
+    {
+     "function": "sub_41B190_0041b190.c",
+     "result": "literal set {77}; cannot produce this number",
+     "line": "7"
+    },
+    {
+     "function": "DriverNameIDLookup_00415d90.c",
+     "result": "lookup/ID builder, not an event emitter: writes name-clip ID to struct a1+8 (l.907-914) and returns 0/1; no DriverDataTable call in file",
+     "line": "-"
+    },
+    {
+     "function": "sub_414600_00414600.c",
+     "result": "lookup/ID builder, not an event emitter: return value of DriverNameIDLookup discarded; no emit",
+     "line": "-"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList_00415230.c",
+     "result": "lookup/ID builder, not an event emitter: format-list lookup; not among the 40 DriverDataTable callers; no emit",
+     "line": "-"
+    },
+    {
+     "function": "TrackNameDisplayIDLookup_00417f60.c",
+     "result": "lookup/ID builder, not an event emitter: writes track-clip ID to struct a1+8 (l.209-213); not among the 40 emitter files; no emit",
+     "line": "-"
+    },
+    {
+     "function": "CommentaryTVPWSPathBuilder_00414e60.c",
+     "result": "lookup/ID builder, not an event emitter: builds file paths (l.29-38); no DriverDataTable call; no emit",
+     "line": "-"
+    },
+    {
+     "function": "ThunkToFUN004201e0_004203d0.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 355-372 (l.13-45); feeds PositionBasedMessageDisplay l.26; see twin notes",
+     "line": "-"
+    },
+    {
+     "function": "sub_420000_00420000.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 338-354 (l.13-45); feeds sub_41C440 l.16",
+     "line": "-"
+    }
+   ]
+  },
+  {
+   "eid": 56,
+   "clip": "PWS_2001_79",
+   "says": "Fuel hose issue - slow refuel",
+   "score": 54,
+   "sdt_index": 55,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no_native_emitter",
+   "situation": "Player stop with the fuel-rig outcome (slow, delayed, or cut fuel flow). The pit mod queues eid 56 'Fuel hose issue'. The native game never queues it.",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No native trigger for eid 56.",
+   "emitters": [],
+   "twin_eid": 365,
+   "twin_emitters": [
+    "sub_4203D0 ThunkToFUN004201e0 l.30-31 (a2002Hockenheim -> 365)"
+   ],
+   "twin_contradiction": "Dump maps TV eid 365 to PWS_2001_79. Same TV track-name collision (UNKNOWN).",
+   "call_path": "Mod only: pit_voice_fault (pit_live_voice.h:37, PF_OUTCOME_FUEL_RIG -> 56) via live_client.cpp pit fault path.",
+   "gates": [
+    "pitstop: player and outcome == fuel rig (pit_live_voice.h:37)"
+   ],
+   "mod": "pitstop_failures 1.1.4-rc.1: pit_live_voice.h:37; pit_commentary.c:73 census row (EID_P_FUELHOSE 56)",
+   "heard_evidence": "No owner log line for eid 56 in logged sessions (outcome not logged). TRIAGE_NOTES.txt:37 (sdt 55) lists fuel-hose wiring options: owner idea, not heard. progress.json sdt 55: unverified.",
+   "tier": "CONFIRMED",
+   "notes": "Mod active; outcome weight 17 of 100 in PitStopFailures.ini (fuel rig).",
+   "play_plan": null,
+   "override": {},
+   "checked": [
+    {
+     "function": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (set {120,198,259})",
+     "line": "37,39,59"
+    },
+    {
+     "function": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (set {6,180-182})",
+     "line": "24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (set {3-5,10,16,33,72,262})",
+     "line": "61"
+    },
+    {
+     "function": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (set {42,52})",
+     "line": "14-15"
+    },
+    {
+     "function": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (set {7-9,17-18})",
+     "line": "36,48"
+    },
+    {
+     "function": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (set {21-22,178-179})",
+     "line": "36"
+    },
+    {
+     "function": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (set {52,196})",
+     "line": "19"
+    },
+    {
+     "function": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (set {157-177,260-261})",
+     "line": "113,149,159,164"
+    },
+    {
+     "function": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (set {397,516-519,521-535})",
+     "line": "127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (set {355-372})",
+     "line": "26"
+    },
+    {
+     "function": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (set {397,447-467,471-474,476-477})",
+     "line": "107,148,158,173,191,201,213,226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (set {293-336})",
+     "line": "189"
+    },
+    {
+     "function": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (set {34-35,276-279})",
+     "line": "25"
+    },
+    {
+     "function": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (set {151,153-155,252-254,256})",
+     "line": "35"
+    },
+    {
+     "function": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (set {149,243})",
+     "line": "15"
+    },
+    {
+     "function": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (set {208,211-217,220})",
+     "line": "58"
+    },
+    {
+     "function": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (set {117-119,235-238})",
+     "line": "15,19,23,45,47,53"
+    },
+    {
+     "function": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (set {338-354})",
+     "line": "16"
+    },
+    {
+     "function": "AISessionEventAudio_0041a8c0.c",
+     "result": "literal set {55}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "AICornerSpeedComparison_00419500.c",
+     "result": "literal set {13-14,19-20}; cannot produce this number",
+     "line": "22,26,31,35"
+    },
+    {
+     "function": "AIOutOfTrackEvent_0041a0c0.c",
+     "result": "literal set {264}; cannot produce this number",
+     "line": "11"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "literal set {1-2,41,272-273}; cannot produce this number",
+     "line": "20,29,47,54,75"
+    },
+    {
+     "function": "AISessionModeTransition_004193a0.c",
+     "result": "literal set {134,136,138}; cannot produce this number",
+     "line": "23,29,35"
+    },
+    {
+     "function": "AISessionPhaseCounter_0041aa10.c",
+     "result": "literal set {95,97,99,101,105}; cannot produce this number",
+     "line": "28,31,34,37,45"
+    },
+    {
+     "function": "ConstructorStandingsParser_00420820.c",
+     "result": "literal set {423-424,488}; cannot produce this number",
+     "line": "163,245,255"
+    },
+    {
+     "function": "DisplayMessage0x113_0041a6b0.c",
+     "result": "literal set {275}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "DisplayMessage0x11c_0041a4a0.c",
+     "result": "literal set {284}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x151_0041c3e0.c",
+     "result": "literal set {337}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x202_0041c090.c",
+     "result": "literal set {514}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x4a_0041b200.c",
+     "result": "literal set {74}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "GdbSeasonSelector_00420cf0.c",
+     "result": "literal set {492,496,500,504}; cannot produce this number",
+     "line": "349,358,367,376"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher_0041be60.c",
+     "result": "literal set {506-513}; cannot produce this number",
+     "line": "17-52"
+    },
+    {
+     "function": "PitSelectionStateMachine_0041b3c0.c",
+     "result": "literal set {123-126,131,133-138}; cannot produce this number",
+     "line": "55-168"
+    },
+    {
+     "function": "PitStateSlotActivation_0041ab30.c",
+     "result": "literal set {94,96,98,100,104}; cannot produce this number",
+     "line": "28-45"
+    },
+    {
+     "function": "PositionChangeDetector_00420490.c",
+     "result": "literal set {397}; cannot produce this number",
+     "line": "111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay_0041e320.c",
+     "result": "literal set {427,483-487}; cannot produce this number",
+     "line": "98-245"
+    },
+    {
+     "function": "SeasonDisplayIDResolver_0041daf0.c",
+     "result": "literal set {397,478-481,490-491,494-495,498-499,502-503}; cannot produce this number",
+     "line": "99-453"
+    },
+    {
+     "function": "sub_41AD80_0041ad80.c",
+     "result": "literal set {114-115,225-226}; cannot produce this number",
+     "line": "35-88"
+    },
+    {
+     "function": "sub_41AFD0_0041afd0.c",
+     "result": "literal set {106-111,221-223}; cannot produce this number",
+     "line": "13-48"
+    },
+    {
+     "function": "sub_41B190_0041b190.c",
+     "result": "literal set {77}; cannot produce this number",
+     "line": "7"
+    },
+    {
+     "function": "DriverNameIDLookup_00415d90.c",
+     "result": "lookup/ID builder, not an event emitter: writes name-clip ID to struct a1+8 (l.907-914) and returns 0/1; no DriverDataTable call in file",
+     "line": "-"
+    },
+    {
+     "function": "sub_414600_00414600.c",
+     "result": "lookup/ID builder, not an event emitter: return value of DriverNameIDLookup discarded; no emit",
+     "line": "-"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList_00415230.c",
+     "result": "lookup/ID builder, not an event emitter: format-list lookup; not among the 40 DriverDataTable callers; no emit",
+     "line": "-"
+    },
+    {
+     "function": "TrackNameDisplayIDLookup_00417f60.c",
+     "result": "lookup/ID builder, not an event emitter: writes track-clip ID to struct a1+8 (l.209-213); not among the 40 emitter files; no emit",
+     "line": "-"
+    },
+    {
+     "function": "CommentaryTVPWSPathBuilder_00414e60.c",
+     "result": "lookup/ID builder, not an event emitter: builds file paths (l.29-38); no DriverDataTable call; no emit",
+     "line": "-"
+    },
+    {
+     "function": "ThunkToFUN004201e0_004203d0.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 355-372 (l.13-45); feeds PositionBasedMessageDisplay l.26; see twin notes",
+     "line": "-"
+    },
+    {
+     "function": "sub_420000_00420000.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 338-354 (l.13-45); feeds sub_41C440 l.16",
+     "line": "-"
+    }
+   ]
+  },
+  {
+   "eid": 57,
+   "clip": "PWS_2001_78",
+   "says": "Refuel successful",
+   "score": 55,
+   "sdt_index": 56,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no_native_emitter",
+   "situation": "Player with an owned fuel fault finishes refuelling (fuel >= requested - 0.15). The pit mod queues eid 57 'Refuel successful' once.",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No native trigger for eid 57.",
+   "emitters": [],
+   "twin_eid": 362,
+   "twin_emitters": [
+    "sub_4203D0 ThunkToFUN004201e0 l.26-27 (aSilverstone -> 362)"
+   ],
+   "twin_contradiction": "Dump maps TV eid 362 to PWS_2001_78. Same TV track-name collision (UNKNOWN).",
+   "call_path": "Mod only: pit_voice_fuel_clear (pit_live_voice.h:18-22, returns 57) called from live_client.cpp:1579.",
+   "gates": [
+    "pitstop: player, fuel_fault, not spill, ready, not already announced, fuel >= requested - 0.15 (pit_live_voice.h:22)"
+   ],
+   "mod": "pitstop_failures 1.1.4-rc.1: pit_live_voice.h:22; live_client.cpp:1579 (fuel clear). Census modded_lines.json has NO row for eid 57 (gap).",
+   "heard_evidence": "No owner log line for eid 57 (no refuel fault logged). TRIAGE_NOTES.txt:38 (sdt 56): 'when player car refueling ends': matches the mod's trigger. progress.json sdt 56: unverified.",
+   "tier": "CONFIRMED",
+   "notes": "Census gap: eid 57 is played by pitstop_failures but not listed in modded_lines.json (the census lists only pitstop_modding 51/53/54/56 and MF tokens for 58-60).",
+   "play_plan": null,
+   "override": {},
+   "checked": [
+    {
+     "function": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (set {120,198,259})",
+     "line": "37,39,59"
+    },
+    {
+     "function": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (set {6,180-182})",
+     "line": "24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (set {3-5,10,16,33,72,262})",
+     "line": "61"
+    },
+    {
+     "function": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (set {42,52})",
+     "line": "14-15"
+    },
+    {
+     "function": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (set {7-9,17-18})",
+     "line": "36,48"
+    },
+    {
+     "function": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (set {21-22,178-179})",
+     "line": "36"
+    },
+    {
+     "function": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (set {52,196})",
+     "line": "19"
+    },
+    {
+     "function": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (set {157-177,260-261})",
+     "line": "113,149,159,164"
+    },
+    {
+     "function": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (set {397,516-519,521-535})",
+     "line": "127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (set {355-372})",
+     "line": "26"
+    },
+    {
+     "function": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (set {397,447-467,471-474,476-477})",
+     "line": "107,148,158,173,191,201,213,226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (set {293-336})",
+     "line": "189"
+    },
+    {
+     "function": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (set {34-35,276-279})",
+     "line": "25"
+    },
+    {
+     "function": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (set {151,153-155,252-254,256})",
+     "line": "35"
+    },
+    {
+     "function": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (set {149,243})",
+     "line": "15"
+    },
+    {
+     "function": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (set {208,211-217,220})",
+     "line": "58"
+    },
+    {
+     "function": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (set {117-119,235-238})",
+     "line": "15,19,23,45,47,53"
+    },
+    {
+     "function": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (set {338-354})",
+     "line": "16"
+    },
+    {
+     "function": "AISessionEventAudio_0041a8c0.c",
+     "result": "literal set {55}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "AICornerSpeedComparison_00419500.c",
+     "result": "literal set {13-14,19-20}; cannot produce this number",
+     "line": "22,26,31,35"
+    },
+    {
+     "function": "AIOutOfTrackEvent_0041a0c0.c",
+     "result": "literal set {264}; cannot produce this number",
+     "line": "11"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "literal set {1-2,41,272-273}; cannot produce this number",
+     "line": "20,29,47,54,75"
+    },
+    {
+     "function": "AISessionModeTransition_004193a0.c",
+     "result": "literal set {134,136,138}; cannot produce this number",
+     "line": "23,29,35"
+    },
+    {
+     "function": "AISessionPhaseCounter_0041aa10.c",
+     "result": "literal set {95,97,99,101,105}; cannot produce this number",
+     "line": "28,31,34,37,45"
+    },
+    {
+     "function": "ConstructorStandingsParser_00420820.c",
+     "result": "literal set {423-424,488}; cannot produce this number",
+     "line": "163,245,255"
+    },
+    {
+     "function": "DisplayMessage0x113_0041a6b0.c",
+     "result": "literal set {275}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "DisplayMessage0x11c_0041a4a0.c",
+     "result": "literal set {284}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x151_0041c3e0.c",
+     "result": "literal set {337}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x202_0041c090.c",
+     "result": "literal set {514}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x4a_0041b200.c",
+     "result": "literal set {74}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "GdbSeasonSelector_00420cf0.c",
+     "result": "literal set {492,496,500,504}; cannot produce this number",
+     "line": "349,358,367,376"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher_0041be60.c",
+     "result": "literal set {506-513}; cannot produce this number",
+     "line": "17-52"
+    },
+    {
+     "function": "PitSelectionStateMachine_0041b3c0.c",
+     "result": "literal set {123-126,131,133-138}; cannot produce this number",
+     "line": "55-168"
+    },
+    {
+     "function": "PitStateSlotActivation_0041ab30.c",
+     "result": "literal set {94,96,98,100,104}; cannot produce this number",
+     "line": "28-45"
+    },
+    {
+     "function": "PositionChangeDetector_00420490.c",
+     "result": "literal set {397}; cannot produce this number",
+     "line": "111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay_0041e320.c",
+     "result": "literal set {427,483-487}; cannot produce this number",
+     "line": "98-245"
+    },
+    {
+     "function": "SeasonDisplayIDResolver_0041daf0.c",
+     "result": "literal set {397,478-481,490-491,494-495,498-499,502-503}; cannot produce this number",
+     "line": "99-453"
+    },
+    {
+     "function": "sub_41AD80_0041ad80.c",
+     "result": "literal set {114-115,225-226}; cannot produce this number",
+     "line": "35-88"
+    },
+    {
+     "function": "sub_41AFD0_0041afd0.c",
+     "result": "literal set {106-111,221-223}; cannot produce this number",
+     "line": "13-48"
+    },
+    {
+     "function": "sub_41B190_0041b190.c",
+     "result": "literal set {77}; cannot produce this number",
+     "line": "7"
+    },
+    {
+     "function": "DriverNameIDLookup_00415d90.c",
+     "result": "lookup/ID builder, not an event emitter: writes name-clip ID to struct a1+8 (l.907-914) and returns 0/1; no DriverDataTable call in file",
+     "line": "-"
+    },
+    {
+     "function": "sub_414600_00414600.c",
+     "result": "lookup/ID builder, not an event emitter: return value of DriverNameIDLookup discarded; no emit",
+     "line": "-"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList_00415230.c",
+     "result": "lookup/ID builder, not an event emitter: format-list lookup; not among the 40 DriverDataTable callers; no emit",
+     "line": "-"
+    },
+    {
+     "function": "TrackNameDisplayIDLookup_00417f60.c",
+     "result": "lookup/ID builder, not an event emitter: writes track-clip ID to struct a1+8 (l.209-213); not among the 40 emitter files; no emit",
+     "line": "-"
+    },
+    {
+     "function": "CommentaryTVPWSPathBuilder_00414e60.c",
+     "result": "lookup/ID builder, not an event emitter: builds file paths (l.29-38); no DriverDataTable call; no emit",
+     "line": "-"
+    },
+    {
+     "function": "ThunkToFUN004201e0_004203d0.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 355-372 (l.13-45); feeds PositionBasedMessageDisplay l.26; see twin notes",
+     "line": "-"
+    },
+    {
+     "function": "sub_420000_00420000.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 338-354 (l.13-45); feeds sub_41C440 l.16",
+     "line": "-"
+    }
+   ]
+  },
+  {
+   "eid": 58,
+   "clip": "PWS_TEAMPIT01",
+   "says": "Teammate pits this lap - stay out",
+   "score": 56,
+   "sdt_index": 57,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "Not played. No native emitter in the corpus; no first-party mod plays the vanilla clip (MF uses eid 58 as a radio token, plays its own WAV; token_only, does not count).",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No native trigger in code for eid 58 (teammate-pit state is not read by any native emitter). Not a suppression case.",
+   "emitters": [],
+   "twin_eid": 366,
+   "twin_emitters": [
+    "sub_4203D0 ThunkToFUN004201e0 l.34-35 (aHungaroring -> 366)"
+   ],
+   "twin_contradiction": "Dump maps TV eid 366 to PWS_TEAMPIT01. Same TV track-name collision (UNKNOWN).",
+   "call_path": "No native caller: eid 58 is not a literal or dynamic value in any of the 40 emitter functions.",
+   "gates": [],
+   "mod": "mechanical_failures 1.0.7 (token_only, dll/mf_voice.h:81, MF_FUELLEAK02 'Fuel leak, box now.'). Vanilla clip never plays from MF. Pitstop does not use 58.",
+   "heard_evidence": "TRIAGE_NOTES.txt:39 (sdt 57): owner's trigger note ('team mate has pit order active AND player about to pit within one lap'). No log or heard evidence.",
+   "tier": "DERIVED",
+   "notes": "Owner's clip text ('Teammate pits this lap - stay out') and TRIAGE note agree. Census note 'SDT remap / donor row rewritten' for MF is stale: coordinator rule (b) says MF never rewrites event rows.",
+   "play_plan": {
+    "meaning": "Your team-mate is coming in for a stop on this lap, so you should stay out this lap and not compete for the pit lane or the box. Real-F1 term: the team holds the second car out while the other car's stop is in progress.",
+    "when_it_should_play": "Race only (SessionType 7). The player is on track with a stop planned for the next lap (or the player requested a stop), and the team-mate is in-lap or in the pit lane. Once per team-mate stop. Subject: team.",
+    "trigger": "player veh+0x3450 == 0 (track; CONFIRMED enum) AND player stop pending within the next lap: veh+0x342C > 0 and veh+0x3430+8i equal to lapNumber+1 (DERIVED; player side UNKNOWN) AND a team-mate with veh+0x48A0 equal to the player's and veh+0x489C different has veh+0x3450 == 1 (CONFIRMED enum) and the edge 0->1 is new this lap.",
+    "subject": "team (veh+0x48A0 constructor index; the native DriverDataTable call also passes this value for AIVehicleDamageEvent, findings f1c-veh-48a0-is-constructor-index)",
+    "technique": "own_emitter (ERE queues PWS eid 58; no native emitter, so the eid is free apart from MF tokens)",
+    "latch_cooldown": "once per team-mate stop (latch on the team-mate's 0->1 edge); never on the same lap as TEAMPIT02 (eid 59)",
+    "must_not_play_when": "SessionType != 7; player already in lane/box (pittingStatus 2-4); team-mate missing or on another constructor; a second driver with the same veh+0x48A0 is a different team (uniqueness across running cars UNKNOWN: prove before shipping); MF has an eid 58 line pending (DD-07)",
+    "conflicts": "MF 1.0.7 token eid 58 (mf_voice.h:81): do not queue while an MF line is pending on 58 (DD-07; coordinator rule b). TEAMPIT02 (eid 59) on the same lap: never both. Pitstop does not use 58.",
+    "calibration": "Lap window that counts as 'within one lap' (1 lap assumed) and the player's stop-pending flag (no CONFIRMED locator; veh+0x342C/0x3430 DERIVED, player UNKNOWN). Team-mate pit timing measured live.",
+    "live_test": "1) Race with a same-constructor team-mate. 2) Request a stop for the player on lap N. 3) Let the team-mate enter the pit lane first (pittingStatus 1) on lap N. Expect one 'Teammate pits this lap - stay out' before the player's stop lap. Read veh+0x3450 of both cars with f1c-memory to confirm the edge.",
+    "confidence": "DERIVED. Team-mate read is CONFIRMED (veh+0x3450, veh+0x48A0). The player's pit-order predicate is ERE-proposed (no native flag proven). Raise to CONFIRMED with a proven player stop-pending flag and team-index uniqueness."
+   },
+   "override": {},
+   "checked": [
+    {
+     "function": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (set {120,198,259})",
+     "line": "37,39,59"
+    },
+    {
+     "function": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (set {6,180-182})",
+     "line": "24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (set {3-5,10,16,33,72,262})",
+     "line": "61"
+    },
+    {
+     "function": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (set {42,52})",
+     "line": "14-15"
+    },
+    {
+     "function": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (set {7-9,17-18})",
+     "line": "36,48"
+    },
+    {
+     "function": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (set {21-22,178-179})",
+     "line": "36"
+    },
+    {
+     "function": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (set {52,196})",
+     "line": "19"
+    },
+    {
+     "function": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (set {157-177,260-261})",
+     "line": "113,149,159,164"
+    },
+    {
+     "function": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (set {397,516-519,521-535})",
+     "line": "127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (set {355-372})",
+     "line": "26"
+    },
+    {
+     "function": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (set {397,447-467,471-474,476-477})",
+     "line": "107,148,158,173,191,201,213,226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (set {293-336})",
+     "line": "189"
+    },
+    {
+     "function": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (set {34-35,276-279})",
+     "line": "25"
+    },
+    {
+     "function": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (set {151,153-155,252-254,256})",
+     "line": "35"
+    },
+    {
+     "function": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (set {149,243})",
+     "line": "15"
+    },
+    {
+     "function": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (set {208,211-217,220})",
+     "line": "58"
+    },
+    {
+     "function": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (set {117-119,235-238})",
+     "line": "15,19,23,45,47,53"
+    },
+    {
+     "function": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (set {338-354})",
+     "line": "16"
+    },
+    {
+     "function": "AISessionEventAudio_0041a8c0.c",
+     "result": "literal set {55}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "AICornerSpeedComparison_00419500.c",
+     "result": "literal set {13-14,19-20}; cannot produce this number",
+     "line": "22,26,31,35"
+    },
+    {
+     "function": "AIOutOfTrackEvent_0041a0c0.c",
+     "result": "literal set {264}; cannot produce this number",
+     "line": "11"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "literal set {1-2,41,272-273}; cannot produce this number",
+     "line": "20,29,47,54,75"
+    },
+    {
+     "function": "AISessionModeTransition_004193a0.c",
+     "result": "literal set {134,136,138}; cannot produce this number",
+     "line": "23,29,35"
+    },
+    {
+     "function": "AISessionPhaseCounter_0041aa10.c",
+     "result": "literal set {95,97,99,101,105}; cannot produce this number",
+     "line": "28,31,34,37,45"
+    },
+    {
+     "function": "ConstructorStandingsParser_00420820.c",
+     "result": "literal set {423-424,488}; cannot produce this number",
+     "line": "163,245,255"
+    },
+    {
+     "function": "DisplayMessage0x113_0041a6b0.c",
+     "result": "literal set {275}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "DisplayMessage0x11c_0041a4a0.c",
+     "result": "literal set {284}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x151_0041c3e0.c",
+     "result": "literal set {337}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x202_0041c090.c",
+     "result": "literal set {514}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x4a_0041b200.c",
+     "result": "literal set {74}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "GdbSeasonSelector_00420cf0.c",
+     "result": "literal set {492,496,500,504}; cannot produce this number",
+     "line": "349,358,367,376"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher_0041be60.c",
+     "result": "literal set {506-513}; cannot produce this number",
+     "line": "17-52"
+    },
+    {
+     "function": "PitSelectionStateMachine_0041b3c0.c",
+     "result": "literal set {123-126,131,133-138}; cannot produce this number",
+     "line": "55-168"
+    },
+    {
+     "function": "PitStateSlotActivation_0041ab30.c",
+     "result": "literal set {94,96,98,100,104}; cannot produce this number",
+     "line": "28-45"
+    },
+    {
+     "function": "PositionChangeDetector_00420490.c",
+     "result": "literal set {397}; cannot produce this number",
+     "line": "111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay_0041e320.c",
+     "result": "literal set {427,483-487}; cannot produce this number",
+     "line": "98-245"
+    },
+    {
+     "function": "SeasonDisplayIDResolver_0041daf0.c",
+     "result": "literal set {397,478-481,490-491,494-495,498-499,502-503}; cannot produce this number",
+     "line": "99-453"
+    },
+    {
+     "function": "sub_41AD80_0041ad80.c",
+     "result": "literal set {114-115,225-226}; cannot produce this number",
+     "line": "35-88"
+    },
+    {
+     "function": "sub_41AFD0_0041afd0.c",
+     "result": "literal set {106-111,221-223}; cannot produce this number",
+     "line": "13-48"
+    },
+    {
+     "function": "sub_41B190_0041b190.c",
+     "result": "literal set {77}; cannot produce this number",
+     "line": "7"
+    },
+    {
+     "function": "DriverNameIDLookup_00415d90.c",
+     "result": "lookup/ID builder, not an event emitter: writes name-clip ID to struct a1+8 (l.907-914) and returns 0/1; no DriverDataTable call in file",
+     "line": "-"
+    },
+    {
+     "function": "sub_414600_00414600.c",
+     "result": "lookup/ID builder, not an event emitter: return value of DriverNameIDLookup discarded; no emit",
+     "line": "-"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList_00415230.c",
+     "result": "lookup/ID builder, not an event emitter: format-list lookup; not among the 40 DriverDataTable callers; no emit",
+     "line": "-"
+    },
+    {
+     "function": "TrackNameDisplayIDLookup_00417f60.c",
+     "result": "lookup/ID builder, not an event emitter: writes track-clip ID to struct a1+8 (l.209-213); not among the 40 emitter files; no emit",
+     "line": "-"
+    },
+    {
+     "function": "CommentaryTVPWSPathBuilder_00414e60.c",
+     "result": "lookup/ID builder, not an event emitter: builds file paths (l.29-38); no DriverDataTable call; no emit",
+     "line": "-"
+    },
+    {
+     "function": "ThunkToFUN004201e0_004203d0.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 355-372 (l.13-45); feeds PositionBasedMessageDisplay l.26; see twin notes",
+     "line": "-"
+    },
+    {
+     "function": "sub_420000_00420000.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 338-354 (l.13-45); feeds sub_41C440 l.16",
+     "line": "-"
+    }
+   ]
+  },
+  {
+   "eid": 59,
+   "clip": "PWS_TEAMPIT02",
+   "says": "Player can now pit",
+   "score": 57,
+   "sdt_index": 58,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "Not played. No native emitter in the corpus; no first-party mod plays the vanilla clip (MF uses eid 59 as a radio token, plays 'Engine critical, box now.'; token_only).",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No native trigger in code for eid 59. Not a suppression case.",
+   "emitters": [],
+   "twin_eid": 368,
+   "twin_emitters": [
+    "sub_4203D0 ThunkToFUN004201e0 l.38-39 (aMonza -> 368)"
+   ],
+   "twin_contradiction": "Dump maps TV eid 368 to PWS_TEAMPIT02. Same TV track-name collision (UNKNOWN).",
+   "call_path": "No native caller: eid 59 is not a literal or dynamic value in any of the 40 emitter functions.",
+   "gates": [],
+   "mod": "mechanical_failures 1.0.7 (token_only, dll/mf_voice.h:82, MF_CRIT01 'Engine critical, box now.'). Vanilla clip never plays from MF.",
+   "heard_evidence": "TRIAGE_NOTES.txt:40 (sdt 58): owner note 'when team mate has pitted, played ONLY if player has a pit order active AND team mate is currently in the pits'. Clip text 'Player can now pit'. No heard evidence.",
+   "tier": "DERIVED",
+   "notes": "Text/note mismatch to confirm with owner: clip says 'Player can now pit' while the TRIAGE note describes a team-mate-in-pits trigger. The play plan follows the note; the wording follows the clip.",
+   "play_plan": {
+    "meaning": "Your team-mate has entered the pits and the pit lane is clear for you: you can come in now. Real-F1 term: the team gives the go-ahead for your stop after the other car has been serviced.",
+    "when_it_should_play": "Race only (SessionType 7). The player has a stop planned (or is in-lap) and the team-mate is in the pit lane or box (in-lap is not enough). Once per team-mate stop, and not on the same lap as TEAMPIT01 (eid 58). Subject: team.",
+    "trigger": "player veh+0x3450 in {0, 1} (track or in-lap; CONFIRMED enum) AND (player stop planned: veh+0x342C > 0 (DERIVED, player side UNKNOWN) OR veh+0x3450 == 1) AND a team-mate with veh+0x48A0 equal and veh+0x489C different has veh+0x3450 in {2, 3} (CONFIRMED enum) for the first time this stop.",
+    "subject": "team (veh+0x48A0 constructor index; see TEAMPIT01 note)",
+    "technique": "own_emitter (ERE queues PWS eid 59; no native emitter)",
+    "latch_cooldown": "once per team-mate stop (latch on the team-mate's entry to 2 or 3); never on the same lap as TEAMPIT01",
+    "must_not_play_when": "SessionType != 7; player in lane/box (2-4) already; team-mate on the same constructor index but not a team-mate (uniqueness UNKNOWN); MF has an eid 59 line pending (DD-07); the player has no stop planned and is not in-lap",
+    "conflicts": "MF 1.0.7 token eid 59 (mf_voice.h:82, MF_CRIT01): do not queue while an MF line is pending on 59 (DD-07; coordinator rule b). TEAMPIT01 on the same lap: never both.",
+    "calibration": "Definition of 'pit order active' (no CONFIRMED player flag) and the team-mate in-pit threshold (2 or 3 assumed). Measure live.",
+    "live_test": "1) Race with a same-constructor team-mate. 2) Plan the player's stop for the next lap. 3) Let the team-mate enter the box first (pittingStatus 2 or 3). Expect one 'Player can now pit' when the team-mate reaches the box. Confirm the text/note mismatch with the owner before the live test.",
+    "confidence": "DERIVED. Team-mate state reads are CONFIRMED; the 'pit order active' predicate is ERE-proposed (GUESS-level until a native player flag is proven); the wording mismatch with the TRIAGE note is open."
+   },
+   "override": {},
+   "checked": [
+    {
+     "function": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (set {120,198,259})",
+     "line": "37,39,59"
+    },
+    {
+     "function": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (set {6,180-182})",
+     "line": "24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (set {3-5,10,16,33,72,262})",
+     "line": "61"
+    },
+    {
+     "function": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (set {42,52})",
+     "line": "14-15"
+    },
+    {
+     "function": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (set {7-9,17-18})",
+     "line": "36,48"
+    },
+    {
+     "function": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (set {21-22,178-179})",
+     "line": "36"
+    },
+    {
+     "function": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (set {52,196})",
+     "line": "19"
+    },
+    {
+     "function": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (set {157-177,260-261})",
+     "line": "113,149,159,164"
+    },
+    {
+     "function": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (set {397,516-519,521-535})",
+     "line": "127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (set {355-372})",
+     "line": "26"
+    },
+    {
+     "function": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (set {397,447-467,471-474,476-477})",
+     "line": "107,148,158,173,191,201,213,226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (set {293-336})",
+     "line": "189"
+    },
+    {
+     "function": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (set {34-35,276-279})",
+     "line": "25"
+    },
+    {
+     "function": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (set {151,153-155,252-254,256})",
+     "line": "35"
+    },
+    {
+     "function": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (set {149,243})",
+     "line": "15"
+    },
+    {
+     "function": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (set {208,211-217,220})",
+     "line": "58"
+    },
+    {
+     "function": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (set {117-119,235-238})",
+     "line": "15,19,23,45,47,53"
+    },
+    {
+     "function": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (set {338-354})",
+     "line": "16"
+    },
+    {
+     "function": "AISessionEventAudio_0041a8c0.c",
+     "result": "literal set {55}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "AICornerSpeedComparison_00419500.c",
+     "result": "literal set {13-14,19-20}; cannot produce this number",
+     "line": "22,26,31,35"
+    },
+    {
+     "function": "AIOutOfTrackEvent_0041a0c0.c",
+     "result": "literal set {264}; cannot produce this number",
+     "line": "11"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "literal set {1-2,41,272-273}; cannot produce this number",
+     "line": "20,29,47,54,75"
+    },
+    {
+     "function": "AISessionModeTransition_004193a0.c",
+     "result": "literal set {134,136,138}; cannot produce this number",
+     "line": "23,29,35"
+    },
+    {
+     "function": "AISessionPhaseCounter_0041aa10.c",
+     "result": "literal set {95,97,99,101,105}; cannot produce this number",
+     "line": "28,31,34,37,45"
+    },
+    {
+     "function": "ConstructorStandingsParser_00420820.c",
+     "result": "literal set {423-424,488}; cannot produce this number",
+     "line": "163,245,255"
+    },
+    {
+     "function": "DisplayMessage0x113_0041a6b0.c",
+     "result": "literal set {275}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "DisplayMessage0x11c_0041a4a0.c",
+     "result": "literal set {284}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x151_0041c3e0.c",
+     "result": "literal set {337}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x202_0041c090.c",
+     "result": "literal set {514}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x4a_0041b200.c",
+     "result": "literal set {74}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "GdbSeasonSelector_00420cf0.c",
+     "result": "literal set {492,496,500,504}; cannot produce this number",
+     "line": "349,358,367,376"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher_0041be60.c",
+     "result": "literal set {506-513}; cannot produce this number",
+     "line": "17-52"
+    },
+    {
+     "function": "PitSelectionStateMachine_0041b3c0.c",
+     "result": "literal set {123-126,131,133-138}; cannot produce this number",
+     "line": "55-168"
+    },
+    {
+     "function": "PitStateSlotActivation_0041ab30.c",
+     "result": "literal set {94,96,98,100,104}; cannot produce this number",
+     "line": "28-45"
+    },
+    {
+     "function": "PositionChangeDetector_00420490.c",
+     "result": "literal set {397}; cannot produce this number",
+     "line": "111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay_0041e320.c",
+     "result": "literal set {427,483-487}; cannot produce this number",
+     "line": "98-245"
+    },
+    {
+     "function": "SeasonDisplayIDResolver_0041daf0.c",
+     "result": "literal set {397,478-481,490-491,494-495,498-499,502-503}; cannot produce this number",
+     "line": "99-453"
+    },
+    {
+     "function": "sub_41AD80_0041ad80.c",
+     "result": "literal set {114-115,225-226}; cannot produce this number",
+     "line": "35-88"
+    },
+    {
+     "function": "sub_41AFD0_0041afd0.c",
+     "result": "literal set {106-111,221-223}; cannot produce this number",
+     "line": "13-48"
+    },
+    {
+     "function": "sub_41B190_0041b190.c",
+     "result": "literal set {77}; cannot produce this number",
+     "line": "7"
+    },
+    {
+     "function": "DriverNameIDLookup_00415d90.c",
+     "result": "lookup/ID builder, not an event emitter: writes name-clip ID to struct a1+8 (l.907-914) and returns 0/1; no DriverDataTable call in file",
+     "line": "-"
+    },
+    {
+     "function": "sub_414600_00414600.c",
+     "result": "lookup/ID builder, not an event emitter: return value of DriverNameIDLookup discarded; no emit",
+     "line": "-"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList_00415230.c",
+     "result": "lookup/ID builder, not an event emitter: format-list lookup; not among the 40 DriverDataTable callers; no emit",
+     "line": "-"
+    },
+    {
+     "function": "TrackNameDisplayIDLookup_00417f60.c",
+     "result": "lookup/ID builder, not an event emitter: writes track-clip ID to struct a1+8 (l.209-213); not among the 40 emitter files; no emit",
+     "line": "-"
+    },
+    {
+     "function": "CommentaryTVPWSPathBuilder_00414e60.c",
+     "result": "lookup/ID builder, not an event emitter: builds file paths (l.29-38); no DriverDataTable call; no emit",
+     "line": "-"
+    },
+    {
+     "function": "ThunkToFUN004201e0_004203d0.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 355-372 (l.13-45); feeds PositionBasedMessageDisplay l.26; see twin notes",
+     "line": "-"
+    },
+    {
+     "function": "sub_420000_00420000.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 338-354 (l.13-45); feeds sub_41C440 l.16",
+     "line": "-"
+    }
+   ]
+  },
+  {
+   "eid": 60,
+   "clip": "PWS_2001_96",
+   "says": "Player rejoins track at X position",
+   "score": 58,
+   "sdt_index": 59,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no_native_emitter",
+   "situation": "Player leaves the pit exit in a race (SessionType 7) with a known race position 1-40. The pit mod queues eid 60 'Player rejoins in P<n>'. Native PitExit never queues 60.",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No native trigger for eid 60; PitExit (sub_41C0F0) produces only 397/516-535.",
+   "emitters": [],
+   "twin_eid": 370,
+   "twin_emitters": [
+    "sub_4203D0 ThunkToFUN004201e0 l.44-45 (aSuzuka -> 370)"
+   ],
+   "twin_contradiction": "Dump maps TV eid 370 to PWS_2001_96. Same TV track-name collision (UNKNOWN).",
+   "call_path": "Mod only: voice_rejoin (live_client.cpp:598-600, eid 60 for player; race-only check at l.~609) called from live_client.cpp:1289 with s.race_position.",
+   "gates": [
+    "pitstop: player (controller_role==0), race active, SessionType 7, position 1-40 (voice_rejoin, live_client.cpp:598-610)"
+   ],
+   "mod": "pitstop_failures 1.1.4-rc.1: live_client.cpp:598-600 (eid 60), :1289 (call). Census modded_lines.json lists 60 only as MF token_only; the pitstop row is MISSING (gap).",
+   "heard_evidence": "Owner log: 'rejoin voice 60 Pn queued' (many lines, e.g. 'Matias: rejoin voice 60 P22 queued'; queued, not heard). Quiet/'not race session' lines are the mod's own quali gate. TRIAGE_NOTES.txt:41 (sdt 59): 'PLAY Z (you've rejoined in THIRD for example)': matches the mod.",
+   "tier": "CONFIRMED",
+   "notes": "The census token_only label for 60 is correct for MF only; the player's eid 60 is played by pitstop_failures in race. Owner log: queued in the race.",
+   "play_plan": null,
+   "override": {},
+   "checked": [
+    {
+     "function": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (set {120,198,259})",
+     "line": "37,39,59"
+    },
+    {
+     "function": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (set {6,180-182})",
+     "line": "24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (set {3-5,10,16,33,72,262})",
+     "line": "61"
+    },
+    {
+     "function": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (set {42,52})",
+     "line": "14-15"
+    },
+    {
+     "function": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (set {7-9,17-18})",
+     "line": "36,48"
+    },
+    {
+     "function": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (set {21-22,178-179})",
+     "line": "36"
+    },
+    {
+     "function": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (set {52,196})",
+     "line": "19"
+    },
+    {
+     "function": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (set {157-177,260-261})",
+     "line": "113,149,159,164"
+    },
+    {
+     "function": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (set {397,516-519,521-535})",
+     "line": "127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (set {355-372})",
+     "line": "26"
+    },
+    {
+     "function": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (set {397,447-467,471-474,476-477})",
+     "line": "107,148,158,173,191,201,213,226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (set {293-336})",
+     "line": "189"
+    },
+    {
+     "function": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (set {34-35,276-279})",
+     "line": "25"
+    },
+    {
+     "function": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (set {151,153-155,252-254,256})",
+     "line": "35"
+    },
+    {
+     "function": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (set {149,243})",
+     "line": "15"
+    },
+    {
+     "function": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (set {208,211-217,220})",
+     "line": "58"
+    },
+    {
+     "function": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (set {117-119,235-238})",
+     "line": "15,19,23,45,47,53"
+    },
+    {
+     "function": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (set {338-354})",
+     "line": "16"
+    },
+    {
+     "function": "AISessionEventAudio_0041a8c0.c",
+     "result": "literal set {55}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "AICornerSpeedComparison_00419500.c",
+     "result": "literal set {13-14,19-20}; cannot produce this number",
+     "line": "22,26,31,35"
+    },
+    {
+     "function": "AIOutOfTrackEvent_0041a0c0.c",
+     "result": "literal set {264}; cannot produce this number",
+     "line": "11"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "literal set {1-2,41,272-273}; cannot produce this number",
+     "line": "20,29,47,54,75"
+    },
+    {
+     "function": "AISessionModeTransition_004193a0.c",
+     "result": "literal set {134,136,138}; cannot produce this number",
+     "line": "23,29,35"
+    },
+    {
+     "function": "AISessionPhaseCounter_0041aa10.c",
+     "result": "literal set {95,97,99,101,105}; cannot produce this number",
+     "line": "28,31,34,37,45"
+    },
+    {
+     "function": "ConstructorStandingsParser_00420820.c",
+     "result": "literal set {423-424,488}; cannot produce this number",
+     "line": "163,245,255"
+    },
+    {
+     "function": "DisplayMessage0x113_0041a6b0.c",
+     "result": "literal set {275}; cannot produce this number",
+     "line": "10"
+    },
+    {
+     "function": "DisplayMessage0x11c_0041a4a0.c",
+     "result": "literal set {284}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x151_0041c3e0.c",
+     "result": "literal set {337}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x202_0041c090.c",
+     "result": "literal set {514}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "DisplayMessage0x4a_0041b200.c",
+     "result": "literal set {74}; cannot produce this number",
+     "line": "9"
+    },
+    {
+     "function": "GdbSeasonSelector_00420cf0.c",
+     "result": "literal set {492,496,500,504}; cannot produce this number",
+     "line": "349,358,367,376"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher_0041be60.c",
+     "result": "literal set {506-513}; cannot produce this number",
+     "line": "17-52"
+    },
+    {
+     "function": "PitSelectionStateMachine_0041b3c0.c",
+     "result": "literal set {123-126,131,133-138}; cannot produce this number",
+     "line": "55-168"
+    },
+    {
+     "function": "PitStateSlotActivation_0041ab30.c",
+     "result": "literal set {94,96,98,100,104}; cannot produce this number",
+     "line": "28-45"
+    },
+    {
+     "function": "PositionChangeDetector_00420490.c",
+     "result": "literal set {397}; cannot produce this number",
+     "line": "111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay_0041e320.c",
+     "result": "literal set {427,483-487}; cannot produce this number",
+     "line": "98-245"
+    },
+    {
+     "function": "SeasonDisplayIDResolver_0041daf0.c",
+     "result": "literal set {397,478-481,490-491,494-495,498-499,502-503}; cannot produce this number",
+     "line": "99-453"
+    },
+    {
+     "function": "sub_41AD80_0041ad80.c",
+     "result": "literal set {114-115,225-226}; cannot produce this number",
+     "line": "35-88"
+    },
+    {
+     "function": "sub_41AFD0_0041afd0.c",
+     "result": "literal set {106-111,221-223}; cannot produce this number",
+     "line": "13-48"
+    },
+    {
+     "function": "sub_41B190_0041b190.c",
+     "result": "literal set {77}; cannot produce this number",
+     "line": "7"
+    },
+    {
+     "function": "DriverNameIDLookup_00415d90.c",
+     "result": "lookup/ID builder, not an event emitter: writes name-clip ID to struct a1+8 (l.907-914) and returns 0/1; no DriverDataTable call in file",
+     "line": "-"
+    },
+    {
+     "function": "sub_414600_00414600.c",
+     "result": "lookup/ID builder, not an event emitter: return value of DriverNameIDLookup discarded; no emit",
+     "line": "-"
+    },
+    {
+     "function": "NamedEntryLookupInFormatList_00415230.c",
+     "result": "lookup/ID builder, not an event emitter: format-list lookup; not among the 40 DriverDataTable callers; no emit",
+     "line": "-"
+    },
+    {
+     "function": "TrackNameDisplayIDLookup_00417f60.c",
+     "result": "lookup/ID builder, not an event emitter: writes track-clip ID to struct a1+8 (l.209-213); not among the 40 emitter files; no emit",
+     "line": "-"
+    },
+    {
+     "function": "CommentaryTVPWSPathBuilder_00414e60.c",
+     "result": "lookup/ID builder, not an event emitter: builds file paths (l.29-38); no DriverDataTable call; no emit",
+     "line": "-"
+    },
+    {
+     "function": "ThunkToFUN004201e0_004203d0.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 355-372 (l.13-45); feeds PositionBasedMessageDisplay l.26; see twin notes",
+     "line": "-"
+    },
+    {
+     "function": "sub_420000_00420000.c",
+     "result": "lookup/ID builder, not an event emitter: returns TV eids 338-354 (l.13-45); feeds sub_41C440 l.16",
+     "line": "-"
+    }
+   ]
+  }
+ ]
+}

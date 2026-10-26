@@ -1,0 +1,4 @@
+func,line,dec,hex,access,width,base,form,expr
+TireNameAccessor,5,,,CALL,,,call,CompoundIndexLookup
+TireNameAccessor,5,14700,0x396C,R,_DWORD *,this,direct,"result = *(char **)CompoundIndexLookup(*(_DWORD **)(this + 14700), *(_DWORD *)(this + 14704));"
+TireNameAccessor,5,14704,0x3970,R,_DWORD,this,direct,"result = *(char **)CompoundIndexLookup(*(_DWORD **)(this + 14700), *(_DWORD *)(this + 14704));"

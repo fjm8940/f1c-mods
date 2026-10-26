@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "web_telemetry",
+  "title": "Web Telemetry Lightloader compatibility",
+  "production": false,
+  "sdk_major": 1,
+  "language": "c",
+  "subsystems": [],
+  "seeds": [],
+  "hooks": [],
+  "writes": [],
+  "tracing": {
+    "driver": "",
+    "seconds": 180,
+    "hz": 20,
+    "wait_phase": 5,
+    "pit_cycle": false,
+    "semantics": [
+      "command_input",
+      "output",
+      "latched_control"
+    ]
+  },
+  "regressions": [],
+  "build": {
+    "script": "build.bat",
+    "dll": "build/web_telemetry.dll"
+  },
+  "version": "1.1.0",
+  "sidecars": [
+    {
+      "file": "workbench_ui.js",
+      "sha256": "29ECD1A638AAD455E72A4726BF2B948D8E56419E73953C6D993B9033763938AD"
+    },
+    {
+      "file": "telemetry_viewer.js",
+      "sha256": "BB6335C40504A3E07747DF854F550205BE730B15C4BA391C67A9B79B3CEAEC7B"
+    }
+  ],
+  "compatibility": "Lightloader host ABI v2 + broker ABI 15 + reviewed code/layout fingerprint",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003"
+}

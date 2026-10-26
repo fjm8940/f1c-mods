@@ -1,0 +1,607 @@
+; Data_management #13
+; RTMI 0x0043ECF4  code 0x0043E4F4  ProcSize 2048  FrameSize 800
+  0x0000: LitI2_Byte               raw=0B
+  0x0002: ImpAdLdRf                raw=6500
+  0x0005: NewIfNullPr              raw=6600
+  0x0008: VCallHresult             raw=A4006700
+  0x000D: LitI2_Byte               raw=FF
+  0x000F: ImpAdLdRf                raw=6500
+  0x0012: NewIfNullPr              raw=6600
+  0x0015: VCallAd                  raw=0C03
+  0x0018: FStAdFunc                raw=ECFE
+  0x001B: FLdPr                    var[-276]
+  0x001E: VCallHresult             raw=9C006800
+  0x0023: FFree1Ad                 var[-276]
+  0x0026: ImpAdLdRf                raw=6500
+  0x0029: NewIfNullPr              raw=6600
+  0x002C: VCallAd                  raw=0C03
+  0x002F: FStAdFunc                raw=ECFE
+  0x0032: FLdPr                    var[-276]
+  0x0035: VCallHresult             raw=78026800
+  0x003A: FFree1Ad                 var[-276]
+  0x003D: ImpAdCallFPR4            pool[96](MSVBVM60!__imp_rtcDoEvents) stack+0
+  0x0042: ImpAdLdRf                raw=0000
+  0x0045: LitVarI2                 var[-292] = 0
+  0x004A: HardType                 
+  0x004B: NeVarBool                
+  0x004D: BranchF                  target=+0x8E
+  0x0050: ImpAdLdRf                raw=0000
+  0x0053: CI4Var                   
+  0x0055: FMemLdRf                 raw=08002000
+  0x005A: Ary1LdI2                 
+  0x005B: CVarI2                   raw=DCFE
+  0x005E: FStVar                   raw=BCFE
+  0x0062: FLdRfVar                 var[-324]
+  0x0065: CI4Var                   
+  0x0067: FMemLdRf                 raw=08007C00
+  0x006C: Ary1LdI2                 
+  0x006D: LitI2_Byte               raw=FE
+  0x006F: EqI2                     
+  0x0070: BranchF                  target=+0x8E
+  0x0073: LitVarI2                 var[-292] = 0
+  0x0078: ImpAdLdRf                raw=0000
+  0x007B: CI4Var                   
+  0x007D: LitI4                    raw=00000000
+  0x0082: FMemLdRf                 raw=08005800
+  0x0087: AryLdPr                  raw=0200
+  0x008A: MemStVar                 raw=0000
+  0x008E: ILdRfDarg                raw=0C00DCFE
+  0x0094: FStVarCopy               raw=ACFE
+  0x0098: ILdRfDarg                raw=0C009CFE
+  0x009E: LitVarI2                 var[-292] = 0
+  0x00A3: HardType                 
+  0x00A4: EqVar                    raw=CCFE
+  0x00A8: ImpAdLdRf                raw=0000
+  0x00AB: LitVarI2                 var[-372] = 0
+  0x00B0: HardType                 
+  0x00B1: EqVar                    raw=7CFE
+  0x00B5: AndVar                   raw=6CFE
+  0x00B9: ILdRfDarg                raw=0C004CFE
+  0x00BF: LitVarI2                 var[-420] = -1
+  0x00C4: HardType                 
+  0x00C5: EqVar                    raw=3CFE
+  0x00C9: OrVar                    raw=2CFE
+  0x00CD: CBoolVarNull             
+  0x00CF: BranchF                  target=+0x17F
+  0x00D2: LitVarI4                 var[-292] = 3F420F00
+  0x00DA: FStVar                   raw=1CFE
+  0x00DE: LitVarI2                 var[-292] = 0
+  0x00E3: FStVar                   raw=0CFE
+  0x00E7: LitVarI2                 var[-356] = 1
+  0x00EC: FLdRfVar                 var[-516]
+  0x00EF: FMemLdRf                 raw=08009400
+  0x00F4: ForVar                   raw=DCFD7801
+  0x00FA: FLdRfVar                 var[-516]
+  0x00FD: CI4Var                   
+  0x00FF: FMemLdRf                 raw=08007C00
+  0x0104: Ary1LdI2                 
+  0x0105: LitI2_Byte               raw=01
+  0x0107: EqI2                     
+  0x0108: BranchF                  target=+0x16F
+  0x010B: FLdRfVar                 var[-516]
+  0x010E: CI4Var                   
+  0x0110: FMemLdRf                 raw=08003C00
+  0x0115: Ary1LdI4                 
+  0x0116: CVarI4                   raw=DCFE
+  0x011A: FStVar                   raw=CCFD
+  0x011E: FLdRfVar                 var[-564]
+  0x0121: LitVarI2                 var[-292] = 2
+  0x0126: AddVar                   raw=CCFE
+  0x012A: CI4Var                   
+  0x012C: FMemLdR4                 raw=0800A400
+  0x0131: Ary1LdFPR4               
+  0x0132: FLdRfVar                 var[-564]
+  0x0135: LitVarI2                 var[-356] = 1
+  0x013A: AddVar                   raw=7CFE
+  0x013E: CI4Var                   
+  0x0140: FMemLdR4                 raw=0800A400
+  0x0145: Ary1LdFPR4               
+  0x0146: SubR4                    
+  0x0147: CVarR4                   raw=8CFE
+  0x014B: FStVar                   raw=BCFD
+  0x014F: FFreeVar                 raw=0400CCFE7CFE
+  0x0156: FLdRfVar                 var[-580]
+  0x0159: FLdRfVar                 var[-484]
+  0x015C: LtVarBool                
+  0x015E: BranchF                  target=+0x16F
+  0x0161: FLdRfVar                 var[-580]
+  0x0164: FStVarCopy               raw=1CFE
+  0x0168: FLdRfVar                 var[-516]
+  0x016B: FStVarCopy               raw=0CFE
+  0x016F: FLdRfVar                 var[-516]
+  0x0172: NextStepVar              raw=DCFDFA00
+  0x0178: FLdRfVar                 var[-500]
+  0x017B: FStVarCopy               raw=ACFE
+  0x017F: FLdRfVar                 var[-340]
+  0x0182: LitVarI2                 var[-292] = 0
+  0x0187: HardType                 
+  0x0188: EqVarBool                
+  0x018A: BranchF                  target=+0x18E
+  0x018D: ExitProc                 
+  0x018E: FLdRfVar                 var[-340]
+  0x0191: ImpAdStVarCopy           raw=0000
+  0x0195: FLdRfVar                 var[-596]
+  0x0198: FLdRfVar                 var[-156]
+  0x019B: PopTmpLdAdStr            raw=A4FD
+  0x019E: LitStr                   pool[15]="time"
+  0x01A1: FStStrCopy               raw=A8FD
+  0x01A4: FLdRfVar                 var[-600]
+  0x01A7: FLdRfVar                 var[-340]
+  0x01AA: ImpAdCallFPR4            pool[105](call Data_management#4) stack+16
+  0x01AF: FFree1Str                var[-600]
+  0x01B2: FLdRfVar                 var[-596]
+  0x01B5: FLdRfVar                 var[-184]
+  0x01B8: PopTmpLdAdStr            raw=A4FD
+  0x01BB: LitStr                   pool[16]="distance"
+  0x01BE: FStStrCopy               raw=A8FD
+  0x01C1: FLdRfVar                 var[-600]
+  0x01C4: FLdRfVar                 var[-340]
+  0x01C7: ImpAdCallFPR4            pool[105](call Data_management#4) stack+16
+  0x01CC: FFree1Str                var[-600]
+  0x01CF: ILdRfDarg                raw=10009CFE
+  0x01D5: FLdRfVar                 var[-620]
+  0x01D8: FMemLdRf                 raw=08009400
+  0x01DD: ForVar                   raw=74FDA807
+  0x01E3: FLdRfVar                 var[-620]
+  0x01E6: CI4Var                   
+  0x01E8: FMemLdRf                 raw=08007C00
+  0x01ED: Ary1LdI2                 
+  0x01EE: LitI2_Byte               raw=01
+  0x01F0: EqI2                     
+  0x01F1: BranchF                  target=+0x79F
+  0x01F4: LitVarI2                 var[-420] = 100
+  0x01F9: PopAdLdVar               
+  0x01FA: LitVarI2                 var[-372] = 100
+  0x01FF: PopAdLdVar               
+  0x0200: LitVarI2                 var[-356] = 0
+  0x0205: PopAdLdVar               
+  0x0206: LitVarI2                 var[-292] = 0
+  0x020B: PopAdLdVar               
+  0x020C: LitI2_Byte               raw=04
+  0x020E: ImpAdLdRf                raw=6500
+  0x0211: NewIfNullPr              raw=6600
+  0x0214: VCallAd                  raw=0C03
+  0x0217: FStAdFunc                raw=ECFE
+  0x021A: FLdPr                    var[-276]
+  0x021D: VCallHresult             raw=8C026800
+  0x0222: FFree1Ad                 var[-276]
+  0x0225: FLdRfVar                 var[-620]
+  0x0228: FMemLdRf                 raw=08009400
+  0x022D: DivVar                   raw=CCFE
+  0x0231: LitVarI2                 var[-292] = 100
+  0x0236: MulVar                   raw=7CFE
+  0x023A: FStVar                   raw=64FD
+  0x023E: FLdRfVar                 var[-668]
+  0x0241: LitVarI2                 var[-292] = 100
+  0x0246: HardType                 
+  0x0247: GtVarBool                
+  0x0249: BranchF                  target=+0x255
+  0x024C: LitVarI2                 var[-292] = 100
+  0x0251: FStVar                   raw=64FD
+  0x0255: LitStr                   pool[106]="Calculating..."
+  0x0258: FStStrCopy               raw=A8FD
+  0x025B: FLdRfVar                 var[-600]
+  0x025E: ImpAdCallI2              raw=6B000400
+  0x0263: CVarStr                  raw=6CFE
+  0x0266: LitI4                    raw=01000000
+  0x026B: LitI4                    raw=01000000
+  0x0270: LitVarStr                var[-292] = "0"
+  0x0275: FStVarCopyObj            raw=CCFE
+  0x0278: FLdRfVar                 var[-308]
+  0x027B: FLdRfVar                 var[-668]
+  0x027E: FLdRfVar                 var[-388]
+  0x0281: ImpAdCallFPR4            pool[4](MSVBVM60!__imp_rtcVarFromFormatVar) stack+20
+  0x0286: FLdRfVar                 var[-388]
+  0x0289: ConcatVar                raw=3CFE
+  0x028D: LitVarStr                var[-356] = "%"
+  0x0292: ConcatVar                raw=2CFE
+  0x0296: CStrVarVal               raw=60FD
+  0x029A: ImpAdLdRf                raw=6500
+  0x029D: NewIfNullPr              raw=6600
+  0x02A0: VCallAd                  raw=1003
+  0x02A3: FStAdFunc                raw=ECFE
+  0x02A6: FLdPr                    var[-276]
+  0x02A9: VCallHresult             raw=54006E00
+  0x02AE: FFreeStr                 raw=0400A8FD60FD
+  0x02B5: FFree1Ad                 var[-276]
+  0x02B8: FFreeVar                 raw=0A00CCFE6CFE7CFE3CFE2CFE
+  0x02C5: LitVarI2                 var[-372] = 100
+  0x02CA: FLdRfVar                 var[-668]
+  0x02CD: LitVarR8                 var[-356] = 000000000000F03F
+  0x02D9: MulVar                   raw=7CFE
+  0x02DD: SubVar                   raw=6CFE
+  0x02E1: CI2Var                   
+  0x02E2: LitI2_Byte               raw=00
+  0x02E4: FLdRfVar                 var[-668]
+  0x02E7: LitVarR8                 var[-292] = 6666666666660440
+  0x02F3: MulVar                   raw=CCFE
+  0x02F7: CI2Var                   
+  0x02F8: DOC(ImpAdCallI2)         raw=61000C00
+  0x02FD: LitI2_Byte               raw=64
+  0x02FF: CR8I2                    
+  0x0300: PopFPR4                  
+  0x0301: FLdRfVar                 var[-668]
+  0x0304: CR8Var                   
+  0x0306: PopFPR4                  
+  0x0307: LitI2_Byte               raw=00
+  0x0309: CR8I2                    
+  0x030A: PopFPR4                  
+  0x030B: LitI2_Byte               raw=00
+  0x030D: CR8I2                    
+  0x030E: PopFPR4                  
+  0x030F: LitI2_Byte               raw=26
+  0x0311: ImpAdLdRf                raw=6500
+  0x0314: NewIfNullPr              raw=6600
+  0x0317: VCallAd                  raw=0C03
+  0x031A: FStAdFunc                raw=ECFE
+  0x031D: FLdPr                    var[-276]
+  0x0320: VCallHresult             raw=7C026800
+  0x0325: FFree1Ad                 var[-276]
+  0x0328: ImpAdCallFPR4            pool[96](MSVBVM60!__imp_rtcDoEvents) stack+0
+  0x032D: LitVarI2                 var[-292] = 0
+  0x0332: FStVar                   raw=50FD
+  0x0336: LitVarI2                 var[-356] = 1
+  0x033B: FLdRfVar                 var[-704]
+  0x033E: FMemLdRf                 raw=08009400
+  0x0343: ForVar                   raw=20FD8D03
+  0x0349: FLdRfVar                 var[-704]
+  0x034C: CI4Var                   
+  0x034E: FMemLdRf                 raw=08007C00
+  0x0353: Ary1LdI2                 
+  0x0354: LitI2_Byte               raw=04
+  0x0356: EqI2                     
+  0x0357: CVarBoolI2               raw=9CFE
+  0x035B: FLdRfVar                 var[-704]
+  0x035E: CI4Var                   
+  0x0360: FMemLdRf                 raw=08002000
+  0x0365: Ary1LdI2                 
+  0x0366: CVarI2                   raw=DCFE
+  0x0369: HardType                 
+  0x036A: FLdRfVar                 var[-620]
+  0x036D: EqVar                    raw=CCFE
+  0x0371: AndVar                   raw=7CFE
+  0x0375: CBoolVarNull             
+  0x0377: FFree1Var                var[-356]
+  0x037A: BranchF                  target=+0x384
+  0x037D: FLdRfVar                 var[-704]
+  0x0380: FStVarCopy               raw=50FD
+  0x0384: FLdRfVar                 var[-704]
+  0x0387: NextStepVar              raw=20FD4903
+  0x038D: FLdRfVar                 var[-688]
+  0x0390: LitVarI2                 var[-292] = 0
+  0x0395: HardType                 
+  0x0396: EqVarBool                
+  0x0398: BranchF                  target=+0x3F2
+  0x039B: FMemLdRf                 raw=08009400
+  0x03A0: LitVarI2                 var[-292] = 1
+  0x03A5: AddVar                   raw=CCFE
+  0x03A9: FMemStVar                raw=08009400
+  0x03AF: FMemLdRf                 raw=08009400
+  0x03B4: FStVarCopy               raw=50FD
+  0x03B8: LitI2_Byte               raw=04
+  0x03BA: FLdRfVar                 var[-688]
+  0x03BD: CI4Var                   
+  0x03BF: FMemLdRf                 raw=08007C00
+  0x03C4: Ary1StI2                 
+  0x03C5: FLdRfVar                 var[-620]
+  0x03C8: CI2Var                   
+  0x03C9: FLdRfVar                 var[-688]
+  0x03CC: CI4Var                   
+  0x03CE: FMemLdRf                 raw=08002000
+  0x03D3: Ary1StI2                 
+  0x03D4: FMemLdRf                 raw=0800A800
+  0x03D9: LitVarI2                 var[-292] = 1
+  0x03DE: AddVar                   raw=CCFE
+  0x03E2: CI4Var                   
+  0x03E4: FLdRfVar                 var[-688]
+  0x03E7: CI4Var                   
+  0x03E9: FMemLdRf                 raw=08003C00
+  0x03EE: Ary1StI4                 
+  0x03EF: FFree1Var                var[-308]
+  0x03F2: FLdRfVar                 var[-620]
+  0x03F5: UMiVar                   raw=CCFE
+  0x03F9: FLdRfVar                 var[-688]
+  0x03FC: CI4Var                   
+  0x03FE: LitI4                    raw=00000000
+  0x0403: FMemLdRf                 raw=08005800
+  0x0408: AryLdPr                  raw=0200
+  0x040B: MemStVar                 raw=0000
+  0x040F: FLdRfVar                 var[-620]
+  0x0412: UMiVar                   raw=CCFE
+  0x0416: FLdRfVar                 var[-688]
+  0x0419: CI4Var                   
+  0x041B: LitI4                    raw=01000000
+  0x0420: FMemLdRf                 raw=08005800
+  0x0425: AryLdPr                  raw=0200
+  0x0428: MemStVar                 raw=0000
+  0x042C: FLdRfVar                 var[-752]
+  0x042F: FLdRfVar                 var[-212]
+  0x0432: PopTmpLdAdStr            raw=A4FD
+  0x0435: LitStr                   pool[15]="time"
+  0x0438: FStStrCopy               raw=A8FD
+  0x043B: FLdRfVar                 var[-600]
+  0x043E: FLdRfVar                 var[-620]
+  0x0441: ImpAdCallFPR4            pool[105](call Data_management#4) stack+16
+  0x0446: FFree1Str                var[-600]
+  0x0449: FLdRfVar                 var[-752]
+  0x044C: FLdRfVar                 var[-240]
+  0x044F: PopTmpLdAdStr            raw=A4FD
+  0x0452: LitStr                   pool[16]="distance"
+  0x0455: FStStrCopy               raw=A8FD
+  0x0458: FLdRfVar                 var[-600]
+  0x045B: FLdRfVar                 var[-620]
+  0x045E: ImpAdCallFPR4            pool[105](call Data_management#4) stack+16
+  0x0463: FFree1Str                var[-600]
+  0x0466: FLdRfVar                 var[-516]
+  0x0469: ImpAdLdRf                raw=0000
+  0x046C: EqVarBool                
+  0x046E: BranchF                  target=+0x4BB
+  0x0471: LitVarI2                 var[-372] = 1
+  0x0476: FLdRfVar                 var[-516]
+  0x0479: FLdRfVar                 var[-752]
+  0x047C: LitVarI2                 var[-292] = 1
+  0x0481: SubVar                   raw=CCFE
+  0x0485: ForVar                   raw=F0FCB804
+  0x048B: LitI2_Byte               raw=00
+  0x048D: CR8I2                    
+  0x048E: FLdRfVar                 var[-516]
+  0x0491: CI4Var                   
+  0x0493: FLdRfVar                 var[-268]
+  0x0496: Ary1StFPR4               
+  0x0497: LitI2_Byte               raw=00
+  0x0499: CR8I2                    
+  0x049A: FLdRfVar                 var[-516]
+  0x049D: LitVarI2                 var[-292] = 1
+  0x04A2: AddVar                   raw=CCFE
+  0x04A6: CI4Var                   
+  0x04A8: FLdRfVar                 var[-268]
+  0x04AB: Ary1StFPR4               
+  0x04AC: FFree1Var                var[-308]
+  0x04AF: FLdRfVar                 var[-516]
+  0x04B2: NextStepVar              raw=F0FC8B04
+  0x04B8: Branch                   target=+0x54D
+  0x04BB: LitVarI2                 var[-372] = 1
+  0x04C0: FLdRfVar                 var[-516]
+  0x04C3: FLdRfVar                 var[-752]
+  0x04C6: LitVarI2                 var[-292] = 1
+  0x04CB: SubVar                   raw=CCFE
+  0x04CF: ForVar                   raw=D0FC4D05
+  0x04D5: FLdRfVar                 var[-516]
+  0x04D8: CI4Var                   
+  0x04DA: FLdRfVar                 var[-240]
+  0x04DD: Ary1LdFPR4               
+  0x04DE: CVarR4                   raw=DCFE
+  0x04E2: FStVar                   raw=C0FC
+  0x04E6: FLdRfVar                 var[-832]
+  0x04E9: FLdRfVar                 var[-596]
+  0x04EC: FLdRfVar                 var[-184]
+  0x04EF: PopTmpLdAdStr            raw=BCFC
+  0x04F2: FLdRfVar                 var[-156]
+  0x04F5: PopTmpLdAdStr            raw=A4FD
+  0x04F8: FLdRfVar                 var[-308]
+  0x04FB: ImpAdCallFPR4            pool[111](call Data_management#14) stack+20
+  0x0500: FLdRfVar                 var[-308]
+  0x0503: FStVar                   raw=ACFC
+  0x0507: FLdRfVar                 var[-516]
+  0x050A: CI4Var                   
+  0x050C: FLdRfVar                 var[-212]
+  0x050F: Ary1LdFPR4               
+  0x0510: CVarR4                   raw=DCFE
+  0x0514: FLdRfVar                 var[-852]
+  0x0517: SubVar                   raw=CCFE
+  0x051B: CR8Var                   
+  0x051D: FLdRfVar                 var[-516]
+  0x0520: CI4Var                   
+  0x0522: FLdRfVar                 var[-268]
+  0x0525: Ary1StFPR4               
+  0x0526: FLdRfVar                 var[-516]
+  0x0529: CI4Var                   
+  0x052B: FLdRfVar                 var[-268]
+  0x052E: Ary1LdFPR4               
+  0x052F: FLdRfVar                 var[-516]
+  0x0532: LitVarI2                 var[-292] = 1
+  0x0537: AddVar                   raw=CCFE
+  0x053B: CI4Var                   
+  0x053D: FLdRfVar                 var[-268]
+  0x0540: Ary1StFPR4               
+  0x0541: FFree1Var                var[-308]
+  0x0544: FLdRfVar                 var[-516]
+  0x0547: NextStepVar              raw=D0FCD504
+  0x054D: LitVarI2                 var[-372] = 1
+  0x0552: FLdRfVar                 var[-516]
+  0x0555: FLdRfVar                 var[-752]
+  0x0558: LitVarI2                 var[-292] = 1
+  0x055D: SubVar                   raw=CCFE
+  0x0561: ForVar                   raw=8CFC8C05
+  0x0567: FLdRfVar                 var[-516]
+  0x056A: CI4Var                   
+  0x056C: FLdRfVar                 var[-268]
+  0x056F: Ary1LdFPR4               
+  0x0570: LitI4                    raw=01000000
+  0x0575: FLdRfVar                 var[-268]
+  0x0578: Ary1LdFPR4               
+  0x0579: SubR4                    
+  0x057A: FLdRfVar                 var[-516]
+  0x057D: CI4Var                   
+  0x057F: FLdRfVar                 var[-268]
+  0x0582: Ary1StFPR4               
+  0x0583: FLdRfVar                 var[-516]
+  0x0586: NextStepVar              raw=8CFC6705
+  0x058C: FLdRfVar                 var[-688]
+  0x058F: CI4Var                   
+  0x0591: FMemLdRf                 raw=08003C00
+  0x0596: Ary1LdI4                 
+  0x0597: CVarI4                   raw=DCFE
+  0x059B: FStVar                   raw=7CFC
+  0x059F: LitI2_Byte               raw=01
+  0x05A1: CR8I2                    
+  0x05A2: FLdRfVar                 var[-900]
+  0x05A5: CI4Var                   
+  0x05A7: FMemLdR4                 raw=0800A400
+  0x05AC: Ary1StFPR4               
+  0x05AD: FLdRfVar                 var[-752]
+  0x05B0: CR8Var                   
+  0x05B2: FLdRfVar                 var[-900]
+  0x05B5: LitVarI2                 var[-292] = 1
+  0x05BA: AddVar                   raw=CCFE
+  0x05BE: CI4Var                   
+  0x05C0: FMemLdR4                 raw=0800A400
+  0x05C5: Ary1StFPR4               
+  0x05C6: FFree1Var                var[-308]
+  0x05C9: LitI2_Byte               raw=03
+  0x05CB: CR8I2                    
+  0x05CC: FLdRfVar                 var[-900]
+  0x05CF: LitVarI2                 var[-292] = 2
+  0x05D4: AddVar                   raw=CCFE
+  0x05D8: CI4Var                   
+  0x05DA: FMemLdR4                 raw=0800A400
+  0x05DF: Ary1StFPR4               
+  0x05E0: FFree1Var                var[-308]
+  0x05E3: LitStr                   pool[15]="time"
+  0x05E6: FStStrCopy               raw=A8FD
+  0x05E9: FLdRfVar                 var[-600]
+  0x05EC: FLdRfVar                 var[-308]
+  0x05EF: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x05F4: FLdRfVar                 var[-308]
+  0x05F7: CR8Var                   
+  0x05F9: FLdRfVar                 var[-900]
+  0x05FC: LitVarI2                 var[-292] = 3
+  0x0601: AddVar                   raw=7CFE
+  0x0605: CI4Var                   
+  0x0607: FMemLdR4                 raw=0800A400
+  0x060C: Ary1StFPR4               
+  0x060D: FFree1Str                var[-600]
+  0x0610: FFreeVar                 raw=04007CFECCFE
+  0x0617: LitStr                   pool[16]="distance"
+  0x061A: FStStrCopy               raw=A8FD
+  0x061D: FLdRfVar                 var[-600]
+  0x0620: FLdRfVar                 var[-308]
+  0x0623: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x0628: FLdRfVar                 var[-308]
+  0x062B: CR8Var                   
+  0x062D: FLdRfVar                 var[-900]
+  0x0630: LitVarI2                 var[-292] = 4
+  0x0635: AddVar                   raw=7CFE
+  0x0639: CI4Var                   
+  0x063B: FMemLdR4                 raw=0800A400
+  0x0640: Ary1StFPR4               
+  0x0641: FFree1Str                var[-600]
+  0x0644: FFreeVar                 raw=04007CFECCFE
+  0x064B: LitStr                   pool[112]="dtime"
+  0x064E: FStStrCopy               raw=A8FD
+  0x0651: FLdRfVar                 var[-600]
+  0x0654: FLdRfVar                 var[-308]
+  0x0657: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x065C: FLdRfVar                 var[-308]
+  0x065F: CR8Var                   
+  0x0661: FLdRfVar                 var[-900]
+  0x0664: LitVarI2                 var[-292] = 5
+  0x0669: AddVar                   raw=7CFE
+  0x066D: CI4Var                   
+  0x066F: FMemLdR4                 raw=0800A400
+  0x0674: Ary1StFPR4               
+  0x0675: FFree1Str                var[-600]
+  0x0678: FFreeVar                 raw=04007CFECCFE
+  0x067F: LitVarI2                 var[-356] = 1
+  0x0684: FLdRfVar                 var[-516]
+  0x0687: FLdRfVar                 var[-752]
+  0x068A: ForVar                   raw=5CFC6607
+  0x0690: FLdRfVar                 var[-516]
+  0x0693: CI4Var                   
+  0x0695: FLdRfVar                 var[-212]
+  0x0698: Ary1LdFPR4               
+  0x0699: FLdRfVar                 var[-900]
+  0x069C: LitVarI2                 var[-292] = 6
+  0x06A1: AddVar                   raw=CCFE
+  0x06A5: FLdRfVar                 var[-516]
+  0x06A8: LitVarI2                 var[-356] = 1
+  0x06AD: SubVar                   raw=7CFE
+  0x06B1: LitVarI2                 var[-372] = 3
+  0x06B6: MulVar                   raw=6CFE
+  0x06BA: AddVar                   raw=3CFE
+  0x06BE: CI4Var                   
+  0x06C0: FMemLdR4                 raw=0800A400
+  0x06C5: Ary1StFPR4               
+  0x06C6: FFreeVar                 raw=0400CCFE3CFE
+  0x06CD: FLdRfVar                 var[-516]
+  0x06D0: CI4Var                   
+  0x06D2: FLdRfVar                 var[-240]
+  0x06D5: Ary1LdFPR4               
+  0x06D6: FLdRfVar                 var[-900]
+  0x06D9: LitVarI2                 var[-292] = 6
+  0x06DE: AddVar                   raw=CCFE
+  0x06E2: FLdRfVar                 var[-516]
+  0x06E5: LitVarI2                 var[-356] = 1
+  0x06EA: SubVar                   raw=7CFE
+  0x06EE: LitVarI2                 var[-372] = 3
+  0x06F3: MulVar                   raw=6CFE
+  0x06F7: AddVar                   raw=3CFE
+  0x06FB: LitVarI2                 var[-420] = 1
+  0x0700: AddVar                   raw=2CFE
+  0x0704: CI4Var                   
+  0x0706: FMemLdR4                 raw=0800A400
+  0x070B: Ary1StFPR4               
+  0x070C: FFreeVar                 raw=0600CCFE3CFE2CFE
+  0x0715: FLdRfVar                 var[-516]
+  0x0718: CI4Var                   
+  0x071A: FLdRfVar                 var[-268]
+  0x071D: Ary1LdFPR4               
+  0x071E: FLdRfVar                 var[-900]
+  0x0721: LitVarI2                 var[-292] = 6
+  0x0726: AddVar                   raw=CCFE
+  0x072A: FLdRfVar                 var[-516]
+  0x072D: LitVarI2                 var[-356] = 1
+  0x0732: SubVar                   raw=7CFE
+  0x0736: LitVarI2                 var[-372] = 3
+  0x073B: MulVar                   raw=6CFE
+  0x073F: AddVar                   raw=3CFE
+  0x0743: LitVarI2                 var[-420] = 2
+  0x0748: AddVar                   raw=2CFE
+  0x074C: CI4Var                   
+  0x074E: FMemLdR4                 raw=0800A400
+  0x0753: Ary1StFPR4               
+  0x0754: FFreeVar                 raw=0600CCFE3CFE2CFE
+  0x075D: FLdRfVar                 var[-516]
+  0x0760: NextStepVar              raw=5CFC9006
+  0x0766: FLdRfVar                 var[-900]
+  0x0769: LitVarI2                 var[-292] = 6
+  0x076E: AddVar                   raw=CCFE
+  0x0772: FLdRfVar                 var[-752]
+  0x0775: LitVarI2                 var[-356] = 3
+  0x077A: MulVar                   raw=7CFE
+  0x077E: AddVar                   raw=6CFE
+  0x0782: FMemLdRf                 raw=0800A800
+  0x0787: FLdRfVar                 var[-452]
+  0x078A: ImpAdCallFPR4            pool[17](call General_utility_routines#6) stack+12
+  0x078F: FLdRfVar                 var[-452]
+  0x0792: FMemStVar                raw=0800A800
+  0x0798: FFreeVar                 raw=0400CCFE6CFE
+  0x079F: FLdRfVar                 var[-620]
+  0x07A2: NextStepVar              raw=74FDE301
+  0x07A8: LitI2_Byte               raw=00
+  0x07AA: ImpAdLdRf                raw=6500
+  0x07AD: NewIfNullPr              raw=6600
+  0x07B0: VCallHresult             raw=A4006700
+  0x07B5: LitI2_Byte               raw=00
+  0x07B7: ImpAdLdRf                raw=6500
+  0x07BA: NewIfNullPr              raw=6600
+  0x07BD: VCallAd                  raw=0C03
+  0x07C0: FStAdFunc                raw=ECFE
+  0x07C3: FLdPr                    var[-276]
+  0x07C6: VCallHresult             raw=9C006800
+  0x07CB: FFree1Ad                 var[-276]
+  0x07CE: ImpAdCallFPR4            pool[96](MSVBVM60!__imp_rtcDoEvents) stack+0
+  0x07D3: ImpAdLdRf                raw=0000
+  0x07D6: LitVarI2                 var[-292] = 0
+  0x07DB: HardType                 
+  0x07DC: NeVarBool                
+  0x07DE: BranchF                  target=+0x7FC
+  0x07E1: LitVarI2                 var[-292] = 1
+  0x07E6: ImpAdLdRf                raw=0000
+  0x07E9: CI4Var                   
+  0x07EB: LitI4                    raw=00000000
+  0x07F0: FMemLdRf                 raw=08005800
+  0x07F5: AryLdPr                  raw=0200
+  0x07F8: MemStVar                 raw=0000
+  0x07FC: ExitProc                 
+; status: {'unknown': None, 'truncated': {'offset': 2047, 'reason': 'var-length count cut'}, 'stop_offset': 2047, 'last_exit_end': 2045, 'filler_len': 3, 'filler_hex': '00A536', 'ok': True}

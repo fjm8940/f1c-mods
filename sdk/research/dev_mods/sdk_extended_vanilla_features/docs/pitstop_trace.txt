@@ -1,0 +1,830 @@
+
+=== trace start 2026-07-28 ===
+[  0.00s] pittingStatus=4 speed=0.00
+[  0.50s] pittingStatus=0 speed=0.00
+[  1.41s] pittingStatus=0 speed=0.97
+[  1.51s] pittingStatus=0 speed=0.54
+[  1.61s] pittingStatus=0 speed=0.16
+[  1.71s] pittingStatus=0 speed=0.01
+[  5.62s] pittingStatus=0 speed=0.75
+[  5.72s] pittingStatus=0 speed=1.67
+[  5.82s] pittingStatus=1 speed=2.61
+[  5.92s] pittingStatus=1 speed=3.55
+[  6.02s] pittingStatus=1 speed=4.49
+[  6.12s] pittingStatus=1 speed=5.43
+[  6.23s] pittingStatus=1 speed=6.37
+[  6.33s] pittingStatus=1 speed=7.30
+[  6.43s] pittingStatus=1 speed=8.21
+[  6.53s] pittingStatus=1 speed=9.08
+[  6.63s] pittingStatus=1 speed=10.05
+[  6.73s] pittingStatus=1 speed=11.13
+[  6.83s] pittingStatus=1 speed=12.31
+[  6.93s] pittingStatus=1 speed=13.55
+[  7.03s] pittingStatus=1 speed=14.81
+[  7.13s] pittingStatus=1 speed=16.11
+[  7.23s] pittingStatus=1 speed=17.42
+[  7.33s] pittingStatus=1 speed=18.75
+[  7.43s] pittingStatus=1 speed=20.10
+[  7.53s] pittingStatus=1 speed=21.46
+[  7.63s] pittingStatus=1 speed=22.81
+[  7.73s] pittingStatus=1 speed=24.23
+[  7.83s] pittingStatus=1 speed=25.66
+[  7.93s] pittingStatus=1 speed=27.11
+[  8.03s] pittingStatus=1 speed=28.58
+[  8.13s] pittingStatus=1 speed=30.06
+[  8.23s] pittingStatus=1 speed=31.55
+[  8.33s] pittingStatus=1 speed=33.06
+[  8.43s] pittingStatus=1 speed=34.58
+[  8.53s] pittingStatus=1 speed=36.12
+[  8.63s] pittingStatus=1 speed=37.66
+[  8.74s] pittingStatus=1 speed=38.98
+[  8.84s] pittingStatus=1 speed=40.46
+[  8.94s] pittingStatus=1 speed=41.93
+[  9.04s] pittingStatus=1 speed=43.41
+[  9.14s] pittingStatus=1 speed=44.88
+[  9.24s] pittingStatus=1 speed=46.33
+[  9.34s] pittingStatus=1 speed=47.75
+[  9.44s] pittingStatus=1 speed=49.12
+[  9.54s] pittingStatus=1 speed=50.08
+[  9.64s] pittingStatus=1 speed=51.20
+[  9.74s] pittingStatus=1 speed=52.29
+[  9.84s] pittingStatus=1 speed=53.65
+[  9.94s] pittingStatus=1 speed=54.45
+[ 10.04s] pittingStatus=1 speed=55.50
+[ 10.14s] pittingStatus=1 speed=56.54
+[ 10.24s] pittingStatus=1 speed=57.55
+[ 10.34s] pittingStatus=1 speed=58.54
+[ 10.44s] pittingStatus=1 speed=59.73
+[ 10.54s] pittingStatus=1 speed=60.44
+[ 10.64s] pittingStatus=1 speed=61.18
+[ 10.74s] pittingStatus=1 speed=61.94
+[ 10.85s] pittingStatus=1 speed=62.69
+[ 10.95s] pittingStatus=1 speed=63.42
+[ 11.05s] pittingStatus=1 speed=64.14
+[ 11.15s] pittingStatus=1 speed=64.85
+[ 11.25s] pittingStatus=1 speed=65.54
+[ 11.35s] pittingStatus=1 speed=66.22
+[ 11.45s] pittingStatus=1 speed=66.89
+[ 11.55s] pittingStatus=1 speed=67.53
+[ 11.65s] pittingStatus=1 speed=68.17
+[ 11.75s] pittingStatus=1 speed=68.77
+[ 11.85s] pittingStatus=1 speed=69.38
+[ 11.95s] pittingStatus=1 speed=69.95
+[ 12.05s] pittingStatus=1 speed=70.30
+[ 12.15s] pittingStatus=1 speed=70.76
+[ 12.25s] pittingStatus=1 speed=71.22
+[ 12.35s] pittingStatus=1 speed=71.66
+[ 12.45s] pittingStatus=1 speed=72.12
+[ 12.55s] pittingStatus=1 speed=72.54
+[ 12.65s] pittingStatus=1 speed=72.97
+[ 12.75s] pittingStatus=1 speed=73.40
+[ 12.85s] pittingStatus=1 speed=73.78
+[ 12.95s] pittingStatus=1 speed=74.19
+[ 13.05s] pittingStatus=1 speed=74.55
+[ 13.16s] pittingStatus=1 speed=74.94
+[ 13.26s] pittingStatus=1 speed=75.31
+[ 13.36s] pittingStatus=1 speed=75.66
+[ 13.46s] pittingStatus=1 speed=76.04
+[ 13.56s] pittingStatus=1 speed=76.37
+[ 13.66s] pittingStatus=1 speed=76.70
+[ 13.76s] pittingStatus=1 speed=77.00
+[ 13.86s] pittingStatus=1 speed=77.32
+[ 13.96s] pittingStatus=1 speed=77.63
+[ 14.06s] pittingStatus=1 speed=77.92
+[ 14.16s] pittingStatus=1 speed=78.22
+[ 14.26s] pittingStatus=1 speed=78.48
+[ 14.36s] pittingStatus=1 speed=78.76
+[ 14.46s] pittingStatus=1 speed=78.89
+[ 14.56s] pittingStatus=1 speed=79.06
+[ 14.66s] pittingStatus=1 speed=79.22
+[ 14.76s] pittingStatus=1 speed=79.42
+[ 14.86s] pittingStatus=1 speed=79.62
+[ 14.96s] pittingStatus=1 speed=79.78
+[ 15.06s] pittingStatus=1 speed=79.99
+[ 15.16s] pittingStatus=1 speed=80.14
+[ 15.26s] pittingStatus=1 speed=80.33
+[ 15.36s] pittingStatus=1 speed=80.48
+[ 15.57s] pittingStatus=1 speed=79.26
+[ 15.67s] pittingStatus=1 speed=76.51
+[ 15.77s] pittingStatus=1 speed=73.19
+[ 15.87s] pittingStatus=1 speed=69.84
+[ 15.97s] pittingStatus=1 speed=66.57
+[ 16.07s] pittingStatus=1 speed=63.19
+[ 16.17s] pittingStatus=1 speed=59.03
+[ 16.27s] pittingStatus=1 speed=56.51
+[ 16.37s] pittingStatus=1 speed=53.21
+[ 16.47s] pittingStatus=1 speed=49.05
+[ 16.57s] pittingStatus=1 speed=45.85
+[ 16.67s] pittingStatus=1 speed=43.20
+[ 16.77s] pittingStatus=1 speed=41.43
+[ 16.87s] pittingStatus=1 speed=40.22
+[ 16.97s] pittingStatus=1 speed=39.11
+[ 17.07s] pittingStatus=1 speed=38.08
+[ 17.17s] pittingStatus=1 speed=37.19
+[ 17.27s] pittingStatus=1 speed=36.27
+[ 17.37s] pittingStatus=1 speed=35.62
+[ 17.47s] pittingStatus=1 speed=34.94
+[ 17.57s] pittingStatus=1 speed=34.27
+[ 17.67s] pittingStatus=1 speed=33.81
+[ 17.77s] pittingStatus=1 speed=33.32
+[ 17.87s] pittingStatus=1 speed=32.84
+[ 17.98s] pittingStatus=1 speed=32.48
+[ 18.08s] pittingStatus=1 speed=32.19
+[ 18.18s] pittingStatus=1 speed=32.12
+[ 18.28s] pittingStatus=1 speed=32.34
+[ 18.38s] pittingStatus=1 speed=32.68
+[ 18.48s] pittingStatus=1 speed=33.20
+[ 18.58s] pittingStatus=1 speed=33.60
+[ 18.68s] pittingStatus=1 speed=33.69
+[ 18.98s] pittingStatus=1 speed=33.62
+[ 19.18s] pittingStatus=1 speed=33.76
+[ 19.28s] pittingStatus=1 speed=34.13
+[ 19.48s] pittingStatus=1 speed=33.34
+[ 19.58s] pittingStatus=1 speed=32.64
+[ 19.68s] pittingStatus=1 speed=31.88
+[ 19.78s] pittingStatus=1 speed=31.03
+[ 19.88s] pittingStatus=1 speed=30.38
+[ 19.98s] pittingStatus=1 speed=30.01
+[ 20.09s] pittingStatus=1 speed=30.47
+[ 20.19s] pittingStatus=1 speed=31.21
+[ 20.29s] pittingStatus=1 speed=31.42
+[ 20.79s] pittingStatus=1 speed=30.99
+[ 20.89s] pittingStatus=1 speed=23.29
+[ 20.99s] pittingStatus=1 speed=22.64
+[ 21.09s] pittingStatus=1 speed=22.14
+[ 21.19s] pittingStatus=1 speed=22.27
+[ 21.29s] pittingStatus=1 speed=22.84
+[ 21.39s] pittingStatus=1 speed=23.43
+[ 21.49s] pittingStatus=1 speed=23.68
+[ 21.59s] pittingStatus=1 speed=24.32
+[ 21.69s] pittingStatus=1 speed=23.46
+[ 21.79s] pittingStatus=1 speed=21.47
+[ 21.89s] pittingStatus=1 speed=21.32
+[ 21.99s] pittingStatus=1 speed=22.13
+[ 22.09s] pittingStatus=1 speed=23.33
+[ 22.19s] pittingStatus=1 speed=24.67
+[ 22.29s] pittingStatus=1 speed=25.75
+[ 22.39s] pittingStatus=1 speed=27.24
+[ 22.49s] pittingStatus=1 speed=28.26
+[ 22.59s] pittingStatus=1 speed=29.63
+[ 22.70s] pittingStatus=1 speed=31.10
+[ 22.80s] pittingStatus=1 speed=32.58
+[ 22.90s] pittingStatus=1 speed=34.29
+[ 23.00s] pittingStatus=1 speed=35.77
+[ 23.10s] pittingStatus=1 speed=37.16
+[ 23.20s] pittingStatus=1 speed=38.53
+[ 23.30s] pittingStatus=1 speed=39.85
+[ 23.40s] pittingStatus=1 speed=41.26
+[ 23.50s] pittingStatus=1 speed=42.65
+[ 23.60s] pittingStatus=1 speed=44.10
+[ 23.70s] pittingStatus=1 speed=45.55
+[ 23.80s] pittingStatus=1 speed=46.81
+[ 23.90s] pittingStatus=1 speed=48.17
+[ 24.00s] pittingStatus=1 speed=49.29
+[ 24.10s] pittingStatus=1 speed=50.43
+[ 24.20s] pittingStatus=1 speed=51.37
+[ 24.30s] pittingStatus=1 speed=52.44
+[ 24.40s] pittingStatus=1 speed=53.52
+[ 24.50s] pittingStatus=1 speed=54.59
+[ 24.60s] pittingStatus=1 speed=55.65
+[ 24.70s] pittingStatus=1 speed=56.67
+[ 24.81s] pittingStatus=1 speed=57.68
+[ 24.91s] pittingStatus=1 speed=58.67
+[ 25.01s] pittingStatus=1 speed=59.33
+[ 25.11s] pittingStatus=1 speed=59.86
+[ 25.21s] pittingStatus=1 speed=60.49
+[ 25.31s] pittingStatus=1 speed=61.26
+[ 25.41s] pittingStatus=1 speed=62.01
+[ 25.51s] pittingStatus=1 speed=62.72
+[ 25.61s] pittingStatus=1 speed=63.42
+[ 25.71s] pittingStatus=1 speed=64.14
+[ 25.81s] pittingStatus=1 speed=64.86
+[ 25.91s] pittingStatus=1 speed=65.54
+[ 26.01s] pittingStatus=1 speed=66.21
+[ 26.11s] pittingStatus=1 speed=66.89
+[ 26.21s] pittingStatus=1 speed=67.53
+[ 26.31s] pittingStatus=1 speed=68.17
+[ 26.41s] pittingStatus=1 speed=68.77
+[ 26.51s] pittingStatus=1 speed=69.30
+[ 26.61s] pittingStatus=1 speed=69.86
+[ 26.71s] pittingStatus=1 speed=70.41
+[ 26.81s] pittingStatus=1 speed=70.73
+[ 26.91s] pittingStatus=1 speed=71.20
+[ 27.02s] pittingStatus=1 speed=71.64
+[ 27.12s] pittingStatus=1 speed=72.10
+[ 27.22s] pittingStatus=1 speed=72.52
+[ 27.32s] pittingStatus=1 speed=72.99
+[ 27.42s] pittingStatus=1 speed=73.30
+[ 27.52s] pittingStatus=1 speed=73.70
+[ 27.62s] pittingStatus=1 speed=74.20
+[ 27.72s] pittingStatus=1 speed=74.58
+[ 27.82s] pittingStatus=1 speed=74.97
+[ 27.92s] pittingStatus=1 speed=75.34
+[ 28.02s] pittingStatus=1 speed=75.69
+[ 28.12s] pittingStatus=1 speed=76.06
+[ 28.22s] pittingStatus=1 speed=76.33
+[ 28.32s] pittingStatus=1 speed=76.53
+[ 28.42s] pittingStatus=1 speed=76.79
+[ 28.52s] pittingStatus=1 speed=77.08
+[ 28.62s] pittingStatus=1 speed=77.33
+[ 28.72s] pittingStatus=1 speed=77.59
+[ 28.82s] pittingStatus=1 speed=77.89
+[ 28.92s] pittingStatus=1 speed=77.98
+[ 29.02s] pittingStatus=1 speed=78.11
+[ 29.12s] pittingStatus=1 speed=78.26
+[ 29.43s] pittingStatus=1 speed=78.43
+[ 29.53s] pittingStatus=1 speed=78.54
+[ 29.63s] pittingStatus=1 speed=78.68
+[ 29.83s] pittingStatus=1 speed=78.79
+[ 30.03s] pittingStatus=1 speed=78.94
+[ 30.13s] pittingStatus=1 speed=78.96
+[ 30.23s] pittingStatus=1 speed=79.08
+[ 30.33s] pittingStatus=1 speed=79.25
+[ 30.43s] pittingStatus=1 speed=79.37
+[ 30.53s] pittingStatus=1 speed=79.55
+[ 30.63s] pittingStatus=1 speed=79.70
+[ 30.73s] pittingStatus=1 speed=79.84
+[ 30.93s] pittingStatus=1 speed=79.49
+[ 31.03s] pittingStatus=1 speed=79.43
+[ 31.13s] pittingStatus=1 speed=79.57
+[ 31.23s] pittingStatus=1 speed=79.70
+[ 31.43s] pittingStatus=1 speed=79.76
+[ 31.53s] pittingStatus=1 speed=79.91
+[ 31.73s] pittingStatus=1 speed=79.80
+[ 31.94s] pittingStatus=1 speed=80.02
+[ 32.04s] pittingStatus=1 speed=80.20
+[ 32.14s] pittingStatus=1 speed=80.28
+[ 32.24s] pittingStatus=1 speed=80.21
+[ 32.34s] pittingStatus=1 speed=80.15
+[ 32.44s] pittingStatus=1 speed=80.22
+[ 32.54s] pittingStatus=1 speed=80.48
+[ 32.64s] pittingStatus=1 speed=80.62
+[ 32.74s] pittingStatus=1 speed=80.81
+[ 32.84s] pittingStatus=1 speed=80.96
+[ 32.94s] pittingStatus=1 speed=80.93
+[ 33.14s] pittingStatus=1 speed=81.04
+[ 33.24s] pittingStatus=1 speed=81.15
+[ 33.34s] pittingStatus=1 speed=81.15
+[ 33.44s] pittingStatus=1 speed=81.28
+[ 33.54s] pittingStatus=1 speed=81.44
+[ 33.64s] pittingStatus=1 speed=81.58
+[ 33.84s] pittingStatus=1 speed=81.67
+[ 33.95s] pittingStatus=1 speed=81.81
+[ 34.05s] pittingStatus=1 speed=81.94
+[ 34.15s] pittingStatus=1 speed=82.09
+[ 34.25s] pittingStatus=1 speed=82.21
+[ 34.35s] pittingStatus=1 speed=82.36
+[ 34.45s] pittingStatus=1 speed=82.48
+[ 34.55s] pittingStatus=1 speed=82.61
+[ 34.65s] pittingStatus=1 speed=82.73
+[ 34.75s] pittingStatus=1 speed=82.84
+[ 34.85s] pittingStatus=1 speed=82.96
+[ 34.95s] pittingStatus=1 speed=83.07
+[ 35.05s] pittingStatus=1 speed=83.19
+[ 35.15s] pittingStatus=1 speed=83.29
+[ 35.25s] pittingStatus=1 speed=83.42
+[ 35.35s] pittingStatus=1 speed=83.50
+[ 35.45s] pittingStatus=1 speed=83.60
+[ 35.55s] pittingStatus=1 speed=83.71
+[ 35.65s] pittingStatus=1 speed=83.76
+[ 35.75s] pittingStatus=1 speed=83.85
+[ 35.95s] pittingStatus=1 speed=84.02
+[ 36.05s] pittingStatus=1 speed=84.09
+[ 36.15s] pittingStatus=1 speed=84.16
+[ 36.25s] pittingStatus=1 speed=84.13
+[ 36.36s] pittingStatus=1 speed=84.19
+[ 36.56s] pittingStatus=1 speed=84.33
+[ 36.66s] pittingStatus=1 speed=84.35
+[ 36.76s] pittingStatus=1 speed=84.34
+[ 36.86s] pittingStatus=1 speed=84.36
+[ 37.06s] pittingStatus=1 speed=84.49
+[ 37.16s] pittingStatus=1 speed=84.45
+[ 37.36s] pittingStatus=1 speed=84.07
+[ 37.46s] pittingStatus=1 speed=83.84
+[ 37.56s] pittingStatus=1 speed=83.67
+[ 37.66s] pittingStatus=1 speed=83.50
+[ 37.76s] pittingStatus=1 speed=83.36
+[ 37.86s] pittingStatus=1 speed=83.24
+[ 38.26s] pittingStatus=1 speed=83.15
+[ 38.36s] pittingStatus=1 speed=83.17
+[ 38.46s] pittingStatus=1 speed=83.15
+[ 38.56s] pittingStatus=1 speed=83.17
+[ 38.67s] pittingStatus=1 speed=82.92
+[ 38.77s] pittingStatus=1 speed=83.01
+[ 38.87s] pittingStatus=1 speed=83.09
+[ 38.97s] pittingStatus=1 speed=83.04
+[ 39.07s] pittingStatus=1 speed=83.14
+[ 39.17s] pittingStatus=1 speed=83.18
+[ 39.37s] pittingStatus=1 speed=83.25
+[ 39.77s] pittingStatus=1 speed=83.09
+[ 39.87s] pittingStatus=1 speed=82.96
+[ 40.17s] pittingStatus=1 speed=83.08
+[ 40.37s] pittingStatus=1 speed=83.15
+[ 40.97s] pittingStatus=1 speed=83.29
+[ 41.47s] pittingStatus=1 speed=82.70
+[ 41.58s] pittingStatus=1 speed=80.71
+[ 41.68s] pittingStatus=1 speed=77.62
+[ 41.78s] pittingStatus=1 speed=74.19
+[ 41.88s] pittingStatus=1 speed=70.68
+[ 41.98s] pittingStatus=1 speed=67.23
+[ 42.08s] pittingStatus=1 speed=63.71
+[ 42.18s] pittingStatus=1 speed=60.31
+[ 42.28s] pittingStatus=1 speed=57.16
+[ 42.38s] pittingStatus=1 speed=55.26
+[ 42.48s] pittingStatus=1 speed=54.27
+[ 42.58s] pittingStatus=1 speed=53.36
+[ 42.68s] pittingStatus=1 speed=52.42
+[ 42.78s] pittingStatus=1 speed=51.31
+[ 42.88s] pittingStatus=1 speed=50.14
+[ 42.98s] pittingStatus=1 speed=49.02
+[ 43.08s] pittingStatus=1 speed=47.99
+[ 43.18s] pittingStatus=1 speed=47.01
+[ 43.28s] pittingStatus=1 speed=45.96
+[ 43.38s] pittingStatus=1 speed=44.93
+[ 43.48s] pittingStatus=1 speed=44.41
+[ 43.58s] pittingStatus=1 speed=44.81
+[ 43.68s] pittingStatus=1 speed=45.54
+[ 43.78s] pittingStatus=1 speed=46.25
+[ 43.88s] pittingStatus=1 speed=46.73
+[ 43.99s] pittingStatus=1 speed=46.47
+[ 44.09s] pittingStatus=1 speed=45.46
+[ 44.19s] pittingStatus=1 speed=44.38
+[ 44.29s] pittingStatus=1 speed=43.28
+[ 44.39s] pittingStatus=1 speed=42.21
+[ 44.49s] pittingStatus=1 speed=41.15
+[ 44.59s] pittingStatus=1 speed=40.29
+[ 44.69s] pittingStatus=1 speed=40.54
+[ 44.79s] pittingStatus=1 speed=40.37
+[ 44.89s] pittingStatus=1 speed=39.37
+[ 44.99s] pittingStatus=1 speed=38.29
+[ 45.09s] pittingStatus=1 speed=37.21
+[ 45.19s] pittingStatus=1 speed=36.53
+[ 45.29s] pittingStatus=1 speed=36.76
+[ 45.39s] pittingStatus=1 speed=37.51
+[ 45.49s] pittingStatus=1 speed=38.40
+[ 45.59s] pittingStatus=1 speed=39.13
+[ 45.69s] pittingStatus=1 speed=39.75
+[ 45.79s] pittingStatus=1 speed=40.35
+[ 45.89s] pittingStatus=1 speed=41.00
+[ 45.99s] pittingStatus=1 speed=41.70
+[ 46.09s] pittingStatus=1 speed=42.43
+[ 46.20s] pittingStatus=1 speed=43.50
+[ 46.30s] pittingStatus=1 speed=44.91
+[ 46.40s] pittingStatus=1 speed=46.37
+[ 46.50s] pittingStatus=1 speed=47.80
+[ 46.60s] pittingStatus=1 speed=49.18
+[ 46.70s] pittingStatus=1 speed=50.15
+[ 46.80s] pittingStatus=1 speed=51.28
+[ 46.90s] pittingStatus=1 speed=52.38
+[ 47.00s] pittingStatus=1 speed=53.48
+[ 47.10s] pittingStatus=1 speed=54.56
+[ 47.20s] pittingStatus=1 speed=55.63
+[ 47.30s] pittingStatus=1 speed=56.66
+[ 47.40s] pittingStatus=1 speed=57.68
+[ 47.50s] pittingStatus=1 speed=58.68
+[ 47.60s] pittingStatus=1 speed=59.63
+[ 47.70s] pittingStatus=1 speed=60.43
+[ 47.80s] pittingStatus=1 speed=61.13
+[ 47.90s] pittingStatus=1 speed=61.89
+[ 48.00s] pittingStatus=1 speed=62.62
+[ 48.10s] pittingStatus=1 speed=63.27
+[ 48.21s] pittingStatus=1 speed=63.96
+[ 48.31s] pittingStatus=1 speed=64.69
+[ 48.41s] pittingStatus=1 speed=65.38
+[ 48.51s] pittingStatus=1 speed=66.00
+[ 48.61s] pittingStatus=1 speed=66.63
+[ 48.71s] pittingStatus=1 speed=67.27
+[ 48.81s] pittingStatus=1 speed=67.93
+[ 48.91s] pittingStatus=1 speed=68.57
+[ 49.01s] pittingStatus=1 speed=69.09
+[ 49.11s] pittingStatus=1 speed=68.76
+[ 49.21s] pittingStatus=1 speed=66.67
+[ 49.31s] pittingStatus=1 speed=63.43
+[ 49.41s] pittingStatus=1 speed=59.94
+[ 49.51s] pittingStatus=1 speed=56.49
+[ 49.61s] pittingStatus=1 speed=53.13
+[ 49.71s] pittingStatus=1 speed=49.89
+[ 49.81s] pittingStatus=1 speed=47.11
+[ 49.91s] pittingStatus=1 speed=44.54
+[ 50.01s] pittingStatus=1 speed=42.35
+[ 50.11s] pittingStatus=1 speed=40.24
+[ 50.21s] pittingStatus=1 speed=38.22
+[ 50.31s] pittingStatus=1 speed=36.47
+[ 50.41s] pittingStatus=1 speed=35.11
+[ 50.51s] pittingStatus=1 speed=34.11
+[ 50.62s] pittingStatus=1 speed=32.95
+[ 50.72s] pittingStatus=1 speed=31.84
+[ 50.82s] pittingStatus=1 speed=30.45
+[ 50.92s] pittingStatus=1 speed=29.38
+[ 51.02s] pittingStatus=1 speed=28.41
+[ 51.12s] pittingStatus=1 speed=27.80
+[ 51.22s] pittingStatus=1 speed=27.61
+[ 51.32s] pittingStatus=1 speed=27.81
+[ 51.42s] pittingStatus=1 speed=28.51
+[ 51.52s] pittingStatus=1 speed=29.50
+[ 51.62s] pittingStatus=1 speed=30.37
+[ 51.72s] pittingStatus=1 speed=31.08
+[ 51.82s] pittingStatus=1 speed=31.61
+[ 51.92s] pittingStatus=1 speed=32.04
+[ 52.02s] pittingStatus=1 speed=32.73
+[ 52.12s] pittingStatus=1 speed=34.15
+[ 52.22s] pittingStatus=1 speed=35.57
+[ 52.32s] pittingStatus=1 speed=37.09
+[ 52.42s] pittingStatus=1 speed=38.52
+[ 52.52s] pittingStatus=1 speed=39.95
+[ 52.62s] pittingStatus=1 speed=41.43
+[ 52.73s] pittingStatus=1 speed=42.77
+[ 52.83s] pittingStatus=1 speed=44.14
+[ 52.93s] pittingStatus=1 speed=45.59
+[ 53.03s] pittingStatus=1 speed=47.04
+[ 53.13s] pittingStatus=1 speed=48.45
+[ 53.23s] pittingStatus=1 speed=49.53
+[ 53.33s] pittingStatus=1 speed=50.64
+[ 53.43s] pittingStatus=1 speed=51.75
+[ 53.53s] pittingStatus=1 speed=52.86
+[ 53.63s] pittingStatus=1 speed=53.95
+[ 53.73s] pittingStatus=1 speed=55.02
+[ 53.83s] pittingStatus=1 speed=56.07
+[ 53.93s] pittingStatus=1 speed=57.09
+[ 54.03s] pittingStatus=1 speed=58.10
+[ 54.13s] pittingStatus=1 speed=59.08
+[ 54.23s] pittingStatus=1 speed=60.03
+[ 54.33s] pittingStatus=1 speed=60.67
+[ 54.43s] pittingStatus=1 speed=61.45
+[ 54.53s] pittingStatus=1 speed=62.22
+[ 54.63s] pittingStatus=1 speed=62.95
+[ 54.73s] pittingStatus=1 speed=63.70
+[ 54.83s] pittingStatus=1 speed=64.43
+[ 54.94s] pittingStatus=1 speed=65.14
+[ 55.04s] pittingStatus=1 speed=65.83
+[ 55.14s] pittingStatus=1 speed=66.51
+[ 55.24s] pittingStatus=1 speed=67.18
+[ 55.34s] pittingStatus=1 speed=67.83
+[ 55.44s] pittingStatus=1 speed=68.46
+[ 55.54s] pittingStatus=1 speed=69.09
+[ 55.64s] pittingStatus=1 speed=69.67
+[ 55.74s] pittingStatus=1 speed=70.25
+[ 55.84s] pittingStatus=1 speed=70.63
+[ 55.94s] pittingStatus=1 speed=71.09
+[ 56.04s] pittingStatus=1 speed=71.54
+[ 56.14s] pittingStatus=1 speed=72.11
+[ 56.24s] pittingStatus=1 speed=72.55
+[ 56.34s] pittingStatus=1 speed=72.97
+[ 56.44s] pittingStatus=1 speed=73.41
+[ 56.54s] pittingStatus=1 speed=73.81
+[ 56.64s] pittingStatus=1 speed=74.17
+[ 56.74s] pittingStatus=1 speed=74.55
+[ 56.84s] pittingStatus=1 speed=74.93
+[ 56.94s] pittingStatus=1 speed=75.31
+[ 57.05s] pittingStatus=1 speed=75.68
+[ 57.15s] pittingStatus=1 speed=76.03
+[ 57.25s] pittingStatus=1 speed=76.38
+[ 57.35s] pittingStatus=1 speed=76.73
+[ 57.45s] pittingStatus=1 speed=77.05
+[ 57.55s] pittingStatus=1 speed=77.36
+[ 57.65s] pittingStatus=1 speed=77.68
+[ 57.75s] pittingStatus=1 speed=77.98
+[ 57.85s] pittingStatus=1 speed=78.25
+[ 57.95s] pittingStatus=1 speed=78.54
+[ 58.05s] pittingStatus=1 speed=78.71
+[ 58.25s] pittingStatus=1 speed=78.93
+[ 58.35s] pittingStatus=1 speed=79.13
+[ 58.45s] pittingStatus=1 speed=79.23
+[ 58.55s] pittingStatus=1 speed=79.29
+[ 58.65s] pittingStatus=1 speed=79.46
+[ 58.75s] pittingStatus=1 speed=79.67
+[ 58.85s] pittingStatus=1 speed=79.86
+[ 58.95s] pittingStatus=1 speed=80.05
+[ 59.05s] pittingStatus=1 speed=80.23
+[ 59.16s] pittingStatus=1 speed=80.40
+[ 59.26s] pittingStatus=1 speed=80.55
+[ 59.36s] pittingStatus=1 speed=80.73
+[ 59.46s] pittingStatus=1 speed=80.89
+[ 59.56s] pittingStatus=1 speed=81.06
+[ 59.66s] pittingStatus=1 speed=81.24
+[ 59.76s] pittingStatus=1 speed=81.41
+[ 59.86s] pittingStatus=1 speed=81.57
+[ 59.96s] pittingStatus=1 speed=81.73
+[ 60.06s] pittingStatus=1 speed=81.87
+[ 60.16s] pittingStatus=1 speed=82.02
+[ 60.26s] pittingStatus=1 speed=82.16
+[ 60.36s] pittingStatus=1 speed=82.30
+[ 60.46s] pittingStatus=1 speed=82.44
+[ 60.56s] pittingStatus=1 speed=82.58
+[ 60.66s] pittingStatus=1 speed=82.71
+[ 60.76s] pittingStatus=1 speed=82.83
+[ 60.86s] pittingStatus=1 speed=82.95
+[ 60.96s] pittingStatus=1 speed=83.07
+[ 61.06s] pittingStatus=1 speed=83.18
+[ 61.17s] pittingStatus=1 speed=83.31
+[ 61.27s] pittingStatus=1 speed=83.42
+[ 61.37s] pittingStatus=1 speed=83.52
+[ 61.47s] pittingStatus=1 speed=83.67
+[ 61.57s] pittingStatus=1 speed=83.76
+[ 61.77s] pittingStatus=1 speed=83.91
+[ 61.87s] pittingStatus=1 speed=84.02
+[ 61.97s] pittingStatus=1 speed=84.05
+[ 62.17s] pittingStatus=1 speed=84.21
+[ 62.27s] pittingStatus=1 speed=84.27
+[ 62.47s] pittingStatus=1 speed=84.37
+[ 62.67s] pittingStatus=1 speed=84.52
+[ 62.77s] pittingStatus=1 speed=84.58
+[ 62.97s] pittingStatus=1 speed=84.72
+[ 63.38s] pittingStatus=1 speed=84.77
+[ 63.58s] pittingStatus=1 speed=84.87
+[ 63.78s] pittingStatus=1 speed=84.97
+[ 63.98s] pittingStatus=1 speed=84.89
+[ 64.08s] pittingStatus=1 speed=84.85
+[ 64.18s] pittingStatus=1 speed=84.96
+[ 64.28s] pittingStatus=1 speed=84.93
+[ 64.38s] pittingStatus=1 speed=85.02
+[ 64.48s] pittingStatus=1 speed=85.06
+[ 64.78s] pittingStatus=1 speed=85.19
+[ 64.88s] pittingStatus=1 speed=84.78
+[ 64.98s] pittingStatus=1 speed=82.48
+[ 65.08s] pittingStatus=1 speed=78.97
+[ 65.18s] pittingStatus=1 speed=75.28
+[ 65.28s] pittingStatus=1 speed=71.62
+[ 65.38s] pittingStatus=1 speed=68.07
+[ 65.48s] pittingStatus=1 speed=64.46
+[ 65.58s] pittingStatus=1 speed=61.03
+[ 65.69s] pittingStatus=1 speed=57.75
+[ 65.79s] pittingStatus=1 speed=54.85
+[ 65.89s] pittingStatus=1 speed=52.23
+[ 65.99s] pittingStatus=1 speed=49.83
+[ 66.09s] pittingStatus=1 speed=47.66
+[ 66.19s] pittingStatus=1 speed=46.01
+[ 66.29s] pittingStatus=1 speed=44.89
+[ 66.39s] pittingStatus=1 speed=43.79
+[ 66.49s] pittingStatus=1 speed=42.76
+[ 66.59s] pittingStatus=1 speed=41.57
+[ 66.69s] pittingStatus=1 speed=40.37
+[ 66.79s] pittingStatus=1 speed=39.17
+[ 66.89s] pittingStatus=1 speed=38.39
+[ 66.99s] pittingStatus=1 speed=38.52
+[ 67.09s] pittingStatus=1 speed=39.28
+[ 67.19s] pittingStatus=1 speed=39.72
+[ 67.29s] pittingStatus=1 speed=40.30
+[ 67.39s] pittingStatus=1 speed=41.00
+[ 67.49s] pittingStatus=1 speed=41.26
+[ 67.59s] pittingStatus=1 speed=41.78
+[ 67.69s] pittingStatus=1 speed=42.47
+[ 67.79s] pittingStatus=1 speed=42.82
+[ 67.89s] pittingStatus=1 speed=43.12
+[ 67.99s] pittingStatus=1 speed=43.50
+[ 68.10s] pittingStatus=1 speed=44.15
+[ 68.20s] pittingStatus=1 speed=44.69
+[ 68.30s] pittingStatus=1 speed=44.99
+[ 68.40s] pittingStatus=1 speed=45.22
+[ 68.50s] pittingStatus=1 speed=45.51
+[ 68.60s] pittingStatus=1 speed=45.98
+[ 68.80s] pittingStatus=1 speed=46.82
+[ 68.90s] pittingStatus=1 speed=47.28
+[ 69.00s] pittingStatus=1 speed=47.43
+[ 69.10s] pittingStatus=1 speed=47.58
+[ 69.20s] pittingStatus=1 speed=47.43
+[ 69.30s] pittingStatus=1 speed=47.29
+[ 69.40s] pittingStatus=1 speed=47.08
+[ 69.50s] pittingStatus=1 speed=47.03
+[ 69.70s] pittingStatus=1 speed=46.59
+[ 69.80s] pittingStatus=1 speed=45.81
+[ 69.90s] pittingStatus=1 speed=45.96
+[ 70.00s] pittingStatus=1 speed=46.95
+[ 70.11s] pittingStatus=1 speed=47.98
+[ 70.21s] pittingStatus=1 speed=49.01
+[ 70.31s] pittingStatus=1 speed=48.93
+[ 70.51s] pittingStatus=1 speed=49.42
+[ 70.61s] pittingStatus=1 speed=49.23
+[ 70.71s] pittingStatus=1 speed=49.38
+[ 70.81s] pittingStatus=1 speed=50.32
+[ 70.91s] pittingStatus=1 speed=51.22
+[ 71.01s] pittingStatus=1 speed=52.34
+[ 71.11s] pittingStatus=1 speed=53.45
+[ 71.21s] pittingStatus=1 speed=54.50
+[ 71.31s] pittingStatus=1 speed=55.44
+[ 71.41s] pittingStatus=1 speed=56.10
+[ 71.51s] pittingStatus=1 speed=56.75
+[ 71.61s] pittingStatus=1 speed=57.71
+[ 71.71s] pittingStatus=1 speed=58.71
+[ 71.81s] pittingStatus=1 speed=59.57
+[ 71.91s] pittingStatus=1 speed=60.11
+[ 72.01s] pittingStatus=1 speed=60.89
+[ 72.12s] pittingStatus=1 speed=61.67
+[ 72.22s] pittingStatus=1 speed=62.61
+[ 72.32s] pittingStatus=1 speed=63.17
+[ 72.42s] pittingStatus=1 speed=63.92
+[ 72.52s] pittingStatus=1 speed=64.63
+[ 72.62s] pittingStatus=1 speed=65.53
+[ 72.72s] pittingStatus=1 speed=66.21
+[ 72.82s] pittingStatus=1 speed=66.88
+[ 72.92s] pittingStatus=1 speed=67.55
+[ 73.02s] pittingStatus=1 speed=68.18
+[ 73.12s] pittingStatus=1 speed=68.80
+[ 73.22s] pittingStatus=1 speed=69.41
+[ 73.32s] pittingStatus=1 speed=69.98
+[ 73.42s] pittingStatus=1 speed=70.55
+[ 73.52s] pittingStatus=1 speed=70.88
+[ 73.62s] pittingStatus=1 speed=71.34
+[ 73.72s] pittingStatus=1 speed=71.81
+[ 73.82s] pittingStatus=1 speed=72.24
+[ 73.92s] pittingStatus=1 speed=72.70
+[ 74.02s] pittingStatus=1 speed=73.13
+[ 74.12s] pittingStatus=1 speed=73.55
+[ 74.22s] pittingStatus=1 speed=73.97
+[ 74.33s] pittingStatus=1 speed=74.35
+[ 74.43s] pittingStatus=1 speed=74.77
+[ 74.53s] pittingStatus=1 speed=75.15
+[ 74.63s] pittingStatus=1 speed=75.52
+[ 74.73s] pittingStatus=1 speed=75.89
+[ 74.83s] pittingStatus=1 speed=76.24
+[ 74.93s] pittingStatus=1 speed=76.61
+[ 75.03s] pittingStatus=1 speed=76.92
+[ 75.13s] pittingStatus=1 speed=77.26
+[ 75.23s] pittingStatus=1 speed=77.56
+[ 75.33s] pittingStatus=1 speed=77.87
+[ 75.43s] pittingStatus=1 speed=78.16
+[ 75.53s] pittingStatus=1 speed=78.43
+[ 75.63s] pittingStatus=1 speed=78.72
+[ 75.73s] pittingStatus=1 speed=78.92
+[ 75.83s] pittingStatus=1 speed=79.02
+[ 75.93s] pittingStatus=1 speed=79.21
+[ 76.03s] pittingStatus=1 speed=79.42
+[ 76.13s] pittingStatus=1 speed=79.61
+[ 76.23s] pittingStatus=1 speed=79.81
+[ 76.33s] pittingStatus=1 speed=80.00
+[ 76.43s] pittingStatus=1 speed=80.15
+[ 76.53s] pittingStatus=1 speed=80.35
+[ 76.64s] pittingStatus=1 speed=80.47
+[ 76.74s] pittingStatus=1 speed=80.58
+[ 76.84s] pittingStatus=1 speed=80.81
+[ 76.94s] pittingStatus=1 speed=80.95
+[ 77.04s] pittingStatus=1 speed=81.13
+[ 77.14s] pittingStatus=1 speed=81.27
+[ 77.24s] pittingStatus=1 speed=81.48
+[ 77.34s] pittingStatus=1 speed=81.57
+[ 77.44s] pittingStatus=1 speed=81.67
+[ 77.54s] pittingStatus=1 speed=81.85
+[ 77.64s] pittingStatus=1 speed=81.97
+[ 77.74s] pittingStatus=1 speed=82.06
+[ 77.84s] pittingStatus=1 speed=82.28
+[ 77.94s] pittingStatus=1 speed=82.38
+[ 78.04s] pittingStatus=1 speed=82.50
+[ 78.14s] pittingStatus=1 speed=82.65
+[ 78.24s] pittingStatus=1 speed=82.77
+[ 78.34s] pittingStatus=1 speed=82.88
+[ 78.44s] pittingStatus=1 speed=82.98
+[ 78.54s] pittingStatus=1 speed=83.09
+[ 78.64s] pittingStatus=1 speed=83.18
+[ 78.74s] pittingStatus=1 speed=83.30
+[ 78.85s] pittingStatus=1 speed=83.38
+[ 78.95s] pittingStatus=1 speed=83.50
+[ 79.05s] pittingStatus=1 speed=83.57
+[ 79.15s] pittingStatus=1 speed=83.68
+[ 79.35s] pittingStatus=1 speed=83.00
+[ 79.45s] pittingStatus=1 speed=81.62
+[ 79.55s] pittingStatus=1 speed=80.16
+[ 79.65s] pittingStatus=1 speed=78.74
+[ 79.75s] pittingStatus=1 speed=77.35
+[ 99.03s] pittingStatus=1 speed=76.68
+[ 99.13s] pittingStatus=1 speed=75.43
+[ 99.23s] pittingStatus=1 speed=74.85
+[ 99.33s] pittingStatus=1 speed=74.99
+[ 99.43s] pittingStatus=1 speed=75.26
+[ 99.53s] pittingStatus=1 speed=75.55
+[ 99.63s] pittingStatus=1 speed=75.79
+[ 99.73s] pittingStatus=1 speed=76.10
+[ 99.83s] pittingStatus=1 speed=76.41
+[ 99.93s] pittingStatus=1 speed=76.68
+[100.03s] pittingStatus=1 speed=76.87
+[100.13s] pittingStatus=1 speed=77.16
+[100.23s] pittingStatus=1 speed=77.41
+[100.33s] pittingStatus=1 speed=77.63
+[100.43s] pittingStatus=1 speed=77.88
+[100.53s] pittingStatus=1 speed=78.10
+[100.63s] pittingStatus=1 speed=78.33
+[100.73s] pittingStatus=1 speed=78.55
+[100.84s] pittingStatus=1 speed=78.76
+[100.94s] pittingStatus=1 speed=78.97
+[101.04s] pittingStatus=1 speed=79.16
+[101.14s] pittingStatus=1 speed=79.37
+[101.24s] pittingStatus=1 speed=79.55
+[101.34s] pittingStatus=1 speed=79.76
+[101.44s] pittingStatus=1 speed=79.94
+[101.54s] pittingStatus=1 speed=80.12
+[101.64s] pittingStatus=1 speed=80.25
+[101.74s] pittingStatus=1 speed=79.75
+[101.84s] pittingStatus=1 speed=78.54
+[101.94s] pittingStatus=1 speed=76.67
+[102.04s] pittingStatus=1 speed=73.80
+[102.14s] pittingStatus=1 speed=70.32
+[102.24s] pittingStatus=1 speed=66.91
+[102.34s] pittingStatus=1 speed=63.54
+[102.44s] pittingStatus=1 speed=60.40
+[102.54s] pittingStatus=1 speed=57.50
+[102.64s] pittingStatus=1 speed=54.85
+[102.74s] pittingStatus=1 speed=52.27
+[102.84s] pittingStatus=1 speed=49.90
+[102.94s] pittingStatus=1 speed=48.18
+[103.05s] pittingStatus=1 speed=47.15
+[103.15s] pittingStatus=1 speed=46.23
+[103.25s] pittingStatus=1 speed=45.38
+[103.35s] pittingStatus=1 speed=44.55
+[103.45s] pittingStatus=1 speed=43.75
+[103.55s] pittingStatus=1 speed=42.85
+[103.65s] pittingStatus=1 speed=41.85
+[103.75s] pittingStatus=1 speed=40.70
+[103.85s] pittingStatus=1 speed=39.63
+[103.95s] pittingStatus=1 speed=38.67
+[104.05s] pittingStatus=1 speed=38.48
+[104.15s] pittingStatus=1 speed=39.10
+[104.25s] pittingStatus=1 speed=39.88
+[104.35s] pittingStatus=1 speed=40.62
+[104.45s] pittingStatus=1 speed=41.27
+[104.55s] pittingStatus=1 speed=41.89
+[104.65s] pittingStatus=1 speed=42.24
+[104.75s] pittingStatus=1 speed=41.67
+[104.85s] pittingStatus=1 speed=40.56
+[104.95s] pittingStatus=1 speed=39.42
+[105.05s] pittingStatus=1 speed=38.27
+[105.15s] pittingStatus=1 speed=37.11
+[105.25s] pittingStatus=1 speed=36.03
+[105.36s] pittingStatus=1 speed=35.43
+[105.46s] pittingStatus=1 speed=35.72
+[105.56s] pittingStatus=1 speed=36.35
+[105.66s] pittingStatus=1 speed=37.57
+[105.76s] pittingStatus=1 speed=38.34
+[105.86s] pittingStatus=1 speed=38.94
+[105.96s] pittingStatus=1 speed=39.48
+[106.06s] pittingStatus=1 speed=40.03
+[106.16s] pittingStatus=1 speed=40.68
+[106.26s] pittingStatus=1 speed=41.84
+[106.36s] pittingStatus=1 speed=43.25
+[106.46s] pittingStatus=1 speed=44.69
+[106.56s] pittingStatus=1 speed=45.82
+[106.66s] pittingStatus=1 speed=46.46
+[106.76s] pittingStatus=1 speed=46.87
+[106.86s] pittingStatus=1 speed=47.35
+[106.96s] pittingStatus=1 speed=48.33
+[107.06s] pittingStatus=1 speed=49.36
+[107.16s] pittingStatus=1 speed=50.48
+[107.26s] pittingStatus=1 speed=51.55
+[107.36s] pittingStatus=1 speed=52.61
+[107.47s] pittingStatus=1 speed=53.68
+[107.57s] pittingStatus=1 speed=54.65
+[107.67s] pittingStatus=1 speed=54.94
+[107.77s] pittingStatus=1 speed=54.15
+[107.87s] pittingStatus=1 speed=52.87
+[107.97s] pittingStatus=1 speed=51.59
+[108.07s] pittingStatus=1 speed=50.98
+[108.17s] pittingStatus=1 speed=51.62
+[108.27s] pittingStatus=1 speed=52.72
+[108.37s] pittingStatus=1 speed=53.76
+[108.47s] pittingStatus=1 speed=54.77
+[108.57s] pittingStatus=1 speed=55.84
+[108.67s] pittingStatus=1 speed=56.83
+[108.77s] pittingStatus=1 speed=57.73
+[108.87s] pittingStatus=1 speed=58.62
+[108.97s] pittingStatus=1 speed=59.54
+[109.07s] pittingStatus=1 speed=60.04
+[109.27s] pittingStatus=1 speed=59.15
+[109.37s] pittingStatus=1 speed=58.21
+[109.47s] pittingStatus=1 speed=58.06
+[109.57s] pittingStatus=1 speed=58.70
+[109.68s] pittingStatus=1 speed=59.28
+[109.78s] pittingStatus=1 speed=59.82
+[109.88s] pittingStatus=1 speed=60.47
+[109.98s] pittingStatus=1 speed=61.10
+[110.08s] pittingStatus=1 speed=61.58
+[110.18s] pittingStatus=1 speed=62.26
+[110.28s] pittingStatus=1 speed=62.98
+[110.38s] pittingStatus=1 speed=63.69
+[110.48s] pittingStatus=1 speed=64.41
+[110.58s] pittingStatus=1 speed=65.10
+[110.68s] pittingStatus=1 speed=65.77
+[110.78s] pittingStatus=1 speed=66.45
+[110.88s] pittingStatus=1 speed=67.13
+[110.98s] pittingStatus=1 speed=67.90
+[111.08s] pittingStatus=1 speed=68.54
+[111.18s] pittingStatus=1 speed=69.13
+[111.28s] pittingStatus=1 speed=69.69
+[111.38s] pittingStatus=1 speed=70.21
+[111.49s] pittingStatus=1 speed=70.48
+[111.59s] pittingStatus=1 speed=70.89
+[111.69s] pittingStatus=1 speed=71.34
+[111.79s] pittingStatus=1 speed=71.76
+[111.89s] pittingStatus=1 speed=72.23
+[111.99s] pittingStatus=1 speed=72.66
+[112.09s] pittingStatus=1 speed=73.02
+[112.19s] pittingStatus=1 speed=73.42
+[112.29s] pittingStatus=1 speed=73.92
+[112.39s] pittingStatus=1 speed=74.18
+[112.49s] pittingStatus=1 speed=74.44
+[112.59s] pittingStatus=1 speed=73.81
+[112.69s] pittingStatus=1 speed=72.46
+[112.79s] pittingStatus=1 speed=70.93
+[112.89s] pittingStatus=1 speed=68.37
+[112.99s] pittingStatus=1 speed=64.89
+[113.09s] pittingStatus=1 speed=61.57
+[113.19s] pittingStatus=1 speed=58.12
+[113.29s] pittingStatus=1 speed=55.64
+[113.39s] pittingStatus=1 speed=54.63

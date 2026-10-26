@@ -1,0 +1,3264 @@
+[
+ {
+  "clip": "PWS_2001_102",
+  "status": "WIP",
+  "sdt": 72,
+  "desc": "Player sets personal best lap",
+  "eids": [
+   73,
+   344
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_110",
+  "status": "WIP",
+  "sdt": 177,
+  "desc": "Player wins race",
+  "eids": [],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "no event maps to this clip at all",
+  "grp": "ORPHAN"
+ },
+ {
+  "clip": "PWS_2001_13",
+  "status": "WIP",
+  "sdt": 30,
+  "desc": "AI driver ahead on Out Lap",
+  "eids": [
+   32,
+   323
+  ],
+  "wired": [
+   323
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_131",
+  "status": "WIP",
+  "sdt": 196,
+  "desc": "AI driver engine stalled in pits",
+  "eids": [
+   184,
+   516
+  ],
+  "wired": [
+   516
+  ],
+  "funcs": [
+   "PitExit_0041c0f0"
+  ],
+  "certain": false,
+  "reason": "emitter exists (PitExit_0041c0f0 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_132",
+  "status": "WIP",
+  "sdt": 197,
+  "desc": "AI driver jammed fuel hose",
+  "eids": [
+   185
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_133",
+  "status": "WIP",
+  "sdt": 198,
+  "desc": "AI driver stuck Front Left wheel",
+  "eids": [
+   186
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_134",
+  "status": "SILENT",
+  "sdt": 199,
+  "desc": "AI driver stuck Front Right wheel",
+  "eids": [
+   187
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_135",
+  "status": "SILENT",
+  "sdt": 200,
+  "desc": "AI driver stuck Rear Left wheel",
+  "eids": [
+   188
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_136",
+  "status": "WIP",
+  "sdt": 201,
+  "desc": "AI driver stuck Rear Right wheel",
+  "eids": [
+   189
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_138",
+  "status": "SILENT",
+  "sdt": 213,
+  "desc": "AI driver positioned to secure WDC",
+  "eids": [
+   200,
+   506
+  ],
+  "wired": [
+   506
+  ],
+  "funcs": [
+   "PitRaceStatusMessageDispatcher_0041be60"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitRaceStatusMessageDispatcher_0041be60); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_14",
+  "status": "WIP",
+  "sdt": 28,
+  "desc": "AI driver ahead on Flying Lap",
+  "eids": [
+   30,
+   321
+  ],
+  "wired": [
+   321
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_141",
+  "status": "WIP",
+  "sdt": 212,
+  "desc": "Team positioned to secure WCC",
+  "eids": [
+   199,
+   513
+  ],
+  "wired": [
+   513
+  ],
+  "funcs": [
+   "PitRaceStatusMessageDispatcher_0041be60"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitRaceStatusMessageDispatcher_0041be60); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_149",
+  "status": "WIP",
+  "sdt": 249,
+  "desc": "AI driver held up by another AI",
+  "eids": [
+   234
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_15",
+  "status": "WIP",
+  "sdt": 29,
+  "desc": "AI driver ahead on In Lap",
+  "eids": [
+   31,
+   322
+  ],
+  "wired": [
+   322
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_159",
+  "status": "WIP",
+  "sdt": 293,
+  "desc": "Session ends",
+  "eids": [
+   275
+  ],
+  "wired": [
+   275
+  ],
+  "funcs": [
+   "DisplayMessage0x113_0041a6b0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (DisplayMessage0x113_0041a6b0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_163",
+  "status": "WIP",
+  "sdt": 292,
+  "desc": "25% race distance complete",
+  "eids": [
+   274
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_164",
+  "status": "WIP",
+  "sdt": 288,
+  "desc": "50% race distance complete",
+  "eids": [
+   271
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_165",
+  "status": "WIP",
+  "sdt": 287,
+  "desc": "75% race distance complete",
+  "eids": [
+   270
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_17",
+  "status": "WIP",
+  "sdt": 21,
+  "desc": "AI driver starting 1st run",
+  "eids": [
+   23,
+   314
+  ],
+  "wired": [
+   314
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_18",
+  "status": "WIP",
+  "sdt": 22,
+  "desc": "AI driver starting 2nd run",
+  "eids": [
+   24,
+   315
+  ],
+  "wired": [
+   315
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_19",
+  "status": "WIP",
+  "sdt": 23,
+  "desc": "AI driver starting 3rd run",
+  "eids": [
+   25,
+   316
+  ],
+  "wired": [
+   316
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_20",
+  "status": "WIP",
+  "sdt": 24,
+  "desc": "AI driver starting 4th run",
+  "eids": [
+   26,
+   317
+  ],
+  "wired": [
+   317
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_218",
+  "status": "WIP",
+  "sdt": 300,
+  "desc": "Overcast conditions - possible rain",
+  "eids": [
+   282
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_219",
+  "status": "WIP",
+  "sdt": 302,
+  "desc": "Rain starts - light drizzle",
+  "eids": [],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "no event maps to this clip at all",
+  "grp": "ORPHAN"
+ },
+ {
+  "clip": "PWS_2001_22",
+  "status": "SILENT",
+  "sdt": 25,
+  "desc": "Rain expected - make run ASAP",
+  "eids": [
+   27,
+   318
+  ],
+  "wired": [
+   318
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_220",
+  "status": "WIP",
+  "sdt": 301,
+  "desc": "Rain starts - short shower",
+  "eids": [
+   283
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_221",
+  "status": "WIP",
+  "sdt": 298,
+  "desc": "Rain starts - monsoon likely",
+  "eids": [
+   280
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_222",
+  "status": "WIP",
+  "sdt": 299,
+  "desc": "Rain eases off",
+  "eids": [
+   281
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_24",
+  "status": "SILENT",
+  "sdt": 26,
+  "desc": "Rain expected to ease - wait",
+  "eids": [
+   28,
+   319
+  ],
+  "wired": [
+   319
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_25",
+  "status": "SILENT",
+  "sdt": 27,
+  "desc": "Rain expected to continue - make run ASAP",
+  "eids": [
+   29,
+   320
+  ],
+  "wired": [
+   320
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_308",
+  "status": "WIP",
+  "sdt": 310,
+  "desc": "You are being chased by AI driver",
+  "eids": [
+   289
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_309",
+  "status": "WIP",
+  "sdt": 309,
+  "desc": "AI team uses driver orders",
+  "eids": [
+   288
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_310",
+  "status": "WIP",
+  "sdt": 307,
+  "desc": "Fastest AI is on Slicks",
+  "eids": [
+   286
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_311",
+  "status": "WIP",
+  "sdt": 306,
+  "desc": "Fastest AI is on Inters",
+  "eids": [
+   285
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_312",
+  "status": "WIP",
+  "sdt": 308,
+  "desc": "Fastest AI is on Wets",
+  "eids": [
+   287
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_33",
+  "status": "WIP",
+  "sdt": 39,
+  "desc": "X position or better secures WDC",
+  "eids": [
+   40,
+   331
+  ],
+  "wired": [
+   331
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_68",
+  "status": "WIP",
+  "sdt": 61,
+  "desc": "Front Left tire change successful",
+  "eids": [
+   62,
+   369
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_69",
+  "status": "WIP",
+  "sdt": 63,
+  "desc": "Front Right tire change successful",
+  "eids": [
+   64,
+   357
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_70",
+  "status": "WIP",
+  "sdt": 66,
+  "desc": "Rear Left tire change successful",
+  "eids": [
+   67,
+   338
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_71",
+  "status": "WIP",
+  "sdt": 68,
+  "desc": "Rear Right tire change successful",
+  "eids": [
+   69,
+   349
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_72",
+  "status": "WIP",
+  "sdt": 62,
+  "desc": "Slow Front Left tire change",
+  "eids": [
+   63,
+   358
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_73",
+  "status": "WIP",
+  "sdt": 64,
+  "desc": "Slow Front Right tire change",
+  "eids": [
+   65,
+   359
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_74",
+  "status": "WIP",
+  "sdt": 67,
+  "desc": "Slow Rear Left tire change",
+  "eids": [
+   68,
+   346
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_75",
+  "status": "WIP",
+  "sdt": 69,
+  "desc": "Slow Rear Right tire change",
+  "eids": [
+   70,
+   339
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_76",
+  "status": "WIP",
+  "sdt": 60,
+  "desc": "Wheel gun failure",
+  "eids": [
+   61,
+   372
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_77",
+  "status": "WIP",
+  "sdt": 65,
+  "desc": "Wheel is jammed",
+  "eids": [
+   66,
+   371
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_78",
+  "status": "WIP",
+  "sdt": 56,
+  "desc": "Refuel successful",
+  "eids": [
+   57,
+   362
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_79",
+  "status": "WIP",
+  "sdt": 55,
+  "desc": "Fuel hose issue - slow refuel",
+  "eids": [
+   56,
+   365
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_2001_80",
+  "status": "WIP",
+  "sdt": 53,
+  "desc": "Engine stalled - will get refired",
+  "eids": [
+   54,
+   337
+  ],
+  "wired": [
+   337
+  ],
+  "funcs": [
+   "DisplayMessage0x151_0041c3e0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (DisplayMessage0x151_0041c3e0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_2001_96",
+  "status": "WIP",
+  "sdt": 59,
+  "desc": "Player rejoins track at X position",
+  "eids": [
+   60,
+   370
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIBLUE01",
+  "status": "WIP",
+  "sdt": 274,
+  "desc": "Player approaches AI driver (blue flag)",
+  "eids": [
+   258
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIBLUE02",
+  "status": "WIP",
+  "sdt": 273,
+  "desc": "AI driver under blue flag - be ready",
+  "eids": [
+   257
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIBLUE03",
+  "status": "WIP",
+  "sdt": 275,
+  "desc": "Player passes AI driver",
+  "eids": [
+   259
+  ],
+  "wired": [
+   259
+  ],
+  "funcs": [
+   "AIDriverStateTransition_00419120"
+  ],
+  "certain": true,
+  "reason": "emitter exists (AIDriverStateTransition_00419120); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_AIFASTLAP03",
+  "status": "WIP",
+  "sdt": 280,
+  "desc": "AI sets all-time fastest lap",
+  "eids": [
+   263
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIINCID01",
+  "status": "WIP",
+  "sdt": 248,
+  "desc": "AI stalls on the grid",
+  "eids": [
+   233
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIINCID02",
+  "status": "WIP",
+  "sdt": 242,
+  "desc": "AI went off track sector X",
+  "eids": [],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "no event maps to this clip at all",
+  "grp": "ORPHAN"
+ },
+ {
+  "clip": "PWS_AIINCID03",
+  "status": "WIP",
+  "sdt": 241,
+  "desc": "AI went off track",
+  "eids": [
+   228
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIINCID04",
+  "status": "WIP",
+  "sdt": 246,
+  "desc": "AI spun off sector X",
+  "eids": [
+   232
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIINCID05",
+  "status": "WIP",
+  "sdt": 247,
+  "desc": "AI spun off",
+  "eids": [],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "no event maps to this clip at all",
+  "grp": "ORPHAN"
+ },
+ {
+  "clip": "PWS_AIINCID06",
+  "status": "WIP",
+  "sdt": 240,
+  "desc": "Car off track just ahead",
+  "eids": [
+   227
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIINCID07",
+  "status": "WIP",
+  "sdt": 245,
+  "desc": "Car spun off just ahead",
+  "eids": [
+   231
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIINCID08",
+  "status": "WIP",
+  "sdt": 243,
+  "desc": "Cars all over in sector X",
+  "eids": [
+   229
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AILAPPIN01",
+  "status": "WIP",
+  "sdt": 126,
+  "desc": "AI driver approaches player",
+  "eids": [
+   122,
+   421
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AILAPPIN05",
+  "status": "WIP",
+  "sdt": 125,
+  "desc": "AI driver passes player",
+  "eids": [
+   121
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIMECHPROB0",
+  "status": "WIP",
+  "sdt": 230,
+  "desc": "",
+  "eids": [
+   201,
+   202,
+   212,
+   213,
+   214,
+   215,
+   216,
+   217,
+   447,
+   448,
+   463,
+   464,
+   465,
+   466,
+   467,
+   471
+  ],
+  "wired": [
+   212,
+   213,
+   214,
+   215,
+   216,
+   217,
+   447,
+   448,
+   463,
+   464,
+   465,
+   466,
+   467,
+   471
+  ],
+  "funcs": [
+   "RaceCommentary_0041d630",
+   "sub_41AC50_0041ac50"
+  ],
+  "certain": false,
+  "reason": "emitter exists (RaceCommentary_0041d630, sub_41AC50_0041ac50 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_AIMECHPROB1",
+  "status": "WIP",
+  "sdt": 221,
+  "desc": "",
+  "eids": [
+   203,
+   204,
+   205,
+   206,
+   207,
+   208,
+   449,
+   450,
+   451,
+   452,
+   453
+  ],
+  "wired": [
+   208,
+   449,
+   450,
+   451,
+   452,
+   453
+  ],
+  "funcs": [
+   "RaceCommentary_0041d630",
+   "sub_41AC50_0041ac50"
+  ],
+  "certain": false,
+  "reason": "emitter exists (RaceCommentary_0041d630, sub_41AC50_0041ac50 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_AIOFFTRACK0",
+  "status": "WIP",
+  "sdt": 237,
+  "desc": "AI recovers from spin",
+  "eids": [
+   224
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIPENALTY01",
+  "status": "WIP",
+  "sdt": 272,
+  "desc": "AI penalty (type 1)",
+  "eids": [
+   256
+  ],
+  "wired": [
+   256
+  ],
+  "funcs": [
+   "sub_41A720_0041a720"
+  ],
+  "certain": false,
+  "reason": "emitter exists (sub_41A720_0041a720 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_AIPENALTY02",
+  "status": "WIP",
+  "sdt": 270,
+  "desc": "AI speeding in pits penalty",
+  "eids": [
+   254
+  ],
+  "wired": [
+   254
+  ],
+  "funcs": [
+   "sub_41A720_0041a720"
+  ],
+  "certain": false,
+  "reason": "emitter exists (sub_41A720_0041a720 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_AIPENALTY03",
+  "status": "WIP",
+  "sdt": 271,
+  "desc": "AI overtaking yellow penalty",
+  "eids": [
+   255
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIPENALTY04",
+  "status": "WIP",
+  "sdt": 268,
+  "desc": "AI blocking blue penalty",
+  "eids": [
+   252
+  ],
+  "wired": [
+   252
+  ],
+  "funcs": [
+   "sub_41A720_0041a720"
+  ],
+  "certain": false,
+  "reason": "emitter exists (sub_41A720_0041a720 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_AIPENALTY05",
+  "status": "WIP",
+  "sdt": 258,
+  "desc": "AI cutting track penalty",
+  "eids": [
+   242
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIPENALTY07",
+  "status": "WIP",
+  "sdt": 257,
+  "desc": "AI stop/go penalty",
+  "eids": [
+   241
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIPENALTY08",
+  "status": "WIP",
+  "sdt": 255,
+  "desc": "AI penalty (type 8)",
+  "eids": [
+   239
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIPENALTY13",
+  "status": "WIP",
+  "sdt": 269,
+  "desc": "AI penalty (type 13)",
+  "eids": [
+   253
+  ],
+  "wired": [
+   253
+  ],
+  "funcs": [
+   "sub_41A720_0041a720"
+  ],
+  "certain": false,
+  "reason": "emitter exists (sub_41A720_0041a720 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_AIPENALTY14",
+  "status": "WIP",
+  "sdt": 256,
+  "desc": "AI penalty (type 14)",
+  "eids": [
+   240
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AIPENALTY22",
+  "status": "WIP",
+  "sdt": 259,
+  "desc": "AI penalty (type 22)",
+  "eids": [
+   243
+  ],
+  "wired": [
+   243
+  ],
+  "funcs": [
+   "sub_41A940_0041a940"
+  ],
+  "certain": false,
+  "reason": "emitter exists (sub_41A940_0041a940 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_AIPIT11",
+  "status": "WIP",
+  "sdt": 207,
+  "desc": "AI pits to serve stop-go penalty",
+  "eids": [
+   195,
+   510
+  ],
+  "wired": [
+   510
+  ],
+  "funcs": [
+   "PitRaceStatusMessageDispatcher_0041be60"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitRaceStatusMessageDispatcher_0041be60); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_AIPIT13",
+  "status": "SILENT",
+  "sdt": 202,
+  "desc": "AI rejoins track at X position",
+  "eids": [
+   190
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_AITYRES01",
+  "status": "WIP",
+  "sdt": 232,
+  "desc": "AI light blistering",
+  "eids": [
+   219,
+   473
+  ],
+  "wired": [
+   473
+  ],
+  "funcs": [
+   "RaceCommentary_0041d630"
+  ],
+  "certain": false,
+  "reason": "emitter exists (RaceCommentary_0041d630 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_AITYRES02",
+  "status": "WIP",
+  "sdt": 231,
+  "desc": "AI severe blistering",
+  "eids": [
+   218,
+   472
+  ],
+  "wired": [
+   472
+  ],
+  "funcs": [
+   "RaceCommentary_0041d630"
+  ],
+  "certain": false,
+  "reason": "emitter exists (RaceCommentary_0041d630 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_GREEN01",
+  "status": "WIP",
+  "sdt": 130,
+  "desc": "Green flag conditions",
+  "eids": [
+   126,
+   419
+  ],
+  "wired": [
+   126
+  ],
+  "funcs": [
+   "PitSelectionStateMachine_0041b3c0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitSelectionStateMachine_0041b3c0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_HIT01",
+  "status": "DONE",
+  "sdt": 107,
+  "desc": "Player lost front wing",
+  "eids": [
+   108,
+   398
+  ],
+  "wired": [
+   108
+  ],
+  "funcs": [
+   "sub_41AFD0_0041afd0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (sub_41AFD0_0041afd0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_HIT02",
+  "status": "DONE",
+  "sdt": 110,
+  "desc": "Player lost rear wing",
+  "eids": [
+   111,
+   404
+  ],
+  "wired": [
+   111
+  ],
+  "funcs": [
+   "sub_41AFD0_0041afd0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (sub_41AFD0_0041afd0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_HIT03",
+  "status": "DONE",
+  "sdt": 105,
+  "desc": "Player lost Front Left wheel",
+  "eids": [
+   106,
+   389
+  ],
+  "wired": [
+   106
+  ],
+  "funcs": [
+   "sub_41AFD0_0041afd0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (sub_41AFD0_0041afd0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_HIT04",
+  "status": "DONE",
+  "sdt": 106,
+  "desc": "Player lost Front Right wheel",
+  "eids": [
+   107,
+   373
+  ],
+  "wired": [
+   107
+  ],
+  "funcs": [
+   "sub_41AFD0_0041afd0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (sub_41AFD0_0041afd0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_HIT05",
+  "status": "DONE",
+  "sdt": 108,
+  "desc": "Player lost Rear Left wheel",
+  "eids": [
+   109,
+   402
+  ],
+  "wired": [
+   109
+  ],
+  "funcs": [
+   "sub_41AFD0_0041afd0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (sub_41AFD0_0041afd0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_HIT06",
+  "status": "DONE",
+  "sdt": 109,
+  "desc": "Player lost Rear Right wheel",
+  "eids": [
+   110,
+   403
+  ],
+  "wired": [
+   110
+  ],
+  "funcs": [
+   "sub_41AFD0_0041afd0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (sub_41AFD0_0041afd0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_MECHANWARN0",
+  "status": "WIP",
+  "sdt": 134,
+  "desc": "Meatball flag - must pit",
+  "eids": [
+   130,
+   415
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB06",
+  "status": "WIP",
+  "sdt": 77,
+  "desc": "Front Left puncture",
+  "eids": [
+   78,
+   352
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB07",
+  "status": "WIP",
+  "sdt": 78,
+  "desc": "Front Right puncture",
+  "eids": [
+   79,
+   351
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB08",
+  "status": "WIP",
+  "sdt": 101,
+  "desc": "Rear Left puncture",
+  "eids": [
+   102,
+   390,
+   393
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB09",
+  "status": "WIP",
+  "sdt": 102,
+  "desc": "Rear Right puncture",
+  "eids": [
+   103,
+   387
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB14",
+  "status": "WIP",
+  "sdt": 75,
+  "desc": "Electronics malfunction",
+  "eids": [
+   76,
+   348
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB16",
+  "status": "WIP",
+  "sdt": 74,
+  "desc": "Damaged suspension - avoid kerbs",
+  "eids": [
+   75,
+   345
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB20",
+  "status": "WIP",
+  "sdt": 79,
+  "desc": "Lost 1st gear",
+  "eids": [
+   80,
+   341
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB21",
+  "status": "SILENT",
+  "sdt": 80,
+  "desc": "Lost 2nd gear",
+  "eids": [
+   81,
+   340
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB22",
+  "status": "SILENT",
+  "sdt": 81,
+  "desc": "Lost 3rd gear",
+  "eids": [
+   82,
+   342
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB23",
+  "status": "SILENT",
+  "sdt": 82,
+  "desc": "Lost 4th gear",
+  "eids": [
+   83,
+   353
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB24",
+  "status": "SILENT",
+  "sdt": 83,
+  "desc": "Lost 5th gear",
+  "eids": [
+   84,
+   374
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB25",
+  "status": "SILENT",
+  "sdt": 84,
+  "desc": "Lost 6th gear",
+  "eids": [
+   85,
+   375
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB26",
+  "status": "SILENT",
+  "sdt": 85,
+  "desc": "Lost 7th gear",
+  "eids": [
+   86,
+   376
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB27",
+  "status": "WIP",
+  "sdt": 86,
+  "desc": "Stuck in 1st gear",
+  "eids": [
+   87,
+   377
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB28",
+  "status": "SILENT",
+  "sdt": 87,
+  "desc": "Stuck in 2nd gear",
+  "eids": [
+   88,
+   378
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB29",
+  "status": "SILENT",
+  "sdt": 88,
+  "desc": "Stuck in 3rd gear",
+  "eids": [
+   89,
+   379
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB30",
+  "status": "SILENT",
+  "sdt": 89,
+  "desc": "Stuck in 4th gear",
+  "eids": [
+   90,
+   380
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB31",
+  "status": "SILENT",
+  "sdt": 90,
+  "desc": "Stuck in 5th gear",
+  "eids": [
+   91,
+   381
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB32",
+  "status": "SILENT",
+  "sdt": 91,
+  "desc": "Stuck in 6th gear",
+  "eids": [
+   92,
+   382
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MECHPROB33",
+  "status": "SILENT",
+  "sdt": 92,
+  "desc": "Stuck in 7th gear",
+  "eids": [
+   93,
+   383
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MISC03",
+  "status": "WIP",
+  "sdt": 156,
+  "desc": "Player speeding pits - investigation",
+  "eids": [
+   147,
+   502
+  ],
+  "wired": [
+   502
+  ],
+  "funcs": [
+   "SeasonDisplayIDResolver_0041daf0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (SeasonDisplayIDResolver_0041daf0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_MISC04",
+  "status": "WIP",
+  "sdt": 155,
+  "desc": "Player overtaking yellow - investigation",
+  "eids": [
+   146,
+   503
+  ],
+  "wired": [
+   503
+  ],
+  "funcs": [
+   "SeasonDisplayIDResolver_0041daf0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (SeasonDisplayIDResolver_0041daf0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_MISC05",
+  "status": "WIP",
+  "sdt": 152,
+  "desc": "Player blocking blue - investigation",
+  "eids": [
+   143,
+   494
+  ],
+  "wired": [
+   494
+  ],
+  "funcs": [
+   "SeasonDisplayIDResolver_0041daf0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (SeasonDisplayIDResolver_0041daf0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_MISC06",
+  "status": "WIP",
+  "sdt": 262,
+  "desc": "AI false start - investigation",
+  "eids": [
+   246
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MISC07",
+  "status": "WIP",
+  "sdt": 264,
+  "desc": "AI speeding pits - investigation",
+  "eids": [
+   248
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MISC08",
+  "status": "WIP",
+  "sdt": 263,
+  "desc": "AI overtaking yellow - investigation",
+  "eids": [
+   247
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MISC09",
+  "status": "WIP",
+  "sdt": 260,
+  "desc": "AI blocking blue - investigation",
+  "eids": [
+   244
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MISC18",
+  "status": "WIP",
+  "sdt": 46,
+  "desc": "Stop next lap",
+  "eids": [
+   47
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MISC25",
+  "status": "WIP",
+  "sdt": 286,
+  "desc": "AI increases pace",
+  "eids": [
+   269
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MISC26",
+  "status": "WIP",
+  "sdt": 285,
+  "desc": "AI reduces pace (1)",
+  "eids": [
+   268
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MISC27",
+  "status": "WIP",
+  "sdt": 284,
+  "desc": "AI maintains position (1)",
+  "eids": [
+   267
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MISC28",
+  "status": "WIP",
+  "sdt": 283,
+  "desc": "AI maintains position (2)",
+  "eids": [
+   266
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MISC29",
+  "status": "WIP",
+  "sdt": 282,
+  "desc": "AI reduces pace (2)",
+  "eids": [
+   265
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MISC30",
+  "status": "WIP",
+  "sdt": 195,
+  "desc": "AI has pit stop issue",
+  "eids": [
+   183
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MISC46",
+  "status": "WIP",
+  "sdt": 209,
+  "desc": "AI driver laps another AI",
+  "eids": [
+   197,
+   507
+  ],
+  "wired": [
+   507
+  ],
+  "funcs": [
+   "PitRaceStatusMessageDispatcher_0041be60"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitRaceStatusMessageDispatcher_0041be60); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_MISC47",
+  "status": "WIP",
+  "sdt": 153,
+  "desc": "Player cutting track - investigation",
+  "eids": [
+   144,
+   499
+  ],
+  "wired": [
+   499
+  ],
+  "funcs": [
+   "SeasonDisplayIDResolver_0041daf0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (SeasonDisplayIDResolver_0041daf0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_MISC48",
+  "status": "WIP",
+  "sdt": 261,
+  "desc": "AI cutting track - investigation",
+  "eids": [
+   245
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_MISC54",
+  "status": "WIP",
+  "sdt": 45,
+  "desc": "Box! Pit now",
+  "eids": [
+   46
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_OD_HOLDING",
+  "status": "WIP",
+  "sdt": 244,
+  "desc": "AI driver holds up another AI",
+  "eids": [
+   230
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_OFFROAD02",
+  "status": "WIP",
+  "sdt": 117,
+  "desc": "Player went off track (2)",
+  "eids": [],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "no event maps to this clip at all",
+  "grp": "ORPHAN"
+ },
+ {
+  "clip": "PWS_OIL01",
+  "status": "WIP",
+  "sdt": 131,
+  "desc": "Oil on track Sector 1",
+  "eids": [
+   127,
+   420
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_OIL02",
+  "status": "WIP",
+  "sdt": 132,
+  "desc": "Oil on track Sector 2",
+  "eids": [
+   128,
+   417
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_OIL03",
+  "status": "WIP",
+  "sdt": 133,
+  "desc": "Oil on track Sector 3",
+  "eids": [
+   129,
+   418
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_OVERTAKE02",
+  "status": "WIP",
+  "sdt": 123,
+  "desc": "Player overtakes AI (2)",
+  "eids": [],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "no event maps to this clip at all",
+  "grp": "ORPHAN"
+ },
+ {
+  "clip": "PWS_OVERTAKE03",
+  "status": "WIP",
+  "sdt": 124,
+  "desc": "Player overtakes AI (3)",
+  "eids": [],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "no event maps to this clip at all",
+  "grp": "ORPHAN"
+ },
+ {
+  "clip": "PWS_PENALTY03",
+  "status": "WIP",
+  "sdt": 165,
+  "desc": "Overtaking yellow penalty",
+  "eids": [
+   156,
+   496
+  ],
+  "wired": [
+   496
+  ],
+  "funcs": [
+   "GdbSeasonSelector_00420cf0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (GdbSeasonSelector_00420cf0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_PENALTY04",
+  "status": "WIP",
+  "sdt": 163,
+  "desc": "Blocking blue penalty",
+  "eids": [
+   154,
+   497
+  ],
+  "wired": [
+   154
+  ],
+  "funcs": [
+   "sub_41A720_0041a720"
+  ],
+  "certain": false,
+  "reason": "emitter exists (sub_41A720_0041a720 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_PENALTY07",
+  "status": "WIP",
+  "sdt": 150,
+  "desc": "Stop/go penalty",
+  "eids": [
+   141,
+   490
+  ],
+  "wired": [
+   490
+  ],
+  "funcs": [
+   "SeasonDisplayIDResolver_0041daf0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (SeasonDisplayIDResolver_0041daf0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_PENALTY08",
+  "status": "WIP",
+  "sdt": 148,
+  "desc": "Penalty (type 8)",
+  "eids": [
+   139
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_PIT01",
+  "status": "WIP",
+  "sdt": 48,
+  "desc": "Pit on this lap",
+  "eids": [
+   49,
+   363
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_PIT03",
+  "status": "WIP",
+  "sdt": 49,
+  "desc": "Watch for pit lane entrance",
+  "eids": [
+   50,
+   367
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_PIT06",
+  "status": "WIP",
+  "sdt": 50,
+  "desc": "Limiter On",
+  "eids": [
+   51,
+   356
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_PIT08",
+  "status": "WIP",
+  "sdt": 52,
+  "desc": "Brake (pit procedure)",
+  "eids": [
+   53,
+   361
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_PIT09",
+  "status": "WIP",
+  "sdt": 43,
+  "desc": "Gear (pit procedure)",
+  "eids": [
+   44,
+   335
+  ],
+  "wired": [
+   335
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_PIT10",
+  "status": "WIP",
+  "sdt": 44,
+  "desc": "Go (pit procedure)",
+  "eids": [
+   45,
+   336
+  ],
+  "wired": [
+   336
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_PIT12",
+  "status": "WIP",
+  "sdt": 42,
+  "desc": "Limiter Off - clear of pit lane",
+  "eids": [
+   43,
+   334
+  ],
+  "wired": [
+   334
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_PIT13",
+  "status": "WIP",
+  "sdt": 47,
+  "desc": "Stop-go penalty countdown",
+  "eids": [
+   48,
+   355
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_QUAL28",
+  "status": "SILENT",
+  "sdt": 10,
+  "desc": "Very few drivers on track",
+  "eids": [
+   12,
+   303
+  ],
+  "wired": [
+   303
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_QUAL29",
+  "status": "SILENT",
+  "sdt": 9,
+  "desc": "Some drivers on track",
+  "eids": [
+   11,
+   302
+  ],
+  "wired": [
+   302
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_QUAL30",
+  "status": "SILENT",
+  "sdt": 13,
+  "desc": "Most drivers on track",
+  "eids": [
+   15,
+   306
+  ],
+  "wired": [
+   306
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_QUAL32",
+  "status": "SILENT",
+  "sdt": 0,
+  "desc": "Team front row lockout",
+  "eids": [
+   293,
+   397,
+   426
+  ],
+  "wired": [
+   293,
+   397
+  ],
+  "funcs": [
+   "PitExit_0041c0f0",
+   "PositionChangeDetector_00420490",
+   "RaceCommentary_0041d630",
+   "SeasonDisplayIDResolver_0041daf0",
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitExit_0041c0f0, PositionChangeDetector_00420490); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_RACEFAST03",
+  "status": "WIP",
+  "sdt": 70,
+  "desc": "Player sets all-time lap record",
+  "eids": [
+   71,
+   343
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_RED01",
+  "status": "DONE",
+  "sdt": 135,
+  "desc": "Red flag - session stopped",
+  "eids": [
+   131,
+   416
+  ],
+  "wired": [
+   131
+  ],
+  "funcs": [
+   "PitSelectionStateMachine_0041b3c0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitSelectionStateMachine_0041b3c0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_RETIRE01",
+  "status": "WIP",
+  "sdt": 120,
+  "desc": "Player engine stall",
+  "eids": [
+   118,
+   411
+  ],
+  "wired": [
+   118
+  ],
+  "funcs": [
+   "sub_41B250_0041b250"
+  ],
+  "certain": true,
+  "reason": "emitter exists (sub_41B250_0041b250); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_RETIRE02",
+  "status": "DONE",
+  "sdt": 118,
+  "desc": "Player retired (generic 1)",
+  "eids": [
+   117,
+   410
+  ],
+  "wired": [
+   117
+  ],
+  "funcs": [
+   "sub_41B250_0041b250"
+  ],
+  "certain": true,
+  "reason": "emitter exists (sub_41B250_0041b250); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_RETIRE03",
+  "status": "WIP",
+  "sdt": 119,
+  "desc": "Player retired (generic 2)",
+  "eids": [],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "no event maps to this clip at all",
+  "grp": "ORPHAN"
+ },
+ {
+  "clip": "PWS_RETIRE04",
+  "status": "WIP",
+  "sdt": 121,
+  "desc": "Player blown engine",
+  "eids": [
+   119,
+   412
+  ],
+  "wired": [
+   119
+  ],
+  "funcs": [
+   "sub_41B250_0041b250"
+  ],
+  "certain": true,
+  "reason": "emitter exists (sub_41B250_0041b250); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_SCAR01",
+  "status": "SILENT",
+  "sdt": 138,
+  "desc": "Safety car deployed - exiting pits",
+  "eids": [
+   423
+  ],
+  "wired": [
+   423
+  ],
+  "funcs": [
+   "ConstructorStandingsParser_00420820"
+  ],
+  "certain": true,
+  "reason": "emitter exists (ConstructorStandingsParser_00420820); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_SCAR02",
+  "status": "SILENT",
+  "sdt": 139,
+  "desc": "Safety car on track",
+  "eids": [
+   425
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_SCAR03",
+  "status": "SILENT",
+  "sdt": 140,
+  "desc": "Safety car ending - green this lap",
+  "eids": [
+   424
+  ],
+  "wired": [
+   424
+  ],
+  "funcs": [
+   "ConstructorStandingsParser_00420820"
+  ],
+  "certain": true,
+  "reason": "emitter exists (ConstructorStandingsParser_00420820); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_SCAR04",
+  "status": "SILENT",
+  "sdt": 141,
+  "desc": "Safety car in pit lane (1)",
+  "eids": [],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "no event maps to this clip at all",
+  "grp": "ORPHAN"
+ },
+ {
+  "clip": "PWS_SCAR05",
+  "status": "WIP",
+  "sdt": 137,
+  "desc": "Safety car in pit lane (2)",
+  "eids": [
+   428
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_SLOWCAR01",
+  "status": "WIP",
+  "sdt": 136,
+  "desc": "Slow car ahead",
+  "eids": [
+   132,
+   427
+  ],
+  "wired": [
+   427
+  ],
+  "funcs": [
+   "ScoringClassificationDisplay_0041e320"
+  ],
+  "certain": true,
+  "reason": "emitter exists (ScoringClassificationDisplay_0041e320); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_TEAMPIT01",
+  "status": "WIP",
+  "sdt": 57,
+  "desc": "Teammate pits this lap - stay out",
+  "eids": [
+   58,
+   366
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_TEAMPIT02",
+  "status": "WIP",
+  "sdt": 58,
+  "desc": "Player can now pit",
+  "eids": [
+   59,
+   368
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "PWS_YELLOW04",
+  "status": "WIP",
+  "sdt": 142,
+  "desc": "Sector 1 cleared",
+  "eids": [
+   133
+  ],
+  "wired": [
+   133
+  ],
+  "funcs": [
+   "PitSelectionStateMachine_0041b3c0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitSelectionStateMachine_0041b3c0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_YELLOW05",
+  "status": "WIP",
+  "sdt": 144,
+  "desc": "Sector 2 cleared",
+  "eids": [
+   135
+  ],
+  "wired": [
+   135
+  ],
+  "funcs": [
+   "PitSelectionStateMachine_0041b3c0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitSelectionStateMachine_0041b3c0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "PWS_YELLOW06",
+  "status": "WIP",
+  "sdt": 146,
+  "desc": "Sector 3 cleared",
+  "eids": [
+   137
+  ],
+  "wired": [
+   137
+  ],
+  "funcs": [
+   "PitSelectionStateMachine_0041b3c0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitSelectionStateMachine_0041b3c0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_OD_25_DD",
+  "status": "WIP",
+  "sdt": 265,
+  "desc": "Other driver 25 sec penalty - dangerous driving",
+  "eids": [
+   249
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "RE_OD_EXIT_RED",
+  "status": "WIP",
+  "sdt": 35,
+  "desc": "Other driver under investigation - exiting red",
+  "eids": [
+   36,
+   327
+  ],
+  "wired": [
+   327
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_OD_FASTEST_M",
+  "status": "WIP",
+  "sdt": 311,
+  "desc": "Other driver fastest - on Monsoon tires",
+  "eids": [
+   290
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "RE_OD_INTER",
+  "status": "WIP",
+  "sdt": 203,
+  "desc": "Other driver leaves pits on Inters",
+  "eids": [
+   191
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "RE_OD_INV_DD",
+  "status": "WIP",
+  "sdt": 266,
+  "desc": "Other driver under investigation - dangerous driving",
+  "eids": [
+   250
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "RE_OD_LAP_DISAL",
+  "status": "WIP",
+  "sdt": 36,
+  "desc": "Other driver lap disallowed - exited under red",
+  "eids": [
+   37,
+   328
+  ],
+  "wired": [
+   328
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_OD_LOST_7",
+  "status": "WIP",
+  "sdt": 222,
+  "desc": "Other driver lost 7th gear",
+  "eids": [
+   209,
+   457
+  ],
+  "wired": [
+   457
+  ],
+  "funcs": [
+   "RaceCommentary_0041d630"
+  ],
+  "certain": false,
+  "reason": "emitter exists (RaceCommentary_0041d630 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_OD_MONSOON",
+  "status": "WIP",
+  "sdt": 204,
+  "desc": "Other driver leaves pits on Monsoons",
+  "eids": [
+   192,
+   511
+  ],
+  "wired": [
+   511
+  ],
+  "funcs": [
+   "PitRaceStatusMessageDispatcher_0041be60"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitRaceStatusMessageDispatcher_0041be60); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_OD_PUNCTURE",
+  "status": "WIP",
+  "sdt": 223,
+  "desc": "Other driver has a puncture",
+  "eids": [
+   210,
+   458
+  ],
+  "wired": [
+   458
+  ],
+  "funcs": [
+   "RaceCommentary_0041d630"
+  ],
+  "certain": false,
+  "reason": "emitter exists (RaceCommentary_0041d630 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_OD_SG_DD",
+  "status": "WIP",
+  "sdt": 267,
+  "desc": "Other driver stop/go - dangerous driving",
+  "eids": [
+   251
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "RE_OD_SLICKS",
+  "status": "WIP",
+  "sdt": 205,
+  "desc": "Other driver leaves pits on Slicks",
+  "eids": [
+   193,
+   508
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "RE_OD_STUCK_7",
+  "status": "WIP",
+  "sdt": 224,
+  "desc": "Other driver stuck in 7th gear",
+  "eids": [
+   211,
+   462
+  ],
+  "wired": [
+   211,
+   462
+  ],
+  "funcs": [
+   "RaceCommentary_0041d630",
+   "sub_41AC50_0041ac50"
+  ],
+  "certain": false,
+  "reason": "emitter exists (RaceCommentary_0041d630, sub_41AC50_0041ac50 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_OD_WET",
+  "status": "WIP",
+  "sdt": 206,
+  "desc": "Other driver leaves pits on Wets",
+  "eids": [
+   194,
+   509
+  ],
+  "wired": [
+   509
+  ],
+  "funcs": [
+   "PitRaceStatusMessageDispatcher_0041be60"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitRaceStatusMessageDispatcher_0041be60); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_PD_25_DD",
+  "status": "WIP",
+  "sdt": 157,
+  "desc": "25 sec penalty - dangerous driving",
+  "eids": [
+   148,
+   478
+  ],
+  "wired": [
+   478
+  ],
+  "funcs": [
+   "SeasonDisplayIDResolver_0041daf0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (SeasonDisplayIDResolver_0041daf0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_PD_DQ",
+  "status": "DONE",
+  "sdt": 158,
+  "desc": "Disqualified - failed to serve stop/go",
+  "eids": [
+   149,
+   479
+  ],
+  "wired": [
+   149,
+   479
+  ],
+  "funcs": [
+   "SeasonDisplayIDResolver_0041daf0",
+   "sub_41A940_0041a940"
+  ],
+  "certain": true,
+  "reason": "emitter exists (SeasonDisplayIDResolver_0041daf0, sub_41A940_0041a940); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_PD_EXIT_RED",
+  "status": "SILENT",
+  "sdt": 37,
+  "desc": "Under investigation - exiting under red",
+  "eids": [
+   38,
+   329
+  ],
+  "wired": [
+   329
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_PD_FL_BLIST",
+  "status": "WIP",
+  "sdt": 94,
+  "desc": "Front Left light blistering",
+  "eids": [
+   95,
+   385
+  ],
+  "wired": [
+   95
+  ],
+  "funcs": [
+   "AISessionPhaseCounter_0041aa10"
+  ],
+  "certain": true,
+  "reason": "emitter exists (AISessionPhaseCounter_0041aa10); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_PD_FR_BAD_BL",
+  "status": "SILENT",
+  "sdt": 95,
+  "desc": "Front Right severe blistering",
+  "eids": [
+   96,
+   386
+  ],
+  "wired": [
+   96
+  ],
+  "funcs": [
+   "PitStateSlotActivation_0041ab30"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitStateSlotActivation_0041ab30); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_PD_FR_BLIST",
+  "status": "SILENT",
+  "sdt": 96,
+  "desc": "Front Right light blistering",
+  "eids": [
+   97,
+   392
+  ],
+  "wired": [
+   97
+  ],
+  "funcs": [
+   "AISessionPhaseCounter_0041aa10"
+  ],
+  "certain": true,
+  "reason": "emitter exists (AISessionPhaseCounter_0041aa10); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_PD_INV_DD",
+  "status": "WIP",
+  "sdt": 159,
+  "desc": "Under investigation - dangerous driving",
+  "eids": [
+   150,
+   480
+  ],
+  "wired": [
+   480
+  ],
+  "funcs": [
+   "SeasonDisplayIDResolver_0041daf0"
+  ],
+  "certain": true,
+  "reason": "emitter exists (SeasonDisplayIDResolver_0041daf0); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_PD_LAP_DISAL",
+  "status": "SILENT",
+  "sdt": 38,
+  "desc": "Fastest lap disallowed - exited under red",
+  "eids": [
+   39,
+   330
+  ],
+  "wired": [
+   330
+  ],
+  "funcs": [
+   "TeamNameDisplayIDLookup_0041b980"
+  ],
+  "certain": false,
+  "reason": "emitter exists (TeamNameDisplayIDLookup_0041b980 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_PD_RL_BAD_BL",
+  "status": "SILENT",
+  "sdt": 97,
+  "desc": "Rear Left severe blistering",
+  "eids": [
+   98,
+   391
+  ],
+  "wired": [
+   98
+  ],
+  "funcs": [
+   "PitStateSlotActivation_0041ab30"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitStateSlotActivation_0041ab30); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_PD_RL_BLIST",
+  "status": "SILENT",
+  "sdt": 98,
+  "desc": "Rear Left light blistering",
+  "eids": [
+   99,
+   394
+  ],
+  "wired": [
+   99
+  ],
+  "funcs": [
+   "AISessionPhaseCounter_0041aa10"
+  ],
+  "certain": true,
+  "reason": "emitter exists (AISessionPhaseCounter_0041aa10); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_PD_RR_BAD_BL",
+  "status": "SILENT",
+  "sdt": 99,
+  "desc": "Rear Right severe blistering",
+  "eids": [
+   100,
+   395
+  ],
+  "wired": [
+   100
+  ],
+  "funcs": [
+   "PitStateSlotActivation_0041ab30"
+  ],
+  "certain": true,
+  "reason": "emitter exists (PitStateSlotActivation_0041ab30); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_PD_RR_BLIST",
+  "status": "SILENT",
+  "sdt": 100,
+  "desc": "Rear Right light blistering",
+  "eids": [
+   101,
+   396
+  ],
+  "wired": [
+   101
+  ],
+  "funcs": [
+   "AISessionPhaseCounter_0041aa10"
+  ],
+  "certain": true,
+  "reason": "emitter exists (AISessionPhaseCounter_0041aa10); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_PD_SG_DD",
+  "status": "WIP",
+  "sdt": 161,
+  "desc": "Stop/Go penalty - dangerous driving",
+  "eids": [
+   152,
+   501
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "RE_PD_SG_SPEED",
+  "status": "WIP",
+  "sdt": 162,
+  "desc": "Stop/Go penalty - speeding in pits",
+  "eids": [
+   153,
+   505
+  ],
+  "wired": [
+   153
+  ],
+  "funcs": [
+   "sub_41A720_0041a720"
+  ],
+  "certain": false,
+  "reason": "emitter exists (sub_41A720_0041a720 [candidate]); not reached in play",
+  "grp": "WIRED"
+ },
+ {
+  "clip": "RE_PD_STALLED",
+  "status": "WIP",
+  "sdt": 111,
+  "desc": "Engine stalled - T-car prepared",
+  "eids": [
+   112,
+   405
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "RE_PD_STALLED_T",
+  "status": "WIP",
+  "sdt": 112,
+  "desc": "T-car also stalled - session over",
+  "eids": [
+   113,
+   406
+  ],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "eid exists but NO function in the exe emits it",
+  "grp": "NO_EMITTER"
+ },
+ {
+  "clip": "RE_PORSCHE_03",
+  "status": "SILENT",
+  "sdt": 315,
+  "desc": "Porsche Cup line 03",
+  "eids": [],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "no event maps to this clip at all",
+  "grp": "ORPHAN"
+ },
+ {
+  "clip": "RE_PORSCHE_23",
+  "status": "SILENT",
+  "sdt": 312,
+  "desc": "Porsche Cup line 23",
+  "eids": [],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "no event maps to this clip at all",
+  "grp": "ORPHAN"
+ },
+ {
+  "clip": "RE_PORSCHE_24",
+  "status": "SILENT",
+  "sdt": 313,
+  "desc": "Porsche Cup line 24",
+  "eids": [],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "no event maps to this clip at all",
+  "grp": "ORPHAN"
+ },
+ {
+  "clip": "RE_PORSCHE_25",
+  "status": "SILENT",
+  "sdt": 314,
+  "desc": "Porsche Cup line 25",
+  "eids": [],
+  "wired": [],
+  "funcs": [],
+  "certain": false,
+  "reason": "no event maps to this clip at all",
+  "grp": "ORPHAN"
+ }
+]

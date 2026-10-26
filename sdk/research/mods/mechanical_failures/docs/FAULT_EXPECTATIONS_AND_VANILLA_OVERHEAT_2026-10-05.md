@@ -1,0 +1,43 @@
+# Fault expectations and vanilla overheat, 2026-10-05
+
+Product: mechanical_failures (other-dll-mods portfolio, investigate). Task: answer expected symptom/warning timing, lamp clearance, realism and vanilla overheat trigger. Read-only investigation of current repaired source CD4C3FC3; previous dev/installed DLL remains 73F30551, candidate not installed. No runtime/game/audio/code change. Documentation destination: this report, indexed in component README and owner fault reference.
+
+## What is established
+
+FACT (raw decompiler, prior reviewed SDK finding dash-overheat-icon-trigger-2026-09-30): sub_49B9A0 at 0x49B9A0 checks the currently viewed car matches the player, displayed OIL global 0x7C9174 strictly exceeds threshold 0x7C9204, and EngineWearMode != 0. It does NOT test water. On the false-to-true edge it calls sub_41B190 (0x41B190), which enqueues eid 77 subject to its active-session/driver guards. Queue playback is separate from this request. Latch resets when predicate becomes false. HUD icon additionally depends on native renderer/display state; this is not proof every cockpit supplies the same lamp artwork.
+
+FACT (sub_43C250 raw line 580): threshold this+7644 = 3 / inverse-range + base at this+7628 = LifetimeOilTemp.base + 3 * LifetimeOilTemp.range. Reviewed F2002 live/config match gives (122.51,2.88) C, threshold 131.15 C (about 131.2). The prior 1996/Indy owner session reports threshold 135.4 C and eid 77 during water-leak dry-engine oil heating. Neither is a universal 130/135 C setting.
+
+FACT (current source engine_failure.c lamp_eng_hook / lamp_pump): mod lamp returns native-result OR held-mod-engine-warning, with nonzero failure mode and player-view guards. The native function runs first; OR-ing the mod flag does not itself call the vanilla eid-77 emitter. A lit thermometer icon can therefore mean valve/oil-pressure/exhaust/blowby/coolant/radiator warnings, not necessarily native overheating. Fuel pressure/leak use fuel lamp. Healthy restored conditions remove the mod contribution; reminder text blinking does not blink the lamp. Engine-dead latch persists until repair/stint reset; another active mod warning or native predicate can keep the physical light on. Paused worker retains previous flags. Engine lamp requires nonzero failures mode. Native low-fuel predicate remains independent too.
+
+Current model thresholds (harness only): WATER TEMP at water >= max(learned normal+12 C,90 C), held 1-3 s; COOL THE ENGINE at >= max(normal+18 C,95 C), HUD held 8-14 s after eligible WATER TEMP. Hot escaping steam: > normal+10 C AND >=88 C; low/dry coolant is separate. OIL TEMP requires > optimum+5 C AND > learned oil normal+8 C. With illustrative learned water 96 C, oil 112 C and optimum 108.6 C: water warning 108 C, cooling instruction 114 C, oil warning above 120 C. Native oil overheating for the recorded 1996 car is 135.4 C. These are different protections, not contradictory universal thresholds.
+
+Manual buttons arm medium faults with a virtual 300 s development budget; driving stress and native life-clock drain matter. That is neither 300 s of silence nor a guaranteed death countdown. Physics symptoms begin as fault states affect output; the visible notice waits its symptom threshold and hold. Paired radio waits 30-60 s from diagnosis request, not confirmed playback. Normal radio gap 15 s/death 5 s, pending advice cancels after resolution and non-death calls purge at terminal.
+
+## Focused timing evidence (not native gameplay)
+
+Compiled a TEMP copy of engine_model_test.c with its original main made static unused and a new main calling only test_l2_fault_warning_table. No calibration/source/test assertions changed. GCC32 -O2 -Wall -Wextra -Werror, -I dll, -lm. Only this timing subset ran:13 checks,0 failures. Output in TEMP/mf_expectations_qf3bbimq/timing.txt. Synthetic car A, race profile, seed 7501, medium/manual 300 s, warm 300 s or cold pit-out, water forced 77 C throughout. Oil handled by simulator. Numbers below are seconds since arm, model-condition eligibility BEFORE runtime HUD hold/radio delays. Harness end is a fault-specific test endpoint, not necessarily death (debris=end clearance, exhaust=end crack/rear-break).
+
+| Fault | Cold / warm first condition | Cold / warm test endpoint | Driver interpretation |
+|---|---|---|---|
+| Valve air |119 /133 s|180 /180 s|Pressure<70%, then LOSING REVS +1-3 s; lowered high-rpm ceiling/float may be felt earlier.|
+| Oil pressure |15 /18 s|181 /183 s|Gauge OR film predicate, then OIL PRESSURE +1-3 s; old ~1 min gauge-only claim was stale.|
+| Oil leak |16 /18 s|191 /254 s|Film warning here, even while gauge 1.0; smoke/leak detection has independent earlier/later conditions.|
+| Water leak |193 /283 s|250 /364 s|Here water pinned 77 C, so first flag is low coolant, not temperature. Actual heating depends on car; prior 1996/Indy live leak-to-death about 4.5 min.|
+| Radiator debris |0 /0 s|106 /160 s|Model blockage/pit-debris eligible at arm; NOT immediate HUD diagnosis. Actual WATER TEMP must cross threshold, RADBLOCK hold 8-15 s, RAD 01 another 3 s. Endpoint is clearance.|
+| Fuel pressure |55 /85 s|433 /628 s|Delivery<90%, then FUEL PRESSURE +1.5-3 s.|
+| Fuel leak |219 /221 s|2229 /1929 s|0.1 L accumulated, then FUEL LEAK +20-40 s (~4 min total here). Empty fuel can stop natively earlier; no guaranteed fire warning.|
+| Blowby |11 /26 s|183 /180 s|k>0.3, then ENGINE PROBLEM +45-90 s (~56-116 s here). Power/smoke can precede diagnosis.|
+| Exhaust |0 /0 s|202 /214 s|Pop probability exists, not an actual pop at t 0. Runtime 5-20 s build/overrun/pop conditions; HUD first pop+3-8 s, EXH 01 third pop+5-20 s. Endpoint not necessarily engine death.|
+
+Overrev has no such slow timer: HUD >104% current limit after lowered-limit grace; abrupt failure above car torque-zero for >0.3 s (fallback if unavailable). An extreme downshift need not give useful advance warning. Impact is an immediate probabilistic arm: below 2000 no probe;2000+ chance grows with impulse. Neither belongs to the fixed slow-fault table.
+
+## Realism and pending acceptance
+
+DERIVED: the code uses per-car learned normals, optimum/lifetime data and causal symptoms, but source rules and synthetic timings are NOT real-world calibration. No physical race-engine telemetry or accepted every-car gameplay matrix supports "all values realistic". Open: valve diagnosis arrives only about 47-61 s before this synthetic endpoint; fuel-leak warning is slow; oil film now permits very early OIL PRESSURE even at gauge 1.0; unknown/partial-normal onset fallback can delay a genuinely hot low-normal car's warning. These need owner presentation/feel acceptance. Safety fixes did not retune fault severity/damage coefficients. Do not treat model life budget as guaranteed reaction time.
+
+Corrections made during this task: reference oil-pressure ~1 min claim replaced with actual current film/gauge condition evidence; EXHAUST HUD first-pop+3-8 s distinguished from EXH 01 third-pop+5-20 s (previous docs incorrectly joined them). Historical records kept intact. Before-state copies + restoration mapping: workspace_organization_audit/FAULT_EXPECTATIONS_BEFORE_2026-10-05/MANIFEST.md. No stage transition, binary build/install, game launch or live memory read. SDK findings appended for new source-derived separation/correction and realism open result; prior native trigger finding reused.
+
+Verification: focused timing 13/0; readback UTF-8 without BOM; before copies byte-equal; docs indexed through README; findings JSONL parse checked. Workspace validator unchanged .claude unexpected top-level (1 error/0 warnings). Pending: review candidate, install exact reviewed hash with game closed, owner native faults/lamps/voice/car-specific calibration. Wasted effort: initial large combined reads truncated; validator first invoked from SDK cwd and corrected; searching EngineOverheating had no matches; renaming included test main external changed compiler reachability and produced unused-path maybe-uninitialized diagnostics, fixed by static unused TEMP main without suppressing warnings; no broad regression/build rerun or polling. Automatic spacing initially split identifiers and was corrected by readback; JSONL validation initially treated preserved comment header as data, then correctly skipped // lines.
+
+Superseded 2026-10-06 (HANDOFF 7.14): WATER TEMP now >= 100 C, COOL THE ENGINE >= 110 C (plus the car-relative margins during a cooling fault), also shown with no fault; steam >= 100 C; automatic onsets wait for a warm engine (HANDOFF 7.13). The illustrative numbers above are historical.

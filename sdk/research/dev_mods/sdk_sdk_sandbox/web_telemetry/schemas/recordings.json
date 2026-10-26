@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/recordings.json",
+  "title": "Recordings manager (GET /recordings, f1c.recordings/1, api_version 10)",
+  "description": "Snapshot of the recordings folder on the game PC, published by the storage writer with each index write (at most 5 s old). Relative names only: no absolute path (M11). loaded is the selection made by POST /recordings/load (null when none); loading changes no file.",
+  "type": "object",
+  "required": ["schema", "enabled", "total_bytes", "warn_bytes", "over_warn", "notice", "warning", "recording", "recordings", "ring_drops", "loaded"],
+  "properties": {
+    "schema": { "const": "f1c.recordings/1" },
+    "enabled": { "type": "boolean" },
+    "total_bytes": { "type": "number", "minimum": 0, "description": "bytes on disk of every file under recordings\\ (sum of all recordings)" },
+    "warn_bytes": { "const": 1073741824, "description": "1 GiB warning level; warning only, nothing is deleted automatically" },
+    "over_warn": { "type": "boolean" },
+    "notice": { "type": "string" },
+    "warning": { "type": ["string", "null"] },
+    "recording": {
+      "anyOf": [ { "type": "null" }, { "$ref": "#/$defs/open" } ]
+    },
+    "recordings": { "type": "array", "items": { "$ref": "#/$defs/recording" } },
+    "ring_drops": { "type": "integer", "minimum": 0 },
+    "loaded": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "open": {
+      "type": "object",
+      "required": ["session", "folder", "state", "ticks", "bytes"],
+      "properties": {
+        "session": { "type": "string" },
+        "folder": { "type": "string" },
+        "state": { "const": "open" },
+        "ticks": { "type": "integer", "minimum": 0 },
+        "bytes": { "type": "number", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "file": {
+      "type": "object",
+      "required": ["name", "format", "bytes"],
+      "properties": {
+        "name": { "type": "string" },
+        "format": { "enum": ["working", "archived", "open"] },
+        "bytes": { "type": "number", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "session": {
+      "type": "object",
+      "required": ["id", "state", "archived", "bytes", "ticks", "files"],
+      "properties": {
+        "id": { "type": "string" },
+        "state": { "enum": ["open", "recovered", "closed", "archived"] },
+        "review_id": { "type": "string", "pattern": "^v2_[0-9a-f]{16}$", "description": "API 10: opaque id for GET /recordings/review; closed and recovered sessions only" },
+        "archived": { "type": "boolean" },
+        "bytes": { "type": "number", "minimum": 0 },
+        "ticks": { "type": "integer", "minimum": 0 },
+        "files": { "type": "array", "items": { "$ref": "#/$defs/file" } }
+      },
+      "additionalProperties": false
+    },
+    "loose": {
+      "type": "object",
+      "required": ["file", "bytes", "format"],
+      "properties": {
+        "file": { "type": "string" },
+        "bytes": { "type": "number", "minimum": 0 },
+        "format": { "enum": ["damaged", "archive_interrupted"] }
+      },
+      "additionalProperties": false
+    },
+    "recording": {
+      "type": "object",
+      "required": ["id", "weekend", "bytes", "sessions_count", "archived_count", "sessions", "damaged", "partial"],
+      "properties": {
+        "id": { "type": "string", "description": "recording folder name" },
+        "weekend": { "type": "string" },
+        "bytes": { "type": "number", "minimum": 0 },
+        "sessions_count": { "type": "integer", "minimum": 0 },
+        "archived_count": { "type": "integer", "minimum": 0 },
+        "sessions": { "type": "array", "items": { "$ref": "#/$defs/session" } },
+        "damaged": { "type": "array", "items": { "$ref": "#/$defs/loose" } },
+        "partial": { "type": "array", "items": { "$ref": "#/$defs/loose" } }
+      },
+      "additionalProperties": false
+    }
+  }
+}

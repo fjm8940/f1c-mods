@@ -1,0 +1,1865 @@
+{
+ "schema": "ere.audit.v1",
+ "range": "B15_140-149",
+ "method_note": "Owner EXHAUSTIVE PER-LINE METHOD. 10 clips from data/audit_batches.json B15_140-149, dossiers from data/line_trace. The 18 shared dynamic emitters, the literal hits and a global literal search were read per clip. Owner exe read-only (F1 Challenge Online.exe in the 99-02 folder): event-table cooldown, priority and score for these eids match the dump. No live game.",
+ "owner_exe_check": "event table 0x5BF9A0 + eid*0x14: +0 priority (ScoreThresholdGateCheck reads this), +0x0C cooldown, +0x10 score. 133-137 cooldown 5.0; 138-140, 424, 491 cooldown 1.0.",
+ "verdict_counts": {
+  "NATIVE_ACTIVE": 3,
+  "NOT_ACTIVATED": 5,
+  "MOD_ONLY": 2,
+  "UNKNOWN": 0
+ },
+ "contradictions": [
+  "Coordinator ruling (RacePhase 5 = green-flag racing, finding f1c-pace-governor-scales-to-full-field) is applied to the clear rows. It conflicts with docs/IGNITION_INVESTIGATION.md:101-102 (RacePhase=4 green-flag session) and :78 (checkered flag / RacePhase=5). Both sources are noted; the ruling decides the verdict.",
+  "Coordinator note 'AISessionModeTransition also emits 137' is wrong: sub_4193A0:34 cancels 137 (BooleanOR) and emits 138 (:35). It does not emit 137.",
+  "Dossier caller chain for AISessionModeTransition (sub_4BCCC0 -> MainGameTickUpdate) conflicts with the SDK graph (sub_4193A0 Callers: none). AI-path reachability is UNKNOWN; verdicts here rest on sub_41B3C0 only.",
+  "dword_7D0308: docs/12-globals-reference.md:747 calls it RaceActiveFlag; docs/56 and the audit call it the commentary flag. Live telemetry records 3 on track (finding tvd2-aioutoftrack-race-gate-open-inserts-event264-20261014).",
+  "ScoreThresholdGateCheck reads event-table +0 (priority), not the dump 'score'. A score-threshold reading would be wrong for these eids.",
+  "eid 424 (SCAR03) is queued by ConstructorStandingsParser (team-standings name line), not by a safety-car routine, and only under a1=1, which no caller passes.",
+  "eid 491 (PENALTY14 TV twin) is a two-driver season line in code, but its dump score maps to PWS_PENALTY14.",
+  "eid 149 (RE_PD_DQ, sub_41A940) collides numerically with sdt 149 (PWS_PENALTY14). Not the same thing.",
+  "docs/VOICE_INDEX.md:80 'owner heard' for PWS_SCAR04 vs docs/RESTORATION_PLAN.md:365 'no event resolves to this clip' and no dump row. Source of the hearing not recorded.",
+  "SC mod census carriers (eid 133 = SCAR02, 134 = SCAR03, 135 = SCAR04) use PWS eids of YELLOW04, YELLOW01, YELLOW05. Conflict only when the SC mod is enabled.",
+  "EnumValueTranslation (sub_414010) writes 133/134 as SDT indices (enum 21/22), not eids; it reaches SDT 113-134 only.",
+  "sub_53EB70 and sub_5550E0 pass 137, 141, 145-148 to a vtable (+200) as ids; the sink is UNKNOWN and not a DriverDataTable call."
+ ],
+ "rows": [
+  {
+   "sdt_index": 140,
+   "eid": null,
+   "clip": "PWS_SCAR03",
+   "says": "Safety car ending - green this lap",
+   "score": 134,
+   "priority": 40,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no game emitter reachable: only TV-range eid 424 is queued, and its only emit sits in a branch that no caller enters",
+   "situation": "Race: the safety car is about to leave; the lap after is green. Plays only when the full_safety_car mod is enabled (it is disabled in the owner game).",
+   "mod": "full_safety_car",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No game trigger for SC ending in code. The SC mod owns the trigger (pace_probe.c:4076 sc_say_later(SCORE_SCAR03)).",
+   "emitters": [
+    "ConstructorStandingsParser sub_420820 (ConstructorStandingsParser_00420820.c:245) eid 424 under if (a1)"
+   ],
+   "call_path": null,
+   "gates": [
+    {
+     "gate": "sub_420820 line 241: if (a1) - a1 is 0 at all five call sites (ScoringClassificationDisplay_0041e320.c:139,196,207,218,249)"
+    },
+    {
+     "gate": "sub_4A08E0 line 9: DelegatedFieldGetter(dword_7D2DB0)==3 and win-movie load (sub_4A08E0_004a08e0.c:9-19): post-race scene"
+    }
+   ],
+   "heard_evidence": "docs/VOICE_INDEX.md:79 'UNDER WORK VIA ANOTHER MOD'; findings.jsonl:132 places ScoringClassificationDisplay on the post-race standings screen",
+   "tier": "DERIVED",
+   "notes": "Dump row: eid 424 (TV range), sdt 140, score 134, priority 40, cooldown 1.0 (owner exe +0x0C = 1.0). The emitter is named ConstructorStandingsParser and queues a team-standings name line (sub_420820:163,245,255), so eid 424 is not a safety-car line in code. Census: the SC mod carries SCAR03 on eid 134 (modded_lines.json, eid 132 entry), which is YELLOW01's PWS eid: a conflict if the SC mod is enabled.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce (no PWS eid): eids 120, 259, 198 only",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce (no PWS eid): eids 6, 180, 181, 182 only",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce (no PWS eid): v5 in {10,16,3,33,4,5,72,262}",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce (no PWS eid): eids 42, 52",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce (no PWS eid): eids 17, 18, 8, 9",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce (no PWS eid): eids 21, 22, 178, 179",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce (no PWS eid): eids 52, 196",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce (no PWS eid): eids 157-177, 158, 159, 260, 261",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce (no PWS eid): eids 397, 516-535 (RandLCG remap gives 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:38-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from sub_4203D0)",
+     "result": "cannot produce (no PWS eid): returns 355-372 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "result": "cannot produce (no PWS eid): eids 397, 447-477, 454-456, 459-461, 465, 474, 476",
+     "line": "RaceCommentary_0041d630.c:34-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce (no PWS eid): eids 293-336",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:13-189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce (no PWS eid): eids 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / blue flag / jump start)",
+     "result": "cannot produce (no PWS eid): eids 151-155, 252-256",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce (no PWS eid): only eids 149 (RE_PD_DQ, dump sdt 158) and 243",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41AC50 (driver events)",
+     "result": "cannot produce (no PWS eid): eids 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:21-58"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce (no PWS eid): eids 117-119, 235-238",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce (no PWS eid): sub_420000 returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:16; sub_420000_00420000.c:13-45"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (sub-clip resolver)",
+     "result": "writes SDT 113-134 only; cannot produce SDT 140",
+     "line": "EnumValueTranslation_00414010.c:9-73"
+    },
+    {
+     "function": "ScoringClassificationDisplay sub_41E320 (caller sub_4A08E0)",
+     "result": "emits 484-487 and calls ConstructorStandingsParser with a1=0; cannot produce (no PWS eid)",
+     "line": "ScoringClassificationDisplay_0041e320.c:139,196,207,218,249"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "emits 478, 490, 494, 498, 502 and 491 (line 364); cannot produce (no PWS eid) except the TV twin 491",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99,146,158,170,182,364"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 + loader sub_414600",
+     "result": "name-file slot values, not DriverDataTable calls; (no PWS eid) hits checked row-specific",
+     "line": "DriverNameIDLookup_00415d90.c:369,548,725; sub_414600_00414600.c:21-60"
+    },
+    {
+     "function": "sub_53EB70 / sub_5550E0 vtable(+200) calls",
+     "result": "audio vtable id args 137, 141, 145-148 are not DriverDataTable or InsertDriverTable; sink UNKNOWN",
+     "line": "sub_53EB70_0053eb70.c:146-166; sub_5550E0_005550e0.c:441"
+    },
+    {
+     "function": "GameOptionsUIConstructor sub_47E960",
+     "result": "switch case 484-494 is an options menu, not an emit",
+     "line": "GameOptionsUIConstructor_0047e960.c:45"
+    },
+    {
+     "function": "sub_50F632",
+     "result": "424 is a constant message type, not an eid emit",
+     "line": "sub_50F632_0050f632.c:16"
+    },
+    {
+     "function": "CompressionBitstreamPacker sub_538CE0",
+     "result": "138 is a bitstream value, not an eid",
+     "line": "CompressionBitstreamPacker_00538ce0.c:86,338"
+    },
+    {
+     "function": "ScoringClassificationDisplay sub_41E320 call sites",
+     "result": "all five pass a1=0, so the 424 branch is dead in the decompiled corpus",
+     "line": "ScoringClassificationDisplay_0041e320.c:139,196,207,218,249"
+    },
+    {
+     "function": "sub_4A08E0 callers",
+     "result": "no in-corpus caller found (dispatch unknown); post-race scene per gate",
+     "line": "sub_4A08E0_004a08e0.c:9-27"
+    },
+    {
+     "function": "DriverNameIDLookup line 369",
+     "result": "a4 != 0 ? 424 : 202 is a name-file slot, not a queue emit",
+     "line": "DriverNameIDLookup_00415d90.c:369"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Safety car is coming in at the end of this lap; the next lap is green.",
+    "when_it_should_play": "Race, player, the lap before the safety car returns to the pits.",
+    "trigger": "The SC mod's own state machine (pace_probe.c:4076). ERE does not own this line.",
+    "subject": "player",
+    "technique": "carrier_score on a PWS eid only if SC is disabled and the SC mod is not the owner (not recommended: carrier 134 is YELLOW01)",
+    "latch_cooldown": "once per SC period",
+    "must_not_play_when": "SC not deployed; post-race screen",
+    "conflicts": "full_safety_car carrier eids 133-135 overlap YELLOW04, YELLOW01, YELLOW05 (census)",
+    "calibration": "none",
+    "live_test": "Not for the owner game. Enable the SC mod only in a separate test install and observe.",
+    "confidence": "DERIVED"
+   }
+  },
+  {
+   "sdt_index": 141,
+   "eid": null,
+   "clip": "PWS_SCAR04",
+   "says": "Safety car is in",
+   "score": null,
+   "priority": null,
+   "cooldown": null,
+   "verdict": "MOD_ONLY",
+   "reason": "orphan_clip: no game event row resolves to sdt 141",
+   "situation": "Race: the safety car is coming in to the pits; racing resumes at the end of the lap.",
+   "mod": "full_safety_car",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No game trigger found.",
+   "emitters": [],
+   "call_path": null,
+   "gates": [
+    {
+     "gate": "no event row and no eid for sdt 141"
+    }
+   ],
+   "heard_evidence": "docs/VOICE_INDEX.md:80 'owner heard: Safety car is in' (source of that hearing not recorded; not re-tested here); docs/RESTORATION_PLAN.md:365 'no event resolves to this clip'",
+   "tier": "DERIVED",
+   "notes": "Full event dump (mods/extended_vanilla_features/data/full_event_dump.json) has no row with sdt 141. Census: SC mod carries SCAR04 on carrier eid 135 (modded_lines.json, eid 132 entry; pace_probe note). Eid 135 is YELLOW05's PWS eid: conflict if SC is enabled.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce (no PWS eid): eids 120, 259, 198 only",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce (no PWS eid): eids 6, 180, 181, 182 only",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce (no PWS eid): v5 in {10,16,3,33,4,5,72,262}",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce (no PWS eid): eids 42, 52",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce (no PWS eid): eids 17, 18, 8, 9",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce (no PWS eid): eids 21, 22, 178, 179",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce (no PWS eid): eids 52, 196",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce (no PWS eid): eids 157-177, 158, 159, 260, 261",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce (no PWS eid): eids 397, 516-535 (RandLCG remap gives 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:38-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from sub_4203D0)",
+     "result": "cannot produce (no PWS eid): returns 355-372 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "result": "cannot produce (no PWS eid): eids 397, 447-477, 454-456, 459-461, 465, 474, 476",
+     "line": "RaceCommentary_0041d630.c:34-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce (no PWS eid): eids 293-336",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:13-189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce (no PWS eid): eids 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / blue flag / jump start)",
+     "result": "cannot produce (no PWS eid): eids 151-155, 252-256",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce (no PWS eid): only eids 149 (RE_PD_DQ, dump sdt 158) and 243",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41AC50 (driver events)",
+     "result": "cannot produce (no PWS eid): eids 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:21-58"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce (no PWS eid): eids 117-119, 235-238",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce (no PWS eid): sub_420000 returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:16; sub_420000_00420000.c:13-45"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (sub-clip resolver)",
+     "result": "writes SDT 113-134 only; cannot produce SDT 141",
+     "line": "EnumValueTranslation_00414010.c:9-73"
+    },
+    {
+     "function": "ScoringClassificationDisplay sub_41E320 (caller sub_4A08E0)",
+     "result": "emits 484-487 and calls ConstructorStandingsParser with a1=0; cannot produce (no PWS eid)",
+     "line": "ScoringClassificationDisplay_0041e320.c:139,196,207,218,249"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "emits 478, 490, 494, 498, 502 and 491 (line 364); cannot produce (no PWS eid) except the TV twin 491",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99,146,158,170,182,364"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 + loader sub_414600",
+     "result": "name-file slot values, not DriverDataTable calls; (no PWS eid) hits checked row-specific",
+     "line": "DriverNameIDLookup_00415d90.c:369,548,725; sub_414600_00414600.c:21-60"
+    },
+    {
+     "function": "sub_53EB70 / sub_5550E0 vtable(+200) calls",
+     "result": "audio vtable id args 137, 141, 145-148 are not DriverDataTable or InsertDriverTable; sink UNKNOWN",
+     "line": "sub_53EB70_0053eb70.c:146-166; sub_5550E0_005550e0.c:441"
+    },
+    {
+     "function": "GameOptionsUIConstructor sub_47E960",
+     "result": "switch case 484-494 is an options menu, not an emit",
+     "line": "GameOptionsUIConstructor_0047e960.c:45"
+    },
+    {
+     "function": "sub_50F632",
+     "result": "424 is a constant message type, not an eid emit",
+     "line": "sub_50F632_0050f632.c:16"
+    },
+    {
+     "function": "CompressionBitstreamPacker sub_538CE0",
+     "result": "138 is a bitstream value, not an eid",
+     "line": "CompressionBitstreamPacker_00538ce0.c:86,338"
+    },
+    {
+     "function": "full_event_dump.json",
+     "result": "no row with sdt_index 141 or clip PWS_SCAR04",
+     "line": "full_event_dump.json events[]"
+    },
+    {
+     "function": "literal search",
+     "result": "no DriverDataTable call with a SCAR04 eid in functions/*.c",
+     "line": "functions/*.c"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Safety car is in: it has come into the pits and the field will race again.",
+    "when_it_should_play": "Race, player, after the SC returns to the pits.",
+    "trigger": "SC mod state machine only.",
+    "subject": "player",
+    "technique": "carrier_score via the SC mod only; no ERE eid exists",
+    "latch_cooldown": "once per SC period",
+    "must_not_play_when": "SC still on track",
+    "conflicts": "carrier eid 135 = YELLOW05 PWS eid",
+    "calibration": "none",
+    "live_test": "Not for the owner game (SC disabled). Test only in a separate SC-enabled install.",
+    "confidence": "DERIVED"
+   }
+  },
+  {
+   "sdt_index": 142,
+   "eid": 133,
+   "clip": "PWS_YELLOW04",
+   "says": "Sector 1 cleared",
+   "score": 136,
+   "priority": 40,
+   "cooldown": 5.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "blocked_gate",
+   "situation": "Race: the yellow in sector 1 is gone. Plays when the slow car that flagged sector 1 leaves it and the player is in zone 0.",
+   "mod": null,
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": true,
+   "suppressed_note": "Trigger exists: zone 2->0 edge (sub_4D1730:26-27 reset, :75-96 compare). Suppressor: sub_41B3C0 line 36: if (dword_7C56A4 != 7 || dword_7C56A8 == 5) goto LABEL_67; (PitSelectionStateMachine_0041b3c0.c:36) - clear path returns before the emit while RacePhase == 5. Coordinator ruling: RacePhase 5 is green-flag racing (finding f1c-pace-governor-scales-to-full-field, FACT: gate on dword_7C56A8==5 governed 21 AI cars for ~143 s during a race; Safety Car phase_racing uses the same gate).",
+   "emitters": [
+    "PitSelectionStateMachine sub_41B3C0 (PitSelectionStateMachine_0041b3c0.c:101) case 0, zone 1",
+    "PitSelectionStateMachine sub_41B3C0 :114 (cancels 133 on set of zone 1; not an emit)",
+    "AISessionModeTransition sub_4193A0 :22 (cancel only)"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> sub_4D4580 0x4D4580 (SDK callers: GamePostMainLoop, StateTriggerCheck) -> sub_4D1D80 -> sub_4D1730 (zone state loop, sub_4D1730:26-96) -> PitSelectionStateMachine sub_41B3C0",
+   "gates": [
+    {
+     "gate": "sub_41B3C0 line 36: if (dword_7C56A4 != 7 || dword_7C56A8 == 5) goto LABEL_67; (PitSelectionStateMachine_0041b3c0.c:36) - clear path returns before the emit while RacePhase == 5"
+    },
+    {
+     "gate": "sub_41B3C0:34 ScoringGateSelector(zone)==0 (not the blocker while RacePhase==5)"
+    }
+   ],
+   "heard_evidence": "docs/VOICE_INDEX.md:81 'user states ... NEVER fired naturally' (REVERTED 2026-07-28); not re-tested",
+   "tier": "DERIVED",
+   "notes": "Owner names this a proven not-played line; coordinator ruling applied. Edge case: if the clear fires in a phase other than 5 (e.g. the RacePhase 4 green state in docs/IGNITION_INVESTIGATION.md:101-102), the line could play; that is not observed. Cooldown 5.0 (dump and owner exe +0x0C).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce 133: eids 120, 259, 198 only",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce 133: eids 6, 180, 181, 182 only",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce 133: v5 in {10,16,3,33,4,5,72,262}",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce 133: eids 42, 52",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce 133: eids 17, 18, 8, 9",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce 133: eids 21, 22, 178, 179",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce 133: eids 52, 196",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce 133: eids 157-177, 158, 159, 260, 261",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce 133: eids 397, 516-535 (RandLCG remap gives 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:38-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from sub_4203D0)",
+     "result": "cannot produce 133: returns 355-372 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "result": "cannot produce 133: eids 397, 447-477, 454-456, 459-461, 465, 474, 476",
+     "line": "RaceCommentary_0041d630.c:34-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce 133: eids 293-336",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:13-189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce 133: eids 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / blue flag / jump start)",
+     "result": "cannot produce 133: eids 151-155, 252-256",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce 133: only eids 149 (RE_PD_DQ, dump sdt 158) and 243",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41AC50 (driver events)",
+     "result": "cannot produce 133: eids 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:21-58"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce 133: eids 117-119, 235-238",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce 133: sub_420000 returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:16; sub_420000_00420000.c:13-45"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (sub-clip resolver)",
+     "result": "writes SDT 113-134 only; cannot produce SDT 142",
+     "line": "EnumValueTranslation_00414010.c:9-73"
+    },
+    {
+     "function": "ScoringClassificationDisplay sub_41E320 (caller sub_4A08E0)",
+     "result": "emits 484-487 and calls ConstructorStandingsParser with a1=0; cannot produce 133",
+     "line": "ScoringClassificationDisplay_0041e320.c:139,196,207,218,249"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "emits 478, 490, 494, 498, 502 and 491 (line 364); cannot produce 133 except the TV twin 491",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99,146,158,170,182,364"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 + loader sub_414600",
+     "result": "name-file slot values, not DriverDataTable calls; 133 hits checked row-specific",
+     "line": "DriverNameIDLookup_00415d90.c:369,548,725; sub_414600_00414600.c:21-60"
+    },
+    {
+     "function": "sub_53EB70 / sub_5550E0 vtable(+200) calls",
+     "result": "audio vtable id args 137, 141, 145-148 are not DriverDataTable or InsertDriverTable; sink UNKNOWN",
+     "line": "sub_53EB70_0053eb70.c:146-166; sub_5550E0_005550e0.c:441"
+    },
+    {
+     "function": "GameOptionsUIConstructor sub_47E960",
+     "result": "switch case 484-494 is an options menu, not an emit",
+     "line": "GameOptionsUIConstructor_0047e960.c:45"
+    },
+    {
+     "function": "sub_50F632",
+     "result": "424 is a constant message type, not an eid emit",
+     "line": "sub_50F632_0050f632.c:16"
+    },
+    {
+     "function": "CompressionBitstreamPacker sub_538CE0",
+     "result": "138 is a bitstream value, not an eid",
+     "line": "CompressionBitstreamPacker_00538ce0.c:86,338"
+    },
+    {
+     "function": "sub_41B3C0 case 0 zone 1 (clear)",
+     "result": "emits 133 when player zone 0, no pending 134, race, RacePhase!=5, ScoringGateSelector(1)==0",
+     "line": "PitSelectionStateMachine_0041b3c0.c:32-36,86-101"
+    },
+    {
+     "function": "sub_41B3C0 case 2 zone 1 (set of 134)",
+     "result": "cancels 133 at :114 - cannot emit 133",
+     "line": "PitSelectionStateMachine_0041b3c0.c:114"
+    },
+    {
+     "function": "ScoringGateSelector sub_4D1AD0",
+     "result": "returns 2 or 8 (block) or 3 if the zone's table range holds them; table values UNKNOWN",
+     "line": "ScoringGateSelector_004d1ad0.c:9-35"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Sector 1 is clear again; the yellow you were warned about is gone.",
+    "when_it_should_play": "Race only (SessionType 7), after the slow car that flagged sector 1 has left it, while the player is in zone 0 (one zone behind).",
+    "trigger": "Zone 1 state 2->0 in sub_4D1730 AND this[1+316]==2 AND ScoringGateSelector(1)==0 AND RacePhase!=5 AND player zone 0 AND 134 not queued.",
+    "subject": "player (track state, all drivers)",
+    "technique": "lift_suppression: replace the phase term at sub_41B3C0:36 (keep dword_7C56A4 == 7) so the clear path emits while RacePhase == 5; or ERE emits its own copy of this clip on the zone 2->0 edge in sub_4D1730 (own_emitter, PWS eid of this row) and keeps the game's gate unchanged.",
+    "latch_cooldown": "once per 2->0 transition; eid cooldown 5.0 s",
+    "must_not_play_when": "Qualifying; player zone not 0; zone re-flagged in the same tick; pit lane",
+    "conflicts": "SC mod carrier eid 133 (census) if SC is enabled; no MF token on eid 133",
+    "calibration": "RacePhase values during a green race (read 0x7C56A8 at 10 Hz); ScoringGateSelector(1) return value (live)",
+    "live_test": "Race: owner makes an AI car stop or spin in the sector so the set line plays, then the car leaves the zone. Log 0x7C56A8 and the zone state through f1c-memory. With RacePhase 5 at the clear and no line, the gate at :36 is the blocker.",
+    "confidence": "DERIVED. Raise to FACT with a live trace of the zone 2->0 edge and RacePhase 5 at the clear."
+   }
+  },
+  {
+   "sdt_index": 143,
+   "eid": 134,
+   "clip": "PWS_YELLOW01",
+   "says": "Yellow flag Sector 1",
+   "score": 137,
+   "priority": 70,
+   "cooldown": 5.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "set path reachable from the per-frame loop; no proven never-true gate",
+   "situation": "A car has slowed below the speed threshold in sector 1 (its zone is flagged) and the player is not in that zone, or the flagged point is more than 50 m ahead of the player. Race or qualifying.",
+   "mod": null,
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "PitSelectionStateMachine sub_41B3C0 (PitSelectionStateMachine_0041b3c0.c:117) case 2, zone 1",
+    "AISessionModeTransition sub_4193A0 (AISessionModeTransition_004193a0.c:23): no SDK callers, reachability UNKNOWN"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> sub_4D4580 0x4D4580 (SDK callers: GamePostMainLoop, StateTriggerCheck) -> sub_4D1D80 -> sub_4D1730 (zone state loop, sub_4D1730:26-96) -> PitSelectionStateMachine sub_41B3C0",
+   "gates": [
+    {
+     "gate": "sub_41B3C0:11 dword_7D0308 (live 3) && flt_7CF3C8 != 0 (live value UNKNOWN) && !player+13388 (camera-assignment flag, finding camera-swingman-tvcockpit-remap-2026-10-13) && RacePhase != 8"
+    },
+    {
+     "gate": "sub_41B3C0:104 player zone != 1 or (player distance + 50 < flagged distance)"
+    },
+    {
+     "gate": "sub_41B3C0:110-112 zone 1 needs player zone 1, or zone 0 with fraction >= 0.9"
+    },
+    {
+     "gate": "sub_418B90 priority 70 passes all levels"
+    }
+   ],
+   "heard_evidence": "TO_LISTEN.txt:24 (not yet listened); docs/VOICE_INDEX.md:318 (column not decoded)",
+   "tier": "DERIVED",
+   "notes": "The set path has no SessionType or RacePhase gate, so the clear-path gates do not apply. When it fires it cancels 133 and 136 (:114-115). Owner live proof pending.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce 134: eids 120, 259, 198 only",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce 134: eids 6, 180, 181, 182 only",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce 134: v5 in {10,16,3,33,4,5,72,262}",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce 134: eids 42, 52",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce 134: eids 17, 18, 8, 9",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce 134: eids 21, 22, 178, 179",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce 134: eids 52, 196",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce 134: eids 157-177, 158, 159, 260, 261",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce 134: eids 397, 516-535 (RandLCG remap gives 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:38-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from sub_4203D0)",
+     "result": "cannot produce 134: returns 355-372 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "result": "cannot produce 134: eids 397, 447-477, 454-456, 459-461, 465, 474, 476",
+     "line": "RaceCommentary_0041d630.c:34-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce 134: eids 293-336",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:13-189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce 134: eids 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / blue flag / jump start)",
+     "result": "cannot produce 134: eids 151-155, 252-256",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce 134: only eids 149 (RE_PD_DQ, dump sdt 158) and 243",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41AC50 (driver events)",
+     "result": "cannot produce 134: eids 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:21-58"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce 134: eids 117-119, 235-238",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce 134: sub_420000 returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:16; sub_420000_00420000.c:13-45"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (sub-clip resolver)",
+     "result": "writes SDT 113-134 only; cannot produce SDT 143",
+     "line": "EnumValueTranslation_00414010.c:9-73"
+    },
+    {
+     "function": "ScoringClassificationDisplay sub_41E320 (caller sub_4A08E0)",
+     "result": "emits 484-487 and calls ConstructorStandingsParser with a1=0; cannot produce 134",
+     "line": "ScoringClassificationDisplay_0041e320.c:139,196,207,218,249"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "emits 478, 490, 494, 498, 502 and 491 (line 364); cannot produce 134 except the TV twin 491",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99,146,158,170,182,364"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 + loader sub_414600",
+     "result": "name-file slot values, not DriverDataTable calls; 134 hits checked row-specific",
+     "line": "DriverNameIDLookup_00415d90.c:369,548,725; sub_414600_00414600.c:21-60"
+    },
+    {
+     "function": "sub_53EB70 / sub_5550E0 vtable(+200) calls",
+     "result": "audio vtable id args 137, 141, 145-148 are not DriverDataTable or InsertDriverTable; sink UNKNOWN",
+     "line": "sub_53EB70_0053eb70.c:146-166; sub_5550E0_005550e0.c:441"
+    },
+    {
+     "function": "GameOptionsUIConstructor sub_47E960",
+     "result": "switch case 484-494 is an options menu, not an emit",
+     "line": "GameOptionsUIConstructor_0047e960.c:45"
+    },
+    {
+     "function": "sub_50F632",
+     "result": "424 is a constant message type, not an eid emit",
+     "line": "sub_50F632_0050f632.c:16"
+    },
+    {
+     "function": "CompressionBitstreamPacker sub_538CE0",
+     "result": "138 is a bitstream value, not an eid",
+     "line": "CompressionBitstreamPacker_00538ce0.c:86,338"
+    },
+    {
+     "function": "sub_41B3C0 case 2 zone 1",
+     "result": "emits 134 under the conditions above",
+     "line": "PitSelectionStateMachine_0041b3c0.c:103-117"
+    },
+    {
+     "function": "sub_4D1730 set trigger",
+     "result": "a non-retired car (16484 != 2) whose along-track speed is below threshold (:48-56) marks its zone 2 (:59-71); the change 0->2 calls sub_41B3C0 (:87)",
+     "line": "sub_4D1730_004d1730.c:30-96"
+    }
+   ]
+  },
+  {
+   "sdt_index": 144,
+   "eid": 135,
+   "clip": "PWS_YELLOW05",
+   "says": "Sector 2 cleared",
+   "score": 138,
+   "priority": 40,
+   "cooldown": 5.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "blocked_gate",
+   "situation": "Race: the yellow in sector 2 is gone. Plays when the slow car leaves sector 2 and the player is in zone 1.",
+   "mod": null,
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": true,
+   "suppressed_note": "Trigger exists: zone 2->0 edge (sub_4D1730:26-27 reset, :75-96 compare). Suppressor: sub_41B3C0 line 36: if (dword_7C56A4 != 7 || dword_7C56A8 == 5) goto LABEL_67; (PitSelectionStateMachine_0041b3c0.c:36) - clear path returns before the emit while RacePhase == 5. Coordinator ruling: RacePhase 5 is green-flag racing (finding f1c-pace-governor-scales-to-full-field, FACT: gate on dword_7C56A8==5 governed 21 AI cars for ~143 s during a race; Safety Car phase_racing uses the same gate).",
+   "emitters": [
+    "PitSelectionStateMachine sub_41B3C0 (PitSelectionStateMachine_0041b3c0.c:83) case 0, zone 2",
+    "PitSelectionStateMachine sub_41B3C0 :127 (cancels 135 on set of zone 2; not an emit)",
+    "AISessionModeTransition sub_4193A0 :28 (cancel only)"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> sub_4D4580 0x4D4580 (SDK callers: GamePostMainLoop, StateTriggerCheck) -> sub_4D1D80 -> sub_4D1730 (zone state loop, sub_4D1730:26-96) -> PitSelectionStateMachine sub_41B3C0",
+   "gates": [
+    {
+     "gate": "sub_41B3C0 line 36: if (dword_7C56A4 != 7 || dword_7C56A8 == 5) goto LABEL_67; (PitSelectionStateMachine_0041b3c0.c:36) - clear path returns before the emit while RacePhase == 5"
+    },
+    {
+     "gate": "sub_41B3C0:34 ScoringGateSelector(zone)==0 (not the blocker while RacePhase==5)"
+    }
+   ],
+   "heard_evidence": "docs/VOICE_INDEX.md:82 'user states ... NEVER fired naturally' (REVERTED 2026-07-28)",
+   "tier": "DERIVED",
+   "notes": "Owner names this a proven not-played line; coordinator ruling applied. Edge case: if the clear fires in a phase other than 5 (e.g. the RacePhase 4 green state in docs/IGNITION_INVESTIGATION.md:101-102), the line could play; that is not observed. Cooldown 5.0 (dump and owner exe +0x0C).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce 135: eids 120, 259, 198 only",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce 135: eids 6, 180, 181, 182 only",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce 135: v5 in {10,16,3,33,4,5,72,262}",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce 135: eids 42, 52",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce 135: eids 17, 18, 8, 9",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce 135: eids 21, 22, 178, 179",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce 135: eids 52, 196",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce 135: eids 157-177, 158, 159, 260, 261",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce 135: eids 397, 516-535 (RandLCG remap gives 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:38-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from sub_4203D0)",
+     "result": "cannot produce 135: returns 355-372 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "result": "cannot produce 135: eids 397, 447-477, 454-456, 459-461, 465, 474, 476",
+     "line": "RaceCommentary_0041d630.c:34-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce 135: eids 293-336",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:13-189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce 135: eids 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / blue flag / jump start)",
+     "result": "cannot produce 135: eids 151-155, 252-256",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce 135: only eids 149 (RE_PD_DQ, dump sdt 158) and 243",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41AC50 (driver events)",
+     "result": "cannot produce 135: eids 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:21-58"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce 135: eids 117-119, 235-238",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce 135: sub_420000 returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:16; sub_420000_00420000.c:13-45"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (sub-clip resolver)",
+     "result": "writes SDT 113-134 only; cannot produce SDT 144",
+     "line": "EnumValueTranslation_00414010.c:9-73"
+    },
+    {
+     "function": "ScoringClassificationDisplay sub_41E320 (caller sub_4A08E0)",
+     "result": "emits 484-487 and calls ConstructorStandingsParser with a1=0; cannot produce 135",
+     "line": "ScoringClassificationDisplay_0041e320.c:139,196,207,218,249"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "emits 478, 490, 494, 498, 502 and 491 (line 364); cannot produce 135 except the TV twin 491",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99,146,158,170,182,364"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 + loader sub_414600",
+     "result": "name-file slot values, not DriverDataTable calls; 135 hits checked row-specific",
+     "line": "DriverNameIDLookup_00415d90.c:369,548,725; sub_414600_00414600.c:21-60"
+    },
+    {
+     "function": "sub_53EB70 / sub_5550E0 vtable(+200) calls",
+     "result": "audio vtable id args 137, 141, 145-148 are not DriverDataTable or InsertDriverTable; sink UNKNOWN",
+     "line": "sub_53EB70_0053eb70.c:146-166; sub_5550E0_005550e0.c:441"
+    },
+    {
+     "function": "GameOptionsUIConstructor sub_47E960",
+     "result": "switch case 484-494 is an options menu, not an emit",
+     "line": "GameOptionsUIConstructor_0047e960.c:45"
+    },
+    {
+     "function": "sub_50F632",
+     "result": "424 is a constant message type, not an eid emit",
+     "line": "sub_50F632_0050f632.c:16"
+    },
+    {
+     "function": "CompressionBitstreamPacker sub_538CE0",
+     "result": "138 is a bitstream value, not an eid",
+     "line": "CompressionBitstreamPacker_00538ce0.c:86,338"
+    },
+    {
+     "function": "sub_41B3C0 case 0 zone 2 (clear)",
+     "result": "emits 135 when player zone is 1, no pending 136, race, RacePhase!=5, ScoringGateSelector(2)==0",
+     "line": "PitSelectionStateMachine_0041b3c0.c:62-83"
+    },
+    {
+     "function": "sub_41B3C0 case 2 zone 2",
+     "result": "cancels 135 at :127 - cannot emit 135",
+     "line": "PitSelectionStateMachine_0041b3c0.c:127"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Sector 2 is clear again.",
+    "when_it_should_play": "Race only, after the car that flagged sector 2 has left it, player in zone 1.",
+    "trigger": "Zone 2 state 2->0 AND this[2+316]==2 AND ScoringGateSelector(2)==0 AND RacePhase!=5 AND player zone 1 AND 136 not queued.",
+    "subject": "player (track state)",
+    "technique": "lift_suppression: replace the phase term at sub_41B3C0:36 (keep dword_7C56A4 == 7) so the clear path emits while RacePhase == 5; or ERE emits its own copy of this clip on the zone 2->0 edge in sub_4D1730 (own_emitter, PWS eid of this row) and keeps the game's gate unchanged.",
+    "latch_cooldown": "once per 2->0; cooldown 5.0 s",
+    "must_not_play_when": "Qualifying; player zone not 1; pit lane",
+    "conflicts": "SC carrier eid 135 (census) if SC is enabled",
+    "calibration": "RacePhase during a green race; ScoringGateSelector(2)",
+    "live_test": "Race: owner makes an AI car stop or spin in the sector so the set line plays, then the car leaves the zone. Log 0x7C56A8 and the zone state through f1c-memory. With RacePhase 5 at the clear and no line, the gate at :36 is the blocker.",
+    "confidence": "DERIVED. Raise to FACT with a live trace of the zone 2->0 edge and RacePhase 5 at the clear."
+   }
+  },
+  {
+   "sdt_index": 145,
+   "eid": 136,
+   "clip": "PWS_YELLOW02",
+   "says": "Yellow flag Sector 2",
+   "score": 139,
+   "priority": 70,
+   "cooldown": 5.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "set path reachable from the per-frame loop; no proven never-true gate",
+   "situation": "A car has slowed in sector 2 and the player is not in that zone (or the flag is more than 50 m ahead of the player). Race or qualifying.",
+   "mod": null,
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "PitSelectionStateMachine sub_41B3C0 (PitSelectionStateMachine_0041b3c0.c:130) case 2, zone 2",
+    "AISessionModeTransition sub_4193A0 (AISessionModeTransition_004193a0.c:29): no SDK callers"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> sub_4D4580 0x4D4580 (SDK callers: GamePostMainLoop, StateTriggerCheck) -> sub_4D1D80 -> sub_4D1730 (zone state loop, sub_4D1730:26-96) -> PitSelectionStateMachine sub_41B3C0",
+   "gates": [
+    {
+     "gate": "sub_41B3C0:11 gate (as PWS_YELLOW01)"
+    },
+    {
+     "gate": "sub_41B3C0:104 player zone != 2 or flag 50 m ahead"
+    },
+    {
+     "gate": "sub_41B3C0:121-130 zone 2 needs player zone 2, or zone 1 with fraction >= 0.9"
+    }
+   ],
+   "heard_evidence": "TO_LISTEN.txt:25 (not yet listened)",
+   "tier": "DERIVED",
+   "notes": "Cancels 135 and 138 when it fires (:127-128). Owner live proof pending.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce 136: eids 120, 259, 198 only",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce 136: eids 6, 180, 181, 182 only",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce 136: v5 in {10,16,3,33,4,5,72,262}",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce 136: eids 42, 52",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce 136: eids 17, 18, 8, 9",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce 136: eids 21, 22, 178, 179",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce 136: eids 52, 196",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce 136: eids 157-177, 158, 159, 260, 261",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce 136: eids 397, 516-535 (RandLCG remap gives 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:38-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from sub_4203D0)",
+     "result": "cannot produce 136: returns 355-372 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "result": "cannot produce 136: eids 397, 447-477, 454-456, 459-461, 465, 474, 476",
+     "line": "RaceCommentary_0041d630.c:34-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce 136: eids 293-336",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:13-189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce 136: eids 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / blue flag / jump start)",
+     "result": "cannot produce 136: eids 151-155, 252-256",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce 136: only eids 149 (RE_PD_DQ, dump sdt 158) and 243",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41AC50 (driver events)",
+     "result": "cannot produce 136: eids 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:21-58"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce 136: eids 117-119, 235-238",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce 136: sub_420000 returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:16; sub_420000_00420000.c:13-45"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (sub-clip resolver)",
+     "result": "writes SDT 113-134 only; cannot produce SDT 145",
+     "line": "EnumValueTranslation_00414010.c:9-73"
+    },
+    {
+     "function": "ScoringClassificationDisplay sub_41E320 (caller sub_4A08E0)",
+     "result": "emits 484-487 and calls ConstructorStandingsParser with a1=0; cannot produce 136",
+     "line": "ScoringClassificationDisplay_0041e320.c:139,196,207,218,249"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "emits 478, 490, 494, 498, 502 and 491 (line 364); cannot produce 136 except the TV twin 491",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99,146,158,170,182,364"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 + loader sub_414600",
+     "result": "name-file slot values, not DriverDataTable calls; 136 hits checked row-specific",
+     "line": "DriverNameIDLookup_00415d90.c:369,548,725; sub_414600_00414600.c:21-60"
+    },
+    {
+     "function": "sub_53EB70 / sub_5550E0 vtable(+200) calls",
+     "result": "audio vtable id args 137, 141, 145-148 are not DriverDataTable or InsertDriverTable; sink UNKNOWN",
+     "line": "sub_53EB70_0053eb70.c:146-166; sub_5550E0_005550e0.c:441"
+    },
+    {
+     "function": "GameOptionsUIConstructor sub_47E960",
+     "result": "switch case 484-494 is an options menu, not an emit",
+     "line": "GameOptionsUIConstructor_0047e960.c:45"
+    },
+    {
+     "function": "sub_50F632",
+     "result": "424 is a constant message type, not an eid emit",
+     "line": "sub_50F632_0050f632.c:16"
+    },
+    {
+     "function": "CompressionBitstreamPacker sub_538CE0",
+     "result": "138 is a bitstream value, not an eid",
+     "line": "CompressionBitstreamPacker_00538ce0.c:86,338"
+    },
+    {
+     "function": "sub_41B3C0 case 2 zone 2",
+     "result": "emits 136 under the conditions above",
+     "line": "PitSelectionStateMachine_0041b3c0.c:121-130"
+    }
+   ]
+  },
+  {
+   "sdt_index": 146,
+   "eid": 137,
+   "clip": "PWS_YELLOW06",
+   "says": "Sector 3 cleared",
+   "score": 140,
+   "priority": 40,
+   "cooldown": 5.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "blocked_gate",
+   "situation": "Race: the yellow in sector 3 is gone. Plays when the slow car leaves sector 3 and the player is in zone 2.",
+   "mod": null,
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": true,
+   "suppressed_note": "Trigger exists: zone 2->0 edge (sub_4D1730:26-27 reset, :75-96 compare). Suppressor: sub_41B3C0 line 36: if (dword_7C56A4 != 7 || dword_7C56A8 == 5) goto LABEL_67; (PitSelectionStateMachine_0041b3c0.c:36) - clear path returns before the emit while RacePhase == 5. Coordinator ruling: RacePhase 5 is green-flag racing (finding f1c-pace-governor-scales-to-full-field, FACT: gate on dword_7C56A8==5 governed 21 AI cars for ~143 s during a race; Safety Car phase_racing uses the same gate).",
+   "emitters": [
+    "PitSelectionStateMachine sub_41B3C0 (PitSelectionStateMachine_0041b3c0.c:55) case 0, zone 0",
+    "PitSelectionStateMachine sub_41B3C0 :139 (cancels 137 on set of zone 0; not an emit)",
+    "AISessionModeTransition sub_4193A0 :34 (cancel only)"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> sub_4D4580 0x4D4580 (SDK callers: GamePostMainLoop, StateTriggerCheck) -> sub_4D1D80 -> sub_4D1730 (zone state loop, sub_4D1730:26-96) -> PitSelectionStateMachine sub_41B3C0",
+   "gates": [
+    {
+     "gate": "sub_41B3C0 line 36: if (dword_7C56A4 != 7 || dword_7C56A8 == 5) goto LABEL_67; (PitSelectionStateMachine_0041b3c0.c:36) - clear path returns before the emit while RacePhase == 5"
+    },
+    {
+     "gate": "sub_41B3C0:34 ScoringGateSelector(zone)==0 (not the blocker while RacePhase==5)"
+    }
+   ],
+   "heard_evidence": "docs/VOICE_INDEX.md:83 'user states ... NEVER fired naturally' (REVERTED 2026-07-28)",
+   "tier": "DERIVED",
+   "notes": "Owner names this a proven not-played line; coordinator ruling applied. Edge case: if the clear fires in a phase other than 5 (e.g. the RacePhase 4 green state in docs/IGNITION_INVESTIGATION.md:101-102), the line could play; that is not observed. Cooldown 5.0 (dump and owner exe +0x0C).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce 137: eids 120, 259, 198 only",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce 137: eids 6, 180, 181, 182 only",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce 137: v5 in {10,16,3,33,4,5,72,262}",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce 137: eids 42, 52",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce 137: eids 17, 18, 8, 9",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce 137: eids 21, 22, 178, 179",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce 137: eids 52, 196",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce 137: eids 157-177, 158, 159, 260, 261",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce 137: eids 397, 516-535 (RandLCG remap gives 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:38-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from sub_4203D0)",
+     "result": "cannot produce 137: returns 355-372 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "result": "cannot produce 137: eids 397, 447-477, 454-456, 459-461, 465, 474, 476",
+     "line": "RaceCommentary_0041d630.c:34-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce 137: eids 293-336",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:13-189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce 137: eids 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / blue flag / jump start)",
+     "result": "cannot produce 137: eids 151-155, 252-256",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce 137: only eids 149 (RE_PD_DQ, dump sdt 158) and 243",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41AC50 (driver events)",
+     "result": "cannot produce 137: eids 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:21-58"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce 137: eids 117-119, 235-238",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce 137: sub_420000 returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:16; sub_420000_00420000.c:13-45"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (sub-clip resolver)",
+     "result": "writes SDT 113-134 only; cannot produce SDT 146",
+     "line": "EnumValueTranslation_00414010.c:9-73"
+    },
+    {
+     "function": "ScoringClassificationDisplay sub_41E320 (caller sub_4A08E0)",
+     "result": "emits 484-487 and calls ConstructorStandingsParser with a1=0; cannot produce 137",
+     "line": "ScoringClassificationDisplay_0041e320.c:139,196,207,218,249"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "emits 478, 490, 494, 498, 502 and 491 (line 364); cannot produce 137 except the TV twin 491",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99,146,158,170,182,364"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 + loader sub_414600",
+     "result": "name-file slot values, not DriverDataTable calls; 137 hits checked row-specific",
+     "line": "DriverNameIDLookup_00415d90.c:369,548,725; sub_414600_00414600.c:21-60"
+    },
+    {
+     "function": "sub_53EB70 / sub_5550E0 vtable(+200) calls",
+     "result": "audio vtable id args 137, 141, 145-148 are not DriverDataTable or InsertDriverTable; sink UNKNOWN",
+     "line": "sub_53EB70_0053eb70.c:146-166; sub_5550E0_005550e0.c:441"
+    },
+    {
+     "function": "GameOptionsUIConstructor sub_47E960",
+     "result": "switch case 484-494 is an options menu, not an emit",
+     "line": "GameOptionsUIConstructor_0047e960.c:45"
+    },
+    {
+     "function": "sub_50F632",
+     "result": "424 is a constant message type, not an eid emit",
+     "line": "sub_50F632_0050f632.c:16"
+    },
+    {
+     "function": "CompressionBitstreamPacker sub_538CE0",
+     "result": "138 is a bitstream value, not an eid",
+     "line": "CompressionBitstreamPacker_00538ce0.c:86,338"
+    },
+    {
+     "function": "sub_41B3C0 case 0 zone 0 (clear)",
+     "result": "emits 137 when player zone 2, no pending 138, race, RacePhase!=5, ScoringGateSelector(0)==0",
+     "line": "PitSelectionStateMachine_0041b3c0.c:38-55"
+    },
+    {
+     "function": "sub_41B3C0 case 2 zone 0",
+     "result": "cancels 137 at :139 - cannot emit 137",
+     "line": "PitSelectionStateMachine_0041b3c0.c:139"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Sector 3 is clear again.",
+    "when_it_should_play": "Race only, after the car that flagged sector 3 has left it, player in zone 2.",
+    "trigger": "Zone 0 state 2->0 AND this[0+316]==2 AND ScoringGateSelector(0)==0 AND RacePhase!=5 AND player zone 2 AND 138 not queued.",
+    "subject": "player (track state)",
+    "technique": "lift_suppression: replace the phase term at sub_41B3C0:36 (keep dword_7C56A4 == 7) so the clear path emits while RacePhase == 5; or ERE emits its own copy of this clip on the zone 2->0 edge in sub_4D1730 (own_emitter, PWS eid of this row) and keeps the game's gate unchanged.",
+    "latch_cooldown": "once per 2->0; cooldown 5.0 s",
+    "must_not_play_when": "Qualifying; player zone not 2; pit lane",
+    "conflicts": "none in census",
+    "calibration": "RacePhase during a green race; ScoringGateSelector(0)",
+    "live_test": "Race: owner makes an AI car stop or spin in the sector so the set line plays, then the car leaves the zone. Log 0x7C56A8 and the zone state through f1c-memory. With RacePhase 5 at the clear and no line, the gate at :36 is the blocker.",
+    "confidence": "DERIVED. Raise to FACT with a live trace of the zone 2->0 edge and RacePhase 5 at the clear."
+   }
+  },
+  {
+   "sdt_index": 147,
+   "eid": 138,
+   "clip": "PWS_YELLOW03",
+   "says": "Yellow flag Sector 3",
+   "score": 141,
+   "priority": 70,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "set path reachable from the per-frame loop; no proven never-true gate",
+   "situation": "A car has slowed in sector 3 and the player is not in that zone (or the flag is more than 50 m ahead). Race or qualifying.",
+   "mod": null,
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "PitSelectionStateMachine sub_41B3C0 (PitSelectionStateMachine_0041b3c0.c:142) case 2, zone 0",
+    "AISessionModeTransition sub_4193A0 (AISessionModeTransition_004193a0.c:35): no SDK callers"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> sub_4D4580 0x4D4580 (SDK callers: GamePostMainLoop, StateTriggerCheck) -> sub_4D1D80 -> sub_4D1730 (zone state loop, sub_4D1730:26-96) -> PitSelectionStateMachine sub_41B3C0",
+   "gates": [
+    {
+     "gate": "sub_41B3C0:11 gate (as PWS_YELLOW01)"
+    },
+    {
+     "gate": "sub_41B3C0:104 player zone != 0 or flag 50 m ahead"
+    },
+    {
+     "gate": "sub_41B3C0:139-142 zone 0 needs player zone 0, or zone 2 with fraction >= 0.9"
+    }
+   ],
+   "heard_evidence": "TO_LISTEN.txt:26 (not yet listened); docs/VOICE_INDEX.md:320",
+   "tier": "DERIVED",
+   "notes": "Cancels 137 and 134 when it fires (:139-140). Cooldown 1.0 (dump and owner exe +0x0C). Owner live proof pending.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce 138: eids 120, 259, 198 only",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce 138: eids 6, 180, 181, 182 only",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce 138: v5 in {10,16,3,33,4,5,72,262}",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce 138: eids 42, 52",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce 138: eids 17, 18, 8, 9",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce 138: eids 21, 22, 178, 179",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce 138: eids 52, 196",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce 138: eids 157-177, 158, 159, 260, 261",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce 138: eids 397, 516-535 (RandLCG remap gives 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:38-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from sub_4203D0)",
+     "result": "cannot produce 138: returns 355-372 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "result": "cannot produce 138: eids 397, 447-477, 454-456, 459-461, 465, 474, 476",
+     "line": "RaceCommentary_0041d630.c:34-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce 138: eids 293-336",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:13-189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce 138: eids 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / blue flag / jump start)",
+     "result": "cannot produce 138: eids 151-155, 252-256",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce 138: only eids 149 (RE_PD_DQ, dump sdt 158) and 243",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41AC50 (driver events)",
+     "result": "cannot produce 138: eids 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:21-58"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce 138: eids 117-119, 235-238",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce 138: sub_420000 returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:16; sub_420000_00420000.c:13-45"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (sub-clip resolver)",
+     "result": "writes SDT 113-134 only; cannot produce SDT 147",
+     "line": "EnumValueTranslation_00414010.c:9-73"
+    },
+    {
+     "function": "ScoringClassificationDisplay sub_41E320 (caller sub_4A08E0)",
+     "result": "emits 484-487 and calls ConstructorStandingsParser with a1=0; cannot produce 138",
+     "line": "ScoringClassificationDisplay_0041e320.c:139,196,207,218,249"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "emits 478, 490, 494, 498, 502 and 491 (line 364); cannot produce 138 except the TV twin 491",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99,146,158,170,182,364"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 + loader sub_414600",
+     "result": "name-file slot values, not DriverDataTable calls; 138 hits checked row-specific",
+     "line": "DriverNameIDLookup_00415d90.c:369,548,725; sub_414600_00414600.c:21-60"
+    },
+    {
+     "function": "sub_53EB70 / sub_5550E0 vtable(+200) calls",
+     "result": "audio vtable id args 137, 141, 145-148 are not DriverDataTable or InsertDriverTable; sink UNKNOWN",
+     "line": "sub_53EB70_0053eb70.c:146-166; sub_5550E0_005550e0.c:441"
+    },
+    {
+     "function": "GameOptionsUIConstructor sub_47E960",
+     "result": "switch case 484-494 is an options menu, not an emit",
+     "line": "GameOptionsUIConstructor_0047e960.c:45"
+    },
+    {
+     "function": "sub_50F632",
+     "result": "424 is a constant message type, not an eid emit",
+     "line": "sub_50F632_0050f632.c:16"
+    },
+    {
+     "function": "CompressionBitstreamPacker sub_538CE0",
+     "result": "138 is a bitstream value, not an eid",
+     "line": "CompressionBitstreamPacker_00538ce0.c:86,338"
+    },
+    {
+     "function": "sub_41B3C0 case 2 zone 0",
+     "result": "emits 138 under the conditions above",
+     "line": "PitSelectionStateMachine_0041b3c0.c:136-142"
+    }
+   ]
+  },
+  {
+   "sdt_index": 148,
+   "eid": 139,
+   "clip": "PWS_PENALTY08",
+   "says": "Penalty (type 8)",
+   "score": 142,
+   "priority": 70,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "EXCLUDED by DD-11: 25 s time penalty for ignoring three blue flags; the game has no penalty system.",
+   "mod": null,
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No suppression found. The blue-flag warning exists: sub_41A720 aIgnoredBlueFla -> 154 (player) / 252 (AI) (sub_41A720:28-57). No code queues 139.",
+   "emitters": [],
+   "call_path": null,
+   "gates": [
+    {
+     "gate": "no emitter for 139 in functions/*.c; the only literal 139 is a name-file slot (DriverNameIDLookup:725)"
+    }
+   ],
+   "heard_evidence": "docs/VOICE_INDEX.md:84 (no); TRIAGE: 'user triage: Z, apply a 25 second time penalty ... after PWS_AILAPPIN04'",
+   "tier": "DERIVED",
+   "notes": "Static search is exhaustive over functions/*.c for literal 139, and over the 18 dynamic emitters. Owner has not built the penalty system (DD-11).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce 139: eids 120, 259, 198 only",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce 139: eids 6, 180, 181, 182 only",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce 139: v5 in {10,16,3,33,4,5,72,262}",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce 139: eids 42, 52",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce 139: eids 17, 18, 8, 9",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce 139: eids 21, 22, 178, 179",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce 139: eids 52, 196",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce 139: eids 157-177, 158, 159, 260, 261",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce 139: eids 397, 516-535 (RandLCG remap gives 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:38-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from sub_4203D0)",
+     "result": "cannot produce 139: returns 355-372 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "result": "cannot produce 139: eids 397, 447-477, 454-456, 459-461, 465, 474, 476",
+     "line": "RaceCommentary_0041d630.c:34-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce 139: eids 293-336",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:13-189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce 139: eids 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / blue flag / jump start)",
+     "result": "cannot produce 139: eids 151-155, 252-256",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce 139: only eids 149 (RE_PD_DQ, dump sdt 158) and 243",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41AC50 (driver events)",
+     "result": "cannot produce 139: eids 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:21-58"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce 139: eids 117-119, 235-238",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce 139: sub_420000 returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:16; sub_420000_00420000.c:13-45"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (sub-clip resolver)",
+     "result": "writes SDT 113-134 only; cannot produce SDT 148",
+     "line": "EnumValueTranslation_00414010.c:9-73"
+    },
+    {
+     "function": "ScoringClassificationDisplay sub_41E320 (caller sub_4A08E0)",
+     "result": "emits 484-487 and calls ConstructorStandingsParser with a1=0; cannot produce 139",
+     "line": "ScoringClassificationDisplay_0041e320.c:139,196,207,218,249"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "emits 478, 490, 494, 498, 502 and 491 (line 364); cannot produce 139 except the TV twin 491",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99,146,158,170,182,364"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 + loader sub_414600",
+     "result": "name-file slot values, not DriverDataTable calls; 139 hits checked row-specific",
+     "line": "DriverNameIDLookup_00415d90.c:369,548,725; sub_414600_00414600.c:21-60"
+    },
+    {
+     "function": "sub_53EB70 / sub_5550E0 vtable(+200) calls",
+     "result": "audio vtable id args 137, 141, 145-148 are not DriverDataTable or InsertDriverTable; sink UNKNOWN",
+     "line": "sub_53EB70_0053eb70.c:146-166; sub_5550E0_005550e0.c:441"
+    },
+    {
+     "function": "GameOptionsUIConstructor sub_47E960",
+     "result": "switch case 484-494 is an options menu, not an emit",
+     "line": "GameOptionsUIConstructor_0047e960.c:45"
+    },
+    {
+     "function": "sub_50F632",
+     "result": "424 is a constant message type, not an eid emit",
+     "line": "sub_50F632_0050f632.c:16"
+    },
+    {
+     "function": "CompressionBitstreamPacker sub_538CE0",
+     "result": "138 is a bitstream value, not an eid",
+     "line": "CompressionBitstreamPacker_00538ce0.c:86,338"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 line 725",
+     "result": "v5 = a4 != 0 ? 139 : 434: Jarno Trulli name-file slot; no DriverDataTable call uses it in the consumers traced",
+     "line": "DriverNameIDLookup_00415d90.c:725"
+    },
+    {
+     "function": "sub_41A720 (blue flag)",
+     "result": "emits 154 / 252 for the blue-flag warning, not 139",
+     "line": "sub_41A720_0041a720.c:28-57"
+    }
+   ],
+   "play_plan": {
+    "meaning": "EXCLUDED by DD-11 (penalty system will be done later)",
+    "when_it_should_play": "EXCLUDED by DD-11",
+    "trigger": "EXCLUDED by DD-11",
+    "subject": "player",
+    "technique": "skip",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "n/a",
+    "calibration": "n/a",
+    "live_test": "n/a",
+    "confidence": "DERIVED"
+   }
+  },
+  {
+   "sdt_index": 149,
+   "eid": 140,
+   "clip": "PWS_PENALTY14",
+   "says": "Penalty (type 14)",
+   "score": 143,
+   "priority": 70,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter for PWS eid 140; the TV twin 491 has an emitter only on the season screen",
+   "situation": "EXCLUDED by DD-11: 25 s time penalty for cutting the track; the game has no penalty system.",
+   "mod": null,
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "Track-cut warning exists: sub_41A720 aCutTrack -> 151 (player) / 253 (AI). No code queues 140.",
+   "emitters": [
+    "SeasonDisplayIDResolver sub_41DAF0 (SeasonDisplayIDResolver_0041daf0.c:364): TV twin eid 491 (not PWS)"
+   ],
+   "call_path": null,
+   "gates": [
+    {
+     "gate": "PWS 140: no emitter (DriverNameIDLookup:548 is a name-file slot)"
+    },
+    {
+     "gate": "TV 491: sub_41DAF0:96 dword_7D0308 && flt_7CF3C8; caller chain sub_4A0760 -> sub_46FC30 (season scoring path)"
+    }
+   ],
+   "heard_evidence": "docs/VOICE_INDEX.md:321 'user triage: Z, apply a 25 second time penalty if the player cuts the track'",
+   "tier": "DERIVED",
+   "notes": "CONFLICT: the TV twin 491 is a two-driver season line in code, but the dump maps eid 491 (score 143) to PWS_PENALTY14. If 491 queues on the season screen it would play this penalty clip. Not verified in game. Also: sub_41A940 emits eid 149 (RE_PD_DQ), not this clip (eid-vs-sdt number collision).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "result": "cannot produce 140: eids 120, 259, 198 only",
+     "line": "AIDriverStateTransition_00419120.c:37,39,59"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "result": "cannot produce 140: eids 6, 180, 181, 182 only",
+     "line": "AIFormationLap_0041a3a0.c:24"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "result": "cannot produce 140: v5 in {10,16,3,33,4,5,72,262}",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "result": "cannot produce 140: eids 42, 52",
+     "line": "AIPitStrategyState_0041a200.c:15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "result": "cannot produce 140: eids 17, 18, 8, 9",
+     "line": "AIPositionChangeEvent_004198b0.c:34-48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "result": "cannot produce 140: eids 21, 22, 178, 179",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "result": "cannot produce 140: eids 52, 196",
+     "line": "AIVehicleDamageEvent_0041a170.c:19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "result": "cannot produce 140: eids 157-177, 158, 159, 260, 261",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "result": "cannot produce 140: eids 397, 516-535 (RandLCG remap gives 526, 527, 530, 532, 533)",
+     "line": "PitExit_0041c0f0.c:38-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from sub_4203D0)",
+     "result": "cannot produce 140: returns 355-372 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:26; ThunkToFUN004201e0_004203d0.c:13-47"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "result": "cannot produce 140: eids 397, 447-477, 454-456, 459-461, 465, 474, 476",
+     "line": "RaceCommentary_0041d630.c:34-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "result": "cannot produce 140: eids 293-336",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:13-189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "result": "cannot produce 140: eids 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A720 (cut track / blue flag / jump start)",
+     "result": "cannot produce 140: eids 151-155, 252-256",
+     "line": "sub_41A720_0041a720.c:14-57"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "result": "cannot produce 140: only eids 149 (RE_PD_DQ, dump sdt 158) and 243",
+     "line": "sub_41A940_0041a940.c:12,21"
+    },
+    {
+     "function": "sub_41AC50 (driver events)",
+     "result": "cannot produce 140: eids 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:21-58"
+    },
+    {
+     "function": "sub_41B250 (player/AI status)",
+     "result": "cannot produce 140: eids 117-119, 235-238",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce 140: sub_420000 returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:16; sub_420000_00420000.c:13-45"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (sub-clip resolver)",
+     "result": "writes SDT 113-134 only; cannot produce SDT 149",
+     "line": "EnumValueTranslation_00414010.c:9-73"
+    },
+    {
+     "function": "ScoringClassificationDisplay sub_41E320 (caller sub_4A08E0)",
+     "result": "emits 484-487 and calls ConstructorStandingsParser with a1=0; cannot produce 140",
+     "line": "ScoringClassificationDisplay_0041e320.c:139,196,207,218,249"
+    },
+    {
+     "function": "SeasonDisplayIDResolver sub_41DAF0",
+     "result": "emits 478, 490, 494, 498, 502 and 491 (line 364); cannot produce 140 except the TV twin 491",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:99,146,158,170,182,364"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 + loader sub_414600",
+     "result": "name-file slot values, not DriverDataTable calls; 140 hits checked row-specific",
+     "line": "DriverNameIDLookup_00415d90.c:369,548,725; sub_414600_00414600.c:21-60"
+    },
+    {
+     "function": "sub_53EB70 / sub_5550E0 vtable(+200) calls",
+     "result": "audio vtable id args 137, 141, 145-148 are not DriverDataTable or InsertDriverTable; sink UNKNOWN",
+     "line": "sub_53EB70_0053eb70.c:146-166; sub_5550E0_005550e0.c:441"
+    },
+    {
+     "function": "GameOptionsUIConstructor sub_47E960",
+     "result": "switch case 484-494 is an options menu, not an emit",
+     "line": "GameOptionsUIConstructor_0047e960.c:45"
+    },
+    {
+     "function": "sub_50F632",
+     "result": "424 is a constant message type, not an eid emit",
+     "line": "sub_50F632_0050f632.c:16"
+    },
+    {
+     "function": "CompressionBitstreamPacker sub_538CE0",
+     "result": "138 is a bitstream value, not an eid",
+     "line": "CompressionBitstreamPacker_00538ce0.c:86,338"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 line 548",
+     "result": "v5 = a4 != 0 ? 140 : 18: Jean Alesi name-file slot, not queued",
+     "line": "DriverNameIDLookup_00415d90.c:548"
+    },
+    {
+     "function": "SeasonDisplayIDResolver line 364",
+     "result": "DriverDataTable(491, names) inside the season branch; TV channel",
+     "line": "SeasonDisplayIDResolver_0041daf0.c:364"
+    },
+    {
+     "function": "sub_41A940 line 15",
+     "result": "emits eid 149 (RE_PD_DQ), not this clip",
+     "line": "sub_41A940_0041a940.c:12-15"
+    }
+   ],
+   "play_plan": {
+    "meaning": "EXCLUDED by DD-11 (25 s penalty for track cut)",
+    "when_it_should_play": "EXCLUDED by DD-11",
+    "trigger": "EXCLUDED by DD-11",
+    "subject": "player",
+    "technique": "skip",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "TV eid 491 twin (season screen)",
+    "calibration": "n/a",
+    "live_test": "n/a",
+    "confidence": "DERIVED"
+   }
+  }
+ ]
+}

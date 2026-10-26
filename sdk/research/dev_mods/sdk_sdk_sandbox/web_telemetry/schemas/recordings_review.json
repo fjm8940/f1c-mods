@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/recordings_review.json",
+  "title": "Recording review index (GET /recordings/review, f1c.recordings.review/1, api_version 10)",
+  "description": "State of the review index of one closed recording, named by session=<review_id>. state none: not built yet (ask again); building: the viewer polls again; ready: laps and cars are indexed (reason is set when a bad block ended a valid prefix); error: nothing usable (reason). lap_len is null until the META block carries it (R1-B). Nothing here is a file path.",
+  "type": "object",
+  "required": ["schema", "session", "state", "laps", "cars", "lap_len", "reason", "built_ms"],
+  "properties": {
+    "schema": { "const": "f1c.recordings.review/1" },
+    "session": { "type": "string", "pattern": "^v2_[0-9a-f]{16}$" },
+    "state": { "enum": ["none", "building", "ready", "error"] },
+    "laps": { "type": "integer", "minimum": 0 },
+    "cars": { "type": "integer", "minimum": 0, "maximum": 104 },
+    "lap_len": { "type": ["number", "null"] },
+    "reason": {
+      "type": ["string", "null"],
+      "enum": ["SV2_R_HEADER", "SV2_R_TABLE", "SV2_R_BLOCK_HEADER", "SV2_R_BLOCK_CRC", "SV2_R_BLOCK_DECODE",
+               "SV2_R_DECODER_UNAVAILABLE", "SV2_R_VERSION", "SV2_IDX_R_CAPACITY", "SV2_R_OTHER", null]
+    },
+    "built_ms": { "type": "integer", "minimum": 0 }
+  },
+  "additionalProperties": false
+}

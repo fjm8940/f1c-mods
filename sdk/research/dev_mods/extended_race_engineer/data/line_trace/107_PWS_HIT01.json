@@ -1,0 +1,800 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 107,
+ "clip": "PWS_HIT01",
+ "says": "Player lost front wing",
+ "dump_rows_for_clip": [
+  {
+   "eid": 108,
+   "hex": "0x006C",
+   "priority": 70,
+   "cooldown": 15.0,
+   "blocked": false,
+   "score": 106,
+   "sdt_index": 107,
+   "clip_name": "PWS_HIT01.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 398,
+   "hex": "0x018E",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 106,
+   "sdt_index": 107,
+   "clip_name": "PWS_HIT01.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  106
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 108,
+   "hex": "0x006C",
+   "priority": 70,
+   "cooldown": 15.0,
+   "blocked": false,
+   "score": 106,
+   "sdt_index": 107,
+   "clip_name": "PWS_HIT01.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 398,
+   "hex": "0x018E",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 106,
+   "sdt_index": 107,
+   "clip_name": "PWS_HIT01.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  108
+ ],
+ "literal_hits": {
+  "108": {
+   "emitters": [
+    {
+     "function": "AIDriverStateTransition",
+     "file": "AIDriverStateTransition_00419120.c",
+     "hits": [
+      {
+       "line": 12,
+       "text": "if ( dword_7D0308 && flt_7CF3C8 != 0.0 && dword_7C56A8 != 8 && LODWORD(this[a2[4645] + 108]) != a4 && a3 != a4 )"
+      },
+      {
+       "line": 65,
+       "text": "LODWORD(this[a2[4645] + 108]) = a4;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "ConditionalFieldSetter",
+       "callers": [
+        {
+         "caller": "AIDriverSorting",
+         "callers": [
+          {
+           "caller": "AIBehaviorInitialization",
+           "callers": [
+            {
+             "caller": "AIOvertake",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "AITickUpdate",
+           "callers": [
+            {
+             "caller": "EngineFailureCheck",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "EngineFailureCheck",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "NetCommPlayerSlotSync",
+         "callers": [
+          {
+           "caller": "SessionScoringUpdate",
+           "callers": [
+            {
+             "caller": "GamePostMainLoop",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "caller": "sub_462E20",
+         "callers": [
+          {
+           "caller": "MultiplayerVehiclePlacement",
+           "callers": [
+            {
+             "caller": "LoadVehicleEntries",
+             "callers": []
+            },
+            {
+             "caller": "RunCollisionDetectionLoop",
+             "callers": []
+            },
+            {
+             "caller": "SessionInit",
+             "callers": []
+            },
+            {
+             "caller": "SessionSceneInitChain",
+             "callers": []
+            },
+            {
+             "caller": "SessionSynchronizer",
+             "callers": []
+            },
+            {
+             "caller": "Steward_Init",
+             "callers": []
+            },
+            {
+             "caller": "sub_4A0590",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "caller": "sub_4B3400",
+         "callers": [
+          {
+           "caller": "BufferReset",
+           "callers": [
+            {
+             "caller": "GamePostMainLoop",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B9B80",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "caller": "sub_4BFF70",
+         "callers": [
+          {
+           "caller": "DynMan_Init",
+           "callers": [
+            {
+             "caller": "Game_Init",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "caller": "sub_4C01A0",
+         "callers": [
+          {
+           "caller": "DynMan_Init",
+           "callers": []
+          },
+          {
+           "caller": "MultiplayerVehiclePlacement",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "sub_4C0850",
+         "callers": [
+          {
+           "caller": "sub_4C1050",
+           "callers": [
+            {
+             "caller": "ArrayCheckInit",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "hits": [
+      {
+       "line": 18,
+       "text": "this[a3 + 108] = 1;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_4D1C40",
+       "callers": [
+        {
+         "caller": "LapCompletion",
+         "callers": [
+          {
+           "caller": "LapSplitTimeEvent",
+           "callers": [
+            {
+             "caller": "TimerFrameRateThrottle",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "sub_4B3400",
+           "callers": [
+            {
+             "caller": "BufferReset",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "hits": [
+      {
+       "line": 15,
+       "text": "v3 = this[a2[4645] + 108];"
+      },
+      {
+       "line": 20,
+       "text": "this[a2[4645] + 108] = v4;"
+      },
+      {
+       "line": 48,
+       "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "AISessionPhaseChange",
+       "callers": [
+        {
+         "caller": "sub_4A5EA0",
+         "callers": [
+          {
+           "caller": "AIStateMachineWithModeDispatch",
+           "callers": [
+            {
+             "caller": "StateChangeNotify",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B3400",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "TrackTemperatureDisplay",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "sub_41AFD0",
+     "file": "sub_41AFD0_0041afd0.c",
+     "hits": [
+      {
+       "line": 25,
+       "text": "DriverDataTableLookupAndTimeConversion(v2, 108, -1, -1, -1, -1, -2.0, -2.0);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "RepairServiceStateDispatcher",
+       "callers": [
+        {
+         "caller": "CollisionSparkParticleEffects",
+         "callers": [
+          {
+           "caller": "VehicleContactForceAccumulation",
+           "callers": [
+            {
+             "caller": "ModeDispatchWithSwitch",
+             "callers": []
+            },
+            {
+             "caller": "ParticleEffectUpdateDispatch",
+             "callers": []
+            },
+            {
+             "caller": "VehicleYawRotationRecoveryController",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "caller": "WheelControllerInputDecoder",
+         "callers": [
+          {
+           "caller": "sub_4B3400",
+           "callers": [
+            {
+             "caller": "BufferReset",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 720,
+       "text": "v5 = a4 != 0 ? 108 : 96;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 192,
+       "text": "v8 = a4 != 0 ? 89 : 108;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 140,
+    "first": [
+     "ArrayOfStructStrideSearchByID",
+     "AudioMixerChannelInitializer",
+     "COMInterfaceVectorProcessingMethod",
+     "CameraShakeRingBufferWrite",
+     "CircularBufferSlotAlloc",
+     "ClampedIndexAssignment",
+     "CollisionContactGenerationAndFrictionResponse",
+     "CollisionEventNetworkBroadcast",
+     "CollisionGlobalStructInit_d160",
+     "CollisionResponseTypeClassification",
+     "CollisionSensorInit",
+     "CollisionTestWithThreshold",
+     "ControllerShifterMapping",
+     "D3DTextureSurfaceLockCopy",
+     "DDSTextureFormatValidationDecoding",
+     "DamperSpringForceComputationWithAntiRoll",
+     "DoublyLinkedListRemove",
+     "DrawableObjectNodeManager",
+     "DualListDestructionWithDeepCleanup",
+     "EngineStressSimulation",
+     "EntityVisibilityGridManager",
+     "F_2DTransformStructCopy",
+     "F_3DBoundingBoxExtentsComputation",
+     "F_3DTransformObjectInit_83b0",
+     "F_3DVectorCrossProductRotationAccumulation",
+     "F_3FieldInitCall_0b00",
+     "FileFormatHeaderReader",
+     "FrameRateCounterInitReset",
+     "GameOptionsWriter",
+     "IndexedArrayAccess",
+     "LinkedIndexedAccess",
+     "LinkedListByteBufferInsert",
+     "LinkedListInsertTail",
+     "LinkedListIteratorWithStateUpdate",
+     "LinkedListNodeInsertWithAllocation",
+     "LinkedListNthElement",
+     "LinkedListTraversalWithVirtualCall",
+     "LinkedListTraversal",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "MediaBufferPlaybackManager"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 107 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": []
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:68: {\"tier\": \"FACT\", \"claim\": \"PROVEN LIVE: unblocking the event-table cooldown restores cut player commentary. All six player wing/wheel-loss lines (PWS_HIT01-06, eids 106-111) now pl",
+  "f1c_ida_decompiled\\findings.jsonl:89: {\"tier\": \"FACT\", \"claim\": \"SYSTEMIC: data/full_event_dump.json was STALE against the patched exe - it marked 26 events blocked when only 16 are actually blocked live, causing two i",
+  "f1c_ida_decompiled\\findings.jsonl:93: {\"tier\": \"FACT\", \"claim\": \"REGRESSION CONFIRMED: the applied player-damage-commentary patch still holds in a fresh session - PWS_HIT01/HIT02/HIT06 re-fired independently days after",
+  "f1c_ida_decompiled\\findings.jsonl:94: {\"tier\": \"CONFIRMED\", \"claim\": \"Player retirement commentary (PWS_RETIRE01/02/04) requires FinishState != 0 AND a ~10 s dwell timer - collision damage alone never satisfies it beca",
+  "f1c_ida_decompiled\\findings.jsonl:157: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"pit_stop_failure\", \"claim\": \"None of the 21 pit-stop-failure commentary clips has an emitter anywhere in the game, and none is b",
+  "f1c_ida_decompiled\\findings.jsonl:225: {\"tier\": \"FACT\", \"tags\": [\"commentary\", \"gearbox\", \"mechanical_failures\", \"RESTORED\", \"cut_content\"], \"title\": \"RESTORED: 14 player gearbox commentary clips PWS_MECHPROB20-33, eids"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-005.md:42: anchor: the player wing/wheel-loss lines `PWS_HIT01-06` are already **restored and",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:145: | `PWS_HIT01` | 107 | 108,398 | Player lost front wing |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PIT_STOP_COMPREHENSIVE_ANALYSIS.md:731: None has `FLT_MAX` cooldown. The cheap 4-byte cooldown fix used for PWS_HIT01-06",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:190: | `PWS_HIT01` | 107 | 108, 398 | — | Player lost front wing | user triage: DONE |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:34: | `PWS_HIT01` | 108, 398 | Player lost front wing |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SHIPPED_MECHANISMS.md:110: | PWS_AIRETIRE05 | 235 | AI blown engine | `sub_41B250` [alias: retirement-reason classifier]. AI branch, retirement reason code `a1+16488 == 1` → eid235 | CONFIRMED (mirrors the e",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SHIPPED_MECHANISMS.md:231: PWS_HIT01-06 restoration).",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002B_player_retirement.md:46: **Verdict:** WIRED (T1). Same pattern as PWS_HIT01-06 — emitter exists, FLT_MAX cooldown the only blocker.",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:54: ### 6 damage lines - PWS_HIT01..06 (SDT 105-110)"
+ ],
+ "mod_sources": [
+  "development\\mods\\extended_damage_commentary\\v1.0.0\\extended_damage_commentary.c:4: * Restores: PWS_HIT01, PWS_HIT02, PWS_HIT03, PWS_HIT04, PWS_HIT05, PWS_HIT06",
+  "development\\mods\\extended_damage_commentary\\v1.0.0-hardening-rc.1\\extended_damage_commentary.c:4: * Restores: PWS_HIT01, PWS_HIT02, PWS_HIT03, PWS_HIT04, PWS_HIT05, PWS_HIT06",
+  "development\\mods\\extended_damage_commentary\\v1.0.0-lightloader-only-rc.1\\extended_damage_commentary.c:4: * Restores: PWS_HIT01, PWS_HIT02, PWS_HIT03, PWS_HIT04, PWS_HIT05, PWS_HIT06",
+  "development\\mods\\extended_damage_commentary\\v1.0.0-rc.2\\extended_damage_commentary.c:4: * Restores: PWS_HIT01, PWS_HIT02, PWS_HIT03, PWS_HIT04, PWS_HIT05, PWS_HIT06",
+  "development\\mods\\extended_damage_commentary\\v1.0.1-rc.1\\extended_damage_commentary.c:4: * Restores: PWS_HIT01, PWS_HIT02, PWS_HIT03, PWS_HIT04, PWS_HIT05, PWS_HIT06",
+  "development\\mods\\extended_damage_commentary\\v1.0.1-rc.3\\extended_damage_commentary.c:4: * Restores: PWS_HIT01, PWS_HIT02, PWS_HIT03, PWS_HIT04, PWS_HIT05, PWS_HIT06",
+  "development\\mods\\extended_damage_commentary\\v1.0.2\\extended_damage_commentary.c:4: * Restores: PWS_HIT01, PWS_HIT02, PWS_HIT03, PWS_HIT04, PWS_HIT05, PWS_HIT06",
+  "development\\mods\\extended_damage_commentary\\v1.0.2-rc.1\\extended_damage_commentary.c:4: * Restores: PWS_HIT01, PWS_HIT02, PWS_HIT03, PWS_HIT04, PWS_HIT05, PWS_HIT06",
+  "development\\mods\\extended_damage_commentary\\v1.0.3\\extended_damage_commentary.c:4: * Restores: PWS_HIT01, PWS_HIT02, PWS_HIT03, PWS_HIT04, PWS_HIT05, PWS_HIT06",
+  "development\\mods\\extended_damage_commentary\\v1.0.5\\extended_damage_commentary.c:4: * Restores: PWS_HIT01, PWS_HIT02, PWS_HIT03, PWS_HIT04, PWS_HIT05, PWS_HIT06",
+  "development\\mods\\extended_damage_commentary\\v1.0.6\\extended_damage_commentary.c:4: * Restores: PWS_HIT01, PWS_HIT02, PWS_HIT03, PWS_HIT04, PWS_HIT05, PWS_HIT06",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:495: * FLT_MAX mechanism the PWS_HIT01-06 restoration had to undo. */",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2454: * PWS_HIT01-06 and the 14 gearbox clips were silent for exactly this reason",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:555: * FLT_MAX mechanism the PWS_HIT01-06 restoration had to undo. */",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:2514: * PWS_HIT01-06 and the 14 gearbox clips were silent for exactly this reason",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:556: * FLT_MAX mechanism the PWS_HIT01-06 restoration had to undo. */",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:2515: * PWS_HIT01-06 and the 14 gearbox clips were silent for exactly this reason",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9.c:590: * FLT_MAX mechanism the PWS_HIT01-06 restoration had to undo. */",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9.c:2579: * PWS_HIT01-06 and the 14 gearbox clips were silent for exactly this reason",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9_protected.c:603: * FLT_MAX mechanism the PWS_HIT01-06 restoration had to undo. */",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9_protected.c:2611: * PWS_HIT01-06 and the 14 gearbox clips were silent for exactly this reason",
+  "development\\mods\\full_safety_car_sdk_lab\\dll\\pace_probe_sdk_lab.c:497: * FLT_MAX mechanism the PWS_HIT01-06 restoration had to undo. */",
+  "development\\mods\\full_safety_car_sdk_lab\\dll\\pace_probe_sdk_lab.c:2454: * PWS_HIT01-06 and the 14 gearbox clips were silent for exactly this reason",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:11556: /* V3: an impact that rolled no fault -> HIT01; an impact that armed a",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:11564: voice_say(MFV_HIT01, MFR_P_INFO);"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "EVF archive (progress.json DONE)",
+    "eid": null,
+    "mechanism": "see note",
+    "release_status": "archived",
+    "live_verified": true,
+    "source": "seed",
+    "condition": null
+   },
+   {
+    "mod": "player_damage_commentary",
+    "mod_version": "dev (no version; no registry row)",
+    "eid": 108,
+    "mechanism": "cooldown_unblock",
+    "condition": "player damage event: vanilla emitter fired but cooldown was FLT_MAX; patch sets 15.0 s at attach",
+    "source": "development/mods/player_damage_commentary/source.c:150-160 (sites 0x5C01F4-0x5C0258 = eid 106-111)",
+    "release_status": "dev",
+    "live_verified": true,
+    "says": "Player lost front wing"
+   },
+   {
+    "mod": "extended_damage_commentary",
+    "mod_version": "1.0.1-r2 public (RELEASE_REGISTRY 2026-10-02); dev folder v1.0.6 (meta.json 1.0.6)",
+    "eid": 108,
+    "mechanism": "cooldown_unblock",
+    "condition": "player damage event: same cooldown unblock (15 s)",
+    "source": "development/mods/extended_damage_commentary/v1.0.6/extended_damage_commentary.c:4-5,12-18",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Player lost front wing"
+   }
+  ],
+  "note": "user triage: DONE",
+  "triage": {
+   "sdt_index": 107,
+   "text": "DONE",
+   "subject": "",
+   "play": false,
+   "verdict": "DONE",
+   "flags": [],
+   "inherited": false,
+   "status": "DONE"
+  },
+  "evf_status": "DONE"
+ }
+}

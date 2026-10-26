@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/incidents.json",
+  "title": "/incidents response",
+  "type": "object",
+  "required": [
+    "gen",
+    "ev"
+  ],
+  "properties": {
+    "gen": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "ev": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "tk",
+          "id",
+          "n",
+          "ty",
+          "lp",
+          "a",
+          "b"
+        ],
+        "properties": {
+          "t": {
+            "type": "number",
+            "description": "REPLAY/TAPE 2.2 (review only, optional): sim time of the event in seconds, 3 decimals. The live document has no such field."
+          },
+          "tk": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "id": {
+            "type": "integer"
+          },
+          "n": {
+            "type": "string"
+          },
+          "ty": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lp": {
+            "type": "integer"
+          },
+          "a": {
+            "type": "integer"
+          },
+          "b": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "archive": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{8,47}$",
+      "description": "1.0.1 (api_version 7): id of the archived session this document was read from (?session=); absent on live documents"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,163 @@
+{
+  "version": "4.3.0-rc.2",
+  "date": "2026-10-11",
+  "production": false,
+  "dll_sha256": "198D9F6CEF1C67F2A048B65B5337D1F8FFDE7F52A9B56DF6531A4A9EABAB5819",
+  "dll_reproducible": "PASS: two canonical builds of 4.3.0-rc.2 produce 198D9F6CEF1C67F2A048B65B5337D1F8FFDE7F52A9B56DF6531A4A9EABAB5819; pin_sidecars.py --check OK",
+  "api_contract": {
+    "api_version": "6",
+    "document": "API_CONTRACT_2026-10-09.md (section 15: API 6 candidate)",
+    "schemas": "schemas/ (12 endpoint schemas + version.json)",
+    "schema_set_sha256": "8E1A9C555C3FEDAA8238A1D87F8ED0D30F743842029546BDD5AEB0FBAFA96DDC",
+    "gate": "contract_validate.py + test_telemetry.py: every live document and the SSE payload validated; /health api_version must equal schemas/version.json, the schema-set hash must match, and the api_version rules are enforced (fix 1/2/3 rules from v2, the /health capture_cost_us + memory report from v3, the mods.mechfail/forecast additions from v4 and the trace_mode/trace_bytes/trace_cars all-cars fields from v5). A schema edit without a version bump fails."
+  },
+  "payload": {
+    "dir": "%TEMP%\\f1c-web-telemetry-1.2.5\\payload",
+    "note": "Candidate payload staging lives in %TEMP% (BACKEND 2 review fix 4); build.bat populates it, verify_payload.py gates the file set, byte-equality and the absence of a workspace payload dir, and the install route and these hashes point at it.",
+    "files": {
+      "telemetry_viewer.js": "BB6335C40504A3E07747DF854F550205BE730B15C4BA391C67A9B79B3CEAEC7B",
+      "web_telemetry.dll": "B3BC970DEAEA9467782241B523065E51ADC44583AAD16E918F3373FD3B60EFE4",
+      "web_telemetry.dll.mod.json": "50B70A69BAE89CC7800DA23C9B252CA780C7C4717D5D902F3277280BDF988A48",
+      "web_telemetry.ini": "63F62FD65FD1D953BCB9E0F057D27633FD3B92D6AA3A89ECAF1A9690AD21F233",
+      "workbench_ui.js": "29ECD1A638AAD455E72A4726BF2B948D8E56419E73953C6D993B9033763938AD"
+    }
+  },
+  "sidecar": {
+    "file": "workbench_ui.js",
+    "sha256": "29ECD1A638AAD455E72A4726BF2B948D8E56419E73953C6D993B9033763938AD",
+    "note": "Must sit beside the installed DLL (served at /workbench.js). /health reports present+bytes+sha256+expected+matches; expected is embedded in the DLL and pinned here; verify_sidecar.py and test_telemetry.py gate source == staged == manifest byte-exact."
+  },
+  "target": "Lightloader manager 2.2.7; protected host ABI v2/Hub 2; broker ABI 15",
+  "listen_address": "0.0.0.0",
+  "port": 8080,
+  "port_setting": "web_telemetry.ini [Mod] Port (1024-65535, default 8080, read once at init); bind failure retries +1..+5 (8081-8085 at default), then logs 'HTTP disabled: no port available' and keeps capture running; /health and the page footer report the actual bound port.",
+  "read_only": true,
+  "cors_posture": "POST /trace/import/legacy requires Content-Type application/octet-stream (415 otherwise, no CORS header); OPTIONS preflight is answered 405 with no allow header; wildcard Access-Control-Allow-Origin remains only on GET /events. /action audited: GET-only, 403 refusal, no state change, no CORS header (behavior unchanged per review).",
+  "endpoint_audit": "BACKEND 1 (rc.7): method allowlist GET + POST(import only), 405 JSON otherwise (HEAD without a body); request line/headers bounded at 2047 B with a 5 s slow-client deadline; POST body bounded at 16 MB with a 3 s read deadline; query keys must start the query or follow '&'; duplicate keys first-wins; numeric overflow/range refused; JSON error bodies; oversized body 413; graceful close (FIN + 200 ms drain); SSE cap 16; serial accept with Connection: close. Full findings: BACKEND1_ENDPOINT_AUDIT_2026-10-09.md. rc.13 repairs: RC12_AUDIT_REVIEW_2026-10-09.md; complete bounded HTTP1.0/1.1 request lines, strict CL/TE ambiguity refusal, non-truncating queries, exact selectors/errno numeric parsing and elapsed deadlines even during progress. Optional invalid step still defaults to 5 per frozen v3.",
+  "native_validation": "4.3.0-rc.1 is a private candidate, built and offline-verified only; NOT installed, installed state not inspected or changed. RESEARCH channel proof, exact-build guarded weekend, human/browser presentation and native capture cost remain pending.",
+  "focused_checks": 42222,
+  "focused_detail": "PASS 4.3.0-rc.2 complete TELEMETRY_TESTS=1 gate (2026-10-11): 42,222 runtime assertions incl. test_coop (controller-mode player selection with a remote host car in slot 0 and a retired ai_control-0 bot, remote gating, derived remote speed 50 m/s, remote steerwhy); viewer_test 45 checks incl. CO-OP labels and local-only tread; contract v4; soak/fuzz/sizes as rc.1. Three earlier gate runs timed out on HTTP requests while the CO-OP game ran on the same PC; the identical code then passed, and the endpoints answered in ~13 ms in isolation (load-related, not reproduced).",
+  "performance_synthetic": "4.3.0-rc.2 gate: synthetic capture+read p50 249 us, p95 343 us, max 426 us; callback-only p50 187.9 us, p95 217.5 us. Synthetic fixture; no native claim.",
+  "full_sdk_gate": "PASS 2026-10-09 (parent-run on RC14): full canonical sdk-test; seven regenerated artifacts unchanged. No SDK interface/ABI changes.",
+  "source_sha256": {
+    "web_telemetry.c": "9B7233A4CEBC3F12DC14FAC61E6E2354ACCA5CF90C42E72B6E7FF86D7D636D9E",
+    "compatibility_runtime.inc": "83701759281EB4A3D843D63C4F9694B6A6C31525CE18C22B40CD637454E960A8",
+    "legacy_formats.c": "F4CDF9D25EA0BA9B20639B3996A3F83DE5C10D3FA6B383B77D747777169AD60F",
+    "legacy_formats.h": "5F18B7A4DA2A54544E292E4B4ACCF99F03245246F9F6BEDF429B26F38E5C721B",
+    "sha256.c": "B64AB64977BC1BBC5252E34DF84025CF969622D37C4273332BF63E9B2A4FC3BC",
+    "sha256.h": "10DB6E4DB7BADB8A63C60F6776F25D73B3941B171AA7FA221C2E101E0F8A9DD1",
+    "runtime_test.c": "474ABD856E20B46951EEF955AEF350EB95378CFF4936C66A47307909BA6D3F98",
+    "test_telemetry.py": "BB601DD8CEB6A4F2E5053BA8B840BA8B796A78A32EABC0746B31F2B1219FA6FE",
+    "viewer_test.js": "FB47149F3DAC230F58BCF273D595F29854D411B9C339931B0FA50661090855BA",
+    "pin_sidecars.py": "6EE2CF5C7BD17E9CD8E8401E5226DE787A9B7D626B9A296E1CEC7EE0B9D2CB9D",
+    "verify_sidecar.py": "01F9BD8A9887C3C47EF4D8A2ACCDFE09BE258C4F1443B1EC45CF2F3C6777DA17",
+    "verify_payload.py": "150D5158D2CBD5F02F40B5D65FE53F5B60ACC325F578AF38C9D8B58533C0F902",
+    "build.bat": "96C7B13B90FC3077FC2380980601D92FFF670ED49088C80381E5AB8670B63259",
+    "telemetry_viewer.js": "74F3F29B77D12431C3F55BDE8319C87017A91D1013FB520945C5C40311F54FFE",
+    "workbench_ui.js": "88A04B638D49568CFEFEEED901D3AC3D5657E1BC8223BE17D7CADE9A49611CA2",
+    "mirror_regions.json": "7F727C36F8B61FB0EA0C558294F5CC4ADF6956A4A404129E185436EB5C084065"
+  },
+  "sdk_sha256": {
+    "f1c_broker.c": "D89FF4B7F50646FCD9D5E77E24309D0E5BD66A9808D25AA64DAD7ACADF0DF133",
+    "f1c_broker.h": "AA966206A09D11F01EC235DAB9237E0E557754CAFCC418A94F9503D86B6B1868",
+    "f1c_broker_abi.h": "18AD04DB10D7B41130428C2AB498CD257345F49C59E4433BE04B6E810D542C67",
+    "f1c_sdk.h": "62F16E04BBDCC2375EB337BB494C6F4AF0D818FD52A52A52507927BA8345A7F3",
+    "f1c_target.h": "AC1CC8956410F41208D1FC5741D501FF02BC5CB8292921B31C27181EE4963C2F"
+  },
+  "channel_ledger": "CHANNEL_LEDGER_2026-10-09.md",
+  "implementation_record": "STOP4_WORKBENCH_IMPLEMENTATION_2026-10-09.md",
+  "backend1_record": "BACKEND1_ENDPOINT_AUDIT_2026-10-09.md",
+  "backend2_record": "BACKEND2_API_CONTRACT_2026-10-09.md",
+  "stop5_acceptance": "STOP5_ACCEPTANCE_2026-10-09.md",
+  "workspace_validator": {
+    "baseline_errors": 2,
+    "post_errors": 2,
+    "warnings": 0,
+    "existing_errors": [
+      "unexpected root .claude",
+      "unexpected root plans"
+    ],
+    "new_errors": 0
+  },
+  "browser_verification": "Viewer (8 views) rendered in the built-in browser on a SYNTHETIC physics feed (viewer_review/) with zero console errors; DLL-served /viewer via runtime_test serve: both sidecars hash-match, 104-car roster, v6 fields present. Actual-game visual QA, long-session heap and human acceptance PENDING.",
+  "installed": {
+    "time_utc": "2026-10-09.203972Z",
+    "path": "%USERPROFILE%/Documents/F1 Challenge V10/plugins/lightloader/web_telemetry.dll",
+    "sha256": "BA87BC2E6690C8E75D5E8EA96442E0DF7C743C420D85F30E3165FCCE50467FD4",
+    "restoration": "workspace_organization_audit/WEB_TELEMETRY_REPAIR_BEFORE_2026-10-09/INSTALL_RESTORATION.json; candidate install/restore maps under workspace_organization_audit/WEB_TELEMETRY_STOP5_RC6_INSTALL/ (updated to the BACKEND 4 candidate)",
+    "status": "HISTORICAL rc.2 evidence only; not re-inspected or changed by rc.13 audit; this object does not establish the current installation"
+  },
+  "backend2_fixes_record": "BACKEND2_FIXES_2026-10-09.md",
+  "backend3_record": "BACKEND3_ROBUSTNESS_2026-10-09.md",
+  "backend3_robustness": {
+    "script": "robustness_backend3.py (run by test_telemetry.py inside the TELEMETRY_TESTS gate)",
+    "logical_cpus": 20,
+    "soak": "RC14 resource run: 20 workers / 20 logical CPUs; 2.0 simulated hours and 144,000 ticks per shard, one 22-car shard each; wall 15.85 s, CPU 244.75 s (77.2%); max warm RSS delta 0 KB; at least 60 laps per side; eviction lists <= 8.",
+    "fuzz": "RC14 resource run: 40 x 2,000 = 80,000 decodes; 21,082 accepted, 58,918 refused, 0 crashes; wall 15.76 s, CPU 33.84 s (10.7%); persisted candidate inputs; I/O-bound by design. Seeds 2001..2040, base fixture hashes and crash_details are recorded in resource_results.json; parent verified all 40 seeds.",
+    "sizes": {
+      "telemetry": 129029,
+      "trace_data": 524160,
+      "csv": 324110,
+      "compare": 211762,
+      "status": 2949,
+      "track": 66019
+    },
+    "sse": "RC14 component gate measured 10.1 Hz; reconnect had no catch-up; 16-client cap, refused 17th, and slow-peer cleanup PASS (15 active streams while one slow peer was reaped).",
+    "last_gate_run": "RC14 complete TELEMETRY_TESTS=1 canonical component build 2026-10-09; resource_results.json from %TEMP%\\f1c-web-telemetry-import-fuzz-3x956hgq.",
+    "resource_results_sha256": "5765744BDEC8E46083508C2B08FFEBBFEFE74A645B82E959BE99357AF6C5C706",
+    "resource_results_path": "%TEMP%\\f1c-web-telemetry-import-fuzz-3x956hgq\\resource_results.json"
+  },
+  "backend4_record": "BACKEND4_FINAL_2026-10-09.md",
+  "backend4_checklist": "BACKEND4_LIVE_ACCEPTANCE_CHECKLIST_2026-10-09.md",
+  "live_check_script": "live_check.py",
+  "install_restore": "workspace_organization_audit/WEB_TELEMETRY_BACKEND4_INSTALL/INSTALL_RESTORATION.json (DLL + dll.mod.json + sidecar + ini; before/after hashes; owner fills time/backup paths)",
+  "audit_record": "RC12_AUDIT_REVIEW_2026-10-09.md",
+  "current_state": "CURRENT_STATE.md",
+  "audit_optimizations": "Single SSE format per broadcast; RAF render coalescing; lap sample-array ownership transfer; empty-slot refusal; per-car 2,400 open samples and six laps; global 262,144 completed-point budget; qsort stable capture-cost snapshot. No controlled speedup benchmark.",
+  "packaging_audit": "PASS workspace/TEMP-root/payload-junction/extra-directory negative cases and safe TEMP positive case; redirect checks run before compilation and copy. Source/staged/manifest and all three metadata sidecar pins match.",
+  "prior_rc13_complete_run": {
+    "corpus": "f1c-web-telemetry-import-fuzz-c4f0nsnk",
+    "resource_results_sha256": "BF1BF521B7C0EF6E5FBEEEE82328ACA0D6E274390AAF0C5A9CD02998DA2372E2",
+    "callback_only_us": {
+      "p50": 171.0,
+      "p95": 199.7,
+      "max": 392.7
+    },
+    "capture_read_us": {
+      "p50": 221,
+      "p95": 284,
+      "max": 290
+    },
+    "soak_wall_s": 15.19,
+    "fuzz_wall_s": 14.92,
+    "note": "Earlier same-DLL/JS complete gate; retained for formatting-correction evidence. Final packaging guard also passed in the later complete gate."
+  },
+  "luna_review_record": "LUNA_FIX_REVIEW_2026-10-09.md",
+  "luna_work_report": "LUNA_WORK_REPORT_2026-10-09.md",
+  "parent_independent_review": {
+    "status": "PASS implementation and automated verification; native/human gates pending",
+    "model_assignment": "gpt-6-luna, reasoning low",
+    "import_assertions": 27,
+    "frontend_groups": 22,
+    "runtime_assertions": 42209,
+    "full_sdk_gate": "PASS, seven regenerated artifacts unchanged",
+    "runtime_capture_read_us": {
+      "p50": 220,
+      "p95": 271,
+      "max": 343
+    },
+    "runtime_callback_only_us": {
+      "p50": 169.6,
+      "p95": 182.7,
+      "max": 216.1
+    },
+    "scope": "Reviewed every changed source/test/metadata file against delegation before-state; requested overflow and containment fixes plus isolated tests, rejected stale metrics, checked actual resource file seeds/hash, verified original rc.12/rc.13 preserved."
+  },
+  "sidecar_viewer": {
+    "file": "telemetry_viewer.js",
+    "sha256": "BB6335C40504A3E07747DF854F550205BE730B15C4BA391C67A9B79B3CEAEC7B",
+    "note": "Must sit beside the installed DLL (served at /viewer.js, page /viewer). /health viewer_ui reports present+bytes+sha256+expected+matches; pinned by pin_sidecars.py and gated by verify_sidecar.py."
+  },
+  "viewer_record": "VIEWER_4.3.0_2026-10-11.md",
+  "coop_record": "VIEWER_4.3.0_2026-10-11.md section CO-OP (rc.2)"
+}

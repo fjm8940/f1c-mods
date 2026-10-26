@@ -1,0 +1,50 @@
+fisheye prototype (research build 2026-10-05)
+device 2560x1600 windowed=1: fisheye ready (F9 on/off, F10/F11 strength)
+fisheye ON (strength 0.60)
+render-target texture 2560x1600 fmt=22 ready
+fisheye off (strength 0.60)
+fisheye ON (strength 0.60)
+fisheye off (strength 0.60)
+fisheye ON (strength 0.60)
+fisheye off (strength 0.60)
+fisheye ON (strength 0.60)
+fisheye off (strength 0.60)
+fisheye ON (strength 0.60)
+strength 0.70
+strength 0.80
+strength 0.90
+strength 1.00
+strength 1.00
+strength 1.00
+strength 1.00
+strength 1.00
+strength 1.00
+fisheye off (strength 1.00)
+fisheye ON (strength 1.00)
+fisheye off (strength 1.00)
+fisheye ON (strength 1.00)
+fisheye off (strength 1.00)
+fisheye ON (strength 1.00)
+fisheye off (strength 1.00)
+fisheye ON (strength 1.00)
+fisheye off (strength 1.00)
+fisheye ON (strength 1.00)
+fisheye off (strength 1.00)
+fisheye ON (strength 1.00)
+fisheye off (strength 1.00)
+fisheye ON (strength 1.00)
+fisheye off (strength 1.00)
+fisheye ON (strength 1.00)
+fisheye off (strength 1.00)
+fisheye ON (strength 1.00)
+fisheye off (strength 1.00)
+fisheye ON (strength 1.00)
+fisheye off (strength 1.00)
+fisheye ON (strength 1.00)
+fisheye off (strength 1.00)
+fisheye ON (strength 1.00)
+fisheye off (strength 1.00)
+fisheye ON (strength 1.00)
+fisheye off (strength 1.00)
+fisheye ON (strength 1.00)
+fisheye off (strength 1.00)

@@ -1,0 +1,8010 @@
+{
+  "schema_version": 1,
+  "seeds": [
+    "0x0042A110",
+    "0x004A6E50",
+    "0x004A6340",
+    "0x00424CD0"
+  ],
+  "depth": 2,
+  "include_callers": true,
+  "functions": {
+    "0x0042A110": {
+      "depth": 0,
+      "parent": null,
+      "address": "0x0042A110",
+      "name": "ForcePitExit",
+      "declared_name": "sub_42A110",
+      "source": "functions/ForcePitExit_0042a110.c",
+      "callees": [
+        "0x0042AC70",
+        "0x004A5C40",
+        "0x004A5E40"
+      ],
+      "callers": [
+        "0x00429470",
+        "0x00429EB0",
+        "0x0042A180"
+      ],
+      "this_offsets": [
+        "0xCB3",
+        "0x403C",
+        "0x4064"
+      ],
+      "object_kind": "F1CVehicle",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "AIAbility/AIPushLap pass vehicle this; disassembly explicitly derives pit controller as vehicle+0x32CC."
+      ],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x004A6E50": {
+      "depth": 0,
+      "parent": null,
+      "address": "0x004A6E50",
+      "name": "PitStateUpdateMachine",
+      "declared_name": "sub_4A6E50",
+      "source": "functions/PitStateUpdateMachine_004a6e50.c",
+      "callees": [
+        "0x0040D410",
+        "0x004A5C80",
+        "0x004A5F20",
+        "0x004A5FA0",
+        "0x004A6200",
+        "0x004A68B0",
+        "0x004A6B80",
+        "0x004A6DB0",
+        "0x004D8840",
+        "0x004E9630"
+      ],
+      "callers": [
+        "0x004E4930"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0xC",
+        "0x180",
+        "0x184",
+        "0x188",
+        "0x190",
+        "0x1AC",
+        "0x32C8"
+      ],
+      "object_kind": "F1CPitMachine",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Reviewed per-frame pit state-machine method and relative status accesses."
+      ],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x004A6340": {
+      "depth": 0,
+      "parent": null,
+      "address": "0x004A6340",
+      "name": "PitStopOperationTimer",
+      "declared_name": "sub_4A6340",
+      "source": "functions/PitStopOperationTimer_004a6340.c",
+      "callees": [
+        "0x0042AEE0",
+        "0x004A34A0",
+        "0x004A3560",
+        "0x004A35F0",
+        "0x004A3820",
+        "0x004A5820",
+        "0x004B33B0",
+        "0x004BBF20",
+        "0x004D7570",
+        "0x004E0ED0",
+        "0x004F1860",
+        "0x004F1890",
+        "0x004F1A60"
+      ],
+      "callers": [
+        "0x004A6200"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x8",
+        "0xB",
+        "0xC",
+        "0x1B",
+        "0x1C",
+        "0x2C",
+        "0x59",
+        "0x63",
+        "0x68",
+        "0x6C",
+        "0x6D",
+        "0x6E",
+        "0x6F",
+        "0x75",
+        "0xAC",
+        "0xEC",
+        "0xF0",
+        "0x12C",
+        "0x158",
+        "0x160",
+        "0x1A0",
+        "0x1B0",
+        "0x1C0",
+        "0x1C4",
+        "0x1C8",
+        "0x1CC",
+        "0x1D0",
+        "0x105C"
+      ],
+      "object_kind": "F1CPitMachine",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "PitStopReadyCheck calls with unchanged controller; computes operation flags and duration from controller fields."
+      ],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x00424CD0": {
+      "depth": 0,
+      "parent": null,
+      "address": "0x00424CD0",
+      "name": "AICommandMessageQueueDispatcher",
+      "declared_name": "sub_424CD0",
+      "source": "functions/AICommandMessageQueueDispatcher_00424cd0.c",
+      "callees": [
+        "0x00429EE0",
+        "0x0042ACD0",
+        "0x0042ADB0",
+        "0x004A46F0",
+        "0x004A5C80",
+        "0x004C6D90"
+      ],
+      "callers": [
+        "0x00424790",
+        "0x00424B20",
+        "0x00426430",
+        "0x004A68B0",
+        "0x004D3740",
+        "0x004D37B0"
+      ],
+      "this_offsets": [
+        "0x104F",
+        "0x4064",
+        "0x4410",
+        "0x44A8",
+        "0x44AC",
+        "0x44B0",
+        "0x4544",
+        "0x4548",
+        "0x4550",
+        "0x45F4"
+      ],
+      "object_kind": "F1CVehicle",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Called with the owning vehicle pointer from PitStopProgress and vehicle AI methods."
+      ],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x0042AC70": {
+      "depth": 1,
+      "parent": "0x0042A110",
+      "address": "0x0042AC70",
+      "name": "AIStateFlagSetter",
+      "declared_name": "sub_42AC70",
+      "source": "functions/AIStateFlagSetter_0042ac70.c",
+      "callees": [],
+      "callers": [
+        "0x00424E70",
+        "0x0042A110",
+        "0x0042AC90"
+      ],
+      "this_offsets": [
+        "0x454C"
+      ],
+      "object_kind": "F1CVehicle",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "ForcePitExit restores vehicle ecx before the call; writes established vehicle field 0x454C-adjacent AI state."
+      ],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x004A5C40": {
+      "depth": 1,
+      "parent": "0x0042A110",
+      "address": "0x004A5C40",
+      "name": "TeammatePartValueLookup",
+      "declared_name": "sub_4A5C40",
+      "source": "functions/TeammatePartValueLookup_004a5c40.c",
+      "callees": [],
+      "callers": [
+        "0x0042A110"
+      ],
+      "this_offsets": [
+        "0x48A4"
+      ],
+      "object_kind": "F1CPitMachine",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "ForcePitExit passes vehicle+0x32CC; function dereferences pit_machine->vehicle."
+      ],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x004A5E40": {
+      "depth": 1,
+      "parent": "0x0042A110",
+      "address": "0x004A5E40",
+      "name": "StateConditionalAction",
+      "declared_name": "sub_4A5E40",
+      "source": "functions/StateConditionalAction_004a5e40.c",
+      "callees": [
+        "0x004A5C80"
+      ],
+      "callers": [
+        "0x0042A110"
+      ],
+      "this_offsets": [
+        "0x184"
+      ],
+      "object_kind": "F1CPitMachine",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "ForcePitExit explicitly computes vehicle+0x32CC into ecx at 0x42A12D and calls this function."
+      ],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x00429470": {
+      "depth": 1,
+      "parent": "0x0042A110",
+      "address": "0x00429470",
+      "name": "AIAbility",
+      "declared_name": "sub_429470",
+      "source": "functions/AIAbility_00429470.c",
+      "callees": [
+        "0x00424750",
+        "0x00426430",
+        "0x00429EB0",
+        "0x0042A110",
+        "0x0042A3D0",
+        "0x0042A6F0",
+        "0x0042ACD0",
+        "0x0042AD20",
+        "0x0042AD50",
+        "0x0042AE00",
+        "0x004D1CF0",
+        "0x004EFAC0",
+        "0x004F1890",
+        "0x005884ED"
+      ],
+      "callers": [
+        "0x00424E70"
+      ],
+      "this_offsets": [
+        "0x3",
+        "0xCD4",
+        "0xF5B",
+        "0x100F",
+        "0x1010",
+        "0x1019",
+        "0x101A",
+        "0x10D5",
+        "0x1144",
+        "0x1151",
+        "0x1154",
+        "0x1178",
+        "0x117E",
+        "0x34F8",
+        "0x34FC",
+        "0x3500",
+        "0x3984",
+        "0x3988",
+        "0x39FA",
+        "0x4000",
+        "0x4044",
+        "0x43F8",
+        "0x4420",
+        "0x4424",
+        "0x4428",
+        "0x4434",
+        "0x4438",
+        "0x443C",
+        "0x4440",
+        "0x44B0",
+        "0x44D4",
+        "0x44D8",
+        "0x44F4",
+        "0x4508",
+        "0x450C",
+        "0x4524",
+        "0x4534",
+        "0x453C",
+        "0x4544",
+        "0x4548",
+        "0x454C",
+        "0x4579",
+        "0x457C",
+        "0x45F4"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x00429EB0": {
+      "depth": 1,
+      "parent": "0x0042A110",
+      "address": "0x00429EB0",
+      "name": "RacePhasePitEntryTrigger",
+      "declared_name": "sub_429EB0",
+      "source": "functions/RacePhasePitEntryTrigger_00429eb0.c",
+      "callees": [
+        "0x0042A110",
+        "0x0042AD20"
+      ],
+      "callers": [
+        "0x00429470"
+      ],
+      "this_offsets": [
+        "0x4550"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "pit",
+        "session"
+      ]
+    },
+    "0x0042A180": {
+      "depth": 1,
+      "parent": "0x0042A110",
+      "address": "0x0042A180",
+      "name": "AIPushLap",
+      "declared_name": "sub_42A180",
+      "source": "functions/AIPushLap_0042a180.c",
+      "callees": [
+        "0x0042A110",
+        "0x004A4830",
+        "0x004F1630"
+      ],
+      "callers": [
+        "0x00424E70"
+      ],
+      "this_offsets": [
+        "0x3",
+        "0x100F",
+        "0x1153",
+        "0x1163",
+        "0x1178",
+        "0x32C8",
+        "0x363C",
+        "0x3734",
+        "0x382C",
+        "0x3924",
+        "0x44C8",
+        "0x44D8",
+        "0x44F4",
+        "0x453C",
+        "0x4580"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x0040D410": {
+      "depth": 1,
+      "parent": "0x004A6E50",
+      "address": "0x0040D410",
+      "name": "ShortComputation_d410",
+      "declared_name": "sub_40D410",
+      "source": "functions/ShortComputation_d410_0040d410.c",
+      "callees": [
+        "0x00408450",
+        "0x0040CD60",
+        "0x0040CDE0"
+      ],
+      "callers": [
+        "0x004A00A0",
+        "0x004A0250",
+        "0x004A68B0",
+        "0x004A6E50"
+      ],
+      "this_offsets": [
+        "0x10",
+        "0x24"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004A5C80": {
+      "depth": 1,
+      "parent": "0x004A6E50",
+      "address": "0x004A5C80",
+      "name": "StateChangeNotify",
+      "declared_name": "sub_4A5C80",
+      "source": "functions/StateChangeNotify_004a5c80.c",
+      "callees": [
+        "0x004A5D10",
+        "0x004B33B0"
+      ],
+      "callers": [
+        "0x00424CD0",
+        "0x0042AF40",
+        "0x004A5E10",
+        "0x004A5E40",
+        "0x004A5EA0",
+        "0x004A5F20",
+        "0x004A5FA0",
+        "0x004A68B0",
+        "0x004A6D50",
+        "0x004A6E50",
+        "0x004F1FE0"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x184",
+        "0x18C"
+      ],
+      "object_kind": "F1CPitMachine",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Direct relative accesses 0x184/0x18C and all pit-state-machine callers pass the embedded controller."
+      ],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x004A5F20": {
+      "depth": 1,
+      "parent": "0x004A6E50",
+      "address": "0x004A5F20",
+      "name": "sub_4A5F20",
+      "declared_name": "sub_4A5F20",
+      "source": "functions/sub_4A5F20_004a5f20.c",
+      "callees": [
+        "0x0041A3A0",
+        "0x004A3FE0",
+        "0x004A5C80",
+        "0x004BBA90",
+        "0x004BC0E0"
+      ],
+      "callers": [
+        "0x004A5D10",
+        "0x004A6E50",
+        "0x004D37B0"
+      ],
+      "this_offsets": [
+        "0x5",
+        "0x600",
+        "0x4034"
+      ],
+      "object_kind": "F1CPitMachine",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Called unchanged from pit dispatcher/state update; reads pit entry latch and owner vehicle."
+      ],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x004A5FA0": {
+      "depth": 1,
+      "parent": "0x004A6E50",
+      "address": "0x004A5FA0",
+      "name": "VehicleProximityCollisionDetection",
+      "declared_name": "sub_4A5FA0",
+      "source": "functions/VehicleProximityCollisionDetection_004a5fa0.c",
+      "callees": [
+        "0x00403F70",
+        "0x0042ADB0",
+        "0x004A5C80",
+        "0x004EFB20",
+        "0x00566E40"
+      ],
+      "callers": [
+        "0x004A6E50"
+      ],
+      "this_offsets": [
+        "0xC",
+        "0x32C8",
+        "0x48A4"
+      ],
+      "object_kind": "F1CPitMachine",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "PitStateUpdateMachine passes unchanged controller; function uses pit_machine->vehicle and relative state transitions."
+      ],
+      "subsystems": [
+        "vehicle",
+        "pit"
+      ]
+    },
+    "0x004A6200": {
+      "depth": 1,
+      "parent": "0x004A6E50",
+      "address": "0x004A6200",
+      "name": "PitStopReadyCheck",
+      "declared_name": "sub_4A6200",
+      "source": "functions/PitStopReadyCheck_004a6200.c",
+      "callees": [
+        "0x0040D3C0",
+        "0x0042A3D0",
+        "0x004A3320",
+        "0x004A6340",
+        "0x004EF930",
+        "0x004EFB20",
+        "0x004F1B50"
+      ],
+      "callers": [
+        "0x004A6E50"
+      ],
+      "this_offsets": [
+        "0x8",
+        "0x68",
+        "0x69",
+        "0x190",
+        "0x1A0",
+        "0x1AC",
+        "0xCB2"
+      ],
+      "object_kind": "F1CPitMachine",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Reviewed service-ready method and direct relative field accesses."
+      ],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x004A68B0": {
+      "depth": 1,
+      "parent": "0x004A6E50",
+      "address": "0x004A68B0",
+      "name": "PitStopProgress",
+      "declared_name": "sub_4A68B0",
+      "source": "functions/PitStopProgress_004a68b0.c",
+      "callees": [
+        "0x0040D410",
+        "0x00424CD0",
+        "0x0042A6F0",
+        "0x004A34A0",
+        "0x004A5C80",
+        "0x004D8760",
+        "0x004E0ED0",
+        "0x004F1890",
+        "0x004F1B50",
+        "0x004F1BA0"
+      ],
+      "callers": [
+        "0x004A6E50"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x8",
+        "0x1A0",
+        "0x1A4",
+        "0x1A8",
+        "0x1AC",
+        "0x1B0",
+        "0x1B4",
+        "0x1B8",
+        "0x1C0",
+        "0x1C4",
+        "0x1D0",
+        "0x1D4",
+        "0x1054",
+        "0x105C",
+        "0x32C8",
+        "0x4064",
+        "0x4068"
+      ],
+      "object_kind": "F1CPitMachine",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Reviewed service-progress method; owner vehicle reached indirectly through pit_machine->vehicle."
+      ],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x004A6B80": {
+      "depth": 1,
+      "parent": "0x004A6E50",
+      "address": "0x004A6B80",
+      "name": "CollisionAvoidanceCheck",
+      "declared_name": "sub_4A6B80",
+      "source": "functions/CollisionAvoidanceCheck_004a6b80.c",
+      "callees": [
+        "0x004A4000",
+        "0x004E9630",
+        "0x0054C030"
+      ],
+      "callers": [
+        "0x004A6E50"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0xC",
+        "0x14",
+        "0x34E0",
+        "0x34E4",
+        "0x34E8",
+        "0x39A0"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x004A6DB0": {
+      "depth": 1,
+      "parent": "0x004A6E50",
+      "address": "0x004A6DB0",
+      "name": "VehicleControlEnabled",
+      "declared_name": "sub_4A6DB0",
+      "source": "functions/VehicleControlEnabled_004a6db0.c",
+      "callees": [
+        "0x004D21D0"
+      ],
+      "callers": [
+        "0x004A5D10",
+        "0x004A6E50"
+      ],
+      "this_offsets": [
+        "0x834"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x004D8840": {
+      "depth": 1,
+      "parent": "0x004A6E50",
+      "address": "0x004D8840",
+      "name": "ConditionalIndexSetter",
+      "declared_name": "sub_4D8840",
+      "source": "functions/ConditionalIndexSetter_004d8840.c",
+      "callees": [],
+      "callers": [
+        "0x00404970",
+        "0x004A6E50",
+        "0x004B87C0"
+      ],
+      "this_offsets": [
+        "0x4"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004E9630": {
+      "depth": 1,
+      "parent": "0x004A6E50",
+      "address": "0x004E9630",
+      "name": "PositionChangeMonitor",
+      "declared_name": "sub_4E9630",
+      "source": "functions/PositionChangeMonitor_004e9630.c",
+      "callees": [
+        "0x00403640"
+      ],
+      "callers": [
+        "0x004423B0",
+        "0x004A6B80",
+        "0x004A6E50",
+        "0x004D1D80",
+        "0x004E96C0",
+        "0x004EB430",
+        "0x004EE2D0",
+        "0x004EF5A0",
+        "0x004F0050",
+        "0x004F01B0"
+      ],
+      "this_offsets": [
+        "0xD35",
+        "0x3A9C",
+        "0x3AA0",
+        "0x3AA4",
+        "0x3AA8"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004E4930": {
+      "depth": 1,
+      "parent": "0x004A6E50",
+      "address": "0x004E4930",
+      "name": "VehiclePhysicsModeDispatcher",
+      "declared_name": "sub_4E4930",
+      "source": "functions/VehiclePhysicsModeDispatcher_004e4930.c",
+      "callees": [
+        "0x00441650",
+        "0x004A6E50",
+        "0x004E49B0",
+        "0x004E4E60",
+        "0x004F03E0"
+      ],
+      "callers": [
+        "0x0040F1C0",
+        "0x0042C690"
+      ],
+      "this_offsets": [
+        "0x32BC",
+        "0x32C0",
+        "0x34AC"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x0042AEE0": {
+      "depth": 1,
+      "parent": "0x004A6340",
+      "address": "0x0042AEE0",
+      "name": "PitStopBlockingCondition",
+      "declared_name": "sub_42AEE0",
+      "source": "functions/PitStopBlockingCondition_0042aee0.c",
+      "callees": [],
+      "callers": [
+        "0x0042A3D0",
+        "0x004A6340"
+      ],
+      "this_offsets": [
+        "0xD18",
+        "0xD58",
+        "0x39FA",
+        "0x403C",
+        "0x45E0"
+      ],
+      "object_kind": "F1CVehicle",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Directly evaluates established vehicle damage, lap, and pit-command fields; reviewed thiscall ABI."
+      ],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x004A34A0": {
+      "depth": 1,
+      "parent": "0x004A6340",
+      "address": "0x004A34A0",
+      "name": "PerElementConditionalActionDispatcher",
+      "declared_name": "sub_4A34A0",
+      "source": "functions/PerElementConditionalActionDispatcher_004a34a0.c",
+      "callees": [
+        "0x0054C190",
+        "0x0054C1A0"
+      ],
+      "callers": [
+        "0x004A6340",
+        "0x004A68B0"
+      ],
+      "this_offsets": [
+        "0xC",
+        "0x10"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004A3560": {
+      "depth": 1,
+      "parent": "0x004A6340",
+      "address": "0x004A3560",
+      "name": "FlagSetterWithOR",
+      "declared_name": "sub_4A3560",
+      "source": "functions/FlagSetterWithOR_004a3560.c",
+      "callees": [],
+      "callers": [
+        "0x004A6340"
+      ],
+      "this_offsets": [
+        "0x4"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004A35F0": {
+      "depth": 1,
+      "parent": "0x004A6340",
+      "address": "0x004A35F0",
+      "name": "sub_4A35F0",
+      "declared_name": "sub_4A35F0",
+      "source": "functions/sub_4A35F0_004a35f0.c",
+      "callees": [
+        "0x004A1FD0"
+      ],
+      "callers": [
+        "0x004A6340"
+      ],
+      "this_offsets": [
+        "0xC",
+        "0x10"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004A3820": {
+      "depth": 1,
+      "parent": "0x004A6340",
+      "address": "0x004A3820",
+      "name": "PhysicsChannelProcessingWithLocals",
+      "declared_name": "sub_4A3820",
+      "source": "functions/PhysicsChannelProcessingWithLocals_004a3820.c",
+      "callees": [
+        "0x004A1FD0"
+      ],
+      "callers": [
+        "0x004A6340"
+      ],
+      "this_offsets": [
+        "0xC",
+        "0x10"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x004A5820": {
+      "depth": 1,
+      "parent": "0x004A6340",
+      "address": "0x004A5820",
+      "name": "NthValidPartLookup",
+      "declared_name": "sub_4A5820",
+      "source": "functions/NthValidPartLookup_004a5820.c",
+      "callees": [
+        "0x004D7570"
+      ],
+      "callers": [
+        "0x004A5330",
+        "0x004A57F0",
+        "0x004A58B0",
+        "0x004A5C10",
+        "0x004A6340"
+      ],
+      "this_offsets": [
+        "0x158",
+        "0x15C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004B33B0": {
+      "depth": 1,
+      "parent": "0x004A6340",
+      "address": "0x004B33B0",
+      "name": "ProgressBarEventEncode",
+      "declared_name": "sub_4B33B0",
+      "source": "functions/ProgressBarEventEncode_004b33b0.c",
+      "callees": [],
+      "callers": [
+        "0x0040F600",
+        "0x0045D890",
+        "0x0045F030",
+        "0x0045F2B0",
+        "0x0045F950",
+        "0x00460470",
+        "0x004607A0",
+        "0x00460E90",
+        "0x00461020",
+        "0x004628A0",
+        "0x00462940",
+        "0x00465460",
+        "0x00470490",
+        "0x004A5C80",
+        "0x004A6340",
+        "0x004BBD60",
+        "0x004BBF20",
+        "0x004BC060",
+        "0x004BC0E0",
+        "0x004BC390",
+        "0x004BEC55",
+        "0x004C71C0",
+        "0x004D1730",
+        "0x004D1D80",
+        "0x004D2260",
+        "0x004D37B0",
+        "0x004D4580",
+        "0x004E0800",
+        "0x004EC1A0",
+        "0x004EF2E0",
+        "0x004EF4F0",
+        "0x004FC650",
+        "0x004FCEE0",
+        "0x004FF8F0",
+        "0x00500210"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x1AC"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004BBF20": {
+      "depth": 1,
+      "parent": "0x004A6340",
+      "address": "0x004BBF20",
+      "name": "ProgressBarIncrement",
+      "declared_name": "sub_4BBF20",
+      "source": "functions/ProgressBarIncrement_004bbf20.c",
+      "callees": [
+        "0x004B33B0"
+      ],
+      "callers": [
+        "0x004A6340"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x44"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004D7570": {
+      "depth": 1,
+      "parent": "0x004A6340",
+      "address": "0x004D7570",
+      "name": "CompoundIndexLookup",
+      "declared_name": "sub_4D7570",
+      "source": "functions/CompoundIndexLookup_004d7570.c",
+      "callees": [
+        "0x004D7A50",
+        "0x004D7AA0"
+      ],
+      "callers": [
+        "0x00429FD0",
+        "0x0042F470",
+        "0x00430750",
+        "0x00430A50",
+        "0x00431850",
+        "0x00439210",
+        "0x0043DA10",
+        "0x004A5330",
+        "0x004A5820",
+        "0x004A6340",
+        "0x004E5F60",
+        "0x004F1630",
+        "0x004F18C0"
+      ],
+      "this_offsets": [
+        "0x10",
+        "0x14"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004E0ED0": {
+      "depth": 1,
+      "parent": "0x004A6340",
+      "address": "0x004E0ED0",
+      "name": "AudioSoundEffectController",
+      "declared_name": "sub_4E0ED0",
+      "source": "functions/AudioSoundEffectController_004e0ed0.c",
+      "callees": [
+        "0x0040CD60",
+        "0x004F7010",
+        "0x0054C030",
+        "0x0054C1B0"
+      ],
+      "callers": [
+        "0x00409440",
+        "0x0040C7A0",
+        "0x0040CDE0",
+        "0x0045FC50",
+        "0x004A6340",
+        "0x004A68B0",
+        "0x004B3DC0",
+        "0x004B8940",
+        "0x004BBFC0",
+        "0x004C73F0",
+        "0x004C7AA0",
+        "0x004E0800",
+        "0x004E0D00",
+        "0x004F1FE0"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0xC4",
+        "0x144",
+        "0x184",
+        "0x188",
+        "0x19B",
+        "0x1C8",
+        "0x26C",
+        "0x2AC",
+        "0x2B0",
+        "0x2F0",
+        "0x394",
+        "0x3D4",
+        "0x4BC",
+        "0x4FC",
+        "0x5E4",
+        "0x624",
+        "0x628",
+        "0x668",
+        "0x88C",
+        "0x890",
+        "0x894",
+        "0x898",
+        "0x89C",
+        "0x8A0",
+        "0x964",
+        "0x96C",
+        "0x96D",
+        "0x4894",
+        "0x48BC"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "audio"
+      ]
+    },
+    "0x004F1860": {
+      "depth": 1,
+      "parent": "0x004A6340",
+      "address": "0x004F1860",
+      "name": "ConditionalMathDispatch",
+      "declared_name": "sub_4F1860",
+      "source": "functions/ConditionalMathDispatch_004f1860.c",
+      "callees": [
+        "0x0043B930"
+      ],
+      "callers": [
+        "0x004A6340"
+      ],
+      "this_offsets": [
+        "0x32BC"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004F1890": {
+      "depth": 1,
+      "parent": "0x004A6340",
+      "address": "0x004F1890",
+      "name": "SpeedValueSetterWithGlobalMirror",
+      "declared_name": "sub_4F1890",
+      "source": "functions/SpeedValueSetterWithGlobalMirror_004f1890.c",
+      "callees": [],
+      "callers": [
+        "0x00429470",
+        "0x00429960",
+        "0x0042A3D0",
+        "0x0042B0E0",
+        "0x004A6340",
+        "0x004A68B0"
+      ],
+      "this_offsets": [
+        "0x32BC",
+        "0x3978"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004F1A60": {
+      "depth": 1,
+      "parent": "0x004A6340",
+      "address": "0x004F1A60",
+      "name": "LoopWithConditionalSubCall",
+      "declared_name": "sub_4F1A60",
+      "source": "functions/LoopWithConditionalSubCall_004f1a60.c",
+      "callees": [
+        "0x004E8010",
+        "0x004F18C0"
+      ],
+      "callers": [
+        "0x00424E70",
+        "0x00429960",
+        "0x0042B0E0",
+        "0x004A6340",
+        "0x004E5F60"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00429EE0": {
+      "depth": 1,
+      "parent": "0x00424CD0",
+      "address": "0x00429EE0",
+      "name": "CommandQueueResponseHandler",
+      "declared_name": "sub_429EE0",
+      "source": "functions/CommandQueueResponseHandler_00429ee0.c",
+      "callees": [
+        "0x00424E30",
+        "0x0042AC90",
+        "0x0042ACA0",
+        "0x0042ACD0",
+        "0x0042ADB0"
+      ],
+      "callers": [
+        "0x00424CD0"
+      ],
+      "this_offsets": [
+        "0x443C",
+        "0x4510",
+        "0x4544"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0042ACD0": {
+      "depth": 1,
+      "parent": "0x00424CD0",
+      "address": "0x0042ACD0",
+      "name": "ParameterValueSetter",
+      "declared_name": "sub_42ACD0",
+      "source": "functions/ParameterValueSetter_0042acd0.c",
+      "callees": [],
+      "callers": [
+        "0x00424CD0",
+        "0x00429470",
+        "0x00429EE0"
+      ],
+      "this_offsets": [
+        "0x4538"
+      ],
+      "object_kind": "F1CVehicle",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Reviewed live ABI and direct vehicle max-speed field write."
+      ],
+      "subsystems": []
+    },
+    "0x0042ADB0": {
+      "depth": 1,
+      "parent": "0x00424CD0",
+      "address": "0x0042ADB0",
+      "name": "SessionCleanupFlagClear",
+      "declared_name": "sub_42ADB0",
+      "source": "functions/SessionCleanupFlagClear_0042adb0.c",
+      "callees": [],
+      "callers": [
+        "0x00424CD0",
+        "0x00424E70",
+        "0x00429EE0",
+        "0x004A5FA0",
+        "0x004EF5A0"
+      ],
+      "this_offsets": [
+        "0x4410",
+        "0x4424",
+        "0x45F4"
+      ],
+      "object_kind": "F1CVehicle",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Called with vehicle pointers from AIMainUpdate and pit/command paths; direct established vehicle fields."
+      ],
+      "subsystems": [
+        "session"
+      ]
+    },
+    "0x004A46F0": {
+      "depth": 1,
+      "parent": "0x00424CD0",
+      "address": "0x004A46F0",
+      "name": "sub_4A46F0",
+      "declared_name": "sub_4A46F0",
+      "source": "functions/sub_4A46F0_004a46f0.c",
+      "callees": [],
+      "callers": [
+        "0x00424CD0",
+        "0x00426430",
+        "0x0042ACA0"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004C6D90": {
+      "depth": 1,
+      "parent": "0x00424CD0",
+      "address": "0x004C6D90",
+      "name": "SceneRenderUpdate",
+      "declared_name": "sub_4C6D90",
+      "source": "functions/SceneRenderUpdate_004c6d90.c",
+      "callees": [
+        "0x00410B60",
+        "0x00424790",
+        "0x004BB810",
+        "0x004C6B60",
+        "0x004D10E0",
+        "0x004D1100",
+        "0x004D1140",
+        "0x004D1180",
+        "0x004D1670",
+        "0x004E0800",
+        "0x004E45B0",
+        "0x004E4910",
+        "0x004EF7C0"
+      ],
+      "callers": [
+        "0x00424CD0",
+        "0x0042A3D0",
+        "0x0042C3B0",
+        "0x0045FC50",
+        "0x004A00A0",
+        "0x004A0250",
+        "0x004B8DA0"
+      ],
+      "this_offsets": [
+        "0x3",
+        "0x100D",
+        "0x48B4"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "render"
+      ]
+    },
+    "0x00424790": {
+      "depth": 1,
+      "parent": "0x00424CD0",
+      "address": "0x00424790",
+      "name": "AIDriverStructInit",
+      "declared_name": "sub_424790",
+      "source": "functions/AIDriverStructInit_00424790.c",
+      "callees": [
+        "0x00403AA0",
+        "0x00403F70",
+        "0x00424080",
+        "0x00424AC0",
+        "0x00424CD0",
+        "0x00429960",
+        "0x0042AE00",
+        "0x004A5C10",
+        "0x004F1510",
+        "0x00587BCF",
+        "0x00587C03"
+      ],
+      "callers": [
+        "0x004C6D90"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x8",
+        "0x1051",
+        "0x106D",
+        "0x10B6",
+        "0x1115",
+        "0x1180",
+        "0x396C",
+        "0x413C",
+        "0x4140",
+        "0x4170",
+        "0x43F8",
+        "0x4400",
+        "0x4404",
+        "0x4410",
+        "0x4420",
+        "0x442C",
+        "0x4430",
+        "0x443C",
+        "0x444C",
+        "0x4458",
+        "0x4460",
+        "0x4464",
+        "0x446C",
+        "0x447C",
+        "0x4484",
+        "0x44A8",
+        "0x44AC",
+        "0x44B0",
+        "0x44B4",
+        "0x44CC",
+        "0x44F8",
+        "0x4508",
+        "0x450C",
+        "0x4510",
+        "0x4524",
+        "0x4534",
+        "0x4538",
+        "0x453C",
+        "0x4540",
+        "0x4544",
+        "0x4548",
+        "0x454C",
+        "0x4550",
+        "0x4554",
+        "0x4558",
+        "0x455C",
+        "0x4560",
+        "0x4564",
+        "0x4578",
+        "0x45F4",
+        "0x45F8",
+        "0x45FC",
+        "0x461C",
+        "0x46B8",
+        "0x48A4"
+      ],
+      "object_kind": "F1CVehicle",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "SceneRenderUpdate supplies the same vehicle pointer later used by the vehicle AI chain."
+      ],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x00424B20": {
+      "depth": 1,
+      "parent": "0x00424CD0",
+      "address": "0x00424B20",
+      "name": "CameraViewportFrustumInitialization",
+      "declared_name": "sub_424B20",
+      "source": "functions/CameraViewportFrustumInitialization_00424b20.c",
+      "callees": [
+        "0x00424C80",
+        "0x00424CD0",
+        "0x00426430",
+        "0x0042AE00"
+      ],
+      "callers": [
+        "0x004C6B60"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x413C",
+        "0x41B4",
+        "0x42CC",
+        "0x43F8",
+        "0x4404",
+        "0x442C",
+        "0x4430",
+        "0x443C",
+        "0x444C",
+        "0x4454",
+        "0x4458",
+        "0x4460",
+        "0x4464",
+        "0x446C",
+        "0x4470",
+        "0x4474",
+        "0x4478",
+        "0x4484",
+        "0x44B0",
+        "0x4510",
+        "0x4524",
+        "0x4538",
+        "0x4540",
+        "0x4544",
+        "0x4548",
+        "0x454C",
+        "0x4550",
+        "0x4554",
+        "0x4558",
+        "0x4560",
+        "0x4564",
+        "0x4584",
+        "0x45F4",
+        "0x461C"
+      ],
+      "object_kind": "F1CVehicle",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Despite the provisional name, it initializes established AI fields on the vehicle and forwards the unchanged pointer to vehicle AI methods."
+      ],
+      "subsystems": [
+        "render"
+      ]
+    },
+    "0x00426430": {
+      "depth": 1,
+      "parent": "0x00424CD0",
+      "address": "0x00426430",
+      "name": "sub_426430",
+      "declared_name": "sub_426430",
+      "source": "functions/sub_426430_00426430.c",
+      "callees": [
+        "0x004038E0",
+        "0x00403AA0",
+        "0x00424CD0",
+        "0x004A46F0",
+        "0x004E8CE0"
+      ],
+      "callers": [
+        "0x00424B20",
+        "0x00424E70",
+        "0x00425920",
+        "0x00429470"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x32C8",
+        "0x34E0",
+        "0x34E8",
+        "0x34F0",
+        "0x34F8",
+        "0x34FC",
+        "0x3500",
+        "0x3984",
+        "0x3D6C",
+        "0x4140",
+        "0x4354",
+        "0x4358",
+        "0x4364",
+        "0x43F4",
+        "0x4414",
+        "0x4418",
+        "0x441C",
+        "0x4428",
+        "0x4440",
+        "0x4444",
+        "0x4450",
+        "0x4454",
+        "0x4458",
+        "0x4468",
+        "0x4488",
+        "0x4498",
+        "0x44A0",
+        "0x4500",
+        "0x4504",
+        "0x4528",
+        "0x452C",
+        "0x454C",
+        "0x4550"
+      ],
+      "object_kind": "F1CVehicle",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Called with the unchanged vehicle this pointer by AIMainUpdate and AIRacingLine."
+      ],
+      "subsystems": []
+    },
+    "0x004D3740": {
+      "depth": 1,
+      "parent": "0x00424CD0",
+      "address": "0x004D3740",
+      "name": "TimerFrameRateThrottle",
+      "declared_name": "sub_4D3740",
+      "source": "functions/TimerFrameRateThrottle_004d3740.c",
+      "callees": [
+        "0x00424CD0",
+        "0x004BC390",
+        "0x0054C150",
+        "0x0054FAE0"
+      ],
+      "callers": [],
+      "this_offsets": [
+        "0x14"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004D37B0": {
+      "depth": 1,
+      "parent": "0x00424CD0",
+      "address": "0x004D37B0",
+      "name": "TrackTemperatureDisplay",
+      "declared_name": "sub_4D37B0",
+      "source": "functions/TrackTemperatureDisplay_004d37b0.c",
+      "callees": [
+        "0x0040D450",
+        "0x0041A160",
+        "0x00424CD0",
+        "0x004A5F20",
+        "0x004B33B0",
+        "0x0054C150",
+        "0x0054FAE0"
+      ],
+      "callers": [],
+      "this_offsets": [
+        "0x14"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00424E70": {
+      "depth": 2,
+      "parent": "0x0042AC70",
+      "address": "0x00424E70",
+      "name": "AIMainUpdate",
+      "declared_name": "sub_424E70",
+      "source": "functions/AIMainUpdate_00424e70.c",
+      "callees": [
+        "0x00403F70",
+        "0x00424C80",
+        "0x00425660",
+        "0x00425670",
+        "0x004258C0",
+        "0x00425920",
+        "0x00426100",
+        "0x00426330",
+        "0x00426430",
+        "0x00426CF0",
+        "0x004270A0",
+        "0x00429470",
+        "0x00429FD0",
+        "0x0042A180",
+        "0x0042A7D0",
+        "0x0042AC70",
+        "0x0042ADB0",
+        "0x0042AE00",
+        "0x004A4110",
+        "0x004EF930",
+        "0x004EFA40",
+        "0x004EFAC0",
+        "0x004F1A60",
+        "0x00587BDC",
+        "0x005884ED"
+      ],
+      "callers": [
+        "0x0042C690"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0xC",
+        "0x32C8",
+        "0x34E0",
+        "0x34E8",
+        "0x34F0",
+        "0x357C",
+        "0x3580",
+        "0x3584",
+        "0x3984",
+        "0x399C",
+        "0x39A0",
+        "0x3D6C",
+        "0x4028",
+        "0x403C",
+        "0x4064",
+        "0x4068",
+        "0x409C",
+        "0x413C",
+        "0x4144",
+        "0x4148",
+        "0x416C",
+        "0x4170",
+        "0x43F8",
+        "0x4404",
+        "0x4420",
+        "0x4424",
+        "0x4428",
+        "0x442C",
+        "0x4434",
+        "0x4438",
+        "0x443C",
+        "0x4440",
+        "0x4448",
+        "0x444C",
+        "0x447C",
+        "0x4480",
+        "0x4484",
+        "0x448C",
+        "0x4494",
+        "0x4510",
+        "0x4524",
+        "0x4534",
+        "0x454C",
+        "0x4550",
+        "0x4560",
+        "0x4564",
+        "0x4568",
+        "0x4588",
+        "0x45E0",
+        "0x45F4",
+        "0x45FC",
+        "0x461C",
+        "0x48A4"
+      ],
+      "object_kind": "F1CVehicle",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "MainGameTickUpdate passes entries from the global active-vehicle array; direct vehicle fields."
+      ],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x0042AC90": {
+      "depth": 2,
+      "parent": "0x0042AC70",
+      "address": "0x0042AC90",
+      "name": "WrapPlayerCallback",
+      "declared_name": "sub_42AC90",
+      "source": "functions/WrapPlayerCallback_0042ac90.c",
+      "callees": [
+        "0x0042AC70"
+      ],
+      "callers": [
+        "0x00429EE0"
+      ],
+      "this_offsets": [
+        "0x4"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00424750": {
+      "depth": 2,
+      "parent": "0x00429470",
+      "address": "0x00424750",
+      "name": "AIDifficultyScalar",
+      "declared_name": "sub_424750",
+      "source": "functions/AIDifficultyScalar_00424750.c",
+      "callees": [],
+      "callers": [
+        "0x00424080",
+        "0x00426CF0",
+        "0x00429470"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x0042A3D0": {
+      "depth": 2,
+      "parent": "0x00429470",
+      "address": "0x0042A3D0",
+      "name": "PitStopDecisionTireCompound",
+      "declared_name": "sub_42A3D0",
+      "source": "functions/PitStopDecisionTireCompound_0042a3d0.c",
+      "callees": [
+        "0x0042A6F0",
+        "0x0042AEE0",
+        "0x004A56B0",
+        "0x004A5750",
+        "0x004A57A0",
+        "0x004A5BD0",
+        "0x004BC060",
+        "0x004C6D90",
+        "0x004EFAC0",
+        "0x004F1890"
+      ],
+      "callers": [
+        "0x00429470",
+        "0x004A6200"
+      ],
+      "this_offsets": [
+        "0x3",
+        "0xCD4",
+        "0xD18",
+        "0xD58",
+        "0xE62",
+        "0x114D",
+        "0x117A",
+        "0x1180",
+        "0x3378",
+        "0x39FA",
+        "0x403C",
+        "0x4410",
+        "0x4548",
+        "0x4584",
+        "0x4588",
+        "0x458C",
+        "0x45E0",
+        "0x45F4"
+      ],
+      "object_kind": "F1CVehicle",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "PitStopReadyCheck passes pit_machine->vehicle; AIAbility passes its unchanged vehicle pointer."
+      ],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x0042A6F0": {
+      "depth": 2,
+      "parent": "0x00429470",
+      "address": "0x0042A6F0",
+      "name": "PostPitCleanup",
+      "declared_name": "sub_42A6F0",
+      "source": "functions/PostPitCleanup_0042a6f0.c",
+      "callees": [
+        "0x004BD760"
+      ],
+      "callers": [
+        "0x00429470",
+        "0x0042A3D0",
+        "0x004A68B0"
+      ],
+      "this_offsets": [
+        "0x4034",
+        "0x447C",
+        "0x4534",
+        "0x4584",
+        "0x45E0"
+      ],
+      "object_kind": "F1CVehicle",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "PitStopProgress passes pit_machine->vehicle; vehicle pit strategy callers pass unchanged vehicle this."
+      ],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x0042AD20": {
+      "depth": 2,
+      "parent": "0x00429470",
+      "address": "0x0042AD20",
+      "name": "FuelMultiplierValue",
+      "declared_name": "sub_42AD20",
+      "source": "functions/FuelMultiplierValue_0042ad20.c",
+      "callees": [
+        "0x00587BDC"
+      ],
+      "callers": [
+        "0x00429470",
+        "0x00429EB0"
+      ],
+      "this_offsets": [
+        "0x3448",
+        "0x3984"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x0042AD50": {
+      "depth": 2,
+      "parent": "0x00429470",
+      "address": "0x0042AD50",
+      "name": "FuelWeightLimitCheck",
+      "declared_name": "sub_42AD50",
+      "source": "functions/FuelWeightLimitCheck_0042ad50.c",
+      "callees": [],
+      "callers": [
+        "0x00429470"
+      ],
+      "this_offsets": [
+        "0x3448",
+        "0x3984",
+        "0x403C",
+        "0x4040"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x0042AE00": {
+      "depth": 2,
+      "parent": "0x00429470",
+      "address": "0x0042AE00",
+      "name": "AIClearStateFlags",
+      "declared_name": "sub_42AE00",
+      "source": "functions/AIClearStateFlags_0042ae00.c",
+      "callees": [],
+      "callers": [
+        "0x00423E80",
+        "0x00424790",
+        "0x00424B20",
+        "0x00424E70",
+        "0x00425670",
+        "0x00425920",
+        "0x00429470"
+      ],
+      "this_offsets": [
+        "0x4354"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x004D1CF0": {
+      "depth": 2,
+      "parent": "0x00429470",
+      "address": "0x004D1CF0",
+      "name": "RingBufferAccessWithWrap",
+      "declared_name": "sub_4D1CF0",
+      "source": "functions/RingBufferAccessWithWrap_004d1cf0.c",
+      "callees": [
+        "0x00587BDC"
+      ],
+      "callers": [
+        "0x00429470",
+        "0x0049BAD0"
+      ],
+      "this_offsets": [
+        "0x108",
+        "0x10C",
+        "0x110"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004EFAC0": {
+      "depth": 2,
+      "parent": "0x00429470",
+      "address": "0x004EFAC0",
+      "name": "ConditionalGate",
+      "declared_name": "sub_4EFAC0",
+      "source": "functions/ConditionalGate_004efac0.c",
+      "callees": [],
+      "callers": [
+        "0x00424E70",
+        "0x00429470",
+        "0x0042A3D0",
+        "0x0042AF40",
+        "0x0042B0E0",
+        "0x004A0250"
+      ],
+      "this_offsets": [
+        "0x32BC",
+        "0x3994"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x005884ED": {
+      "depth": 2,
+      "parent": "0x00429470",
+      "address": "0x005884ED",
+      "name": "RandLCGRandomNumberGenerator",
+      "declared_name": "sub_5884ED",
+      "source": "functions/RandLCGRandomNumberGenerator_005884ed.c",
+      "callees": [
+        "0x0058E0C7"
+      ],
+      "callers": [
+        "0x0040C070",
+        "0x0040D360",
+        "0x0040DE60",
+        "0x00411AB0",
+        "0x00411BF0",
+        "0x00411E90",
+        "0x0041C0F0",
+        "0x00424080",
+        "0x00424E70",
+        "0x00429470",
+        "0x00429960",
+        "0x00429FD0",
+        "0x00456010",
+        "0x0045C240",
+        "0x004607A0",
+        "0x00496030",
+        "0x004A4110",
+        "0x004B3400",
+        "0x004B3BD0",
+        "0x004B3C60",
+        "0x004BEA10",
+        "0x004BF790",
+        "0x004BFA00",
+        "0x004BFF70",
+        "0x004C83B0",
+        "0x004C8EE0",
+        "0x004C9A50",
+        "0x004C9D60",
+        "0x004D0110",
+        "0x004D4A80",
+        "0x004E5F60",
+        "0x004ED960",
+        "0x004F0DD0",
+        "0x004F88A0",
+        "0x004F89A0",
+        "0x004F8A70",
+        "0x004FC2F0",
+        "0x00548A30"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004A4830": {
+      "depth": 2,
+      "parent": "0x0042A180",
+      "address": "0x004A4830",
+      "name": "TireCompoundNameIDMapping",
+      "declared_name": "sub_4A4830",
+      "source": "functions/TireCompoundNameIDMapping_004a4830.c",
+      "callees": [
+        "0x00588410"
+      ],
+      "callers": [
+        "0x00429960",
+        "0x00429FD0",
+        "0x0042A180",
+        "0x004A5C10",
+        "0x004F18C0"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x004F1630": {
+      "depth": 2,
+      "parent": "0x0042A180",
+      "address": "0x004F1630",
+      "name": "TireNameAccessor",
+      "declared_name": "sub_4F1630",
+      "source": "functions/TireNameAccessor_004f1630.c",
+      "callees": [
+        "0x004D7570"
+      ],
+      "callers": [
+        "0x00429960",
+        "0x0042A180"
+      ],
+      "this_offsets": [
+        "0x396C",
+        "0x3970"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x00408450": {
+      "depth": 2,
+      "parent": "0x0040D410",
+      "address": "0x00408450",
+      "name": "SafeDivisionWithZeroGuard",
+      "declared_name": "sub_408450",
+      "source": "functions/SafeDivisionWithZeroGuard_00408450.c",
+      "callees": [
+        "0x004082B0"
+      ],
+      "callers": [
+        "0x00404F30",
+        "0x0040D410",
+        "0x004A00A0",
+        "0x004A0250",
+        "0x004B8940"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x8"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0040CD60": {
+      "depth": 2,
+      "parent": "0x0040D410",
+      "address": "0x0040CD60",
+      "name": "SessionPhaseDecode",
+      "declared_name": "sub_40CD60",
+      "source": "functions/SessionPhaseDecode_0040cd60.c",
+      "callees": [],
+      "callers": [
+        "0x0040C070",
+        "0x0040D1B0",
+        "0x0040D3C0",
+        "0x0040D410",
+        "0x0049F870",
+        "0x004B9890",
+        "0x004E0ED0"
+      ],
+      "this_offsets": [
+        "0x8",
+        "0xC",
+        "0x18"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "session"
+      ]
+    },
+    "0x0040CDE0": {
+      "depth": 2,
+      "parent": "0x0040D410",
+      "address": "0x0040CDE0",
+      "name": "GameActionStateMachine",
+      "declared_name": "sub_40CDE0",
+      "source": "functions/GameActionStateMachine_0040cde0.c",
+      "callees": [
+        "0x00409440",
+        "0x004E0ED0"
+      ],
+      "callers": [
+        "0x0040BE70",
+        "0x0040C070",
+        "0x0040C5B0",
+        "0x0040C610",
+        "0x0040C650",
+        "0x0040D100",
+        "0x0040D1B0",
+        "0x0040D3C0",
+        "0x0040D410",
+        "0x0040D450",
+        "0x00434820",
+        "0x004A0BA0",
+        "0x004B9890",
+        "0x004D2E50",
+        "0x004DA840"
+      ],
+      "this_offsets": [
+        "0x8",
+        "0xC",
+        "0x14",
+        "0x18",
+        "0x1C",
+        "0x20"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004A00A0": {
+      "depth": 2,
+      "parent": "0x0040D410",
+      "address": "0x004A00A0",
+      "name": "sub_4A00A0",
+      "declared_name": "sub_4A00A0",
+      "source": "functions/sub_4A00A0_004a00a0.c",
+      "callees": [
+        "0x00408450",
+        "0x0040D090",
+        "0x0040D100",
+        "0x0040D410",
+        "0x0042BC10",
+        "0x0042D210",
+        "0x00434000",
+        "0x00453560",
+        "0x0045BDF0",
+        "0x00463E00",
+        "0x00495060",
+        "0x004950C0",
+        "0x004A0D30",
+        "0x004A3B50",
+        "0x004A4000",
+        "0x004B9FD0",
+        "0x004C6D90",
+        "0x004D4A80",
+        "0x004E4910",
+        "0x004EFA40",
+        "0x004F9B70",
+        "0x004F9F70",
+        "0x0058815F"
+      ],
+      "callers": [
+        "0x00485B90"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004A0250": {
+      "depth": 2,
+      "parent": "0x0040D410",
+      "address": "0x004A0250",
+      "name": "sub_4A0250",
+      "declared_name": "sub_4A0250",
+      "source": "functions/sub_4A0250_004a0250.c",
+      "callees": [
+        "0x00408450",
+        "0x0040D240",
+        "0x0040D410",
+        "0x0042BC10",
+        "0x0042D210",
+        "0x0046BA20",
+        "0x0046C030",
+        "0x00497940",
+        "0x004A0D30",
+        "0x004A0DA0",
+        "0x004BC060",
+        "0x004C6D90",
+        "0x004C8180",
+        "0x004C8D60",
+        "0x004C8D80",
+        "0x004D21D0",
+        "0x004D5840",
+        "0x004D8760",
+        "0x004EFAC0",
+        "0x004F7010",
+        "0x00554E10"
+      ],
+      "callers": [
+        "0x00404F30",
+        "0x0045F950",
+        "0x004A0CF0"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004A5D10": {
+      "depth": 2,
+      "parent": "0x004A5C80",
+      "address": "0x004A5D10",
+      "name": "AIStateMachineWithModeDispatch",
+      "declared_name": "sub_4A5EA0",
+      "source": "functions/AIStateMachineWithModeDispatch_004a5d10.c",
+      "callees": [
+        "0x0041A200",
+        "0x004A3320",
+        "0x004A3390",
+        "0x004A3440",
+        "0x004A55E0",
+        "0x004A5F20",
+        "0x004A6DB0",
+        "0x004D1100"
+      ],
+      "callers": [
+        "0x004A5C80",
+        "0x004B3400"
+      ],
+      "this_offsets": [
+        "0x2",
+        "0x3",
+        "0x4",
+        "0x61",
+        "0x184",
+        "0x188"
+      ],
+      "object_kind": "F1CPitMachine",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "StateChangeNotify preserves its F1CPitMachine in ecx and passes the event record on stack; disassembly 0x4A5CF9..0x4A5CFF."
+      ],
+      "subsystems": [
+        "ai",
+        "pit"
+      ]
+    },
+    "0x0042AF40": {
+      "depth": 2,
+      "parent": "0x004A5C80",
+      "address": "0x0042AF40",
+      "name": "AIStateReset",
+      "declared_name": "sub_42AF40",
+      "source": "functions/AIStateReset_0042af40.c",
+      "callees": [
+        "0x004A5C80",
+        "0x004EFAC0"
+      ],
+      "callers": [
+        "0x004BBFC0"
+      ],
+      "this_offsets": [
+        "0xC",
+        "0x11040",
+        "0x117D0"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x004A5E10": {
+      "depth": 2,
+      "parent": "0x004A5C80",
+      "address": "0x004A5E10",
+      "name": "SessionTransitionDispatch",
+      "declared_name": "sub_4A5E10",
+      "source": "functions/SessionTransitionDispatch_004a5e10.c",
+      "callees": [
+        "0x004A5C80"
+      ],
+      "callers": [
+        "0x0042C440"
+      ],
+      "this_offsets": [
+        "0x184"
+      ],
+      "object_kind": "F1CPitMachine",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Reads relative status 0x184 and delegates unchanged this to StateChangeNotify."
+      ],
+      "subsystems": [
+        "session",
+        "pit"
+      ]
+    },
+    "0x004A5EA0": {
+      "depth": 2,
+      "parent": "0x004A5C80",
+      "address": "0x004A5EA0",
+      "name": "sub_4A5EA0",
+      "declared_name": "sub_4A5EA0",
+      "source": "functions/sub_4A5EA0_004a5ea0.c",
+      "callees": [
+        "0x0041A2B0",
+        "0x004A5C80",
+        "0x004BBA90",
+        "0x004BC0E0",
+        "0x004BC240"
+      ],
+      "callers": [],
+      "this_offsets": [
+        "0x600",
+        "0x4034"
+      ],
+      "object_kind": "F1CPitMachine",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Called unchanged from the pit event dispatcher; reads pit entry latch at relative 0x180 and owner vehicle at 0."
+      ],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x004A6D50": {
+      "depth": 2,
+      "parent": "0x004A5C80",
+      "address": "0x004A6D50",
+      "name": "sub_4A6D50",
+      "declared_name": "sub_4A6D50",
+      "source": "functions/sub_4A6D50_004a6d50.c",
+      "callees": [
+        "0x004A5C80"
+      ],
+      "callers": [
+        "0x004BC4E0"
+      ],
+      "this_offsets": [
+        "0x59",
+        "0x160",
+        "0x403C",
+        "0x4040"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004F1FE0": {
+      "depth": 2,
+      "parent": "0x004A5C80",
+      "address": "0x004F1FE0",
+      "name": "sub_4F1FE0",
+      "declared_name": "sub_4F1FE0",
+      "source": "functions/sub_4F1FE0_004f1fe0.c",
+      "callees": [
+        "0x00403640",
+        "0x0041B250",
+        "0x004A5C80",
+        "0x004BC060",
+        "0x004D1140",
+        "0x004D21D0",
+        "0x004E0ED0",
+        "0x004EF7C0",
+        "0x004EFFD0"
+      ],
+      "callers": [
+        "0x004F1C40"
+      ],
+      "this_offsets": [
+        "0x1B9",
+        "0x20A",
+        "0xCB0",
+        "0xD35",
+        "0xD36",
+        "0xD37",
+        "0xE65",
+        "0xFFE",
+        "0x1001",
+        "0x100D",
+        "0x1048",
+        "0x1051",
+        "0x32BC",
+        "0x34D8",
+        "0x34DC",
+        "0x3A9C",
+        "0x3D48",
+        "0x3D4C",
+        "0x3D50",
+        "0x3D60",
+        "0x3FFC",
+        "0x4000",
+        "0x4004"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0041A3A0": {
+      "depth": 2,
+      "parent": "0x004A5F20",
+      "address": "0x0041A3A0",
+      "name": "AIFormationLap",
+      "declared_name": "sub_41A3A0",
+      "source": "functions/AIFormationLap_0041a3a0.c",
+      "callees": [
+        "0x004144D0",
+        "0x004144F0",
+        "0x00418560"
+      ],
+      "callers": [
+        "0x004A5F20"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x004A3FE0": {
+      "depth": 2,
+      "parent": "0x004A5F20",
+      "address": "0x004A3FE0",
+      "name": "ShortComputation_3fe0",
+      "declared_name": "sub_4A3FE0",
+      "source": "functions/ShortComputation_3fe0_004a3fe0.c",
+      "callees": [
+        "0x0054C030"
+      ],
+      "callers": [
+        "0x004A3910",
+        "0x004A5E60",
+        "0x004A5E80",
+        "0x004A5F20"
+      ],
+      "this_offsets": [
+        "0x64",
+        "0x78",
+        "0x84"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004BBA90": {
+      "depth": 2,
+      "parent": "0x004A5F20",
+      "address": "0x004BBA90",
+      "name": "sub_4BBA90",
+      "declared_name": "sub_4BBA90",
+      "source": "functions/sub_4BBA90_004bba90.c",
+      "callees": [
+        "0x00423A00",
+        "0x0045BD10",
+        "0x00587BDC",
+        "0x00587DD0",
+        "0x0058815F"
+      ],
+      "callers": [
+        "0x004A5EA0",
+        "0x004A5F20",
+        "0x004BCCC0"
+      ],
+      "this_offsets": [
+        "0xC",
+        "0xA4",
+        "0x32C8"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004BC0E0": {
+      "depth": 2,
+      "parent": "0x004A5F20",
+      "address": "0x004BC0E0",
+      "name": "DisqualificationHandler",
+      "declared_name": "sub_4BC0E0",
+      "source": "functions/DisqualificationHandler_004bc0e0.c",
+      "callees": [
+        "0x0041A940",
+        "0x00423A00",
+        "0x0045BD10",
+        "0x004B33B0",
+        "0x00587DD0",
+        "0x0058815F"
+      ],
+      "callers": [
+        "0x004A5EA0",
+        "0x004A5F20",
+        "0x004BC4E0",
+        "0x004BC9B0",
+        "0x004BCCC0"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x30",
+        "0x32C8"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "session"
+      ]
+    },
+    "0x00403F70": {
+      "depth": 2,
+      "parent": "0x004A5FA0",
+      "address": "0x00403F70",
+      "name": "ArrayOfStructIndexedFieldCopy",
+      "declared_name": "sub_403F70",
+      "source": "functions/ArrayOfStructIndexedFieldCopy_00403f70.c",
+      "callees": [],
+      "callers": [
+        "0x00424790",
+        "0x00424E70",
+        "0x004A5FA0",
+        "0x004C6F10",
+        "0x004D1100"
+      ],
+      "this_offsets": [
+        "0x154"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004EFB20": {
+      "depth": 2,
+      "parent": "0x004A5FA0",
+      "address": "0x004EFB20",
+      "name": "F_3DTransformWithMatrixMultiplication",
+      "declared_name": "sub_4EFB20",
+      "source": "functions/F_3DTransformWithMatrixMultiplication_004efb20.c",
+      "callees": [
+        "0x004EF680"
+      ],
+      "callers": [
+        "0x00425920",
+        "0x0042B0E0",
+        "0x004441F0",
+        "0x004A5FA0",
+        "0x004A6200",
+        "0x004BC9B0",
+        "0x004E9CA0",
+        "0x004EF5A0",
+        "0x004EFFD0",
+        "0x004F0D20",
+        "0x004F1C40"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00566E40": {
+      "depth": 2,
+      "parent": "0x004A5FA0",
+      "address": "0x00566E40",
+      "name": "EulerToRotationMatrix",
+      "declared_name": "sub_566E40",
+      "source": "functions/EulerToRotationMatrix_00566e40.c",
+      "callees": [],
+      "callers": [
+        "0x00409A00",
+        "0x0042B0E0",
+        "0x004441F0",
+        "0x004A3320",
+        "0x004A3B50",
+        "0x004A5FA0",
+        "0x004B3DC0",
+        "0x004BC9B0",
+        "0x004C73F0",
+        "0x004D0110",
+        "0x004DFA60",
+        "0x004E9CA0",
+        "0x004EF6C0",
+        "0x004EF7C0",
+        "0x004F1C40",
+        "0x004FF680"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0040D3C0": {
+      "depth": 2,
+      "parent": "0x004A6200",
+      "address": "0x0040D3C0",
+      "name": "ShortComputation_d3c0",
+      "declared_name": "sub_40D3C0",
+      "source": "functions/ShortComputation_d3c0_0040d3c0.c",
+      "callees": [
+        "0x00408420",
+        "0x0040CD60",
+        "0x0040CDE0"
+      ],
+      "callers": [
+        "0x004A6200"
+      ],
+      "this_offsets": [
+        "0x10",
+        "0x24"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004A3320": {
+      "depth": 2,
+      "parent": "0x004A6200",
+      "address": "0x004A3320",
+      "name": "sub_4A3320",
+      "declared_name": "sub_4A3320",
+      "source": "functions/sub_4A3320_004a3320.c",
+      "callees": [
+        "0x0054B3B0",
+        "0x0054B450",
+        "0x00566E40",
+        "0x00567400"
+      ],
+      "callers": [
+        "0x004A2A90",
+        "0x004A5D10",
+        "0x004A6200"
+      ],
+      "this_offsets": [
+        "0x8",
+        "0x14"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004EF930": {
+      "depth": 2,
+      "parent": "0x004A6200",
+      "address": "0x004EF930",
+      "name": "RaceStartCountdownStateUpdate",
+      "declared_name": "sub_4EF930",
+      "source": "functions/RaceStartCountdownStateUpdate_004ef930.c",
+      "callees": [
+        "0x004EF4F0",
+        "0x004F88A0",
+        "0x004F89A0"
+      ],
+      "callers": [
+        "0x00424E70",
+        "0x00425670",
+        "0x00426330",
+        "0x004A6200"
+      ],
+      "this_offsets": [
+        "0x8",
+        "0x3578",
+        "0x3978",
+        "0x3994",
+        "0x3998",
+        "0x39EC",
+        "0x39EE",
+        "0x39F0",
+        "0x39FC",
+        "0x3A00",
+        "0x3A04",
+        "0x3A08"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "session"
+      ]
+    },
+    "0x004F1B50": {
+      "depth": 2,
+      "parent": "0x004A6200",
+      "address": "0x004F1B50",
+      "name": "CameraModeSetter",
+      "declared_name": "sub_4F1B50",
+      "source": "functions/CameraModeSetter_004f1b50.c",
+      "callees": [],
+      "callers": [
+        "0x004A6200",
+        "0x004A68B0"
+      ],
+      "this_offsets": [
+        "0x32BC",
+        "0x34EC",
+        "0x34F0",
+        "0x34F4"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "render"
+      ]
+    },
+    "0x004D8760": {
+      "depth": 2,
+      "parent": "0x004A68B0",
+      "address": "0x004D8760",
+      "name": "sub_4D8760",
+      "declared_name": "sub_4D8760",
+      "source": "functions/sub_4D8760_004d8760.c",
+      "callees": [
+        "0x00404F10",
+        "0x004D7E30",
+        "0x004D91E0",
+        "0x004D9280"
+      ],
+      "callers": [
+        "0x0040D240",
+        "0x00434460",
+        "0x004347C0",
+        "0x004A0250",
+        "0x004A0B20",
+        "0x004A0BA0",
+        "0x004A68B0",
+        "0x004D8220",
+        "0x004D8450",
+        "0x004DA840"
+      ],
+      "this_offsets": [
+        "0xDC"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004F1BA0": {
+      "depth": 2,
+      "parent": "0x004A68B0",
+      "address": "0x004F1BA0",
+      "name": "WheelForceParameterSet",
+      "declared_name": "sub_4F1BA0",
+      "source": "functions/WheelForceParameterSet_004f1ba0.c",
+      "callees": [
+        "0x00441F00"
+      ],
+      "callers": [
+        "0x004A68B0"
+      ],
+      "this_offsets": [
+        "0x32BC",
+        "0x3664",
+        "0x375C",
+        "0x3854",
+        "0x394C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004A4000": {
+      "depth": 2,
+      "parent": "0x004A6B80",
+      "address": "0x004A4000",
+      "name": "UtilityFunction_4000",
+      "declared_name": "sub_4A4000",
+      "source": "functions/UtilityFunction_4000_004a4000.c",
+      "callees": [
+        "0x0054C030"
+      ],
+      "callers": [
+        "0x004A00A0",
+        "0x004A6B80"
+      ],
+      "this_offsets": [
+        "0x64",
+        "0x78",
+        "0x84"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0054C030": {
+      "depth": 2,
+      "parent": "0x004A6B80",
+      "address": "0x0054C030",
+      "name": "FlagFieldBitManipulation",
+      "declared_name": "sub_54C030",
+      "source": "functions/FlagFieldBitManipulation_0054c030.c",
+      "callees": [],
+      "callers": [
+        "0x0045A8E0",
+        "0x004681B0",
+        "0x004A2770",
+        "0x004A2A90",
+        "0x004A3FE0",
+        "0x004A4000",
+        "0x004A6B80",
+        "0x004B3DC0",
+        "0x004D1670",
+        "0x004DFCE0",
+        "0x004E0D70",
+        "0x004E0E20",
+        "0x004E0E70",
+        "0x004E0ED0",
+        "0x004E19D0",
+        "0x004FBD70",
+        "0x005503A0"
+      ],
+      "this_offsets": [
+        "0x3C",
+        "0x44",
+        "0x4C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004D21D0": {
+      "depth": 2,
+      "parent": "0x004A6DB0",
+      "address": "0x004D21D0",
+      "name": "sub_4D21D0",
+      "declared_name": "sub_4D21D0",
+      "source": "functions/sub_4D21D0_004d21d0.c",
+      "callees": [],
+      "callers": [
+        "0x004A0250",
+        "0x004A6DB0",
+        "0x004ED960",
+        "0x004F1FE0"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00404970": {
+      "depth": 2,
+      "parent": "0x004D8840",
+      "address": "0x00404970",
+      "name": "ConditionalSoundRenderDispatchOnParamCheck",
+      "declared_name": "sub_404970",
+      "source": "functions/ConditionalSoundRenderDispatchOnParamCheck_00404970.c",
+      "callees": [
+        "0x00408420",
+        "0x0040D360",
+        "0x004C85D0",
+        "0x004C8830",
+        "0x004D8840"
+      ],
+      "callers": [
+        "0x00404B60"
+      ],
+      "this_offsets": [
+        "0x20"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "render",
+        "audio"
+      ]
+    },
+    "0x004B87C0": {
+      "depth": 2,
+      "parent": "0x004D8840",
+      "address": "0x004B87C0",
+      "name": "LoadingPhase1",
+      "declared_name": "sub_4B87C0",
+      "source": "functions/LoadingPhase1_004b87c0.c",
+      "callees": [
+        "0x00408420",
+        "0x004B7A00",
+        "0x004B86E0",
+        "0x004B8AE0",
+        "0x004D8840",
+        "0x004E1970",
+        "0x004E3A50",
+        "0x004EF5A0",
+        "0x00566E20"
+      ],
+      "callers": [
+        "0x004B9890"
+      ],
+      "this_offsets": [
+        "0x6E4",
+        "0x734",
+        "0x93C",
+        "0xF30",
+        "0xF34",
+        "0xF40",
+        "0xF80",
+        "0xF81"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00403640": {
+      "depth": 2,
+      "parent": "0x004E9630",
+      "address": "0x00403640",
+      "name": "sub_403640",
+      "declared_name": "sub_403640",
+      "source": "functions/sub_403640_00403640.c",
+      "callees": [
+        "0x004FB6D0"
+      ],
+      "callers": [
+        "0x004441F0",
+        "0x004A3B50",
+        "0x004E9630",
+        "0x004E9CA0",
+        "0x004F1FE0"
+      ],
+      "this_offsets": [
+        "0x130"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004423B0": {
+      "depth": 2,
+      "parent": "0x004E9630",
+      "address": "0x004423B0",
+      "name": "sub_4423B0",
+      "declared_name": "sub_4423B0",
+      "source": "functions/sub_4423B0_004423b0.c",
+      "callees": [
+        "0x00435E00",
+        "0x00436870",
+        "0x0043AEE0",
+        "0x0044C4C0",
+        "0x004E9630",
+        "0x004FD7E0",
+        "0x00569AD0"
+      ],
+      "callers": [
+        "0x00441D60"
+      ],
+      "this_offsets": [
+        "0x60",
+        "0x28C",
+        "0x4FC",
+        "0x15F0",
+        "0x1660",
+        "0x1668",
+        "0x16E0",
+        "0x16F0",
+        "0x1718",
+        "0x171C",
+        "0x1724",
+        "0x1904",
+        "0x1908",
+        "0x190C",
+        "0x1910",
+        "0x1914",
+        "0x1918",
+        "0x1920",
+        "0x1928",
+        "0x1948",
+        "0x1F00"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004D1D80": {
+      "depth": 2,
+      "parent": "0x004E9630",
+      "address": "0x004D1D80",
+      "name": "sub_4D1D80",
+      "declared_name": "sub_4D1D80",
+      "source": "functions/sub_4D1D80_004d1d80.c",
+      "callees": [
+        "0x004B33B0",
+        "0x004D1730",
+        "0x004E9630",
+        "0x005890AA"
+      ],
+      "callers": [
+        "0x004D4580"
+      ],
+      "this_offsets": [
+        "0x100",
+        "0x104",
+        "0x120",
+        "0x124",
+        "0x128"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004E96C0": {
+      "depth": 2,
+      "parent": "0x004E9630",
+      "address": "0x004E96C0",
+      "name": "sub_4E96C0",
+      "declared_name": "sub_4E96C0",
+      "source": "functions/sub_4E96C0_004e96c0.c",
+      "callees": [
+        "0x004E9630"
+      ],
+      "callers": [
+        "0x004EB430"
+      ],
+      "this_offsets": [
+        "0x828",
+        "0x32BC",
+        "0x34C0",
+        "0x34D4",
+        "0x34D8",
+        "0x34DC",
+        "0x3AAC",
+        "0x3AB0",
+        "0x3AB4",
+        "0x3B6C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004EB430": {
+      "depth": 2,
+      "parent": "0x004E9630",
+      "address": "0x004EB430",
+      "name": "ParticleEffectUpdateDispatch",
+      "declared_name": "sub_4EB430",
+      "source": "functions/ParticleEffectUpdateDispatch_004eb430.c",
+      "callees": [
+        "0x0040F4B0",
+        "0x0040F550",
+        "0x004BE340",
+        "0x004BE4E0",
+        "0x004E9630",
+        "0x004E96C0",
+        "0x004E9980",
+        "0x004E9A40",
+        "0x004E9BD0",
+        "0x004EA970",
+        "0x004EBC60",
+        "0x004EC080",
+        "0x004F8850",
+        "0x004F8AB0"
+      ],
+      "callers": [
+        "0x0042C690"
+      ],
+      "this_offsets": [
+        "0xA4",
+        "0xA8",
+        "0xAC",
+        "0xB0",
+        "0xB4",
+        "0x6E8",
+        "0x1070",
+        "0x1074",
+        "0x1084",
+        "0x32BC",
+        "0x34AC",
+        "0x34B0",
+        "0x34B4",
+        "0x34B8",
+        "0x34BC",
+        "0x34C0",
+        "0x34C4",
+        "0x34C8",
+        "0x34CC",
+        "0x34D0",
+        "0x34D4",
+        "0x34D8",
+        "0x34DC",
+        "0x34EC",
+        "0x34F0",
+        "0x34F4",
+        "0x3514",
+        "0x3A9C",
+        "0x3B75",
+        "0x3B78",
+        "0x3FF0",
+        "0x48BC"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004EE2D0": {
+      "depth": 2,
+      "parent": "0x004E9630",
+      "address": "0x004EE2D0",
+      "name": "sub_4EE2D0",
+      "declared_name": "sub_4EE2D0",
+      "source": "functions/sub_4EE2D0_004ee2d0.c",
+      "callees": [
+        "0x004472B0",
+        "0x0044C4C0",
+        "0x004B9CE0",
+        "0x004CCE90",
+        "0x004CE380",
+        "0x004CE3E0",
+        "0x004CE8F0",
+        "0x004CE930",
+        "0x004E16F0",
+        "0x004E9630",
+        "0x004ED750",
+        "0x004EE230",
+        "0x004FD7E0"
+      ],
+      "callers": [
+        "0x0042C690",
+        "0x004B9B80"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x4C",
+        "0x50",
+        "0x54",
+        "0x6E4",
+        "0x704",
+        "0x738",
+        "0x73C",
+        "0x740",
+        "0x77C",
+        "0x790",
+        "0x7A4",
+        "0x7D4",
+        "0x7DC",
+        "0x8CC",
+        "0x9F4",
+        "0xB1C",
+        "0xC44",
+        "0xC58",
+        "0xC74",
+        "0xC78",
+        "0xC7C",
+        "0xC80",
+        "0xC84",
+        "0xC88",
+        "0x101C",
+        "0x1020",
+        "0x1024",
+        "0x1028",
+        "0x102C",
+        "0x1070",
+        "0x1078",
+        "0x32BC",
+        "0x34AC",
+        "0x34B0",
+        "0x34B4",
+        "0x34B8",
+        "0x34BC",
+        "0x34C0",
+        "0x34C4",
+        "0x34C8",
+        "0x34CC",
+        "0x34D0",
+        "0x34D4",
+        "0x34D8",
+        "0x34DC",
+        "0x34EC",
+        "0x34F0",
+        "0x34F4",
+        "0x34F8",
+        "0x34FC",
+        "0x3500",
+        "0x3504",
+        "0x3590",
+        "0x3668",
+        "0x36C4",
+        "0x3760",
+        "0x3BE8",
+        "0x3BEC",
+        "0x3BF0",
+        "0x3D54",
+        "0x3D58",
+        "0x3D5C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004EF5A0": {
+      "depth": 2,
+      "parent": "0x004E9630",
+      "address": "0x004EF5A0",
+      "name": "SessionStateTransition",
+      "declared_name": "sub_4EF5A0",
+      "source": "functions/SessionStateTransition_004ef5a0.c",
+      "callees": [
+        "0x0042ACA0",
+        "0x0042ADB0",
+        "0x00447780",
+        "0x004E9630",
+        "0x004EF7C0",
+        "0x004EFB20"
+      ],
+      "callers": [
+        "0x0042BD60",
+        "0x0045FC50",
+        "0x004637A0",
+        "0x0046DE10",
+        "0x004A0BA0",
+        "0x004A0FD0",
+        "0x004B70B0",
+        "0x004B87C0",
+        "0x004B8940",
+        "0x004B8DA0",
+        "0x004BFD90",
+        "0x004C0850",
+        "0x004C1050",
+        "0x004DA840"
+      ],
+      "this_offsets": [
+        "0xCAF",
+        "0x34EC",
+        "0x34F0",
+        "0x34F4"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "session"
+      ]
+    },
+    "0x004F0050": {
+      "depth": 2,
+      "parent": "0x004E9630",
+      "address": "0x004F0050",
+      "name": "DistanceProjectionCalc",
+      "declared_name": "sub_4F0050",
+      "source": "functions/DistanceProjectionCalc_004f0050.c",
+      "callees": [
+        "0x004E9630"
+      ],
+      "callers": [
+        "0x0041AD80",
+        "0x0041B3C0",
+        "0x0042B0E0",
+        "0x0049BAD0",
+        "0x004BCCC0",
+        "0x004D1730"
+      ],
+      "this_offsets": [
+        "0x34D4",
+        "0x34D8",
+        "0x34DC"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004F01B0": {
+      "depth": 2,
+      "parent": "0x004E9630",
+      "address": "0x004F01B0",
+      "name": "sub_4F01B0",
+      "declared_name": "sub_4F01B0",
+      "source": "functions/sub_4F01B0_004f01b0.c",
+      "callees": [
+        "0x004E9630"
+      ],
+      "callers": [
+        "0x0049B6D0",
+        "0x004BCCC0"
+      ],
+      "this_offsets": [
+        "0x34D4",
+        "0x34D8",
+        "0x34DC",
+        "0x4040"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00441650": {
+      "depth": 2,
+      "parent": "0x004E4930",
+      "address": "0x00441650",
+      "name": "VehiclePhysicsIntegrationStep",
+      "declared_name": "sub_441650",
+      "source": "functions/VehiclePhysicsIntegrationStep_00441650.c",
+      "callees": [
+        "0x00438130",
+        "0x00438690",
+        "0x0043EF20",
+        "0x00441360",
+        "0x00441450",
+        "0x004414D0",
+        "0x00441600",
+        "0x00441D60",
+        "0x004441F0",
+        "0x00567740",
+        "0x00567780",
+        "0x005692A0",
+        "0x00569410",
+        "0x0056BDE0",
+        "0x0058957A"
+      ],
+      "callers": [
+        "0x004E4930"
+      ],
+      "this_offsets": [
+        "0x15F0"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x004E49B0": {
+      "depth": 2,
+      "parent": "0x004E4930",
+      "address": "0x004E49B0",
+      "name": "VehicleSetupInitialization",
+      "declared_name": "sub_4E49B0",
+      "source": "functions/VehicleSetupInitialization_004e49b0.c",
+      "callees": [
+        "0x0043AEE0",
+        "0x00588570"
+      ],
+      "callers": [
+        "0x004E4930"
+      ],
+      "this_offsets": [
+        "0x34B0",
+        "0x34B4",
+        "0x34B8",
+        "0x34BC",
+        "0x34C0",
+        "0x34C4",
+        "0x34C8",
+        "0x34CC",
+        "0x34D0",
+        "0x34D4",
+        "0x34D8",
+        "0x34DC",
+        "0x34E0",
+        "0x34E4",
+        "0x34E8",
+        "0x34EC",
+        "0x34F0",
+        "0x34F4",
+        "0x34F8",
+        "0x34FC",
+        "0x3500",
+        "0x3504",
+        "0x3508",
+        "0x350C",
+        "0x3510",
+        "0x3514",
+        "0x3518",
+        "0x3534",
+        "0x3538",
+        "0x353C",
+        "0x3540",
+        "0x3544",
+        "0x3548",
+        "0x3570",
+        "0x3574",
+        "0x3578",
+        "0x35B0",
+        "0x3668",
+        "0x36A8",
+        "0x37A0",
+        "0x3898",
+        "0x3964",
+        "0x3978",
+        "0x3994",
+        "0x39B4",
+        "0x39F0",
+        "0x3D48",
+        "0x3D4C",
+        "0x3D50",
+        "0x3D64"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x004E4E60": {
+      "depth": 2,
+      "parent": "0x004E4930",
+      "address": "0x004E4E60",
+      "name": "PhysicsIntegrationStateMachine",
+      "declared_name": "sub_4E4E60",
+      "source": "functions/PhysicsIntegrationStateMachine_004e4e60.c",
+      "callees": [
+        "0x004E4F40",
+        "0x004E51A0",
+        "0x004E5470",
+        "0x004E58D0",
+        "0x004E5AE0"
+      ],
+      "callers": [
+        "0x004E4930"
+      ],
+      "this_offsets": [
+        "0x3498",
+        "0x349C",
+        "0x34A0",
+        "0x34A4",
+        "0x34A8",
+        "0x34AC",
+        "0x3508",
+        "0x35F0"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x004F03E0": {
+      "depth": 2,
+      "parent": "0x004E4930",
+      "address": "0x004F03E0",
+      "name": "TeamColorLoader",
+      "declared_name": "sub_4F03E0",
+      "source": "functions/TeamColorLoader_004f03e0.c",
+      "callees": [
+        "0x00463D50",
+        "0x004C73F0"
+      ],
+      "callers": [
+        "0x004E4930"
+      ],
+      "this_offsets": [
+        "0x4894"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0040F1C0": {
+      "depth": 2,
+      "parent": "0x004E4930",
+      "address": "0x0040F1C0",
+      "name": "SceneObjectLoaderStateMachine",
+      "declared_name": "sub_40F1C0",
+      "source": "functions/SceneObjectLoaderStateMachine_0040f1c0.c",
+      "callees": [
+        "0x0040F600",
+        "0x0045A8E0",
+        "0x004BDE20",
+        "0x004E4930",
+        "0x004E9600"
+      ],
+      "callers": [
+        "0x00410980"
+      ],
+      "this_offsets": [
+        "0xC",
+        "0x10",
+        "0x14",
+        "0x1C",
+        "0x20"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "render"
+      ]
+    },
+    "0x0042C690": {
+      "depth": 2,
+      "parent": "0x004E4930",
+      "address": "0x0042C690",
+      "name": "MainGameTickUpdate",
+      "declared_name": "sub_42C690",
+      "source": "functions/MainGameTickUpdate_0042c690.c",
+      "callees": [
+        "0x00410980",
+        "0x004109D0",
+        "0x00424E70",
+        "0x0042C440",
+        "0x0042CAA0",
+        "0x00451720",
+        "0x004BCCC0",
+        "0x004D5960",
+        "0x004D59B0",
+        "0x004E4930",
+        "0x004EB430",
+        "0x004ED810",
+        "0x004ED960",
+        "0x004EE2D0",
+        "0x004F1C40",
+        "0x00587BDC",
+        "0x005895A2"
+      ],
+      "callers": [
+        "0x0042D8A0",
+        "0x004B8AE0"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x0054C190": {
+      "depth": 2,
+      "parent": "0x004A34A0",
+      "address": "0x0054C190",
+      "name": "BitClear",
+      "declared_name": "sub_54C190",
+      "source": "functions/BitClear_0054c190.c",
+      "callees": [],
+      "callers": [
+        "0x004A3390",
+        "0x004A34A0"
+      ],
+      "this_offsets": [
+        "0x3C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0054C1A0": {
+      "depth": 2,
+      "parent": "0x004A34A0",
+      "address": "0x0054C1A0",
+      "name": "Bit12FlagSet",
+      "declared_name": "sub_54C1A0",
+      "source": "functions/Bit12FlagSet_0054c1a0.c",
+      "callees": [],
+      "callers": [
+        "0x004A3390",
+        "0x004A3440",
+        "0x004A34A0"
+      ],
+      "this_offsets": [
+        "0x3C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004A1FD0": {
+      "depth": 2,
+      "parent": "0x004A35F0",
+      "address": "0x004A1FD0",
+      "name": "RangeProportionInitializer",
+      "declared_name": "sub_4A1FD0",
+      "source": "functions/RangeProportionInitializer_004a1fd0.c",
+      "callees": [],
+      "callers": [
+        "0x004A35F0",
+        "0x004A3820",
+        "0x004A3910",
+        "0x004D0110"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x8"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004A5330": {
+      "depth": 2,
+      "parent": "0x004A5820",
+      "address": "0x004A5330",
+      "name": "PitPartStateCopy",
+      "declared_name": "sub_4A5330",
+      "source": "functions/PitPartStateCopy_004a5330.c",
+      "callees": [
+        "0x004A3440",
+        "0x004A5600",
+        "0x004A5660",
+        "0x004A56B0",
+        "0x004A57F0",
+        "0x004A5820",
+        "0x004D7570",
+        "0x004D7880",
+        "0x00587BDC"
+      ],
+      "callers": [
+        "0x004E5F60"
+      ],
+      "this_offsets": [
+        "0xC",
+        "0x10",
+        "0x58",
+        "0x6C",
+        "0x75",
+        "0xA8",
+        "0xAC",
+        "0xD8",
+        "0xEC",
+        "0xF0",
+        "0xF5",
+        "0x158",
+        "0x15C",
+        "0x160",
+        "0x164",
+        "0x168",
+        "0x16C",
+        "0x170",
+        "0x174",
+        "0x178",
+        "0x17C",
+        "0x184",
+        "0x188",
+        "0x18C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x004A57F0": {
+      "depth": 2,
+      "parent": "0x004A5820",
+      "address": "0x004A57F0",
+      "name": "FindZeroResultIndex",
+      "declared_name": "sub_4A57F0",
+      "source": "functions/FindZeroResultIndex_004a57f0.c",
+      "callees": [
+        "0x004A5820"
+      ],
+      "callers": [
+        "0x004A5330",
+        "0x004A5750",
+        "0x004A57A0"
+      ],
+      "this_offsets": [
+        "0xA8"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004A58B0": {
+      "depth": 2,
+      "parent": "0x004A5820",
+      "address": "0x004A58B0",
+      "name": "PitRepairStatusDisplay",
+      "declared_name": "sub_4A58B0",
+      "source": "functions/PitRepairStatusDisplay_004a58b0.c",
+      "callees": [
+        "0x00423A00",
+        "0x004A5820",
+        "0x00587BDC",
+        "0x0058815F"
+      ],
+      "callers": [
+        "0x0049F1C0"
+      ],
+      "this_offsets": [
+        "0x28",
+        "0x2C",
+        "0x36",
+        "0x58",
+        "0x60",
+        "0x6C",
+        "0x76",
+        "0xAC",
+        "0xB6",
+        "0xEC",
+        "0xF0",
+        "0xF6",
+        "0x128",
+        "0x12C",
+        "0x136",
+        "0x17C",
+        "0x4074"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "pit",
+        "ai"
+      ]
+    },
+    "0x004A5C10": {
+      "depth": 2,
+      "parent": "0x004A5820",
+      "address": "0x004A5C10",
+      "name": "GuardedCallWithCheck",
+      "declared_name": "sub_4A5C10",
+      "source": "functions/GuardedCallWithCheck_004a5c10.c",
+      "callees": [
+        "0x004A4830",
+        "0x004A5820"
+      ],
+      "callers": [
+        "0x00424790"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0040F600": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x0040F600",
+      "name": "CameraShakeRingBufferWrite",
+      "declared_name": "sub_40F600",
+      "source": "functions/CameraShakeRingBufferWrite_0040f600.c",
+      "callees": [
+        "0x004B21F0",
+        "0x004B33B0",
+        "0x00588570"
+      ],
+      "callers": [
+        "0x0040F1C0",
+        "0x004109D0"
+      ],
+      "this_offsets": [
+        "0x8",
+        "0xA",
+        "0x1C",
+        "0x20"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "render"
+      ]
+    },
+    "0x0045D890": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x0045D890",
+      "name": "NetCommSessionMessageDispatcher",
+      "declared_name": "NetCommSessionMessageDispatcher",
+      "source": "functions/NetCommSessionMessageDispatcher_0045d890.c",
+      "callees": [
+        "0x00423A00",
+        "0x00434030",
+        "0x0045BC50",
+        "0x0045BD10",
+        "0x0045CA20",
+        "0x0045E5B0",
+        "0x0045E5D0",
+        "0x0045E5F0",
+        "0x0045EB50",
+        "0x0045EBD0",
+        "0x00460520",
+        "0x00460710",
+        "0x004607A0",
+        "0x00460A10",
+        "0x00461470",
+        "0x00461530",
+        "0x00462250",
+        "0x00462300",
+        "0x00462460",
+        "0x004A0E70",
+        "0x004B0170",
+        "0x004B33B0",
+        "0x004B3A90",
+        "0x004C40B0",
+        "0x004D7A50",
+        "0x004D7AA0",
+        "0x00566650",
+        "0x0057A660",
+        "0x00587C03",
+        "0x00587DD0",
+        "0x0058815F",
+        "0x00588410",
+        "0x0058969D"
+      ],
+      "callers": [
+        "0x0045F710"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x7",
+        "0x50",
+        "0x80",
+        "0xDE",
+        "0xE0",
+        "0xE4",
+        "0x410",
+        "0xF85",
+        "0xFEE",
+        "0xFF1",
+        "0xFF2",
+        "0xFF3",
+        "0xFF4",
+        "0xFF5",
+        "0x3FD8",
+        "0x6DDC",
+        "0x6DDD",
+        "0x6DDE",
+        "0x6DDF",
+        "0x1A3C0",
+        "0x6DD50",
+        "0x6DD54",
+        "0x6DDA0",
+        "0x6DDA4",
+        "0x6DDA8",
+        "0x6DDAC",
+        "0x6DDB0",
+        "0x6DDB4",
+        "0x6DDB8"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "session"
+      ]
+    },
+    "0x0045F030": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x0045F030",
+      "name": "MouseInputHandler",
+      "declared_name": "sub_45F030",
+      "source": "functions/MouseInputHandler_0045f030.c",
+      "callees": [
+        "0x0045BC50",
+        "0x0045BD10",
+        "0x00462250",
+        "0x004A0DF0",
+        "0x004B0B20",
+        "0x004B33B0",
+        "0x00587DD0"
+      ],
+      "callers": [
+        "0x004643C0"
+      ],
+      "this_offsets": [
+        "0x384",
+        "0x6DE0",
+        "0x6DE3"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0045F2B0": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x0045F2B0",
+      "name": "SessionUIElementRenderer",
+      "declared_name": "sub_45F2B0",
+      "source": "functions/SessionUIElementRenderer_0045f2b0.c",
+      "callees": [
+        "0x004B33B0",
+        "0x0057A680",
+        "0x0057A690",
+        "0x0057A6A0"
+      ],
+      "callers": [
+        "0x00462848"
+      ],
+      "this_offsets": [
+        "0x3FB8",
+        "0x3FD9",
+        "0x3FDA"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "session",
+        "render"
+      ]
+    },
+    "0x0045F950": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x0045F950",
+      "name": "SessionSynchronizer",
+      "declared_name": "sub_45F950",
+      "source": "functions/SessionSynchronizer_0045f950.c",
+      "callees": [
+        "0x00423A00",
+        "0x0042BDA0",
+        "0x0042CF10",
+        "0x0045BD10",
+        "0x0045CA20",
+        "0x0045E570",
+        "0x00461530",
+        "0x00462250",
+        "0x004A0250",
+        "0x004A0DA0",
+        "0x004B33B0",
+        "0x004F9F60",
+        "0x004F9FC0",
+        "0x0057A610",
+        "0x00587BDC",
+        "0x0058815F"
+      ],
+      "callers": [
+        "0x00463CD0"
+      ],
+      "this_offsets": [
+        "0xC",
+        "0x10",
+        "0x14",
+        "0x374",
+        "0x38C",
+        "0x394",
+        "0x3C74",
+        "0x3E14",
+        "0x3FC4",
+        "0x1A3C0"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "session"
+      ]
+    },
+    "0x00460470": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x00460470",
+      "name": "SendServerOKRequest",
+      "declared_name": "sub_460470",
+      "source": "functions/SendServerOKRequest_00460470.c",
+      "callees": [
+        "0x00460520",
+        "0x00462250",
+        "0x004B33B0",
+        "0x004D7A50",
+        "0x004D7AA0"
+      ],
+      "callers": [
+        "0x004643C0"
+      ],
+      "this_offsets": [
+        "0x3FC4"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004607A0": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004607A0",
+      "name": "ParticleSoundEffectSpawner",
+      "declared_name": "sub_4607A0",
+      "source": "functions/ParticleSoundEffectSpawner_004607a0.c",
+      "callees": [
+        "0x0045C3C0",
+        "0x0045C3D0",
+        "0x0045C400",
+        "0x0045C650",
+        "0x00460770",
+        "0x00462250",
+        "0x004B33B0",
+        "0x004C40B0",
+        "0x004CEEF0",
+        "0x00587DD0",
+        "0x0058815F",
+        "0x005884ED"
+      ],
+      "callers": [
+        "0x0045D890",
+        "0x00463E00"
+      ],
+      "this_offsets": [
+        "0x1B754",
+        "0x6DDA0",
+        "0x6DDA4"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "audio"
+      ]
+    },
+    "0x00460E90": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x00460E90",
+      "name": "ServerOpenTrackSignal",
+      "declared_name": "sub_460E90",
+      "source": "functions/ServerOpenTrackSignal_00460e90.c",
+      "callees": [
+        "0x004B33B0",
+        "0x004C5920",
+        "0x004D7A50",
+        "0x004D7AA0",
+        "0x005665B0",
+        "0x00566650",
+        "0x0057A680",
+        "0x0057A690",
+        "0x0057A6A0",
+        "0x00587BCF",
+        "0x00587C03"
+      ],
+      "callers": [
+        "0x00463760",
+        "0x004643C0"
+      ],
+      "this_offsets": [
+        "0x29",
+        "0x3FB8",
+        "0x1B770",
+        "0x1B774",
+        "0x1B778",
+        "0x1B77C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00461020": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x00461020",
+      "name": "ServerCloseTrackSignal",
+      "declared_name": "sub_461020",
+      "source": "functions/ServerCloseTrackSignal_00461020.c",
+      "callees": [
+        "0x004B33B0",
+        "0x004D7A50",
+        "0x004D7AA0",
+        "0x00566650",
+        "0x0057A680",
+        "0x0057A690",
+        "0x0057A6A0",
+        "0x00587BCF",
+        "0x00587C03"
+      ],
+      "callers": [
+        "0x00463760"
+      ],
+      "this_offsets": [
+        "0x29",
+        "0x3FB8",
+        "0x1B770",
+        "0x1B774",
+        "0x1B778",
+        "0x1B77C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004628A0": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004628A0",
+      "name": "WeatherSurfaceUpdate",
+      "declared_name": "sub_4628A0",
+      "source": "functions/WeatherSurfaceUpdate_004628a0.c",
+      "callees": [
+        "0x00461550",
+        "0x00461610",
+        "0x00462250",
+        "0x00462760",
+        "0x004630D0",
+        "0x00463760",
+        "0x004A0DC0",
+        "0x004B33B0"
+      ],
+      "callers": [],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00462940": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x00462940",
+      "name": "CollisionEventNetworkBroadcast",
+      "declared_name": "sub_462940",
+      "source": "functions/CollisionEventNetworkBroadcast_00462940.c",
+      "callees": [
+        "0x004B33B0",
+        "0x0057A680",
+        "0x0057A690",
+        "0x0057A6A0"
+      ],
+      "callers": [
+        "0x004613E0",
+        "0x0046E1B0"
+      ],
+      "this_offsets": [
+        "0x3FB8",
+        "0x3FC4"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x00465460": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x00465460",
+      "name": "EntityVisibilityGridManager",
+      "declared_name": "sub_465460",
+      "source": "functions/EntityVisibilityGridManager_00465460.c",
+      "callees": [
+        "0x00464990",
+        "0x00464AD0",
+        "0x00464AE0",
+        "0x00464BB0",
+        "0x00464BD0",
+        "0x00464F50",
+        "0x00464F90",
+        "0x00465C70",
+        "0x00465D70",
+        "0x004B2C80",
+        "0x004B33B0",
+        "0x00582290",
+        "0x00587BCF",
+        "0x00587BDC",
+        "0x00587C03"
+      ],
+      "callers": [
+        "0x0045F4A0"
+      ],
+      "this_offsets": [
+        "0x1B",
+        "0x1F",
+        "0x396C",
+        "0x3970"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "session"
+      ]
+    },
+    "0x00470490": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x00470490",
+      "name": "SessionMessageUICommandHandler",
+      "declared_name": "sub_470490",
+      "source": "functions/SessionMessageUICommandHandler_00470490.c",
+      "callees": [
+        "0x0045BC50",
+        "0x00461DB0",
+        "0x00462250",
+        "0x004979D0",
+        "0x004A0DF0",
+        "0x004B0B20",
+        "0x004B33B0",
+        "0x00587DD0"
+      ],
+      "callers": [],
+      "this_offsets": [
+        "0x10",
+        "0xA8",
+        "0xBC",
+        "0xC1"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "session"
+      ]
+    },
+    "0x004BBD60": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004BBD60",
+      "name": "StopGoPenaltyHandler",
+      "declared_name": "sub_4BBD60",
+      "source": "functions/StopGoPenaltyHandler_004bbd60.c",
+      "callees": [
+        "0x0041A720",
+        "0x00423A00",
+        "0x0045BD10",
+        "0x004B33B0",
+        "0x00587DD0",
+        "0x0058815F"
+      ],
+      "callers": [
+        "0x004BC9B0",
+        "0x004BCCC0"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x30",
+        "0x32C8"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004BC060": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004BC060",
+      "name": "sub_4BC060",
+      "declared_name": "sub_4BC060",
+      "source": "functions/sub_4BC060_004bc060.c",
+      "callees": [
+        "0x004B33B0"
+      ],
+      "callers": [
+        "0x0042A3D0",
+        "0x004A0250",
+        "0x004F1FE0"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x34"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004BC390": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004BC390",
+      "name": "LapSplitTimeEvent",
+      "declared_name": "sub_4BC390",
+      "source": "functions/LapSplitTimeEvent_004bc390.c",
+      "callees": [
+        "0x004B33B0",
+        "0x004BC340",
+        "0x004BC4E0",
+        "0x004D5900",
+        "0x004EFBD0",
+        "0x0054C150"
+      ],
+      "callers": [
+        "0x004D3740"
+      ],
+      "this_offsets": [
+        "0x1",
+        "0x2",
+        "0x3",
+        "0x4",
+        "0x18",
+        "0x64",
+        "0xB0",
+        "0x32C8"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004BEC55": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004BEC55",
+      "name": "EngineFailureCheck",
+      "declared_name": "if",
+      "source": "functions/EngineFailureCheck_004bec55.c",
+      "callees": [
+        "0x0042AE90",
+        "0x004B33B0",
+        "0x004BBFC0",
+        "0x004BEA10",
+        "0x004BEF60",
+        "0x004BF390"
+      ],
+      "callers": [],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "ai",
+        "vehicle"
+      ]
+    },
+    "0x004C71C0": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004C71C0",
+      "name": "SetupCarLightingAndRender",
+      "declared_name": "sub_4C71C0",
+      "source": "functions/SetupCarLightingAndRender_004c71c0.c",
+      "callees": [
+        "0x004B2310",
+        "0x004B2480",
+        "0x004B25D0",
+        "0x004B2750",
+        "0x004B2840",
+        "0x004B2930",
+        "0x004B29B0",
+        "0x004B2A10",
+        "0x004B2A40",
+        "0x004B2AA0",
+        "0x004B2AE0",
+        "0x004B2B10",
+        "0x004B2B60",
+        "0x004B33B0",
+        "0x004C7C00",
+        "0x004E18C0"
+      ],
+      "callers": [
+        "0x004B7A90",
+        "0x004C77D0"
+      ],
+      "this_offsets": [
+        "0x6F0",
+        "0x704",
+        "0x73C",
+        "0x744",
+        "0x105D",
+        "0x1067",
+        "0x1069",
+        "0x344C",
+        "0x34F8",
+        "0x3510",
+        "0x3540",
+        "0x357C",
+        "0x3580",
+        "0x3584",
+        "0x35BC",
+        "0x39A0",
+        "0x39FC",
+        "0x4024",
+        "0x4028",
+        "0x4894"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "render"
+      ]
+    },
+    "0x004D1730": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004D1730",
+      "name": "sub_4D1730",
+      "declared_name": "sub_4D1730",
+      "source": "functions/sub_4D1730_004d1730.c",
+      "callees": [
+        "0x0041B3C0",
+        "0x004B33B0",
+        "0x004D0F00",
+        "0x004F0050",
+        "0x00587BDC"
+      ],
+      "callers": [
+        "0x004D1D80"
+      ],
+      "this_offsets": [
+        "0xB0",
+        "0xD4",
+        "0x108",
+        "0x10C",
+        "0x110",
+        "0x114",
+        "0x118"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004D2260": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004D2260",
+      "name": "ProgressBarDataStore",
+      "declared_name": "sub_4D2260",
+      "source": "functions/ProgressBarDataStore_004d2260.c",
+      "callees": [
+        "0x004B33B0"
+      ],
+      "callers": [
+        "0x004D4580"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004D4580": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004D4580",
+      "name": "sub_4D4580",
+      "declared_name": "sub_4D4580",
+      "source": "functions/sub_4D4580_004d4580.c",
+      "callees": [
+        "0x0040DBC0",
+        "0x0040E170",
+        "0x00448330",
+        "0x0044F0E0",
+        "0x0044F460",
+        "0x0045BDE0",
+        "0x00461CD0",
+        "0x00461DB0",
+        "0x004A0DA0",
+        "0x004B33B0",
+        "0x004B9CE0",
+        "0x004D0B20",
+        "0x004D1D80",
+        "0x004D2170",
+        "0x004D2260",
+        "0x004D2E50"
+      ],
+      "callers": [
+        "0x0042D8A0",
+        "0x004B8AE0"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004E0800": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004E0800",
+      "name": "VehicleRespawnReset",
+      "declared_name": "sub_4E0800",
+      "source": "functions/VehicleRespawnReset_004e0800.c",
+      "callees": [
+        "0x004B33B0",
+        "0x004E0DB0",
+        "0x004E0ED0",
+        "0x004E2CA0",
+        "0x004E3890",
+        "0x005506A0",
+        "0x00551810"
+      ],
+      "callers": [
+        "0x004C6D90"
+      ],
+      "this_offsets": [
+        "0x226",
+        "0x229",
+        "0x22D",
+        "0x24D",
+        "0x24E",
+        "0x24F",
+        "0x250",
+        "0x251",
+        "0x253",
+        "0x259",
+        "0x260",
+        "0x261",
+        "0x262",
+        "0x4A4",
+        "0x8B8",
+        "0x8C4",
+        "0x990",
+        "0x25B0",
+        "0x25B4",
+        "0x25D0",
+        "0x25E4",
+        "0x2630",
+        "0x32C8",
+        "0x4894"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x004EC1A0": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004EC1A0",
+      "name": "CollisionSparkParticleEffects",
+      "declared_name": "sub_4EC1A0",
+      "source": "functions/CollisionSparkParticleEffects_004ec1a0.c",
+      "callees": [
+        "0x00411330",
+        "0x00442060",
+        "0x004A56B0",
+        "0x004B33B0",
+        "0x004ED1C0",
+        "0x004ED1F0",
+        "0x004ED220",
+        "0x004ED250",
+        "0x004EFAE0"
+      ],
+      "callers": [
+        "0x004EBC60"
+      ],
+      "this_offsets": [
+        "0x1",
+        "0x332",
+        "0x343",
+        "0x828",
+        "0xCAF",
+        "0xCB0",
+        "0xD2B",
+        "0xD2C",
+        "0xD2D",
+        "0xD2E",
+        "0xD2F",
+        "0xD30",
+        "0xD31",
+        "0xD32",
+        "0xD33",
+        "0xD34",
+        "0xD35",
+        "0xD36",
+        "0xD37",
+        "0xD38",
+        "0xD39",
+        "0xD3A",
+        "0xD3B",
+        "0xD3C",
+        "0xD3D",
+        "0xD50",
+        "0xE6D",
+        "0xF5E",
+        "0xF5F",
+        "0xF60",
+        "0xF61",
+        "0xF62",
+        "0xF63",
+        "0xF64",
+        "0xF65",
+        "0xF66",
+        "0xF67",
+        "0xF68",
+        "0xF69",
+        "0xF6A",
+        "0xF71",
+        "0xF72",
+        "0xF73",
+        "0xF74",
+        "0xF75",
+        "0xF76",
+        "0xF7D",
+        "0xF7E",
+        "0xF7F",
+        "0x3420",
+        "0x3530",
+        "0x3590",
+        "0x3E00",
+        "0x3E90",
+        "0x3EB4",
+        "0x3F10",
+        "0xD100"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x004EF2E0": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004EF2E0",
+      "name": "sub_4EF2E0",
+      "declared_name": "sub_4EF2E0",
+      "source": "functions/sub_4EF2E0_004ef2e0.c",
+      "callees": [
+        "0x004B33B0",
+        "0x004E2760"
+      ],
+      "callers": [
+        "0x004C77D0"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x6E4",
+        "0x1018",
+        "0x101C",
+        "0x1020",
+        "0x1024",
+        "0x1028",
+        "0x102C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004EF4F0": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004EF4F0",
+      "name": "PositionUpdateWithTelemetryRecording",
+      "declared_name": "sub_4EF4F0",
+      "source": "functions/PositionUpdateWithTelemetryRecording_004ef4f0.c",
+      "callees": [
+        "0x004B33B0"
+      ],
+      "callers": [
+        "0x00443B70",
+        "0x004EF930"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x34AC",
+        "0x4014"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004FC650": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004FC650",
+      "name": "StringCopyWithRingBuffer",
+      "declared_name": "sub_4FC650",
+      "source": "functions/StringCopyWithRingBuffer_004fc650.c",
+      "callees": [
+        "0x004B33B0"
+      ],
+      "callers": [
+        "0x004FCEE0"
+      ],
+      "this_offsets": [
+        "0x50",
+        "0x84"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004FCEE0": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004FCEE0",
+      "name": "sub_4FCEE0",
+      "declared_name": "sub_4FCEE0",
+      "source": "functions/sub_4FCEE0_004fcee0.c",
+      "callees": [
+        "0x004B33B0",
+        "0x004CEFE0",
+        "0x004FC170",
+        "0x004FC650",
+        "0x004FC870",
+        "0x004FDEB0",
+        "0x00543870",
+        "0x005438B0",
+        "0x00543920",
+        "0x00545670",
+        "0x005457C0",
+        "0x005457F0",
+        "0x00545820",
+        "0x0055D2F0",
+        "0x0055D410",
+        "0x00587BDC",
+        "0x00588640",
+        "0x0058957A"
+      ],
+      "callers": [
+        "0x0042D8A0"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x8",
+        "0xC",
+        "0x10",
+        "0x14",
+        "0x18",
+        "0x1C",
+        "0x20",
+        "0x24",
+        "0x28",
+        "0x2C",
+        "0x40",
+        "0x44",
+        "0x48",
+        "0x4C",
+        "0x50",
+        "0x5C",
+        "0xA4",
+        "0xA8",
+        "0xAC",
+        "0xB0",
+        "0xB4",
+        "0xB8",
+        "0xBC",
+        "0xC0",
+        "0xC4",
+        "0xC8",
+        "0xCC",
+        "0xD0",
+        "0xD4",
+        "0xD8",
+        "0xDC",
+        "0xE0",
+        "0xE4",
+        "0xE8",
+        "0xEC",
+        "0xF0",
+        "0xF4",
+        "0xF8",
+        "0xFC",
+        "0x100",
+        "0x108"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004FF8F0": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x004FF8F0",
+      "name": "AudioSampleCrossFadeInterpolation",
+      "declared_name": "sub_4FF8F0",
+      "source": "functions/AudioSampleCrossFadeInterpolation_004ff8f0.c",
+      "callees": [
+        "0x004B2580",
+        "0x004B2930",
+        "0x004B2980",
+        "0x004B29B0",
+        "0x004B29F0",
+        "0x004B2A30",
+        "0x004B2A40",
+        "0x004B2A80",
+        "0x004B33B0",
+        "0x004FF3A0",
+        "0x005001D0",
+        "0x00567010",
+        "0x00567030",
+        "0x00567580",
+        "0x00587BDC"
+      ],
+      "callers": [
+        "0x00500210",
+        "0x00500560"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "audio"
+      ]
+    },
+    "0x00500210": {
+      "depth": 2,
+      "parent": "0x004B33B0",
+      "address": "0x00500210",
+      "name": "AudioSamplePlaybackWithPitchModulationAndStereoP",
+      "declared_name": "sub_500210",
+      "source": "functions/AudioSamplePlaybackWithPitchModulationAndStereoP_00500210.c",
+      "callees": [
+        "0x004B21F0",
+        "0x004B33B0",
+        "0x004FF8F0"
+      ],
+      "callers": [
+        "0x004B5760",
+        "0x004B6360",
+        "0x004B9AC0"
+      ],
+      "this_offsets": [
+        "0x8",
+        "0xC",
+        "0x12",
+        "0x14",
+        "0x16",
+        "0x1A",
+        "0x1B",
+        "0x1D",
+        "0x1F",
+        "0x1B8",
+        "0x1BC",
+        "0x1C0",
+        "0x1C2",
+        "0x1C4",
+        "0x1C6",
+        "0x1CA",
+        "0x1CB",
+        "0x1CD",
+        "0x1CF"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "pit",
+        "audio"
+      ]
+    },
+    "0x004D7A50": {
+      "depth": 2,
+      "parent": "0x004D7570",
+      "address": "0x004D7A50",
+      "name": "StringSplitLoop",
+      "declared_name": "sub_4D7A50",
+      "source": "functions/StringSplitLoop_004d7a50.c",
+      "callees": [
+        "0x004D7AA0",
+        "0x00587C20"
+      ],
+      "callers": [
+        "0x004024F0",
+        "0x004040A0",
+        "0x0040C920",
+        "0x0040C9E0",
+        "0x0040CCE0",
+        "0x00421CD0",
+        "0x0042C130",
+        "0x0042C170",
+        "0x0042C1A0",
+        "0x0042C3B0",
+        "0x0042C9F0",
+        "0x0042CA70",
+        "0x0042CF10",
+        "0x0042D260",
+        "0x0042D370",
+        "0x0042D5D0",
+        "0x0042D6B0",
+        "0x0042D7A0",
+        "0x0042D8A0",
+        "0x0042DA30",
+        "0x0042DB20",
+        "0x0042FD00",
+        "0x00439210",
+        "0x0043AF50",
+        "0x0043B040",
+        "0x0043C250",
+        "0x0043DA10",
+        "0x00449A80",
+        "0x00455BF0",
+        "0x00455C60",
+        "0x00455D50",
+        "0x00455DA0",
+        "0x00455E70",
+        "0x00455F00",
+        "0x0045D2D0",
+        "0x0045D890",
+        "0x0045EB50",
+        "0x0045FC50",
+        "0x00460470",
+        "0x00460520",
+        "0x00460CB0",
+        "0x00460E90",
+        "0x00461020",
+        "0x00461190",
+        "0x004612E0",
+        "0x00461DE0",
+        "0x00462C00",
+        "0x00462E20",
+        "0x00463160",
+        "0x004637A0",
+        "0x00464290",
+        "0x0046DE10",
+        "0x0048E8D0",
+        "0x0049EF40",
+        "0x0049EF70",
+        "0x0049EFA0",
+        "0x0049F000",
+        "0x0049F0D0",
+        "0x0049F120",
+        "0x004A0EB0",
+        "0x004A18D0",
+        "0x004A2010",
+        "0x004A22D0",
+        "0x004A2A90",
+        "0x004B0770",
+        "0x004B1820",
+        "0x004B1870",
+        "0x004B18D0",
+        "0x004B1900",
+        "0x004B4030",
+        "0x004B4060",
+        "0x004B4170",
+        "0x004BA1F0",
+        "0x004BDC10",
+        "0x004C3200",
+        "0x004C3D80",
+        "0x004C40D0",
+        "0x004C52C0",
+        "0x004C8A20",
+        "0x004C8AB0",
+        "0x004C8AE0",
+        "0x004C8B20",
+        "0x004C8CA0",
+        "0x004C8D00",
+        "0x004CA480",
+        "0x004CADA0",
+        "0x004CB120",
+        "0x004CDC70",
+        "0x004CEE90",
+        "0x004CEEC0",
+        "0x004CF070",
+        "0x004CFC90",
+        "0x004CFED0",
+        "0x004CFFF0",
+        "0x004D0110",
+        "0x004D0E20",
+        "0x004D36D0",
+        "0x004D38F0",
+        "0x004D3CF0",
+        "0x004D4600",
+        "0x004D5EE0",
+        "0x004D5F70",
+        "0x004D7150",
+        "0x004D7570",
+        "0x004D75D0",
+        "0x004D7660",
+        "0x004D7880",
+        "0x004DC770",
+        "0x004DDF90",
+        "0x004DFCE0",
+        "0x004F3240",
+        "0x004F3C80",
+        "0x004F4270",
+        "0x004F9310",
+        "0x004FA000",
+        "0x004FA2F0",
+        "0x004FA320",
+        "0x004FA640",
+        "0x004FAC00",
+        "0x004FAD00",
+        "0x004FE820"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004D7AA0": {
+      "depth": 2,
+      "parent": "0x004D7570",
+      "address": "0x004D7AA0",
+      "name": "DebugLogWrite",
+      "declared_name": "sub_4D7AA0",
+      "source": "functions/DebugLogWrite_004d7aa0.c",
+      "callees": [
+        "0x00589FFD",
+        "0x0058A163"
+      ],
+      "callers": [
+        "0x004024F0",
+        "0x004040A0",
+        "0x0040C920",
+        "0x0040C9E0",
+        "0x0040CCE0",
+        "0x00421CD0",
+        "0x0042C130",
+        "0x0042C170",
+        "0x0042C1A0",
+        "0x0042C3B0",
+        "0x0042C9F0",
+        "0x0042CA70",
+        "0x0042CF10",
+        "0x0042D260",
+        "0x0042D370",
+        "0x0042D5D0",
+        "0x0042D6B0",
+        "0x0042D7A0",
+        "0x0042D8A0",
+        "0x0042DA30",
+        "0x0042DB20",
+        "0x0042FD00",
+        "0x00439210",
+        "0x0043AF50",
+        "0x0043B040",
+        "0x0043C250",
+        "0x0043DA10",
+        "0x00449A80",
+        "0x00455BF0",
+        "0x00455C60",
+        "0x00455D50",
+        "0x00455DA0",
+        "0x00455E70",
+        "0x00455F00",
+        "0x0045D2D0",
+        "0x0045D890",
+        "0x0045EB50",
+        "0x0045FC50",
+        "0x00460470",
+        "0x00460520",
+        "0x00460CB0",
+        "0x00460E90",
+        "0x00461020",
+        "0x00461190",
+        "0x004612E0",
+        "0x00461DE0",
+        "0x00462C00",
+        "0x00462E20",
+        "0x00463160",
+        "0x004637A0",
+        "0x00464290",
+        "0x0046DE10",
+        "0x0048E8D0",
+        "0x0049EF40",
+        "0x0049EF70",
+        "0x0049EFA0",
+        "0x0049F000",
+        "0x0049F0D0",
+        "0x0049F120",
+        "0x004A0EB0",
+        "0x004A18D0",
+        "0x004A2010",
+        "0x004A22D0",
+        "0x004A2A90",
+        "0x004B0770",
+        "0x004B1820",
+        "0x004B1870",
+        "0x004B18D0",
+        "0x004B1900",
+        "0x004B4030",
+        "0x004B4060",
+        "0x004B4170",
+        "0x004BA1F0",
+        "0x004BDC10",
+        "0x004C3200",
+        "0x004C3D80",
+        "0x004C40D0",
+        "0x004C52C0",
+        "0x004C8A20",
+        "0x004C8AB0",
+        "0x004C8AE0",
+        "0x004C8B20",
+        "0x004C8CA0",
+        "0x004C8D00",
+        "0x004CA480",
+        "0x004CADA0",
+        "0x004CB120",
+        "0x004CDC70",
+        "0x004CEE90",
+        "0x004CEEC0",
+        "0x004CF070",
+        "0x004CFC90",
+        "0x004CFED0",
+        "0x004CFFF0",
+        "0x004D0110",
+        "0x004D0E20",
+        "0x004D36D0",
+        "0x004D38F0",
+        "0x004D3CF0",
+        "0x004D4600",
+        "0x004D5EE0",
+        "0x004D5F70",
+        "0x004D7150",
+        "0x004D7570",
+        "0x004D75D0",
+        "0x004D7660",
+        "0x004D7880",
+        "0x004D7A50",
+        "0x004DC770",
+        "0x004DDF90",
+        "0x004DFCE0",
+        "0x004F3240",
+        "0x004F3C80",
+        "0x004F4270",
+        "0x004F9310",
+        "0x004FA000",
+        "0x004FA2F0",
+        "0x004FA320",
+        "0x004FA640",
+        "0x004FAC00",
+        "0x004FAD00",
+        "0x004FE820"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00429FD0": {
+      "depth": 2,
+      "parent": "0x004D7570",
+      "address": "0x00429FD0",
+      "name": "RandomWeightedTierSelection",
+      "declared_name": "sub_429FD0",
+      "source": "functions/RandomWeightedTierSelection_00429fd0.c",
+      "callees": [
+        "0x004A4830",
+        "0x004D7570",
+        "0x005884ED"
+      ],
+      "callers": [
+        "0x00424E70",
+        "0x00429960",
+        "0x0042B0E0"
+      ],
+      "this_offsets": [
+        "0x3978",
+        "0x458C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0042F470": {
+      "depth": 2,
+      "parent": "0x004D7570",
+      "address": "0x0042F470",
+      "name": "VehicleSetupValueFormatter",
+      "declared_name": "VehicleSetupValueFormatter",
+      "source": "functions/VehicleSetupValueFormatter_0042f470.c",
+      "callees": [
+        "0x00423A00",
+        "0x0042DC80",
+        "0x0042DCA0",
+        "0x0042DCC0",
+        "0x0042DCE0",
+        "0x0042DD00",
+        "0x0042F180",
+        "0x0042F1E0",
+        "0x0042F260",
+        "0x004D7570",
+        "0x004D7880",
+        "0x00587BDC",
+        "0x0058815F"
+      ],
+      "callers": [
+        "0x004673B0"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x18",
+        "0x28",
+        "0x58",
+        "0x70",
+        "0xBB0",
+        "0xBB8",
+        "0xBC4",
+        "0xBCC",
+        "0xBCE",
+        "0x1644",
+        "0x1884",
+        "0x1970",
+        "0x1980",
+        "0x1984",
+        "0x1989",
+        "0x198C",
+        "0x1994"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x00430750": {
+      "depth": 2,
+      "parent": "0x004D7570",
+      "address": "0x00430750",
+      "name": "sub_430750",
+      "declared_name": "sub_430750",
+      "source": "functions/sub_430750_00430750.c",
+      "callees": [
+        "0x00430600",
+        "0x004D5C70",
+        "0x004D7570",
+        "0x004D7880"
+      ],
+      "callers": [
+        "0x00430F00"
+      ],
+      "this_offsets": [
+        "0xBC4",
+        "0xC30",
+        "0xC38",
+        "0xC44",
+        "0xCB0",
+        "0xCB8",
+        "0xCC4"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00430A50": {
+      "depth": 2,
+      "parent": "0x004D7570",
+      "address": "0x00430A50",
+      "name": "BrakeTemperatureFadeModel",
+      "declared_name": "sub_430A50",
+      "source": "functions/BrakeTemperatureFadeModel_00430a50.c",
+      "callees": [
+        "0x0042ED00",
+        "0x00430600",
+        "0x004D5C70",
+        "0x004D7570",
+        "0x004D7880",
+        "0x004F6720"
+      ],
+      "callers": [
+        "0x00430F00"
+      ],
+      "this_offsets": [
+        "0xBC4",
+        "0xBCC",
+        "0xC30",
+        "0xC38",
+        "0xC44",
+        "0xCB0",
+        "0xCB8",
+        "0xCC4",
+        "0x1570",
+        "0x1578",
+        "0x1584"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00431850": {
+      "depth": 2,
+      "parent": "0x004D7570",
+      "address": "0x00431850",
+      "name": "TireSuspensionForceComputation",
+      "declared_name": "sub_431850",
+      "source": "functions/TireSuspensionForceComputation_00431850.c",
+      "callees": [
+        "0x0042ED00",
+        "0x004D7570",
+        "0x004D7880"
+      ],
+      "callers": [
+        "0x00475A90"
+      ],
+      "this_offsets": [
+        "0xBC4",
+        "0x1570",
+        "0x1578",
+        "0x1584"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x00439210": {
+      "depth": 2,
+      "parent": "0x004D7570",
+      "address": "0x00439210",
+      "name": "VehiclePhysicsInitializer",
+      "declared_name": "sub_439210",
+      "source": "functions/VehiclePhysicsInitializer_00439210.c",
+      "callees": [
+        "0x00435E00",
+        "0x004361D0",
+        "0x004388D0",
+        "0x004390A0",
+        "0x0043AEE0",
+        "0x0043B040",
+        "0x0043B590",
+        "0x0043BB00",
+        "0x004D6AE0",
+        "0x004D7570",
+        "0x004D7880",
+        "0x004D7A50",
+        "0x004D7AA0",
+        "0x0054B3B0",
+        "0x005691D0",
+        "0x005697A0",
+        "0x0056BD40",
+        "0x0056BDE0",
+        "0x0056CF70",
+        "0x0056D020",
+        "0x0056D1C0",
+        "0x0056D2D0",
+        "0x00588570"
+      ],
+      "callers": [
+        "0x0043E050"
+      ],
+      "this_offsets": [
+        "0xD4",
+        "0xDC",
+        "0xE4",
+        "0x1D4",
+        "0x1E8",
+        "0x3E8",
+        "0x3EC",
+        "0x400",
+        "0x451",
+        "0xCB0",
+        "0x1114",
+        "0x141C",
+        "0x1420",
+        "0x1428",
+        "0x142C",
+        "0x1430",
+        "0x1448",
+        "0x1450",
+        "0x15AC",
+        "0x15B0",
+        "0x15B4",
+        "0x15B8",
+        "0x15BC",
+        "0x15C0",
+        "0x15C4",
+        "0x15C8",
+        "0x15F0",
+        "0x15F4",
+        "0x15F8",
+        "0x15FC",
+        "0x1614",
+        "0x161C",
+        "0x1624",
+        "0x1DFC",
+        "0x1F00",
+        "0x1F34"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x0043DA10": {
+      "depth": 2,
+      "parent": "0x004D7570",
+      "address": "0x0043DA10",
+      "name": "TireCompoundPerWheelPhysicsApplication",
+      "declared_name": "sub_43DA10",
+      "source": "functions/TireCompoundPerWheelPhysicsApplication_0043da10.c",
+      "callees": [
+        "0x00438100",
+        "0x004D5C70",
+        "0x004D5EE0",
+        "0x004D6830",
+        "0x004D6AE0",
+        "0x004D7570",
+        "0x004D75D0",
+        "0x004D7A50",
+        "0x004D7AA0"
+      ],
+      "callers": [
+        "0x0043C250",
+        "0x004F18C0"
+      ],
+      "this_offsets": [
+        "0x145C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "pit",
+        "vehicle"
+      ]
+    },
+    "0x004E5F60": {
+      "depth": 2,
+      "parent": "0x004D7570",
+      "address": "0x004E5F60",
+      "name": "SuspensionAndWheelPhysics",
+      "declared_name": "sub_4E5F60",
+      "source": "functions/SuspensionAndWheelPhysics_004e5f60.c",
+      "callees": [
+        "0x0042ED00",
+        "0x004A5330",
+        "0x004D6AE0",
+        "0x004D7570",
+        "0x004D7880",
+        "0x004DD7C0",
+        "0x004E2540",
+        "0x004E9BD0",
+        "0x004EE150",
+        "0x004F1A60",
+        "0x004F3190",
+        "0x004F6720",
+        "0x004F6850",
+        "0x004F6880",
+        "0x004F68B0",
+        "0x004F6950",
+        "0x004F69E0",
+        "0x004F6A50",
+        "0x004F8330",
+        "0x0054B420",
+        "0x0054F830",
+        "0x00587BDC",
+        "0x00587C03",
+        "0x005884ED"
+      ],
+      "callers": [
+        "0x004E45B0"
+      ],
+      "this_offsets": [
+        "0x0",
+        "0x4",
+        "0x8",
+        "0xC",
+        "0x1C",
+        "0x20",
+        "0x24",
+        "0x88",
+        "0x8C",
+        "0x6E4",
+        "0x6E8",
+        "0x72C",
+        "0x730",
+        "0x734",
+        "0x75C",
+        "0x760",
+        "0x764",
+        "0x768",
+        "0x8B8",
+        "0xCC8",
+        "0xCCC",
+        "0xCD0",
+        "0xCD4",
+        "0xD0C",
+        "0xD10",
+        "0xD14",
+        "0xD18",
+        "0xD50",
+        "0x1038",
+        "0x1078",
+        "0x11E4",
+        "0x32BC",
+        "0x32C0",
+        "0x34A8",
+        "0x3510",
+        "0x3514",
+        "0x3518",
+        "0x351C",
+        "0x3520",
+        "0x3524",
+        "0x3528",
+        "0x352C",
+        "0x3530",
+        "0x3564",
+        "0x3568",
+        "0x356C",
+        "0x358C",
+        "0x3590",
+        "0x3594",
+        "0x35AC",
+        "0x3604",
+        "0x3618",
+        "0x3674",
+        "0x3684",
+        "0x3688",
+        "0x368C",
+        "0x3710",
+        "0x377C",
+        "0x3780",
+        "0x3784",
+        "0x3808",
+        "0x3874",
+        "0x3878",
+        "0x387C",
+        "0x3900",
+        "0x3960",
+        "0x3968",
+        "0x396C",
+        "0x3970",
+        "0x3974",
+        "0x3978",
+        "0x397C",
+        "0x3980",
+        "0x3984",
+        "0x3988",
+        "0x398C",
+        "0x3990",
+        "0x3994",
+        "0x3998",
+        "0x399C",
+        "0x39A4",
+        "0x39A8",
+        "0x39AC",
+        "0x39B0",
+        "0x39B4",
+        "0x39B8",
+        "0x39BC",
+        "0x39C0",
+        "0x39C4",
+        "0x39C8",
+        "0x39CC",
+        "0x39D4",
+        "0x39EC",
+        "0x39ED",
+        "0x39EE",
+        "0x39F0",
+        "0x39F4",
+        "0x39F8",
+        "0x39FC",
+        "0x3A00",
+        "0x3A04",
+        "0x3A08",
+        "0x3A0C",
+        "0x3A10",
+        "0x3A14",
+        "0x3A30",
+        "0x3A44",
+        "0x3A58",
+        "0x3A5C",
+        "0x3A60",
+        "0x3A64",
+        "0x3A68",
+        "0x3A6C",
+        "0x3A70",
+        "0x3A74",
+        "0x3A78",
+        "0x3A7C",
+        "0x3A80",
+        "0x3A9C",
+        "0x3AB8",
+        "0x3ABC",
+        "0x3AE8",
+        "0x3AF0",
+        "0x3AF4",
+        "0x3AFC",
+        "0x3B00",
+        "0x3B0C",
+        "0x3B54",
+        "0x3B58",
+        "0x3B5C",
+        "0x3B6C",
+        "0x3B70",
+        "0x3B74",
+        "0x3B75",
+        "0x3BE8",
+        "0x3BEC",
+        "0x3BF0",
+        "0x3BF4",
+        "0x3BF8",
+        "0x3D48",
+        "0x3D4C",
+        "0x3D50",
+        "0x3D54",
+        "0x3D58",
+        "0x3D5C",
+        "0x3D60",
+        "0x3D78",
+        "0x3D9C",
+        "0x3DA0",
+        "0x3DA4",
+        "0x3DCC",
+        "0x3DD0",
+        "0x3DD4",
+        "0x3EB8",
+        "0x3FF0",
+        "0x3FF4",
+        "0x3FF8",
+        "0x3FFC",
+        "0x4004",
+        "0x4008",
+        "0x400C",
+        "0x4010",
+        "0x4014",
+        "0x4018",
+        "0x401C",
+        "0x4020",
+        "0x4024"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x004F18C0": {
+      "depth": 2,
+      "parent": "0x004D7570",
+      "address": "0x004F18C0",
+      "name": "sub_4F18C0",
+      "declared_name": "sub_4F18C0",
+      "source": "functions/sub_4F18C0_004f18c0.c",
+      "callees": [
+        "0x0043DA10",
+        "0x004A4830",
+        "0x004D5EA0",
+        "0x004D6AE0",
+        "0x004D7570",
+        "0x004E2370",
+        "0x004E8010"
+      ],
+      "callers": [
+        "0x004F1A60"
+      ],
+      "this_offsets": [
+        "0x6E4",
+        "0x32BC",
+        "0x3610",
+        "0x3614",
+        "0x361C",
+        "0x3620",
+        "0x3624",
+        "0x3628",
+        "0x3630",
+        "0x3634",
+        "0x3638",
+        "0x396C",
+        "0x3970",
+        "0x3BF4"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004F7010": {
+      "depth": 2,
+      "parent": "0x004E0ED0",
+      "address": "0x004F7010",
+      "name": "StateHandlerDispatch",
+      "declared_name": "sub_4F7010",
+      "source": "functions/StateHandlerDispatch_004f7010.c",
+      "callees": [],
+      "callers": [
+        "0x004A0250",
+        "0x004E0ED0"
+      ],
+      "this_offsets": [
+        "0xB0",
+        "0x694",
+        "0x6D8"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0054C1B0": {
+      "depth": 2,
+      "parent": "0x004E0ED0",
+      "address": "0x0054C1B0",
+      "name": "UIWidgetRecursiveStateUpdate",
+      "declared_name": "sub_54C1B0",
+      "source": "functions/UIWidgetRecursiveStateUpdate_0054c1b0.c",
+      "callees": [
+        "0x00560FC0",
+        "0x00560FD0"
+      ],
+      "callers": [
+        "0x004A3390",
+        "0x004A3440",
+        "0x004B3DC0",
+        "0x004E0ED0",
+        "0x004FA7E0"
+      ],
+      "this_offsets": [
+        "0x44",
+        "0x4C",
+        "0x230"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00409440": {
+      "depth": 2,
+      "parent": "0x004E0ED0",
+      "address": "0x00409440",
+      "name": "ViewCameraModeDispatch",
+      "declared_name": "sub_409440",
+      "source": "functions/ViewCameraModeDispatch_00409440.c",
+      "callees": [
+        "0x00408740",
+        "0x00408DE0",
+        "0x004E0ED0"
+      ],
+      "callers": [
+        "0x0040A910",
+        "0x0040CDE0",
+        "0x0040D100"
+      ],
+      "this_offsets": [
+        "0x2C",
+        "0x30",
+        "0x34",
+        "0x38",
+        "0x3C",
+        "0x50"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "render"
+      ]
+    },
+    "0x0040C7A0": {
+      "depth": 2,
+      "parent": "0x004E0ED0",
+      "address": "0x0040C7A0",
+      "name": "CameraTargetUpdateOnPlayerChange",
+      "declared_name": "sub_40C7A0",
+      "source": "functions/CameraTargetUpdateOnPlayerChange_0040c7a0.c",
+      "callees": [
+        "0x0040C8D0",
+        "0x004E0ED0"
+      ],
+      "callers": [
+        "0x0040CA30",
+        "0x0040D240"
+      ],
+      "this_offsets": [
+        "0x38"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "render"
+      ]
+    },
+    "0x0045FC50": {
+      "depth": 2,
+      "parent": "0x004E0ED0",
+      "address": "0x0045FC50",
+      "name": "NetCommPlayerSlotSync",
+      "declared_name": "NetCommPlayerSlotSync",
+      "source": "functions/NetCommPlayerSlotSync_0045fc50.c",
+      "callees": [
+        "0x0040D100",
+        "0x00423A00",
+        "0x0042BBD0",
+        "0x0042BC40",
+        "0x0042BC80",
+        "0x00433870",
+        "0x0045BD10",
+        "0x0045C030",
+        "0x0045C850",
+        "0x00460CB0",
+        "0x00461530",
+        "0x00462330",
+        "0x00465430",
+        "0x0049CA00",
+        "0x004BC2F0",
+        "0x004BC320",
+        "0x004C6980",
+        "0x004C69E0",
+        "0x004C6C40",
+        "0x004C6D90",
+        "0x004C6E80",
+        "0x004C7B20",
+        "0x004C8DE0",
+        "0x004D1030",
+        "0x004D7A50",
+        "0x004D7AA0",
+        "0x004E0ED0",
+        "0x004EF5A0",
+        "0x004FFFA0",
+        "0x00566650",
+        "0x00587BCF",
+        "0x00587DD0",
+        "0x0058815F",
+        "0x00588410"
+      ],
+      "callers": [
+        "0x004643C0"
+      ],
+      "this_offsets": [
+        "0xF4",
+        "0x374",
+        "0x3E14",
+        "0x68F0"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004B3DC0": {
+      "depth": 2,
+      "parent": "0x004E0ED0",
+      "address": "0x004B3DC0",
+      "name": "VehicleVisibilityCulling",
+      "declared_name": "sub_4B3DC0",
+      "source": "functions/VehicleVisibilityCulling_004b3dc0.c",
+      "callees": [
+        "0x0040C870",
+        "0x004E0ED0",
+        "0x0054C030",
+        "0x0054C1B0",
+        "0x00566E40",
+        "0x005890AA"
+      ],
+      "callers": [
+        "0x004B40A0"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x004B8940": {
+      "depth": 2,
+      "parent": "0x004E0ED0",
+      "address": "0x004B8940",
+      "name": "LoadingPhase2",
+      "declared_name": "sub_4B8940",
+      "source": "functions/LoadingPhase2_004b8940.c",
+      "callees": [
+        "0x00408450",
+        "0x00411120",
+        "0x004B86E0",
+        "0x004B8AE0",
+        "0x004C7AA0",
+        "0x004C8DC0",
+        "0x004E0ED0",
+        "0x004E19A0",
+        "0x004E3A50",
+        "0x004EF5A0",
+        "0x00566DB0"
+      ],
+      "callers": [
+        "0x004B9890"
+      ],
+      "this_offsets": [
+        "0x3E00"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004BBFC0": {
+      "depth": 2,
+      "parent": "0x004E0ED0",
+      "address": "0x004BBFC0",
+      "name": "PitCrewStateMachine",
+      "declared_name": "sub_4BBFC0",
+      "source": "functions/PitCrewStateMachine_004bbfc0.c",
+      "callees": [
+        "0x0042AF40",
+        "0x004E0ED0"
+      ],
+      "callers": [
+        "0x004B3400",
+        "0x004BEC55"
+      ],
+      "this_offsets": [
+        "0x30",
+        "0x34",
+        "0x415"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x004C73F0": {
+      "depth": 2,
+      "parent": "0x004E0ED0",
+      "address": "0x004C73F0",
+      "name": "VehiclePhysicsTimeStep",
+      "declared_name": "sub_4C73F0",
+      "source": "functions/VehiclePhysicsTimeStep_004c73f0.c",
+      "callees": [
+        "0x004B2420",
+        "0x004B2580",
+        "0x004B26D0",
+        "0x004B2800",
+        "0x004B28F0",
+        "0x004B2980",
+        "0x004B29F0",
+        "0x004B2A30",
+        "0x004B2A80",
+        "0x004B2AD0",
+        "0x004B2B00",
+        "0x004B2B40",
+        "0x004B2B80",
+        "0x004C7BF0",
+        "0x004E0ED0",
+        "0x004E17C0",
+        "0x004E2230",
+        "0x004E23D0",
+        "0x004E24A0",
+        "0x004F1650",
+        "0x004F17A0",
+        "0x004F17D0",
+        "0x00566E40"
+      ],
+      "callers": [
+        "0x004F03E0",
+        "0x004F0430"
+      ],
+      "this_offsets": [
+        "0x1C",
+        "0x20",
+        "0x24",
+        "0x34",
+        "0x58",
+        "0x5C",
+        "0x60",
+        "0xA0",
+        "0xA4",
+        "0x8C0",
+        "0x1040",
+        "0x1044",
+        "0x1054",
+        "0x105D",
+        "0x1065",
+        "0x1067",
+        "0x1069",
+        "0x32C8",
+        "0x344C",
+        "0x3580",
+        "0x3584",
+        "0x35BC",
+        "0x4024",
+        "0x4028",
+        "0x48B0",
+        "0x48B4",
+        "0x48B8"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x004C7AA0": {
+      "depth": 2,
+      "parent": "0x004E0ED0",
+      "address": "0x004C7AA0",
+      "name": "SetDriverVisibility",
+      "declared_name": "sub_4C7AA0",
+      "source": "functions/SetDriverVisibility_004c7aa0.c",
+      "callees": [
+        "0x0040C8D0",
+        "0x004E0ED0"
+      ],
+      "callers": [
+        "0x00460DD0",
+        "0x004B8940"
+      ],
+      "this_offsets": [
+        "0x4894",
+        "0x48BC"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004E0D00": {
+      "depth": 2,
+      "parent": "0x004E0ED0",
+      "address": "0x004E0D00",
+      "name": "LazyInitCallback",
+      "declared_name": "sub_4E0D00",
+      "source": "functions/LazyInitCallback_004e0d00.c",
+      "callees": [
+        "0x00410AF0",
+        "0x004BDF90",
+        "0x004BE180",
+        "0x004E0ED0",
+        "0x0054B4D0",
+        "0x0054BA00"
+      ],
+      "callers": [
+        "0x004E0DB0",
+        "0x004E0E20",
+        "0x004E17C0",
+        "0x004ED030"
+      ],
+      "this_offsets": [
+        "0x964"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0043B930": {
+      "depth": 2,
+      "parent": "0x004F1860",
+      "address": "0x0043B930",
+      "name": "SolverDispatch",
+      "declared_name": "sub_43B930",
+      "source": "functions/SolverDispatch_0043b930.c",
+      "callees": [
+        "0x00436470",
+        "0x0043BA20",
+        "0x0043BB00",
+        "0x0043BB30",
+        "0x0043BB80",
+        "0x0043BBD0"
+      ],
+      "callers": [
+        "0x004F1860"
+      ],
+      "this_offsets": [
+        "0x1838",
+        "0x189C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00429960": {
+      "depth": 2,
+      "parent": "0x004F1890",
+      "address": "0x00429960",
+      "name": "sub_429960",
+      "declared_name": "sub_429960",
+      "source": "functions/sub_429960_00429960.c",
+      "callees": [
+        "0x00429FD0",
+        "0x004A4830",
+        "0x004C5840",
+        "0x004F1630",
+        "0x004F1890",
+        "0x004F1A60",
+        "0x00567970",
+        "0x005679C0",
+        "0x00587BDC",
+        "0x005884ED",
+        "0x005887ED"
+      ],
+      "callers": [
+        "0x00424790"
+      ],
+      "this_offsets": [
+        "0x3",
+        "0xE62",
+        "0xE64",
+        "0x1164",
+        "0x1165",
+        "0x1166",
+        "0x1167",
+        "0x1168",
+        "0x116C",
+        "0x1170",
+        "0x117A",
+        "0x117C",
+        "0x32C8",
+        "0x4588",
+        "0x458C",
+        "0x4590",
+        "0x45A0",
+        "0x45B0",
+        "0x45C0",
+        "0x45D0",
+        "0x45E0",
+        "0x45F0",
+        "0x4620"
+      ],
+      "object_kind": "F1CVehicle",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Called with the unchanged vehicle this pointer by AIDriverStructInit; accesses full vehicle regions."
+      ],
+      "subsystems": []
+    },
+    "0x0042B0E0": {
+      "depth": 2,
+      "parent": "0x004F1890",
+      "address": "0x0042B0E0",
+      "name": "AISteeringRacingLineCorrection",
+      "declared_name": "sub_42B0E0",
+      "source": "functions/AISteeringRacingLineCorrection_0042b0e0.c",
+      "callees": [
+        "0x00403CD0",
+        "0x00429FD0",
+        "0x0042A740",
+        "0x004D10E0",
+        "0x004EF7C0",
+        "0x004EFA40",
+        "0x004EFAC0",
+        "0x004EFB20",
+        "0x004EFFD0",
+        "0x004F0050",
+        "0x004F1890",
+        "0x004F1A60",
+        "0x004F2320",
+        "0x00566E40",
+        "0x0058957A"
+      ],
+      "callers": [
+        "0x00426CF0"
+      ],
+      "this_offsets": [
+        "0x1",
+        "0x3",
+        "0xEAA",
+        "0x1018",
+        "0x1144",
+        "0x1154",
+        "0x34BC",
+        "0x34C4",
+        "0x34C8",
+        "0x34D0",
+        "0x34D4",
+        "0x34DC",
+        "0x3984",
+        "0x3988",
+        "0x39A0",
+        "0x39A8",
+        "0x4354",
+        "0x4358",
+        "0x442C",
+        "0x4434",
+        "0x4440",
+        "0x4448",
+        "0x4460",
+        "0x44B4",
+        "0x4538",
+        "0x45E8",
+        "0x45F4"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x004E8010": {
+      "depth": 2,
+      "parent": "0x004F1A60",
+      "address": "0x004E8010",
+      "name": "TireBrushModelForceSolver",
+      "declared_name": "sub_4E8010",
+      "source": "functions/TireBrushModelForceSolver_004e8010.c",
+      "callees": [
+        "0x005895A2"
+      ],
+      "callers": [
+        "0x004E45B0",
+        "0x004E4910",
+        "0x004ED030",
+        "0x004ED0F0",
+        "0x004ED250",
+        "0x004ED960",
+        "0x004F1510",
+        "0x004F18C0",
+        "0x004F1A60"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0x3514",
+        "0x3518",
+        "0x358C",
+        "0x3594",
+        "0x3610",
+        "0x362C",
+        "0x3684",
+        "0x368C",
+        "0x3708",
+        "0x377C",
+        "0x3784",
+        "0x3800",
+        "0x3874",
+        "0x387C",
+        "0x38F8",
+        "0x39B4",
+        "0x3A30",
+        "0x3A44",
+        "0x3A6C",
+        "0x3A70",
+        "0x3BF4",
+        "0x3BFC",
+        "0x3C3C",
+        "0x3C40",
+        "0x3C7C",
+        "0x3C80",
+        "0x3CBC",
+        "0x3CC0",
+        "0x3CFC",
+        "0x3D00",
+        "0x3D3C",
+        "0x3D40",
+        "0x3D44",
+        "0x4024"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x00424E30": {
+      "depth": 2,
+      "parent": "0x00429EE0",
+      "address": "0x00424E30",
+      "name": "PairArrayLinearSearch",
+      "declared_name": "sub_424E30",
+      "source": "functions/PairArrayLinearSearch_00424e30.c",
+      "callees": [],
+      "callers": [
+        "0x00429EE0"
+      ],
+      "this_offsets": [
+        "0x44A8",
+        "0x44B0"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x0042ACA0": {
+      "depth": 2,
+      "parent": "0x00429EE0",
+      "address": "0x0042ACA0",
+      "name": "AISpeedDeltaSetter",
+      "declared_name": "sub_42ACA0",
+      "source": "functions/AISpeedDeltaSetter_0042aca0.c",
+      "callees": [
+        "0x004A46F0"
+      ],
+      "callers": [
+        "0x00429EE0",
+        "0x004EF5A0"
+      ],
+      "this_offsets": [
+        "0x4550"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x00410B60": {
+      "depth": 2,
+      "parent": "0x004C6D90",
+      "address": "0x00410B60",
+      "name": "DelegationWrapperToFUN0040ed10",
+      "declared_name": "sub_410B60",
+      "source": "functions/DelegationWrapperToFUN0040ed10_00410b60.c",
+      "callees": [
+        "0x0040ED10"
+      ],
+      "callers": [
+        "0x004C6D90"
+      ],
+      "this_offsets": [
+        "0x10"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004BB810": {
+      "depth": 2,
+      "parent": "0x004C6D90",
+      "address": "0x004BB810",
+      "name": "sub_4BB810",
+      "declared_name": "sub_4BB810",
+      "source": "functions/sub_4BB810_004bb810.c",
+      "callees": [
+        "0x004BB950",
+        "0x00587C03"
+      ],
+      "callers": [
+        "0x004C6D90"
+      ],
+      "this_offsets": [
+        "0xC",
+        "0x30",
+        "0x60",
+        "0x88",
+        "0x8C",
+        "0x90",
+        "0x94",
+        "0x98"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004C6B60": {
+      "depth": 2,
+      "parent": "0x004C6D90",
+      "address": "0x004C6B60",
+      "name": "sub_4C6B60",
+      "declared_name": "sub_4C6B60",
+      "source": "functions/sub_4C6B60_004c6b60.c",
+      "callees": [
+        "0x0040D100",
+        "0x00424B20",
+        "0x004A5E60",
+        "0x004A5E80",
+        "0x004BB8E0",
+        "0x004BC9B0",
+        "0x004D1180",
+        "0x004E9600",
+        "0x004EF7C0",
+        "0x004EFA40",
+        "0x004F1C00"
+      ],
+      "callers": [
+        "0x0042D140",
+        "0x004C6D90"
+      ],
+      "this_offsets": [
+        "0x3",
+        "0xCB3",
+        "0x100D",
+        "0x4894"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004D10E0": {
+      "depth": 2,
+      "parent": "0x004C6D90",
+      "address": "0x004D10E0",
+      "name": "SingleFunctionDispatch_10e0",
+      "declared_name": "sub_4D10E0",
+      "source": "functions/SingleFunctionDispatch_10e0_004d10e0.c",
+      "callees": [
+        "0x00403CD0"
+      ],
+      "callers": [
+        "0x0042B0E0",
+        "0x004BC9B0",
+        "0x004C6D90",
+        "0x004D0110",
+        "0x004D1180"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004D1100": {
+      "depth": 2,
+      "parent": "0x004C6D90",
+      "address": "0x004D1100",
+      "name": "ConditionalDelegateDispatch",
+      "declared_name": "sub_4D1100",
+      "source": "functions/ConditionalDelegateDispatch_004d1100.c",
+      "callees": [
+        "0x00403F70",
+        "0x004C6F10"
+      ],
+      "callers": [
+        "0x004441F0",
+        "0x004A2A90",
+        "0x004A5D10",
+        "0x004C6D90"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004D1140": {
+      "depth": 2,
+      "parent": "0x004C6D90",
+      "address": "0x004D1140",
+      "name": "RenderCallWithGuard",
+      "declared_name": "sub_4D1140",
+      "source": "functions/RenderCallWithGuard_004d1140.c",
+      "callees": [
+        "0x00403FC0",
+        "0x004C6F10"
+      ],
+      "callers": [
+        "0x004441F0",
+        "0x004A3B50",
+        "0x004C6D90",
+        "0x004C8B70",
+        "0x004D1030",
+        "0x004D1180",
+        "0x004E9CA0",
+        "0x004EFFD0",
+        "0x004F0D20",
+        "0x004F1FE0"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "render"
+      ]
+    },
+    "0x004D1180": {
+      "depth": 2,
+      "parent": "0x004C6D90",
+      "address": "0x004D1180",
+      "name": "sub_4D1180",
+      "declared_name": "sub_4D1180",
+      "source": "functions/sub_4D1180_004d1180.c",
+      "callees": [
+        "0x004D10E0",
+        "0x004D1140"
+      ],
+      "callers": [
+        "0x004C6B60",
+        "0x004C6D90"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004D1670": {
+      "depth": 2,
+      "parent": "0x004C6D90",
+      "address": "0x004D1670",
+      "name": "sub_4D1670",
+      "declared_name": "sub_4D1670",
+      "source": "functions/sub_4D1670_004d1670.c",
+      "callees": [
+        "0x0054C030"
+      ],
+      "callers": [
+        "0x004C6D90",
+        "0x004C6E80",
+        "0x004D1030"
+      ],
+      "this_offsets": [
+        "0xA0"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004E45B0": {
+      "depth": 2,
+      "parent": "0x004C6D90",
+      "address": "0x004E45B0",
+      "name": "LargeConfigFunctionWithPhysicsConstants",
+      "declared_name": "sub_4E45B0",
+      "source": "functions/LargeConfigFunctionWithPhysicsConstants_004e45b0.c",
+      "callees": [
+        "0x0042DDD0",
+        "0x0042E320",
+        "0x0043E050",
+        "0x004E4790",
+        "0x004E5F60",
+        "0x004E8010",
+        "0x004F34E0",
+        "0x004F4270",
+        "0x00587BCF"
+      ],
+      "callers": [
+        "0x004C6D90"
+      ],
+      "this_offsets": [
+        "0x32BC",
+        "0x3498",
+        "0x349C",
+        "0x34A0",
+        "0x34A4",
+        "0x34A8",
+        "0x34AC",
+        "0x4794",
+        "0x4898"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x004E4910": {
+      "depth": 2,
+      "parent": "0x004C6D90",
+      "address": "0x004E4910",
+      "name": "CollisionWrapperWithLock",
+      "declared_name": "CollisionWrapperWithLock",
+      "source": "functions/CollisionWrapperWithLock_004e4910.c",
+      "callees": [
+        "0x00401C90",
+        "0x004E8010"
+      ],
+      "callers": [
+        "0x004A00A0",
+        "0x004C6D90"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "vehicle"
+      ]
+    },
+    "0x004EF7C0": {
+      "depth": 2,
+      "parent": "0x004C6D90",
+      "address": "0x004EF7C0",
+      "name": "AIVehiclePathPositionTracking",
+      "declared_name": "sub_4EF7C0",
+      "source": "functions/AIVehiclePathPositionTracking_004ef7c0.c",
+      "callees": [
+        "0x0043E4B0",
+        "0x004E9BD0",
+        "0x004EF680",
+        "0x00566E40"
+      ],
+      "callers": [
+        "0x0042B0E0",
+        "0x004C6B60",
+        "0x004C6D90",
+        "0x004D1030",
+        "0x004EF5A0",
+        "0x004F1C40",
+        "0x004F1FE0"
+      ],
+      "this_offsets": [
+        "0x32BC",
+        "0x34B0",
+        "0x34B4",
+        "0x34B8",
+        "0x34BC",
+        "0x34C0",
+        "0x34C4",
+        "0x34C8",
+        "0x34CC",
+        "0x34D0",
+        "0x34D4",
+        "0x34D8",
+        "0x34DC",
+        "0x34E0",
+        "0x34E4",
+        "0x34E8",
+        "0x3A9C"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "ai",
+        "vehicle"
+      ]
+    },
+    "0x0042C3B0": {
+      "depth": 2,
+      "parent": "0x004C6D90",
+      "address": "0x0042C3B0",
+      "name": "DynMan_Restart",
+      "declared_name": "sub_42C3B0",
+      "source": "functions/DynMan_Restart_0042c3b0.c",
+      "callees": [
+        "0x00410890",
+        "0x004333E0",
+        "0x004C6D90",
+        "0x004D7A50",
+        "0x004D7AA0"
+      ],
+      "callers": [
+        "0x0042D7A0"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004B8DA0": {
+      "depth": 2,
+      "parent": "0x004C6D90",
+      "address": "0x004B8DA0",
+      "name": "ProcessDriverEntries",
+      "declared_name": "sub_4B8DA0",
+      "source": "functions/ProcessDriverEntries_004b8da0.c",
+      "callees": [
+        "0x0042BC80",
+        "0x004B50C0",
+        "0x004C6980",
+        "0x004C69E0",
+        "0x004C6C40",
+        "0x004C6D90",
+        "0x004C6E80",
+        "0x004C7B20",
+        "0x004EF5A0",
+        "0x00566650",
+        "0x00588410"
+      ],
+      "callers": [
+        "0x004BA180"
+      ],
+      "this_offsets": [
+        "0x10"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00403AA0": {
+      "depth": 2,
+      "parent": "0x00424790",
+      "address": "0x00403AA0",
+      "name": "SpatialTreeNearestNeighborSearch",
+      "declared_name": "sub_403AA0",
+      "source": "functions/SpatialTreeNearestNeighborSearch_00403aa0.c",
+      "callees": [
+        "0x004038E0"
+      ],
+      "callers": [
+        "0x00424790",
+        "0x00425920",
+        "0x00426430",
+        "0x004270A0",
+        "0x0042ADD0"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00424080": {
+      "depth": 2,
+      "parent": "0x00424790",
+      "address": "0x00424080",
+      "name": "sub_424080",
+      "declared_name": "sub_424080",
+      "source": "functions/sub_424080_00424080.c",
+      "callees": [
+        "0x00424750",
+        "0x0042AD00",
+        "0x00499E20",
+        "0x004C5840",
+        "0x00567970",
+        "0x005679A0",
+        "0x005679C0",
+        "0x00568210",
+        "0x00587BDC",
+        "0x005884ED",
+        "0x0058850F",
+        "0x00589278"
+      ],
+      "callers": [
+        "0x00424790"
+      ],
+      "this_offsets": [
+        "0x1051",
+        "0x1052",
+        "0x112E",
+        "0x112F",
+        "0x1130",
+        "0x1131",
+        "0x1132",
+        "0x1133",
+        "0x1134",
+        "0x1135",
+        "0x1136",
+        "0x1137",
+        "0x113D",
+        "0x113E",
+        "0x113F",
+        "0x1140",
+        "0x1141",
+        "0x115F",
+        "0x1160",
+        "0x4148",
+        "0x44E0",
+        "0x4620"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00424AC0": {
+      "depth": 2,
+      "parent": "0x00424790",
+      "address": "0x00424AC0",
+      "name": "AIDifficultyInterpolation",
+      "declared_name": "sub_424AC0",
+      "source": "functions/AIDifficultyInterpolation_00424ac0.c",
+      "callees": [],
+      "callers": [
+        "0x00424790"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x004F1510": {
+      "depth": 2,
+      "parent": "0x00424790",
+      "address": "0x004F1510",
+      "name": "ScaleAudioPitch",
+      "declared_name": "sub_4F1510",
+      "source": "functions/ScaleAudioPitch_004f1510.c",
+      "callees": [
+        "0x004E8010",
+        "0x005881F0"
+      ],
+      "callers": [
+        "0x00424790"
+      ],
+      "this_offsets": [
+        "0x361C",
+        "0x3984",
+        "0x39A4",
+        "0x39B0",
+        "0x39D0",
+        "0x39F8",
+        "0x3BF4"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "pit",
+        "audio"
+      ]
+    },
+    "0x00587BCF": {
+      "depth": 2,
+      "parent": "0x00424790",
+      "address": "0x00587BCF",
+      "name": "FreeWrapper_7bcf",
+      "declared_name": "sub_587BCF",
+      "source": "functions/FreeWrapper_7bcf_00587bcf.c",
+      "callees": [
+        "0x0058AA6F"
+      ],
+      "callers": [
+        "0x00401130",
+        "0x00403350",
+        "0x004034D0",
+        "0x004045F0",
+        "0x00404AC0",
+        "0x00404D50",
+        "0x00404F70",
+        "0x00405410",
+        "0x004054A0",
+        "0x00405880",
+        "0x004058A0",
+        "0x004058D0",
+        "0x00405B00",
+        "0x00406230",
+        "0x00406250",
+        "0x00406B80",
+        "0x00406BA0",
+        "0x00406E50",
+        "0x004072E0",
+        "0x00407520",
+        "0x00407BE0",
+        "0x00407C90",
+        "0x004080F0",
+        "0x004081E0",
+        "0x00408500",
+        "0x00408800",
+        "0x0040AC60",
+        "0x0040B5C0",
+        "0x0040D9FC",
+        "0x0040DC00",
+        "0x0040FB30",
+        "0x0040FDA0",
+        "0x0040FDD0",
+        "0x0040FE50",
+        "0x004119B0",
+        "0x00414210",
+        "0x00414370",
+        "0x00414380",
+        "0x00414420",
+        "0x004150C0",
+        "0x00415230",
+        "0x00415780",
+        "0x00415900",
+        "0x00415C40",
+        "0x004186F0",
+        "0x00418C10",
+        "0x00418CF0",
+        "0x00418D60",
+        "0x00418DF0",
+        "0x004190C0",
+        "0x0041E320",
+        "0x00420CF0",
+        "0x00423530",
+        "0x00424010",
+        "0x00424790",
+        "0x0042DC00",
+        "0x0042DDD0",
+        "0x00431BE0",
+        "0x00431C70",
+        "0x00431DB0",
+        "0x00432220",
+        "0x00432E70",
+        "0x00433090",
+        "0x004331A0",
+        "0x004333E0",
+        "0x00433D60",
+        "0x00433E60",
+        "0x00434240",
+        "0x00434420",
+        "0x00435410",
+        "0x004358F0",
+        "0x0043E050",
+        "0x0043E230",
+        "0x00448140",
+        "0x00448570",
+        "0x00449340",
+        "0x004493A0",
+        "0x004497E0",
+        "0x0044B370",
+        "0x0044BC50",
+        "0x0044BE70",
+        "0x0044C0E0",
+        "0x0044C470",
+        "0x0044C600",
+        "0x004562A0",
+        "0x004562C0",
+        "0x00458020",
+        "0x0045B3E0",
+        "0x0045B400",
+        "0x0045BE80",
+        "0x0045BED6",
+        "0x0045BF70",
+        "0x0045C240",
+        "0x0045C400",
+        "0x0045D730",
+        "0x0045EBD0",
+        "0x0045ECD0",
+        "0x0045FC50",
+        "0x00460E90",
+        "0x00461020",
+        "0x00462550",
+        "0x00462A10",
+        "0x004643C0",
+        "0x004646F0",
+        "0x00464740",
+        "0x00464D30",
+        "0x00465000",
+        "0x004651C0",
+        "0x00465460",
+        "0x00466000",
+        "0x00466A70",
+        "0x00467720",
+        "0x004677E0",
+        "0x004685F0",
+        "0x00468610",
+        "0x00468910",
+        "0x00468A00",
+        "0x00468EE0",
+        "0x004698C0",
+        "0x00469D30",
+        "0x0046A270",
+        "0x0046A510",
+        "0x0046A530",
+        "0x0046A560",
+        "0x0046A950",
+        "0x0046AE60",
+        "0x0046B5C0",
+        "0x0046CB50",
+        "0x0046D060",
+        "0x0046D610",
+        "0x0046D6A0",
+        "0x0046E600",
+        "0x0046F170",
+        "0x0046FD30",
+        "0x0046FF40",
+        "0x00470250",
+        "0x004713C0",
+        "0x00474C50",
+        "0x00475020",
+        "0x00475120",
+        "0x00476080",
+        "0x00476100",
+        "0x004761E0",
+        "0x00476600",
+        "0x00476730",
+        "0x00477440",
+        "0x00477830",
+        "0x00477CB0",
+        "0x00477EE0",
+        "0x00478140",
+        "0x00479170",
+        "0x00479E50",
+        "0x0047A230",
+        "0x0047AA80",
+        "0x0047BE90",
+        "0x0047C360",
+        "0x0047C7F0",
+        "0x0047DD10",
+        "0x0047E0A0",
+        "0x0047E960",
+        "0x0047EB30",
+        "0x0047F3D0",
+        "0x0047F3F0",
+        "0x0047FB10",
+        "0x0047FBA0",
+        "0x0047FBD0",
+        "0x00485510",
+        "0x00485540",
+        "0x00485570",
+        "0x004855A0",
+        "0x004855D0",
+        "0x00485600",
+        "0x00485630",
+        "0x00485660",
+        "0x00485690",
+        "0x004856C0",
+        "0x004856F0",
+        "0x00485720",
+        "0x004857E0",
+        "0x00485870",
+        "0x004858E0",
+        "0x00485900",
+        "0x00485960",
+        "0x004859D0",
+        "0x00485A70",
+        "0x00485A90",
+        "0x00485AE0",
+        "0x00485B20",
+        "0x00485EB0",
+        "0x00486080",
+        "0x00487690",
+        "0x00487F10",
+        "0x004881B0",
+        "0x00488FB0",
+        "0x0048AAA0",
+        "0x0048AED0",
+        "0x0048B030",
+        "0x0048C9B0",
+        "0x0048CA30",
+        "0x0048CA50",
+        "0x0048D230",
+        "0x0048D3F0",
+        "0x0048D680",
+        "0x0048E0B0",
+        "0x0048E0D0",
+        "0x0048E360",
+        "0x0048E3A0",
+        "0x0048E650",
+        "0x0048E670",
+        "0x0048FD80",
+        "0x0048FE90",
+        "0x004902A0",
+        "0x004902C0",
+        "0x00490850",
+        "0x00490940",
+        "0x00490B90",
+        "0x00490D00",
+        "0x004910D0",
+        "0x00491740",
+        "0x004917C0",
+        "0x00491A40",
+        "0x00491BD0",
+        "0x00491D30",
+        "0x00491DB0",
+        "0x00491E10",
+        "0x00491E40",
+        "0x00491E60",
+        "0x00491E80",
+        "0x00494470",
+        "0x00494630",
+        "0x00494900",
+        "0x00494E60",
+        "0x004952E0",
+        "0x00495300",
+        "0x004963D0",
+        "0x00497100",
+        "0x00497C40",
+        "0x00497D20",
+        "0x00498D70",
+        "0x00499160",
+        "0x00499260",
+        "0x00499280",
+        "0x00499580",
+        "0x004995E0",
+        "0x00499620",
+        "0x00499AE0",
+        "0x00499CC0",
+        "0x00499CE0",
+        "0x00499DA0",
+        "0x0049A270",
+        "0x0049A2F0",
+        "0x0049A5A0",
+        "0x0049A990",
+        "0x0049ADC0",
+        "0x0049AF30",
+        "0x0049B0A0",
+        "0x0049B1C0",
+        "0x0049E930",
+        "0x0049E9A0",
+        "0x0049EC60",
+        "0x0049ECC0",
+        "0x0049F870",
+        "0x004A1F80",
+        "0x004A2220",
+        "0x004A22D0",
+        "0x004A29A0",
+        "0x004A3220",
+        "0x004A4900",
+        "0x004A4DB0",
+        "0x004A8B80",
+        "0x004AA170",
+        "0x004AA1B0",
+        "0x004B41D0",
+        "0x004B45F0",
+        "0x004B46F0",
+        "0x004B4A30",
+        "0x004B4B50",
+        "0x004B4E10",
+        "0x004B52A0",
+        "0x004B5630",
+        "0x004B5A30",
+        "0x004B5E50",
+        "0x004B5F60",
+        "0x004B6130",
+        "0x004B6C90",
+        "0x004B71E0",
+        "0x004B7300",
+        "0x004B8010",
+        "0x004B8360",
+        "0x004B8480",
+        "0x004BA1F0",
+        "0x004BA7A0",
+        "0x004BA830",
+        "0x004BA8C0",
+        "0x004BA900",
+        "0x004BA9F0",
+        "0x004BACF0",
+        "0x004BAE20",
+        "0x004BAEB0",
+        "0x004BB0C0",
+        "0x004BB3D0",
+        "0x004BB400",
+        "0x004BB460",
+        "0x004BB4F0",
+        "0x004BB5A0",
+        "0x004BB650",
+        "0x004BB6B0",
+        "0x004BB950",
+        "0x004BD800",
+        "0x004BD860",
+        "0x004BD900",
+        "0x004BD9B0",
+        "0x004BF640",
+        "0x004BF730",
+        "0x004C0B10",
+        "0x004C1700",
+        "0x004C1820",
+        "0x004C18B0",
+        "0x004C1E20",
+        "0x004C1E40",
+        "0x004C1E80",
+        "0x004C2300",
+        "0x004C2F20",
+        "0x004C2FC0",
+        "0x004C3040",
+        "0x004C3130",
+        "0x004C38D0",
+        "0x004C3D80",
+        "0x004C4930",
+        "0x004C4BB0",
+        "0x004C4CF0",
+        "0x004C52C0",
+        "0x004C5940",
+        "0x004C5DE0",
+        "0x004C6150",
+        "0x004C62C0",
+        "0x004C6C40",
+        "0x004C7E80",
+        "0x004C8210",
+        "0x004C83B0",
+        "0x004C8650",
+        "0x004C8920",
+        "0x004C8DE0",
+        "0x004C9060",
+        "0x004C9360",
+        "0x004C9600",
+        "0x004C9840",
+        "0x004C9D30",
+        "0x004CA280",
+        "0x004CA410",
+        "0x004CA480",
+        "0x004CB4F0",
+        "0x004CF070",
+        "0x004CFED0",
+        "0x004D0080",
+        "0x004D0110",
+        "0x004D24D0",
+        "0x004D2E20",
+        "0x004D4600",
+        "0x004D4860",
+        "0x004D4A80",
+        "0x004D5F70",
+        "0x004D6800",
+        "0x004D7050",
+        "0x004D7800",
+        "0x004D8CF0",
+        "0x004D9030",
+        "0x004DB090",
+        "0x004DB4E0",
+        "0x004DCD10",
+        "0x004DD470",
+        "0x004DD4C0",
+        "0x004DD4D0",
+        "0x004DDAD0",
+        "0x004DED20",
+        "0x004DFCA0",
+        "0x004E09E0",
+        "0x004E3050",
+        "0x004E3360",
+        "0x004E45B0",
+        "0x004E4790",
+        "0x004F23C0",
+        "0x004F4270",
+        "0x004F6B00",
+        "0x004F6B90",
+        "0x004F70C0",
+        "0x004F83B0",
+        "0x004F8EA0",
+        "0x004FC280",
+        "0x004FC550",
+        "0x004FCA50",
+        "0x004FD840",
+        "0x00500F55",
+        "0x00500FAE",
+        "0x0050210E",
+        "0x00502A15",
+        "0x00502C1F",
+        "0x00502EE5",
+        "0x00502F31",
+        "0x00504640",
+        "0x00504731",
+        "0x00504933",
+        "0x00504B37",
+        "0x00504F5A",
+        "0x005054EC",
+        "0x005058D2",
+        "0x00506003",
+        "0x00506CCC",
+        "0x00506FD9",
+        "0x00507079",
+        "0x005076E2",
+        "0x0050B244",
+        "0x0050B75F",
+        "0x0050B7AF",
+        "0x0050B830",
+        "0x0050C026",
+        "0x0052D9D0",
+        "0x0053AB70",
+        "0x0053AD50",
+        "0x0053C4D0",
+        "0x0053CAF0",
+        "0x0053CB20",
+        "0x0053CB90",
+        "0x0053CBC0",
+        "0x0053CE40",
+        "0x0053CED0",
+        "0x0053CFE0",
+        "0x0053D130",
+        "0x0053D4C0",
+        "0x0053EAD0",
+        "0x0053EB70",
+        "0x0053F270",
+        "0x00540760",
+        "0x00540CB0",
+        "0x00541420",
+        "0x005429B0",
+        "0x00542E50",
+        "0x00543050",
+        "0x00543130",
+        "0x00543A80",
+        "0x00543BF0",
+        "0x00543FA0",
+        "0x00544740",
+        "0x00544AF0",
+        "0x00544EF0",
+        "0x005450E0",
+        "0x00545150",
+        "0x005454A0",
+        "0x005454D0",
+        "0x00545A40",
+        "0x00545BB0",
+        "0x005461B0",
+        "0x00546370",
+        "0x00546450",
+        "0x00546AA0",
+        "0x00547420",
+        "0x00547710",
+        "0x005478B0",
+        "0x00547B40",
+        "0x00548190",
+        "0x00548EB0",
+        "0x00549110",
+        "0x0054A240",
+        "0x0054A770",
+        "0x0054AC70",
+        "0x0054C410",
+        "0x0054F830",
+        "0x0054FA50",
+        "0x0054FDA0",
+        "0x005502C0",
+        "0x00550810",
+        "0x00550820",
+        "0x00550AD0",
+        "0x00550F70",
+        "0x005511A0",
+        "0x005518A0",
+        "0x005519E0",
+        "0x00551F10",
+        "0x00551F80",
+        "0x00551FD0",
+        "0x00552470",
+        "0x00552760",
+        "0x005528B0",
+        "0x00553310",
+        "0x005539F0",
+        "0x00554CC0",
+        "0x00557280",
+        "0x005574B0",
+        "0x00557670",
+        "0x00558990",
+        "0x00559200",
+        "0x005592B0",
+        "0x005593D0",
+        "0x0055A910",
+        "0x0055B200",
+        "0x0055B8C0",
+        "0x0055BBA0",
+        "0x0055BE80",
+        "0x0055BF70",
+        "0x0055FE30",
+        "0x0055FE70",
+        "0x00560050",
+        "0x00560B30",
+        "0x00560B90",
+        "0x00560E50",
+        "0x00561940",
+        "0x00565D50",
+        "0x00565E20",
+        "0x005665B0",
+        "0x00566650",
+        "0x005666B0",
+        "0x005668D0",
+        "0x00567940",
+        "0x00567A30",
+        "0x00567A90",
+        "0x00567CC0",
+        "0x00568F20",
+        "0x0056CF10",
+        "0x0056D430",
+        "0x0056D930",
+        "0x0056E970",
+        "0x0057A9B0",
+        "0x0057AA80",
+        "0x0057AB50",
+        "0x0057ACB0",
+        "0x0057AEF0",
+        "0x0057B050",
+        "0x0057B100",
+        "0x0057B330",
+        "0x0057B7B0",
+        "0x0057BCC0",
+        "0x0057DE30",
+        "0x0057E570",
+        "0x0057E6E0",
+        "0x0057E760",
+        "0x0057E7E0",
+        "0x0057FC80",
+        "0x0057FDE0",
+        "0x00580190",
+        "0x00580DE0",
+        "0x005817A0",
+        "0x00581820",
+        "0x00581880",
+        "0x005818E0",
+        "0x00581940",
+        "0x005819C0",
+        "0x00581A20",
+        "0x00581A80",
+        "0x00581AD0",
+        "0x00581B30",
+        "0x00581C20",
+        "0x00581EE0",
+        "0x00582190",
+        "0x00582290",
+        "0x005822B0",
+        "0x00582650",
+        "0x00582A10",
+        "0x00582B10",
+        "0x00582CE0",
+        "0x00582DC0",
+        "0x00582EB0",
+        "0x00582F60",
+        "0x00582FD0",
+        "0x00583050",
+        "0x00583150",
+        "0x005831B0",
+        "0x005832E0",
+        "0x00583360",
+        "0x005833E0",
+        "0x00583430",
+        "0x00583570",
+        "0x00583A80",
+        "0x00583F50",
+        "0x00584CD0",
+        "0x00584E30",
+        "0x00585040",
+        "0x00585130",
+        "0x00585870",
+        "0x00585FB0",
+        "0x00586070",
+        "0x00586170",
+        "0x00586240",
+        "0x00586460",
+        "0x005864E0",
+        "0x00586670",
+        "0x00587070",
+        "0x00587510",
+        "0x005875C0",
+        "0x00598E39",
+        "0x0059925D",
+        "0x0059927C",
+        "0x00599298",
+        "0x005992B7",
+        "0x005992D3",
+        "0x005993AF",
+        "0x00599E71",
+        "0x0059A317",
+        "0x0059A336",
+        "0x0059A352",
+        "0x0059A371",
+        "0x0059A38D",
+        "0x0059A765",
+        "0x0059A81B",
+        "0x0059A8BC",
+        "0x0059A980",
+        "0x0059AC46",
+        "0x0059AC63",
+        "0x0059AE61",
+        "0x0059AF17",
+        "0x0059AFFF",
+        "0x0059B390",
+        "0x0059B3B0",
+        "0x0059B490",
+        "0x0059B530",
+        "0x0059BACC",
+        "0x0059BEFD",
+        "0x0059BFA0"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00587C03": {
+      "depth": 2,
+      "parent": "0x00424790",
+      "address": "0x00587C03",
+      "name": "OperatorNewNhMallocWrapper",
+      "declared_name": "sub_587C03",
+      "source": "functions/OperatorNewNhMallocWrapper_00587c03.c",
+      "callees": [
+        "0x0058A947"
+      ],
+      "callers": [
+        "0x00402690",
+        "0x00403350",
+        "0x00404A50",
+        "0x00404E60",
+        "0x004072E0",
+        "0x00407450",
+        "0x00407520",
+        "0x00407810",
+        "0x004078A0",
+        "0x004080F0",
+        "0x00408870",
+        "0x00408E20",
+        "0x0040AA20",
+        "0x0040B030",
+        "0x0040B850",
+        "0x0040C140",
+        "0x0040C240",
+        "0x0040C3B0",
+        "0x0040DA30",
+        "0x0040DC00",
+        "0x0040FE50",
+        "0x00415230",
+        "0x00415780",
+        "0x004159B0",
+        "0x00415C40",
+        "0x0041F340",
+        "0x0041F5D0",
+        "0x00420CF0",
+        "0x00423530",
+        "0x00424790",
+        "0x0042DE10",
+        "0x00431BC0",
+        "0x00431D40",
+        "0x00431DB0",
+        "0x00432220",
+        "0x00432E70",
+        "0x00433B60",
+        "0x00434030",
+        "0x004348B0",
+        "0x00435410",
+        "0x00438DA0",
+        "0x0043C250",
+        "0x004485D0",
+        "0x004492D0",
+        "0x004493A0",
+        "0x004497E0",
+        "0x0044B370",
+        "0x0044BC50",
+        "0x0044BE70",
+        "0x0044C0E0",
+        "0x00457F90",
+        "0x004582E0",
+        "0x0045BB90",
+        "0x0045BF50",
+        "0x0045C0C0",
+        "0x0045D890",
+        "0x0045ECD0",
+        "0x00460E90",
+        "0x00461020",
+        "0x00461190",
+        "0x00462550",
+        "0x00462A10",
+        "0x00464930",
+        "0x00464C10",
+        "0x00465300",
+        "0x00465460",
+        "0x00467E40",
+        "0x00468EE0",
+        "0x0046CB50",
+        "0x0046E600",
+        "0x00477280",
+        "0x00477830",
+        "0x00477CB0",
+        "0x00479170",
+        "0x0047F180",
+        "0x0047F440",
+        "0x00485B90",
+        "0x00486580",
+        "0x00486F30",
+        "0x00489600",
+        "0x0048AED0",
+        "0x0048B030",
+        "0x0048D2B0",
+        "0x0048E3A0",
+        "0x0048F5D0",
+        "0x004906E0",
+        "0x00490940",
+        "0x00490AA0",
+        "0x00490B00",
+        "0x00490D00",
+        "0x00490EE0",
+        "0x00491710",
+        "0x004919C0",
+        "0x00491AD0",
+        "0x00492460",
+        "0x00492710",
+        "0x00493060",
+        "0x00493480",
+        "0x00493FC0",
+        "0x00494690",
+        "0x00494DE0",
+        "0x004966E0",
+        "0x00496750",
+        "0x004967D0",
+        "0x00497510",
+        "0x004979F0",
+        "0x00497AD0",
+        "0x00497D20",
+        "0x00499F70",
+        "0x0049A3B0",
+        "0x0049ADC0",
+        "0x0049B0A0",
+        "0x0049E930",
+        "0x0049E9A0",
+        "0x0049F870",
+        "0x004A1DC0",
+        "0x004A2010",
+        "0x004A22D0",
+        "0x004A2A90",
+        "0x004A4900",
+        "0x004A4ED0",
+        "0x004B44E0",
+        "0x004B48E0",
+        "0x004B4A30",
+        "0x004B4B50",
+        "0x004B4E10",
+        "0x004B52A0",
+        "0x004B54E0",
+        "0x004B5630",
+        "0x004B57F0",
+        "0x004B5C50",
+        "0x004B5E50",
+        "0x004B5F60",
+        "0x004B6C90",
+        "0x004B71E0",
+        "0x004B7860",
+        "0x004B81A0",
+        "0x004B9780",
+        "0x004BA1F0",
+        "0x004BA950",
+        "0x004BA980",
+        "0x004BAA50",
+        "0x004BAAC0",
+        "0x004BAC40",
+        "0x004BAD70",
+        "0x004BAF10",
+        "0x004BAFC0",
+        "0x004BB150",
+        "0x004BB200",
+        "0x004BB490",
+        "0x004BB810",
+        "0x004BD860",
+        "0x004BD900",
+        "0x004BD9B0",
+        "0x004BF790",
+        "0x004BFA00",
+        "0x004C18B0",
+        "0x004C1E80",
+        "0x004C2780",
+        "0x004C28D0",
+        "0x004C3200",
+        "0x004C3A00",
+        "0x004C3D80",
+        "0x004C4990",
+        "0x004C4AA0",
+        "0x004C4D50",
+        "0x004C52C0",
+        "0x004C5940",
+        "0x004C5E50",
+        "0x004C5FD0",
+        "0x004C6330",
+        "0x004C6C40",
+        "0x004C7CA0",
+        "0x004C84A0",
+        "0x004C9A50",
+        "0x004C9FB0",
+        "0x004CA480",
+        "0x004CB120",
+        "0x004CF070",
+        "0x004D0110",
+        "0x004D12C0",
+        "0x004D24D0",
+        "0x004D2DD0",
+        "0x004D38F0",
+        "0x004D5F70",
+        "0x004D7150",
+        "0x004D7660",
+        "0x004D8CF0",
+        "0x004DAEA0",
+        "0x004DB420",
+        "0x004DC220",
+        "0x004DC290",
+        "0x004DCBA0",
+        "0x004DDAD0",
+        "0x004DE610",
+        "0x004DFCE0",
+        "0x004E2D00",
+        "0x004E3360",
+        "0x004E5F60",
+        "0x004F70C0",
+        "0x004F8D70",
+        "0x004FBA10",
+        "0x004FC550",
+        "0x004FCC30",
+        "0x004FD8B0",
+        "0x004FE350",
+        "0x004FEAF0",
+        "0x00500FCA",
+        "0x00501722",
+        "0x00501992",
+        "0x00501E39",
+        "0x0050210E",
+        "0x005026A4",
+        "0x00502C28",
+        "0x00502F31",
+        "0x00504640",
+        "0x00504731",
+        "0x00504933",
+        "0x00504B37",
+        "0x00504F5A",
+        "0x005053EC",
+        "0x005054EC",
+        "0x005058D2",
+        "0x00506003",
+        "0x00507079",
+        "0x005076FE",
+        "0x0050A7E1",
+        "0x0050B47E",
+        "0x0050B8A9",
+        "0x0052D8D0",
+        "0x0053AB20",
+        "0x0053B0D0",
+        "0x0053C360",
+        "0x0053CAC0",
+        "0x0053CB20",
+        "0x0053CBC0",
+        "0x0053CFE0",
+        "0x0053D470",
+        "0x0053E070",
+        "0x0053EB70",
+        "0x0053F720",
+        "0x00540940",
+        "0x00541340",
+        "0x005429B0",
+        "0x00543050",
+        "0x00543130",
+        "0x00543A80",
+        "0x00543FA0",
+        "0x00544740",
+        "0x00544E90",
+        "0x005450E0",
+        "0x00545430",
+        "0x005454D0",
+        "0x00545930",
+        "0x00545A40",
+        "0x00545BB0",
+        "0x00546010",
+        "0x00546450",
+        "0x00546AA0",
+        "0x005474D0",
+        "0x00547B40",
+        "0x00548190",
+        "0x005489A0",
+        "0x00548AD0",
+        "0x00548D40",
+        "0x00549020",
+        "0x005491D0",
+        "0x005492F0",
+        "0x005493B0",
+        "0x0054AC70",
+        "0x0054BB40",
+        "0x0054C6C0",
+        "0x0054F830",
+        "0x0054FDA0",
+        "0x0054FE50",
+        "0x00550AD0",
+        "0x005510F0",
+        "0x00551560",
+        "0x005518A0",
+        "0x00551F10",
+        "0x00551FD0",
+        "0x00552470",
+        "0x005527C0",
+        "0x005532A0",
+        "0x00553370",
+        "0x00553980",
+        "0x00557670",
+        "0x00557CE0",
+        "0x00558310",
+        "0x00559200",
+        "0x005594B0",
+        "0x00559570",
+        "0x00559630",
+        "0x005598B0",
+        "0x0055A790",
+        "0x0055A910",
+        "0x0055B200",
+        "0x0055B8C0",
+        "0x0055BC00",
+        "0x0055BE80",
+        "0x0055FC40",
+        "0x0055FE70",
+        "0x00560050",
+        "0x00560B60",
+        "0x00560C10",
+        "0x00565CA0",
+        "0x00565DC0",
+        "0x005665B0",
+        "0x00566650",
+        "0x005666B0",
+        "0x00567E10",
+        "0x00567FB0",
+        "0x00568220",
+        "0x00568E70",
+        "0x005697F0",
+        "0x0056C830",
+        "0x0056D430",
+        "0x0056D930",
+        "0x0057A420",
+        "0x0057ABB0",
+        "0x0057AFA0",
+        "0x0057B230",
+        "0x0057B330",
+        "0x0057BF00",
+        "0x0057EAD0",
+        "0x0057EF20",
+        "0x00580190",
+        "0x00580C10",
+        "0x005813E0",
+        "0x00581D40",
+        "0x00581FD0",
+        "0x005823C0",
+        "0x005824F0",
+        "0x00582780",
+        "0x005828B0",
+        "0x00582BA0",
+        "0x005830C0",
+        "0x00583210",
+        "0x00585870",
+        "0x00586000",
+        "0x00586320",
+        "0x005874D0",
+        "0x0059964A",
+        "0x0059AAB9",
+        "0x0059B2F0",
+        "0x0059B3B0",
+        "0x0059B490",
+        "0x0059B530",
+        "0x0059BF19",
+        "0x0059BF56"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x00424C80": {
+      "depth": 2,
+      "parent": "0x00424B20",
+      "address": "0x00424C80",
+      "name": "AIRingBufferFieldInit",
+      "declared_name": "sub_424C80",
+      "source": "functions/AIRingBufferFieldInit_00424c80.c",
+      "callees": [],
+      "callers": [
+        "0x00424B20",
+        "0x00424E70"
+      ],
+      "this_offsets": [
+        "0x4448"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x004038E0": {
+      "depth": 2,
+      "parent": "0x00426430",
+      "address": "0x004038E0",
+      "name": "SpatialNearestNeighborQueryWithPlaneTest",
+      "declared_name": "sub_4038E0",
+      "source": "functions/SpatialNearestNeighborQueryWithPlaneTest_004038e0.c",
+      "callees": [],
+      "callers": [
+        "0x00403AA0",
+        "0x00404250",
+        "0x004046B0",
+        "0x00426430",
+        "0x004D38F0"
+      ],
+      "this_offsets": [
+        "0x130",
+        "0x134"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x004E8CE0": {
+      "depth": 2,
+      "parent": "0x00426430",
+      "address": "0x004E8CE0",
+      "name": "TireForceSolver",
+      "declared_name": "sub_4E8CE0",
+      "source": "functions/TireForceSolver_004e8ce0.c",
+      "callees": [
+        "0x005895A2"
+      ],
+      "callers": [
+        "0x00401910",
+        "0x00401C90",
+        "0x00426430",
+        "0x0042A780"
+      ],
+      "this_offsets": [
+        "0x3514",
+        "0x3A70",
+        "0x3C3C",
+        "0x3C40",
+        "0x3C7C",
+        "0x3C80",
+        "0x3CFC",
+        "0x3D00"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": [
+        "pit"
+      ]
+    },
+    "0x00425920": {
+      "depth": 2,
+      "parent": "0x00426430",
+      "address": "0x00425920",
+      "name": "AIRacingLine",
+      "declared_name": "sub_425920",
+      "source": "functions/AIRacingLine_00425920.c",
+      "callees": [
+        "0x00403AA0",
+        "0x00426430",
+        "0x0042A780",
+        "0x0042AE00",
+        "0x004E87E0",
+        "0x004E88B0",
+        "0x004E8B80",
+        "0x004E9100",
+        "0x004EFB20"
+      ],
+      "callers": [
+        "0x00424E70"
+      ],
+      "this_offsets": [
+        "0x4",
+        "0xC",
+        "0x34E0",
+        "0x34F8",
+        "0x34FC",
+        "0x3500",
+        "0x4354",
+        "0x43F8",
+        "0x43FC",
+        "0x4400",
+        "0x4424",
+        "0x4428",
+        "0x4434",
+        "0x4438",
+        "0x443C",
+        "0x4440",
+        "0x445C",
+        "0x4468",
+        "0x446C",
+        "0x44B8",
+        "0x44C4",
+        "0x44CC",
+        "0x4510",
+        "0x4524",
+        "0x454C",
+        "0x4550",
+        "0x4554",
+        "0x45F4"
+      ],
+      "object_kind": "F1CVehicle",
+      "object_trust": "CONFIRMED",
+      "object_evidence": [
+        "Called with the unchanged vehicle this pointer by AIMainUpdate."
+      ],
+      "subsystems": [
+        "ai"
+      ]
+    },
+    "0x0054C150": {
+      "depth": 2,
+      "parent": "0x004D3740",
+      "address": "0x0054C150",
+      "name": "FlagPropertyGetter",
+      "declared_name": "sub_54C150",
+      "source": "functions/FlagPropertyGetter_0054c150.c",
+      "callees": [],
+      "callers": [
+        "0x004BC390",
+        "0x004C7CA0",
+        "0x004D3740",
+        "0x004D37B0"
+      ],
+      "this_offsets": [
+        "0x3C",
+        "0x234",
+        "0x238"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0054FAE0": {
+      "depth": 2,
+      "parent": "0x004D3740",
+      "address": "0x0054FAE0",
+      "name": "BufferEntryClear",
+      "declared_name": "sub_54FAE0",
+      "source": "functions/BufferEntryClear_0054fae0.c",
+      "callees": [],
+      "callers": [
+        "0x00459830",
+        "0x00459AE0",
+        "0x004D3740",
+        "0x004D37B0",
+        "0x004E9CA0",
+        "0x004EA970"
+      ],
+      "this_offsets": [
+        "0x1E0"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0040D450": {
+      "depth": 2,
+      "parent": "0x004D37B0",
+      "address": "0x0040D450",
+      "name": "StateResetOnCondition",
+      "declared_name": "sub_40D450",
+      "source": "functions/StateResetOnCondition_0040d450.c",
+      "callees": [
+        "0x0040CDE0"
+      ],
+      "callers": [
+        "0x004D37B0"
+      ],
+      "this_offsets": [
+        "0x14"
+      ],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    },
+    "0x0041A160": {
+      "depth": 2,
+      "parent": "0x004D37B0",
+      "address": "0x0041A160",
+      "name": "pfnAPC",
+      "declared_name": "pfnAPC",
+      "source": "functions/pfnAPC_0041a160.c",
+      "callees": [],
+      "callers": [
+        "0x004080F0",
+        "0x004D37B0"
+      ],
+      "this_offsets": [],
+      "object_kind": null,
+      "object_trust": null,
+      "object_evidence": [],
+      "subsystems": []
+    }
+  }
+}

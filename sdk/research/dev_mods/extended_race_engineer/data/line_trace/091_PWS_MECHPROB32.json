@@ -1,0 +1,447 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 91,
+ "clip": "PWS_MECHPROB32",
+ "says": "Stuck in 6th gear",
+ "dump_rows_for_clip": [
+  {
+   "eid": 92,
+   "hex": "0x005C",
+   "priority": 40,
+   "cooldown": 3.4028234663852886e+38,
+   "blocked": true,
+   "score": 90,
+   "sdt_index": 91,
+   "clip_name": "PWS_MECHPROB32.",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 382,
+   "hex": "0x017E",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 90,
+   "sdt_index": 91,
+   "clip_name": "PWS_MECHPROB32.",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  90
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 92,
+   "hex": "0x005C",
+   "priority": 40,
+   "cooldown": 3.4028234663852886e+38,
+   "blocked": true,
+   "score": 90,
+   "sdt_index": 91,
+   "clip_name": "PWS_MECHPROB32.",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 382,
+   "hex": "0x017E",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 90,
+   "sdt_index": 91,
+   "clip_name": "PWS_MECHPROB32.",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  92
+ ],
+ "literal_hits": {
+  "92": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 805,
+       "text": "v5 = a4 != 0 ? 92 : 25;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 113,
+       "text": "v4 = a4 != 0 ? 73 : 92;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 250,
+    "first": [
+     "AISettingsFileLoader",
+     "AddFloatToAnimationChannels",
+     "AmbientSoundPlayback",
+     "AnimationStateCheck",
+     "ArrayProcessingWithValidation",
+     "AudioBufferMixing",
+     "AudioBufferSizeCalc",
+     "AudioEventRingBufferProcessing",
+     "AudioMixerChannelInitializer",
+     "AudioMixerPollingUpdateLoop",
+     "AudioNodeIterator",
+     "AudioStateInit",
+     "AudioStreamBufferRead",
+     "AudioSynthesis3ChannelSampleGenerator",
+     "BVHTreeTraversal",
+     "BezierPatchTessellation",
+     "BufferFillWithTimeout",
+     "BufferInterleaveCopy",
+     "BufferedFileReader",
+     "COMInterfaceVectorProcessingMethod",
+     "CameraModeViewportUpdate",
+     "CameraShakeRingBufferWrite",
+     "CameraShake",
+     "CameraTransformComputation",
+     "CameraViewSetupFromVehiclePosition",
+     "ChecksumComputeType03Stream",
+     "CollisionContactGenerationAndFrictionResponse",
+     "CollisionDamageDecayProcessor",
+     "CollisionTreeNodeDeserializer",
+     "ConditionalDispatchWithGuard",
+     "ConditionalDispatch_27d0",
+     "ConfigIniParser",
+     "CopyProfileIconBMP",
+     "DDSTextureSurfaceCreation",
+     "DamperSpringForceComputationWithAntiRoll",
+     "DirectoryEntryIterator",
+     "DirectoryFileEnumerator",
+     "DirectoryPathExtraction",
+     "DoublyLinkedListNodeRemovalWithArrayCleanup",
+     "DriverEntrantSetupEntry"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 91 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": []
+ },
+ "findings": [],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:318: | 382 | PWS_MECHPROB32 | veh+0x16484==2 AND veh+0x16488==2 AND veh+0x39FC==6 AND veh+0x39EE==0 AND veh+0x3D60==1 AN | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:276: | `PWS_MECHPROB32` | 91 | 92,382 | Stuck in 6th gear |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:297: | `PWS_MECHPROB32` | 91 | 92, 382 | — | Stuck in 6th gear | 2026-07-30: cooldown FLT_MAX cleared by gear_failure.dll + patch gearbox-commentary-unblock, so this clip is now REACHAB",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:316: | `PWS_MECHPROB32` | 92, 382 | Stuck in 6th gear | eid 382 has no call site |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:193: PWS_MECHPROB29, PWS_MECHPROB30, PWS_MECHPROB31, PWS_MECHPROB32,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:89: | 91 | `PWS_MECHPROB32` | Z PLAY | NEEDS_RESEARCH | Z, stuck in gear, unsure if this happens to the player, investigate what the mechanism is, if its not there how should this be i",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:302: | `PWS_MECHPROB32` | 91 | 92,382 | Stuck in 6th gear |"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "mechanical_failures",
+    "mod_version": "dev (gearbox G8 WIP; not in releases/v1.0.7/src)",
+    "eid": 92,
+    "mechanism": "cooldown_unblock",
+    "condition": "player gearbox STUCK in 6th gear: unblock FLT_MAX cooldown to 15 s then say_eid",
+    "source": "development/mods/mechanical_failures/dll/gear_failure.c:97,409-417,1584-1586",
+    "release_status": "dev",
+    "live_verified": true,
+    "says": "Stuck in 6th gear"
+   }
+  ],
+  "note": "2026-07-30: cooldown FLT_MAX cleared by gear_failure.dll + patch gearbox-commentary-unblock, so this clip is now REACHABLE (siblings in the same PWS_MECHPROB20-33 block were heard live). NOT individually ear-checked yet - isolation-fire it from the GUI Test line button, then flip to DONE.",
+  "triage": {
+   "sdt_index": 91,
+   "text": "Z, stuck in gear, unsure if this happens to the player, investigate what the mechanism is, if its not there how should this be implemented? temporarily disabling gear shift buttons and playing this by just looking at what gear = play according voice line | UPDATE 2026-07-28: has to be investigated if player actually experiences gear stucks in vanilla first",
+   "subject": "Z",
+   "play": true,
+   "verdict": "TODO",
+   "flags": [
+    "NEEDS_RESEARCH"
+   ],
+   "inherited": true,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

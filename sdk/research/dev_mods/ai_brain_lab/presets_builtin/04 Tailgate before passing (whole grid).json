@@ -1,0 +1,11 @@
+{
+ "schema": "driver_ai_toolkit.preset.v2",
+ "name": "Tailgate before passing (whole grid)",
+ "description": "Followers sit closer behind and wait longer before pulling out to pass. More close racing, more contact risk.",
+ "target": "grid",
+ "rules": {
+  "follow_min_gap": 1.5,
+  "follow_backoff": 1.0,
+  "attack_threshold": 900.0
+ }
+}

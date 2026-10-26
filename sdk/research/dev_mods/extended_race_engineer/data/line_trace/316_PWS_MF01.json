@@ -1,0 +1,297 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 316,
+ "clip": "PWS_MF01",
+ "says": "",
+ "dump_rows_for_clip": [],
+ "score_values": [],
+ "all_rows_sharing_score": [],
+ "pws_eids": [],
+ "literal_hits": {},
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 316 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "sub_412490",
+    "file": "sub_412490_00412490.c",
+    "hits": [
+     {
+      "line": 147,
+      "text": "v6 = 316;"
+     },
+     {
+      "line": 258,
+      "text": "v6 = a5 != 0 ? 366 : 316;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:1696: {\"id\": \"ere-progress-json-stale-vs-mods-2026-10-18\", \"tier\": \"CONFIRMED\", \"title\": \"EVF progress.json (2026-10-07) under-reports modded lines: 122 of 245 non-vanilla clips are alre"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:496: | `PWS_MF01` | 316 | — | orphaned | — |  |"
+ ],
+ "mod_sources": [
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:1692: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:1576: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.1\\src\\engine_failure.c:1623: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.2\\src\\engine_failure.c:1650: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.3\\src\\engine_failure.c:1650: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.4\\src\\engine_failure.c:1650: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.5\\src\\engine_failure.c:1692: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.6\\src\\engine_failure.c:1692: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.7\\src\\engine_failure.c:1692: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\releases\\WIP_2026-10-12_gearbox_G8\\src\\engine_failure.c:1692: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X1\\dll\\engine_failure.c:1456: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X1B\\dll\\engine_failure.c:1458: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X2\\dll\\engine_failure.c:1459: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X4\\dll\\engine_failure.c:1459: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDITFIX_BEFORE_2026-10-05_X5\\dll\\engine_failure.c:1468: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDIT_BATCH1_BEFORE_2026-10-07\\dll\\engine_failure.c:1623: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDIT_BATCH2_BEFORE_2026-10-07\\dll\\engine_failure.c:1623: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDIT_BATCH3_BEFORE_2026-10-07\\dll\\engine_failure.c:1624: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUDIT_BATCH4_BEFORE_2026-10-07\\dll\\engine_failure.c:1625: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\BLOW_FREEZE_BEFORE_2026-10-06\\engine_failure.c:1540: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\DEAD_REASON_LATCH_BEFORE_2026-10-06\\engine_failure.c:1540: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\FIX_ALL_BEFORE_2026-10-06\\engine_failure.c:1540: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\FIX_ALL_BEFORE_2026-10-06\\engine_failure_D87F76F0.c:1540: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\MF05_FIX_BEFORE_2026-10-07\\dll\\engine_failure.c:1631: * PWS_MF01. Read-only, never writes the file (V3 spec). */",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\N7_DT_FIX_BEFORE_2026-10-06\\engine_failure.c:1540: * PWS_MF01. Read-only, never writes the file (V3 spec). */"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_auto",
+  "modded_by": [
+   {
+    "mod": "mechanical_failures",
+    "eid": null,
+    "mechanism": "adds clip to SDT as engineer line (not vanilla)",
+    "release_status": "unknown",
+    "live_verified": false,
+    "source": "seed",
+    "condition": null
+   }
+  ],
+  "note": "",
+  "triage": null,
+  "evf_status": "SILENT"
+ }
+}

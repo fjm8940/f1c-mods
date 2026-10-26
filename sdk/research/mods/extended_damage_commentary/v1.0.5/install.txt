@@ -1,0 +1,6 @@
+Extended Damage Commentary 1.0.3
+
+Requires Lightloader 2.0 hub. Install with Lightloader Manager, or copy the DLL
+into plugins\lightloader while the game is closed.
+
+Final candidate. Not yet distributed. Exact-hash in-game validation is pending.

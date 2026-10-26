@@ -1,0 +1,2 @@
+func,line,dec,hex,access,width,base,form,expr
+FieldZeroSetter,3,17680,0x4510,W,_DWORD,this,array,this[4420] = 0;

@@ -1,0 +1,1773 @@
+{
+ "schema": "ere.audit.v1",
+ "range": "B27_260-269",
+ "batch": "B27_260-269",
+ "method": "EXHAUSTIVE PER-LINE; 19 dynamic emitters read in full; owner exe read-only (sha256 1a70e5ed, call site disassembled); no live game",
+ "rows": [
+  {
+   "eid": 244,
+   "clip": "PWS_MISC09",
+   "sdt_index": 260,
+   "says": "AI blocking blue - investigation",
+   "score": 247,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter (no function queues eid 244; the only other routes were PC_RE_STITCH sub-clip/name indices, rejected 2026-10-18)",
+   "situation": "AI car blocking under blue flags; investigation phase (no investigation code exists)",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No code trigger for an AI blue-flag investigation (only the player blue timer in sub_4BCCC0 exists).",
+   "emitters": [],
+   "call_path": "none (no function queues eid 244)",
+   "gates": [
+    "none (no emitter for eid 244)"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt: no row for this clip. EVF triage (voice_index_row): 'X PLAY ... determine if this is even enforced' (owner intent, not a hearing).",
+   "tier": "DERIVED",
+   "notes": "Own eid 244: no emitter in corpus (literal sweep, 19 dynamic emitters, helpers). The sub-clip index routes (sub_412E50 / sub_412490 enum values for this sdt, and name-table writes) are PC_RE_STITCH indices and are not evidence for this PC_RE_MAIN clip. Verdict NOT_ACTIVATED (no_emitter) after SUB-CLIP BANK FACT (2026-10-18).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 244: emits 120 (l.37,50), 259 (l.39), 198 (l.57)",
+     "line": "AIDriverStateTransition_00419120.c:37-59"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 244: emits 6 (l.24), 180-182 (l.35-41)",
+     "line": "AIFormationLap_0041a3a0.c:24-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 244: emits 3,4,5,10,16,33 (l.21-47), 72 and 262 (l.57-59); 262 is another event's eid",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 244: emits 42 or 52 (l.13-15)",
+     "line": "AIPitStrategyState_0041a200.c:13-16"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 244: emits 17/18 (l.30-34) and 7/8/9 (l.44-48)",
+     "line": "AIPositionChangeEvent_004198b0.c:30-48"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 244: emits 21/22 (l.21,25) and 178/179 (l.32-34); calls AIPositionChangeEvent (l.41)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-41"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 244: emits 52 (l.10) or 196 (l.16)",
+     "line": "AIVehicleDamageEvent_0041a170.c:10-19"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 244: emits 157-177, 158-161, 159 (l.29-164); 260/261 at l.159,164 are other events' eids",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 244: emits 397 and 516-535 (l.29-127)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 244: eid = ThunkToFUN004201e0 (sub_4203D0), returns 355-371 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:25-26; ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 244: emits 397, 447-477, 454-456, 459-461, 474, 476",
+     "line": "RaceCommentary_0041d630.c:107-236"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 244: emits 293-336; the literal 252 at l.10 is a struct offset (a1+252), not an eid",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:10-189"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 244: emits 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A940 (stop/go ignored)",
+     "result": "cannot produce eid 244: emits 149 (l.12) or 243 (l.21)",
+     "line": "sub_41A940_0041a940.c:12-21"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 244: emits 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:25-56"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 244: emits 117-119 (l.15-23), 235-238 (l.35-53)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 244: eid = sub_420000, returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:14-16; sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "ThunkToFUN004201e0 (sub_4203D0) helper",
+     "result": "returns 355-371 or -1 only; not eid 244",
+     "line": "ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "sub_420000 helper",
+     "result": "returns 338-354 or -1 only; not eid 244",
+     "line": "sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "sub_41A720 (infraction emitter, string-keyed)",
+     "result": "player branch writes 151/153/154/155 (l.14-28); AI branch writes 252/253/254/256 (l.43-57); cannot write eid 244 unless it is 252 or 253 (see row)",
+     "line": "sub_41A720_0041a720.c:8-58"
+    },
+    {
+     "function": "Corpus literal sweep (grep -w 244 over functions/*.c)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): hits are struct offsets, clip-list constants (sub_412E50/sub_412490) or settings; no DriverDataTable/InsertDriverTable call takes 244 as its eid argument",
+     "line": "functions/*.c"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) via name builder sub_414600",
+     "result": "outputs 266-270 and 271/273 (name branches); never 244; output slot semantics conflict (see notes)",
+     "line": "DriverNameIDLookup_00415d90.c:80,300,521,741; sub_414600_00414600.c:20-63"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90) / RaceEventMessageDispatcher (sub_411BF0) / FontRenderingPrep (sub_411840)",
+     "result": "clip-list path: writes SDT clip index into ref+8; no eid emitter here; FontRenderingPrep has no direct caller in corpus",
+     "line": "SoundEventDispatcher_00411e90.c:45-57; RaceEventMessageDispatcher_00411bf0.c:37; FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_412E50 kind0 enum 21",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes clip 260 (flag 0)",
+     "line": "sub_412E50_00412e50.c:156"
+    },
+    {
+     "function": "sub_412E50 kind1 enum 18",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes clip 260 (flag 0)",
+     "line": "sub_412E50_00412e50.c:66"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Engineer warns the player that the AI car ahead is blocking under blue flags (real F1: a car that does not give way to a lapping leader).",
+    "when_it_should_play": "EXCLUDED by DD-10 (AI penalty / AI-subject line; owner: leave AI silent)",
+    "trigger": "EXCLUDED by DD-10 (AI penalty / AI-subject line; owner: leave AI silent)",
+    "subject": "AI driver",
+    "technique": "skip (owner exclusion DD-10)",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "n/a",
+    "calibration": null,
+    "live_test": "n/a (excluded by owner decision)",
+    "confidence": "DERIVED: no emitter for own eid; no other route after SUB-CLIP BANK FACT (2026-10-18)."
+   },
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "The only route was a clip-only sub-clip index (sub_412E50 / sub_412490 / name table, PC_RE_STITCH per SUB-CLIP BANK FACT). With no function queuing eid 244, the own-eid route is dead and no PC_RE_MAIN route remains."
+   }
+  },
+  {
+   "eid": 245,
+   "clip": "PWS_MISC48",
+   "sdt_index": 261,
+   "says": "AI cutting track - investigation",
+   "score": 248,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter (no function queues eid 245; the only other routes were PC_RE_STITCH sub-clip/name indices, rejected 2026-10-18)",
+   "situation": "AI car cut track; investigation phase (no investigation code)",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "Track-cut detection exists only for the player tracker (sub_4BCCC0 l.184); no AI investigation trigger.",
+   "emitters": [],
+   "call_path": "none (no function queues eid 245)",
+   "gates": [
+    "none (no emitter for eid 245)"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt: no row. EVF triage: 'X PLAY, cutting track, same as above'.",
+   "tier": "DERIVED",
+   "notes": "Own eid 245: no emitter in corpus (literal sweep, 19 dynamic emitters, helpers). The sub-clip index routes (sub_412E50 / sub_412490 enum values for this sdt, and name-table writes) are PC_RE_STITCH indices and are not evidence for this PC_RE_MAIN clip. Verdict NOT_ACTIVATED (no_emitter) after SUB-CLIP BANK FACT (2026-10-18).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 245: emits 120 (l.37,50), 259 (l.39), 198 (l.57)",
+     "line": "AIDriverStateTransition_00419120.c:37-59"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 245: emits 6 (l.24), 180-182 (l.35-41)",
+     "line": "AIFormationLap_0041a3a0.c:24-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 245: emits 3,4,5,10,16,33 (l.21-47), 72 and 262 (l.57-59); 262 is another event's eid",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 245: emits 42 or 52 (l.13-15)",
+     "line": "AIPitStrategyState_0041a200.c:13-16"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 245: emits 17/18 (l.30-34) and 7/8/9 (l.44-48)",
+     "line": "AIPositionChangeEvent_004198b0.c:30-48"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 245: emits 21/22 (l.21,25) and 178/179 (l.32-34); calls AIPositionChangeEvent (l.41)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-41"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 245: emits 52 (l.10) or 196 (l.16)",
+     "line": "AIVehicleDamageEvent_0041a170.c:10-19"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 245: emits 157-177, 158-161, 159 (l.29-164); 260/261 at l.159,164 are other events' eids",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 245: emits 397 and 516-535 (l.29-127)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 245: eid = ThunkToFUN004201e0 (sub_4203D0), returns 355-371 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:25-26; ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 245: emits 397, 447-477, 454-456, 459-461, 474, 476",
+     "line": "RaceCommentary_0041d630.c:107-236"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 245: emits 293-336; the literal 252 at l.10 is a struct offset (a1+252), not an eid",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:10-189"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 245: emits 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A940 (stop/go ignored)",
+     "result": "cannot produce eid 245: emits 149 (l.12) or 243 (l.21)",
+     "line": "sub_41A940_0041a940.c:12-21"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 245: emits 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:25-56"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 245: emits 117-119 (l.15-23), 235-238 (l.35-53)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 245: eid = sub_420000, returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:14-16; sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "ThunkToFUN004201e0 (sub_4203D0) helper",
+     "result": "returns 355-371 or -1 only; not eid 245",
+     "line": "ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "sub_420000 helper",
+     "result": "returns 338-354 or -1 only; not eid 245",
+     "line": "sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "sub_41A720 (infraction emitter, string-keyed)",
+     "result": "player branch writes 151/153/154/155 (l.14-28); AI branch writes 252/253/254/256 (l.43-57); cannot write eid 245 unless it is 252 or 253 (see row)",
+     "line": "sub_41A720_0041a720.c:8-58"
+    },
+    {
+     "function": "Corpus literal sweep (grep -w 245 over functions/*.c)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): hits are struct offsets, clip-list constants (sub_412E50/sub_412490) or settings; no DriverDataTable/InsertDriverTable call takes 245 as its eid argument",
+     "line": "functions/*.c"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) via name builder sub_414600",
+     "result": "outputs 266-270 and 271/273 (name branches); never 245; output slot semantics conflict (see notes)",
+     "line": "DriverNameIDLookup_00415d90.c:80,300,521,741; sub_414600_00414600.c:20-63"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90) / RaceEventMessageDispatcher (sub_411BF0) / FontRenderingPrep (sub_411840)",
+     "result": "clip-list path: writes SDT clip index into ref+8; no eid emitter here; FontRenderingPrep has no direct caller in corpus",
+     "line": "SoundEventDispatcher_00411e90.c:45-57; RaceEventMessageDispatcher_00411bf0.c:37; FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_412E50 kind0 enum 22",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes clip 261 (flag 0)",
+     "line": "sub_412E50_00412e50.c:159"
+    },
+    {
+     "function": "sub_412E50 kind1 enum 19",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes clip 261 (flag 0)",
+     "line": "sub_412E50_00412e50.c:69"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Engineer says an AI car cut the track and is under investigation (real F1: a penalty review).",
+    "when_it_should_play": "EXCLUDED by DD-10 (AI penalty / AI-subject line; owner: leave AI silent)",
+    "trigger": "EXCLUDED by DD-10 (AI penalty / AI-subject line; owner: leave AI silent)",
+    "subject": "AI driver",
+    "technique": "skip (owner exclusion DD-10)",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "n/a",
+    "calibration": null,
+    "live_test": "n/a (excluded by owner decision)",
+    "confidence": "DERIVED: no emitter for own eid; no other route after SUB-CLIP BANK FACT (2026-10-18)."
+   },
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "The only route was a clip-only sub-clip index (sub_412E50 / sub_412490 / name table, PC_RE_STITCH per SUB-CLIP BANK FACT). With no function queuing eid 245, the own-eid route is dead and no PC_RE_MAIN route remains."
+   }
+  },
+  {
+   "eid": 246,
+   "clip": "PWS_MISC06",
+   "sdt_index": 262,
+   "says": "AI false start - investigation",
+   "score": 249,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter (no function queues eid 246; the only other routes were PC_RE_STITCH sub-clip/name indices, rejected 2026-10-18)",
+   "situation": "AI car false start; investigation phase (no investigation code)",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No AI false-start trigger in code; jump-start detection is sub_4BC9B0 -> StopGoPenaltyHandler(aJumpedStart) which writes eid 254/155, not 246.",
+   "emitters": [],
+   "call_path": "none (no function queues eid 246)",
+   "gates": [
+    "none (no emitter for eid 246)"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt: no row. EVF triage: 'X PLAY, jump start, same'.",
+   "tier": "DERIVED",
+   "notes": "Own eid 246: no emitter in corpus (literal sweep, 19 dynamic emitters, helpers). The sub-clip index routes (sub_412E50 / sub_412490 enum values for this sdt, and name-table writes) are PC_RE_STITCH indices and are not evidence for this PC_RE_MAIN clip. Verdict NOT_ACTIVATED (no_emitter) after SUB-CLIP BANK FACT (2026-10-18).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 246: emits 120 (l.37,50), 259 (l.39), 198 (l.57)",
+     "line": "AIDriverStateTransition_00419120.c:37-59"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 246: emits 6 (l.24), 180-182 (l.35-41)",
+     "line": "AIFormationLap_0041a3a0.c:24-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 246: emits 3,4,5,10,16,33 (l.21-47), 72 and 262 (l.57-59); 262 is another event's eid",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 246: emits 42 or 52 (l.13-15)",
+     "line": "AIPitStrategyState_0041a200.c:13-16"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 246: emits 17/18 (l.30-34) and 7/8/9 (l.44-48)",
+     "line": "AIPositionChangeEvent_004198b0.c:30-48"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 246: emits 21/22 (l.21,25) and 178/179 (l.32-34); calls AIPositionChangeEvent (l.41)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-41"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 246: emits 52 (l.10) or 196 (l.16)",
+     "line": "AIVehicleDamageEvent_0041a170.c:10-19"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 246: emits 157-177, 158-161, 159 (l.29-164); 260/261 at l.159,164 are other events' eids",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 246: emits 397 and 516-535 (l.29-127)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 246: eid = ThunkToFUN004201e0 (sub_4203D0), returns 355-371 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:25-26; ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 246: emits 397, 447-477, 454-456, 459-461, 474, 476",
+     "line": "RaceCommentary_0041d630.c:107-236"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 246: emits 293-336; the literal 252 at l.10 is a struct offset (a1+252), not an eid",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:10-189"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 246: emits 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A940 (stop/go ignored)",
+     "result": "cannot produce eid 246: emits 149 (l.12) or 243 (l.21)",
+     "line": "sub_41A940_0041a940.c:12-21"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 246: emits 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:25-56"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 246: emits 117-119 (l.15-23), 235-238 (l.35-53)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 246: eid = sub_420000, returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:14-16; sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "ThunkToFUN004201e0 (sub_4203D0) helper",
+     "result": "returns 355-371 or -1 only; not eid 246",
+     "line": "ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "sub_420000 helper",
+     "result": "returns 338-354 or -1 only; not eid 246",
+     "line": "sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "sub_41A720 (infraction emitter, string-keyed)",
+     "result": "player branch writes 151/153/154/155 (l.14-28); AI branch writes 252/253/254/256 (l.43-57); cannot write eid 246 unless it is 252 or 253 (see row)",
+     "line": "sub_41A720_0041a720.c:8-58"
+    },
+    {
+     "function": "Corpus literal sweep (grep -w 246 over functions/*.c)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): hits are struct offsets, clip-list constants (sub_412E50/sub_412490) or settings; no DriverDataTable/InsertDriverTable call takes 246 as its eid argument",
+     "line": "functions/*.c"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) via name builder sub_414600",
+     "result": "outputs 266-270 and 271/273 (name branches); never 246; output slot semantics conflict (see notes)",
+     "line": "DriverNameIDLookup_00415d90.c:80,300,521,741; sub_414600_00414600.c:20-63"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90) / RaceEventMessageDispatcher (sub_411BF0) / FontRenderingPrep (sub_411840)",
+     "result": "clip-list path: writes SDT clip index into ref+8; no eid emitter here; FontRenderingPrep has no direct caller in corpus",
+     "line": "SoundEventDispatcher_00411e90.c:45-57; RaceEventMessageDispatcher_00411bf0.c:37; FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_412E50 kind0 enum 23",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes clip 262 (flag 0)",
+     "line": "sub_412E50_00412e50.c:162"
+    },
+    {
+     "function": "sub_412E50 kind1 enum 20",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes clip 262 (flag 0)",
+     "line": "sub_412E50_00412e50.c:72"
+    },
+    {
+     "function": "sub_412490 (second clip-list builder), kind1 flag0 enum 23/24",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes clip 262 in that branch",
+     "line": "sub_412490_00412490.c:90-91,325"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Engineer says an AI driver jumped the start (real F1: false-start penalty).",
+    "when_it_should_play": "EXCLUDED by DD-10 (AI penalty / AI-subject line; owner: leave AI silent)",
+    "trigger": "EXCLUDED by DD-10 (AI penalty / AI-subject line; owner: leave AI silent)",
+    "subject": "AI driver",
+    "technique": "skip (owner exclusion DD-10)",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "n/a",
+    "calibration": null,
+    "live_test": "n/a (excluded by owner decision)",
+    "confidence": "DERIVED: no emitter for own eid; no other route after SUB-CLIP BANK FACT (2026-10-18)."
+   },
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "The only route was a clip-only sub-clip index (sub_412E50 / sub_412490 / name table, PC_RE_STITCH per SUB-CLIP BANK FACT). With no function queuing eid 246, the own-eid route is dead and no PC_RE_MAIN route remains."
+   }
+  },
+  {
+   "eid": 247,
+   "clip": "PWS_MISC08",
+   "sdt_index": 263,
+   "says": "AI overtaking yellow - investigation",
+   "score": 250,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter (no function queues eid 247; the only other routes were PC_RE_STITCH sub-clip/name indices, rejected 2026-10-18); dangerous-driving or overtaking-under-yellow rule absent (DD-11)",
+   "situation": "AI car overtakes under yellow flag (no such infraction in code)",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No yellow-flag overtaking trigger found in the penalty handlers.",
+   "emitters": [],
+   "call_path": "none (no function queues eid 247)",
+   "gates": [
+    "none (no emitter for eid 247)"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt: no row. EVF triage: 'X PLAY, overtaking under yellow, same'.",
+   "tier": "DERIVED",
+   "notes": "Own eid 247: no emitter in corpus (literal sweep, 19 dynamic emitters, helpers). The sub-clip index routes (sub_412E50 / sub_412490 enum values for this sdt, and name-table writes) are PC_RE_STITCH indices and are not evidence for this PC_RE_MAIN clip. Also no overtaking-under-yellow rule in game (DD-11). Verdict NOT_ACTIVATED (no_emitter) after SUB-CLIP BANK FACT (2026-10-18).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 247: emits 120 (l.37,50), 259 (l.39), 198 (l.57)",
+     "line": "AIDriverStateTransition_00419120.c:37-59"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 247: emits 6 (l.24), 180-182 (l.35-41)",
+     "line": "AIFormationLap_0041a3a0.c:24-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 247: emits 3,4,5,10,16,33 (l.21-47), 72 and 262 (l.57-59); 262 is another event's eid",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 247: emits 42 or 52 (l.13-15)",
+     "line": "AIPitStrategyState_0041a200.c:13-16"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 247: emits 17/18 (l.30-34) and 7/8/9 (l.44-48)",
+     "line": "AIPositionChangeEvent_004198b0.c:30-48"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 247: emits 21/22 (l.21,25) and 178/179 (l.32-34); calls AIPositionChangeEvent (l.41)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-41"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 247: emits 52 (l.10) or 196 (l.16)",
+     "line": "AIVehicleDamageEvent_0041a170.c:10-19"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 247: emits 157-177, 158-161, 159 (l.29-164); 260/261 at l.159,164 are other events' eids",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 247: emits 397 and 516-535 (l.29-127)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 247: eid = ThunkToFUN004201e0 (sub_4203D0), returns 355-371 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:25-26; ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 247: emits 397, 447-477, 454-456, 459-461, 474, 476",
+     "line": "RaceCommentary_0041d630.c:107-236"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 247: emits 293-336; the literal 252 at l.10 is a struct offset (a1+252), not an eid",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:10-189"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 247: emits 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A940 (stop/go ignored)",
+     "result": "cannot produce eid 247: emits 149 (l.12) or 243 (l.21)",
+     "line": "sub_41A940_0041a940.c:12-21"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 247: emits 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:25-56"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 247: emits 117-119 (l.15-23), 235-238 (l.35-53)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 247: eid = sub_420000, returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:14-16; sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "ThunkToFUN004201e0 (sub_4203D0) helper",
+     "result": "returns 355-371 or -1 only; not eid 247",
+     "line": "ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "sub_420000 helper",
+     "result": "returns 338-354 or -1 only; not eid 247",
+     "line": "sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "sub_41A720 (infraction emitter, string-keyed)",
+     "result": "player branch writes 151/153/154/155 (l.14-28); AI branch writes 252/253/254/256 (l.43-57); cannot write eid 247 unless it is 252 or 253 (see row)",
+     "line": "sub_41A720_0041a720.c:8-58"
+    },
+    {
+     "function": "Corpus literal sweep (grep -w 247 over functions/*.c)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): hits are struct offsets, clip-list constants (sub_412E50/sub_412490) or settings; no DriverDataTable/InsertDriverTable call takes 247 as its eid argument",
+     "line": "functions/*.c"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) via name builder sub_414600",
+     "result": "outputs 266-270 and 271/273 (name branches); never 247; output slot semantics conflict (see notes)",
+     "line": "DriverNameIDLookup_00415d90.c:80,300,521,741; sub_414600_00414600.c:20-63"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90) / RaceEventMessageDispatcher (sub_411BF0) / FontRenderingPrep (sub_411840)",
+     "result": "clip-list path: writes SDT clip index into ref+8; no eid emitter here; FontRenderingPrep has no direct caller in corpus",
+     "line": "SoundEventDispatcher_00411e90.c:45-57; RaceEventMessageDispatcher_00411bf0.c:37; FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_412E50 kind0 enum 24",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes clip 263 (flag 0)",
+     "line": "sub_412E50_00412e50.c:165"
+    },
+    {
+     "function": "sub_412E50 kind1 enum 21",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes clip 263 (flag 0)",
+     "line": "sub_412E50_00412e50.c:75"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Engineer says an AI car overtook under yellow flags (real F1: yellow-flag infraction).",
+    "when_it_should_play": "EXCLUDED by DD-10 (AI penalty / AI-subject line; owner: leave AI silent); also EXCLUDED by DD-11 (game-missing infraction: dangerous driving / overtaking under yellow)",
+    "trigger": "EXCLUDED by DD-10 (AI penalty / AI-subject line; owner: leave AI silent); also EXCLUDED by DD-11 (game-missing infraction: dangerous driving / overtaking under yellow)",
+    "subject": "AI driver",
+    "technique": "skip (owner exclusion DD-10+DD-11)",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "n/a",
+    "calibration": null,
+    "live_test": "n/a (excluded by owner decision)",
+    "confidence": "DERIVED: no emitter for own eid; no other route after SUB-CLIP BANK FACT (2026-10-18)."
+   },
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "The only route was a clip-only sub-clip index (sub_412E50 / sub_412490 / name table, PC_RE_STITCH per SUB-CLIP BANK FACT). With no function queuing eid 247, the own-eid route is dead and no PC_RE_MAIN route remains."
+   }
+  },
+  {
+   "eid": 248,
+   "clip": "PWS_MISC07",
+   "sdt_index": 264,
+   "says": "AI speeding pits - investigation",
+   "score": 251,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter (no function queues eid 248; the only other routes were PC_RE_STITCH sub-clip/name indices, rejected 2026-10-18)",
+   "situation": "AI car speeding in pit lane; investigation phase",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "Pit-speeding penalty exists only in sub_4BCCC0 l.117 for the player tracker; no AI trigger.",
+   "emitters": [],
+   "call_path": "none (no function queues eid 248)",
+   "gates": [
+    "none (no emitter for eid 248)"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt: no row. EVF triage: 'X PLAY, speeding in pits, same'.",
+   "tier": "DERIVED",
+   "notes": "Own eid 248: no emitter in corpus (literal sweep, 19 dynamic emitters, helpers). The sub-clip index routes (sub_412E50 / sub_412490 enum values for this sdt, and name-table writes) are PC_RE_STITCH indices and are not evidence for this PC_RE_MAIN clip. Verdict NOT_ACTIVATED (no_emitter) after SUB-CLIP BANK FACT (2026-10-18).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 248: emits 120 (l.37,50), 259 (l.39), 198 (l.57)",
+     "line": "AIDriverStateTransition_00419120.c:37-59"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 248: emits 6 (l.24), 180-182 (l.35-41)",
+     "line": "AIFormationLap_0041a3a0.c:24-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 248: emits 3,4,5,10,16,33 (l.21-47), 72 and 262 (l.57-59); 262 is another event's eid",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 248: emits 42 or 52 (l.13-15)",
+     "line": "AIPitStrategyState_0041a200.c:13-16"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 248: emits 17/18 (l.30-34) and 7/8/9 (l.44-48)",
+     "line": "AIPositionChangeEvent_004198b0.c:30-48"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 248: emits 21/22 (l.21,25) and 178/179 (l.32-34); calls AIPositionChangeEvent (l.41)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-41"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 248: emits 52 (l.10) or 196 (l.16)",
+     "line": "AIVehicleDamageEvent_0041a170.c:10-19"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 248: emits 157-177, 158-161, 159 (l.29-164); 260/261 at l.159,164 are other events' eids",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 248: emits 397 and 516-535 (l.29-127)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 248: eid = ThunkToFUN004201e0 (sub_4203D0), returns 355-371 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:25-26; ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 248: emits 397, 447-477, 454-456, 459-461, 474, 476",
+     "line": "RaceCommentary_0041d630.c:107-236"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 248: emits 293-336; the literal 252 at l.10 is a struct offset (a1+252), not an eid",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:10-189"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 248: emits 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A940 (stop/go ignored)",
+     "result": "cannot produce eid 248: emits 149 (l.12) or 243 (l.21)",
+     "line": "sub_41A940_0041a940.c:12-21"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 248: emits 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:25-56"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 248: emits 117-119 (l.15-23), 235-238 (l.35-53)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 248: eid = sub_420000, returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:14-16; sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "ThunkToFUN004201e0 (sub_4203D0) helper",
+     "result": "returns 355-371 or -1 only; not eid 248",
+     "line": "ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "sub_420000 helper",
+     "result": "returns 338-354 or -1 only; not eid 248",
+     "line": "sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "sub_41A720 (infraction emitter, string-keyed)",
+     "result": "player branch writes 151/153/154/155 (l.14-28); AI branch writes 252/253/254/256 (l.43-57); cannot write eid 248 unless it is 252 or 253 (see row)",
+     "line": "sub_41A720_0041a720.c:8-58"
+    },
+    {
+     "function": "Corpus literal sweep (grep -w 248 over functions/*.c)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): hits are struct offsets, clip-list constants (sub_412E50/sub_412490) or settings; no DriverDataTable/InsertDriverTable call takes 248 as its eid argument",
+     "line": "functions/*.c"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) via name builder sub_414600",
+     "result": "outputs 266-270 and 271/273 (name branches); never 248; output slot semantics conflict (see notes)",
+     "line": "DriverNameIDLookup_00415d90.c:80,300,521,741; sub_414600_00414600.c:20-63"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90) / RaceEventMessageDispatcher (sub_411BF0) / FontRenderingPrep (sub_411840)",
+     "result": "clip-list path: writes SDT clip index into ref+8; no eid emitter here; FontRenderingPrep has no direct caller in corpus",
+     "line": "SoundEventDispatcher_00411e90.c:45-57; RaceEventMessageDispatcher_00411bf0.c:37; FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_412E50 kind0 enum 25",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes clip 264 (flag 0)",
+     "line": "sub_412E50_00412e50.c:168"
+    },
+    {
+     "function": "sub_412E50 kind1 enum 22",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes clip 264 (flag 0)",
+     "line": "sub_412E50_00412e50.c:78"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Engineer says an AI car was speeding in the pit lane (real F1: pit-lane speeding penalty).",
+    "when_it_should_play": "EXCLUDED by DD-10 (AI penalty / AI-subject line; owner: leave AI silent)",
+    "trigger": "EXCLUDED by DD-10 (AI penalty / AI-subject line; owner: leave AI silent)",
+    "subject": "AI driver",
+    "technique": "skip (owner exclusion DD-10)",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "n/a",
+    "calibration": null,
+    "live_test": "n/a (excluded by owner decision)",
+    "confidence": "DERIVED: no emitter for own eid; no other route after SUB-CLIP BANK FACT (2026-10-18)."
+   },
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "The only route was a clip-only sub-clip index (sub_412E50 / sub_412490 / name table, PC_RE_STITCH per SUB-CLIP BANK FACT). With no function queuing eid 248, the own-eid route is dead and no PC_RE_MAIN route remains."
+   }
+  },
+  {
+   "eid": 249,
+   "clip": "RE_OD_25_DD",
+   "sdt_index": 265,
+   "says": "Other driver 25 sec penalty - dangerous driving",
+   "score": 252,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter (no function queues eid 249; the only other routes were PC_RE_STITCH sub-clip/name indices, rejected 2026-10-18); dangerous-driving rule absent (DD-11)",
+   "situation": "25 s penalty for dangerous driving (no such rule in code)",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No dangerous-driving trigger in code (findings: the DD clips have no code path).",
+   "emitters": [],
+   "call_path": "none (no function queues eid 249)",
+   "gates": [
+    "none (no emitter for eid 249)"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt: no row. EVF triage (2026-07-28 update): 'apparently not enforced right now'.",
+   "tier": "DERIVED",
+   "notes": "Own eid 249: no emitter in corpus (literal sweep, 19 dynamic emitters, helpers). The sub-clip index routes (sub_412E50 / sub_412490 enum values for this sdt, and name-table writes) are PC_RE_STITCH indices and are not evidence for this PC_RE_MAIN clip. Dangerous-driving rule absent (DD-11). Verdict NOT_ACTIVATED (no_emitter) after SUB-CLIP BANK FACT (2026-10-18).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 249: emits 120 (l.37,50), 259 (l.39), 198 (l.57)",
+     "line": "AIDriverStateTransition_00419120.c:37-59"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 249: emits 6 (l.24), 180-182 (l.35-41)",
+     "line": "AIFormationLap_0041a3a0.c:24-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 249: emits 3,4,5,10,16,33 (l.21-47), 72 and 262 (l.57-59); 262 is another event's eid",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 249: emits 42 or 52 (l.13-15)",
+     "line": "AIPitStrategyState_0041a200.c:13-16"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 249: emits 17/18 (l.30-34) and 7/8/9 (l.44-48)",
+     "line": "AIPositionChangeEvent_004198b0.c:30-48"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 249: emits 21/22 (l.21,25) and 178/179 (l.32-34); calls AIPositionChangeEvent (l.41)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-41"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 249: emits 52 (l.10) or 196 (l.16)",
+     "line": "AIVehicleDamageEvent_0041a170.c:10-19"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 249: emits 157-177, 158-161, 159 (l.29-164); 260/261 at l.159,164 are other events' eids",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 249: emits 397 and 516-535 (l.29-127)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 249: eid = ThunkToFUN004201e0 (sub_4203D0), returns 355-371 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:25-26; ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 249: emits 397, 447-477, 454-456, 459-461, 474, 476",
+     "line": "RaceCommentary_0041d630.c:107-236"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 249: emits 293-336; the literal 252 at l.10 is a struct offset (a1+252), not an eid",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:10-189"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 249: emits 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A940 (stop/go ignored)",
+     "result": "cannot produce eid 249: emits 149 (l.12) or 243 (l.21)",
+     "line": "sub_41A940_0041a940.c:12-21"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 249: emits 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:25-56"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 249: emits 117-119 (l.15-23), 235-238 (l.35-53)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 249: eid = sub_420000, returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:14-16; sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "ThunkToFUN004201e0 (sub_4203D0) helper",
+     "result": "returns 355-371 or -1 only; not eid 249",
+     "line": "ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "sub_420000 helper",
+     "result": "returns 338-354 or -1 only; not eid 249",
+     "line": "sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "sub_41A720 (infraction emitter, string-keyed)",
+     "result": "player branch writes 151/153/154/155 (l.14-28); AI branch writes 252/253/254/256 (l.43-57); cannot write eid 249 unless it is 252 or 253 (see row)",
+     "line": "sub_41A720_0041a720.c:8-58"
+    },
+    {
+     "function": "Corpus literal sweep (grep -w 249 over functions/*.c)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): hits are struct offsets, clip-list constants (sub_412E50/sub_412490) or settings; no DriverDataTable/InsertDriverTable call takes 249 as its eid argument",
+     "line": "functions/*.c"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) via name builder sub_414600",
+     "result": "outputs 266-270 and 271/273 (name branches); never 249; output slot semantics conflict (see notes)",
+     "line": "DriverNameIDLookup_00415d90.c:80,300,521,741; sub_414600_00414600.c:20-63"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90) / RaceEventMessageDispatcher (sub_411BF0) / FontRenderingPrep (sub_411840)",
+     "result": "clip-list path: writes SDT clip index into ref+8; no eid emitter here; FontRenderingPrep has no direct caller in corpus",
+     "line": "SoundEventDispatcher_00411e90.c:45-57; RaceEventMessageDispatcher_00411bf0.c:37; FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_412E50 kind0 enum 26",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes clip 265 (flag 0)",
+     "line": "sub_412E50_00412e50.c:171-173"
+    },
+    {
+     "function": "sub_412E50 kind1 enum 23",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes clip 265 (flag 0)",
+     "line": "sub_412E50_00412e50.c:81,173"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Engineer says another driver got a 25 s penalty for dangerous driving (real F1: post-race time penalty).",
+    "when_it_should_play": "EXCLUDED by DD-11 (game-missing infraction: dangerous driving / overtaking under yellow)",
+    "trigger": "EXCLUDED by DD-11 (game-missing infraction: dangerous driving / overtaking under yellow)",
+    "subject": "other driver",
+    "technique": "skip (owner exclusion DD-11)",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "n/a",
+    "calibration": null,
+    "live_test": "n/a (excluded by owner decision)",
+    "confidence": "DERIVED: no emitter for own eid; no other route after SUB-CLIP BANK FACT (2026-10-18)."
+   },
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "The only route was a clip-only sub-clip index (sub_412E50 / sub_412490 / name table, PC_RE_STITCH per SUB-CLIP BANK FACT). With no function queuing eid 249, the own-eid route is dead and no PC_RE_MAIN route remains."
+   }
+  },
+  {
+   "eid": 250,
+   "clip": "RE_OD_INV_DD",
+   "sdt_index": 266,
+   "says": "Other driver under investigation - dangerous driving",
+   "score": 253,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter (no function queues eid 250; the only other routes were PC_RE_STITCH sub-clip/name indices, rejected 2026-10-18); dangerous-driving rule absent (DD-11)",
+   "situation": "other driver under investigation for dangerous driving (no such rule)",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No dangerous-driving investigation trigger in code.",
+   "emitters": [],
+   "call_path": "none (no function queues eid 250)",
+   "gates": [
+    "none (no emitter for eid 250)"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt: no row. EVF triage: 'X PLAY, AI investigation dangerous driving, same'.",
+   "tier": "DERIVED",
+   "notes": "Own eid 250: no emitter in corpus (literal sweep, 19 dynamic emitters, helpers). The sub-clip index routes (sub_412E50 / sub_412490 enum values for this sdt, and name-table writes) are PC_RE_STITCH indices and are not evidence for this PC_RE_MAIN clip. Dangerous-driving rule absent (DD-11). Verdict NOT_ACTIVATED (no_emitter) after SUB-CLIP BANK FACT (2026-10-18).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 250: emits 120 (l.37,50), 259 (l.39), 198 (l.57)",
+     "line": "AIDriverStateTransition_00419120.c:37-59"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 250: emits 6 (l.24), 180-182 (l.35-41)",
+     "line": "AIFormationLap_0041a3a0.c:24-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 250: emits 3,4,5,10,16,33 (l.21-47), 72 and 262 (l.57-59); 262 is another event's eid",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 250: emits 42 or 52 (l.13-15)",
+     "line": "AIPitStrategyState_0041a200.c:13-16"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 250: emits 17/18 (l.30-34) and 7/8/9 (l.44-48)",
+     "line": "AIPositionChangeEvent_004198b0.c:30-48"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 250: emits 21/22 (l.21,25) and 178/179 (l.32-34); calls AIPositionChangeEvent (l.41)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-41"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 250: emits 52 (l.10) or 196 (l.16)",
+     "line": "AIVehicleDamageEvent_0041a170.c:10-19"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 250: emits 157-177, 158-161, 159 (l.29-164); 260/261 at l.159,164 are other events' eids",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 250: emits 397 and 516-535 (l.29-127)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 250: eid = ThunkToFUN004201e0 (sub_4203D0), returns 355-371 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:25-26; ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 250: emits 397, 447-477, 454-456, 459-461, 474, 476",
+     "line": "RaceCommentary_0041d630.c:107-236"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 250: emits 293-336; the literal 252 at l.10 is a struct offset (a1+252), not an eid",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:10-189"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 250: emits 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A940 (stop/go ignored)",
+     "result": "cannot produce eid 250: emits 149 (l.12) or 243 (l.21)",
+     "line": "sub_41A940_0041a940.c:12-21"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 250: emits 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:25-56"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 250: emits 117-119 (l.15-23), 235-238 (l.35-53)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 250: eid = sub_420000, returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:14-16; sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "ThunkToFUN004201e0 (sub_4203D0) helper",
+     "result": "returns 355-371 or -1 only; not eid 250",
+     "line": "ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "sub_420000 helper",
+     "result": "returns 338-354 or -1 only; not eid 250",
+     "line": "sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "sub_41A720 (infraction emitter, string-keyed)",
+     "result": "player branch writes 151/153/154/155 (l.14-28); AI branch writes 252/253/254/256 (l.43-57); cannot write eid 250 unless it is 252 or 253 (see row)",
+     "line": "sub_41A720_0041a720.c:8-58"
+    },
+    {
+     "function": "Corpus literal sweep (grep -w 250 over functions/*.c)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): hits are struct offsets, clip-list constants (sub_412E50/sub_412490) or settings; no DriverDataTable/InsertDriverTable call takes 250 as its eid argument",
+     "line": "functions/*.c"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) via name builder sub_414600",
+     "result": "outputs 266-270 and 271/273 (name branches); never 250; output slot semantics conflict (see notes)",
+     "line": "DriverNameIDLookup_00415d90.c:80,300,521,741; sub_414600_00414600.c:20-63"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90) / RaceEventMessageDispatcher (sub_411BF0) / FontRenderingPrep (sub_411840)",
+     "result": "clip-list path: writes SDT clip index into ref+8; no eid emitter here; FontRenderingPrep has no direct caller in corpus",
+     "line": "SoundEventDispatcher_00411e90.c:45-57; RaceEventMessageDispatcher_00411bf0.c:37; FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_412E50 kind1 enum 24",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes clip 266 (flag 0)",
+     "line": "sub_412E50_00412e50.c:84"
+    },
+    {
+     "function": "DriverNameIDLookup branch l.519-521 (Olivier Panis)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes 266 when a3=1 and a4!=0 (name route, semantics unresolved)",
+     "line": "DriverNameIDLookup_00415d90.c:519-521"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Engineer says another driver is under investigation for dangerous driving (real F1: stewards review).",
+    "when_it_should_play": "EXCLUDED by DD-11 (game-missing infraction: dangerous driving / overtaking under yellow)",
+    "trigger": "EXCLUDED by DD-11 (game-missing infraction: dangerous driving / overtaking under yellow)",
+    "subject": "other driver",
+    "technique": "skip (owner exclusion DD-11)",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "n/a",
+    "calibration": null,
+    "live_test": "n/a (excluded by owner decision)",
+    "confidence": "DERIVED: no emitter for own eid; no other route after SUB-CLIP BANK FACT (2026-10-18)."
+   },
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "The only route was a clip-only sub-clip index (sub_412E50 / sub_412490 / name table, PC_RE_STITCH per SUB-CLIP BANK FACT). With no function queuing eid 250, the own-eid route is dead and no PC_RE_MAIN route remains."
+   }
+  },
+  {
+   "eid": 251,
+   "clip": "RE_OD_SG_DD",
+   "sdt_index": 267,
+   "says": "Other driver stop/go - dangerous driving",
+   "score": 254,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter (no function queues eid 251; the only other routes were PC_RE_STITCH sub-clip/name indices, rejected 2026-10-18); dangerous-driving rule absent (DD-11)",
+   "situation": "other driver serves stop/go for dangerous driving (no such rule)",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No dangerous-driving stop/go trigger in code; the only stop/go handlers are pit speeding, jump start, cut track and blue-flag ignore.",
+   "emitters": [],
+   "call_path": "none (no function queues eid 251)",
+   "gates": [
+    "none (no emitter for eid 251)"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt: no row. EVF triage: 'X PLAY, AI stop go dangerous, same'.",
+   "tier": "DERIVED",
+   "notes": "Own eid 251: no emitter in corpus (literal sweep, 19 dynamic emitters, helpers). The sub-clip index routes (sub_412E50 / sub_412490 enum values for this sdt, and name-table writes) are PC_RE_STITCH indices and are not evidence for this PC_RE_MAIN clip. Dangerous-driving rule absent (DD-11). Verdict NOT_ACTIVATED (no_emitter) after SUB-CLIP BANK FACT (2026-10-18).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 251: emits 120 (l.37,50), 259 (l.39), 198 (l.57)",
+     "line": "AIDriverStateTransition_00419120.c:37-59"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 251: emits 6 (l.24), 180-182 (l.35-41)",
+     "line": "AIFormationLap_0041a3a0.c:24-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 251: emits 3,4,5,10,16,33 (l.21-47), 72 and 262 (l.57-59); 262 is another event's eid",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 251: emits 42 or 52 (l.13-15)",
+     "line": "AIPitStrategyState_0041a200.c:13-16"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 251: emits 17/18 (l.30-34) and 7/8/9 (l.44-48)",
+     "line": "AIPositionChangeEvent_004198b0.c:30-48"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 251: emits 21/22 (l.21,25) and 178/179 (l.32-34); calls AIPositionChangeEvent (l.41)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-41"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 251: emits 52 (l.10) or 196 (l.16)",
+     "line": "AIVehicleDamageEvent_0041a170.c:10-19"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 251: emits 157-177, 158-161, 159 (l.29-164); 260/261 at l.159,164 are other events' eids",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 251: emits 397 and 516-535 (l.29-127)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 251: eid = ThunkToFUN004201e0 (sub_4203D0), returns 355-371 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:25-26; ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 251: emits 397, 447-477, 454-456, 459-461, 474, 476",
+     "line": "RaceCommentary_0041d630.c:107-236"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 251: emits 293-336; the literal 252 at l.10 is a struct offset (a1+252), not an eid",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:10-189"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 251: emits 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A940 (stop/go ignored)",
+     "result": "cannot produce eid 251: emits 149 (l.12) or 243 (l.21)",
+     "line": "sub_41A940_0041a940.c:12-21"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 251: emits 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:25-56"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 251: emits 117-119 (l.15-23), 235-238 (l.35-53)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 251: eid = sub_420000, returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:14-16; sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "ThunkToFUN004201e0 (sub_4203D0) helper",
+     "result": "returns 355-371 or -1 only; not eid 251",
+     "line": "ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "sub_420000 helper",
+     "result": "returns 338-354 or -1 only; not eid 251",
+     "line": "sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "sub_41A720 (infraction emitter, string-keyed)",
+     "result": "player branch writes 151/153/154/155 (l.14-28); AI branch writes 252/253/254/256 (l.43-57); cannot write eid 251 unless it is 252 or 253 (see row)",
+     "line": "sub_41A720_0041a720.c:8-58"
+    },
+    {
+     "function": "Corpus literal sweep (grep -w 251 over functions/*.c)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): hits are struct offsets, clip-list constants (sub_412E50/sub_412490) or settings; no DriverDataTable/InsertDriverTable call takes 251 as its eid argument",
+     "line": "functions/*.c"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) via name builder sub_414600",
+     "result": "outputs 266-270 and 271/273 (name branches); never 251; output slot semantics conflict (see notes)",
+     "line": "DriverNameIDLookup_00415d90.c:80,300,521,741; sub_414600_00414600.c:20-63"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90) / RaceEventMessageDispatcher (sub_411BF0) / FontRenderingPrep (sub_411840)",
+     "result": "clip-list path: writes SDT clip index into ref+8; no eid emitter here; FontRenderingPrep has no direct caller in corpus",
+     "line": "SoundEventDispatcher_00411e90.c:45-57; RaceEventMessageDispatcher_00411bf0.c:37; FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "DriverNameIDLookup branch l.741 (name table)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes 267 for a4!=0, 269 for a4==0 (name route, semantics unresolved)",
+     "line": "DriverNameIDLookup_00415d90.c:741"
+    },
+    {
+     "function": "sub_412E50 / sub_412490",
+     "result": "no 267 in either builder",
+     "line": "sub_412E50_00412e50.c; sub_412490_00412490.c"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Engineer says another driver is serving a stop/go for dangerous driving (real F1: stop/go penalty).",
+    "when_it_should_play": "EXCLUDED by DD-11 (game-missing infraction: dangerous driving / overtaking under yellow)",
+    "trigger": "EXCLUDED by DD-11 (game-missing infraction: dangerous driving / overtaking under yellow)",
+    "subject": "other driver",
+    "technique": "skip (owner exclusion DD-11)",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "n/a",
+    "calibration": null,
+    "live_test": "n/a (excluded by owner decision)",
+    "confidence": "DERIVED: no emitter for own eid; no other route after SUB-CLIP BANK FACT (2026-10-18)."
+   },
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "The only route was a clip-only sub-clip index (sub_412E50 / sub_412490 / name table, PC_RE_STITCH per SUB-CLIP BANK FACT). With no function queuing eid 251, the own-eid route is dead and no PC_RE_MAIN route remains."
+   }
+  },
+  {
+   "eid": 252,
+   "clip": "PWS_AIPENALTY04",
+   "sdt_index": 268,
+   "says": "AI blocking blue penalty",
+   "score": 255,
+   "cooldown": 1.0,
+   "verdict": "UNKNOWN",
+   "reason": "own_emitter_branch_blocked (AI *this unreachable, DERIVED)",
+   "situation": "AI car penalised for ignoring blue flags: native AI branch exists but its callers pass the player tracker (DERIVED)",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": true,
+   "suppressed_note": "Native AI emitter sub_41A720 l.57 writes 252 for a non-player car. The blue timer and detection in sub_4BCCC0 l.262-381 run only on the player tracker: the owner exe call site is lea ecx,[eax+0x4034] with eax=[0x7C54E8] (0x42C8F8-0x42C912). Suppression = player-only tracker gate, plus DD-10 policy.",
+   "emitters": [
+    "sub_41A720 (sub_41A720_0041a720.c:57, AI branch 252)",
+    "sub_4BCCC0 (sub_4BCCC0_004bccc0.c:379-380, blue timer emit)"
+   ],
+   "call_path": "owner exe MainGameTickUpdate 0x42C8F8-0x42C912 -> sub_4BCCC0(this=player+0x4034) -> StopGoPenaltyHandler(aIgnoredBlueFla) (l.379) and sub_41A720(*this, aIgnoredBlueFla) (l.380)",
+   "gates": [
+    "sub_4BCCC0 l.373-380: this[55] (blue timer) > 30 and dword_7CEF84 (PenaltiesEnabled)",
+    "sub_4BCCC0 l.353-359: race only (dword_7C56A4 == 7) and blue state byte +212 (l.262, 353)",
+    "sub_41A720 AI branch: dword_7C54E8+18580 != *this+18580 and dword_7C56A8 != 8 (l.8,39)",
+    "MainGameTickUpdate gate [player+13000]==0 (owner exe 0x42C8FD-0x42C905)"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt: no row. EVF triage: 'X PLAY, AI stop go blocking, same' (text differs from doc56 label 'AI blocking blue penalty'; code says blue flag).",
+   "tier": "DERIVED",
+   "notes": "Own eid 252: no emitter in corpus (literal sweep, 19 dynamic emitters, helpers). Own AI branch blocked by tracker identity (DERIVED). Missing to decide: the store that sets the tracker's first field (whether an AI car can reach sub_41A720 with its own tracker). Name-table semantics no longer matter (PC_RE_STITCH per SUB-CLIP BANK FACT).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 252: emits 120 (l.37,50), 259 (l.39), 198 (l.57)",
+     "line": "AIDriverStateTransition_00419120.c:37-59"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 252: emits 6 (l.24), 180-182 (l.35-41)",
+     "line": "AIFormationLap_0041a3a0.c:24-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 252: emits 3,4,5,10,16,33 (l.21-47), 72 and 262 (l.57-59); 262 is another event's eid",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 252: emits 42 or 52 (l.13-15)",
+     "line": "AIPitStrategyState_0041a200.c:13-16"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 252: emits 17/18 (l.30-34) and 7/8/9 (l.44-48)",
+     "line": "AIPositionChangeEvent_004198b0.c:30-48"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 252: emits 21/22 (l.21,25) and 178/179 (l.32-34); calls AIPositionChangeEvent (l.41)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-41"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 252: emits 52 (l.10) or 196 (l.16)",
+     "line": "AIVehicleDamageEvent_0041a170.c:10-19"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 252: emits 157-177, 158-161, 159 (l.29-164); 260/261 at l.159,164 are other events' eids",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 252: emits 397 and 516-535 (l.29-127)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 252: eid = ThunkToFUN004201e0 (sub_4203D0), returns 355-371 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:25-26; ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 252: emits 397, 447-477, 454-456, 459-461, 474, 476",
+     "line": "RaceCommentary_0041d630.c:107-236"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 252: emits 293-336; the literal 252 at l.10 is a struct offset (a1+252), not an eid",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:10-189"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 252: emits 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A940 (stop/go ignored)",
+     "result": "cannot produce eid 252: emits 149 (l.12) or 243 (l.21)",
+     "line": "sub_41A940_0041a940.c:12-21"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 252: emits 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:25-56"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 252: emits 117-119 (l.15-23), 235-238 (l.35-53)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 252: eid = sub_420000, returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:14-16; sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "ThunkToFUN004201e0 (sub_4203D0) helper",
+     "result": "returns 355-371 or -1 only; not eid 252",
+     "line": "ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "sub_420000 helper",
+     "result": "returns 338-354 or -1 only; not eid 252",
+     "line": "sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "sub_41A720 (infraction emitter, string-keyed)",
+     "result": "player branch writes 151/153/154/155 (l.14-28); AI branch writes 252/253/254/256 (l.43-57); cannot write eid 252 unless it is 252 or 253 (see row)",
+     "line": "sub_41A720_0041a720.c:8-58"
+    },
+    {
+     "function": "Corpus literal sweep (grep -w 252 over functions/*.c)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): hits are struct offsets, clip-list constants (sub_412E50/sub_412490) or settings; no DriverDataTable/InsertDriverTable call takes 252 as its eid argument",
+     "line": "functions/*.c"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) via name builder sub_414600",
+     "result": "outputs 266-270 and 271/273 (name branches); never 252; output slot semantics conflict (see notes)",
+     "line": "DriverNameIDLookup_00415d90.c:80,300,521,741; sub_414600_00414600.c:20-63"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90) / RaceEventMessageDispatcher (sub_411BF0) / FontRenderingPrep (sub_411840)",
+     "result": "clip-list path: writes SDT clip index into ref+8; no eid emitter here; FontRenderingPrep has no direct caller in corpus",
+     "line": "SoundEventDispatcher_00411e90.c:45-57; RaceEventMessageDispatcher_00411bf0.c:37; FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_41A720 AI branch",
+     "result": "emits 252 ONLY if *this is a non-player car; the call sites below pass the player tracker",
+     "line": "sub_41A720_0041a720.c:39-57"
+    },
+    {
+     "function": "StopGoPenaltyHandler (sub_4BBD60)",
+     "result": "forwards to sub_41A720(*this, a2) (l.43); aIgnoredBlueFla caller is sub_4BCCC0 l.379 only",
+     "line": "StopGoPenaltyHandler_004bbd60.c:43"
+    },
+    {
+     "function": "sub_4BCCC0 (tracker)",
+     "result": "sole call site MainGameTickUpdate; this = dword_7C54E8+0x4034 (owner exe disasm); *this = player car (DERIVED: first field of tracker not proven)",
+     "line": "sub_4BCCC0_004bccc0.c:262-381; owner exe 0x42C8F8-0x42C912"
+    },
+    {
+     "function": "MainGameTickUpdate (sub_42C690)",
+     "result": "calls sub_4BCCC0 only in the player-gated branch",
+     "line": "MainGameTickUpdate_0042c690.c:17-18"
+    },
+    {
+     "function": "sub_4BC9B0",
+     "result": "calls StopGoPenaltyHandler only with aJumpedStart (eid 254/155), not 252",
+     "line": "sub_4BC9B0_004bc9b0.c:51"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Engineer says an AI car ignored blue flags and is penalised (real F1: blue-flag penalty).",
+    "when_it_should_play": "EXCLUDED by DD-10 (AI penalty / AI-subject line; owner: leave AI silent)",
+    "trigger": "EXCLUDED by DD-10 (AI penalty / AI-subject line; owner: leave AI silent)",
+    "subject": "AI driver",
+    "technique": "skip (owner exclusion DD-10)",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "n/a",
+    "calibration": null,
+    "live_test": "n/a (excluded by owner decision)",
+    "confidence": "DERIVED: own AI branch blocked by tracker identity; name route removed (SUB-CLIP BANK FACT). Still EXCLUDED by DD-10."
+   },
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "UNKNOWN",
+    "why": "Kept UNKNOWN: native AI branch sub_41A720 l.57 exists but its tracker is player-only (DERIVED). The name-table route was a PC_RE_STITCH builder and is removed."
+   }
+  },
+  {
+   "eid": 253,
+   "clip": "PWS_AIPENALTY13",
+   "sdt_index": 269,
+   "says": "AI penalty (type 13)",
+   "score": 256,
+   "cooldown": 1.0,
+   "verdict": "UNKNOWN",
+   "reason": "own_emitter_branch_blocked (AI *this unreachable, DERIVED)",
+   "situation": "AI car penalised for cutting track: native AI branch exists but its callers pass the player tracker (DERIVED)",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": true,
+   "suppressed_note": "Native AI emitter sub_41A720 l.47 writes 253 for a non-player car; the cut-track trigger (sub_4BCCC0 l.184, WarningHandler l.186) runs only on the player tracker. Suppression = player-only tracker, plus DD-10 policy.",
+   "emitters": [
+    "sub_41A720 (sub_41A720_0041a720.c:47, AI branch 253)"
+   ],
+   "call_path": "owner exe MainGameTickUpdate -> sub_4BCCC0(this=player+0x4034) -> StopGoPenaltyHandler(aCutTrack) (l.184) -> sub_41A720(*this, aCutTrack)",
+   "gates": [
+    "sub_4BCCC0 l.170-186: cut-track penalty needs dword_7CEF84 and v66 > 1.75 (track limits)",
+    "sub_41A720 AI branch condition as for eid 252 (l.8,39)",
+    "MainGameTickUpdate player gate (owner exe 0x42C8FD-0x42C905)"
+   ],
+   "mod": "",
+   "heard_evidence": "TRIAGE_NOTES.txt: no row. EVF triage: 'X PLAY, AI stop go cutting track, same' (text differs from doc56 label 'AI penalty (type 13)'; code says cut track).",
+   "tier": "DERIVED",
+   "notes": "Own eid 253: no emitter in corpus (literal sweep, 19 dynamic emitters, helpers). Own AI branch blocked by tracker identity (DERIVED). Missing to decide: the store that sets the tracker's first field (whether an AI car can reach sub_41A720 with its own tracker). Name-table semantics no longer matter (PC_RE_STITCH per SUB-CLIP BANK FACT).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (sub_419120)",
+     "result": "cannot produce eid 253: emits 120 (l.37,50), 259 (l.39), 198 (l.57)",
+     "line": "AIDriverStateTransition_00419120.c:37-59"
+    },
+    {
+     "function": "AIFormationLap (sub_41A3A0)",
+     "result": "cannot produce eid 253: emits 6 (l.24), 180-182 (l.35-41)",
+     "line": "AIFormationLap_0041a3a0.c:24-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange (sub_419690)",
+     "result": "cannot produce eid 253: emits 3,4,5,10,16,33 (l.21-47), 72 and 262 (l.57-59); 262 is another event's eid",
+     "line": "AIOvertakeDefendStateChange_00419690.c:21-61"
+    },
+    {
+     "function": "AIPitStrategyState (sub_41A200)",
+     "result": "cannot produce eid 253: emits 42 or 52 (l.13-15)",
+     "line": "AIPitStrategyState_0041a200.c:13-16"
+    },
+    {
+     "function": "AIPositionChangeEvent (sub_4198B0)",
+     "result": "cannot produce eid 253: emits 17/18 (l.30-34) and 7/8/9 (l.44-48)",
+     "line": "AIPositionChangeEvent_004198b0.c:30-48"
+    },
+    {
+     "function": "AISessionPhaseChange (sub_41A2B0)",
+     "result": "cannot produce eid 253: emits 21/22 (l.21,25) and 178/179 (l.32-34); calls AIPositionChangeEvent (l.41)",
+     "line": "AISessionPhaseChange_0041a2b0.c:21-41"
+    },
+    {
+     "function": "AIVehicleDamageEvent (sub_41A170)",
+     "result": "cannot produce eid 253: emits 52 (l.10) or 196 (l.16)",
+     "line": "AIVehicleDamageEvent_0041a170.c:10-19"
+    },
+    {
+     "function": "PerDriverRaceCommentary (sub_419C50)",
+     "result": "cannot produce eid 253: emits 157-177, 158-161, 159 (l.29-164); 260/261 at l.159,164 are other events' eids",
+     "line": "PerDriverRaceCommentary_00419c50.c:29-164"
+    },
+    {
+     "function": "PitExit (sub_41C0F0)",
+     "result": "cannot produce eid 253: emits 397 and 516-535 (l.29-127)",
+     "line": "PitExit_0041c0f0.c:29-127"
+    },
+    {
+     "function": "PositionBasedMessageDisplay (sub_41C4C0)",
+     "result": "cannot produce eid 253: eid = ThunkToFUN004201e0 (sub_4203D0), returns 355-371 or -1",
+     "line": "PositionBasedMessageDisplay_0041c4c0.c:25-26; ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "RaceCommentary (sub_41D630)",
+     "result": "cannot produce eid 253: emits 397, 447-477, 454-456, 459-461, 474, 476",
+     "line": "RaceCommentary_0041d630.c:107-236"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup (sub_41B980)",
+     "result": "cannot produce eid 253: emits 293-336; the literal 252 at l.10 is a struct offset (a1+252), not an eid",
+     "line": "TeamNameDisplayIDLookup_0041b980.c:10-189"
+    },
+    {
+     "function": "TimeBasedMessageChain (sub_41A500)",
+     "result": "cannot produce eid 253: emits 34, 35, 276-279",
+     "line": "TimeBasedMessageChain_0041a500.c:22-61"
+    },
+    {
+     "function": "sub_41A940 (stop/go ignored)",
+     "result": "cannot produce eid 253: emits 149 (l.12) or 243 (l.21)",
+     "line": "sub_41A940_0041a940.c:12-21"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eid 253: emits 208, 211-217, 220",
+     "line": "sub_41AC50_0041ac50.c:25-56"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eid 253: emits 117-119 (l.15-23), 235-238 (l.35-53)",
+     "line": "sub_41B250_0041b250.c:15-53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eid 253: eid = sub_420000, returns 338-354 or -1",
+     "line": "sub_41C440_0041c440.c:14-16; sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "ThunkToFUN004201e0 (sub_4203D0) helper",
+     "result": "returns 355-371 or -1 only; not eid 253",
+     "line": "ThunkToFUN004201e0_004203d0.c:7-49"
+    },
+    {
+     "function": "sub_420000 helper",
+     "result": "returns 338-354 or -1 only; not eid 253",
+     "line": "sub_420000_00420000.c:7-47"
+    },
+    {
+     "function": "sub_41A720 (infraction emitter, string-keyed)",
+     "result": "player branch writes 151/153/154/155 (l.14-28); AI branch writes 252/253/254/256 (l.43-57); cannot write eid 253 unless it is 252 or 253 (see row)",
+     "line": "sub_41A720_0041a720.c:8-58"
+    },
+    {
+     "function": "Corpus literal sweep (grep -w 253 over functions/*.c)",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): hits are struct offsets, clip-list constants (sub_412E50/sub_412490) or settings; no DriverDataTable/InsertDriverTable call takes 253 as its eid argument",
+     "line": "functions/*.c"
+    },
+    {
+     "function": "DriverNameIDLookup (sub_415D90) via name builder sub_414600",
+     "result": "outputs 266-270 and 271/273 (name branches); never 253; output slot semantics conflict (see notes)",
+     "line": "DriverNameIDLookup_00415d90.c:80,300,521,741; sub_414600_00414600.c:20-63"
+    },
+    {
+     "function": "SoundEventDispatcher (sub_411E90) / RaceEventMessageDispatcher (sub_411BF0) / FontRenderingPrep (sub_411840)",
+     "result": "clip-list path: writes SDT clip index into ref+8; no eid emitter here; FontRenderingPrep has no direct caller in corpus",
+     "line": "SoundEventDispatcher_00411e90.c:45-57; RaceEventMessageDispatcher_00411bf0.c:37; FontRenderingPrep_00411840.c:36-45"
+    },
+    {
+     "function": "sub_41A720 AI branch",
+     "result": "emits 253 only if *this is non-player; callers pass the player tracker",
+     "line": "sub_41A720_0041a720.c:39-47"
+    },
+    {
+     "function": "StopGoPenaltyHandler / WarningHandler",
+     "result": "cut-track callers are sub_4BCCC0 only (l.184,186); WarningHandler does not call sub_41A720",
+     "line": "sub_4BCCC0_004bccc0.c:184-186"
+    },
+    {
+     "function": "DriverNameIDLookup branch l.80 / l.741",
+     "result": "SUPERSEDED 2026-10-18 (SUB-CLIP BANK FACT: sub-clip and name-table indices read PC_RE_STITCH): writes 269 for a4==0 (Olivier Panis name route, semantics unresolved)",
+     "line": "DriverNameIDLookup_00415d90.c:80,741"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "sub-clip / name-table / subclip_resolver routes removed as evidence; main-clip route re-judged; see stitch_recheck",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "play_plan": {
+    "meaning": "Engineer says an AI car cut the track and is penalised (real F1: track-limits penalty).",
+    "when_it_should_play": "EXCLUDED by DD-10 (AI penalty / AI-subject line; owner: leave AI silent)",
+    "trigger": "EXCLUDED by DD-10 (AI penalty / AI-subject line; owner: leave AI silent)",
+    "subject": "AI driver",
+    "technique": "skip (owner exclusion DD-10)",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "n/a",
+    "conflicts": "n/a",
+    "calibration": null,
+    "live_test": "n/a (excluded by owner decision)",
+    "confidence": "DERIVED: own AI branch blocked by tracker identity; name route removed (SUB-CLIP BANK FACT). Still EXCLUDED by DD-10."
+   },
+   "stitch_recheck": {
+    "old_verdict": "UNKNOWN",
+    "new_verdict": "UNKNOWN",
+    "why": "Kept UNKNOWN: native AI branch sub_41A720 l.47 exists but its tracker is player-only (DERIVED). The name-table route was a PC_RE_STITCH builder and is removed."
+   }
+  }
+ ]
+}

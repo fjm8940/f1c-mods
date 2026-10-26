@@ -1,0 +1,496 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 48,
+ "clip": "PWS_PIT01",
+ "says": "Pit on this lap",
+ "dump_rows_for_clip": [
+  {
+   "eid": 49,
+   "hex": "0x0031",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 47,
+   "sdt_index": 48,
+   "clip_name": "PWS_PIT01.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 363,
+   "hex": "0x016B",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 47,
+   "sdt_index": 48,
+   "clip_name": "PWS_PIT01.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  47
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 49,
+   "hex": "0x0031",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 47,
+   "sdt_index": 48,
+   "clip_name": "PWS_PIT01.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 363,
+   "hex": "0x016B",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 47,
+   "sdt_index": 48,
+   "clip_name": "PWS_PIT01.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  49
+ ],
+ "literal_hits": {
+  "49": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 569,
+       "text": "v5 = a4 != 0 ? 89 : 49;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 34,
+       "text": "v4 = a4 != 0 ? 49 : 70;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 54,
+    "first": [
+     "AIStateBufferInitialize",
+     "ArrayProcessingWithScaling",
+     "ArrayProcessingWithValidation",
+     "AudioBufferMixing",
+     "AudioResampler",
+     "AudioSubbandSynthesisFilterbank",
+     "CollisionGridInit49x49",
+     "ConfigIniParser",
+     "FAILOverviewSaysFIRCrossfeedButDispatchesToIMDCT",
+     "FAILTriageUnknownUnidentifiedButIsActuallyConstr",
+     "F_3DSoundEmitter",
+     "F_3DTransformWithSIMD",
+     "FunctionCallWrapper_8940",
+     "IDToValueMapper",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "PerIndexBufferCopyWithInterleavedOffset",
+     "PerIndexStructFieldSetter",
+     "PhysicsDefaultsInitializer",
+     "PhysicsStateStructureInitializer",
+     "PlayerOptionsInitializer",
+     "RaceEventMessageDispatcher",
+     "SceneFileFilterBuilder",
+     "ShortComputation_3060",
+     "ShortComputation_5e30",
+     "StateReset",
+     "StructInitWithFloatConstants",
+     "TextureRowCopy",
+     "TrackPositionNameFormatter",
+     "UnidentifiedLogicFunctionTable",
+     "WheelSpringDamperForceAndSteering",
+     "sub_44ED10",
+     "sub_454350",
+     "sub_455580",
+     "sub_496560",
+     "sub_49DE40",
+     "sub_4AE750",
+     "sub_4BCCC0",
+     "sub_4C4D50",
+     "sub_4E4790",
+     "sub_51030D"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 48 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "RaceEventMessageDispatcher",
+    "file": "RaceEventMessageDispatcher_00411bf0.c",
+    "hits": [
+     {
+      "line": 22,
+      "text": "case 0x30:"
+     }
+    ]
+   },
+   {
+    "function": "SoundEventDispatcher",
+    "file": "SoundEventDispatcher_00411e90.c",
+    "hits": [
+     {
+      "line": 94,
+      "text": "case 0x30:"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:96: | 49 | PWS_PIT01 | Player's callToBox == 1 AND lapNumber (veh+0x403C) == the lap the stop was scheduled for.  | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:97: | 363 | PWS_PIT01 (alt eid) | Same as eid 49 with context variation | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:239: | `PWS_PIT01` | 48 | 49,363 | Pit on this lap |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:64: | PWS_PIT01 | 48 | 49 | Pitting this lap — before crossing S/F line |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:424: | `PWS_PIT01` | 48 | 49, 363 | — | Pit on this lap | user triage: Z, driving past the main straight and pitting meant to be done on this lap, either pit stop strategy or when playe",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:336: | `PWS_PIT01` | 49, 363 | Pit on this lap | eid 363 has no call site |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:196: PWS_PENALTY08, PWS_PIT01, PWS_PIT03, PWS_PIT06, PWS_PIT08, PWS_PIT13,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:208: - Pit-lane zone detection (`PWS_PIT01/03/06/08`, `RE_PD_STALLED*`): \"no single",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:131: | 48 | `PWS_PIT01` | Z | - | Z, driving past the main straight and pitting meant to be done on this lap, either pit stop strategy or when player has activated the pit stop request ",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:265: | `PWS_PIT01` | 48 | 49,363 | Pit on this lap |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:60: | `PWS_PIT01` | 48 | 49, 363 | user triage: Z, driving past the main straight and pitting meant to be done on this lap, either pit stop strategy or when player has activated the pi"
+ ],
+ "mod_sources": [
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:3210: * and 196 is PWS_AIPIT01, one of the lines being suppressed - so keying on the",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:3276: * and 196 is PWS_AIPIT01, one of the lines being suppressed - so keying on the",
+  "development\\mods\\full_safety_car\\to_be_shipped\\pace_probe_standings.c:3277: * and 196 is PWS_AIPIT01, one of the lines being suppressed - so keying on the",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9.c:3341: * and 196 is PWS_AIPIT01, one of the lines being suppressed - so keying on the",
+  "development\\mods\\full_safety_car\\to_be_shipped\\safety_car_v0.9_protected.c:3373: * and 196 is PWS_AIPIT01, one of the lines being suppressed - so keying on the",
+  "development\\mods\\full_safety_car_sdk_lab\\dll\\pace_probe_sdk_lab.c:3210: * and 196 is PWS_AIPIT01, one of the lines being suppressed - so keying on the",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:455: #define EID_PITCALL      49   /* PWS_PIT01 \"pit this lap\" - the critical call */",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:3734: #define EID_PIT01_V     49      /* PWS_PIT01 \"pit this lap\" */",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:5538: #define EID_PIT01      49       /* PWS_PIT01 \"pit this lap\" */",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:5748: 5000, 10000, EID_PIT01);",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:5756: * car in - radio PWS_PIT01 \"pit this lap\" (eid 49, unblocked, cooldown",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:5763: commentary_say(EID_PIT01);",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:5764: logf_(\"COOLING: engineer calls the car in (eid %d)\", EID_PIT01);",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:5980: radio_req(EID_PIT01, MFR_P_INFO);",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:5983: logf_(\"COOLING: engineer calls the car in (eid %d)\", EID_PIT01);",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:6261: say_after(R_FUELPIT, pit, 3000, 8000, EID_PIT01_V);",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:6326: MFV_FUELLEAK02, EID_PIT01_V, R_FUELLEAK1, MFV_FUELLEAK01);",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:400: #define EID_PITCALL      49   /* PWS_PIT01 \"pit this lap\" - the critical call */",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:3429: #define EID_PIT01_V     49      /* PWS_PIT01 \"pit this lap\" */",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:5001: #define EID_PIT01      49       /* PWS_PIT01 \"pit this lap\" */",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:5211: 5000, 10000, EID_PIT01);",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:5219: * car in - radio PWS_PIT01 \"pit this lap\" (eid 49, unblocked, cooldown",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:5226: commentary_say(EID_PIT01);",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:5227: logf_(\"COOLING: engineer calls the car in (eid %d)\", EID_PIT01);",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:5442: radio_req(EID_PIT01, MFR_P_INFO);"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "mechanical_failures",
+    "mod_version": "1.0.7 public (RELEASE_REGISTRY 2026-10-12); dev dll/",
+    "eid": 49,
+    "mechanism": "dll_emit",
+    "condition": "critical pit call: commentary_say(EID_PITCALL) on engine/water/fuel critical state; EID_PIT01 cooling call-in",
+    "source": "development/mods/mechanical_failures/dll/engine_failure.c:455,3018,4830,5763,5391,6132",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Pit on this lap"
+   }
+  ],
+  "note": "user triage: Z, driving past the main straight and pitting meant to be done on this lap, either pit stop strategy or when player has activated the pit stop request BEFORE crossing the S/F LINE",
+  "triage": {
+   "sdt_index": 48,
+   "text": "Z, driving past the main straight and pitting meant to be done on this lap, either pit stop strategy or when player has activated the pit stop request BEFORE crossing the S/F LINE",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

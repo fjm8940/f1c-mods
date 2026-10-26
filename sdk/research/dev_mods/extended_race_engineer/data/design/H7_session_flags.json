@@ -1,0 +1,1058 @@
+{
+ "schema": "ere.design.v1",
+ "batch": "H7_session_flags",
+ "rows": [
+  {
+   "sdt_index": 9,
+   "pws_eid": 11,
+   "all_eids": [
+    11,
+    302
+   ],
+   "says": "Some drivers on track",
+   "eid_source": "full_event_dump.json eid 11 (PWS_QUAL29.mp2); docs/56 row 11",
+   "eid_isolation_tested": true,
+   "already_modded_by": "traffic_density_commentary (development/mods/traffic_density_commentary/traffic_density_commentary.c)",
+   "native_emitter": null,
+   "why_silent": "none_owned",
+   "technique": "owned_by_other_mod",
+   "subject": "team",
+   "trigger": "SessionType==5 and active-car count in 6-10 band, latched once per band per qualifying session",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4",
+     "tier": "FACT",
+     "source": "development/mods/traffic_density_commentary/traffic_density_commentary.c:63"
+    },
+    {
+     "what": "active car",
+     "locator": "veh+0x32C8 != -1",
+     "tier": "FACT",
+     "source": "development/mods/traffic_density_commentary/traffic_density_commentary.c:40-45"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 = on track)",
+     "tier": "CONFIRMED",
+     "source": "development/mods/traffic_density_commentary/traffic_density_commentary.c:77"
+    }
+   ],
+   "latch_cooldown": "once per band per qualifying session, reset on leaving qualifying (development/mods/traffic_density_commentary/traffic_density_commentary.c:46-48,157)",
+   "calibration_needed": null,
+   "conflicts": "TV twin 302 is a team-name eid in sub_41B980 (functions/TeamNameDisplayIDLookup_0041b980.c:49)",
+   "live_test": "Owner live-confirmed 2026-07-28 (clip_assignments note). No new test needed.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/traffic_density_commentary/traffic_density_commentary.c:40-48",
+    "development/mods/traffic_density_commentary/traffic_density_commentary.c:63-77",
+    "data/clip_assignments.json note PWS_QUAL29"
+   ],
+   "open_questions": "none for H7",
+   "clip": "PWS_QUAL29"
+  },
+  {
+   "sdt_index": 10,
+   "pws_eid": 12,
+   "all_eids": [
+    12,
+    303
+   ],
+   "says": "Very few drivers on track",
+   "eid_source": "full_event_dump.json eid 12; docs/56 row 12",
+   "eid_isolation_tested": true,
+   "already_modded_by": "traffic_density_commentary (development/mods/traffic_density_commentary/traffic_density_commentary.c)",
+   "native_emitter": null,
+   "why_silent": "none_owned",
+   "technique": "owned_by_other_mod",
+   "subject": "team",
+   "trigger": "SessionType==5 and active-car count in 1-5 band, latched per band",
+   "state_reads": [
+    {
+     "what": "active car",
+     "locator": "veh+0x32C8 != -1",
+     "tier": "FACT",
+     "source": "development/mods/traffic_density_commentary/traffic_density_commentary.c:40-43"
+    }
+   ],
+   "latch_cooldown": "once per band per qualifying session",
+   "calibration_needed": null,
+   "conflicts": "TV twin 303 is a team-name eid (functions/TeamNameDisplayIDLookup_0041b980.c:53)",
+   "live_test": "Owner live-confirmed 2026-07-28. Earlier bug fired it at quali end (development/mods/traffic_density_commentary/traffic_density_commentary.c:146).",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/traffic_density_commentary/traffic_density_commentary.c:43",
+    "development/mods/traffic_density_commentary/traffic_density_commentary.c:146"
+   ],
+   "open_questions": "none for H7",
+   "clip": "PWS_QUAL28"
+  },
+  {
+   "sdt_index": 13,
+   "pws_eid": 15,
+   "all_eids": [
+    15,
+    306
+   ],
+   "says": "Most drivers on track",
+   "eid_source": "full_event_dump.json eid 15; docs/56 row 15",
+   "eid_isolation_tested": true,
+   "already_modded_by": "traffic_density_commentary (development/mods/traffic_density_commentary/traffic_density_commentary.c)",
+   "native_emitter": null,
+   "why_silent": "none_owned",
+   "technique": "owned_by_other_mod",
+   "subject": "team",
+   "trigger": "SessionType==5 and active-car count 11+, latched per band",
+   "state_reads": [
+    {
+     "what": "active car",
+     "locator": "veh+0x32C8 != -1",
+     "tier": "FACT",
+     "source": "development/mods/traffic_density_commentary/traffic_density_commentary.c:40-45"
+    }
+   ],
+   "latch_cooldown": "once per band per qualifying session",
+   "calibration_needed": null,
+   "conflicts": "TV twin 306 is a team-name eid (functions/TeamNameDisplayIDLookup_0041b980.c:65)",
+   "live_test": "Owner live-confirmed 2026-07-28.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/traffic_density_commentary/traffic_density_commentary.c:45"
+   ],
+   "open_questions": "none for H7",
+   "clip": "PWS_QUAL30"
+  },
+  {
+   "sdt_index": 21,
+   "pws_eid": 23,
+   "all_eids": [
+    23,
+    314
+   ],
+   "says": "AI driver starting 1st run",
+   "eid_source": "full_event_dump.json eid 23 sdt 21; docs/56 row 23",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "SessionType==5; AI car leaving pit exit onto its first flying run (exact transition UNKNOWN)",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4",
+     "tier": "FACT",
+     "source": "docs/EMITTER_SPECS.md session type row"
+    },
+    {
+     "what": "AI subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "CONFIRMED",
+     "source": "task brief; functions/... f1c_pit_voice.h (SDK)"
+    }
+   ],
+   "latch_cooldown": "per AI car per run (proposed)",
+   "calibration_needed": "run counter per AI car in qualifying (UNKNOWN in corpus); exact run definition",
+   "conflicts": "TV twin 314 is a team-name eid (functions/TeamNameDisplayIDLookup_0041b980.c assignments)",
+   "live_test": "Owner: watch one AI car's qualifying runs and its subject line.",
+   "tier": "GUESS",
+   "sources": [
+    "no literal site and no dynamic candidate for this eid in mods/extended_vanilla_features/data/emitter_index.json",
+    "docs/56 row 23",
+    "mods/extended_vanilla_features/data/full_event_dump.json eid 23"
+   ],
+   "open_questions": "Run counter not found in corpus; UNKNOWN how to tell first run apart.",
+   "clip": "PWS_2001_17"
+  },
+  {
+   "sdt_index": 22,
+   "pws_eid": 24,
+   "all_eids": [
+    24,
+    315
+   ],
+   "says": "AI driver starting 2nd run",
+   "eid_source": "full_event_dump.json eid 24 sdt 22; docs/56 row 24",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "SessionType==5; AI run counter == 2 (UNKNOWN counter)",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4",
+     "tier": "FACT",
+     "source": "docs/EMITTER_SPECS.md session type row"
+    },
+    {
+     "what": "AI subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "CONFIRMED",
+     "source": "task brief; functions/... f1c_pit_voice.h (SDK)"
+    }
+   ],
+   "latch_cooldown": "per AI car per run (proposed)",
+   "calibration_needed": "run counter per AI car in qualifying (UNKNOWN in corpus); exact run definition",
+   "conflicts": "TV twin 315 is a team-name eid (functions/TeamNameDisplayIDLookup_0041b980.c assignments)",
+   "live_test": "Owner: watch one AI car's qualifying runs and its subject line.",
+   "tier": "GUESS",
+   "sources": [
+    "no literal site and no dynamic candidate for this eid in mods/extended_vanilla_features/data/emitter_index.json",
+    "docs/56 row 24",
+    "mods/extended_vanilla_features/data/full_event_dump.json eid 24"
+   ],
+   "open_questions": "Same counter problem as 1st run.",
+   "clip": "PWS_2001_18"
+  },
+  {
+   "sdt_index": 23,
+   "pws_eid": 25,
+   "all_eids": [
+    25,
+    316
+   ],
+   "says": "AI driver starting 3rd run",
+   "eid_source": "full_event_dump.json eid 25 sdt 23; docs/56 row 25",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "SessionType==5; AI run counter == 3 (UNKNOWN counter)",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4",
+     "tier": "FACT",
+     "source": "docs/EMITTER_SPECS.md session type row"
+    },
+    {
+     "what": "AI subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "CONFIRMED",
+     "source": "task brief; functions/... f1c_pit_voice.h (SDK)"
+    }
+   ],
+   "latch_cooldown": "per AI car per run (proposed)",
+   "calibration_needed": "run counter per AI car in qualifying (UNKNOWN in corpus); exact run definition",
+   "conflicts": "TV twin 316 is a team-name eid (functions/TeamNameDisplayIDLookup_0041b980.c assignments)",
+   "live_test": "Owner: watch one AI car's qualifying runs and its subject line.",
+   "tier": "GUESS",
+   "sources": [
+    "no literal site and no dynamic candidate for this eid in mods/extended_vanilla_features/data/emitter_index.json",
+    "docs/56 row 25",
+    "mods/extended_vanilla_features/data/full_event_dump.json eid 25"
+   ],
+   "open_questions": "Same counter problem as 1st run.",
+   "clip": "PWS_2001_19"
+  },
+  {
+   "sdt_index": 24,
+   "pws_eid": 26,
+   "all_eids": [
+    26,
+    317
+   ],
+   "says": "AI driver starting 4th run",
+   "eid_source": "full_event_dump.json eid 26 sdt 24; docs/56 row 26",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "SessionType==5; AI run counter == 4 (UNKNOWN counter)",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4",
+     "tier": "FACT",
+     "source": "docs/EMITTER_SPECS.md session type row"
+    },
+    {
+     "what": "AI subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "CONFIRMED",
+     "source": "task brief; functions/... f1c_pit_voice.h (SDK)"
+    }
+   ],
+   "latch_cooldown": "per AI car per run (proposed)",
+   "calibration_needed": "run counter per AI car in qualifying (UNKNOWN in corpus); exact run definition",
+   "conflicts": "TV twin 317 is a team-name eid (functions/TeamNameDisplayIDLookup_0041b980.c assignments)",
+   "live_test": "Owner: watch one AI car's qualifying runs and its subject line.",
+   "tier": "GUESS",
+   "sources": [
+    "no literal site and no dynamic candidate for this eid in mods/extended_vanilla_features/data/emitter_index.json",
+    "docs/56 row 26",
+    "mods/extended_vanilla_features/data/full_event_dump.json eid 26"
+   ],
+   "open_questions": "Same counter problem as 1st run.",
+   "clip": "PWS_2001_20"
+  },
+  {
+   "sdt_index": 28,
+   "pws_eid": 30,
+   "all_eids": [
+    30,
+    321
+   ],
+   "says": "AI driver ahead on Flying Lap",
+   "eid_source": "full_event_dump.json eid 30 sdt 28; docs/56 row 30",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "SessionType==5; AI car on a flying lap (UNKNOWN detector) and ahead of the player (UNKNOWN comparator)",
+   "state_reads": [
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (1 in-lap, 2 lane, 3 box, 4 exit, 0 track)",
+     "tier": "CONFIRMED",
+     "source": "development/mods/traffic_density_commentary/traffic_density_commentary.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "CONFIRMED",
+     "source": "docs/EMITTER_SPECS.md:157"
+    },
+    {
+     "what": "lap distance",
+     "locator": "veh+0x4044",
+     "tier": "CONFIRMED",
+     "source": "task brief"
+    }
+   ],
+   "latch_cooldown": "per AI car per run (proposed)",
+   "calibration_needed": "run counter per AI car in qualifying (UNKNOWN in corpus); exact run definition",
+   "conflicts": "TV twin 321 is a team-name eid (functions/TeamNameDisplayIDLookup_0041b980.c assignments)",
+   "live_test": "Owner: watch one AI car's qualifying runs and its subject line.",
+   "tier": "GUESS",
+   "sources": [
+    "no literal site and no dynamic candidate for this eid in mods/extended_vanilla_features/data/emitter_index.json",
+    "docs/56 row 30",
+    "mods/extended_vanilla_features/data/full_event_dump.json eid 30"
+   ],
+   "open_questions": "UNKNOWN: the 'ahead' comparator (which car, what measure) and the flying-lap detector.",
+   "clip": "PWS_2001_14"
+  },
+  {
+   "sdt_index": 29,
+   "pws_eid": 31,
+   "all_eids": [
+    31,
+    322
+   ],
+   "says": "AI driver ahead on In Lap",
+   "eid_source": "full_event_dump.json eid 31 sdt 29; docs/56 row 31",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "SessionType==5; AI car with pittingStatus==1 (in-lap) and ahead of the player (UNKNOWN comparator)",
+   "state_reads": [
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (1 in-lap, 2 lane, 3 box, 4 exit, 0 track)",
+     "tier": "CONFIRMED",
+     "source": "development/mods/traffic_density_commentary/traffic_density_commentary.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "CONFIRMED",
+     "source": "docs/EMITTER_SPECS.md:157"
+    },
+    {
+     "what": "lap distance",
+     "locator": "veh+0x4044",
+     "tier": "CONFIRMED",
+     "source": "task brief"
+    }
+   ],
+   "latch_cooldown": "per AI car per run (proposed)",
+   "calibration_needed": "run counter per AI car in qualifying (UNKNOWN in corpus); exact run definition",
+   "conflicts": "TV twin 322 is a team-name eid (functions/TeamNameDisplayIDLookup_0041b980.c assignments)",
+   "live_test": "Owner: watch one AI car's qualifying runs and its subject line.",
+   "tier": "GUESS",
+   "sources": [
+    "no literal site and no dynamic candidate for this eid in mods/extended_vanilla_features/data/emitter_index.json",
+    "docs/56 row 31",
+    "mods/extended_vanilla_features/data/full_event_dump.json eid 31"
+   ],
+   "open_questions": "eid 31 has priority 1 in the dump; check ordering vs 30/32 before shipping.",
+   "clip": "PWS_2001_15"
+  },
+  {
+   "sdt_index": 30,
+   "pws_eid": 32,
+   "all_eids": [
+    32,
+    323
+   ],
+   "says": "AI driver ahead on Out Lap",
+   "eid_source": "full_event_dump.json eid 32 sdt 30; docs/56 row 32",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "SessionType==5; AI car on out-lap (exact pit-exit transition UNKNOWN) and ahead of the player (UNKNOWN comparator)",
+   "state_reads": [
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (1 in-lap, 2 lane, 3 box, 4 exit, 0 track)",
+     "tier": "CONFIRMED",
+     "source": "development/mods/traffic_density_commentary/traffic_density_commentary.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "CONFIRMED",
+     "source": "docs/EMITTER_SPECS.md:157"
+    },
+    {
+     "what": "lap distance",
+     "locator": "veh+0x4044",
+     "tier": "CONFIRMED",
+     "source": "task brief"
+    }
+   ],
+   "latch_cooldown": "per AI car per run (proposed)",
+   "calibration_needed": "run counter per AI car in qualifying (UNKNOWN in corpus); exact run definition",
+   "conflicts": "TV twin 323 is a team-name eid (functions/TeamNameDisplayIDLookup_0041b980.c assignments)",
+   "live_test": "Owner: watch one AI car's qualifying runs and its subject line.",
+   "tier": "GUESS",
+   "sources": [
+    "no literal site and no dynamic candidate for this eid in mods/extended_vanilla_features/data/emitter_index.json",
+    "docs/56 row 32",
+    "mods/extended_vanilla_features/data/full_event_dump.json eid 32"
+   ],
+   "open_questions": "eid 32 has priority 1 in the dump; exact out-lap transition UNKNOWN.",
+   "clip": "PWS_2001_13"
+  },
+  {
+   "sdt_index": 0,
+   "pws_eid": null,
+   "all_eids": [
+    293,
+    397,
+    426
+   ],
+   "says": "Team front row lockout",
+   "eid_source": "full_event_dump.json eids 293/397/426 (all >= 292, TV range); docs/56 rows 293/397/426; no PWS-range eid",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_420490 functions/PositionChangeDetector_00420490.c:111 and :189 (eid 397); eid 293 is also the 1999 Arrows team-name line in functions/TeamNameDisplayIDLookup_0041b980.c:13,189",
+   "why_silent": "orphan",
+   "technique": "carrier_score",
+   "subject": "team",
+   "trigger": "Front row P1 and P2 share a team id (team at record +408; P1 status +412==1, P2 +412==2, DERIVED from field reads). Polarity of the native 397 site is unclear: v36/v37 are set when ANY teammate is found (PositionChangeDetector_00420490.c:79-94,149-164), and the emit at :101 needs !v36. UNKNOWN which combination is the lockout.",
+   "state_reads": [
+    {
+     "what": "team id",
+     "locator": "record +408",
+     "tier": "DERIVED",
+     "source": "functions/PositionChangeDetector_00420490.c:77,79,93,149,163"
+    },
+    {
+     "what": "rank selector",
+     "locator": "record +412 == 1 / == 2",
+     "tier": "DERIVED",
+     "source": "functions/PositionChangeDetector_00420490.c:47,117"
+    }
+   ],
+   "latch_cooldown": "once per front-row change (proposed)",
+   "calibration_needed": "a free PWS carrier eid (eid 0 has no clip and score -1 in the dump; not proven free); carrier score rewritten to 0 (QUAL32 sdt 0)",
+   "conflicts": "Carrier 132 is the SC carrier (SLOWCAR01 score 130), do not use. TV eid 293 is a native team line, so the TV twin cannot be the play path.",
+   "live_test": "Owner: a qualifying session where P1 and P2 share a team, or a harness. Confirm the carrier plays PWS_QUAL32 once.",
+   "tier": "DERIVED",
+   "sources": [
+    "functions/PositionChangeDetector_00420490.c:47-189",
+    "functions/TeamNameDisplayIDLookup_0041b980.c:13,189",
+    "mods/extended_vanilla_features/data/full_event_dump.json eids 0/293/397/426",
+    "development/mods/full_safety_car/dll/pace_probe_standings.c:532-547 (carrier method)"
+   ],
+   "open_questions": "Which team/rank predicate is the owner's lockout; which PWS eid is a safe carrier; whether a 9875 score on TV eids 397/426 matters",
+   "clip": "PWS_QUAL32"
+  },
+  {
+   "sdt_index": 130,
+   "pws_eid": 126,
+   "all_eids": [
+    126,
+    419
+   ],
+   "says": "Green flag conditions",
+   "eid_source": "full_event_dump.json eid 126 (priority 70, cooldown 5.0); docs/56 row 160",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_41B3C0 functions/PitSelectionStateMachine_0041b3c0.c:72-73 (LABEL_37)",
+   "why_silent": "gate_never_true",
+   "technique": "hook_native",
+   "subject": "team",
+   "trigger": "Flag-clear path (a2==0 from a caller UNKNOWN). Needs this[band+316]==2 (set by a raise, functions/PitSelectionStateMachine_0041b3c0.c:31,148) and returns early when RacePhase==5 (functions/PitSelectionStateMachine_0041b3c0.c:36). 126 is chosen when band v7 equals the projected band v8 (:25-26,72-73).",
+   "state_reads": [
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8",
+     "tier": "CONFIRMED",
+     "source": "docs/EMITTER_SPECS.md:405"
+    },
+    {
+     "what": "RacePhase==5 is racing",
+     "locator": "0x007C56A8 == 5",
+     "tier": "DERIVED",
+     "source": "functions/sub_4D1730_004d1730.c:48 gate; development/mods/full_safety_car/dll/pace_probe_standings.c:336 comment"
+    },
+    {
+     "what": "sector-yellow pending state",
+     "locator": "this[band+316] (caller object)",
+     "tier": "DERIVED",
+     "source": "functions/AISessionModeTransition_004193a0.c:38"
+    }
+   ],
+   "latch_cooldown": "cooldown 5.0 in dump; one green per clear (proposed latch)",
+   "calibration_needed": "Live read of dword_7C56A8 during a real yellow raise and clear. If it stays 5 while racing, line 36 blocks 126/133/135/137 in every racing phase.",
+   "conflicts": "Shares the same gate as 133/135/137. RacePhase 8 (safety car) blocks the whole dispatcher at line 11.",
+   "live_test": "Owner: memory watch of dword_7C56A8 across a yellow clear (not injection). Prediction: value 5 throughout racing explains the silence.",
+   "tier": "DERIVED",
+   "sources": [
+    "functions/PitSelectionStateMachine_0041b3c0.c:11",
+    "functions/PitSelectionStateMachine_0041b3c0.c:31-37",
+    "functions/PitSelectionStateMachine_0041b3c0.c:72-73",
+    "functions/PitSelectionStateMachine_0041b3c0.c:83",
+    "functions/PitSelectionStateMachine_0041b3c0.c:101",
+    "functions/sub_4D1730_004d1730.c:48",
+    "functions/AISessionModeTransition_004193a0.c:38"
+   ],
+   "open_questions": "Is RacePhase 5 racing on the owner's build; which caller passes a2==0 (inspect tool lists callers 0x4BCCC0 and 0x4D1730, call text not found in the decompiled files); meaning of a4 (zone end)",
+   "clip": "PWS_GREEN01"
+  },
+  {
+   "sdt_index": 142,
+   "pws_eid": 133,
+   "all_eids": [
+    133
+   ],
+   "says": "Sector 1 cleared",
+   "eid_source": "full_event_dump.json eid 133 (priority 40, cooldown 5.0); docs/56 row 167",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_41B3C0 functions/PitSelectionStateMachine_0041b3c0.c:101",
+   "why_silent": "gate_never_true",
+   "technique": "hook_native",
+   "subject": "team",
+   "trigger": "Sector 1 yellow cleared: a2==0, band 1 (this[1+316]==2, raised by AISessionModeTransition v5==1 which emits 134), projected band 0 (:101). Same RacePhase gate as GREEN01.",
+   "state_reads": [
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8",
+     "tier": "CONFIRMED",
+     "source": "docs/EMITTER_SPECS.md:405"
+    },
+    {
+     "what": "sector pending",
+     "locator": "this[1+316]",
+     "tier": "DERIVED",
+     "source": "functions/AISessionModeTransition_004193a0.c:20-23,38"
+    }
+   ],
+   "latch_cooldown": "cooldown 5.0 in dump; latch proposed",
+   "calibration_needed": "RacePhase value during the clear",
+   "conflicts": "Same gate as 126/135/137. Band index 1 = sector 1 (134 raise, docs/56 row 168).",
+   "live_test": "Owner: yellow in sector 1, clear it, watch RacePhase.",
+   "tier": "DERIVED",
+   "sources": [
+    "functions/PitSelectionStateMachine_0041b3c0.c:36",
+    "functions/PitSelectionStateMachine_0041b3c0.c:101",
+    "functions/AISessionModeTransition_004193a0.c:20-23",
+    "docs/56-voice-line-reference-map.md:168"
+   ],
+   "open_questions": "Does the owner's yellow clear ever happen with RacePhase != 5?",
+   "clip": "PWS_YELLOW04"
+  },
+  {
+   "sdt_index": 144,
+   "pws_eid": 135,
+   "all_eids": [
+    135
+   ],
+   "says": "Sector 2 cleared",
+   "eid_source": "full_event_dump.json eid 135 (priority 40, cooldown 5.0); docs/56 row 169",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_41B3C0 functions/PitSelectionStateMachine_0041b3c0.c:83",
+   "why_silent": "gate_never_true",
+   "technique": "hook_native",
+   "subject": "team",
+   "trigger": "Sector 2 yellow cleared: a2==0, band 2 (this[2+316]==2, raised by AISessionModeTransition v5==2 which emits 136), projected band 1 (:83). Same RacePhase gate.",
+   "state_reads": [
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8",
+     "tier": "CONFIRMED",
+     "source": "docs/EMITTER_SPECS.md:405"
+    }
+   ],
+   "latch_cooldown": "cooldown 5.0; latch proposed",
+   "calibration_needed": "RacePhase during the clear",
+   "conflicts": "Same gate as 126/133/137",
+   "live_test": "Owner: yellow in sector 2, clear it, watch RacePhase.",
+   "tier": "DERIVED",
+   "sources": [
+    "functions/PitSelectionStateMachine_0041b3c0.c:36",
+    "functions/PitSelectionStateMachine_0041b3c0.c:83",
+    "functions/AISessionModeTransition_004193a0.c:26-29",
+    "docs/56-voice-line-reference-map.md:169"
+   ],
+   "open_questions": "As YELLOW04",
+   "clip": "PWS_YELLOW05"
+  },
+  {
+   "sdt_index": 146,
+   "pws_eid": 137,
+   "all_eids": [
+    137
+   ],
+   "says": "Sector 3 cleared",
+   "eid_source": "full_event_dump.json eid 137 (priority 40, cooldown 5.0); docs/56 row 171",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_41B3C0 functions/PitSelectionStateMachine_0041b3c0.c:55",
+   "why_silent": "gate_never_true",
+   "technique": "hook_native",
+   "subject": "team",
+   "trigger": "Sector 3 yellow cleared: a2==0, band 0 (this[0+316]==2, raised by AISessionModeTransition else-branch which emits 138), projected band 2 (:55). Same RacePhase gate.",
+   "state_reads": [
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8",
+     "tier": "CONFIRMED",
+     "source": "docs/EMITTER_SPECS.md:405"
+    }
+   ],
+   "latch_cooldown": "cooldown 5.0; latch proposed",
+   "calibration_needed": "RacePhase during the clear",
+   "conflicts": "Same gate",
+   "live_test": "Owner: yellow in sector 3, clear it, watch RacePhase.",
+   "tier": "DERIVED",
+   "sources": [
+    "functions/PitSelectionStateMachine_0041b3c0.c:36",
+    "functions/PitSelectionStateMachine_0041b3c0.c:55",
+    "functions/AISessionModeTransition_004193a0.c:34-35",
+    "docs/56-voice-line-reference-map.md:171"
+   ],
+   "open_questions": "As YELLOW04",
+   "clip": "PWS_YELLOW06"
+  },
+  {
+   "sdt_index": 135,
+   "pws_eid": 131,
+   "all_eids": [
+    131,
+    416
+   ],
+   "says": "Red flag - session stopped",
+   "eid_source": "full_event_dump.json eid 131 (priority 70, cooldown 1.0); docs/56 row 165",
+   "eid_isolation_tested": true,
+   "already_modded_by": "red_flag (development/mods/red_flag/src/gr44.c, NUMPAD2 path)",
+   "native_emitter": "sub_41B3C0 functions/PitSelectionStateMachine_0041b3c0.c:151 (case 3)",
+   "why_silent": "none_owned",
+   "technique": "owned_by_other_mod",
+   "subject": "team",
+   "trigger": "Owned: red_flag plays it from its own NUMPAD2 full-red-flag procedure (manual hotkey, not game state)",
+   "state_reads": [],
+   "latch_cooldown": "per red-flag trigger (mod)",
+   "calibration_needed": null,
+   "conflicts": "Native case 3 would emit 131 if a caller passes a2==3 (caller UNKNOWN in corpus)",
+   "live_test": "Owned. No ERE action.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/red_flag/src/gr44.c:3484-3485",
+    "development/mods/red_flag/src/gr44.c:10636-10641",
+    "functions/PitSelectionStateMachine_0041b3c0.c:151-152"
+   ],
+   "open_questions": "No native red-flag state is identified in the corpus",
+   "clip": "PWS_RED01"
+  },
+  {
+   "sdt_index": 138,
+   "pws_eid": null,
+   "all_eids": [
+    423
+   ],
+   "says": "Safety car deployed - exiting pits",
+   "eid_source": "full_event_dump.json eid 423 sdt 138; docs/56 row 423 (TV range)",
+   "eid_isolation_tested": true,
+   "already_modded_by": "full_safety_car (development/mods/full_safety_car/dll/pace_probe_standings.c)",
+   "native_emitter": "functions/ConstructorStandingsParser_00420820.c:163 (eid 423; misleading function name)",
+   "why_silent": "orphan",
+   "technique": "owned_by_other_mod",
+   "subject": "team",
+   "trigger": "Owned by the full_safety_car state machine: deploy release (sc_say_later at :4835)",
+   "state_reads": [
+    {
+     "what": "SC score via carrier",
+     "locator": "score 132 on carrier eid 132",
+     "tier": "CONFIRMED",
+     "source": "development/mods/full_safety_car/dll/pace_probe_standings.c:615-619"
+    },
+    {
+     "what": "carrier",
+     "locator": "CARRIER_EID 132",
+     "tier": "CONFIRMED",
+     "source": "development/mods/full_safety_car/dll/pace_probe_standings.c:550"
+    }
+   ],
+   "latch_cooldown": "mod-managed queue (sc_say_later)",
+   "calibration_needed": null,
+   "conflicts": "Carrier 132 is the only PWS holder of score 130 (SLOWCAR01). Native TV sites exist for 423/424 (see native_emitter).",
+   "live_test": "Owned. The mod isolation-tested the five SCAR scores 2026-08-01 (f1c_ida_decompiled/mods/extended_vanilla_features/CLAUDE.md row 2026-08-01).",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/full_safety_car/dll/pace_probe_standings.c:550",
+    "development/mods/full_safety_car/dll/pace_probe_standings.c:615-619",
+    "development/mods/full_safety_car/dll/pace_probe_standings.c:4835"
+   ],
+   "open_questions": "None for ERE; do not duplicate",
+   "clip": "PWS_SCAR01"
+  },
+  {
+   "sdt_index": 139,
+   "pws_eid": null,
+   "all_eids": [
+    425
+   ],
+   "says": "Safety car on track",
+   "eid_source": "full_event_dump.json eid 425 sdt 139; docs/56 row 425 (TV range)",
+   "eid_isolation_tested": true,
+   "already_modded_by": "full_safety_car (development/mods/full_safety_car/dll/pace_probe_standings.c)",
+   "native_emitter": "none found in literal index for 425",
+   "why_silent": "orphan",
+   "technique": "owned_by_other_mod",
+   "subject": "team",
+   "trigger": "Owned by the full_safety_car state machine: on-track state (:4864)",
+   "state_reads": [
+    {
+     "what": "SC score via carrier",
+     "locator": "score 133 on carrier eid 132",
+     "tier": "CONFIRMED",
+     "source": "development/mods/full_safety_car/dll/pace_probe_standings.c:615-619"
+    },
+    {
+     "what": "carrier",
+     "locator": "CARRIER_EID 132",
+     "tier": "CONFIRMED",
+     "source": "development/mods/full_safety_car/dll/pace_probe_standings.c:550"
+    }
+   ],
+   "latch_cooldown": "mod-managed queue (sc_say_later)",
+   "calibration_needed": null,
+   "conflicts": "Carrier 132 is the only PWS holder of score 130 (SLOWCAR01). Native TV sites exist for 423/424 (see native_emitter).",
+   "live_test": "Owned. The mod isolation-tested the five SCAR scores 2026-08-01 (f1c_ida_decompiled/mods/extended_vanilla_features/CLAUDE.md row 2026-08-01).",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/full_safety_car/dll/pace_probe_standings.c:550",
+    "development/mods/full_safety_car/dll/pace_probe_standings.c:615-619",
+    "development/mods/full_safety_car/dll/pace_probe_standings.c:4864"
+   ],
+   "open_questions": "None for ERE; do not duplicate",
+   "clip": "PWS_SCAR02"
+  },
+  {
+   "sdt_index": 140,
+   "pws_eid": null,
+   "all_eids": [
+    424
+   ],
+   "says": "Safety car ending - green this lap",
+   "eid_source": "full_event_dump.json eid 424 sdt 140; docs/56 row 424 (TV range)",
+   "eid_isolation_tested": true,
+   "already_modded_by": "full_safety_car (development/mods/full_safety_car/dll/pace_probe_standings.c)",
+   "native_emitter": "functions/ConstructorStandingsParser_00420820.c:245 (eid 424; misleading function name)",
+   "why_silent": "orphan",
+   "technique": "owned_by_other_mod",
+   "subject": "team",
+   "trigger": "Owned by the full_safety_car state machine: sc_recall warning at start of last lap (:4149)",
+   "state_reads": [
+    {
+     "what": "SC score via carrier",
+     "locator": "score 134 on carrier eid 132",
+     "tier": "CONFIRMED",
+     "source": "development/mods/full_safety_car/dll/pace_probe_standings.c:615-619"
+    },
+    {
+     "what": "carrier",
+     "locator": "CARRIER_EID 132",
+     "tier": "CONFIRMED",
+     "source": "development/mods/full_safety_car/dll/pace_probe_standings.c:550"
+    }
+   ],
+   "latch_cooldown": "mod-managed queue (sc_say_later)",
+   "calibration_needed": null,
+   "conflicts": "Carrier 132 is the only PWS holder of score 130 (SLOWCAR01). Native TV sites exist for 423/424 (see native_emitter).",
+   "live_test": "Owned. The mod isolation-tested the five SCAR scores 2026-08-01 (f1c_ida_decompiled/mods/extended_vanilla_features/CLAUDE.md row 2026-08-01).",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/full_safety_car/dll/pace_probe_standings.c:550",
+    "development/mods/full_safety_car/dll/pace_probe_standings.c:615-619",
+    "development/mods/full_safety_car/dll/pace_probe_standings.c:4149"
+   ],
+   "open_questions": "None for ERE; do not duplicate",
+   "clip": "PWS_SCAR03"
+  },
+  {
+   "sdt_index": 137,
+   "pws_eid": null,
+   "all_eids": [
+    428
+   ],
+   "says": "Safety car in pit lane (2)",
+   "eid_source": "full_event_dump.json eid 428 sdt 137; docs/56 row 428 (TV range)",
+   "eid_isolation_tested": true,
+   "already_modded_by": "full_safety_car (development/mods/full_safety_car/dll/pace_probe_standings.c)",
+   "native_emitter": "none found in literal index for 428",
+   "why_silent": "orphan",
+   "technique": "owned_by_other_mod",
+   "subject": "team",
+   "trigger": "Owned by the full_safety_car state machine: entering pits: SC slot pittingStatus==1 (:4927-4932)",
+   "state_reads": [
+    {
+     "what": "SC score via carrier",
+     "locator": "score 131 on carrier eid 132",
+     "tier": "CONFIRMED",
+     "source": "development/mods/full_safety_car/dll/pace_probe_standings.c:615-619"
+    },
+    {
+     "what": "carrier",
+     "locator": "CARRIER_EID 132",
+     "tier": "CONFIRMED",
+     "source": "development/mods/full_safety_car/dll/pace_probe_standings.c:550"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (SC slot)",
+     "tier": "CONFIRMED",
+     "source": "development/mods/full_safety_car/dll/pace_probe_standings.c:4927"
+    }
+   ],
+   "latch_cooldown": "mod-managed queue (sc_say_later)",
+   "calibration_needed": null,
+   "conflicts": "Carrier 132 is the only PWS holder of score 130 (SLOWCAR01). Native TV sites exist for 423/424 (see native_emitter).",
+   "live_test": "Owned. The mod isolation-tested the five SCAR scores 2026-08-01 (f1c_ida_decompiled/mods/extended_vanilla_features/CLAUDE.md row 2026-08-01).",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/full_safety_car/dll/pace_probe_standings.c:550",
+    "development/mods/full_safety_car/dll/pace_probe_standings.c:615-619",
+    "development/mods/full_safety_car/dll/pace_probe_standings.c:4932"
+   ],
+   "open_questions": "None for ERE; do not duplicate",
+   "clip": "PWS_SCAR05"
+  },
+  {
+   "sdt_index": 292,
+   "pws_eid": 274,
+   "all_eids": [
+    274
+   ],
+   "says": "25% race distance complete",
+   "eid_source": "full_event_dump.json eid 274 sdt 292 cooldown 1.0; mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md section 4",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "player",
+   "trigger": "SessionType==7 and RaceActiveFlag!=0 and player lapNumber >= ceil(TotalRaceLaps*0.25), latched once per race",
+   "state_reads": [
+    {
+     "what": "lapNumber",
+     "locator": "veh+0x403C (player)",
+     "tier": "CONFIRMED",
+     "source": "mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md section 1"
+    },
+    {
+     "what": "TotalRaceLaps",
+     "locator": "0x008ACF8C",
+     "tier": "CONFIRMED",
+     "source": "mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md section 1 (19 readers, 0 static writers)"
+    },
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4",
+     "tier": "FACT",
+     "source": "docs/EMITTER_SPECS.md session type row"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md section 3"
+    }
+   ],
+   "latch_cooldown": "one latch per milestone per race; cooldown 1.0 cannot gate",
+   "calibration_needed": "lapNumber during formation lap; TotalRaceLaps in timed races; ceil rounding",
+   "conflicts": "Priority 40 ties with eid 275 at the finish (EVF-001 section 5.4)",
+   "live_test": "Owner: short race of known lap count, confirm each milestone fires once.",
+   "tier": "DERIVED",
+   "sources": [
+    "mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md sections 1-3",
+    "functions/SessionCheckEndCondition_0046d0d0.c:20-23"
+   ],
+   "open_questions": "EVF-001 section 1 cites SessionCheckEndCondition:23 for the RACE lap check, but line 23 is inside the SessionType==5 branch (lines 20-23). The race branch (14-18) tests veh+0x4064 (16484), not lapNumber. Race evidence therefore rests on EVF-001's derivation, not that line.",
+   "clip": "PWS_2001_163"
+  },
+  {
+   "sdt_index": 288,
+   "pws_eid": 271,
+   "all_eids": [
+    271
+   ],
+   "says": "50% race distance complete",
+   "eid_source": "full_event_dump.json eid 271 sdt 288 cooldown 1.0; mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md section 4",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "player",
+   "trigger": "SessionType==7 and RaceActiveFlag!=0 and player lapNumber >= ceil(TotalRaceLaps*0.5), latched once per race",
+   "state_reads": [
+    {
+     "what": "lapNumber",
+     "locator": "veh+0x403C (player)",
+     "tier": "CONFIRMED",
+     "source": "mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md section 1"
+    },
+    {
+     "what": "TotalRaceLaps",
+     "locator": "0x008ACF8C",
+     "tier": "CONFIRMED",
+     "source": "mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md section 1 (19 readers, 0 static writers)"
+    },
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4",
+     "tier": "FACT",
+     "source": "docs/EMITTER_SPECS.md session type row"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md section 3"
+    }
+   ],
+   "latch_cooldown": "one latch per milestone per race; cooldown 1.0 cannot gate",
+   "calibration_needed": "lapNumber during formation lap; TotalRaceLaps in timed races; ceil rounding",
+   "conflicts": "Priority 40 ties with eid 275 at the finish (EVF-001 section 5.4)",
+   "live_test": "Owner: short race of known lap count, confirm each milestone fires once.",
+   "tier": "DERIVED",
+   "sources": [
+    "mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md sections 1-3",
+    "functions/SessionCheckEndCondition_0046d0d0.c:20-23"
+   ],
+   "open_questions": "EVF-001 section 1 cites SessionCheckEndCondition:23 for the RACE lap check, but line 23 is inside the SessionType==5 branch (lines 20-23). The race branch (14-18) tests veh+0x4064 (16484), not lapNumber. Race evidence therefore rests on EVF-001's derivation, not that line.",
+   "clip": "PWS_2001_164"
+  },
+  {
+   "sdt_index": 287,
+   "pws_eid": 270,
+   "all_eids": [
+    270
+   ],
+   "says": "75% race distance complete",
+   "eid_source": "full_event_dump.json eid 270 sdt 287 cooldown 1.0; mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md section 4",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "player",
+   "trigger": "SessionType==7 and RaceActiveFlag!=0 and player lapNumber >= ceil(TotalRaceLaps*0.75), latched once per race",
+   "state_reads": [
+    {
+     "what": "lapNumber",
+     "locator": "veh+0x403C (player)",
+     "tier": "CONFIRMED",
+     "source": "mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md section 1"
+    },
+    {
+     "what": "TotalRaceLaps",
+     "locator": "0x008ACF8C",
+     "tier": "CONFIRMED",
+     "source": "mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md section 1 (19 readers, 0 static writers)"
+    },
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4",
+     "tier": "FACT",
+     "source": "docs/EMITTER_SPECS.md session type row"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md section 3"
+    }
+   ],
+   "latch_cooldown": "one latch per milestone per race; cooldown 1.0 cannot gate",
+   "calibration_needed": "lapNumber during formation lap; TotalRaceLaps in timed races; ceil rounding",
+   "conflicts": "Priority 40 ties with eid 275 at the finish (EVF-001 section 5.4)",
+   "live_test": "Owner: short race of known lap count, confirm each milestone fires once.",
+   "tier": "DERIVED",
+   "sources": [
+    "mods/extended_vanilla_features/docs/SPEC_EVF-001_race_distance.md sections 1-3",
+    "functions/SessionCheckEndCondition_0046d0d0.c:20-23"
+   ],
+   "open_questions": "EVF-001 section 1 cites SessionCheckEndCondition:23 for the RACE lap check, but line 23 is inside the SessionType==5 branch (lines 20-23). The race branch (14-18) tests veh+0x4064 (16484), not lapNumber. Race evidence therefore rests on EVF-001's derivation, not that line.",
+   "clip": "PWS_2001_165"
+  },
+  {
+   "sdt_index": 293,
+   "pws_eid": 275,
+   "all_eids": [
+    275
+   ],
+   "says": "Session ends",
+   "eid_source": "full_event_dump.json eid 275 sdt 293 cooldown 1.0 priority 40; docs/56 row 309",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_41A6B0 functions/DisplayMessage0x113_0041a6b0.c:10 (literal 275)",
+   "why_silent": "unknown",
+   "technique": "hook_native",
+   "subject": "player",
+   "trigger": "Native site emits 275 with no state predicate beyond RaceActiveFlag and the commentary-level gate (DisplayMessage0x113_0041a6b0.c:5). Caller not in corpus (EVF-008 says PitTimer, live-confirmed).",
+   "state_reads": [
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "functions/DisplayMessage0x113_0041a6b0.c:5"
+    }
+   ],
+   "latch_cooldown": "once per session end (proposed)",
+   "calibration_needed": "Which code calls sub_41A6B0 and when; why it is silent",
+   "conflicts": "Priority 40 ties with 270 at the finish",
+   "live_test": "Owner: finish a race and listen; find the caller of 0x41A6B0.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "functions/DisplayMessage0x113_0041a6b0.c:5,10",
+    "mods/extended_vanilla_features/docs/SPEC_EVF-008_F_misc.md (per clip note)"
+   ],
+   "open_questions": "EVF-008 says the dispatch is variable. Code at line 10 is a literal 275, so that claim is contradicted.",
+   "clip": "PWS_2001_159"
+  }
+ ]
+}

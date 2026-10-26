@@ -1,0 +1,163 @@
+; EXCERPT of home #2 (RTMI 0x00449778), offsets 0x1559-0x1790: legend: max./avg./min. + dtime/t2-t1 labels
+; full listing: python pcode_decode.py --disasm 0x00449778
+  0x1559: FLdRfVar                 var[-220]
+  0x155C: ILdRfDarg                raw=14006CFF
+  0x1562: CI2Var                   
+  0x1563: FLdPrThis                
+  0x1564: VCallAd                  raw=2C03
+  0x1567: FStAdFunc                raw=28FF
+  0x156A: FLdPr                    var[-216]
+  0x156D: VCallHresult             raw=40000C00
+  0x1572: LitStr                   pool[41]="max."
+  0x1575: FStStrCopy               raw=60FD
+  0x1578: FLdRfVar                 var[-672]
+  0x157B: ImpAdCallI2              raw=2A000400
+  0x1580: FStStr                   raw=2CFB
+  0x1583: FLdZeroAd                var[-1236]
+  0x1586: FStStrNoPop              var[-1232]
+  0x1589: ILdRf                    var[-220]
+  0x158C: PrintObject              raw=2B000C00
+  0x1592: FFreeStr                 raw=060060FD30FB2CFB
+  0x159B: FFreeAd                  raw=040028FF24FF
+  0x15A2: FLdRfVar                 var[-224]
+  0x15A5: LitStr                   pool[40]="       "
+  0x15A8: FLdRfVar                 var[-220]
+  0x15AB: ILdRfDarg                raw=14006CFF
+  0x15B1: CI2Var                   
+  0x15B2: FLdPrThis                
+  0x15B3: VCallAd                  raw=2C03
+  0x15B6: FStAdFunc                raw=28FF
+  0x15B9: FLdPr                    var[-216]
+  0x15BC: VCallHresult             raw=40000C00
+  0x15C1: FLdPr                    var[-220]
+  0x15C4: VCallHresult             raw=98020D00
+  0x15C9: ILdRf                    var[-676]
+  0x15CC: CR8Str                   
+  0x15CE: FLdFPR4                  var[-224]
+  0x15D1: AddR8                    
+  0x15D2: PopFPR4                  
+  0x15D3: FLdRfVar                 var[-528]
+  0x15D6: ILdRfDarg                raw=14002CFF
+  0x15DC: CI2Var                   
+  0x15DD: FLdPrThis                
+  0x15DE: VCallAd                  raw=2C03
+  0x15E1: FStAdFunc                raw=F4FD
+  0x15E4: FLdPr                    var[-524]
+  0x15E7: VCallHresult             raw=40000C00
+  0x15EC: FLdPr                    var[-528]
+  0x15EF: VCallHresult             raw=EC000D00
+  0x15F4: FFreeAd                  raw=080028FF24FFF4FDF0FD
+  0x15FF: FLdRfVar                 var[-220]
+  0x1602: ILdRfDarg                raw=14006CFF
+  0x1608: CI2Var                   
+  0x1609: FLdPrThis                
+  0x160A: VCallAd                  raw=2C03
+  0x160D: FStAdFunc                raw=28FF
+  0x1610: FLdPr                    var[-216]
+  0x1613: VCallHresult             raw=40000C00
+  0x1618: LitStr                   pool[44]="avg."
+  0x161B: FStStrCopy               raw=60FD
+  0x161E: FLdRfVar                 var[-672]
+  0x1621: ImpAdCallI2              raw=2A000400
+  0x1626: FStStr                   raw=2CFB
+  0x1629: FLdZeroAd                var[-1236]
+  0x162C: FStStrNoPop              var[-1232]
+  0x162F: ILdRf                    var[-220]
+  0x1632: PrintObject              raw=2B000C00
+  0x1638: FFreeStr                 raw=060060FD30FB2CFB
+  0x1641: FFreeAd                  raw=040028FF24FF
+  0x1648: FLdRfVar                 var[-224]
+  0x164B: LitStr                   pool[40]="       "
+  0x164E: FLdRfVar                 var[-220]
+  0x1651: ILdRfDarg                raw=14006CFF
+  0x1657: CI2Var                   
+  0x1658: FLdPrThis                
+  0x1659: VCallAd                  raw=2C03
+  0x165C: FStAdFunc                raw=28FF
+  0x165F: FLdPr                    var[-216]
+  0x1662: VCallHresult             raw=40000C00
+  0x1667: FLdPr                    var[-220]
+  0x166A: VCallHresult             raw=98020D00
+  0x166F: ILdRf                    var[-676]
+  0x1672: CR8Str                   
+  0x1674: FLdFPR4                  var[-224]
+  0x1677: AddR8                    
+  0x1678: PopFPR4                  
+  0x1679: FLdRfVar                 var[-528]
+  0x167C: ILdRfDarg                raw=14002CFF
+  0x1682: CI2Var                   
+  0x1683: FLdPrThis                
+  0x1684: VCallAd                  raw=2C03
+  0x1687: FStAdFunc                raw=F4FD
+  0x168A: FLdPr                    var[-524]
+  0x168D: VCallHresult             raw=40000C00
+  0x1692: FLdPr                    var[-528]
+  0x1695: VCallHresult             raw=EC000D00
+  0x169A: FFreeAd                  raw=080028FF24FFF4FDF0FD
+  0x16A5: FLdRfVar                 var[-220]
+  0x16A8: ILdRfDarg                raw=14006CFF
+  0x16AE: CI2Var                   
+  0x16AF: FLdPrThis                
+  0x16B0: VCallAd                  raw=2C03
+  0x16B3: FStAdFunc                raw=28FF
+  0x16B6: FLdPr                    var[-216]
+  0x16B9: VCallHresult             raw=40000C00
+  0x16BE: LitStr                   pool[45]="min."
+  0x16C1: FStStrCopy               raw=60FD
+  0x16C4: FLdRfVar                 var[-672]
+  0x16C7: ImpAdCallI2              raw=2A000400
+  0x16CC: FStStr                   raw=2CFB
+  0x16CF: FLdZeroAd                var[-1236]
+  0x16D2: FStStrNoPop              var[-1232]
+  0x16D5: ILdRf                    var[-220]
+  0x16D8: PrintObject              raw=2B000C00
+  0x16DE: FFreeStr                 raw=060060FD30FB2CFB
+  0x16E7: FFreeAd                  raw=040028FF24FF
+  0x16EE: ILdRf                    var[-360]
+  0x16F1: LitStr                   pool[46]="dtime"
+  0x16F4: EqStr                    
+  0x16F6: BranchF                  target=+0x1782
+  0x16F9: FLdRfVar                 var[-224]
+  0x16FC: LitStr                   pool[40]="       "
+  0x16FF: FLdRfVar                 var[-220]
+  0x1702: ILdRfDarg                raw=14006CFF
+  0x1708: CI2Var                   
+  0x1709: FLdPrThis                
+  0x170A: VCallAd                  raw=2C03
+  0x170D: FStAdFunc                raw=28FF
+  0x1710: FLdPr                    var[-216]
+  0x1713: VCallHresult             raw=40000C00
+  0x1718: FLdPr                    var[-220]
+  0x171B: VCallHresult             raw=98020D00
+  0x1720: ILdRf                    var[-676]
+  0x1723: CR8Str                   
+  0x1725: FLdFPR4                  var[-224]
+  0x1728: AddR8                    
+  0x1729: PopFPR4                  
+  0x172A: FLdRfVar                 var[-528]
+  0x172D: ILdRfDarg                raw=14002CFF
+  0x1733: CI2Var                   
+  0x1734: FLdPrThis                
+  0x1735: VCallAd                  raw=2C03
+  0x1738: FStAdFunc                raw=F4FD
+  0x173B: FLdPr                    var[-524]
+  0x173E: VCallHresult             raw=40000C00
+  0x1743: FLdPr                    var[-528]
+  0x1746: VCallHresult             raw=EC000D00
+  0x174B: FFreeAd                  raw=080028FF24FFF4FDF0FD
+  0x1756: FLdRfVar                 var[-220]
+  0x1759: ILdRfDarg                raw=14006CFF
+  0x175F: CI2Var                   
+  0x1760: FLdPrThis                
+  0x1761: VCallAd                  raw=2C03
+  0x1764: FStAdFunc                raw=28FF
+  0x1767: FLdPr                    var[-216]
+  0x176A: VCallHresult             raw=40000C00
+  0x176F: LitStr                   pool[47]="t2-t1"
+  0x1772: ILdRf                    var[-220]
+  0x1775: PrintObject              raw=2B000C00
+  0x177B: FFreeAd                  raw=040028FF24FF
+  0x1782: FLdRfVar                 var[-1224]
+  0x1785: CI4Var                   
+  0x1787: FLdRfVar                 var[-220]
+  0x178A: ILdRfDarg                raw=14006CFF

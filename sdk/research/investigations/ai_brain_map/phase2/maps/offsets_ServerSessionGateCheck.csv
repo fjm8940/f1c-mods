@@ -1,0 +1,3 @@
+func,line,dec,hex,access,width,base,form,expr
+ServerSessionGateCheck,8,17740,0x454C,R,_DWORD,this,array,if ( this[4435] != 1 && this[4133] == 2 )
+ServerSessionGateCheck,8,16532,0x4094,R,_DWORD,this,array,if ( this[4435] != 1 && this[4133] == 2 )

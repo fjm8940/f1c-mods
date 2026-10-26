@@ -1,0 +1,9 @@
+func,line,dec,hex,access,width,base,form,expr
+IndexDecrementWithBoundsWrap,8,,,CALL,,,call,FindZeroResultIndex
+IndexDecrementWithBoundsWrap,9,,,R,_DWORD,this,array,result = (int)&this[16 * a2];
+IndexDecrementWithBoundsWrap,10,44,0x2C,R,_DWORD,result,direct,v4 = *(_DWORD *)(result + 44) - 1;
+IndexDecrementWithBoundsWrap,11,44,0x2C,W,_DWORD,result,direct,*(_DWORD *)(result + 44) = v4;
+IndexDecrementWithBoundsWrap,14,53,0x35,R,_BYTE,result,direct,if ( *(_BYTE *)(result + 53) )
+IndexDecrementWithBoundsWrap,15,40,0x28,R,_DWORD,result,direct,v5 = *(_DWORD *)(result + 40) - 1;
+IndexDecrementWithBoundsWrap,18,44,0x2C,W,_DWORD,result,direct,*(_DWORD *)(result + 44) = v5;
+IndexDecrementWithBoundsWrap,21,,,CALL,,,call,ConditionalDispatch_55e0

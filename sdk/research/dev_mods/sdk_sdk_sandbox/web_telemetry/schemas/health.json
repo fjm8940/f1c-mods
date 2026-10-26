@@ -1,0 +1,343 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/health.json",
+  "title": "/health response",
+  "type": "object",
+  "required": [
+    "version",
+    "api_version",
+    "broker_abi",
+    "sample_sequence",
+    "sample_age_ms",
+    "session_generation",
+    "failed_captures",
+    "read_only",
+    "listen_address",
+    "port",
+    "capture_cost_us",
+    "memory",
+    "workbench_ui",
+    "viewer_ui",
+    "trace_mode"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "api_version": {
+      "type": "string",
+      "pattern": "^[0-9]+$"
+    },
+    "broker_abi": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sample_sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sample_age_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "session_generation": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "failed_captures": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "read_only": {
+      "const": true
+    },
+    "listen_address": {
+      "description": "rc.17: 127.0.0.1 by default (this PC only); 0.0.0.0 when web_telemetry.ini [Mod] Remote=1 (LAN / Tailscale).",
+      "enum": [
+        "127.0.0.1",
+        "0.0.0.0"
+      ]
+    },
+    "port": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "capture_cost_us": {
+      "type": "object",
+      "description": "native game-thread broker-callback cost, measured in the callback with QPC (api_version 3); checklist pass limit p95 < 500 us and no owner-reported frame hitch",
+      "required": [
+        "samples",
+        "p50",
+        "p95",
+        "max",
+        "rate_per_s"
+      ],
+      "properties": {
+        "samples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "p50": {
+          "type": "number",
+          "minimum": 0
+        },
+        "p95": {
+          "type": "number",
+          "minimum": 0
+        },
+        "max": {
+          "type": "number",
+          "minimum": 0
+        },
+        "rate_per_s": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "memory": {
+      "type": "object",
+      "description": "process working set (api_version 3), sampled by /health for the session flatness check",
+      "required": [
+        "working_set_kb"
+      ],
+      "properties": {
+        "working_set_kb": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "workbench_ui": {
+      "type": "object",
+      "required": [
+        "present",
+        "bytes",
+        "sha256",
+        "expected",
+        "matches"
+      ],
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "expected": {
+          "type": "string",
+          "pattern": "^[0-9A-F]{64}$"
+        },
+        "matches": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "viewer_ui": {
+      "type": "object",
+      "required": [
+        "present",
+        "bytes",
+        "sha256",
+        "expected",
+        "matches"
+      ],
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "expected": {
+          "type": "string",
+          "pattern": "^[0-9A-F]{64}$"
+        },
+        "matches": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "trace_mode": {
+      "description": "4.4.0 all-cars recorder (api_version 5): 'all' = every live car traced (store allocated); 'selected' = no session store yet; 'selected_fallback' = the store allocation failed and the recorder kept the old selected-pair mode.",
+      "enum": [
+        "all",
+        "selected",
+        "selected_fallback"
+      ]
+    },
+    "trace_bytes": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "bytes of the all-cars trace store (0 when no store is allocated)"
+    },
+    "trace_cars": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "entries in the all-cars trace store (0 when no store is allocated)"
+    },
+    "mods": {
+      "type": "object",
+      "description": "4.4.0-rc.8 additive (api_version 4). mechfail: read-only probe of F1C_MECHFAIL_CTL (MfHostCtl, magic MFHM); present=false when the host mapping is absent.",
+      "properties": {
+        "mechfail": {
+          "type": "object",
+          "required": [
+            "present",
+            "host_verified",
+            "activated",
+            "families_started"
+          ],
+          "properties": {
+            "present": {
+              "type": "boolean"
+            },
+            "host_verified": {
+              "type": "boolean"
+            },
+            "activated": {
+              "type": "integer"
+            },
+            "families_started": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "forecast": {
+      "type": "object",
+      "description": "4.4.0-rc.8 additive (DERIVED): block for the current session type from <game>\\LOG\\weather.txt, used only when fresh (file newer than the session start seen by the server).",
+      "required": [
+        "source",
+        "tier",
+        "available"
+      ],
+      "properties": {
+        "source": {
+          "const": "LOG\\weather.txt"
+        },
+        "tier": {
+          "const": "DERIVED"
+        },
+        "available": {
+          "type": "boolean"
+        },
+        "fresh": {
+          "type": "boolean"
+        },
+        "steps": {
+          "type": "array",
+          "maxItems": 96,
+          "items": {
+            "type": "object",
+            "required": [
+              "minute",
+              "conditions",
+              "ambient_temp"
+            ]
+          }
+        }
+      }
+    },
+    "product": {
+      "type": "string",
+      "description": "1.0.1 (api_version 7): public product name and version, e.g. 'Telemetry 1.0.1'; version stays the engine/API build"
+    },
+    "archive": {
+      "type": "object",
+      "description": "1.0.1 (api_version 7): session archive on the game PC (<module dir>\\telemetry_data). current = id of the session being recorded (empty before its first lap).",
+      "required": [
+        "enabled",
+        "dir",
+        "current",
+        "max_mb",
+        "dropped",
+        "retention_deleted"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "dir": {
+          "type": "string"
+        },
+        "current": {
+          "type": "string"
+        },
+        "max_mb": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "dropped": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "retention_deleted": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "storage": {
+      "type": "object",
+      "description": "api_version 9 (batch 4): recordings storage on the game PC. dir is relative (no absolute path, M11). recording = the session being written (null when none). ring_drops counts capture ticks dropped before the writer (spec 6.2).",
+      "required": [
+        "enabled",
+        "dir",
+        "compression",
+        "recording",
+        "ring_drops",
+        "over_warn",
+        "recycle_bin"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "dir": {
+          "type": "string",
+          "const": "recordings"
+        },
+        "compression": {
+          "enum": [
+            "xpress",
+            "none"
+          ]
+        },
+        "recording": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ring_drops": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "over_warn": {
+          "type": "boolean"
+        },
+        "recycle_bin": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

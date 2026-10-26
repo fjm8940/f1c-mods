@@ -1,0 +1,3 @@
+func,line,dec,hex,access,width,base,form,expr
+TeammatePartValueLookup,16,18596,0x48A4,R,_DWORD,v4,direct,if ( *(_DWORD *)(v4 + 18596) == v2 && v4 != v1 )
+TeammatePartValueLookup,21,13392,0x3450,R,_DWORD,v4,direct,return *(_DWORD *)(v4 + 13392);

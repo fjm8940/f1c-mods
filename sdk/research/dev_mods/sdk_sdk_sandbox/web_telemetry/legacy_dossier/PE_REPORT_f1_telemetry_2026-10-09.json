@@ -1,0 +1,382 @@
+{
+  "schema": "f1c.pe_report.v1",
+  "generated": "2026-10-09+0300",
+  "file": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\f1_telemetry.exe",
+  "sha256": "0AA34C51C30C3113BF6B6C2F1B59A8B3346AD1322F6AB519E60757BAF8573BEB",
+  "size": 331776,
+  "machine": "0x14c",
+  "machine_name": "IMAGE_FILE_MACHINE_I386",
+  "timestamp": "2003-04-03",
+  "timestamp_raw": 1049400226,
+  "subsystem": "IMAGE_SUBSYSTEM_WINDOWS_GUI",
+  "magic": "0x10b",
+  "linker": "6.0",
+  "entry_point": "0x4011fc",
+  "image_base": "0x400000",
+  "checksum": "0x54fd9",
+  "sections": [
+    {
+      "name": ".text",
+      "virtual_address": "0x1000",
+      "virtual_size": 317928,
+      "raw_offset": "0x1000",
+      "raw_size": 319488,
+      "entropy": 4.967,
+      "characteristics": "0x60000020",
+      "flags": [
+        "code",
+        "executable",
+        "readable"
+      ]
+    },
+    {
+      "name": ".data",
+      "virtual_address": "0x4f000",
+      "virtual_size": 16408,
+      "raw_offset": "0x0",
+      "raw_size": 0,
+      "entropy": 0.0,
+      "characteristics": "0xc0000040",
+      "flags": [
+        "initialized-data",
+        "readable",
+        "writable"
+      ]
+    },
+    {
+      "name": ".rsrc",
+      "virtual_address": "0x54000",
+      "virtual_size": 4360,
+      "raw_offset": "0x4f000",
+      "raw_size": 8192,
+      "entropy": 3.064,
+      "characteristics": "0x40000040",
+      "flags": [
+        "initialized-data",
+        "readable"
+      ]
+    }
+  ],
+  "imports": {
+    "MSVBVM60.DLL": [
+      {
+        "name": null,
+        "ordinal": 690,
+        "iat": "0x401000"
+      },
+      {
+        "name": null,
+        "ordinal": 588,
+        "iat": "0x401004"
+      },
+      {
+        "name": "MethCallEngine",
+        "ordinal": null,
+        "iat": "0x401008"
+      },
+      {
+        "name": null,
+        "ordinal": 516,
+        "iat": "0x40100c"
+      },
+      {
+        "name": null,
+        "ordinal": 518,
+        "iat": "0x401010"
+      },
+      {
+        "name": null,
+        "ordinal": 519,
+        "iat": "0x401014"
+      },
+      {
+        "name": null,
+        "ordinal": 660,
+        "iat": "0x401018"
+      },
+      {
+        "name": null,
+        "ordinal": 593,
+        "iat": "0x40101c"
+      },
+      {
+        "name": null,
+        "ordinal": 594,
+        "iat": "0x401020"
+      },
+      {
+        "name": null,
+        "ordinal": 595,
+        "iat": "0x401024"
+      },
+      {
+        "name": null,
+        "ordinal": 596,
+        "iat": "0x401028"
+      },
+      {
+        "name": null,
+        "ordinal": 597,
+        "iat": "0x40102c"
+      },
+      {
+        "name": null,
+        "ordinal": 598,
+        "iat": "0x401030"
+      },
+      {
+        "name": null,
+        "ordinal": 520,
+        "iat": "0x401034"
+      },
+      {
+        "name": null,
+        "ordinal": 631,
+        "iat": "0x401038"
+      },
+      {
+        "name": null,
+        "ordinal": 525,
+        "iat": "0x40103c"
+      },
+      {
+        "name": null,
+        "ordinal": 632,
+        "iat": "0x401040"
+      },
+      {
+        "name": null,
+        "ordinal": 526,
+        "iat": "0x401044"
+      },
+      {
+        "name": "EVENT_SINK_AddRef",
+        "ordinal": null,
+        "iat": "0x401048"
+      },
+      {
+        "name": null,
+        "ordinal": 529,
+        "iat": "0x40104c"
+      },
+      {
+        "name": "DllFunctionCall",
+        "ordinal": null,
+        "iat": "0x401050"
+      },
+      {
+        "name": null,
+        "ordinal": 670,
+        "iat": "0x401054"
+      },
+      {
+        "name": "EVENT_SINK_Release",
+        "ordinal": null,
+        "iat": "0x401058"
+      },
+      {
+        "name": null,
+        "ordinal": 600,
+        "iat": "0x40105c"
+      },
+      {
+        "name": "EVENT_SINK_QueryInterface",
+        "ordinal": null,
+        "iat": "0x401060"
+      },
+      {
+        "name": "__vbaExceptHandler",
+        "ordinal": null,
+        "iat": "0x401064"
+      },
+      {
+        "name": null,
+        "ordinal": 530,
+        "iat": "0x401068"
+      },
+      {
+        "name": null,
+        "ordinal": 533,
+        "iat": "0x40106c"
+      },
+      {
+        "name": "ProcCallEngine",
+        "ordinal": null,
+        "iat": "0x401070"
+      },
+      {
+        "name": null,
+        "ordinal": 535,
+        "iat": "0x401074"
+      },
+      {
+        "name": null,
+        "ordinal": 536,
+        "iat": "0x401078"
+      },
+      {
+        "name": null,
+        "ordinal": 537,
+        "iat": "0x40107c"
+      },
+      {
+        "name": null,
+        "ordinal": 645,
+        "iat": "0x401080"
+      },
+      {
+        "name": null,
+        "ordinal": 648,
+        "iat": "0x401084"
+      },
+      {
+        "name": null,
+        "ordinal": 571,
+        "iat": "0x401088"
+      },
+      {
+        "name": null,
+        "ordinal": 576,
+        "iat": "0x40108c"
+      },
+      {
+        "name": null,
+        "ordinal": 578,
+        "iat": "0x401090"
+      },
+      {
+        "name": null,
+        "ordinal": 100,
+        "iat": "0x401094"
+      },
+      {
+        "name": null,
+        "ordinal": 689,
+        "iat": "0x401098"
+      },
+      {
+        "name": null,
+        "ordinal": 610,
+        "iat": "0x40109c"
+      },
+      {
+        "name": null,
+        "ordinal": 612,
+        "iat": "0x4010a0"
+      },
+      {
+        "name": null,
+        "ordinal": 614,
+        "iat": "0x4010a4"
+      },
+      {
+        "name": null,
+        "ordinal": 616,
+        "iat": "0x4010a8"
+      },
+      {
+        "name": null,
+        "ordinal": 617,
+        "iat": "0x4010ac"
+      },
+      {
+        "name": null,
+        "ordinal": 618,
+        "iat": "0x4010b0"
+      },
+      {
+        "name": null,
+        "ordinal": 540,
+        "iat": "0x4010b4"
+      },
+      {
+        "name": null,
+        "ordinal": 541,
+        "iat": "0x4010b8"
+      },
+      {
+        "name": null,
+        "ordinal": 650,
+        "iat": "0x4010bc"
+      },
+      {
+        "name": null,
+        "ordinal": 546,
+        "iat": "0x4010c0"
+      },
+      {
+        "name": null,
+        "ordinal": 581,
+        "iat": "0x4010c4"
+      }
+    ]
+  },
+  "exports": [],
+  "resources": {
+    "types": {
+      "icon": 1,
+      "group-icon": 1,
+      "version": 1
+    },
+    "dialogs": [],
+    "menus": [],
+    "accelerators": [],
+    "string_tables": [],
+    "version_info": [
+      {
+        "key": "Comments",
+        "value": "F1 Challenge 99-02 Telemetry"
+      },
+      {
+        "key": "CompanyName",
+        "value": "Electronic Arts"
+      },
+      {
+        "key": "LegalCopyright",
+        "value": "(c) 2003 Electronic Arts Ltd - All rights reserved"
+      },
+      {
+        "key": "ProductName",
+        "value": "F1 Challenge 99-02 Telemetry"
+      },
+      {
+        "key": "FileVersion",
+        "value": "2003.14.0373"
+      },
+      {
+        "key": "ProductVersion",
+        "value": "2003.14.0373"
+      },
+      {
+        "key": "InternalName",
+        "value": "f1_telemetry"
+      },
+      {
+        "key": "OriginalFilename",
+        "value": "f1_telemetry.exe"
+      }
+    ]
+  },
+  "vb_markers": [
+    {
+      "marker": "VB5!",
+      "file_offset": 36612,
+      "file_offset_hex": "0x8f04"
+    },
+    {
+      "marker": "MSVBVM60",
+      "file_offset": 568,
+      "file_offset_hex": "0x238"
+    },
+    {
+      "marker": "MSVBVM60",
+      "file_offset": 321864,
+      "file_offset_hex": "0x4e948"
+    },
+    {
+      "marker": "VB6",
+      "file_offset": 65586,
+      "file_offset_hex": "0x10032"
+    }
+  ]
+}

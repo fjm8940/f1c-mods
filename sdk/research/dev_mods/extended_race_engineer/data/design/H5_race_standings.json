@@ -1,0 +1,1249 @@
+{
+ "schema": "ere.design.v1",
+ "batch": "H5_race_standings",
+ "rows": [
+  {
+   "clip": "PWS_OVERTAKE01.",
+   "sdt_index": 122,
+   "pws_eid": 120,
+   "all_eids": [
+    120,
+    413
+   ],
+   "says": "Player overtakes AI (1)",
+   "eid_source": "full_event_dump.json events eid 120 (sdt 122, cooldown 10.0, blocked false); doc 56 line 154",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_419120 AIDriverStateTransition_00419120.c:37 (literal 120, player-pass branch); :59 (v11=120 when player is P1)",
+   "why_silent": "unknown",
+   "technique": "hook_native",
+   "subject": "player (victim = AI at new position a4)",
+   "trigger": "Native branch: SessionType==7 AND RaceActiveFlag!=0 AND TrackConditionState!=0 AND RacePhase!=8 AND the changed car is the player slot AND a4<a3 (gained places) AND a4!=1 AND victim checks (v5[13388]==0, v5[4121]==0, a2[4111]>=1) AND 2.0 s per-victim throttle AND RNG: 75% gate then 75% picks 120 (else 259).",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 (5 qual, 7 race)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ state table)"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (session state table)"
+    },
+    {
+     "what": "TrackConditionState",
+     "locator": "0x007CF3C8",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8 (!=8)",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "PlayerVehiclePtr / player slot",
+     "locator": "0x007C54E8, slot = *(ptr+18580)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; sub_4BCCC0_004bccc0.c:321"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; AIDriverStateTransition_00419120.c:39,56-57"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 track,1 in-lap,2 lane,3 box,4 exit)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    },
+    {
+     "what": "victim fields",
+     "locator": "v5+0x344C and v5+0x4064 (meaning UNKNOWN)",
+     "tier": "UNKNOWN",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:24"
+    }
+   ],
+   "latch_cooldown": "native throttle this+(slot+319)*4 vs dbl_8AFEA0-2.0 (AIDriverStateTransition_00419120.c:28); eid cooldown 10.0",
+   "calibration_needed": "units of dbl_8AFEA0 clock; meaning of victim fields 0x344C/0x4064; whether 0x4064 is the race position neighbour",
+   "conflicts": "Same branch emits 259. Dedupe by ArraySearchReturningIndex (lines 33-34,47-48). Reverted in progress.json 2026-07-28: never heard in real play.",
+   "live_test": "Owner: race (SessionType 7), pass an AI car for a place. Fix path: a read-only gate logger at sub_419120 entry records each gate (SessionType, RaceActiveFlag, TrackConditionState, RacePhase, player slot, a3/a4, victim fields, throttle clock, RNG) for each pass. Owner runs one race; the log shows the first false gate.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12,15,17,19,23-28,30-39,47-50",
+    "f1c_ida_decompiled/functions/ConditionalFieldSetter_004bc2f0.c:6-9",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/progress.json (PWS_OVERTAKE01 REVERTED note)"
+   ],
+   "open_questions": "Which gate is false in live play? If the branch is reached and the line still does not play, check the queue (InsertDriverTableEntry, 0x5EA618) and playback. If a gate is structurally never true, replace with the game_state_emitter in PWS_AILAPPIN05 (position-change hook) using the player's own position trigger."
+  },
+  {
+   "clip": "PWS_AIBLUE03.mp",
+   "sdt_index": 275,
+   "pws_eid": 259,
+   "all_eids": [
+    259
+   ],
+   "says": "Player passes AI driver",
+   "eid_source": "full_event_dump.json eid 259 (sdt 275, cooldown 10.0, blocked false); doc 56 line 293",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_419120 AIDriverStateTransition_00419120.c:39 (literal 259, v10<0.25 branch); also sub_412E50_00412e50.c:(a2==1 switch, case 17, a4==0 -> 259)",
+   "why_silent": "unknown",
+   "technique": "hook_native",
+   "subject": "ai (victim, veh+0x489C)",
+   "trigger": "Same native branch as PWS_OVERTAKE01 (the 25% sub-branch, v10<0.25). Fix path = the same gate logger; no new emitter unless the branch is proven unreachable.",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 (5 qual, 7 race)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ state table)"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (session state table)"
+    },
+    {
+     "what": "TrackConditionState",
+     "locator": "0x007CF3C8",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8 (!=8)",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "PlayerVehiclePtr / player slot",
+     "locator": "0x007C54E8, slot = *(ptr+18580)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; sub_4BCCC0_004bccc0.c:321"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; AIDriverStateTransition_00419120.c:39,56-57"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 track,1 in-lap,2 lane,3 box,4 exit)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    }
+   ],
+   "latch_cooldown": "native throttle as PWS_OVERTAKE01; eid cooldown 10.0",
+   "calibration_needed": "As PWS_OVERTAKE01; plus whether the 10.0 s cooldown is deliberate (EMITTER_SPECS.md:451 open question)",
+   "conflicts": "Shares the native branch with 120. Reverted in progress.json (misread of in-session phrasing).",
+   "live_test": "As PWS_OVERTAKE01.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:33-39",
+    "f1c_ida_decompiled/functions/sub_412E50_00412e50.c:(a2==1 switch case 17)",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md:451"
+   ],
+   "open_questions": "Does the sub_412E50 dispatch path (SoundEventDispatcher case 0xE/0x13/0x29) also write 259 in live play?"
+  },
+  {
+   "clip": "PWS_AILAPPIN05.",
+   "sdt_index": 125,
+   "pws_eid": 121,
+   "all_eids": [
+    121
+   ],
+   "says": "AI driver passes player",
+   "eid_source": "full_event_dump.json eid 121 (sdt 125, cooldown 1.0, not blocked, not orphaned); doc 56 line 155",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "SessionType==7 AND RaceActiveFlag!=0 AND TrackConditionState!=0. An AI slot (not the player) whose race position goes from behind the player (> P_player) to ahead (< P_player) in one update. Exclude new position 1 (eid 198 is the native AI-takes-P1 line, AIDriverStateTransition_00419120.c:56-57) and pit lane (pittingStatus 1-4). Emit once per AI car per pass.",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 (5 qual, 7 race)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ state table)"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (session state table)"
+    },
+    {
+     "what": "TrackConditionState",
+     "locator": "0x007CF3C8",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8 (!=8)",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "PlayerVehiclePtr / player slot",
+     "locator": "0x007C54E8, slot = *(ptr+18580)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; sub_4BCCC0_004bccc0.c:321"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; AIDriverStateTransition_00419120.c:39,56-57"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 track,1 in-lap,2 lane,3 box,4 exit)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    },
+    {
+     "what": "per-car previous position",
+     "locator": "veh+0x4060 sampled each tick (ERE-held history)",
+     "tier": "DERIVED",
+     "source": "own latch; needs per-tick scan"
+    }
+   ],
+   "latch_cooldown": "proposed 30 s per AI car; UNKNOWN calibration",
+   "calibration_needed": "debounce ticks for a close pass (position flicker); not measured",
+   "conflicts": "eid 198 (AI-takes-P1) is the only native AI-side writer on that path; do not emit 121 when new position is 1. Triage wording 'when player loses a position' is the same event.",
+   "live_test": "Owner: let an AI car pass the player in a race; one line per pass, none on pit exits.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md:194",
+    "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:47-57",
+    "f1c_ida_decompiled/functions/ConditionalFieldSetter_004bc2f0.c:6-9",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/emitter_index.json (no literal or dynamic writer for 121)"
+   ],
+   "open_questions": "Per-tick scan of veh+0x4060 versus hooking the per-car setter ConditionalFieldSetter_004bc2f0 (its caller not located)."
+  },
+  {
+   "clip": "PWS_AILAPPIN01.",
+   "sdt_index": 126,
+   "pws_eid": 122,
+   "all_eids": [
+    122,
+    421
+   ],
+   "says": "AI driver approaches player",
+   "eid_source": "full_event_dump.json eid 122 (cooldown 1.0) and 421 (cooldown 1.0); doc 56 lines 156, 455",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai (car behind the player)",
+   "trigger": "SessionType==7; AI car behind player (position > P_player); gap to player shrinking over N ticks; gap below an approach threshold; not in pit lane. Must fire earlier than the vanilla blue flag (triage), so the threshold sits outside the sub_4BCCC0 flag geometry (see PWS_AIBLUE02).",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 (5 qual, 7 race)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ state table)"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (session state table)"
+    },
+    {
+     "what": "TrackConditionState",
+     "locator": "0x007CF3C8",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8 (!=8)",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "PlayerVehiclePtr / player slot",
+     "locator": "0x007C54E8, slot = *(ptr+18580)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; sub_4BCCC0_004bccc0.c:321"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; AIDriverStateTransition_00419120.c:39,56-57"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 track,1 in-lap,2 lane,3 box,4 exit)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    },
+    {
+     "what": "gap to player",
+     "locator": "DistanceProjectionCalc (sub_4BCCC0_004bccc0.c:7) or lap distance veh+0x4044",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/functions/sub_4BCCC0_004bccc0.c:7-9"
+    }
+   ],
+   "latch_cooldown": "proposed 30 s per AI car; UNKNOWN calibration",
+   "calibration_needed": "approach threshold (metres), closing window (ticks); vanilla blue-flag constants v69/v74 (sub_4BCCC0_004bccc0.c:317-318) to be measured live",
+   "conflicts": "421 is a driver-name variant (DriverNameIDLookup_00415d90.c:181, 'Takuma S'), so use 122 for the generic line. Overlaps the 257/258 flag geometry.",
+   "live_test": "Owner: be ahead of a closing AI car; confirm the line arrives before the vanilla blue flag.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md:192-193",
+    "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c:181",
+    "f1c_ida_decompiled/functions/sub_4BCCC0_004bccc0.c:317-336"
+   ],
+   "open_questions": "Threshold values; whether 122 needs a free carrier if the name-variant sentence is wanted."
+  },
+  {
+   "clip": "PWS_AIBLUE01.mp",
+   "sdt_index": 274,
+   "pws_eid": 258,
+   "all_eids": [
+    258
+   ],
+   "says": "Player approaches AI driver (blue flag)",
+   "eid_source": "full_event_dump.json eid 258 (sdt 274, cooldown 1.0); doc 56 line 292",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_412E50_00412e50.c:60 (a2==1 switch case 16, a4==0 -> 258); dispatch path untraced (SoundEventDispatcher_00411e90.c:46,57)",
+   "why_silent": "unknown",
+   "technique": "game_state_emitter",
+   "subject": "player approaching; AI target id from this[54]",
+   "trigger": "Race (SessionType 7). The blue-flag byte this+212 changes 0->1 in the sub_4BCCC0 race branch (line 324) for AI target index this[54] (line 327). Emit once per flag edge. If the native dispatch path also writes 258 live, suppress ERE's copy.",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 (5 qual, 7 race)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ state table)"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (session state table)"
+    },
+    {
+     "what": "TrackConditionState",
+     "locator": "0x007CF3C8",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8 (!=8)",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "PlayerVehiclePtr / player slot",
+     "locator": "0x007C54E8, slot = *(ptr+18580)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; sub_4BCCC0_004bccc0.c:321"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; AIDriverStateTransition_00419120.c:39,56-57"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 track,1 in-lap,2 lane,3 box,4 exit)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    },
+    {
+     "what": "blue-flag byte",
+     "locator": "this+212, tracker = player slot0 +0x4034",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/findings.jsonl blue-flag entry (inference retracted, measurement stands); sub_4BCCC0_004bccc0.c:324"
+    },
+    {
+     "what": "flag target",
+     "locator": "this[54] -> veh+0x489C",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/functions/sub_4BCCC0_004bccc0.c:327"
+    },
+    {
+     "what": "AI geometry",
+     "locator": "dword_7C54F0[i]+12 projection; +13548..13556 speed; +13376 pit flag; +16480 pos; +16444/16448 lap fields",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/functions/sub_4BCCC0_004bccc0.c:311-322"
+    }
+   ],
+   "latch_cooldown": "once per 0->1 edge of this+212",
+   "calibration_needed": "v69, v72, v74 constants (distance and gap ratio) in sub_4BCCC0; measure live",
+   "conflicts": "Same edge as PWS_AIBLUE02 (257): one line per edge, owner pick. Flag held over 30 s with dword_7CEF84 raises the native 'Ignored Blue Flags' penalty (sub_4BCCC0_004bccc0.c:379), so ERE must not extend the flag.",
+   "live_test": "Owner: lap a slower AI car in a race; watch for the flag edge; expect one line.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/functions/sub_4BCCC0_004bccc0.c:318-336,379",
+    "f1c_ida_decompiled/functions/sub_412E50_00412e50.c:60",
+    "f1c_ida_decompiled/functions/SoundEventDispatcher_00411e90.c:46,57",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md:431"
+   ],
+   "open_questions": "Owner decision: 258 (player approaches) and 257 (AI be ready) on the same edge, or split across two edges?"
+  },
+  {
+   "clip": "PWS_AIBLUE02.mp",
+   "sdt_index": 273,
+   "pws_eid": 257,
+   "all_eids": [
+    257
+   ],
+   "says": "AI driver under blue flag - be ready",
+   "eid_source": "full_event_dump.json eid 257 (sdt 273, cooldown 1.0); doc 56 line 291",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_412E50_00412e50.c:57 (a2==1 switch case 15, a4==0 -> 257); dispatch path untraced",
+   "why_silent": "unknown",
+   "technique": "game_state_emitter",
+   "subject": "ai (flag target this[54])",
+   "trigger": "Same 0->1 edge of this+212 as PWS_AIBLUE01. AI target this[54] receives the flag; emit once per edge for that target; suppressed when 258 already spoke on the same edge (owner pick).",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 (5 qual, 7 race)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ state table)"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (session state table)"
+    },
+    {
+     "what": "TrackConditionState",
+     "locator": "0x007CF3C8",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8 (!=8)",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "PlayerVehiclePtr / player slot",
+     "locator": "0x007C54E8, slot = *(ptr+18580)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; sub_4BCCC0_004bccc0.c:321"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; AIDriverStateTransition_00419120.c:39,56-57"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 track,1 in-lap,2 lane,3 box,4 exit)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    },
+    {
+     "what": "blue-flag byte",
+     "locator": "this+212",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/functions/sub_4BCCC0_004bccc0.c:324"
+    },
+    {
+     "what": "flag target",
+     "locator": "this[54] -> veh+0x489C",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/functions/sub_4BCCC0_004bccc0.c:327"
+    }
+   ],
+   "latch_cooldown": "once per 0->1 edge per target",
+   "calibration_needed": "As PWS_AIBLUE01",
+   "conflicts": "Mutually exclusive with 258 on the same edge (owner pick). EMITTER_SPECS.md:430 says 'AI driver shown blue flag' in sub_4BCCC0, consistent with this[54].",
+   "live_test": "As PWS_AIBLUE01.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/functions/sub_4BCCC0_004bccc0.c:318-336",
+    "f1c_ida_decompiled/functions/sub_412E50_00412e50.c:57",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md:430"
+   ],
+   "open_questions": "Owner decision as PWS_AIBLUE01."
+  },
+  {
+   "clip": "PWS_SLOWCAR01.m",
+   "sdt_index": 136,
+   "pws_eid": 132,
+   "all_eids": [
+    132,
+    427
+   ],
+   "says": "Slow car ahead",
+   "eid_source": "full_event_dump.json eid 132 (sdt 136, cooldown 1.0 at dump time, blocked false) and 427; doc 56 line 166",
+   "eid_isolation_tested": false,
+   "already_modded_by": "full_safety_car (eid 132 is its carrier and it parks eid 132 cooldown at FLT_MAX at runtime)",
+   "native_emitter": "eid 427: ScoringClassificationDisplay_0041e320.c:129 (post-race standings). eid 132: no writer found in functions/.",
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player (slow car ahead)",
+   "trigger": "Candidate, blocked by owner decision. Slow-car predicate: race, car ahead's lap pace (veh+0x453C LivePaceFactor, EMITTER_SPECS.md) below player's by a threshold for N laps, gap under threshold. ERE must not write eid 132 and must not use 132 as its carrier.",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 (5 qual, 7 race)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ state table)"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (session state table)"
+    },
+    {
+     "what": "TrackConditionState",
+     "locator": "0x007CF3C8",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8 (!=8)",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "PlayerVehiclePtr / player slot",
+     "locator": "0x007C54E8, slot = *(ptr+18580)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; sub_4BCCC0_004bccc0.c:321"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; AIDriverStateTransition_00419120.c:39,56-57"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 track,1 in-lap,2 lane,3 box,4 exit)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    },
+    {
+     "what": "car-ahead pace",
+     "locator": "veh+0x453C (LivePaceFactor)",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md:~269 (MISC25 state)"
+    }
+   ],
+   "latch_cooldown": "SC mod parks cooldown at FLT_MAX every tick (pace_probe_standings.c:2538-2560, tick call 6603); 8 s carrier window CARRIER_INFLIGHT_MS opens for its own lines",
+   "calibration_needed": "pace threshold and lap count; not measured",
+   "conflicts": "SC mod uses eid 132 as carrier for every safety-car line and FLT_MAX-blocks it for SLOWCAR01; a write to 132 would silence the SC lines (regression note pace_probe_standings.c:2511-2516). Owner instruction in SC source: 'SLOWCAR01 is not to be played at all' (pace_probe_standings.c:2605). Native 427 fires on the post-race screen. Newest source is pace_probe_standings.c (2026-08-07 fork); mt_sc.dll (17:49) has no matching source in dll (UNKNOWN build).",
+   "live_test": "None until the owner rules on SLOWCAR01. If allowed: a free carrier eid and an SC-mod change to lift its block for that carrier.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/full_safety_car/dll/pace_probe_standings.c:550,566-569,2511-2516,2538-2560,2605,6603",
+    "development/mods/full_safety_car/dll/pace_probe.c:490,2478-2500,6149",
+    "development/mods/full_safety_car/dll/README.md (fork 2026-08-07)",
+    "f1c_ida_decompiled/functions/ScoringClassificationDisplay_0041e320.c:129"
+   ],
+   "open_questions": "Owner ruling: is SLOWCAR01 wanted at all, and which carrier may ERE use?"
+  },
+  {
+   "clip": "PWS_RACEFAST03.",
+   "sdt_index": 70,
+   "pws_eid": 71,
+   "all_eids": [
+    71,
+    343
+   ],
+   "says": "Player sets all-time lap record",
+   "eid_source": "full_event_dump.json eid 71 (cooldown 1.0) and 343; doc 56 lines 105, 377",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "eid 343: sub_412490_00412490.c:187 (case 4, a5!=0), reached from SoundEventDispatcher_00411e90.c:25 (case 5/0xA/0x17). eid 71: DriverNameIDLookup_00415d90.c:43 (driver-variant 'David C', a4==0 -> 71).",
+   "why_silent": "unknown",
+   "technique": "game_state_emitter",
+   "subject": "player",
+   "trigger": "Race (SessionType 7): on the player's LapCompletion, lap time < the all-time track record. Record source: ERE keeps its own per-track record table (persisted), seeded from the game's record if located. Fires only when the new lap beats the stored record.",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 (5 qual, 7 race)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ state table)"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (session state table)"
+    },
+    {
+     "what": "TrackConditionState",
+     "locator": "0x007CF3C8",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8 (!=8)",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "PlayerVehiclePtr / player slot",
+     "locator": "0x007C54E8, slot = *(ptr+18580)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; sub_4BCCC0_004bccc0.c:321"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; AIDriverStateTransition_00419120.c:39,56-57"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 track,1 in-lap,2 lane,3 box,4 exit)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    },
+    {
+     "what": "new lap time",
+     "locator": "LapCompletion_004bc4e0.c param a2, stored this+0x18 (line 56)",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/functions/LapCompletion_004bc4e0.c:56"
+    },
+    {
+     "what": "game all-time record",
+     "locator": "UNKNOWN (no record store located)",
+     "tier": "UNKNOWN",
+     "source": "EMITTER_SPECS.md:179 says storage UNKNOWN"
+    }
+   ],
+   "latch_cooldown": "once per new record (store updated on fire)",
+   "calibration_needed": "seed value for the all-time record; whether the game record is per-track and per-season; locate the game's record file",
+   "conflicts": "eid 71 is a driver-name variant (David C, DriverNameIDLookup:43); using 71 as a carrier can also speak that name sentence elsewhere. Prefer 343 for race. Native 343 may already fire via SoundEventDispatcher case 5 with a record message: trace before adding ERE's copy.",
+   "live_test": "Owner: set a lap that beats the timing-screen record; expect one line.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c:43",
+    "f1c_ida_decompiled/functions/sub_412490_00412490.c:187",
+    "f1c_ida_decompiled/functions/SoundEventDispatcher_00411e90.c:25",
+    "f1c_ida_decompiled/functions/LapCompletion_004bc4e0.c:56",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md:179-180"
+   ],
+   "open_questions": "Where does the game store the all-time track record? Search needed in record-load code (not in this batch)."
+  },
+  {
+   "clip": "PWS_2001_102.mp",
+   "sdt_index": 72,
+   "pws_eid": 73,
+   "all_eids": [
+    73,
+    344
+   ],
+   "says": "Player sets personal best lap",
+   "eid_source": "full_event_dump.json eid 73 (cooldown 1.0) and 344; doc 56 lines 107, 378",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "eid 73: TrackNameDisplayIDLookup_00417f60.c:113 (Albert Park, a4!=0 -> 73, else 92). eid 344: sub_412490_00412490.c:190 (case 5, a5!=0), via SoundEventDispatcher_00411e90.c:25.",
+   "why_silent": "unknown",
+   "technique": "game_state_emitter",
+   "subject": "player",
+   "trigger": "On the player's LapCompletion: a new session personal best. LapCompletion_004bc4e0.c:46-53 keeps a best float at this+0x68 and sets it when lap time a2 < best. The first lap sets the best with no comparison. So fire only when a previous best exists in the session and the new lap is lower. Race uses 344; qualifying uses 73.",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 (5 qual, 7 race)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ state table)"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (session state table)"
+    },
+    {
+     "what": "TrackConditionState",
+     "locator": "0x007CF3C8",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8 (!=8)",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "PlayerVehiclePtr / player slot",
+     "locator": "0x007C54E8, slot = *(ptr+18580)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; sub_4BCCC0_004bccc0.c:321"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; AIDriverStateTransition_00419120.c:39,56-57"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 track,1 in-lap,2 lane,3 box,4 exit)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    },
+    {
+     "what": "new lap time",
+     "locator": "LapCompletion param a2; stored this+0x18 (line 56)",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/functions/LapCompletion_004bc4e0.c:56"
+    },
+    {
+     "what": "personal best",
+     "locator": "this+0x68 (float, reset per session: UNKNOWN)",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/functions/LapCompletion_004bc4e0.c:46-53"
+    },
+    {
+     "what": "tracker -> vehicle link",
+     "locator": "UNKNOWN",
+     "tier": "UNKNOWN",
+     "source": "not traced"
+    }
+   ],
+   "latch_cooldown": "once per completed lap",
+   "calibration_needed": "tracker-to-vehicle mapping; per-session reset point of this+0x68",
+   "conflicts": "eid 73 is also the Albert Park name sentence (TrackNameDisplayIDLookup:113). ERE playing 73 directly does not call that lookup, so the clash only matters if the native Albert Park path runs in the same session. EMITTER_SPECS.md:177 cites veh+0x60 for lap time; LapCompletion writes this+0x18 and this+0x68 on a tracker object, so the veh+0x60 claim is UNVERIFIED.",
+   "live_test": "Owner: set a best lap in a race after a slower first lap; expect one line per new best.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/functions/LapCompletion_004bc4e0.c:26,46-57",
+    "f1c_ida_decompiled/functions/TrackNameDisplayIDLookup_00417f60.c:113",
+    "f1c_ida_decompiled/functions/sub_412490_00412490.c:190",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md:177-178"
+   ],
+   "open_questions": "Which object is LapCompletion's 'this', and is it the vehicle plus an offset?"
+  },
+  {
+   "clip": "PWS_AIFASTLAP03",
+   "sdt_index": 280,
+   "pws_eid": 263,
+   "all_eids": [
+    263
+   ],
+   "says": "AI sets all-time fastest lap",
+   "eid_source": "full_event_dump.json eid 263 (sdt 280, cooldown 1.0); doc 56 line 297",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_412E50_00412e50.c:75 (a2==1 switch case 21, a4==0 -> 263); dispatch path untraced",
+   "why_silent": "unknown",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Race (SessionType 7): an AI car's LapCompletion gives a lap below the same ERE-held all-time record table used by PWS_RACEFAST03. Subject = AI veh+0x489C. Fires only when the new lap beats the stored record.",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 (5 qual, 7 race)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ state table)"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (session state table)"
+    },
+    {
+     "what": "TrackConditionState",
+     "locator": "0x007CF3C8",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8 (!=8)",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "PlayerVehiclePtr / player slot",
+     "locator": "0x007C54E8, slot = *(ptr+18580)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; sub_4BCCC0_004bccc0.c:321"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; AIDriverStateTransition_00419120.c:39,56-57"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 track,1 in-lap,2 lane,3 box,4 exit)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    },
+    {
+     "what": "AI lap time",
+     "locator": "LapCompletion param a2 for AI slots",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/functions/LapCompletion_004bc4e0.c:56"
+    },
+    {
+     "what": "all-time record",
+     "locator": "UNKNOWN (shared ERE table)",
+     "tier": "UNKNOWN",
+     "source": "EMITTER_SPECS.md:191"
+    }
+   ],
+   "latch_cooldown": "once per new record",
+   "calibration_needed": "same as PWS_RACEFAST03",
+   "conflicts": "Same record table as 71/343. Native 263 may already write via sub_412E50 case 21: trace the message type first.",
+   "live_test": "Owner: let an AI set a lap faster than the record in a race.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/functions/sub_412E50_00412e50.c:75",
+    "f1c_ida_decompiled/functions/LapCompletion_004bc4e0.c:56",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md:191"
+   ],
+   "open_questions": "Same record source question as PWS_RACEFAST03."
+  },
+  {
+   "clip": "PWS_2001_33.mp2",
+   "sdt_index": 39,
+   "pws_eid": 40,
+   "all_eids": [
+    40,
+    331
+   ],
+   "says": "X position or better secures WDC",
+   "eid_source": "full_event_dump.json eid 40 (cooldown 1.0) and 331 (cooldown 1.0); doc 56 lines 74, 365",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "eid 40: TrackNameDisplayIDLookup_00417f60.c:64 (A-1 Ring, a4!=0 -> 40). eid 331: DriverNameIDLookup_00415d90.c:69 ('Ricardo Z', a4!=0 -> 331); TeamNameDisplayIDLookup_0041b980.c:189 (dynamic, range 293-336). Post-race clinch code: ScoringClassificationDisplay_0041e320 (post-race only).",
+   "why_silent": "unknown",
+   "technique": "game_state_emitter",
+   "subject": "player",
+   "trigger": "Race (SessionType 7): the player's position P and points lead guarantee the WDC: player points plus remaining points at P or better are more than any rival's points plus their maximum remaining. Needs the season points table and remaining-race count.",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 (5 qual, 7 race)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ state table)"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (session state table)"
+    },
+    {
+     "what": "TrackConditionState",
+     "locator": "0x007CF3C8",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8 (!=8)",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "PlayerVehiclePtr / player slot",
+     "locator": "0x007C54E8, slot = *(ptr+18580)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; sub_4BCCC0_004bccc0.c:321"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; AIDriverStateTransition_00419120.c:39,56-57"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 track,1 in-lap,2 lane,3 box,4 exit)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    },
+    {
+     "what": "driver points",
+     "locator": "UNKNOWN (ChampionshipScore_0041eda0.c / ChampionshipPointsAccumulator_0041f220.c not yet read)",
+     "tier": "UNKNOWN",
+     "source": "f1c_ida_decompiled/functions/ChampionshipPointsAccumulator_0041f220.c"
+    },
+    {
+     "what": "races remaining",
+     "locator": "UNKNOWN",
+     "tier": "UNKNOWN",
+     "source": "not located"
+    }
+   ],
+   "latch_cooldown": "once per season",
+   "calibration_needed": "points table (read from the points accumulator), races remaining, live points field offset",
+   "conflicts": "eid 40 is the A-1 Ring track-name sentence on the native path; eid 331 is a 'Ricardo Z' name variant. The clip label may be wrong or name/track-specific. User triage (progress.json): Z, to-do.",
+   "live_test": "Owner: late in a season, be in a position that clinches the title; compare with the points screen.",
+   "tier": "UNKNOWN",
+   "sources": [
+    "f1c_ida_decompiled/functions/TrackNameDisplayIDLookup_00417f60.c:64",
+    "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c:69",
+    "f1c_ida_decompiled/functions/ScoringClassificationDisplay_0041e320.c",
+    "f1c_ida_decompiled/functions/sub_4A5700_004a5700.c:12",
+    "f1c_ida_decompiled/functions/ChampionshipPointsAccumulator_0041f220.c"
+   ],
+   "open_questions": "Read the points table and the points field. Isolation test for 40 and 331 needed before the label is trusted."
+  },
+  {
+   "clip": "PWS_2001_141.mp",
+   "sdt_index": 212,
+   "pws_eid": 199,
+   "all_eids": [
+    199,
+    513
+   ],
+   "says": "Team positioned to secure WCC",
+   "eid_source": "full_event_dump.json eid 199 (cooldown 1.0) and 513; doc 56 lines 233, 547",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "eid 199: DriverNameIDLookup_00415d90.c:187 ('Mark W', a4!=0 -> 199, else 461). Contradicts EVF note 'NO_KNOWN_WRITER' (progress.json). eid 513: PitRaceStatusMessageDispatcher_0041be60.c:44 (TV side).",
+   "why_silent": "unknown",
+   "technique": "game_state_emitter",
+   "subject": "team",
+   "trigger": "Race (SessionType 7): the player's team points and remaining points make the constructors' title secure, using the same points model as PWS_2001_33 (team points = sum of the two drivers).",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 (5 qual, 7 race)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ state table)"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (session state table)"
+    },
+    {
+     "what": "TrackConditionState",
+     "locator": "0x007CF3C8",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8 (!=8)",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "PlayerVehiclePtr / player slot",
+     "locator": "0x007C54E8, slot = *(ptr+18580)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; sub_4BCCC0_004bccc0.c:321"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; AIDriverStateTransition_00419120.c:39,56-57"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 track,1 in-lap,2 lane,3 box,4 exit)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    },
+    {
+     "what": "constructor points",
+     "locator": "UNKNOWN (ConstructorChampionshipClinchDetection_0041f8a0.c calls the accumulator)",
+     "tier": "UNKNOWN",
+     "source": "f1c_ida_decompiled/functions/ConstructorChampionshipClinchDetection_0041f8a0.c:133"
+    }
+   ],
+   "latch_cooldown": "once per season",
+   "calibration_needed": "constructor points model and field offsets",
+   "conflicts": "Name-variant eid 199 (Mark W). If the Mark W sentence is the team line, ERE must not replace it with a generic line. User triage: Y, stub, probably not yet (progress.json).",
+   "live_test": "Owner: defer until PWS_2001_33 points model exists.",
+   "tier": "UNKNOWN",
+   "sources": [
+    "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c:187",
+    "f1c_ida_decompiled/functions/PitRaceStatusMessageDispatcher_0041be60.c:44",
+    "f1c_ida_decompiled/functions/ConstructorChampionshipClinchDetection_0041f8a0.c:133",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/progress.json (PWS_2001_141 triage)"
+   ],
+   "open_questions": "Is 199 the Mark Webber variant of the team sentence? Isolation test needed."
+  },
+  {
+   "clip": "PWS_2001_138.mp",
+   "sdt_index": 213,
+   "pws_eid": 200,
+   "all_eids": [
+    200,
+    506
+   ],
+   "says": "AI driver positioned to secure WDC",
+   "eid_source": "full_event_dump.json eid 200 (cooldown 1.0) and 506; doc 56 lines 234, 540",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "eid 200: DriverNameIDLookup_00415d90.c:407 ('Mark W' second branch, a4!=0 -> 200, else 462). Contradicts EVF 'NO_KNOWN_WRITER'. eid 506: PitRaceStatusMessageDispatcher_0041be60.c:17 (TV side).",
+   "why_silent": "unknown",
+   "technique": "game_state_emitter",
+   "subject": "ai (the rival with the best WDC chance)",
+   "trigger": "Race (SessionType 7): the AI driver's WDC points and remaining points make the title secure for that AI. Same points model as PWS_2001_33, applied to AI slots (veh+0x489C id).",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 (5 qual, 7 race)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ state table)"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (session state table)"
+    },
+    {
+     "what": "TrackConditionState",
+     "locator": "0x007CF3C8",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8 (!=8)",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "PlayerVehiclePtr / player slot",
+     "locator": "0x007C54E8, slot = *(ptr+18580)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; sub_4BCCC0_004bccc0.c:321"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; AIDriverStateTransition_00419120.c:39,56-57"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 track,1 in-lap,2 lane,3 box,4 exit)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    },
+    {
+     "what": "AI driver points",
+     "locator": "UNKNOWN",
+     "tier": "UNKNOWN",
+     "source": "not located"
+    }
+   ],
+   "latch_cooldown": "once per season per AI driver",
+   "calibration_needed": "points model; AI points field",
+   "conflicts": "Name-variant eid 200 (Mark W, second branch). Same points model as PWS_2001_33.",
+   "live_test": "Owner: defer until the points model is read.",
+   "tier": "UNKNOWN",
+   "sources": [
+    "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c:407",
+    "f1c_ida_decompiled/functions/PitRaceStatusMessageDispatcher_0041be60.c:17",
+    "f1c_ida_decompiled/functions/ChampionshipPointsAccumulator_0041f220.c",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ)"
+   ],
+   "open_questions": "Is 200 the Mark W variant? Isolation test needed."
+  },
+  {
+   "clip": "PWS_MISC46.mp2",
+   "sdt_index": 209,
+   "pws_eid": 197,
+   "all_eids": [
+    197,
+    507
+   ],
+   "says": "AI driver laps another AI",
+   "eid_source": "full_event_dump.json eid 197 (cooldown 1.0) and 507; doc 56 lines 231, 541",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "eid 197: DriverNameIDLookup_00415d90.c:219 ('Marc G', a4!=0 -> 197, else 159). Eid 507: PitRaceStatusMessageDispatcher_0041be60.c:21 (TV side).",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai (lapping car) and ai (lapped car)",
+   "trigger": "Race (SessionType 7). AI car A's lap counter exceeds AI car B's by 1 and A passes B's track distance (A overtakes B on the lap boundary). Per pair, once per lap. Ignore pit lane for either car.",
+   "state_reads": [
+    {
+     "what": "SessionType",
+     "locator": "0x007C56A4 (5 qual, 7 race)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (standings_champ state table)"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x007D0308",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md (session state table)"
+    },
+    {
+     "what": "TrackConditionState",
+     "locator": "0x007CF3C8",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "RacePhase",
+     "locator": "0x007C56A8 (!=8)",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:12"
+    },
+    {
+     "what": "PlayerVehiclePtr / player slot",
+     "locator": "0x007C54E8, slot = *(ptr+18580)",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c:17"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; sub_4BCCC0_004bccc0.c:321"
+    },
+    {
+     "what": "subject driver id",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts; AIDriverStateTransition_00419120.c:39,56-57"
+    },
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450 (0 track,1 in-lap,2 lane,3 box,4 exit)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    },
+    {
+     "what": "AI lap counter",
+     "locator": "veh+0x403C (dword 16444)",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/functions/sub_4BCCC0_004bccc0.c:322 (lap field use; name not confirmed)"
+    },
+    {
+     "what": "AI track distance",
+     "locator": "veh+0x4044 (lap distance, brief fact)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md facts"
+    }
+   ],
+   "latch_cooldown": "once per pair per lap",
+   "calibration_needed": "lap-counter field identity (0x403C vs 0x4040); definition of 'passing' at the lap boundary",
+   "conflicts": "Name-variant eid 197 ('Marc G'). REVERTED in progress.json: never heard in play, injection proved the clip only.",
+   "live_test": "Owner: wait for an AI lapping an AI in a race (no injection).",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c:219",
+    "f1c_ida_decompiled/functions/sub_4BCCC0_004bccc0.c:322",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/progress.json (PWS_MISC46 REVERTED note)"
+   ],
+   "open_questions": "Which field is the lap number? No AI-vs-AI lap detector was found; this design replaces one."
+  }
+ ]
+}

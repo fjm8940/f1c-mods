@@ -1,0 +1,2 @@
+# RaceStartCountdownStateUpdate: offset-like lines with no extracted row (1)
+L19: v4 = this + 8;

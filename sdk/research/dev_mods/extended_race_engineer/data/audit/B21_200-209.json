@@ -1,0 +1,2507 @@
+{
+ "schema": "ere.audit.v1",
+ "range": "B21_200-209",
+ "method_note": "Owner EXHAUSTIVE PER-LINE METHOD. 10 clips from data/audit_batches.json B21_200-209; dossiers data/line_trace/200..209. Read in full: the 18 dynamic emitters (incl. thunks sub_4203D0 and sub_420000), the 22 literal-only emitters' call-site eids, DriverNameIDLookup hits, the reachability chain (BufferReset, sub_4B3400, LapCompletion, AICornerSpeedComparison, AIVehicleDamageEvent, LapSplitTimeEvent, TimerFrameRateThrottle registration). Installed pitstop_failures 1.1.4-rc.1 source read for 188-190. No live game; owner exe read-only for the event table.",
+ "owner_exe_check": "F1 Challenge Online.exe (sha256 prefix 1a70e5ed0c4a059f). Event table 0x5BF9A0 + eid*0x14: priority +0x00, cooldown +0x0C, score +0x10. eids 188-197 cooldown 1.0 with scores 191-200 (match dump); TV 507-511 cooldown 1.0; 397 cooldown 1.0 score 9875.",
+ "verdict_counts": {
+  "NATIVE_ACTIVE": 1,
+  "NOT_ACTIVATED": 6,
+  "MOD_ONLY": 3,
+  "UNKNOWN": 0
+ },
+ "contradictions": [
+  "doc56 row 190 says SILENT: correct for the native game, but pitstop_failures 1.1.4-rc.1 queues eid 190 (live_client.cpp:600), so it plays through the mod (MOD_ONLY).",
+  "modded_lines.json and the voice index cite pitstop dll/pit_commentary.c:590,110/111,1557 for eids 188/189. That file is not in the installed rc.1 tree; the installed path is pit_live_voice.h:30 + live_client.cpp:1068-1070.",
+  "RESTORATION_PLAN.md:253 says eid 188 has no call site. True for native code, false for the installed pitstop mod (186+wheel path).",
+  "doc56 row 230 says 196 SHIPPED. The native emitter (AIVehicleDamageEvent) supports it statically (NATIVE_ACTIVE, DERIVED); no mod source emits it.",
+  "eid 397 is emitted by several native functions (PitExit:127, PositionChangeDetector:111,189, RaceCommentary:148,173). The dump maps 397 to SDT 0 PWS_QUAL32 'Team front row lockout' (score 9875). Those pit/position paths would play the front-row clip unless the dump row is wrong. Outside this batch; flagged for the owner.",
+  "DriverNameIDLookup stores PWS eids 188-197 as per-driver name-slot values (e.g. line 273 'Juan' -> 188). The consumer of that name-slot eid is NOT located; no queue function reads it. Not an emit, but an open question.",
+  "TV twins 507, 509, 510, 511 (clips 197, 194, 195, 192) are literal emits in PitRaceStatusMessageDispatcher (sub_41BE60, eids 506-513, TV channel). Not analysed here (PWS scope); the TV channel may play them."
+ ],
+ "rows": [
+  {
+   "sdt_index": 200,
+   "eid": 188,
+   "clip": "PWS_2001_135",
+   "says": "AI driver stuck Rear Left wheel",
+   "score": 191,
+   "cooldown": 1.0,
+   "priority": 20,
+   "cooldown_owner_exe": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no_native_emitter",
+   "situation": "AI car (controller_role 1, not the player) whose Rear Left wheel nut is cross-threaded at its pit stop: the mod queues the real eid 188 (186 + wheel 2 = RL). Also the terminal-wheel AI path with wheel RL.",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "pitstop_failures/source/pit_live_voice.h:30 (CROSS_THREAD, wheel 0..3, !player -> 186+wheel)",
+    "pitstop_failures/source/live_client.cpp:1068-1070 (terminal AI wheel -> voice(186+wheel))",
+    "pitstop_failures/src/pit_failure_policy.h:75 (PF_WHEEL_RL = 2)"
+   ],
+   "call_path": "CROSS_THREAD plan (pit_failure_policy.c:733-740) -> legacy_feedback.h:15 -> pit_voice_fault (pit_live_voice.h:24-31) -> deliver_feedback (live_client.cpp:645-650) -> voice() (live_client.cpp:540-552) -> f1c_pit_voice_enqueue (SDK f1c_pit_voice.h:66-72: 0x4144D0 init, 0x4144F0 format, 0x418560 insert)",
+   "gates": "!player; plan.wheel == 2; f1c_pit_voice_enqueue accepted (live_client.cpp:548)",
+   "mod": "pitstop_failures 1.1.4-rc.1 (installed, hash-checked per brief; loaded in owner Lightloader list)",
+   "heard_evidence": "No heard record. EVF TODO.md:39 owner triage 'X PLAY' (not heard). Census modded_lines.json: live_verified unknown.",
+   "tier": "DERIVED",
+   "notes": "Census modded_lines.json and voice index cite pitstop dll/pit_commentary.c:590,110,1557, which is NOT in the installed rc.1 tree. The rc.1 path above is the one that plays. RESTORATION_PLAN.md:253 'no call site' is stale for the installed mod.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (eid set read in full: [120, 198, 259])",
+     "line": "lines 37,39,59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (eid set read in full: [6, 180, 181, 182])",
+     "line": "lines 22,24,35-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (eid set read in full: [3, 4, 5, 10, 16, 33, 72, 262])",
+     "line": "line 61 (v5 set at 29,41,47,57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (eid set read in full: [42, 52])",
+     "line": "lines 13-15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (eid set read in full: [7, 8, 9, 17, 18])",
+     "line": "lines 36,45,48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (eid set read in full: [21, 22, 178, 179])",
+     "line": "lines 17-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (eid set read in full: [52, 196])",
+     "line": "lines 10,16,19"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 260, 261])",
+     "line": "lines 113,149,159,164"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (eid set read in full: [397, 516, 517, 518, 519, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535])",
+     "line": "line 127 (v6 set at 29-125)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid set read in full: 355..372)",
+     "line": "line 26 via ThunkToFUN004201e0 = sub_4203D0 (ThunkToFUN004201e0_004203d0.c:12-47)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 471, 472, 473, 474, 476, 477])",
+     "line": "lines 107,148,158,173,191-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (eid set read in full: 293..336)",
+     "line": "line 189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (eid set read in full: [34, 35, 276, 277, 278, 279])",
+     "line": "line 25"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce this eid (eid set read in full: [151, 153, 154, 155, 252, 253, 254, 256])",
+     "line": "line 35"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce this eid (eid set read in full: [149, 243])",
+     "line": "line 15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce this eid (eid set read in full: [208, 211, 212, 213, 214, 215, 216, 217, 220])",
+     "line": "line 58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce this eid (eid set read in full: [117, 118, 119, 235, 236, 237, 238])",
+     "line": "lines 15,19,23,38,45,47,51,53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce this eid (eid set read in full: 338..354)",
+     "line": "line 16 via sub_420000 (sub_420000_00420000.c:12-45)"
+    },
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce this eid (literal eids [13, 14, 19, 20])",
+     "line": "lines 22,26,31,35; calls AIVehicleDamageEvent line 43"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce this eid (literal eids [264])",
+     "line": "literal call"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce this eid (literal eids [2, 41, 272, 273])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce this eid (literal eids [55])",
+     "line": "literal call"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce this eid (literal eids [134, 136, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce this eid (literal eids [95, 97, 99, 101, 105])",
+     "line": "literal calls"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce this eid (literal eids [423, 424, 488])",
+     "line": "literal calls"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce this eid (literal eids [275])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce this eid (literal eids [284])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce this eid (literal eids [337])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce this eid (literal eids [514])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce this eid (literal eids [74])",
+     "line": "literal call"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce this eid (literal eids [492, 496, 500, 504])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce this eid (literal eids [506, 507, 509, 510, 511, 512, 513])",
+     "line": "literal calls (TV channel eids)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce this eid (literal eids [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce this eid (literal eids [94, 96, 98, 100, 104])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce this eid (literal eids [397])",
+     "line": "lines 111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce this eid (literal eids [427, 483, 484, 485, 486, 487])",
+     "line": "literal calls"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce this eid (literal eids [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce this eid (literal eids [114, 115, 226])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce this eid (literal eids [106, 107, 108, 109, 110, 111, 221, 222, 223])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce this eid (literal eids [77])",
+     "line": "literal call"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v8 = v7 + 188; (struct offset, not an eid). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:18"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v9 = a4 != 0 ? 188 : 216; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:273"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList",
+     "result": "name-file loader (sub_414600 calls DriverNameIDLookup) and format-list lookup. NamedEntryLookupInFormatList returns a list INDEX used as subject (e.g. PositionChangeDetector:110-111), not as eid. No eid of this clip reaches an emitter through these",
+     "line": "sub_414600_00414600.c:18-36; NamedEntryLookupInFormatList_00415230.c:176"
+    }
+   ]
+  },
+  {
+   "sdt_index": 201,
+   "eid": 189,
+   "clip": "PWS_2001_136",
+   "says": "AI driver stuck Rear Right wheel",
+   "score": 192,
+   "cooldown": 1.0,
+   "priority": 20,
+   "cooldown_owner_exe": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no_native_emitter",
+   "situation": "AI car whose Rear Right wheel nut is cross-threaded at its pit stop (or terminal RR): the mod queues the real eid 189 (186 + wheel 3 = RR).",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "pitstop_failures/source/pit_live_voice.h:30",
+    "pitstop_failures/source/live_client.cpp:1068-1070",
+    "pitstop_failures/src/pit_failure_policy.h:76 (PF_WHEEL_RR = 3)"
+   ],
+   "call_path": "same path as 188 with plan.wheel == 3",
+   "gates": "!player; plan.wheel == 3; f1c_pit_voice_enqueue accepted (live_client.cpp:548)",
+   "mod": "pitstop_failures 1.1.4-rc.1 (installed, hash-checked per brief; loaded in owner Lightloader list)",
+   "heard_evidence": "No heard record. EVF TODO.md:174 owner triage 'X PLAY Z' (not heard).",
+   "tier": "DERIVED",
+   "notes": "Same stale census source note as 188 (dll/pit_commentary.c:590,111,1557).",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (eid set read in full: [120, 198, 259])",
+     "line": "lines 37,39,59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (eid set read in full: [6, 180, 181, 182])",
+     "line": "lines 22,24,35-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (eid set read in full: [3, 4, 5, 10, 16, 33, 72, 262])",
+     "line": "line 61 (v5 set at 29,41,47,57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (eid set read in full: [42, 52])",
+     "line": "lines 13-15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (eid set read in full: [7, 8, 9, 17, 18])",
+     "line": "lines 36,45,48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (eid set read in full: [21, 22, 178, 179])",
+     "line": "lines 17-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (eid set read in full: [52, 196])",
+     "line": "lines 10,16,19"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 260, 261])",
+     "line": "lines 113,149,159,164"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (eid set read in full: [397, 516, 517, 518, 519, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535])",
+     "line": "line 127 (v6 set at 29-125)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid set read in full: 355..372)",
+     "line": "line 26 via ThunkToFUN004201e0 = sub_4203D0 (ThunkToFUN004201e0_004203d0.c:12-47)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 471, 472, 473, 474, 476, 477])",
+     "line": "lines 107,148,158,173,191-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (eid set read in full: 293..336)",
+     "line": "line 189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (eid set read in full: [34, 35, 276, 277, 278, 279])",
+     "line": "line 25"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce this eid (eid set read in full: [151, 153, 154, 155, 252, 253, 254, 256])",
+     "line": "line 35"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce this eid (eid set read in full: [149, 243])",
+     "line": "line 15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce this eid (eid set read in full: [208, 211, 212, 213, 214, 215, 216, 217, 220])",
+     "line": "line 58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce this eid (eid set read in full: [117, 118, 119, 235, 236, 237, 238])",
+     "line": "lines 15,19,23,38,45,47,51,53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce this eid (eid set read in full: 338..354)",
+     "line": "line 16 via sub_420000 (sub_420000_00420000.c:12-45)"
+    },
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce this eid (literal eids [13, 14, 19, 20])",
+     "line": "lines 22,26,31,35; calls AIVehicleDamageEvent line 43"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce this eid (literal eids [264])",
+     "line": "literal call"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce this eid (literal eids [2, 41, 272, 273])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce this eid (literal eids [55])",
+     "line": "literal call"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce this eid (literal eids [134, 136, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce this eid (literal eids [95, 97, 99, 101, 105])",
+     "line": "literal calls"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce this eid (literal eids [423, 424, 488])",
+     "line": "literal calls"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce this eid (literal eids [275])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce this eid (literal eids [284])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce this eid (literal eids [337])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce this eid (literal eids [514])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce this eid (literal eids [74])",
+     "line": "literal call"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce this eid (literal eids [492, 496, 500, 504])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce this eid (literal eids [506, 507, 509, 510, 511, 512, 513])",
+     "line": "literal calls (TV channel eids)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce this eid (literal eids [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce this eid (literal eids [94, 96, 98, 100, 104])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce this eid (literal eids [397])",
+     "line": "lines 111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce this eid (literal eids [427, 483, 484, 485, 486, 487])",
+     "line": "literal calls"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce this eid (literal eids [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce this eid (literal eids [114, 115, 226])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce this eid (literal eids [106, 107, 108, 109, 110, 111, 221, 222, 223])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce this eid (literal eids [77])",
+     "line": "literal call"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v9 = a4 != 0 ? 189 : 323; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:101"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList",
+     "result": "name-file loader (sub_414600 calls DriverNameIDLookup) and format-list lookup. NamedEntryLookupInFormatList returns a list INDEX used as subject (e.g. PositionChangeDetector:110-111), not as eid. No eid of this clip reaches an emitter through these",
+     "line": "sub_414600_00414600.c:18-36; NamedEntryLookupInFormatList_00415230.c:176"
+    }
+   ]
+  },
+  {
+   "sdt_index": 202,
+   "eid": 190,
+   "clip": "PWS_AIPIT13",
+   "says": "AI rejoins track at X position",
+   "score": 193,
+   "cooldown": 1.0,
+   "priority": 20,
+   "cooldown_owner_exe": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no_native_emitter",
+   "situation": "AI car that was serviced in its pit visit crosses the pit exit (pit_status 0 edge after service), race only: the mod queues eid 190 with the AI driver id subject and race position for 'X rejoins track at position P'.",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "pitstop_failures/source/live_client.cpp:588-617 (voice_rejoin: eid 190 for AI, subject VEHF_DriverID)",
+    "pitstop_failures/source/live_client.cpp:1287-1289 (serviced_this_visit latch; rejoin call on pit_status edge)"
+   ],
+   "call_path": "live_client.cpp:1288-1289 voice_rejoin -> format 0x4144F0 -> insert 0x418560 (live_client.cpp:614-616)",
+   "gates": "!player and subject >= 0; race_position 1..40 (line 607); G_RaceActiveFlag and G_TrackConditionState != 0 (line 608); G_SessionType == 7 (line 609); c.last_pit_status > 0 && s.pit_status == 0 && c.serviced_this_visit && !c.terminal && !s.retired (line 1288)",
+   "mod": "pitstop_failures 1.1.4-rc.1 (installed, hash-checked per brief; loaded in owner Lightloader list)",
+   "heard_evidence": "doc56 row 224 'SILENT' (native game). No heard record. TODO.md has no row. live_client.cpp:586-587 says the native game never plays 'rejoined in P'.",
+   "tier": "DERIVED",
+   "notes": "No native emitter in the 40-function read; the mod is the only queue path found.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (eid set read in full: [120, 198, 259])",
+     "line": "lines 37,39,59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (eid set read in full: [6, 180, 181, 182])",
+     "line": "lines 22,24,35-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (eid set read in full: [3, 4, 5, 10, 16, 33, 72, 262])",
+     "line": "line 61 (v5 set at 29,41,47,57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (eid set read in full: [42, 52])",
+     "line": "lines 13-15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (eid set read in full: [7, 8, 9, 17, 18])",
+     "line": "lines 36,45,48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (eid set read in full: [21, 22, 178, 179])",
+     "line": "lines 17-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (eid set read in full: [52, 196])",
+     "line": "lines 10,16,19"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 260, 261])",
+     "line": "lines 113,149,159,164"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (eid set read in full: [397, 516, 517, 518, 519, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535])",
+     "line": "line 127 (v6 set at 29-125)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid set read in full: 355..372)",
+     "line": "line 26 via ThunkToFUN004201e0 = sub_4203D0 (ThunkToFUN004201e0_004203d0.c:12-47)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 471, 472, 473, 474, 476, 477])",
+     "line": "lines 107,148,158,173,191-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (eid set read in full: 293..336)",
+     "line": "line 189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (eid set read in full: [34, 35, 276, 277, 278, 279])",
+     "line": "line 25"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce this eid (eid set read in full: [151, 153, 154, 155, 252, 253, 254, 256])",
+     "line": "line 35"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce this eid (eid set read in full: [149, 243])",
+     "line": "line 15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce this eid (eid set read in full: [208, 211, 212, 213, 214, 215, 216, 217, 220])",
+     "line": "line 58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce this eid (eid set read in full: [117, 118, 119, 235, 236, 237, 238])",
+     "line": "lines 15,19,23,38,45,47,51,53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce this eid (eid set read in full: 338..354)",
+     "line": "line 16 via sub_420000 (sub_420000_00420000.c:12-45)"
+    },
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce this eid (literal eids [13, 14, 19, 20])",
+     "line": "lines 22,26,31,35; calls AIVehicleDamageEvent line 43"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce this eid (literal eids [264])",
+     "line": "literal call"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce this eid (literal eids [2, 41, 272, 273])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce this eid (literal eids [55])",
+     "line": "literal call"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce this eid (literal eids [134, 136, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce this eid (literal eids [95, 97, 99, 101, 105])",
+     "line": "literal calls"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce this eid (literal eids [423, 424, 488])",
+     "line": "literal calls"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce this eid (literal eids [275])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce this eid (literal eids [284])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce this eid (literal eids [337])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce this eid (literal eids [514])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce this eid (literal eids [74])",
+     "line": "literal call"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce this eid (literal eids [492, 496, 500, 504])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce this eid (literal eids [506, 507, 509, 510, 511, 512, 513])",
+     "line": "literal calls (TV channel eids)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce this eid (literal eids [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce this eid (literal eids [94, 96, 98, 100, 104])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce this eid (literal eids [397])",
+     "line": "lines 111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce this eid (literal eids [427, 483, 484, 485, 486, 487])",
+     "line": "literal calls"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce this eid (literal eids [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce this eid (literal eids [114, 115, 226])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce this eid (literal eids [106, 107, 108, 109, 110, 111, 221, 222, 223])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce this eid (literal eids [77])",
+     "line": "literal call"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v9 = a4 != 0 ? 190 : 324; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:321"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v9 = a4 != 0 ? 190 : 28; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:654"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList",
+     "result": "name-file loader (sub_414600 calls DriverNameIDLookup) and format-list lookup. NamedEntryLookupInFormatList returns a list INDEX used as subject (e.g. PositionChangeDetector:110-111), not as eid. No eid of this clip reaches an emitter through these",
+     "line": "sub_414600_00414600.c:18-36; NamedEntryLookupInFormatList_00415230.c:176"
+    }
+   ]
+  },
+  {
+   "sdt_index": 203,
+   "eid": 191,
+   "clip": "RE_OD_INTER",
+   "says": "Other driver leaves pits on Inters",
+   "score": 194,
+   "cooldown": 1.0,
+   "priority": 20,
+   "cooldown_owner_exe": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "none: no native emit site for this eid in any of the 40 queue functions",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No emit site exists, so no suppression. The generic pit-exit trigger exists in PitExit (sub_41C0F0:127, eids 397/516-535) but does not queue this eid.",
+   "emitters": [],
+   "call_path": "none",
+   "gates": [],
+   "mod": "none (not in modded_lines.json; no pit, SC or MF source emits this eid)",
+   "heard_evidence": "TODO.md:175 owner triage 'X PLAY, AI leaves the pits, plays if current tire is INTERMEDIATE' (not heard)",
+   "tier": "DERIVED",
+   "notes": "",
+   "play_plan": {
+    "meaning": "Another (AI) car has just left the pits on intermediate tyres. Tyre-strategy information about a rival, not a warning to the player.",
+    "when_it_should_play": "Race (SessionType 7), green flag. An AI car (not the player) leaves the pit lane onto the track while its tyre is INTERMEDIATE.",
+    "trigger": "AI car pit_status edge 4 -> 0 (broker pit_status; raw veh+0x3450 per brief) with controller_role == 1 and tyre compound == INTERMEDIATE. Compound locator: UNKNOWN - F1CBrokerVehicleSnapshot (f1c_broker_abi.h:160-214) has no tyre compound field; a live-proven per-car compound read is needed.",
+    "subject": "AI driver id veh+0x489C (NOT veh+0x48A0)",
+    "technique": "own_emitter (ERE queues PWS eid 191 with AI subject; no native gate to lift)",
+    "latch_cooldown": "once per car per pit exit (ERE latch until next pit visit); table cooldown 1.0 s",
+    "must_not_play_when": "player's own exit; qualifying (SessionType 5); car retired or lapped out; compound is not INTERMEDIATE; Safety Car period; within ~10 s of another pit-exit line",
+    "conflicts": "PitExit native lines 397 and 516-535 fire on the same exit edge; RE_OD siblings 192-194 share the trigger; pitstop_failures lines use their own box-stop path",
+    "calibration": "compound locator (none yet); exit-edge timing vs the PitExit call",
+    "live_test": "Race in wet conditions: let an AI car pit onto inters and watch the exit; or an ERE debug trigger with a known compound",
+    "confidence": "DERIVED meaning and line identity; GUESS on compound locator; raise by a live read of per-car tyre compound"
+   },
+   "checked": [
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (eid set read in full: [120, 198, 259])",
+     "line": "lines 37,39,59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (eid set read in full: [6, 180, 181, 182])",
+     "line": "lines 22,24,35-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (eid set read in full: [3, 4, 5, 10, 16, 33, 72, 262])",
+     "line": "line 61 (v5 set at 29,41,47,57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (eid set read in full: [42, 52])",
+     "line": "lines 13-15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (eid set read in full: [7, 8, 9, 17, 18])",
+     "line": "lines 36,45,48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (eid set read in full: [21, 22, 178, 179])",
+     "line": "lines 17-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (eid set read in full: [52, 196])",
+     "line": "lines 10,16,19"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 260, 261])",
+     "line": "lines 113,149,159,164"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (eid set read in full: [397, 516, 517, 518, 519, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535])",
+     "line": "line 127 (v6 set at 29-125)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid set read in full: 355..372)",
+     "line": "line 26 via ThunkToFUN004201e0 = sub_4203D0 (ThunkToFUN004201e0_004203d0.c:12-47)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 471, 472, 473, 474, 476, 477])",
+     "line": "lines 107,148,158,173,191-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (eid set read in full: 293..336)",
+     "line": "line 189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (eid set read in full: [34, 35, 276, 277, 278, 279])",
+     "line": "line 25"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce this eid (eid set read in full: [151, 153, 154, 155, 252, 253, 254, 256])",
+     "line": "line 35"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce this eid (eid set read in full: [149, 243])",
+     "line": "line 15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce this eid (eid set read in full: [208, 211, 212, 213, 214, 215, 216, 217, 220])",
+     "line": "line 58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce this eid (eid set read in full: [117, 118, 119, 235, 236, 237, 238])",
+     "line": "lines 15,19,23,38,45,47,51,53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce this eid (eid set read in full: 338..354)",
+     "line": "line 16 via sub_420000 (sub_420000_00420000.c:12-45)"
+    },
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce this eid (literal eids [13, 14, 19, 20])",
+     "line": "lines 22,26,31,35; calls AIVehicleDamageEvent line 43"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce this eid (literal eids [264])",
+     "line": "literal call"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce this eid (literal eids [2, 41, 272, 273])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce this eid (literal eids [55])",
+     "line": "literal call"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce this eid (literal eids [134, 136, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce this eid (literal eids [95, 97, 99, 101, 105])",
+     "line": "literal calls"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce this eid (literal eids [423, 424, 488])",
+     "line": "literal calls"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce this eid (literal eids [275])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce this eid (literal eids [284])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce this eid (literal eids [337])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce this eid (literal eids [514])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce this eid (literal eids [74])",
+     "line": "literal call"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce this eid (literal eids [492, 496, 500, 504])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce this eid (literal eids [506, 507, 509, 510, 511, 512, 513])",
+     "line": "literal calls (TV channel eids)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce this eid (literal eids [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce this eid (literal eids [94, 96, 98, 100, 104])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce this eid (literal eids [397])",
+     "line": "lines 111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce this eid (literal eids [427, 483, 484, 485, 486, 487])",
+     "line": "literal calls"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce this eid (literal eids [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce this eid (literal eids [114, 115, 226])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce this eid (literal eids [106, 107, 108, 109, 110, 111, 221, 222, 223])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce this eid (literal eids [77])",
+     "line": "literal call"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v9 = a4 != 0 ? 191 : 29; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:874"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList",
+     "result": "name-file loader (sub_414600 calls DriverNameIDLookup) and format-list lookup. NamedEntryLookupInFormatList returns a list INDEX used as subject (e.g. PositionChangeDetector:110-111), not as eid. No eid of this clip reaches an emitter through these",
+     "line": "sub_414600_00414600.c:18-36; NamedEntryLookupInFormatList_00415230.c:176"
+    }
+   ]
+  },
+  {
+   "sdt_index": 204,
+   "eid": 192,
+   "clip": "RE_OD_MONSOON",
+   "says": "Other driver leaves pits on Monsoons",
+   "score": 195,
+   "cooldown": 1.0,
+   "priority": 20,
+   "cooldown_owner_exe": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "none: no native emit site for this eid in any of the 40 queue functions",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No emit site exists, so no suppression. The generic pit-exit trigger exists in PitExit (sub_41C0F0:127, eids 397/516-535) but does not queue this eid.",
+   "emitters": [],
+   "call_path": "none",
+   "gates": [],
+   "mod": "none (not in modded_lines.json; no pit, SC or MF source emits this eid)",
+   "heard_evidence": "TODO.md:176 owner triage 'X PLAY, same but monsoons' (not heard)",
+   "tier": "DERIVED",
+   "notes": "",
+   "play_plan": {
+    "meaning": "Another (AI) car has just left the pits on monsoon (hard wet) tyres.",
+    "when_it_should_play": "Race, green flag. AI car leaves the pit lane onto the track while its tyre is MONSOON.",
+    "trigger": "As 191 with tyre compound == MONSOON (compound locator UNKNOWN, see 191).",
+    "subject": "AI driver id veh+0x489C (NOT veh+0x48A0)",
+    "technique": "own_emitter (PWS eid 192, AI subject)",
+    "latch_cooldown": "once per car per pit exit (ERE latch until next pit visit); table cooldown 1.0 s",
+    "must_not_play_when": "player's own exit; qualifying (SessionType 5); car retired or lapped out; compound is not INTERMEDIATE; Safety Car period; within ~10 s of another pit-exit line",
+    "conflicts": "PitExit native lines 397 and 516-535 fire on the same exit edge; RE_OD siblings 192-194 share the trigger; pitstop_failures lines use their own box-stop path",
+    "calibration": "compound locator (none yet); exit-edge timing vs the PitExit call",
+    "live_test": "Race in wet conditions: let an AI car pit onto inters and watch the exit; or an ERE debug trigger with a known compound",
+    "confidence": "DERIVED meaning and line identity; GUESS on compound locator; raise by a live read of per-car tyre compound"
+   },
+   "checked": [
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (eid set read in full: [120, 198, 259])",
+     "line": "lines 37,39,59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (eid set read in full: [6, 180, 181, 182])",
+     "line": "lines 22,24,35-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (eid set read in full: [3, 4, 5, 10, 16, 33, 72, 262])",
+     "line": "line 61 (v5 set at 29,41,47,57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (eid set read in full: [42, 52])",
+     "line": "lines 13-15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (eid set read in full: [7, 8, 9, 17, 18])",
+     "line": "lines 36,45,48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (eid set read in full: [21, 22, 178, 179])",
+     "line": "lines 17-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (eid set read in full: [52, 196])",
+     "line": "lines 10,16,19"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 260, 261])",
+     "line": "lines 113,149,159,164"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (eid set read in full: [397, 516, 517, 518, 519, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535])",
+     "line": "line 127 (v6 set at 29-125)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid set read in full: 355..372)",
+     "line": "line 26 via ThunkToFUN004201e0 = sub_4203D0 (ThunkToFUN004201e0_004203d0.c:12-47)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 471, 472, 473, 474, 476, 477])",
+     "line": "lines 107,148,158,173,191-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (eid set read in full: 293..336)",
+     "line": "line 189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (eid set read in full: [34, 35, 276, 277, 278, 279])",
+     "line": "line 25"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce this eid (eid set read in full: [151, 153, 154, 155, 252, 253, 254, 256])",
+     "line": "line 35"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce this eid (eid set read in full: [149, 243])",
+     "line": "line 15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce this eid (eid set read in full: [208, 211, 212, 213, 214, 215, 216, 217, 220])",
+     "line": "line 58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce this eid (eid set read in full: [117, 118, 119, 235, 236, 237, 238])",
+     "line": "lines 15,19,23,38,45,47,51,53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce this eid (eid set read in full: 338..354)",
+     "line": "line 16 via sub_420000 (sub_420000_00420000.c:12-45)"
+    },
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce this eid (literal eids [13, 14, 19, 20])",
+     "line": "lines 22,26,31,35; calls AIVehicleDamageEvent line 43"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce this eid (literal eids [264])",
+     "line": "literal call"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce this eid (literal eids [2, 41, 272, 273])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce this eid (literal eids [55])",
+     "line": "literal call"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce this eid (literal eids [134, 136, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce this eid (literal eids [95, 97, 99, 101, 105])",
+     "line": "literal calls"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce this eid (literal eids [423, 424, 488])",
+     "line": "literal calls"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce this eid (literal eids [275])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce this eid (literal eids [284])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce this eid (literal eids [337])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce this eid (literal eids [514])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce this eid (literal eids [74])",
+     "line": "literal call"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce this eid (literal eids [492, 496, 500, 504])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce this eid (literal eids [506, 507, 509, 510, 511, 512, 513])",
+     "line": "literal calls (TV channel eids)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce this eid (literal eids [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce this eid (literal eids [94, 96, 98, 100, 104])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce this eid (literal eids [397])",
+     "line": "lines 111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce this eid (literal eids [427, 483, 484, 485, 486, 487])",
+     "line": "literal calls"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce this eid (literal eids [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce this eid (literal eids [114, 115, 226])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce this eid (literal eids [106, 107, 108, 109, 110, 111, 221, 222, 223])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce this eid (literal eids [77])",
+     "line": "literal call"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v5 = a4 != 0 ? 192 : 51; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:553"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList",
+     "result": "name-file loader (sub_414600 calls DriverNameIDLookup) and format-list lookup. NamedEntryLookupInFormatList returns a list INDEX used as subject (e.g. PositionChangeDetector:110-111), not as eid. No eid of this clip reaches an emitter through these",
+     "line": "sub_414600_00414600.c:18-36; NamedEntryLookupInFormatList_00415230.c:176"
+    }
+   ]
+  },
+  {
+   "sdt_index": 205,
+   "eid": 193,
+   "clip": "RE_OD_SLICKS",
+   "says": "Other driver leaves pits on Slicks",
+   "score": 196,
+   "cooldown": 1.0,
+   "priority": 20,
+   "cooldown_owner_exe": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "none: no native emit site for this eid in any of the 40 queue functions",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No emit site exists, so no suppression. The generic pit-exit trigger exists in PitExit (sub_41C0F0:127, eids 397/516-535) but does not queue this eid.",
+   "emitters": [],
+   "call_path": "none",
+   "gates": [],
+   "mod": "none (not in modded_lines.json; no pit, SC or MF source emits this eid)",
+   "heard_evidence": "TODO.md:177 owner triage: play only when conditions begin to get wet/raining/drying (not heard)",
+   "tier": "DERIVED",
+   "notes": "",
+   "play_plan": {
+    "meaning": "Another (AI) car has just left the pits on slicks; relevant only when the track is turning from dry to wet or back (owner rule TODO.md:177).",
+    "when_it_should_play": "Race, green flag. AI car leaves the pit lane on SLICKS while conditions are beginning to get wet, raining or drying (never in dry conditions).",
+    "trigger": "As 191 with tyre compound == SLICKS AND track-wetness state changing. Wetness locator: UNKNOWN (no broker field). Candidate, not proven: G_TrackConditionState read by pitstop_failures live_client.cpp:608 (meaning unproven).",
+    "subject": "AI driver id veh+0x489C (NOT veh+0x48A0)",
+    "technique": "own_emitter (ERE queues PWS eid 191 with AI subject; no native gate to lift)",
+    "latch_cooldown": "once per car per pit exit (ERE latch until next pit visit); table cooldown 1.0 s",
+    "must_not_play_when": "dry conditions (owner rule); any other compound; qualifying",
+    "conflicts": "PitExit native lines 397 and 516-535 fire on the same exit edge; RE_OD siblings 192-194 share the trigger; pitstop_failures lines use their own box-stop path",
+    "calibration": "wetness state locator and its change rule (UNKNOWN)",
+    "live_test": "Race in wet conditions: let an AI car pit onto inters and watch the exit; or an ERE debug trigger with a known compound",
+    "confidence": "DERIVED meaning (owner rule TODO.md:177); GUESS on wetness locator"
+   },
+   "checked": [
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (eid set read in full: [120, 198, 259])",
+     "line": "lines 37,39,59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (eid set read in full: [6, 180, 181, 182])",
+     "line": "lines 22,24,35-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (eid set read in full: [3, 4, 5, 10, 16, 33, 72, 262])",
+     "line": "line 61 (v5 set at 29,41,47,57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (eid set read in full: [42, 52])",
+     "line": "lines 13-15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (eid set read in full: [7, 8, 9, 17, 18])",
+     "line": "lines 36,45,48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (eid set read in full: [21, 22, 178, 179])",
+     "line": "lines 17-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (eid set read in full: [52, 196])",
+     "line": "lines 10,16,19"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 260, 261])",
+     "line": "lines 113,149,159,164"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (eid set read in full: [397, 516, 517, 518, 519, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535])",
+     "line": "line 127 (v6 set at 29-125)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid set read in full: 355..372)",
+     "line": "line 26 via ThunkToFUN004201e0 = sub_4203D0 (ThunkToFUN004201e0_004203d0.c:12-47)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 471, 472, 473, 474, 476, 477])",
+     "line": "lines 107,148,158,173,191-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (eid set read in full: 293..336)",
+     "line": "line 189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (eid set read in full: [34, 35, 276, 277, 278, 279])",
+     "line": "line 25"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce this eid (eid set read in full: [151, 153, 154, 155, 252, 253, 254, 256])",
+     "line": "line 35"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce this eid (eid set read in full: [149, 243])",
+     "line": "line 15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce this eid (eid set read in full: [208, 211, 212, 213, 214, 215, 216, 217, 220])",
+     "line": "line 58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce this eid (eid set read in full: [117, 118, 119, 235, 236, 237, 238])",
+     "line": "lines 15,19,23,38,45,47,51,53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce this eid (eid set read in full: 338..354)",
+     "line": "line 16 via sub_420000 (sub_420000_00420000.c:12-45)"
+    },
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce this eid (literal eids [13, 14, 19, 20])",
+     "line": "lines 22,26,31,35; calls AIVehicleDamageEvent line 43"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce this eid (literal eids [264])",
+     "line": "literal call"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce this eid (literal eids [2, 41, 272, 273])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce this eid (literal eids [55])",
+     "line": "literal call"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce this eid (literal eids [134, 136, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce this eid (literal eids [95, 97, 99, 101, 105])",
+     "line": "literal calls"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce this eid (literal eids [423, 424, 488])",
+     "line": "literal calls"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce this eid (literal eids [275])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce this eid (literal eids [284])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce this eid (literal eids [337])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce this eid (literal eids [514])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce this eid (literal eids [74])",
+     "line": "literal call"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce this eid (literal eids [492, 496, 500, 504])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce this eid (literal eids [506, 507, 509, 510, 511, 512, 513])",
+     "line": "literal calls (TV channel eids)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce this eid (literal eids [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce this eid (literal eids [94, 96, 98, 100, 104])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce this eid (literal eids [397])",
+     "line": "lines 111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce this eid (literal eids [427, 483, 484, 485, 486, 487])",
+     "line": "literal calls"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce this eid (literal eids [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce this eid (literal eids [114, 115, 226])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce this eid (literal eids [106, 107, 108, 109, 110, 111, 221, 222, 223])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce this eid (literal eids [77])",
+     "line": "literal call"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v9 = a4 != 0 ? 193 : 15; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:213"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v5 = a4 != 0 ? 193 : 52; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:773"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList",
+     "result": "name-file loader (sub_414600 calls DriverNameIDLookup) and format-list lookup. NamedEntryLookupInFormatList returns a list INDEX used as subject (e.g. PositionChangeDetector:110-111), not as eid. No eid of this clip reaches an emitter through these",
+     "line": "sub_414600_00414600.c:18-36; NamedEntryLookupInFormatList_00415230.c:176"
+    }
+   ]
+  },
+  {
+   "sdt_index": 206,
+   "eid": 194,
+   "clip": "RE_OD_WET",
+   "says": "Other driver leaves pits on Wets",
+   "score": 197,
+   "cooldown": 1.0,
+   "priority": 20,
+   "cooldown_owner_exe": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "none: no native emit site for this eid in any of the 40 queue functions",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No emit site exists, so no suppression. The generic pit-exit trigger exists in PitExit (sub_41C0F0:127, eids 397/516-535) but does not queue this eid.",
+   "emitters": [],
+   "call_path": "none",
+   "gates": [],
+   "mod": "none (not in modded_lines.json; no pit, SC or MF source emits this eid)",
+   "heard_evidence": "TODO.md:178 owner triage 'X PLAY, same but wet' (not heard)",
+   "tier": "DERIVED",
+   "notes": "",
+   "play_plan": {
+    "meaning": "Another (AI) car has just left the pits on wet tyres.",
+    "when_it_should_play": "Race, green flag. AI car leaves the pit lane onto the track while its tyre is WET.",
+    "trigger": "As 191 with tyre compound == WET (compound locator UNKNOWN).",
+    "subject": "AI driver id veh+0x489C (NOT veh+0x48A0)",
+    "technique": "own_emitter (PWS eid 194, AI subject)",
+    "latch_cooldown": "once per car per pit exit (ERE latch until next pit visit); table cooldown 1.0 s",
+    "must_not_play_when": "player's own exit; qualifying (SessionType 5); car retired or lapped out; compound is not INTERMEDIATE; Safety Car period; within ~10 s of another pit-exit line",
+    "conflicts": "PitExit native lines 397 and 516-535 fire on the same exit edge; RE_OD siblings 192-194 share the trigger; pitstop_failures lines use their own box-stop path",
+    "calibration": "compound locator (none yet); exit-edge timing vs the PitExit call",
+    "live_test": "Race in wet conditions: let an AI car pit onto inters and watch the exit; or an ERE debug trigger with a known compound",
+    "confidence": "DERIVED meaning and line identity; GUESS on compound locator; raise by a live read of per-car tyre compound"
+   },
+   "checked": [
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (eid set read in full: [120, 198, 259])",
+     "line": "lines 37,39,59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (eid set read in full: [6, 180, 181, 182])",
+     "line": "lines 22,24,35-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (eid set read in full: [3, 4, 5, 10, 16, 33, 72, 262])",
+     "line": "line 61 (v5 set at 29,41,47,57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (eid set read in full: [42, 52])",
+     "line": "lines 13-15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (eid set read in full: [7, 8, 9, 17, 18])",
+     "line": "lines 36,45,48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (eid set read in full: [21, 22, 178, 179])",
+     "line": "lines 17-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (eid set read in full: [52, 196])",
+     "line": "lines 10,16,19"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 260, 261])",
+     "line": "lines 113,149,159,164"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (eid set read in full: [397, 516, 517, 518, 519, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535])",
+     "line": "line 127 (v6 set at 29-125)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid set read in full: 355..372)",
+     "line": "line 26 via ThunkToFUN004201e0 = sub_4203D0 (ThunkToFUN004201e0_004203d0.c:12-47)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 471, 472, 473, 474, 476, 477])",
+     "line": "lines 107,148,158,173,191-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (eid set read in full: 293..336)",
+     "line": "line 189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (eid set read in full: [34, 35, 276, 277, 278, 279])",
+     "line": "line 25"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce this eid (eid set read in full: [151, 153, 154, 155, 252, 253, 254, 256])",
+     "line": "line 35"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce this eid (eid set read in full: [149, 243])",
+     "line": "line 15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce this eid (eid set read in full: [208, 211, 212, 213, 214, 215, 216, 217, 220])",
+     "line": "line 58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce this eid (eid set read in full: [117, 118, 119, 235, 236, 237, 238])",
+     "line": "lines 15,19,23,38,45,47,51,53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce this eid (eid set read in full: 338..354)",
+     "line": "line 16 via sub_420000 (sub_420000_00420000.c:12-45)"
+    },
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce this eid (literal eids [13, 14, 19, 20])",
+     "line": "lines 22,26,31,35; calls AIVehicleDamageEvent line 43"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce this eid (literal eids [264])",
+     "line": "literal call"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce this eid (literal eids [2, 41, 272, 273])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce this eid (literal eids [55])",
+     "line": "literal call"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce this eid (literal eids [134, 136, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce this eid (literal eids [95, 97, 99, 101, 105])",
+     "line": "literal calls"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce this eid (literal eids [423, 424, 488])",
+     "line": "literal calls"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce this eid (literal eids [275])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce this eid (literal eids [284])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce this eid (literal eids [337])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce this eid (literal eids [514])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce this eid (literal eids [74])",
+     "line": "literal call"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce this eid (literal eids [492, 496, 500, 504])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce this eid (literal eids [506, 507, 509, 510, 511, 512, 513])",
+     "line": "literal calls (TV channel eids)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce this eid (literal eids [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce this eid (literal eids [94, 96, 98, 100, 104])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce this eid (literal eids [397])",
+     "line": "lines 111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce this eid (literal eids [427, 483, 484, 485, 486, 487])",
+     "line": "literal calls"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce this eid (literal eids [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce this eid (literal eids [114, 115, 226])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce this eid (literal eids [106, 107, 108, 109, 110, 111, 221, 222, 223])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce this eid (literal eids [77])",
+     "line": "literal call"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v9 = a4 != 0 ? 194 : 16; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:433"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v5 = a4 != 0 ? 194 : 99; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:660"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList",
+     "result": "name-file loader (sub_414600 calls DriverNameIDLookup) and format-list lookup. NamedEntryLookupInFormatList returns a list INDEX used as subject (e.g. PositionChangeDetector:110-111), not as eid. No eid of this clip reaches an emitter through these",
+     "line": "sub_414600_00414600.c:18-36; NamedEntryLookupInFormatList_00415230.c:176"
+    }
+   ]
+  },
+  {
+   "sdt_index": 207,
+   "eid": 195,
+   "clip": "PWS_AIPIT11",
+   "says": "AI pits to serve stop-go penalty",
+   "score": 198,
+   "cooldown": 1.0,
+   "priority": 40,
+   "cooldown_owner_exe": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "none: no native emit site for this eid in any of the 40 queue functions",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No emit site exists, so no suppression. The generic pit-exit trigger exists in PitExit (sub_41C0F0:127, eids 397/516-535) but does not queue this eid.",
+   "emitters": [],
+   "call_path": "none",
+   "gates": [],
+   "mod": "none (not in modded_lines.json; no pit, SC or MF source emits this eid)",
+   "heard_evidence": "TODO.md:179 owner triage (AI serving stop-go, rare) (not heard)",
+   "tier": "DERIVED",
+   "notes": "Excluded for play by DD-10. Verdict stands on code: no emit site for eid 195.",
+   "play_plan": {
+    "meaning": "AI car pitting to serve a stop-go penalty. This would be an AI penalty line.",
+    "when_it_should_play": "EXCLUDED by DD-10 (AI penalty lines: leave AI silent).",
+    "trigger": "EXCLUDED by DD-10",
+    "subject": "AI driver id veh+0x489C",
+    "technique": "skip (DD-10)",
+    "latch_cooldown": "n/a",
+    "must_not_play_when": "always (DD-10)",
+    "conflicts": "native stop-go handling (LapCompletion; AI ignored stop-go lines 149/243 via sub_41A940) is unrelated to eid 195",
+    "calibration": "none",
+    "live_test": "none (excluded)",
+    "confidence": "DERIVED that owner decision DD-10 (docs/DESIGN_DECISIONS.md:16) excludes it"
+   },
+   "checked": [
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (eid set read in full: [120, 198, 259])",
+     "line": "lines 37,39,59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (eid set read in full: [6, 180, 181, 182])",
+     "line": "lines 22,24,35-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (eid set read in full: [3, 4, 5, 10, 16, 33, 72, 262])",
+     "line": "line 61 (v5 set at 29,41,47,57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (eid set read in full: [42, 52])",
+     "line": "lines 13-15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (eid set read in full: [7, 8, 9, 17, 18])",
+     "line": "lines 36,45,48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (eid set read in full: [21, 22, 178, 179])",
+     "line": "lines 17-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (eid set read in full: [52, 196])",
+     "line": "lines 10,16,19"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 260, 261])",
+     "line": "lines 113,149,159,164"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (eid set read in full: [397, 516, 517, 518, 519, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535])",
+     "line": "line 127 (v6 set at 29-125)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid set read in full: 355..372)",
+     "line": "line 26 via ThunkToFUN004201e0 = sub_4203D0 (ThunkToFUN004201e0_004203d0.c:12-47)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 471, 472, 473, 474, 476, 477])",
+     "line": "lines 107,148,158,173,191-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (eid set read in full: 293..336)",
+     "line": "line 189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (eid set read in full: [34, 35, 276, 277, 278, 279])",
+     "line": "line 25"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce this eid (eid set read in full: [151, 153, 154, 155, 252, 253, 254, 256])",
+     "line": "line 35"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce this eid (eid set read in full: [149, 243])",
+     "line": "line 15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce this eid (eid set read in full: [208, 211, 212, 213, 214, 215, 216, 217, 220])",
+     "line": "line 58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce this eid (eid set read in full: [117, 118, 119, 235, 236, 237, 238])",
+     "line": "lines 15,19,23,38,45,47,51,53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce this eid (eid set read in full: 338..354)",
+     "line": "line 16 via sub_420000 (sub_420000_00420000.c:12-45)"
+    },
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce this eid (literal eids [13, 14, 19, 20])",
+     "line": "lines 22,26,31,35; calls AIVehicleDamageEvent line 43"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce this eid (literal eids [264])",
+     "line": "literal call"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce this eid (literal eids [2, 41, 272, 273])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce this eid (literal eids [55])",
+     "line": "literal call"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce this eid (literal eids [134, 136, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce this eid (literal eids [95, 97, 99, 101, 105])",
+     "line": "literal calls"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce this eid (literal eids [423, 424, 488])",
+     "line": "literal calls"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce this eid (literal eids [275])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce this eid (literal eids [284])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce this eid (literal eids [337])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce this eid (literal eids [514])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce this eid (literal eids [74])",
+     "line": "literal call"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce this eid (literal eids [492, 496, 500, 504])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce this eid (literal eids [506, 507, 509, 510, 511, 512, 513])",
+     "line": "literal calls (TV channel eids)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce this eid (literal eids [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce this eid (literal eids [94, 96, 98, 100, 104])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce this eid (literal eids [397])",
+     "line": "lines 111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce this eid (literal eids [427, 483, 484, 485, 486, 487])",
+     "line": "literal calls"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce this eid (literal eids [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce this eid (literal eids [114, 115, 226])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce this eid (literal eids [106, 107, 108, 109, 110, 111, 221, 222, 223])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce this eid (literal eids [77])",
+     "line": "literal call"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v5 = a4 != 0 ? 195 : 25; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:112"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v5 = a4 != 0 ? 195 : 100; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:880"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList",
+     "result": "name-file loader (sub_414600 calls DriverNameIDLookup) and format-list lookup. NamedEntryLookupInFormatList returns a list INDEX used as subject (e.g. PositionChangeDetector:110-111), not as eid. No eid of this clip reaches an emitter through these",
+     "line": "sub_414600_00414600.c:18-36; NamedEntryLookupInFormatList_00415230.c:176"
+    }
+   ]
+  },
+  {
+   "sdt_index": 208,
+   "eid": 196,
+   "clip": "PWS_AIPIT01",
+   "says": "Team ready in the pits",
+   "score": 199,
+   "cooldown": 1.0,
+   "priority": 40,
+   "cooldown_owner_exe": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native_emitter_reachable_static",
+   "situation": "Race (SessionType 7). An AI car that is NOT the CurrentVehicleIndex car is on its in-lap (pittingStatus veh+0x3450 == 1) and crosses into sector 2 (split index 2) with a valid sector-0 split and split delta > 0. The line is queued with the TEAM subject (veh+0x48A0). The current car gets eid 52 'Pit crew is ready' (PWS_PIT02) instead.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "Not suppressed in code. full_safety_car pace_probe.c:3210 comments that 196 is one of the lines the SC mod suppresses (SC disabled in the owner's game per LightloaderDisabled.ini).",
+   "emitters": [
+    "AIVehicleDamageEvent sub_41A170 (AIVehicleDamageEvent_0041a170.c:16,19)"
+   ],
+   "call_path": "Game_Setup 0x42D5D0 -> Steward_Setup sub_4D36D0 (Steward_Setup_004d36d0.c:6 registers TimerFrameRateThrottle as 'Timing' callback via sub_559A00; registry dispatcher NOT traced) -> TimerFrameRateThrottle sub_4D3740 -> LapSplitTimeEvent sub_4BC390 (LapSplitTimeEvent_004bc390.c:51) queues record type 4 sub 8 -> BufferReset sub_4B3B40 (BufferReset_004b3b40.c:12; root GamePostMainLoop 0x42D8A0) -> sub_4B3400 (sub_4B3400_004b3400.c:207-212) -> LapCompletion sub_4BC4E0 (LapCompletion_004bc4e0.c:186-193) -> AICornerSpeedComparison sub_419500 (AICornerSpeedComparison_00419500.c:42-43) -> AIVehicleDamageEvent sub_41A170 (:19)",
+   "gates": [
+    "dword_7D0308 != 0 and flt_7CF3C8 != 0 (AIVehicleDamageEvent_0041a170.c:6; AICornerSpeedComparison:7)",
+    "dword_7C56A8 != 8 (AICornerSpeedComparison:7)",
+    "a2 == 2 (split index 2) and a1[13392] == 1 (veh+0x3450 pittingStatus = in-lap, brief fact) (AICornerSpeedComparison:42)",
+    "LapCompletion: vehicle[3250] != 3 (LapCompletion:26); a4 != 0 branch; a2 > 0 where a2 = split delta, -1 unless this[24]==2 (LapSplitTimeEvent:30-34; LapCompletion:187)",
+    "LapSplitTimeEvent: this[44] <= 10.0 (:9); previous-sector switch on this[3] (:13-26); sub_4BC340: dword_7C569C == 5, this[12] not 1/3 (or dword_7CEF84 path), dword_7C56A8 in {5,6,8} (sub_4BC340_004bc340.c:6-8)",
+    "sub_4B3400 type 4 sub 8: vehicle[3250] in {2,3} (sub_4B3400_004b3400.c:208-212)",
+    "AIVehicleDamageEvent: dword_7C56A4 == 7 (race) (line 14); sub_4C7BD0(a1) false (sub_4C7BD0_004c7bd0.c:3: vehicle driver id != dword_7C54F0[dword_7C54E4]+18580)"
+   ],
+   "mod": "none (no pit or SC source queues 196 except the SC comment above)",
+   "heard_evidence": "doc56 row 230 status 'SHIPPED' (no heard record in this audit; SHIPPED is not a live proof here).",
+   "tier": "DERIVED",
+   "notes": "Subject is the TEAM index (veh+0x48A0), not the driver id: finding f1c-veh-48a0-is-constructor-index (CONFIRMED, live 2026-08-02), consistent with 'Team ready in the pits'. Lap/sector ordering comes from the LapSplitTimeEvent switch and must be live-verified. Live test: race, let an AI car pit (in-lap) and listen at sector 2.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (eid set read in full: [120, 198, 259])",
+     "line": "lines 37,39,59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (eid set read in full: [6, 180, 181, 182])",
+     "line": "lines 22,24,35-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (eid set read in full: [3, 4, 5, 10, 16, 33, 72, 262])",
+     "line": "line 61 (v5 set at 29,41,47,57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (eid set read in full: [42, 52])",
+     "line": "lines 13-15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (eid set read in full: [7, 8, 9, 17, 18])",
+     "line": "lines 36,45,48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (eid set read in full: [21, 22, 178, 179])",
+     "line": "lines 17-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "emits this eid under: race only (dword_7C56A4 == 7, line 14) AND sub_4C7BD0(a1) false, i.e. a1 is not CurrentVehicleIndex (sub_4C7BD0_004c7bd0.c:3; line 8). The same call with sub_4C7BD0 true emits 52 instead. Subject arg = *(a1+18592) = veh+0x48A0, a TEAM index (line 19; finding f1c-veh-48a0-is-constructor-index)",
+     "line": "AIVehicleDamageEvent_0041a170.c:8,14,16,19"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 260, 261])",
+     "line": "lines 113,149,159,164"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (eid set read in full: [397, 516, 517, 518, 519, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535])",
+     "line": "line 127 (v6 set at 29-125)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid set read in full: 355..372)",
+     "line": "line 26 via ThunkToFUN004201e0 = sub_4203D0 (ThunkToFUN004201e0_004203d0.c:12-47)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 471, 472, 473, 474, 476, 477])",
+     "line": "lines 107,148,158,173,191-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (eid set read in full: 293..336)",
+     "line": "line 189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (eid set read in full: [34, 35, 276, 277, 278, 279])",
+     "line": "line 25"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce this eid (eid set read in full: [151, 153, 154, 155, 252, 253, 254, 256])",
+     "line": "line 35"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce this eid (eid set read in full: [149, 243])",
+     "line": "line 15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce this eid (eid set read in full: [208, 211, 212, 213, 214, 215, 216, 217, 220])",
+     "line": "line 58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce this eid (eid set read in full: [117, 118, 119, 235, 236, 237, 238])",
+     "line": "lines 15,19,23,38,45,47,51,53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce this eid (eid set read in full: 338..354)",
+     "line": "line 16 via sub_420000 (sub_420000_00420000.c:12-45)"
+    },
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce this eid directly (literals 13,14,19,20); transitively calls AIVehicleDamageEvent at line 43 when a2==2 and a1[13392]==1 (pittingStatus 1), which emits 196",
+     "line": "AICornerSpeedComparison_00419500.c:42-43"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce this eid (literal eids [264])",
+     "line": "literal call"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce this eid (literal eids [2, 41, 272, 273])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce this eid (literal eids [55])",
+     "line": "literal call"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce this eid (literal eids [134, 136, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce this eid (literal eids [95, 97, 99, 101, 105])",
+     "line": "literal calls"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce this eid (literal eids [423, 424, 488])",
+     "line": "literal calls"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce this eid (literal eids [275])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce this eid (literal eids [284])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce this eid (literal eids [337])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce this eid (literal eids [514])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce this eid (literal eids [74])",
+     "line": "literal call"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce this eid (literal eids [492, 496, 500, 504])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce this eid (literal eids [506, 507, 509, 510, 511, 512, 513])",
+     "line": "literal calls (TV channel eids)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce this eid (literal eids [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce this eid (literal eids [94, 96, 98, 100, 104])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce this eid (literal eids [397])",
+     "line": "lines 111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce this eid (literal eids [427, 483, 484, 485, 486, 487])",
+     "line": "literal calls"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce this eid (literal eids [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce this eid (literal eids [114, 115, 226])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce this eid (literal eids [106, 107, 108, 109, 110, 111, 221, 222, 223])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce this eid (literal eids [77])",
+     "line": "literal call"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v5 = a4 != 0 ? 196 : 26; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:332"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v5 = a4 != 0 ? 196 : 439; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:628"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList",
+     "result": "name-file loader (sub_414600 calls DriverNameIDLookup) and format-list lookup. NamedEntryLookupInFormatList returns a list INDEX used as subject (e.g. PositionChangeDetector:110-111), not as eid. No eid of this clip reaches an emitter through these",
+     "line": "sub_414600_00414600.c:18-36; NamedEntryLookupInFormatList_00415230.c:176"
+    }
+   ]
+  },
+  {
+   "sdt_index": 209,
+   "eid": 197,
+   "clip": "PWS_MISC46",
+   "says": "AI driver laps another AI",
+   "score": 200,
+   "cooldown": 1.0,
+   "priority": 20,
+   "cooldown_owner_exe": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "none: no native emit site for this eid in any of the 40 queue functions",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No emit site exists, so no suppression. The generic pit-exit trigger exists in PitExit (sub_41C0F0:127, eids 397/516-535) but does not queue this eid.",
+   "emitters": [],
+   "call_path": "none",
+   "gates": [],
+   "mod": "none (not in modded_lines.json; no pit, SC or MF source emits this eid)",
+   "heard_evidence": "TODO.md:180 owner triage 'X PLAY X, faster car overtaking a lapped car' (not heard)",
+   "tier": "DERIVED",
+   "notes": "",
+   "play_plan": {
+    "meaning": "A faster car overtakes a car that is a full lap down (lapped). Traffic information for the player.",
+    "when_it_should_play": "Race (SessionType 7). An AI car passes an AI car that is lapped (lap_number at least one lower than the overtaker's) at the pass.",
+    "trigger": "Pass event between two AI cars: overtaker lap_number (broker lap_number) exceeds passed car lap_number by >= 1 at the pass; overtaker lap distance veh+0x4044 is ahead of the passed car at the pass; race_position (veh+0x4060) only in race, never in qualifying. Pass-detection threshold: UNKNOWN.",
+    "subject": "AI overtaker driver id veh+0x489C (passed car is not the subject)",
+    "technique": "own_emitter (PWS eid 197, AI subject); no native gate to lift",
+    "latch_cooldown": "once per (overtaker, passed) pair per 60 s (ERE latch, proposed)",
+    "must_not_play_when": "player involved (player variant not defined by this line); qualifying; Safety Car; pit-lane pass; the two cars are on the same lap",
+    "conflicts": "AIOvertakeDefendStateChange overtake/defend lines (3,4,5,10,16,33,72,262) and AIPositionChangeEvent (7-9,17-18) on the same pass",
+    "calibration": "lap-distance threshold for 'at the pass' (metres) - UNKNOWN",
+    "live_test": "Race with a lapped AI car being passed by a faster AI car (observe with ERE log)",
+    "confidence": "DERIVED meaning from the clip text; GUESS on threshold"
+   },
+   "checked": [
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (eid set read in full: [120, 198, 259])",
+     "line": "lines 37,39,59"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (eid set read in full: [6, 180, 181, 182])",
+     "line": "lines 22,24,35-41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (eid set read in full: [3, 4, 5, 10, 16, 33, 72, 262])",
+     "line": "line 61 (v5 set at 29,41,47,57)"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (eid set read in full: [42, 52])",
+     "line": "lines 13-15"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (eid set read in full: [7, 8, 9, 17, 18])",
+     "line": "lines 36,45,48"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (eid set read in full: [21, 22, 178, 179])",
+     "line": "lines 17-36"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (eid set read in full: [52, 196])",
+     "line": "lines 10,16,19"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 260, 261])",
+     "line": "lines 113,149,159,164"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (eid set read in full: [397, 516, 517, 518, 519, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535])",
+     "line": "line 127 (v6 set at 29-125)"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid set read in full: 355..372)",
+     "line": "line 26 via ThunkToFUN004201e0 = sub_4203D0 (ThunkToFUN004201e0_004203d0.c:12-47)"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (eid set read in full: [397, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 471, 472, 473, 474, 476, 477])",
+     "line": "lines 107,148,158,173,191-226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (eid set read in full: 293..336)",
+     "line": "line 189"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (eid set read in full: [34, 35, 276, 277, 278, 279])",
+     "line": "line 25"
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce this eid (eid set read in full: [151, 153, 154, 155, 252, 253, 254, 256])",
+     "line": "line 35"
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce this eid (eid set read in full: [149, 243])",
+     "line": "line 15"
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce this eid (eid set read in full: [208, 211, 212, 213, 214, 215, 216, 217, 220])",
+     "line": "line 58"
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce this eid (eid set read in full: [117, 118, 119, 235, 236, 237, 238])",
+     "line": "lines 15,19,23,38,45,47,51,53"
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce this eid (eid set read in full: 338..354)",
+     "line": "line 16 via sub_420000 (sub_420000_00420000.c:12-45)"
+    },
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce this eid (literal eids [13, 14, 19, 20])",
+     "line": "lines 22,26,31,35; calls AIVehicleDamageEvent line 43"
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce this eid (literal eids [264])",
+     "line": "literal call"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce this eid (literal eids [2, 41, 272, 273])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce this eid (literal eids [55])",
+     "line": "literal call"
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "cannot produce this eid (literal eids [134, 136, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce this eid (literal eids [95, 97, 99, 101, 105])",
+     "line": "literal calls"
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce this eid (literal eids [423, 424, 488])",
+     "line": "literal calls"
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce this eid (literal eids [275])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce this eid (literal eids [284])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce this eid (literal eids [337])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce this eid (literal eids [514])",
+     "line": "literal call"
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce this eid (literal eids [74])",
+     "line": "literal call"
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce this eid (literal eids [492, 496, 500, 504])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce this eid (literal eids [506, 507, 509, 510, 511, 512, 513])",
+     "line": "literal calls (TV channel eids)"
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce this eid (literal eids [123, 124, 125, 126, 131, 133, 134, 135, 136, 137, 138])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce this eid (literal eids [94, 96, 98, 100, 104])",
+     "line": "literal calls"
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce this eid (literal eids [397])",
+     "line": "lines 111,189"
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce this eid (literal eids [427, 483, 484, 485, 486, 487])",
+     "line": "literal calls"
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce this eid (literal eids [397, 478, 479, 480, 481, 490, 491, 494, 495, 498, 499, 502, 503])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce this eid (literal eids [114, 115, 226])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce this eid (literal eids [106, 107, 108, 109, 110, 111, 221, 222, 223])",
+     "line": "literal calls"
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce this eid (literal eids [77])",
+     "line": "literal call"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v5 = a4 != 0 ? 197 : 159; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:219"
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "table entry, NOT an emitter argument: v5 = a4 != 0 ? 197 : 440; (per-driver name-slot value). The value is written to the output struct (+8) at LABEL_321 and is not an argument of any of the 40 queue functions (all eid arguments enumerated above)",
+     "line": "DriverNameIDLookup_00415d90.c:848"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList",
+     "result": "name-file loader (sub_414600 calls DriverNameIDLookup) and format-list lookup. NamedEntryLookupInFormatList returns a list INDEX used as subject (e.g. PositionChangeDetector:110-111), not as eid. No eid of this clip reaches an emitter through these",
+     "line": "sub_414600_00414600.c:18-36; NamedEntryLookupInFormatList_00415230.c:176"
+    }
+   ]
+  }
+ ]
+}

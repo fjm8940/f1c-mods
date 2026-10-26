@@ -1,0 +1,37 @@
+F1 Challenge multiplayer co-op AI - friend installation
+========================================================
+
+1. Close F1 Challenge completely.
+2. Verify that your game installation/content is identical to the host's.
+   The explicitly supported F1 Challenge Online.exe SHA-256 values are:
+   Host/canonical:
+   1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003
+   Reviewed friend variant:
+   DE151845DCB08B1B330641FD09779C09B0924EAE872DA4AFBA96317339BE6230
+   Every other executable is rejected before hooks are installed.
+3. Open the folder containing "F1 Challenge Online.exe".
+4. If that folder already has a dinput8.dll from another mod, STOP. Do not
+   overwrite it; ask the host to arrange a compatible proxy/load method.
+5. Copy these three files into that folder:
+      dinput8.dll
+      multiplayer_ai_host.dll
+      multiplayer_ai_host.ini
+6. Start the game normally. The host creates the multiplayer game first and
+   the friend joins afterward.
+
+The INI is part of the session contract: both computers must use the same bot
+list, expected-human count, season vehicles, and matching VEH/RCD/physics data.
+
+This package is statically linked. It does not require libgcc_s_dw2-1.dll,
+libstdc++-6.dll, libwinpthread-1.dll, MinGW, or Visual C++ installation.
+
+SHA-256
+-------
+dinput8.dll
+6E165013A8667F7C77EA9E70302FF446697E507F45DFBC2BBAD1D4715DA9581B
+
+multiplayer_ai_host.dll
+960171F390312C45FBEB5199720D4E956975AF272D2BCBDF8E2F3ED8A1FABA2F
+
+multiplayer_ai_host.ini
+750A6C028F222DD76F70FE7C1E99D531D0FEF3B5D8512F1C4D10F13629E461A2

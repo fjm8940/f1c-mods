@@ -1,0 +1,8312 @@
+{
+ "_meta": {
+  "tier": "extraction",
+  "n_parsers": 36,
+  "n_fields": 775,
+  "n_suspect": 84,
+  "assoc_note": "inline = token and destination offset in the SAME call (strong). lookahead = the store follows the token lookup and was matched by proximity (weaker); rows whose offset collides with another in the same parser are flagged suspect and must be read in the .c before use.",
+  "note": "offsets are relative to that parser's own `this`; linking a parser object to the 0x48C0 race-vehicle struct is a separate, separately evidenced step"
+ },
+ "parsers": {
+  "CameraTargetNameResolver_0040db00": {
+   "n_sections": 0,
+   "n_fields": 3,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "<original>",
+      "sym": "aOriginal",
+      "setter": "sub_588410",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x8C"
+      ],
+      "section": null
+     },
+     {
+      "token": "<last>",
+      "sym": "aLast",
+      "setter": "sub_588410",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x90"
+      ],
+      "section": null
+     },
+     {
+      "token": "<none>",
+      "sym": "aNone",
+      "setter": "sub_588410",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "CareerSeasonStateFileReader_004c0b70": {
+   "n_sections": 1,
+   "n_fields": 5,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "[OPPONENT",
+      "sym": "aOpponent",
+      "setter": "strlen",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1B4"
+      ],
+      "section": null
+     }
+    ],
+    "[PLAYER]": [
+     {
+      "token": "SEASONSTATUS",
+      "sym": "aSeasonstatus",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xB144"
+      ],
+      "section": "[PLAYER]"
+     },
+     {
+      "token": "RACESESSION",
+      "sym": "aRacesession",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0xB14C"
+      ],
+      "section": "[PLAYER]"
+     },
+     {
+      "token": "RACEOVER",
+      "sym": "aRaceover",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xB150"
+      ],
+      "section": "[PLAYER]"
+     },
+     {
+      "token": "CURRENTRACE",
+      "sym": "aCurrentrace",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0xB148"
+      ],
+      "section": "[PLAYER]"
+     }
+    ]
+   }
+  },
+  "CareerStandingsStateLoader_004c03f0": {
+   "n_sections": 0,
+   "n_fields": 6,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "SEASONPOINTS",
+      "sym": "aSeasonpoints",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x198"
+      ],
+      "section": null
+     },
+     {
+      "token": "POINTSPOSITION",
+      "sym": "aPointsposition",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x19C"
+      ],
+      "section": null
+     },
+     {
+      "token": "POLESTAKEN",
+      "sym": "aPolestaken",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x1A0"
+      ],
+      "section": null
+     },
+     {
+      "token": "ORIGINALGRIDPOSITION",
+      "sym": "aOriginalgridpo",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x1A4"
+      ],
+      "section": null
+     },
+     {
+      "token": "CURRENTGRIDPOSITION",
+      "sym": "aCurrentgridpos",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x1A8"
+      ],
+      "section": null
+     },
+     {
+      "token": "CONTROLTYPE",
+      "sym": "aControltype",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x1AC"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "CommentaryTVPWSPathBuilder_00414e60": {
+   "n_sections": 0,
+   "n_fields": 4,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "CountryB",
+      "sym": "aCountryb",
+      "setter": "StringFormatWithBufferOverflowCheck",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x3"
+      ],
+      "section": null
+     },
+     {
+      "token": "CountryE",
+      "sym": "aCountrye",
+      "setter": "StringFormatWithBufferOverflowCheck",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x8"
+      ],
+      "section": null
+     },
+     {
+      "token": "CircuitB",
+      "sym": "aCircuitb",
+      "setter": "StringFormatWithBufferOverflowCheck",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xD"
+      ],
+      "section": null
+     },
+     {
+      "token": "CircuitE",
+      "sym": "aCircuite",
+      "setter": "StringFormatWithBufferOverflowCheck",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x12"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "ConfigIniParser_00421cd0": {
+   "n_sections": 4,
+   "n_fields": 8,
+   "n_suspect": 0,
+   "sections": {
+    "[COMPONENTS]": [
+     {
+      "token": "WINDOWEDMODE",
+      "sym": "aWindowedmode",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xD4"
+      ],
+      "section": "[COMPONENTS]"
+     },
+     {
+      "token": "RUNBENCHMARKS",
+      "sym": "aRunbenchmarks",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xD5"
+      ],
+      "section": "[COMPONENTS]"
+     },
+     {
+      "token": "VSYNC",
+      "sym": "aVsync",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xD6"
+      ],
+      "section": "[COMPONENTS]"
+     }
+    ],
+    "[VERSION]": [
+     {
+      "token": "VERSION",
+      "sym": "aVersion_0",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xE8"
+      ],
+      "section": "[VERSION]"
+     }
+    ],
+    "[AUTOLAUNCH]": [
+     {
+      "token": "MODE",
+      "sym": "aMode",
+      "setter": "QuickRace_00404cc0",
+      "assoc": "inline",
+      "offsets": [
+       "0x20"
+      ],
+      "section": "[AUTOLAUNCH]",
+      "note": "dest = the GLOBAL autolaunch struct 0x5EA43C (not this); enum 0=Off 1=QuickRace 2=Replay 3=MultiServer 4=MultiClient; live-verified 2026-08-04"
+     },
+     {
+      "token": "LAUNCHTIME",
+      "sym": "aLaunchtime",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x18"
+      ],
+      "section": "[AUTOLAUNCH]",
+      "note": "float seconds; dest = 0x5EA43C+0x18; live-verified 2026-08-04"
+     },
+     {
+      "token": "VCRCYCLE",
+      "sym": "aVcrcycle",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x14"
+      ],
+      "section": "[AUTOLAUNCH]",
+      "note": "byte; dest = 0x5EA43C+0x14; live-verified 2026-08-04"
+     },
+     {
+      "token": "VCRFILE",
+      "sym": "aVcrfile",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x4"
+      ],
+      "section": "[AUTOLAUNCH]",
+      "note": "ptr; dest = 0x5EA43C+0x4; live-verified 2026-08-04"
+     }
+    ]
+   }
+  },
+  "EngineSectionParser_004f3c80": {
+   "n_sections": 0,
+   "n_fields": 22,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "FuelConsumption",
+      "sym": "aFuelconsumptio",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x674"
+      ],
+      "section": null
+     },
+     {
+      "token": "FuelEstimate",
+      "sym": "aFuelestimate",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x67C"
+      ],
+      "section": null
+     },
+     {
+      "token": "EngineInertia",
+      "sym": "aEngineinertia",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x684"
+      ],
+      "section": null
+     },
+     {
+      "token": "IdleThrottle",
+      "sym": "aIdlethrottle",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x69C"
+      ],
+      "section": null
+     },
+     {
+      "token": "IdleRPMLogic",
+      "sym": "aIdlerpmlogic",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x68C",
+       "0x694"
+      ],
+      "section": null
+     },
+     {
+      "token": "LaunchEfficiency",
+      "sym": "aLaunchefficien",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x6A4"
+      ],
+      "section": null
+     },
+     {
+      "token": "LaunchRPMLogic",
+      "sym": "aLaunchrpmlogic",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x6AC",
+       "0x6B4"
+      ],
+      "section": null
+     },
+     {
+      "token": "RevLimitLogic",
+      "sym": "aRevlimitlogic",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x6BC"
+      ],
+      "section": null
+     },
+     {
+      "token": "LifetimeEngineRPM",
+      "sym": "aLifetimeengine",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1310",
+       "0x1318"
+      ],
+      "section": null
+     },
+     {
+      "token": "LifetimeOilTemp",
+      "sym": "aLifetimeoiltem",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1320",
+       "0x1328"
+      ],
+      "section": null
+     },
+     {
+      "token": "LifetimeAvg",
+      "sym": "aLifetimeavg",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1330"
+      ],
+      "section": null
+     },
+     {
+      "token": "LifetimeVar",
+      "sym": "aLifetimevar",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1338"
+      ],
+      "section": null
+     },
+     {
+      "token": "EngineEmission",
+      "sym": "aEngineemission",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1340",
+       "0x1348",
+       "0x1350"
+      ],
+      "section": null
+     },
+     {
+      "token": "OnboardStarter",
+      "sym": "aOnboardstarter",
+      "setter": "sub_5655F0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1358"
+      ],
+      "section": null
+     },
+     {
+      "token": "StarterTiming",
+      "sym": "aStartertiming",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x135C",
+       "0x1364",
+       "0x136C"
+      ],
+      "section": null
+     },
+     {
+      "token": "OptimumOilTemp",
+      "sym": "aOptimumoiltemp",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x12C8"
+      ],
+      "section": null
+     },
+     {
+      "token": "CombustionHeat",
+      "sym": "aCombustionheat",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x12D0"
+      ],
+      "section": null
+     },
+     {
+      "token": "EngineSpeedHeat",
+      "sym": "aEnginespeedhea",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x12D8"
+      ],
+      "section": null
+     },
+     {
+      "token": "OilMinimumCooling",
+      "sym": "aOilminimumcool",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x12E0"
+      ],
+      "section": null
+     },
+     {
+      "token": "OilWaterHeatTransfer",
+      "sym": "aOilwaterheattr",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x12E8",
+       "0x12F0"
+      ],
+      "section": null
+     },
+     {
+      "token": "WaterMinimumCooling",
+      "sym": "aWaterminimumco",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x12F8"
+      ],
+      "section": null
+     },
+     {
+      "token": "RadiatorCooling",
+      "sym": "aRadiatorcoolin",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1300",
+       "0x1308"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "FenderAeroSetupSectionReader_004f3090": {
+   "n_sections": 0,
+   "n_fields": 4,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "FenderCenter",
+      "sym": "aFendercenter",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x3C",
+       "0x44",
+       "0x4C"
+      ],
+      "section": null
+     },
+     {
+      "token": "FenderDragParams",
+      "sym": "aFenderdragpara",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x4",
+       "0xC",
+       "0x14"
+      ],
+      "section": null
+     },
+     {
+      "token": "FenderLiftParams",
+      "sym": "aFenderliftpara",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1C",
+       "0x24",
+       "0x2C"
+      ],
+      "section": null
+     },
+     {
+      "token": "FenderSideways",
+      "sym": "aFendersideways",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x34"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "GameOptionsWriter_004c1e80": {
+   "n_sections": 2,
+   "n_fields": 28,
+   "n_suspect": 0,
+   "sections": {
+    "[PLAYERTRACKSTAT]": [
+     {
+      "token": "ABORTEDSEASONS",
+      "sym": "aAbortedseasons",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x20"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALLAPS",
+      "sym": "aTotallaps",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x24"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALRACES",
+      "sym": "aTotalraces",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x28"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALRACESWITHAI",
+      "sym": "aTotalraceswith",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x2C"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALPOINTSSCORED",
+      "sym": "aTotalpointssco",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x30"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALCHAMPIONSHIPS",
+      "sym": "aTotalchampions",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x34"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALWINS",
+      "sym": "aTotalwins",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x38"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALPOLES",
+      "sym": "aTotalpoles",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x3C"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALLAPRECORDS",
+      "sym": "aTotallaprecord",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x40"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "AVGSTARTPOSITION",
+      "sym": "aAvgstartpositi",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x44"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "AVGFINISHPOSITION",
+      "sym": "aAvgfinishposit",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x48"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "AVGRACEDISTANCE",
+      "sym": "aAvgracedistanc",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4C"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "AVGOPPONENTSTRENGTH",
+      "sym": "aAvgopponentstr",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "MECHFAIL_rate",
+      "sym": "aMechfailRate",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x54"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "RACECOND_reconnaissance",
+      "sym": "aRacecondReconn",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x58"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "RACECOND_walkthrough",
+      "sym": "aRacecondWalkth",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x5C"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "RACECOND_formation",
+      "sym": "aRacecondFormat",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x60"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "RACECOND_flag_rules",
+      "sym": "aRacecondFlagRu",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x64"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "RACECOND_weather",
+      "sym": "aRacecondWeathe",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x68"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "RACECOND_timescaled_weather",
+      "sym": "aRacecondTimesc",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x6C"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_qualify_laps",
+      "sym": "aGameoptQualify",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x70"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_race_laps",
+      "sym": "aGameoptRaceLap",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x74"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_race_time",
+      "sym": "aGameoptRaceTim",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x78"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_race_length",
+      "sym": "aGameoptRaceLen",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x7C"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_opponents",
+      "sym": "aGameoptOpponen",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x80"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_fuel_mult",
+      "sym": "aGameoptFuelMul",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x84"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_tire_mult",
+      "sym": "aGameoptTireMul",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x88"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_speed_comp",
+      "sym": "aGameoptSpeedCo",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x8C"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     }
+    ]
+   }
+  },
+  "MaterialShaderReactionEffectParser_004ca480": {
+   "n_sections": 0,
+   "n_fields": 48,
+   "n_suspect": 39,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "DUST",
+      "sym": "aDust",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "WHITESMOKE",
+      "sym": "aWhitesmoke",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "BLUESMOKE",
+      "sym": "aBluesmoke",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "BLACKSMOKE",
+      "sym": "aBlacksmoke",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "FLAMES",
+      "sym": "aFlames",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "SKID",
+      "sym": "aSkid",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "SOFTSKID",
+      "sym": "aSoftskid",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "SPRAY",
+      "sym": "aSpray",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "WETSKID",
+      "sym": "aWetskid",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "GROOVE",
+      "sym": "aGroove",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "WETGROOVE",
+      "sym": "aWetgroove",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "PARTICLE",
+      "sym": "aParticle",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "SPARK",
+      "sym": "aSpark",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "RAIN",
+      "sym": "aRain",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "SCALE",
+      "sym": "aScale",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0xC",
+       "0x10",
+       "0x14"
+      ],
+      "section": null
+     },
+     {
+      "token": "GROWTH",
+      "sym": "aGrowth",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x18",
+       "0x1C",
+       "0x20"
+      ],
+      "section": null
+     },
+     {
+      "token": "GROWTHVEL",
+      "sym": "aGrowthvel",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x24",
+       "0x28",
+       "0x2C"
+      ],
+      "section": null
+     },
+     {
+      "token": "DURATION",
+      "sym": "aDuration",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x30"
+      ],
+      "section": null
+     },
+     {
+      "token": "ASDENVELOPE",
+      "sym": "aAsdenvelope",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x34",
+       "0x38",
+       "0x3C"
+      ],
+      "section": null
+     },
+     {
+      "token": "POWER",
+      "sym": "aPower",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x44"
+      ],
+      "section": null
+     },
+     {
+      "token": "RAMPSPEED",
+      "sym": "aRampspeed",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x48"
+      ],
+      "section": null
+     },
+     {
+      "token": "OFFSETVEL",
+      "sym": "aOffsetvel",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x4C"
+      ],
+      "section": null
+     },
+     {
+      "token": "NUMWAYPOINTS",
+      "sym": "aNumwaypoints",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x58"
+      ],
+      "section": null
+     },
+     {
+      "token": "MTS",
+      "sym": "aMts_0",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "EMAP",
+      "sym": "aEmap",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "VERTEX",
+      "sym": "aVertex",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "NOSHADE",
+      "sym": "aNoshade",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "FLATSHADE",
+      "sym": "aFlatshade",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "GOURAUDSHADE",
+      "sym": "aGouraudshade",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "ALPHACHANNEL",
+      "sym": "aAlphachannel",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "SPECULAR",
+      "sym": "aSpecular",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "ENVIRMAP",
+      "sym": "aEnvirmap",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "GLOBALSHADOW",
+      "sym": "aGlobalshadow",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "PIXEL",
+      "sym": "aPixel",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "NOREDUCEDETAIL",
+      "sym": "aNoreducedetail",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "CHROMAKEY",
+      "sym": "aChromakey",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "CHROMA",
+      "sym": "aChroma",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "COLOR",
+      "sym": "aColor",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "PARTICLE",
+      "sym": "aParticle",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "PLANE",
+      "sym": "aPlane",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "CROSS",
+      "sym": "aCross",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "MTSFILE",
+      "sym": "aMtsfile",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "STAMPS",
+      "sym": "aStamps",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "BILLBOARDS",
+      "sym": "aBillboards",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "DEFORMABLE",
+      "sym": "aDeformable",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "SINGLESIDED",
+      "sym": "aSinglesided",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "ALPHAFADE",
+      "sym": "aAlphafade",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "DESTBLEND",
+      "sym": "aDestblend",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x50"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     }
+    ]
+   }
+  },
+  "MultiplayerSessionJoinHandler_0046de10": {
+   "n_sections": 0,
+   "n_fields": 3,
+   "n_suspect": 2,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "Join Failure Page",
+      "sym": "aJoinFailurePag",
+      "setter": "LookupDispatch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xE4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": " ** Max Players:   %d",
+      "sym": "aMaxPlayersD",
+      "setter": "DebugLogWrite",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x40"
+      ],
+      "section": null
+     },
+     {
+      "token": "Client Team Select",
+      "sym": "aClientTeamSele",
+      "setter": "LookupDispatch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xE4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     }
+    ]
+   }
+  },
+  "NetCommParseCommandLine_00463160": {
+   "n_sections": 0,
+   "n_fields": 4,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "+host",
+      "sym": "aHost",
+      "setter": "sub_566810",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xC5"
+      ],
+      "section": null
+     },
+     {
+      "token": "+gamename \"",
+      "sym": "aGamename",
+      "setter": "strlen",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x16C"
+      ],
+      "section": null
+     },
+     {
+      "token": "+connect ",
+      "sym": "aConnect",
+      "setter": "strlen",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xC8"
+      ],
+      "section": null
+     },
+     {
+      "token": "+maxplayers ",
+      "sym": "aMaxplayers",
+      "setter": "strlen",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1AC"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "PerWheelBrakeSuspensionDataLoader_004f2c60": {
+   "n_sections": 0,
+   "n_fields": 21,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "ReboundTravel",
+      "sym": "aReboundtravel",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1"
+      ],
+      "section": null
+     },
+     {
+      "token": "BumpStopSpring",
+      "sym": "aBumpstopspring",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x2"
+      ],
+      "section": null
+     },
+     {
+      "token": "BumpStopRisingSpring",
+      "sym": "aBumpstoprising",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x3"
+      ],
+      "section": null
+     },
+     {
+      "token": "BumpStopDamper",
+      "sym": "aBumpstopdamper",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null
+     },
+     {
+      "token": "BumpStopRisingDamper",
+      "sym": "aBumpstoprising_0",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x5"
+      ],
+      "section": null
+     },
+     {
+      "token": "BumpStage2",
+      "sym": "aBumpstage2",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x6"
+      ],
+      "section": null
+     },
+     {
+      "token": "ReboundStage2",
+      "sym": "aReboundstage2",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x7"
+      ],
+      "section": null
+     },
+     {
+      "token": "FrictionTorque",
+      "sym": "aFrictiontorque",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x15"
+      ],
+      "section": null
+     },
+     {
+      "token": "BrakeTorque",
+      "sym": "aBraketorque",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x16"
+      ],
+      "section": null
+     },
+     {
+      "token": "BrakeWearRate",
+      "sym": "aBrakewearrate",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1E"
+      ],
+      "section": null
+     },
+     {
+      "token": "BrakeFailure",
+      "sym": "aBrakefailure",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1F",
+       "0x20"
+      ],
+      "section": null
+     },
+     {
+      "token": "BrakeOptimumTemp",
+      "sym": "aBrakeoptimumte",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x17"
+      ],
+      "section": null
+     },
+     {
+      "token": "BrakeFadeRange",
+      "sym": "aBrakefaderange",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x18"
+      ],
+      "section": null
+     },
+     {
+      "token": "BrakeDiscInertia",
+      "sym": "aBrakediscinert",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1D"
+      ],
+      "section": null
+     },
+     {
+      "token": "BrakeHeating",
+      "sym": "aBrakeheating",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x19"
+      ],
+      "section": null
+     },
+     {
+      "token": "BrakeCooling",
+      "sym": "aBrakecooling",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1A",
+       "0x1B"
+      ],
+      "section": null
+     },
+     {
+      "token": "BrakeDuctCooling",
+      "sym": "aBrakeductcooli",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1C"
+      ],
+      "section": null
+     },
+     {
+      "token": "SpinInertia",
+      "sym": "aSpininertia",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x12"
+      ],
+      "section": null
+     },
+     {
+      "token": "CGOffsetX",
+      "sym": "aCgoffsetx",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x8"
+      ],
+      "section": null
+     },
+     {
+      "token": "PushrodSpindle",
+      "sym": "aPushrodspindle",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x9",
+       "0xA",
+       "0xB"
+      ],
+      "section": null
+     },
+     {
+      "token": "PushrodBody",
+      "sym": "aPushrodbody",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0xC",
+       "0xD",
+       "0xE"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "PlayerCareerStatsGameOptionsLoader_004c18b0": {
+   "n_sections": 2,
+   "n_fields": 24,
+   "n_suspect": 0,
+   "sections": {
+    "[PLAYERTRACKSTAT]": [
+     {
+      "token": "ABORTEDSEASONS",
+      "sym": "aAbortedseasons",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x8"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALLAPS",
+      "sym": "aTotallaps",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x9"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALRACES",
+      "sym": "aTotalraces",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0xA"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALRACESWITHAI",
+      "sym": "aTotalraceswith",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0xB"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALPOINTSSCORED",
+      "sym": "aTotalpointssco",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0xC"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALCHAMPIONSHIPS",
+      "sym": "aTotalchampions",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0xD"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALWINS",
+      "sym": "aTotalwins",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0xE"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALPOLES",
+      "sym": "aTotalpoles",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0xF"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "TOTALLAPRECORDS",
+      "sym": "aTotallaprecord",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x10"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "MECHFAIL_rate",
+      "sym": "aMechfailRate",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x54"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "RACECOND_reconnaissance",
+      "sym": "aRacecondReconn",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x16"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "RACECOND_walkthrough",
+      "sym": "aRacecondWalkth",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x17"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "RACECOND_formation",
+      "sym": "aRacecondFormat",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x18"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "RACECOND_flag_rules",
+      "sym": "aRacecondFlagRu",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x19"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "RACECOND_weather",
+      "sym": "aRacecondWeathe",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x68"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "RACECOND_timescaled_weather",
+      "sym": "aRacecondTimesc",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x6C"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_qualify_laps",
+      "sym": "aGameoptQualify",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x1C"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_race_laps",
+      "sym": "aGameoptRaceLap",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x1D"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_race_time",
+      "sym": "aGameoptRaceTim",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x1E"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_race_length",
+      "sym": "aGameoptRaceLen",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x1F"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_opponents",
+      "sym": "aGameoptOpponen",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x20"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_fuel_mult",
+      "sym": "aGameoptFuelMul",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x21"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_tire_mult",
+      "sym": "aGameoptTireMul",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x22"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     },
+     {
+      "token": "GAMEOPT_speed_comp",
+      "sym": "aGameoptSpeedCo",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x23"
+      ],
+      "section": "[PLAYERTRACKSTAT]"
+     }
+    ]
+   }
+  },
+  "PlayerOptionsInitializer_004aa270": {
+   "n_sections": 0,
+   "n_fields": 290,
+   "n_suspect": 7,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "SCENE",
+      "sym": "aScene",
+      "setter": "SettingsPathBuilder",
+      "assoc": "inline",
+      "offsets": [
+       "0x118"
+      ],
+      "section": null
+     },
+     {
+      "token": "Scene File",
+      "sym": "aSceneFile",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x124"
+      ],
+      "section": null
+     },
+     {
+      "token": "Scene Description",
+      "sym": "aSceneDescripti",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x140"
+      ],
+      "section": null
+     },
+     {
+      "token": "AI Database File",
+      "sym": "aAiDatabaseFile",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x15C"
+      ],
+      "section": null
+     },
+     {
+      "token": "DRIVER",
+      "sym": "aDriver_1",
+      "setter": "SettingsPathBuilder",
+      "assoc": "inline",
+      "offsets": [
+       "0x178"
+      ],
+      "section": null
+     },
+     {
+      "token": "Profile Vehicle File",
+      "sym": "aProfileVehicle",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x184"
+      ],
+      "section": null
+     },
+     {
+      "token": "Vehicle File",
+      "sym": "aVehicleFile",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x1A0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Driver Name",
+      "sym": "aDriverName",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x1BC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Nationality",
+      "sym": "aNationality",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x1D8"
+      ],
+      "section": null
+     },
+     {
+      "token": "DRIVING AIDS",
+      "sym": "aDrivingAids",
+      "setter": "SettingsPathBuilder",
+      "assoc": "inline",
+      "offsets": [
+       "0x1F4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Steering Help",
+      "sym": "aSteeringHelp",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x218"
+      ],
+      "section": null
+     },
+     {
+      "token": "Steering Help Functionality",
+      "sym": "aSteeringHelpFu",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x23C"
+      ],
+      "section": null
+     },
+     {
+      "token": "0 = new help, 1 = new help + grip, 2 = original F1 2001, 3 = original + grip",
+      "sym": "a0NewHelp1NewHe",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x238"
+      ],
+      "section": null
+     },
+     {
+      "token": "Throttle Control",
+      "sym": "aThrottleContro",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x260"
+      ],
+      "section": null
+     },
+     {
+      "token": "Brake Help",
+      "sym": "aBrakeHelp",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x284"
+      ],
+      "section": null
+     },
+     {
+      "token": "Antilock Brakes",
+      "sym": "aAntilockBrakes",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x2A8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Spin Recovery",
+      "sym": "aSpinRecovery_0",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x2CC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Invulnerability",
+      "sym": "aInvulnerabilit_0",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x2F0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Autopit",
+      "sym": "aAutopit",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x314"
+      ],
+      "section": null
+     },
+     {
+      "token": "Opposite Lock",
+      "sym": "aOppositeLock",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x338"
+      ],
+      "section": null
+     },
+     {
+      "token": "Stability Control",
+      "sym": "aStabilityContr",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x35C"
+      ],
+      "section": null
+     },
+     {
+      "token": "No AI Control",
+      "sym": "aNoAiControl",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x380"
+      ],
+      "section": null
+     },
+     {
+      "token": "AI never has control over car (except autopit)",
+      "sym": "aAiNeverHasCont",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x37C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Pitcrew Push",
+      "sym": "aPitcrewPush",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x3A1"
+      ],
+      "section": null
+     },
+     {
+      "token": "When out of fuel in pitlane, allows pitcrew to push car (use throttle and gear selection to direct)",
+      "sym": "aWhenOutOfFuelI",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x3A0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Auto Clutch",
+      "sym": "aAutoClutch",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x3BC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Auto Lift",
+      "sym": "aAutoLift",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x3DD"
+      ],
+      "section": null
+     },
+     {
+      "token": "Whether to automatically lift with manual shifting but auto-clutch (non-semiautomatic trans only)",
+      "sym": "aWhetherToAutom",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x3DC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Auto Blip",
+      "sym": "aAutoBlip",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x3F5"
+      ],
+      "section": null
+     },
+     {
+      "token": "Whether to automatically blip with manual shifting but auto-clutch (non-semiautomatic trans only)",
+      "sym": "aWhetherToAutom_0",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x3F4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Shift Mode",
+      "sym": "aShiftMode",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x410"
+      ],
+      "section": null
+     },
+     {
+      "token": "Manual Shift Override Time",
+      "sym": "aManualShiftOve",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x434"
+      ],
+      "section": null
+     },
+     {
+      "token": "How long after a manual shift until auto shifting resumes (if auto-shifting is enabled)",
+      "sym": "aHowLongAfterAM",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x430"
+      ],
+      "section": null
+     },
+     {
+      "token": "Auto Shift Override Time",
+      "sym": "aAutoShiftOverr",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x458"
+      ],
+      "section": null
+     },
+     {
+      "token": "How long after an automatic shift before user is allowed to manually shift",
+      "sym": "aHowLongAfterAn",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x454"
+      ],
+      "section": null
+     },
+     {
+      "token": "Auto Reverse",
+      "sym": "aAutoReverse",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x47C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Speed Sensitive Steering",
+      "sym": "aSpeedSensitive",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4A0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Half Rate",
+      "sym": "aHalfRate",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4C4"
+      ],
+      "section": null
+     },
+     {
+      "token": "0 = super-high physics rate, 1 = normal",
+      "sym": "a0SuperHighPhys",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4C0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Launch Control",
+      "sym": "aLaunchControl",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4E5"
+      ],
+      "section": null
+     },
+     {
+      "token": "Whether old cars get launch control because we failed to document it properly",
+      "sym": "aWhetherOldCars",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4E4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Tire Sampling",
+      "sym": "aTireSampling",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4FD"
+      ],
+      "section": null
+     },
+     {
+      "token": "0 = normal, 1 = extra HAT samples (*slightly* more accurate over sharp curbs, otherwise a waste of CPU)",
+      "sym": "a0Normal1ExtraH",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4FC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Telemetry Version",
+      "sym": "aTelemetryVersi",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x518"
+      ],
+      "section": null
+     },
+     {
+      "token": "Version of telemetry to write out",
+      "sym": "aVersionOfTelem",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x514"
+      ],
+      "section": null
+     },
+     {
+      "token": "Telemetry Rate",
+      "sym": "aTelemetryRate",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x53C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Telemetry In Race",
+      "sym": "aTelemetryInRac",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x560"
+      ],
+      "section": null
+     },
+     {
+      "token": "Telemetry EXE",
+      "sym": "aTelemetryExe",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x56C"
+      ],
+      "section": null
+     },
+     {
+      "token": "telemetry\\f1_telemetry.exe",
+      "sym": "aTelemetryF1Tel",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x56C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Telemetry File",
+      "sym": "aTelemetryFile",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x588"
+      ],
+      "section": null
+     },
+     {
+      "token": "telemetry\\telemetry.spt",
+      "sym": "aTelemetryTelem",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x588"
+      ],
+      "section": null
+     },
+     {
+      "token": "Mechanical Failures",
+      "sym": "aMechanicalFail",
+      "setter": "SettingsPathBuilder",
+      "assoc": "inline",
+      "offsets": [
+       "0x5A4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Mechanical failure rate (0-none, 1-normal, 2-timescaled, 3-season)",
+      "sym": "aMechanicalFail_0",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x6AC"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "Race Conditions",
+      "sym": "aRaceConditions",
+      "setter": "SettingsPathBuilder",
+      "assoc": "inline",
+      "offsets": [
+       "0x6AC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Run Practice1",
+      "sym": "aRunPractice1",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x6CD"
+      ],
+      "section": null
+     },
+     {
+      "token": "Run Practice2",
+      "sym": "aRunPractice2",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x6E5"
+      ],
+      "section": null
+     },
+     {
+      "token": "Run Practice3",
+      "sym": "aRunPractice3",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x6FD"
+      ],
+      "section": null
+     },
+     {
+      "token": "Run Practice4",
+      "sym": "aRunPractice4",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x715"
+      ],
+      "section": null
+     },
+     {
+      "token": "Run Qualify",
+      "sym": "aRunQualify",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x72D"
+      ],
+      "section": null
+     },
+     {
+      "token": "Run Warmup",
+      "sym": "aRunWarmup",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x745"
+      ],
+      "section": null
+     },
+     {
+      "token": "Race Timer",
+      "sym": "aRaceTimer",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x760"
+      ],
+      "section": null
+     },
+     {
+      "token": "Seconds between displaying time remaining in race (zero disables)",
+      "sym": "aSecondsBetween",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x75C"
+      ],
+      "section": null
+     },
+     {
+      "token": "AI Follow Grid",
+      "sym": "aAiFollowGrid",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x781"
+      ],
+      "section": null
+     },
+     {
+      "token": "AI follows center of grid locations during recon/formation",
+      "sym": "aAiFollowsCente",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x780"
+      ],
+      "section": null
+     },
+     {
+      "token": "Recon Pit Open",
+      "sym": "aReconPitOpen",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x79C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Time that pits remain open for recon laps (real-life is 900 seconds)",
+      "sym": "aTimeThatPitsRe",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x798"
+      ],
+      "section": null
+     },
+     {
+      "token": "Recon Pit Closed",
+      "sym": "aReconPitClosed",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x7C0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Time that pits are closed before formation lap (real-life is 900 seconds)",
+      "sym": "aTimeThatPitsAr",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x7BC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Recon Timer",
+      "sym": "aReconTimer",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x7E1"
+      ],
+      "section": null
+     },
+     {
+      "token": "Whether timer is displayed at top of screen",
+      "sym": "aWhetherTimerIs",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x7E0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Grid Walkthrough",
+      "sym": "aGridWalkthroug",
+      "setter": "sub_4AA1E0",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x994"
+      ],
+      "section": null
+     },
+     {
+      "token": "Formation Lap",
+      "sym": "aFormationLap",
+      "setter": "sub_4AA1E0",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xAF0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Level of rule enforcement",
+      "sym": "aLevelOfRuleEnf",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xBEC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Random/season/sunny/etc.",
+      "sym": "aRandomSeasonSu",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xCE5"
+      ],
+      "section": null
+     },
+     {
+      "token": "Whether weather time is scaled with session length",
+      "sym": "aWhetherWeather",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xD78"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "Sound Options",
+      "sym": "aSoundOptions",
+      "setter": "SettingsPathBuilder",
+      "assoc": "inline",
+      "offsets": [
+       "0xD78"
+      ],
+      "section": null
+     },
+     {
+      "token": "Maximum Effects",
+      "sym": "aMaximumEffects",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xD9C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Maximum sound effects playing simultaneously",
+      "sym": "aMaximumSoundEf",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xD98"
+      ],
+      "section": null
+     },
+     {
+      "token": "Music",
+      "sym": "aMusic",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xDC0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Music Toggle",
+      "sym": "aMusicToggle",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xDBC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Min Announcer Pause",
+      "sym": "aMinAnnouncerPa",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xDE4"
+      ],
+      "section": null
+     },
+     {
+      "token": "in seconds",
+      "sym": "aInSeconds",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xDE0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Track Load Commentary",
+      "sym": "aTrackLoadComme",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xE05"
+      ],
+      "section": null
+     },
+     {
+      "token": "Whether or not the commentator should talk during track loading",
+      "sym": "aWhetherOrNotTh",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xE04"
+      ],
+      "section": null
+     },
+     {
+      "token": "Realtime In Monitor",
+      "sym": "aRealtimeInMoni",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xE1D"
+      ],
+      "section": null
+     },
+     {
+      "token": "Whether to play realtime sounds in monitor",
+      "sym": "aWhetherToPlayR",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xE1C"
+      ],
+      "section": null
+     },
+     {
+      "token": "SoundFX Volume",
+      "sym": "aSoundfxVolume",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xE38"
+      ],
+      "section": null
+     },
+     {
+      "token": "0.0-1.0",
+      "sym": "a0010",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xE34"
+      ],
+      "section": null
+     },
+     {
+      "token": "Engine Volume",
+      "sym": "aEngineVolume",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xE5C"
+      ],
+      "section": null
+     },
+     {
+      "token": "0.0-1.0",
+      "sym": "a0010",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xE58"
+      ],
+      "section": null
+     },
+     {
+      "token": "Traction Control",
+      "sym": "aTractionContro_1",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xE80"
+      ],
+      "section": null
+     },
+     {
+      "token": "Volume multiplier",
+      "sym": "aVolumeMultipli",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xE7C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Player Volume Ratio",
+      "sym": "aPlayerVolumeRa",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xEA4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Additional volume multiplayer for player's vehicle",
+      "sym": "aAdditionalVolu",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xEA0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Other Volume Ratio",
+      "sym": "aOtherVolumeRat",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xEC8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Additional volume multiplayer for other vehicles",
+      "sym": "aAdditionalVolu_0",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xEC4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Music Volume",
+      "sym": "aMusicVolume",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xEEC"
+      ],
+      "section": null
+     },
+     {
+      "token": "0.0-1.0",
+      "sym": "a0010",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xEE8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Pit Volume",
+      "sym": "aPitVolume",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xF10"
+      ],
+      "section": null
+     },
+     {
+      "token": "0.0-1.0, controls volume of pit sounds while you're at the monitor",
+      "sym": "a0010ControlsVo",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xF0C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Announcer Volume",
+      "sym": "aAnnouncerVolum",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xF34"
+      ],
+      "section": null
+     },
+     {
+      "token": "0.0-1.0",
+      "sym": "a0010",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xF30"
+      ],
+      "section": null
+     },
+     {
+      "token": "Sound Detail",
+      "sym": "aSoundDetail",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1174"
+      ],
+      "section": null
+     },
+     {
+      "token": "Crowd Range",
+      "sym": "aCrowdRange",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xF58"
+      ],
+      "section": null
+     },
+     {
+      "token": "Volume range parameter",
+      "sym": "aVolumeRangePar",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xF54"
+      ],
+      "section": null
+     },
+     {
+      "token": "Crowd Shape",
+      "sym": "aCrowdShape",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xF7C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Shape of volume attenuation",
+      "sym": "aShapeOfVolumeA",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xF78"
+      ],
+      "section": null
+     },
+     {
+      "token": "Crowd Ambient",
+      "sym": "aCrowdAmbient",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xFA0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Ambient range where volume is maximum",
+      "sym": "aAmbientRangeWh",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xF9C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Airhorn Range",
+      "sym": "aAirhornRange",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xFC4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Airhorn Shape",
+      "sym": "aAirhornShape",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xFE8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Airhorn Ambient",
+      "sym": "aAirhornAmbient",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x100C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Public Address Range",
+      "sym": "aPublicAddressR",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1030"
+      ],
+      "section": null
+     },
+     {
+      "token": "Public Address Shape",
+      "sym": "aPublicAddressS",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1054"
+      ],
+      "section": null
+     },
+     {
+      "token": "Public Address Ambient",
+      "sym": "aPublicAddressA",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1078"
+      ],
+      "section": null
+     },
+     {
+      "token": "Pithorn Range",
+      "sym": "aPithornRange",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x109C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Pithorn Shape",
+      "sym": "aPithornShape",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x10C0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Pithorn Ambient",
+      "sym": "aPithornAmbient",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x10E4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Helicopter Range",
+      "sym": "aHelicopterRang",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1108"
+      ],
+      "section": null
+     },
+     {
+      "token": "Helicopter Shape",
+      "sym": "aHelicopterShap",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x112C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Helicopter Ambient",
+      "sym": "aHelicopterAmbi",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1150"
+      ],
+      "section": null
+     },
+     {
+      "token": "Graphic Options",
+      "sym": "aGraphicOptions",
+      "setter": "SettingsPathBuilder",
+      "assoc": "inline",
+      "offsets": [
+       "0x1180"
+      ],
+      "section": null
+     },
+     {
+      "token": "Broadcast Overlay",
+      "sym": "aBroadcastOverl",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x11A4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Texture Detail",
+      "sym": "aTextureDetail",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x11C8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Rearview",
+      "sym": "aRearview_0",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x11EC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Rearview Width",
+      "sym": "aRearviewWidth",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1210"
+      ],
+      "section": null
+     },
+     {
+      "token": "Rearview Height",
+      "sym": "aRearviewHeight",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1234"
+      ],
+      "section": null
+     },
+     {
+      "token": "Rearview Particles",
+      "sym": "aRearviewPartic",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1258"
+      ],
+      "section": null
+     },
+     {
+      "token": "Self In Rearview",
+      "sym": "aSelfInRearview",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1279"
+      ],
+      "section": null
+     },
+     {
+      "token": "Show rear wing and rear wheels in rearview",
+      "sym": "aShowRearWingAn",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1278"
+      ],
+      "section": null
+     },
+     {
+      "token": "Vehicle Sparks",
+      "sym": "aVehicleSparks",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1291"
+      ],
+      "section": null
+     },
+     {
+      "token": "Whether sparks occur from vehicle-to-vehicle collisions",
+      "sym": "aWhetherSparksO",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1290"
+      ],
+      "section": null
+     },
+     {
+      "token": "Backfire Anim Speed",
+      "sym": "aBackfireAnimSp",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x12AC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Moving Steering Wheel",
+      "sym": "aMovingSteering",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x12D0"
+      ],
+      "section": null
+     },
+     {
+      "token": "LCD Display Modes",
+      "sym": "aLcdDisplayMode",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1318"
+      ],
+      "section": null
+     },
+     {
+      "token": "Add the modes to allow them: 1=status 2=aids 4=engine/brake temps",
+      "sym": "aAddTheModesToA",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1314"
+      ],
+      "section": null
+     },
+     {
+      "token": "Automap",
+      "sym": "aAutomap",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x133C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Player Detail",
+      "sym": "aPlayerDetail",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1360"
+      ],
+      "section": null
+     },
+     {
+      "token": "Opponent Detail",
+      "sym": "aOpponentDetail",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1384"
+      ],
+      "section": null
+     },
+     {
+      "token": "Garage Detail",
+      "sym": "aGarageDetail",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x13A8"
+      ],
+      "section": null
+     },
+     {
+      "token": "LOD multiplier when vehicle is in garage (0.0-1.0)",
+      "sym": "aLodMultiplierW",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x13A4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Shadows",
+      "sym": "aShadows",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x13CC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Pitcrew Detail",
+      "sym": "aPitcrewDetail",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x13F0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Special FX",
+      "sym": "aSpecialFx",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1414"
+      ],
+      "section": null
+     },
+     {
+      "token": "Lightning Probability",
+      "sym": "aLightningProba",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1438"
+      ],
+      "section": null
+     },
+     {
+      "token": "Probability of seeing lightning (0.0-1.5)",
+      "sym": "aProbabilityOfS",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1434"
+      ],
+      "section": null
+     },
+     {
+      "token": "Thunder Probability",
+      "sym": "aThunderProbabi",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x145C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Probability of hearing thunder (0.0-1.5)",
+      "sym": "aProbabilityOfH",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1458"
+      ],
+      "section": null
+     },
+     {
+      "token": "Cloud Scroll",
+      "sym": "aCloudScroll",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1480"
+      ],
+      "section": null
+     },
+     {
+      "token": "Maximum cloud scrolling rate (0.000-0.010)",
+      "sym": "aMaximumCloudSc",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x147C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Cloud Blend",
+      "sym": "aCloudBlend",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x14A1"
+      ],
+      "section": null
+     },
+     {
+      "token": "Whether to roll the rainy cloud map in across sky (only works with overhead not cylinder skies)",
+      "sym": "aWhetherToRollT",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x14A0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Skybox Positioning",
+      "sym": "aSkyboxPosition",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x14BC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Numbers less than 1.0 cause the skybox to get closer as you drive towards it",
+      "sym": "aNumbersLessTha",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x14B8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Vehicle Flow Radius",
+      "sym": "aVehicleFlowRad",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x14E0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Vehicle sphere radius for smoke/flames/dust/spray",
+      "sym": "aVehicleSphereR",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x14DC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Vehicle Flow Offset",
+      "sym": "aVehicleFlowOff",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1504"
+      ],
+      "section": null
+     },
+     {
+      "token": "Offset below vehicle where sphere center is located",
+      "sym": "aOffsetBelowVeh",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1500"
+      ],
+      "section": null
+     },
+     {
+      "token": "Engine Emitter Flow",
+      "sym": "aEngineEmitterF",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1525"
+      ],
+      "section": null
+     },
+     {
+      "token": "Whether engine smoke/flames flow over emitting vehicle",
+      "sym": "aWhetherEngineS",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1524"
+      ],
+      "section": null
+     },
+     {
+      "token": "Tire Emitter Flow",
+      "sym": "aTireEmitterFlo",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x153D"
+      ],
+      "section": null
+     },
+     {
+      "token": "Whether tire smoke/dust flow over emitting vehicle",
+      "sym": "aWhetherTireSmo",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x153C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Smoke Flow",
+      "sym": "aSmokeFlow",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1555"
+      ],
+      "section": null
+     },
+     {
+      "token": "Whether all smoke/flames/dust flow over non-emitting vehicles",
+      "sym": "aWhetherAllSmok",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1554"
+      ],
+      "section": null
+     },
+     {
+      "token": "Raindrop Flow",
+      "sym": "aRaindropFlow",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1570"
+      ],
+      "section": null
+     },
+     {
+      "token": "Add to enable: 1=flow over current 2=flow over other vehicles",
+      "sym": "aAddToEnable1Fl",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x156C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Rainspray Flow",
+      "sym": "aRainsprayFlow",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1594"
+      ],
+      "section": null
+     },
+     {
+      "token": "Add to enable: 1=flow over current 2=flow over other vehicles",
+      "sym": "aAddToEnable1Fl",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1590"
+      ],
+      "section": null
+     },
+     {
+      "token": "Spark Flow",
+      "sym": "aSparkFlow",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x15B8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Add to enable: 1=flow over current 2=flow over other vehicles",
+      "sym": "aAddToEnable1Fl",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x15B4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Glance Rate",
+      "sym": "aGlanceRate",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x15DC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Rate to follow controller for glancing",
+      "sym": "aRateToFollowCo",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x15D8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Look Up/Down Angle",
+      "sym": "aLookUpDownAngl",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1600"
+      ],
+      "section": null
+     },
+     {
+      "token": "Angle to look up/down (pitch) w/ controller in radians (= degrees / 57)",
+      "sym": "aAngleToLookUpD",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x15FC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Leanahead Angle",
+      "sym": "aLeanaheadAngle",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1624"
+      ],
+      "section": null
+     },
+     {
+      "token": "Angle to lean head (roll) w/ steering in radians (= degrees / 57)",
+      "sym": "aAngleToLeanHea",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1620"
+      ],
+      "section": null
+     },
+     {
+      "token": "Look Roll Angle",
+      "sym": "aLookRollAngle",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1648"
+      ],
+      "section": null
+     },
+     {
+      "token": "Angle to lean head (roll) w/ controller in radians (= degrees / 57)",
+      "sym": "aAngleToLeanHea_0",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1644"
+      ],
+      "section": null
+     },
+     {
+      "token": "Glance Angle",
+      "sym": "aGlanceAngle",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x166C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Angle to look left/right (yaw) w/ controller in radians (= degrees / 57)",
+      "sym": "aAngleToLookLef",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1668"
+      ],
+      "section": null
+     },
+     {
+      "token": "Lookahead Angle",
+      "sym": "aLookaheadAngle",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1690"
+      ],
+      "section": null
+     },
+     {
+      "token": "Angle to lookahead (yaw) w/ steering in radians (= degrees / 57)",
+      "sym": "aAngleToLookahe",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x168C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Head Physics",
+      "sym": "aHeadPhysics",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x16B4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Fraction of head physics movement applied to cockpit view (position AND rotation)",
+      "sym": "aFractionOfHead",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x16B0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Head Rotation",
+      "sym": "aHeadRotation",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x16D8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Additional head physics multiplier affecting rotation only",
+      "sym": "aAdditionalHead",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x16D4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Track Detail",
+      "sym": "aTrackDetail",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x16FC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Groove",
+      "sym": "aGroove_0",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1720"
+      ],
+      "section": null
+     },
+     {
+      "token": "Environment Map",
+      "sym": "aEnvironmentMap",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1744"
+      ],
+      "section": null
+     },
+     {
+      "token": "MIP Mapping",
+      "sym": "aMipMapping",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1768"
+      ],
+      "section": null
+     },
+     {
+      "token": "Compressed Textures",
+      "sym": "aCompressedText",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x178C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Specular",
+      "sym": "aSpecular_0",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x17B0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Dynamic Lighting",
+      "sym": "aDynamicLightin",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x17D4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Max Visible Vehicles",
+      "sym": "aMaxVisibleVehi",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x17F8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Map OppDetail To Visible",
+      "sym": "aMapOppdetailTo",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1819"
+      ],
+      "section": null
+     },
+     {
+      "token": "Map opponent detail level to max visible vehicles",
+      "sym": "aMapOpponentDet",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1818"
+      ],
+      "section": null
+     },
+     {
+      "token": "Shadows In TV Cockpit",
+      "sym": "aShadowsInTvCoc",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1834"
+      ],
+      "section": null
+     },
+     {
+      "token": "Wheels Visible In Cockpit",
+      "sym": "aWheelsVisibleI",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1858"
+      ],
+      "section": null
+     },
+     {
+      "token": "In Car Dash",
+      "sym": "aInCarDash",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x187C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Dust Detail",
+      "sym": "aDustDetail",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x18A0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Smoke Detail",
+      "sym": "aSmokeDetail",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x18C4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Skid Detail",
+      "sym": "aSkidDetail",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x18E8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Particle Detail",
+      "sym": "aParticleDetail",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x190C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Starting View",
+      "sym": "aStartingView",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1930"
+      ],
+      "section": null
+     },
+     {
+      "token": "Skybox Detail",
+      "sym": "aSkyboxDetail",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1954"
+      ],
+      "section": null
+     },
+     {
+      "token": "Player Livery",
+      "sym": "aPlayerLivery",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x1960"
+      ],
+      "section": null
+     },
+     {
+      "token": "Overrides default paint job for track",
+      "sym": "aOverridesDefau",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x1960"
+      ],
+      "section": null
+     },
+     {
+      "token": "Mipmap LOD Speed",
+      "sym": "aMipmapLodSpeed",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1994"
+      ],
+      "section": null
+     },
+     {
+      "token": "Speed (MPH) at which maximum mipmap bias is used",
+      "sym": "aSpeedMphAtWhic",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1990"
+      ],
+      "section": null
+     },
+     {
+      "token": "Mipmap LOD Bias",
+      "sym": "aMipmapLodBias",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x19B8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Allow HUD in cockpit",
+      "sym": "aAllowHudInCock",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x19D9"
+      ],
+      "section": null
+     },
+     {
+      "token": "Allow Swingman in Pitlane",
+      "sym": "aAllowSwingmanI",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x19F1"
+      ],
+      "section": null
+     },
+     {
+      "token": "Display Icons",
+      "sym": "aDisplayIcons",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1A0C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Icons displayed if HUD is off: 0 = none, 1 = flags only, 2 = all",
+      "sym": "aIconsDisplayed",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1A08"
+      ],
+      "section": null
+     },
+     {
+      "token": "Night Lighting",
+      "sym": "aNightLighting",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1A30"
+      ],
+      "section": null
+     },
+     {
+      "token": "0.0 (night light level) to 1.0 (disabled): sunrise 4-6am, sunset 6-8pm, all lights named \"nightlightXXX\" are toggled at 5:30am and 6:30pm",
+      "sym": "a00NightLightLe",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1A2C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Always Rebuild HAT",
+      "sym": "aAlwaysRebuildH",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1A51"
+      ],
+      "section": null
+     },
+     {
+      "token": "Build HAT database everytime tracks are loaded (for development purposes)",
+      "sym": "aBuildHatDataba",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1A50"
+      ],
+      "section": null
+     },
+     {
+      "token": "Game Options",
+      "sym": "aGameOptions",
+      "setter": "SettingsPathBuilder",
+      "assoc": "inline",
+      "offsets": [
+       "0x1A54"
+      ],
+      "section": null
+     },
+     {
+      "token": "Championship Basic Rules",
+      "sym": "aChampionshipBa",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1A78"
+      ],
+      "section": null
+     },
+     {
+      "token": "Basic Rules",
+      "sym": "aBasicRules",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1ACC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Basic Controls",
+      "sym": "aBasicControls",
+      "setter": "StringCopyWithBufferRealloc",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1AF0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Settings Type",
+      "sym": "aSettingsType",
+      "setter": "MultiFieldSetterWithStrings",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1F88"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "F1_2002.gdb",
+      "sym": "aF12002Gdb",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x1F88"
+      ],
+      "section": null
+     },
+     {
+      "token": "The current GDB file to load",
+      "sym": "aTheCurrentGdbF",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x1F88"
+      ],
+      "section": null
+     },
+     {
+      "token": "In garage options",
+      "sym": "aInGarageOption",
+      "setter": "sub_4B1C20",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1FF8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Qualify Laps",
+      "sym": "aQualifyLaps",
+      "setter": "sub_4AA1E0",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x20F4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Race Laps",
+      "sym": "aRaceLaps",
+      "setter": "sub_4AA1E0",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x21F0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Race Time",
+      "sym": "aRaceTime",
+      "setter": "sub_4AA1E0",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x22EC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Race Length",
+      "sym": "aRaceLength",
+      "setter": "sub_4AA1E0",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x23E8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Speed Compensation",
+      "sym": "aSpeedCompensat",
+      "setter": "sub_4AA1E0",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x24E4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Used for assigning garage & pit (range: 1-3)",
+      "sym": "aUsedForAssigni",
+      "setter": "MultiFieldSetterWithStrings",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x26B8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Fuel Consumption Multiplier",
+      "sym": "aFuelConsumptio",
+      "setter": "sub_4AA1E0",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x27B4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Tire Wear Multiplier",
+      "sym": "aTireWearMultip",
+      "setter": "sub_4AA1E0",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x28B0"
+      ],
+      "section": null
+     },
+     {
+      "token": "number of milliseconds to sleep each message loop if the game is not the active application (-1 to disable, 250 max).  will give more CPU to other apps when minimized, etc.",
+      "sym": "aNumberOfMillis",
+      "setter": "MultiFieldSetterWithStrings",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x2998"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "Multiplayer Options",
+      "sym": "aMultiplayerOpt",
+      "setter": "SettingsPathBuilder",
+      "assoc": "inline",
+      "offsets": [
+       "0x2998"
+      ],
+      "section": null
+     },
+     {
+      "token": "1.0 = critical damping, higher values are overdamped, lower values are underdamped and not recommended",
+      "sym": "a10CriticalDamp",
+      "setter": "MultiFieldSetterWithStringCopy",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x2D3C"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "Previous Game Database",
+      "sym": "aPreviousGameDa",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x2D3C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Used to restore the game database used prior to joining a multiplayer game",
+      "sym": "aUsedToRestoreT",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x2D3C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Previous Vehicle File",
+      "sym": "aPreviousVehicl",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x2D58"
+      ],
+      "section": null
+     },
+     {
+      "token": "Used to restore the vehicle used prior to joining a multiplayer game",
+      "sym": "aUsedToRestoreT_0",
+      "setter": "TripleDispatchWrapper",
+      "assoc": "inline",
+      "offsets": [
+       "0x2D58"
+      ],
+      "section": null
+     },
+     {
+      "token": "Options",
+      "sym": "aOptions_0",
+      "setter": "SettingsPathBuilder",
+      "assoc": "inline",
+      "offsets": [
+       "0x2D74"
+      ],
+      "section": null
+     },
+     {
+      "token": "Key Repeat Rate",
+      "sym": "aKeyRepeatRate",
+      "setter": "MultiFieldSetterWithStrings",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x2DEC"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "Controls",
+      "sym": "aControls_2",
+      "setter": "SettingsPathBuilder",
+      "assoc": "inline",
+      "offsets": [
+       "0x2DEC"
+      ],
+      "section": null
+     },
+     {
+      "token": "0.0=min, 0.5=center, 1.0=max (use to correct centering or split-axis issues)",
+      "sym": "a00Min05Center1",
+      "setter": "MultiFieldSetterWithStringCopy",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x365C"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "Control - Accelerate",
+      "sym": "aControlAcceler",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x365C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Brake",
+      "sym": "aControlBrake",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3678"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Steer Left",
+      "sym": "aControlSteerLe",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3694"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Steer Right",
+      "sym": "aControlSteerRi",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x36B0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Shift Up",
+      "sym": "aControlShiftUp",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x36CC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Shift Down",
+      "sym": "aControlShiftDo",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x36E8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Neutral",
+      "sym": "aControlNeutral",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3704"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Reverse Gear",
+      "sym": "aControlReverse",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3934"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - First Gear",
+      "sym": "aControlFirstGe",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3950"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Second Gear",
+      "sym": "aControlSecondG",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x396C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Third Gear",
+      "sym": "aControlThirdGe",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3988"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Fourth Gear",
+      "sym": "aControlFourthG",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x39A4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Fifth Gear",
+      "sym": "aControlFifthGe",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x39C0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Sixth Gear",
+      "sym": "aControlSixthGe",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x39DC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Seventh Gear",
+      "sym": "aControlSeventh",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x39F8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Clutch In",
+      "sym": "aControlClutchI",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3720"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Display Mode",
+      "sym": "aControlDisplay",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x373C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Pit Request",
+      "sym": "aControlPitRequ",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3758"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Pit Menu Up",
+      "sym": "aControlPitMenu",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3774"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Pit Menu Down",
+      "sym": "aControlPitMenu_0",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3790"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Pit Menu Inc",
+      "sym": "aControlPitMenu_1",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x37AC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Pit Menu Dec",
+      "sym": "aControlPitMenu_2",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x37C8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - TCOverride",
+      "sym": "aControlTcoverr",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x37E4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Launch Control",
+      "sym": "aControlLaunchC",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3800"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Speed Limiter",
+      "sym": "aControlSpeedLi",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x381C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Bias Forward",
+      "sym": "aControlBiasFor",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3838"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Bias Rearward",
+      "sym": "aControlBiasRea",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3854"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Look Left",
+      "sym": "aControlLookLef",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3870"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Look Right",
+      "sym": "aControlLookRig",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x388C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Rear Look",
+      "sym": "aControlRearLoo",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x38A8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Instant Replay",
+      "sym": "aControlInstant",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x38E0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Pause",
+      "sym": "aControlPause",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x38FC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Restart Race",
+      "sym": "aControlRestart",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3918"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Zero HMD",
+      "sym": "aControlZeroHmd",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3A14"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Display Vehicle Labels",
+      "sym": "aControlDisplay_0",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x38C4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Ignition",
+      "sym": "aControlIgnitio",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3A30"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Starter",
+      "sym": "aControlStarter",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3A4C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Horn",
+      "sym": "aControlHorn",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3A68"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Headlights",
+      "sym": "aControlHeadlig",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3A84"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Handbrake",
+      "sym": "aControlHandbra",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3AA0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Look Up",
+      "sym": "aControlLookUp",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3ABC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Look Down",
+      "sym": "aControlLookDow",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3AD8"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Look Roll Left",
+      "sym": "aControlLookRol",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3AF4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Control - Look Roll Right",
+      "sym": "aControlLookRol_0",
+      "setter": "FunctionCallWrapper_7010",
+      "assoc": "inline",
+      "offsets": [
+       "0x3B10"
+      ],
+      "section": null
+     },
+     {
+      "token": "How strong jolts from other cars (or walls) are.  Suggested Range: -2.0 to 2.0.",
+      "sym": "aHowStrongJolts",
+      "setter": "MultiFieldSetterWithStringCopy",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4258"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "RaceCommentaryDirectorSystem_0040d4c0": {
+   "n_sections": 0,
+   "n_fields": 8,
+   "n_suspect": 3,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "SCRIPT_END",
+      "sym": "aScriptEnd",
+      "setter": "sub_588410",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x24"
+      ],
+      "section": null
+     },
+     {
+      "token": "Probability",
+      "sym": "aProbability",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Time",
+      "sym": "aTime",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x10"
+      ],
+      "section": null
+     },
+     {
+      "token": "Iterations",
+      "sym": "aIterations",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x18"
+      ],
+      "section": null
+     },
+     {
+      "token": "Wait",
+      "sym": "aWait_0",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x20"
+      ],
+      "section": null
+     },
+     {
+      "token": "Camera",
+      "sym": "aCamera",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x2C"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "<PLAYER>",
+      "sym": "aPlayer_0",
+      "setter": "sub_588410",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x2C"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "CROWD",
+      "sym": "aCrowd",
+      "setter": "sub_588410",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x2C"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     }
+    ]
+   }
+  },
+  "SceneFileTopLevelParser_0055b200": {
+   "n_sections": 0,
+   "n_fields": 7,
+   "n_suspect": 3,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "LINEAR",
+      "sym": "aLinear",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x19C"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "EXP",
+      "sym": "aExp",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x19C"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "EXP2",
+      "sym": "aExp2",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x19C"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "FOGCOLOR",
+      "sym": "aFogcolor",
+      "setter": "sub_559F00",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x18C"
+      ],
+      "section": null
+     },
+     {
+      "token": "FOGIN",
+      "sym": "aFogin",
+      "setter": "PRNG4UniformFloatsFromSeed",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x194"
+      ],
+      "section": null
+     },
+     {
+      "token": "FOGOUT",
+      "sym": "aFogout",
+      "setter": "PRNG4UniformFloatsFromSeed",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x198"
+      ],
+      "section": null
+     },
+     {
+      "token": "FOGDENSITY",
+      "sym": "aFogdensity",
+      "setter": "PRNG4UniformFloatsFromSeed",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x190"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "SpecialFX_Init_004cf070": {
+   "n_sections": 3,
+   "n_fields": 9,
+   "n_suspect": 6,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "Entered SpecialFX::Init()",
+      "sym": "aEnteredSpecial_1",
+      "setter": "DebugLogWrite",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x38"
+      ],
+      "section": null
+     }
+    ],
+    "[FEEDBACK]": [
+     {
+      "token": "REACTION",
+      "sym": "aReaction",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x8"
+      ],
+      "section": "[FEEDBACK]",
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "REACTION",
+      "sym": "aReaction",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x14"
+      ],
+      "section": "[FEEDBACK]",
+      "suspect": "duplicate_offset"
+     }
+    ],
+    "[LOOSE]": [
+     {
+      "token": "REACTION",
+      "sym": "aReaction",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x8"
+      ],
+      "section": "[LOOSE]",
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "REACTION",
+      "sym": "aReaction",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x14"
+      ],
+      "section": "[LOOSE]",
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "AIDryGrip",
+      "sym": "aAidrygrip",
+      "setter": "StringCopyWithValidation",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x30"
+      ],
+      "section": "[LOOSE]"
+     },
+     {
+      "token": "AIWetGrip",
+      "sym": "aAiwetgrip",
+      "setter": "StringCopyWithValidation",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x34"
+      ],
+      "section": "[LOOSE]"
+     },
+     {
+      "token": "LPTREE",
+      "sym": "aLptree",
+      "setter": "sub_588640",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": "[LOOSE]",
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "LPTREE",
+      "sym": "aLptree",
+      "setter": "sub_588640",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": "[LOOSE]",
+      "suspect": "duplicate_offset"
+     }
+    ]
+   }
+  },
+  "SteeringGeometryComputation_0043b590": {
+   "n_sections": 0,
+   "n_fields": 4,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "fl_steering",
+      "sym": "aFlSteering",
+      "setter": "SuspensionBarLookup",
+      "assoc": "inline",
+      "offsets": [
+       "0x3EC"
+      ],
+      "section": null
+     },
+     {
+      "token": "fr_steering",
+      "sym": "aFrSteering",
+      "setter": "SuspensionBarLookup",
+      "assoc": "inline",
+      "offsets": [
+       "0x850"
+      ],
+      "section": null
+     },
+     {
+      "token": "fl_fore_lower",
+      "sym": "aFlForeLower",
+      "setter": "SuspensionBarLookup",
+      "assoc": "inline",
+      "offsets": [
+       "0x3EC"
+      ],
+      "section": null
+     },
+     {
+      "token": "fr_fore_lower",
+      "sym": "aFrForeLower",
+      "setter": "SuspensionBarLookup",
+      "assoc": "inline",
+      "offsets": [
+       "0x850"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "Steward_Init_004d38f0": {
+   "n_sections": 0,
+   "n_fields": 13,
+   "n_suspect": 1,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "Entered Steward::Init()",
+      "sym": "aEnteredSteward_0",
+      "setter": "DebugLogWrite",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x37"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "STLITE",
+      "sym": "aStlite",
+      "setter": "StewardLightGlowNodeFinder",
+      "assoc": "inline",
+      "offsets": [
+       "0x37"
+      ],
+      "section": null
+     },
+     {
+      "token": "STGLOW",
+      "sym": "aStglow",
+      "setter": "StewardLightGlowNodeFinder",
+      "assoc": "inline",
+      "offsets": [
+       "0x37"
+      ],
+      "section": null
+     },
+     {
+      "token": "PTLIT02",
+      "sym": "aPtlit02",
+      "setter": "StewardLightGlowNodeFinder",
+      "assoc": "inline",
+      "offsets": [
+       "0x3A"
+      ],
+      "section": null
+     },
+     {
+      "token": "PTGLOW02",
+      "sym": "aPtglow02",
+      "setter": "StewardLightGlowNodeFinder",
+      "assoc": "inline",
+      "offsets": [
+       "0x3A"
+      ],
+      "section": null
+     },
+     {
+      "token": "PTLIT01",
+      "sym": "aPtlit01",
+      "setter": "StewardLightGlowNodeFinder",
+      "assoc": "inline",
+      "offsets": [
+       "0x3D"
+      ],
+      "section": null
+     },
+     {
+      "token": "PTGLOW01",
+      "sym": "aPtglow01",
+      "setter": "StewardLightGlowNodeFinder",
+      "assoc": "inline",
+      "offsets": [
+       "0x3D"
+      ],
+      "section": null
+     },
+     {
+      "token": "XPITIN",
+      "sym": "aXpitin",
+      "setter": "EvaluateSceneNodeProperty",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x194"
+      ],
+      "section": null
+     },
+     {
+      "token": "XPITOUT",
+      "sym": "aXpitout",
+      "setter": "EvaluateSceneNodeProperty",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x198"
+      ],
+      "section": null
+     },
+     {
+      "token": "XFINISH",
+      "sym": "aXfinish",
+      "setter": "EvaluateSceneNodeProperty",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x19C"
+      ],
+      "section": null
+     },
+     {
+      "token": "XSECTOR1",
+      "sym": "aXsector1",
+      "setter": "EvaluateSceneNodeProperty",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1A0"
+      ],
+      "section": null
+     },
+     {
+      "token": "XSECTOR2",
+      "sym": "aXsector2",
+      "setter": "EvaluateSceneNodeProperty",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1A4"
+      ],
+      "section": null
+     },
+     {
+      "token": "HELICOPTER",
+      "sym": "aHelicopter",
+      "setter": "EvaluateSceneNodeProperty",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xA8"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "Steward_Restart_004d3cf0": {
+   "n_sections": 0,
+   "n_fields": 7,
+   "n_suspect": 4,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "Entered Steward::Restart()",
+      "sym": "aEnteredSteward_1",
+      "setter": "DebugLogWrite",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xC0"
+      ],
+      "section": null
+     },
+     {
+      "token": "Wednesday",
+      "sym": "aWednesday",
+      "setter": "strcpy",
+      "assoc": "inline",
+      "offsets": [
+       "0xC3"
+      ],
+      "section": null
+     },
+     {
+      "token": "DefaultScoring",
+      "sym": "aDefaultscoring",
+      "setter": "AudioChannelStop",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xD4"
+      ],
+      "section": null
+     },
+     {
+      "token": "RaceTime",
+      "sym": "aRacetime",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xB8"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "RaceTimeScaled",
+      "sym": "aRacetimescaled",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xB8"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "RaceTime",
+      "sym": "aRacetime",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xB8"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "RaceTimeScaled",
+      "sym": "aRacetimescaled",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xB8"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     }
+    ]
+   }
+  },
+  "SuspensionSetupSectionReader_00435410": {
+   "n_sections": 0,
+   "n_fields": 5,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "MinPos",
+      "sym": "aMinpos",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x7",
+       "0x9",
+       "0xB"
+      ],
+      "section": null
+     },
+     {
+      "token": "MaxPos",
+      "sym": "aMaxpos",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0xD",
+       "0xF",
+       "0x11"
+      ],
+      "section": null
+     },
+     {
+      "token": "MinOri",
+      "sym": "aMinori",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x19",
+       "0x1B",
+       "0x1D"
+      ],
+      "section": null
+     },
+     {
+      "token": "MaxOri",
+      "sym": "aMaxori",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1F",
+       "0x21",
+       "0x23"
+      ],
+      "section": null
+     },
+     {
+      "token": "SpringBody",
+      "sym": "aSpringbody",
+      "setter": "sub_565AA0",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x13"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "TheSvmHdvVehicleFileParser_004f4270": {
+   "n_sections": 16,
+   "n_fields": 120,
+   "n_suspect": 2,
+   "sections": {
+    "[GENERAL]": [
+     {
+      "token": "Rules",
+      "sym": "aRules",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x34"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "GarageDisplayFlags",
+      "sym": "aGaragedisplayf",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x38"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "FeelerFlags",
+      "sym": "aFeelerflags",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x3C"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "Mass",
+      "sym": "aMass",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x40"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "Inertia",
+      "sym": "aInertia",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x48",
+       "0x50",
+       "0x58"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "CGHeight",
+      "sym": "aCgheight",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x60"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "WedgePushrod",
+      "sym": "aWedgepushrod",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x68"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "GraphicalOffset",
+      "sym": "aGraphicaloffse",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x70",
+       "0x78",
+       "0x80"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "FLUndertray",
+      "sym": "aFlundertray",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1448",
+       "0x1450",
+       "0x1458"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "FRUndertray",
+      "sym": "aFrundertray",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1550",
+       "0x1558",
+       "0x1560"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "RLUndertray",
+      "sym": "aRlundertray",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1658",
+       "0x1660",
+       "0x1668"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "RRUndertray",
+      "sym": "aRrundertray",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1760",
+       "0x1768",
+       "0x1770"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "TireBrand",
+      "sym": "aTirebrand",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x88"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "D:\\dev\\F1_1999_2002\\Source\\vehload.cpp",
+      "sym": "aDDevF119992002_7",
+      "setter": "StringSplitLoop",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x88"
+      ],
+      "section": "[GENERAL]",
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "FuelTankPos",
+      "sym": "aFueltankpos",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0xC8",
+       "0xD0",
+       "0xD8"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "FuelTankMotion",
+      "sym": "aFueltankmotion",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0xE0",
+       "0xE8"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "AIMinPassesPerTick",
+      "sym": "aAiminpassesper",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0xF0"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "AIRotationThreshold",
+      "sym": "aAirotationthre",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0xF4"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "AIEvenSuspension",
+      "sym": "aAievensuspensi",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0xFC"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "AISpringRate",
+      "sym": "aAispringrate",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x104"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "AIDamperSlow",
+      "sym": "aAidamperslow",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x10C"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "AIDamperFast",
+      "sym": "aAidamperfast",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x114"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "AIDownforceZArm",
+      "sym": "aAidownforcezar",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x11C"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "AIDownforceBias",
+      "sym": "aAidownforcebia",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x124"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": "AITorqueStab",
+      "sym": "aAitorquestab",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x12C",
+       "0x134",
+       "0x13C"
+      ],
+      "section": "[GENERAL]"
+     },
+     {
+      "token": ".INI",
+      "sym": "aIni",
+      "setter": "FileFinder",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x17F0"
+      ],
+      "section": "[GENERAL]"
+     }
+    ],
+    "[FRONTWING]": [
+     {
+      "token": "FWDragParams",
+      "sym": "aFwdragparams",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1F8",
+       "0x200",
+       "0x208"
+      ],
+      "section": "[FRONTWING]"
+     },
+     {
+      "token": "FWLiftParams",
+      "sym": "aFwliftparams",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x210",
+       "0x218",
+       "0x220"
+      ],
+      "section": "[FRONTWING]"
+     },
+     {
+      "token": "FWMaxHeight",
+      "sym": "aFwmaxheight",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1F0"
+      ],
+      "section": "[FRONTWING]"
+     },
+     {
+      "token": "FWLiftHeight",
+      "sym": "aFwliftheight",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x228"
+      ],
+      "section": "[FRONTWING]"
+     },
+     {
+      "token": "FWLiftSideways",
+      "sym": "aFwliftsideways",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x230"
+      ],
+      "section": "[FRONTWING]"
+     },
+     {
+      "token": "FWLeft",
+      "sym": "aFwleft",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x238"
+      ],
+      "section": "[FRONTWING]"
+     },
+     {
+      "token": "FWRight",
+      "sym": "aFwright",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x238"
+      ],
+      "section": "[FRONTWING]"
+     },
+     {
+      "token": "FWUp",
+      "sym": "aFwup",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x238"
+      ],
+      "section": "[FRONTWING]"
+     },
+     {
+      "token": "FWDown",
+      "sym": "aFwdown",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x238"
+      ],
+      "section": "[FRONTWING]"
+     },
+     {
+      "token": "FWAft",
+      "sym": "aFwaft",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x238"
+      ],
+      "section": "[FRONTWING]"
+     },
+     {
+      "token": "FWFore",
+      "sym": "aFwfore",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x238"
+      ],
+      "section": "[FRONTWING]"
+     },
+     {
+      "token": "FWRot",
+      "sym": "aFwrot",
+      "setter": "ArithmeticComparison_3490",
+      "assoc": "inline",
+      "offsets": [
+       "0x238"
+      ],
+      "section": "[FRONTWING]"
+     },
+     {
+      "token": "FWCenter",
+      "sym": "aFwcenter",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x2E0",
+       "0x2E8",
+       "0x2F0"
+      ],
+      "section": "[FRONTWING]"
+     }
+    ],
+    "[REARWING]": [
+     {
+      "token": "RWDragParams",
+      "sym": "aRwdragparams",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x2FC",
+       "0x304",
+       "0x30C"
+      ],
+      "section": "[REARWING]"
+     },
+     {
+      "token": "RWLiftParams",
+      "sym": "aRwliftparams",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x314",
+       "0x31C",
+       "0x324"
+      ],
+      "section": "[REARWING]"
+     },
+     {
+      "token": "RWLiftSideways",
+      "sym": "aRwliftsideways",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x32C"
+      ],
+      "section": "[REARWING]"
+     },
+     {
+      "token": "RWLeft",
+      "sym": "aRwleft",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x334"
+      ],
+      "section": "[REARWING]"
+     },
+     {
+      "token": "RWRight",
+      "sym": "aRwright",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x334"
+      ],
+      "section": "[REARWING]"
+     },
+     {
+      "token": "RWUp",
+      "sym": "aRwup",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x334"
+      ],
+      "section": "[REARWING]"
+     },
+     {
+      "token": "RWDown",
+      "sym": "aRwdown",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x334"
+      ],
+      "section": "[REARWING]"
+     },
+     {
+      "token": "RWAft",
+      "sym": "aRwaft",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x334"
+      ],
+      "section": "[REARWING]"
+     },
+     {
+      "token": "RWFore",
+      "sym": "aRwfore",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x334"
+      ],
+      "section": "[REARWING]"
+     },
+     {
+      "token": "RWRot",
+      "sym": "aRwrot",
+      "setter": "ArithmeticComparison_3490",
+      "assoc": "inline",
+      "offsets": [
+       "0x334"
+      ],
+      "section": "[REARWING]"
+     },
+     {
+      "token": "RWCenter",
+      "sym": "aRwcenter",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x3DC",
+       "0x3E4",
+       "0x3EC"
+      ],
+      "section": "[REARWING]"
+     }
+    ],
+    "[BODYAERO]": [
+     {
+      "token": "BodyDragBase",
+      "sym": "aBodydragbase",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x3F4"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "BodyDragHeightAvg",
+      "sym": "aBodydragheight",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x3FC"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "BodyDragHeightDiff",
+      "sym": "aBodydragheight_0",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x404"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "BodyMaxHeight",
+      "sym": "aBodymaxheight",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x40C"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "BodyLeft",
+      "sym": "aBodyleft",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x42C"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "BodyRight",
+      "sym": "aBodyright",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x42C"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "BodyUp",
+      "sym": "aBodyup",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x42C"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "BodyDown",
+      "sym": "aBodydown",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x42C"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "BodyAft",
+      "sym": "aBodyaft",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x42C"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "BodyFore",
+      "sym": "aBodyfore",
+      "setter": "VehicleDampingDirectionValidation",
+      "assoc": "inline",
+      "offsets": [
+       "0x42C"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "BodyRot",
+      "sym": "aBodyrot",
+      "setter": "ArithmeticComparison_3490",
+      "assoc": "inline",
+      "offsets": [
+       "0x42C"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "BodyCenter",
+      "sym": "aBodycenter",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x414",
+       "0x41C",
+       "0x424"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "RadiatorDrag",
+      "sym": "aRadiatordrag",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x518"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "RadiatorLift",
+      "sym": "aRadiatorlift",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x520"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "BrakeDuctDrag",
+      "sym": "aBrakeductdrag",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x528"
+      ],
+      "section": "[BODYAERO]"
+     },
+     {
+      "token": "BrakeDuctLift",
+      "sym": "aBrakeductlift",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x530"
+      ],
+      "section": "[BODYAERO]"
+     }
+    ],
+    "[DIFFUSER]": [
+     {
+      "token": "DiffuserBase",
+      "sym": "aDiffuserbase",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x4D8",
+       "0x4E0",
+       "0x4E8"
+      ],
+      "section": "[DIFFUSER]"
+     },
+     {
+      "token": "DiffuserFrontHeight",
+      "sym": "aDiffuserfronth",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x4F0"
+      ],
+      "section": "[DIFFUSER]"
+     },
+     {
+      "token": "DiffuserSideways",
+      "sym": "aDiffusersidewa",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x4F8"
+      ],
+      "section": "[DIFFUSER]"
+     },
+     {
+      "token": "DiffuserCenter",
+      "sym": "aDiffusercenter",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x500",
+       "0x508",
+       "0x510"
+      ],
+      "section": "[DIFFUSER]"
+     }
+    ],
+    "[SUSPENSION]": [
+     {
+      "token": "ApplySlowToFastDampers",
+      "sym": "aApplyslowtofas",
+      "setter": "sub_5655F0",
+      "assoc": "inline",
+      "offsets": [
+       "0x548"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "AdjustSuspRates",
+      "sym": "aAdjustsusprate",
+      "setter": "sub_5655F0",
+      "assoc": "inline",
+      "offsets": [
+       "0x549"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "AlignWheels",
+      "sym": "aAlignwheels",
+      "setter": "sub_5655F0",
+      "assoc": "inline",
+      "offsets": [
+       "0x54A"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "FrontWheelTrack",
+      "sym": "aFrontwheeltrac",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x54C"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "RearWheelTrack",
+      "sym": "aRearwheeltrack",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x554"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "LeftWheelBase",
+      "sym": "aLeftwheelbase",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x55C"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "RightWheelBase",
+      "sym": "aRightwheelbase",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x564"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "SpringBasedAntiSway",
+      "sym": "aSpringbasedant",
+      "setter": "sub_5655F0",
+      "assoc": "inline",
+      "offsets": [
+       "0x56C"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "FrontAntiSwayBase",
+      "sym": "aFrontantiswayb",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x570"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "FrontAntiSwayRate",
+      "sym": "aFrontantiswayr",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x578",
+       "0x580"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "RearAntiSwayBase",
+      "sym": "aRearantiswayba",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x588"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "RearAntiSwayRate",
+      "sym": "aRearantiswayra",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x590",
+       "0x598"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Front3rdBumpTravel",
+      "sym": "aFront3rdbumptr",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x5A0"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Front3rdReboundTravel",
+      "sym": "aFront3rdreboun",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x5A8"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Front3rdBumpStopSpring",
+      "sym": "aFront3rdbumpst",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x5B0"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Front3rdBumpStopRisingSpring",
+      "sym": "aFront3rdbumpst_0",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x5B8"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Front3rdBumpStopDamper",
+      "sym": "aFront3rdbumpst_1",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x5C0"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Front3rdBumpStopRisingDamper",
+      "sym": "aFront3rdbumpst_2",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x5C8"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Front3rdBumpStage2",
+      "sym": "aFront3rdbumpst_3",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x5D0"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Front3rdReboundStage2",
+      "sym": "aFront3rdreboun_0",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x5D8"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Rear3rdBumpTravel",
+      "sym": "aRear3rdbumptra",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x5E0"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Rear3rdReboundTravel",
+      "sym": "aRear3rdrebound",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x5E8"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Rear3rdBumpStopSpring",
+      "sym": "aRear3rdbumpsto",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x5F0"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Rear3rdBumpStopRisingSpring",
+      "sym": "aRear3rdbumpsto_0",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x5F8"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Rear3rdBumpStopDamper",
+      "sym": "aRear3rdbumpsto_1",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x600"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Rear3rdBumpStopRisingDamper",
+      "sym": "aRear3rdbumpsto_2",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x608"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Rear3rdBumpStage2",
+      "sym": "aRear3rdbumpsta",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x610"
+      ],
+      "section": "[SUSPENSION]"
+     },
+     {
+      "token": "Rear3rdReboundStage2",
+      "sym": "aRear3rdrebound_0",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x618"
+      ],
+      "section": "[SUSPENSION]"
+     }
+    ],
+    "[CONTROLS]": [
+     {
+      "token": "AutoUpshiftGripThresh",
+      "sym": "aAutoupshiftgri",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x620"
+      ],
+      "section": "[CONTROLS]"
+     },
+     {
+      "token": "AutoDownshiftGripThresh",
+      "sym": "aAutodownshiftg",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x628"
+      ],
+      "section": "[CONTROLS]"
+     },
+     {
+      "token": "TractionControlGrip",
+      "sym": "aTractioncontro",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x630",
+       "0x638"
+      ],
+      "section": "[CONTROLS]"
+     },
+     {
+      "token": "TractionControlLevel",
+      "sym": "aTractioncontro_0",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x640",
+       "0x648"
+      ],
+      "section": "[CONTROLS]"
+     },
+     {
+      "token": "ABS4Wheel",
+      "sym": "aAbs4wheel",
+      "setter": "sub_5655F0",
+      "assoc": "inline",
+      "offsets": [
+       "0x650"
+      ],
+      "section": "[CONTROLS]"
+     },
+     {
+      "token": "ABSGrip",
+      "sym": "aAbsgrip",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x654",
+       "0x65C"
+      ],
+      "section": "[CONTROLS]"
+     },
+     {
+      "token": "ABSLevel",
+      "sym": "aAbslevel",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x664",
+       "0x66C"
+      ],
+      "section": "[CONTROLS]"
+     }
+    ],
+    "[DRIVELINE]": [
+     {
+      "token": "ClutchInertia",
+      "sym": "aClutchinertia",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1374"
+      ],
+      "section": "[DRIVELINE]"
+     },
+     {
+      "token": "ClutchTorque",
+      "sym": "aClutchtorque",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x137C"
+      ],
+      "section": "[DRIVELINE]"
+     },
+     {
+      "token": "ClutchWear",
+      "sym": "aClutchwear",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1384"
+      ],
+      "section": "[DRIVELINE]"
+     },
+     {
+      "token": "ClutchFriction",
+      "sym": "aClutchfriction",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x138C"
+      ],
+      "section": "[DRIVELINE]"
+     },
+     {
+      "token": "BaulkTorque",
+      "sym": "aBaulktorque",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1394"
+      ],
+      "section": "[DRIVELINE]"
+     },
+     {
+      "token": "AllowManualOverride",
+      "sym": "aAllowmanualove",
+      "setter": "sub_5655F0",
+      "assoc": "inline",
+      "offsets": [
+       "0x139C"
+      ],
+      "section": "[DRIVELINE]"
+     },
+     {
+      "token": "SemiAutomatic",
+      "sym": "aSemiautomatic",
+      "setter": "sub_5655F0",
+      "assoc": "inline",
+      "offsets": [
+       "0x139D"
+      ],
+      "section": "[DRIVELINE]"
+     },
+     {
+      "token": "UpshiftDelay",
+      "sym": "aUpshiftdelay",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x13A0"
+      ],
+      "section": "[DRIVELINE]"
+     },
+     {
+      "token": "UpshiftClutchTime",
+      "sym": "aUpshiftclutcht",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x13A8"
+      ],
+      "section": "[DRIVELINE]"
+     },
+     {
+      "token": "DownshiftDelay",
+      "sym": "aDownshiftdelay",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x13B0"
+      ],
+      "section": "[DRIVELINE]"
+     },
+     {
+      "token": "DownshiftClutchTime",
+      "sym": "aDownshiftclutc",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x13B8"
+      ],
+      "section": "[DRIVELINE]"
+     },
+     {
+      "token": "DiffPumpTorque",
+      "sym": "aDiffpumptorque",
+      "setter": "sub_565AA0",
+      "assoc": "inline",
+      "offsets": [
+       "0x13C8"
+      ],
+      "section": "[DRIVELINE]"
+     },
+     {
+      "token": "FRONT",
+      "sym": "aFront",
+      "setter": "sub_588410",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x13C0"
+      ],
+      "section": "[DRIVELINE]"
+     },
+     {
+      "token": "ForwardGears",
+      "sym": "aForwardgears",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x13C4"
+      ],
+      "section": "[DRIVELINE]"
+     },
+     {
+      "token": "DiffPreloadSetting",
+      "sym": "aDiffpreloadset_0",
+      "setter": "CRTMathHelper_e1f0",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x13C4"
+      ],
+      "section": "[DRIVELINE]",
+      "suspect": "duplicate_offset"
+     }
+    ]
+   }
+  },
+  "TrackSurfaceMaterialLoader_004cdd80": {
+   "n_sections": 0,
+   "n_fields": 18,
+   "n_suspect": 7,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "TRUE",
+      "sym": "aTrue",
+      "setter": "sub_588410",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x60"
+      ],
+      "section": null
+     },
+     {
+      "token": "WET",
+      "sym": "aWet",
+      "setter": "sub_4CDC70",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xC"
+      ],
+      "section": null
+     },
+     {
+      "token": "RESISTANCE",
+      "sym": "aResistance",
+      "setter": "sub_4CDC70",
+      "assoc": "inline",
+      "offsets": [
+       "0x10"
+      ],
+      "section": null
+     },
+     {
+      "token": "BUMPAMP",
+      "sym": "aBumpamp",
+      "setter": "sub_4CDC70",
+      "assoc": "inline",
+      "offsets": [
+       "0x14"
+      ],
+      "section": null
+     },
+     {
+      "token": "BUMPWAVELEN",
+      "sym": "aBumpwavelen",
+      "setter": "sub_4CDC70",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x18"
+      ],
+      "section": null
+     },
+     {
+      "token": "SPRING",
+      "sym": "aSpring_0",
+      "setter": "sub_4CDC70",
+      "assoc": "inline",
+      "offsets": [
+       "0x1C"
+      ],
+      "section": null
+     },
+     {
+      "token": "DAMPER",
+      "sym": "aDamper",
+      "setter": "sub_4CDC70",
+      "assoc": "inline",
+      "offsets": [
+       "0x20"
+      ],
+      "section": null
+     },
+     {
+      "token": "COLLFRICT",
+      "sym": "aCollfrict",
+      "setter": "sub_4CDC70",
+      "assoc": "inline",
+      "offsets": [
+       "0x24"
+      ],
+      "section": null
+     },
+     {
+      "token": "SPARKS",
+      "sym": "aSparks",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x28"
+      ],
+      "section": null
+     },
+     {
+      "token": "SCRAPING",
+      "sym": "aScraping",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x2C"
+      ],
+      "section": null
+     },
+     {
+      "token": "SINK",
+      "sym": "aSink",
+      "setter": "sub_4CDC70",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x64"
+      ],
+      "section": null
+     },
+     {
+      "token": "SOUND",
+      "sym": "aSound",
+      "setter": "sub_565520",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x30"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "WET",
+      "sym": "aWet",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x30"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "DIRT",
+      "sym": "aDirt",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x30"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "GRASS",
+      "sym": "aGrass",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x30"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "GRAVEL",
+      "sym": "aGravel",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x30"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "RUMBLE",
+      "sym": "aRumble",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x30"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "TIREWALL",
+      "sym": "aTirewall",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x30"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     }
+    ]
+   }
+  },
+  "VehFileParser_004c3200": {
+   "n_sections": 0,
+   "n_fields": 25,
+   "n_suspect": 1,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "GenString",
+      "sym": "aGenstring",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x28"
+      ],
+      "section": null
+     },
+     {
+      "token": "Eyepoint",
+      "sym": "aEyepoint",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x38",
+       "0x3C",
+       "0x40"
+      ],
+      "section": null
+     },
+     {
+      "token": "CameraTarget",
+      "sym": "aCameratarget",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x44",
+       "0x48",
+       "0x4C"
+      ],
+      "section": null
+     },
+     {
+      "token": "MirrorPos",
+      "sym": "aMirrorpos",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x50",
+       "0x54",
+       "0x58"
+      ],
+      "section": null
+     },
+     {
+      "token": "MirrorNorm",
+      "sym": "aMirrornorm",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x5C",
+       "0x60",
+       "0x64"
+      ],
+      "section": null
+     },
+     {
+      "token": "SteeringWheelAxis",
+      "sym": "aSteeringwheela",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x68",
+       "0x6C",
+       "0x70"
+      ],
+      "section": null
+     },
+     {
+      "token": "Number",
+      "sym": "aNumber",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x74"
+      ],
+      "section": null
+     },
+     {
+      "token": "Team",
+      "sym": "aTeam_0",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x7C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Driver",
+      "sym": "aDriver_0",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0xBC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Description",
+      "sym": "aDescription",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0xFC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Engine",
+      "sym": "aEngine",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x13C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Manufacturer",
+      "sym": "aManufacturer",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x17C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Classes",
+      "sym": "aClasses",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x1BC"
+      ],
+      "section": null
+     },
+     {
+      "token": "FullTeamName",
+      "sym": "aFullteamname",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x2BC"
+      ],
+      "section": null
+     },
+     {
+      "token": "TeamFounded",
+      "sym": "aTeamfounded",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x33C"
+      ],
+      "section": null
+     },
+     {
+      "token": "TeamHeadquarters",
+      "sym": "aTeamheadquarte",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x34C"
+      ],
+      "section": null
+     },
+     {
+      "token": "TeamStarts",
+      "sym": "aTeamstarts",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x38C"
+      ],
+      "section": null
+     },
+     {
+      "token": "TeamPoles",
+      "sym": "aTeampoles",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x39C"
+      ],
+      "section": null
+     },
+     {
+      "token": "TeamWins",
+      "sym": "aTeamwins",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x3AC"
+      ],
+      "section": null
+     },
+     {
+      "token": "TeamWorldChampionships",
+      "sym": "aTeamworldchamp",
+      "setter": "sub_5654A0",
+      "assoc": "inline",
+      "offsets": [
+       "0x3BC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Format is: TrackLivery=\"<trackname>,<liveryname>\" in file \"%s\"",
+      "sym": "aFormatIsTrackl",
+      "setter": "DebugLogWrite",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xFC"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": ".HDV",
+      "sym": "aHdv",
+      "setter": "FileFinder",
+      "assoc": "inline",
+      "offsets": [
+       "0x8"
+      ],
+      "section": null
+     },
+     {
+      "token": ".INI",
+      "sym": "aIni",
+      "setter": "FileFinder",
+      "assoc": "inline",
+      "offsets": [
+       "0x10"
+      ],
+      "section": null
+     },
+     {
+      "token": ".GEN",
+      "sym": "aGen",
+      "setter": "FileFinder",
+      "assoc": "inline",
+      "offsets": [
+       "0x20"
+      ],
+      "section": null
+     },
+     {
+      "token": ".SFX",
+      "sym": "aSfx",
+      "setter": "FileFinder",
+      "assoc": "inline",
+      "offsets": [
+       "0x18"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "VehicleDamageModel_004f24f0": {
+   "n_sections": 1,
+   "n_fields": 19,
+   "n_suspect": 0,
+   "sections": {
+    "[PHYSICAL]": [
+     {
+      "token": "RadiusMult",
+      "sym": "aRadiusmult",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x4"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "RadiusMax",
+      "sym": "aRadiusmax",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x8"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "Engine",
+      "sym": "aEngine",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0xC"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "AeroDiv",
+      "sym": "aAerodiv",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x10"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "AeroMin",
+      "sym": "aAeromin",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x14"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "VertMult",
+      "sym": "aVertmult",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x18"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "FrontWingDetach",
+      "sym": "aFrontwingdetac",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x1C"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "FrontWingRandom",
+      "sym": "aFrontwingrando",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x20"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "FrontWingPos",
+      "sym": "aFrontwingpos",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x24",
+       "0x28",
+       "0x2C"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "FrontWingMassInertia",
+      "sym": "aFrontwingmassi",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x30",
+       "0x34",
+       "0x38",
+       "0x3C"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "FrontWingCollParams",
+      "sym": "aFrontwingcollp",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x40",
+       "0x44",
+       "0x48"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "RearWingDetach",
+      "sym": "aRearwingdetach",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x4C"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "RearWingRandom",
+      "sym": "aRearwingrandom",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x50"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "RearWingPos",
+      "sym": "aRearwingpos",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x54",
+       "0x58",
+       "0x5C"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "RearWingMassInertia",
+      "sym": "aRearwingmassin",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x60",
+       "0x64",
+       "0x68",
+       "0x6C"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "RearWingCollParams",
+      "sym": "aRearwingcollpa",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x70",
+       "0x74",
+       "0x78"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "WheelBend",
+      "sym": "aWheelbend",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x7C"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "WheelDetach",
+      "sym": "aWheeldetach",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x80"
+      ],
+      "section": "[PHYSICAL]"
+     },
+     {
+      "token": "WheelRandom",
+      "sym": "aWheelrandom",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x84"
+      ],
+      "section": "[PHYSICAL]"
+     }
+    ]
+   }
+  },
+  "VehicleGraphicsSceneLoader_004dfce0": {
+   "n_sections": 0,
+   "n_fields": 8,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "D:\\dev\\F1_1999_2002\\Source\\vehgfx.cpp",
+      "sym": "aDDevF119992002_6",
+      "setter": "StringSplitLoop",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1225"
+      ],
+      "section": null
+     },
+     {
+      "token": "D:\\dev\\F1_1999_2002\\Source\\vehgfx.cpp",
+      "sym": "aDDevF119992002_6",
+      "setter": "StringSplitLoop",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1"
+      ],
+      "section": null
+     },
+     {
+      "token": "RRSPINDLE",
+      "sym": "aRrspindle",
+      "setter": "EvaluateSceneNodeProperty",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x63"
+      ],
+      "section": null
+     },
+     {
+      "token": "FWING",
+      "sym": "aFwing",
+      "setter": "EvaluateSceneNodeProperty",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x179"
+      ],
+      "section": null
+     },
+     {
+      "token": "RWING",
+      "sym": "aRwing",
+      "setter": "EvaluateSceneNodeProperty",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x18A"
+      ],
+      "section": null
+     },
+     {
+      "token": "BACKFIRE",
+      "sym": "aBackfire",
+      "setter": "EvaluateSceneNodeProperty",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x24C"
+      ],
+      "section": null
+     },
+     {
+      "token": "CATSTEER",
+      "sym": "aCatsteer",
+      "setter": "WideStringComparisonWalkingLinkedList",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1226"
+      ],
+      "section": null
+     },
+     {
+      "token": "TREADLOW",
+      "sym": "aTreadlow",
+      "setter": "sub_548890",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x96C"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "sub_402690_00402690": {
+   "n_sections": 3,
+   "n_fields": 20,
+   "n_suspect": 3,
+   "sections": {
+    "[Features]": [
+     {
+      "token": "pitlanes",
+      "sym": "aPitlanes",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x15C"
+      ],
+      "section": "[Features]"
+     },
+     {
+      "token": "startinggrid",
+      "sym": "aStartinggrid",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x160"
+      ],
+      "section": "[Features]"
+     },
+     {
+      "token": "pitspots",
+      "sym": "aPitspots",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x164"
+      ],
+      "section": "[Features]"
+     },
+     {
+      "token": "garagespots",
+      "sym": "aGaragespots",
+      "setter": "sub_565760",
+      "assoc": "inline",
+      "offsets": [
+       "0x168"
+      ],
+      "section": "[Features]"
+     }
+    ],
+    "[GRID]": [
+     {
+      "token": "GridIndex",
+      "sym": "aGridindex",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x150"
+      ],
+      "section": "[GRID]"
+     }
+    ],
+    "[PITS]": [
+     {
+      "token": "PitPos",
+      "sym": "aPitpos",
+      "setter": "sub_565870",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x154"
+      ],
+      "section": "[PITS]",
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "PitOri",
+      "sym": "aPitori",
+      "setter": "sub_565870",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x154"
+      ],
+      "section": "[PITS]",
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "GarPos",
+      "sym": "aGarpos",
+      "setter": "sub_565870",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x158"
+      ],
+      "section": "[PITS]"
+     },
+     {
+      "token": "GarOri",
+      "sym": "aGarori",
+      "setter": "sub_565870",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x164"
+      ],
+      "section": "[PITS]",
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "LeftHandedPits",
+      "sym": "aLefthandedpits",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x12C"
+      ],
+      "section": "[PITS]"
+     },
+     {
+      "token": "WorstAdjust",
+      "sym": "aWorstadjust",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x11C"
+      ],
+      "section": "[PITS]"
+     },
+     {
+      "token": "MidAdjust",
+      "sym": "aMidadjust",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x120"
+      ],
+      "section": "[PITS]"
+     },
+     {
+      "token": "BestAdjust",
+      "sym": "aBestadjust",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x124"
+      ],
+      "section": "[PITS]"
+     },
+     {
+      "token": "RaceQualRatio",
+      "sym": "aRacequalratio",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x128"
+      ],
+      "section": "[PITS]"
+     },
+     {
+      "token": "lap_length",
+      "sym": "aLapLength",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x13C"
+      ],
+      "section": "[PITS]"
+     },
+     {
+      "token": "sector_1_length",
+      "sym": "aSector1Length",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x140"
+      ],
+      "section": "[PITS]"
+     },
+     {
+      "token": "sector_2_length",
+      "sym": "aSector2Length",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x144"
+      ],
+      "section": "[PITS]"
+     },
+     {
+      "token": "FuelUse",
+      "sym": "aFueluse",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x14C"
+      ],
+      "section": "[PITS]"
+     },
+     {
+      "token": "GrooveWidthWet",
+      "sym": "aGroovewidthwet",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x4"
+      ],
+      "section": "[PITS]"
+     },
+     {
+      "token": "wp_ptrs",
+      "sym": "aWpPtrs",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x130"
+      ],
+      "section": "[PITS]"
+     }
+    ]
+   }
+  },
+  "sub_424080_00424080": {
+   "n_sections": 0,
+   "n_fields": 13,
+   "n_suspect": 1,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "default.scp",
+      "sym": "aDefaultScp",
+      "setter": "strcpy",
+      "assoc": "inline",
+      "offsets": [
+       "0x44E0"
+      ],
+      "section": null
+     },
+     {
+      "token": "StartStalls",
+      "sym": "aStartstalls",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x44BC"
+      ],
+      "section": null
+     },
+     {
+      "token": "QualifyingAbility",
+      "sym": "aQualifyingabil",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x44C0"
+      ],
+      "section": null
+     },
+     {
+      "token": "TrackAggression",
+      "sym": "aTrackaggressio",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x44F8"
+      ],
+      "section": null
+     },
+     {
+      "token": "RainAbility",
+      "sym": "aRainability",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x44C8"
+      ],
+      "section": null
+     },
+     {
+      "token": "RaceAbility",
+      "sym": "aRaceability",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x44C4"
+      ],
+      "section": null
+     },
+     {
+      "token": "Passing",
+      "sym": "aPassing",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x44CC"
+      ],
+      "section": null
+     },
+     {
+      "token": "CorneringAdd",
+      "sym": "aCorneringadd",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4500"
+      ],
+      "section": null
+     },
+     {
+      "token": "CorneringMult",
+      "sym": "aCorneringmult",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4504"
+      ],
+      "section": null
+     },
+     {
+      "token": "Crash",
+      "sym": "aCrash",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x44D0"
+      ],
+      "section": null
+     },
+     {
+      "token": "CompletedLaps%",
+      "sym": "aCompletedlaps",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x44DC"
+      ],
+      "section": null
+     },
+     {
+      "token": "Script",
+      "sym": "aScript",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x44E0"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "RaceEvents",
+      "sym": "aRaceevents",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4620"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "sub_4562F0_004562f0": {
+   "n_sections": 0,
+   "n_fields": 5,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "RADIUSLIMITS",
+      "sym": "aRadiuslimits",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x80",
+       "0x84"
+      ],
+      "section": null
+     },
+     {
+      "token": "ORIENTATIONRATE",
+      "sym": "aOrientationrat",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x88",
+       "0x8C",
+       "0x90"
+      ],
+      "section": null
+     },
+     {
+      "token": "POSITIONOFFSET",
+      "sym": "aPositionoffset",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0x94",
+       "0x98",
+       "0x9C"
+      ],
+      "section": null
+     },
+     {
+      "token": "ORIENTATIONOFFSET",
+      "sym": "aOrientationoff",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0xA0",
+       "0xA4",
+       "0xA8"
+      ],
+      "section": null
+     },
+     {
+      "token": "RADIUS",
+      "sym": "aRadius_0",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0xAC"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "sub_4585E0_004585e0": {
+   "n_sections": 0,
+   "n_fields": 3,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "TRACKINGRATE",
+      "sym": "aTrackingrate",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0xA4"
+      ],
+      "section": null
+     },
+     {
+      "token": "MOVEMENTRATE",
+      "sym": "aMovementrate",
+      "setter": "sub_565870",
+      "assoc": "inline",
+      "offsets": [
+       "0xA8"
+      ],
+      "section": null
+     },
+     {
+      "token": "MOVEMENTPATH",
+      "sym": "aMovementpath_0",
+      "setter": "sub_588410",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xB0"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "sub_4B1190_004b1190": {
+   "n_sections": 0,
+   "n_fields": 3,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "QualifyLaps",
+      "sym": "aQualifylaps",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x2018"
+      ],
+      "section": null
+     },
+     {
+      "token": "RaceLaps",
+      "sym": "aRacelaps",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x2114"
+      ],
+      "section": null
+     },
+     {
+      "token": "RaceTime",
+      "sym": "aRacetime",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x2210"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "sub_4D6B00_004d6b00": {
+   "n_sections": 0,
+   "n_fields": 4,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "WetWeather",
+      "sym": "aWetweather",
+      "setter": "sub_565760",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x14"
+      ],
+      "section": null
+     },
+     {
+      "token": "FRONT:",
+      "sym": "aFront_0",
+      "setter": "sub_587C20",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x18"
+      ],
+      "section": null
+     },
+     {
+      "token": "REAR:",
+      "sym": "aRear_0",
+      "setter": "sub_587C20",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x160"
+      ],
+      "section": null
+     },
+     {
+      "token": "TractiveCurve",
+      "sym": "aTractivecurve",
+      "setter": "sub_5654A0",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x8"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "sub_4FBA10_004fba10": {
+   "n_sections": 0,
+   "n_fields": 4,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "SKYBOXI",
+      "sym": "aSkyboxi",
+      "setter": "EvaluateSceneNodeProperty",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x1"
+      ],
+      "section": null
+     },
+     {
+      "token": "CLOUDRNY",
+      "sym": "aCloudrny",
+      "setter": "sub_588640",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x7C"
+      ],
+      "section": null
+     },
+     {
+      "token": "CLOUDSNY",
+      "sym": "aCloudsny",
+      "setter": "sub_548890",
+      "assoc": "lookahead",
+      "offsets": [
+       "0xA4"
+      ],
+      "section": null
+     },
+     {
+      "token": "CLOUDRNY",
+      "sym": "aCloudrny",
+      "setter": "sub_548890",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x20"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "sub_4FE350_004fe350": {
+   "n_sections": 0,
+   "n_fields": 3,
+   "n_suspect": 2,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "TrackTemp",
+      "sym": "aTracktemp",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x3C"
+      ],
+      "section": null
+     },
+     {
+      "token": "Conditions",
+      "sym": "aConditions",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x38"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "AmbientTemp",
+      "sym": "aAmbienttemp",
+      "setter": "StringKeyedLinkedListSearch",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x38"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     }
+    ]
+   }
+  },
+  "sub_55FC40_0055fc40": {
+   "n_sections": 0,
+   "n_fields": 3,
+   "n_suspect": 0,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "CUBEMAS4.01",
+      "sym": "aCubemas401",
+      "setter": "strcmp",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x10"
+      ],
+      "section": null
+     },
+     {
+      "token": "Incorrect MAS file version",
+      "sym": "aIncorrectMasFi",
+      "setter": "sub_53C590",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x114"
+      ],
+      "section": null
+     },
+     {
+      "token": "Unable to allocate for MAS header",
+      "sym": "aUnableToAlloca",
+      "setter": "sub_53C590",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x11C"
+      ],
+      "section": null
+     }
+    ]
+   }
+  },
+  "sub_584230_00584230": {
+   "n_sections": 0,
+   "n_fields": 4,
+   "n_suspect": 3,
+   "sections": {
+    "(no section)": [
+     {
+      "token": "Unknown Address",
+      "sym": "aUnknownAddress",
+      "setter": "strcpy",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "Added Node",
+      "sym": "aAddedNode",
+      "setter": "strcpy",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "HST",
+      "sym": "aHst",
+      "setter": "strcpy",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x4"
+      ],
+      "section": null,
+      "suspect": "duplicate_offset"
+     },
+     {
+      "token": "Unknown Node",
+      "sym": "aUnknownNode",
+      "setter": "strcpy",
+      "assoc": "lookahead",
+      "offsets": [
+       "0x8"
+      ],
+      "section": null
+     }
+    ]
+   }
+  }
+ }
+}

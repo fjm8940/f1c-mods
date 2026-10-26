@@ -1,0 +1,208 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/weather.json",
+  "title": "/weather response (rc.11 session weather ring)",
+  "type": "object",
+  "required": [
+    "api_version",
+    "session_generation",
+    "session_type",
+    "track",
+    "interval_s",
+    "capacity",
+    "evicted",
+    "fields",
+    "tiers",
+    "samples"
+  ],
+  "properties": {
+    "api_version": {
+      "const": "10"
+    },
+    "session_generation": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "session_type": {
+      "type": "integer"
+    },
+    "track": {
+      "type": "string"
+    },
+    "interval_s": {
+      "type": "number",
+      "description": "regular append cadence in session seconds; a change in wetness (>= 0.01) or temperature (>= 0.1 C) appends sooner"
+    },
+    "capacity": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "evicted": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "oldest rows the bounded ring has dropped this session"
+    },
+    "fields": {
+      "type": "object",
+      "required": [
+        "st",
+        "at",
+        "trkt",
+        "onw",
+        "offw",
+        "tgf"
+      ],
+      "properties": {
+        "st": {
+          "const": "s"
+        },
+        "at": {
+          "const": "C"
+        },
+        "trkt": {
+          "const": "C"
+        },
+        "onw": {
+          "const": "0..1"
+        },
+        "offw": {
+          "const": "0..1"
+        },
+        "tgf": {
+          "const": "raw"
+        }
+      },
+      "additionalProperties": false
+    },
+    "tiers": {
+      "type": "object",
+      "description": "evidence tier per value (RESEARCH_WEATHER_2026-10-12 section 1b)",
+      "required": [
+        "at",
+        "trkt",
+        "onw",
+        "offw",
+        "tgf"
+      ],
+      "properties": {
+        "at": {
+          "const": "CONFIRMED"
+        },
+        "trkt": {
+          "const": "CONFIRMED"
+        },
+        "onw": {
+          "const": "CONFIRMED"
+        },
+        "offw": {
+          "const": "CONFIRMED"
+        },
+        "tgf": {
+          "const": "DERIVED"
+        }
+      },
+      "additionalProperties": false
+    },
+    "gdb": {
+      "type": "object",
+      "description": "Additive rc.12: the track GDB's Weather{} script as parsed by the server once per track (raw file tokens, words or numbers; empty when unreadable).",
+      "required": [
+        "file",
+        "truncated",
+        "sessions"
+      ],
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "sessions": {
+          "type": "array",
+          "maxItems": 12,
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "steps"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "conditions": {
+                "type": "string"
+              },
+              "track_wetness": {
+                "type": "string"
+              },
+              "on_path_wetness": {
+                "type": "string"
+              },
+              "off_path_wetness": {
+                "type": "string"
+              },
+              "ambient": {
+                "type": "string"
+              },
+              "tracktemp": {
+                "type": "string"
+              },
+              "steps": {
+                "type": "array",
+                "maxItems": 32,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "conditions"
+                  ],
+                  "properties": {
+                    "minute": {
+                      "type": "number"
+                    },
+                    "lap": {
+                      "type": "number"
+                    },
+                    "conditions": {
+                      "type": "string"
+                    },
+                    "track_wetness": {
+                      "type": "string"
+                    },
+                    "ambient": {
+                      "type": "string"
+                    },
+                    "tracktemp": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "samples": {
+      "type": "array",
+      "maxItems": 2048,
+      "items": {
+        "type": "array",
+        "minItems": 6,
+        "maxItems": 6,
+        "description": "[st, at, trkt, onw, offw, tgf]; null = the value was missing (-900 sentinel or non-finite)",
+        "items": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

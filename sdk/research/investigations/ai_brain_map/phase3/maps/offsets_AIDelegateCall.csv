@@ -1,0 +1,4 @@
+func,line,dec,hex,access,width,base,form,expr
+AIDelegateCall,3,,,CALL,,,call,SpatialTreeNearestNeighborSearch
+AIDelegateCall,6,17236,0x4354,R,_DWORD,this,direct,"*(_DWORD *)(this + 17236),"
+AIDelegateCall,7,17744,0x4550,R,_DWORD,this,direct,"*(_DWORD *)(this + 17744),"

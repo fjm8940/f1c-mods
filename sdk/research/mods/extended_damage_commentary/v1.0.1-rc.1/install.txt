@@ -1,0 +1,15 @@
+Extended Damage Commentary 1.0.1 (free mod)
+
+Your race engineer comments when your car loses a front wing, rear wing or a wheel.
+
+Easiest: open Lightloader Manager, go to Mod catalog, tick Extended Damage
+Commentary and press Install.
+
+By hand:
+1. Close the game.
+2. Copy extended_damage_commentary.dll into the game's plugins\lightloader folder.
+3. Start the game.
+
+To remove it, delete extended_damage_commentary.dll from plugins\lightloader.
+
+Bug reports: https://mods.palloset.com/report/

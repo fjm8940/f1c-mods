@@ -1,0 +1,1232 @@
+{
+ "schema": "ere.design.v1",
+ "batch": "H6_weather_tyres",
+ "generated": "2026-10-18",
+ "note": "Static design only. No live game work. All eids come from data/full_event_dump.json and docs/56 (eid->clip). PWS eid is the design target. Every emitter claim was checked against data/emitter_index.json in the EVF mod.",
+ "rows": [
+  {
+   "clip": "PWS_2001_22",
+   "sdt_index": 25,
+   "pws_eid": 27,
+   "all_eids": [
+    27,
+    318
+   ],
+   "says": "Rain expected - make run ASAP",
+   "eid_source": "full_event_dump.json eid 27 and 318 (sdt 25); doc56 lines 61 and 352",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "team",
+   "trigger": "Once per session. Current OnLineWetness 0x8AFEE8 < 0.01 AND some timeline node with time in (t_now, t_now+600 s] has wetness >= 0.33. Forecast source FOUND: weather timeline built by sub_4FE350 from <track>weather.txt Minute entries (functions/sub_4FE350_004fe350.c:186-220). Head node at 0x8AFEFC (this[15]); node layout [time s @+0, ambient C @+4, wetness @+8, next @+12]. Session clock global UNKNOWN (needed for t_now). Runtime consumer that moves the timeline value into 0x8AFEE8 is not traced.",
+   "state_reads": [
+    {
+     "what": "weather timeline nodes",
+     "locator": "0x8AFEFC head, node +0 time, +8 wetness, +12 next",
+     "tier": "DERIVED",
+     "source": "sub_4FE350_004fe350.c:186-220"
+    },
+    {
+     "what": "OnLineWetness",
+     "locator": "0x8AFEE8",
+     "tier": "CONFIRMED",
+     "source": "name_index; AIPushLap.c:33"
+    },
+    {
+     "what": "session clock t_now",
+     "locator": "UNKNOWN",
+     "tier": "UNKNOWN",
+     "source": "not located"
+    }
+   ],
+   "latch_cooldown": "once per session",
+   "calibration_needed": "Session clock address; 600 s window and 0.33 band are proposals (0.33 is an AI tyre-choice constant, not measured); node stride confirmed only by the code read, not live.",
+   "conflicts": "PWS_2001_24 and PWS_2001_25 share the forecast problem. Lead only (unverified): archive full_safety_car PROMPT_WEATHER_INVESTIGATION.md mentions a weather-file watcher with a theBell table (F1CUI); not checked here.",
+   "live_test": "n/a until a forecast source exists",
+   "tier": "DERIVED",
+   "sources": [
+    "data/emitter_index.json: eids 27/28/29/318-320 absent (literal and dynamic)",
+    "f1c_ida_decompiled/functions/sub_4FE350_004fe350.c (weather.txt parser reads AmbientTemp, TrackTemp, OnPath/OffPathWetness only)",
+    "f1c_ida_decompiled/findings.jsonl id weather-globals-ambient-track-2026-10-06",
+    "functions/sub_4FE350_004fe350.c:186-220 (weather timeline nodes)",
+    "findings.jsonl weather-parser-writes-globals-directly-2026-10-06 (FACT, Game_Restart calls sub_4FCC30)"
+   ],
+   "open_questions": "Locate session clock. Confirm the timeline is what drives 0x8AFEE8 during the race (if the value is flat, forecast lines have nothing to read)."
+  },
+  {
+   "clip": "PWS_2001_24",
+   "sdt_index": 26,
+   "pws_eid": 28,
+   "all_eids": [
+    28,
+    319
+   ],
+   "says": "Rain expected to ease - wait",
+   "eid_source": "full_event_dump.json eid 28 and 319 (sdt 26); doc56 lines 62 and 353",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "team",
+   "trigger": "Once per episode. Current OnLineWetness >= 0.33 AND all timeline nodes in (t_now, t_now+600 s] have wetness < 0.15 (rain stops, wait). Forecast source FOUND: weather timeline built by sub_4FE350 from <track>weather.txt Minute entries (functions/sub_4FE350_004fe350.c:186-220). Head node at 0x8AFEFC (this[15]); node layout [time s @+0, ambient C @+4, wetness @+8, next @+12]. Session clock global UNKNOWN (needed for t_now). Runtime consumer that moves the timeline value into 0x8AFEE8 is not traced.",
+   "state_reads": [
+    {
+     "what": "weather timeline nodes",
+     "locator": "0x8AFEFC chain, +0 time, +8 wetness",
+     "tier": "DERIVED",
+     "source": "sub_4FE350_004fe350.c:186-220"
+    },
+    {
+     "what": "OnLineWetness",
+     "locator": "0x8AFEE8",
+     "tier": "CONFIRMED",
+     "source": "name_index"
+    },
+    {
+     "what": "session clock",
+     "locator": "UNKNOWN",
+     "tier": "UNKNOWN",
+     "source": "not located"
+    }
+   ],
+   "latch_cooldown": "once per episode (cleared when wetness returns below 0.15)",
+   "calibration_needed": "As PWS_2001_22; 0.15 is not in code (AIPushLap uses 0.2): measure.",
+   "conflicts": "Same as PWS_2001_22",
+   "live_test": "n/a",
+   "tier": "DERIVED",
+   "sources": [
+    "data/emitter_index.json: eids 28/319 absent",
+    "sub_4FE350_004fe350.c (no forecast field)",
+    "functions/sub_4FE350_004fe350.c:186-220 (weather timeline nodes)",
+    "findings.jsonl weather-parser-writes-globals-directly-2026-10-06 (FACT, Game_Restart calls sub_4FCC30)"
+   ],
+   "open_questions": "Does 'wait' need the forecast drop to be well before the next stop? Owner wording."
+  },
+  {
+   "clip": "PWS_2001_25",
+   "sdt_index": 27,
+   "pws_eid": 29,
+   "all_eids": [
+    29,
+    320
+   ],
+   "says": "Rain expected to continue - make run ASAP",
+   "eid_source": "full_event_dump.json eid 29 and 320 (sdt 27); doc56 lines 63 and 354",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "team",
+   "trigger": "Once per episode. Current OnLineWetness >= 0.33 AND every timeline node in (t_now, t_now+600 s] has wetness >= 0.33 (rain continues). Forecast source FOUND: weather timeline built by sub_4FE350 from <track>weather.txt Minute entries (functions/sub_4FE350_004fe350.c:186-220). Head node at 0x8AFEFC (this[15]); node layout [time s @+0, ambient C @+4, wetness @+8, next @+12]. Session clock global UNKNOWN (needed for t_now). Runtime consumer that moves the timeline value into 0x8AFEE8 is not traced.",
+   "state_reads": [
+    {
+     "what": "weather timeline nodes",
+     "locator": "0x8AFEFC chain, +0 time, +8 wetness",
+     "tier": "DERIVED",
+     "source": "sub_4FE350_004fe350.c:186-220"
+    },
+    {
+     "what": "OnLineWetness",
+     "locator": "0x8AFEE8",
+     "tier": "CONFIRMED",
+     "source": "name_index"
+    },
+    {
+     "what": "session clock",
+     "locator": "UNKNOWN",
+     "tier": "UNKNOWN",
+     "source": "not located"
+    }
+   ],
+   "latch_cooldown": "once per episode",
+   "calibration_needed": "As PWS_2001_22",
+   "conflicts": "Overlaps PWS_2001_221 (rain starts) only if both fire in the same minute; keep 221 for the rising edge only.",
+   "live_test": "n/a",
+   "tier": "DERIVED",
+   "sources": [
+    "data/emitter_index.json: eids 29/320 absent",
+    "functions/sub_4FE350_004fe350.c:186-220 (weather timeline nodes)",
+    "findings.jsonl weather-parser-writes-globals-directly-2026-10-06 (FACT, Game_Restart calls sub_4FCC30)"
+   ],
+   "open_questions": "As PWS_2001_22"
+  },
+  {
+   "clip": "PWS_OIL01",
+   "sdt_index": 131,
+   "pws_eid": 127,
+   "all_eids": [
+    127,
+    420
+   ],
+   "says": "Oil on track Sector 1",
+   "eid_source": "full_event_dump.json eid 127 (cooldown 1.0, unblocked) and 420; doc56 lines 161 and 454",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Any car's engine failure: veh+0x4068 ReasonCode goes from not 9 to 9 (one transition per car per failure), AND the car's current track sector is 1 (sector source UNKNOWN). Fire once per incident. Owner note asks to also cover an AI incident on the racing line.",
+   "state_reads": [
+    {
+     "what": "ReasonCode",
+     "locator": "veh+0x4068",
+     "tier": "DERIVED",
+     "source": "EMITTER_SPECS.md weather_track row; EngineStressSimulation_0043ef20.c:76 writes 9 into this[7936]+16436+52 (= veh+0x4068) when life is depleted"
+    },
+    {
+     "what": "track sector of car",
+     "locator": "UNKNOWN",
+     "tier": "GUESS",
+     "source": "EMITTER_SPECS.md open questions: .aiw XSECTOR polygons not yet mapped"
+    }
+   ],
+   "latch_cooldown": "once per engine-failure transition per car",
+   "calibration_needed": "Sector boundaries from the track .aiw (sector_1_length/sector_2_length) and the car-position read. Confirm that ReasonCode 9 is the mechanical engine failure and not the same value used by mechanical_failures.",
+   "conflicts": "mechanical_failures uses its own AI engine failure model (ReasonCodes 1/5/2/4, veh+0x3D70..0x3D7C) and may also set ReasonCode, so the 9 transition may come from a different failure. Oil is only a game-plausible consequence; no source ties engine failure to an oil spill.",
+   "live_test": "Owner reaches an engine blow in a race and notes the sector; check the line once and check it does not repeat.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md weather_track conditions row 127",
+    "f1c_ida_decompiled/functions/EngineStressSimulation_0043ef20.c:76",
+    "development/mods/mechanical_failures (AI failure model, ReasonCodes 1/5/2/4)"
+   ],
+   "open_questions": "Where is the current sector per car? Does the blown engine leave a persistent oil area the game tracks? Which code writes ReasonCode 9 for player cars?"
+  },
+  {
+   "clip": "PWS_OIL02",
+   "sdt_index": 132,
+   "pws_eid": 128,
+   "all_eids": [
+    128,
+    417
+   ],
+   "says": "Oil on track Sector 2",
+   "eid_source": "full_event_dump.json eid 128 (cooldown 1.0, unblocked) and 417; doc56 lines 162 and 451",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Same as PWS_OIL01 with sector 2.",
+   "state_reads": [
+    {
+     "what": "ReasonCode",
+     "locator": "veh+0x4068",
+     "tier": "DERIVED",
+     "source": "as PWS_OIL01"
+    },
+    {
+     "what": "track sector of car",
+     "locator": "UNKNOWN",
+     "tier": "GUESS",
+     "source": "as PWS_OIL01"
+    }
+   ],
+   "latch_cooldown": "once per engine-failure transition per car",
+   "calibration_needed": "Sector 2 boundary (.aiw)",
+   "conflicts": "As PWS_OIL01",
+   "live_test": "As PWS_OIL01",
+   "tier": "DERIVED",
+   "sources": [
+    "EMITTER_SPECS.md weather_track row 128",
+    "EngineStressSimulation_0043ef20.c:76"
+   ],
+   "open_questions": "As PWS_OIL01"
+  },
+  {
+   "clip": "PWS_OIL03",
+   "sdt_index": 133,
+   "pws_eid": 129,
+   "all_eids": [
+    129,
+    418
+   ],
+   "says": "Oil on track Sector 3",
+   "eid_source": "full_event_dump.json eid 129 (cooldown 1.0, unblocked) and 418; doc56 lines 163 and 452",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Same as PWS_OIL01 with sector 3.",
+   "state_reads": [
+    {
+     "what": "ReasonCode",
+     "locator": "veh+0x4068",
+     "tier": "DERIVED",
+     "source": "as PWS_OIL01"
+    },
+    {
+     "what": "track sector of car",
+     "locator": "UNKNOWN",
+     "tier": "GUESS",
+     "source": "as PWS_OIL01"
+    }
+   ],
+   "latch_cooldown": "once per engine-failure transition per car",
+   "calibration_needed": "Sector 3 boundary (.aiw)",
+   "conflicts": "As PWS_OIL01",
+   "live_test": "As PWS_OIL01",
+   "tier": "DERIVED",
+   "sources": [
+    "EMITTER_SPECS.md weather_track row 129",
+    "EngineStressSimulation_0043ef20.c:76"
+   ],
+   "open_questions": "As PWS_OIL01"
+  },
+  {
+   "clip": "RE_OD_INTER",
+   "sdt_index": 203,
+   "pws_eid": 191,
+   "all_eids": [
+    191
+   ],
+   "says": "Other driver leaves pits on Inters",
+   "eid_source": "full_event_dump.json eid 191 (sdt 203); doc56 line 225; EMITTER_SPECS.md line 109",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "An AI car (veh+0x32C8==1) has pittingStatus change to 4 (exit) AND its compound id reads as Intermediate (4) from veh+0x458C. Once per AI car per stop.",
+   "state_reads": [
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md Facts (0 track,1 in-lap,2 lane,3 box,4 exit)"
+    },
+    {
+     "what": "compound id",
+     "locator": "veh+0x458C",
+     "tier": "CONFIRMED",
+     "source": "EMITTER_SPECS.md weather_track row 'next chosen tire'; AIPushLap_0042a180.c:33-54"
+    }
+   ],
+   "latch_cooldown": "once per AI car per pit exit",
+   "calibration_needed": "Confirm that 0x458C means the fitted tyre at pit exit and not the next planned one. Confirm id 4 = Intermediate (see conflicts).",
+   "conflicts": "Compound id mapping conflicts (see RE_OD_MONSOON). Doc56 eid 191 is also listed in the EVF orphan table (sdt 191 PWS_AIPIT07), a separate clip; do not reuse that number.",
+   "live_test": "Owner sees an AI car exit the pits on Inters in the wet; check the line fires once per stop.",
+   "tier": "DERIVED",
+   "sources": [
+    "EMITTER_SPECS.md:109 (eid 191 predicate)",
+    "sub_4A4830 TireCompoundNameIDMapping (functions/sub_4A4830)",
+    "f1c_ida_decompiled/functions/AIPushLap_0042a180.c:33-54"
+   ],
+   "open_questions": "Is 0x458C the current fitted compound or the planned one? Which index domain does it use (fixed enum vs per-track .tbc list, see conflicts)?"
+  },
+  {
+   "clip": "RE_OD_MONSOON",
+   "sdt_index": 204,
+   "pws_eid": 192,
+   "all_eids": [
+    192,
+    511
+   ],
+   "says": "Other driver leaves pits on Monsoons",
+   "eid_source": "full_event_dump.json eid 192 (sdt 204) and 511 (TV twin); doc56 lines 226 and 545",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_41BE60 (PitRaceStatusMessageDispatcher) writes TV eid 511 at functions/PitRaceStatusMessageDispatcher_0041be60.c:39. PWS eid 192 has no writer.",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Same as RE_OD_INTER, with the compound id read as Monsoon. Monsoon id is UNCONFIRMED: EMITTER_SPECS says 1, the decompiled name map suggests 6.",
+   "state_reads": [
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md"
+    },
+    {
+     "what": "compound id",
+     "locator": "veh+0x458C",
+     "tier": "CONFIRMED",
+     "source": "as RE_OD_INTER"
+    }
+   ],
+   "latch_cooldown": "once per AI car per pit exit",
+   "calibration_needed": "Monsoon id value (1 vs 6) must be read live from a monsoon-shod AI car.",
+   "conflicts": "Native TV line 511 plays from sub_41BE60 with unknown meaning (its switch on sub_4FF130 and AudioFilterParameterCalculation is not identified). A PWS line from this design could double with the TV line. EVF-008_E calls RE_OD_MONSOON NO_KNOWN_WRITER, which is true for PWS 192 only.",
+   "live_test": "Owner sees an AI car exit on Monsoon tyres; check PWS line and whether TV line 511 also plays.",
+   "tier": "DERIVED",
+   "sources": [
+    "functions/PitRaceStatusMessageDispatcher_0041be60.c:39",
+    "functions/sub_4A4830 (name map, see conflicts)",
+    "docs/EMITTER_SPECS.md:109 area"
+   ],
+   "open_questions": "Is TV 511 the same event as this design? What are sub_4FF130 return values 2..5 (weather state)?"
+  },
+  {
+   "clip": "RE_OD_SLICKS",
+   "sdt_index": 205,
+   "pws_eid": 193,
+   "all_eids": [
+    193,
+    508
+   ],
+   "says": "Other driver leaves pits on Slicks",
+   "eid_source": "full_event_dump.json eid 193 (sdt 205) and 508 (TV twin); doc56 lines 227 and 542",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "AI car exits pits (pittingStatus 4) on a dry compound (Hard=2 or Soft=3 by the name map), AND the track is becoming wet or drying: the mean of OnLineWetness and OffLineWetness is above 0.01 and below 0.33, or was above 0.01 within the last lap (owner rule: play only when conditions change). Calibration needed.",
+   "state_reads": [
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md"
+    },
+    {
+     "what": "compound id",
+     "locator": "veh+0x458C",
+     "tier": "CONFIRMED",
+     "source": "as RE_OD_INTER"
+    },
+    {
+     "what": "on/off-line wetness",
+     "locator": "0x8AFEE8 / 0x8AFEEC",
+     "tier": "CONFIRMED",
+     "source": "name_index; AIPushLap_0042a180.c:33-44"
+    }
+   ],
+   "latch_cooldown": "once per AI car per pit exit, plus 300 s global (proposed)",
+   "calibration_needed": "Wetness band (0.01 and 0.33 are AIPushLap tyre-choice constants, not emitter thresholds) and the 300 s global cooldown is a proposal, not a measured value.",
+   "conflicts": "TV eid 508 has no writer (no literal in the dispatcher). No current conflict on PWS.",
+   "live_test": "Owner stops an AI car on slicks during a drying race and checks the line fires only in the band.",
+   "tier": "DERIVED",
+   "sources": [
+    "data/clip_assignments.json note (owner rule)",
+    "functions/AIPushLap_0042a180.c:44,49",
+    "EMITTER_SPECS.md:110 (eid 193 predicate)"
+   ],
+   "open_questions": "Is the wetness band the right trigger? Does wetness ever fall during a race (see weather writer question)?"
+  },
+  {
+   "clip": "RE_OD_WET",
+   "sdt_index": 206,
+   "pws_eid": 194,
+   "all_eids": [
+    194,
+    509
+   ],
+   "says": "Other driver leaves pits on Wets",
+   "eid_source": "full_event_dump.json eid 194 (sdt 206) and 509 (TV twin); doc56 lines 228 and 543",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_41BE60 writes TV eid 509 at functions/PitRaceStatusMessageDispatcher_0041be60.c:27. PWS eid 194 has no writer.",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "AI car exits pits (pittingStatus 4) on a wet compound (name map id 5 = Wet, DERIVED).",
+   "state_reads": [
+    {
+     "what": "pittingStatus",
+     "locator": "veh+0x3450",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md"
+    },
+    {
+     "what": "compound id",
+     "locator": "veh+0x458C",
+     "tier": "CONFIRMED",
+     "source": "as RE_OD_INTER"
+    }
+   ],
+   "latch_cooldown": "once per AI car per pit exit",
+   "calibration_needed": "Confirm id 5 = Wet live (see conflicts).",
+   "conflicts": "Native TV 509 from sub_41BE60 (conditions unidentified) may double with this PWS line. EMITTER_SPECS lists 5 = wets, consistent with name map.",
+   "live_test": "Owner watches an AI car exit on Wets in rain.",
+   "tier": "DERIVED",
+   "sources": [
+    "functions/PitRaceStatusMessageDispatcher_0041be60.c:27",
+    "functions/sub_4A4830 (name map)",
+    "EMITTER_SPECS.md weather_track"
+   ],
+   "open_questions": "As RE_OD_MONSOON"
+  },
+  {
+   "clip": "PWS_AITYRES02",
+   "sdt_index": 231,
+   "pws_eid": 218,
+   "all_eids": [
+    218,
+    472
+   ],
+   "says": "AI severe blistering",
+   "eid_source": "full_event_dump.json eid 218 (sdt 231, cooldown 15, unblocked) and 472 (TV); doc56 lines 252 and 506",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none for 218/472. Native blister code (functions/AISessionPhaseCounter_0041aa10.c and PitStateSlotActivation_0041ab30.c) dispatches only player eids 94-105. It runs for every vehicle (no player gate).",
+   "why_silent": "no_emitter",
+   "technique": "hook_native",
+   "subject": "ai",
+   "trigger": "Vehicle with veh+0x32C8==1 (AI) whose tread (veh+0x3924 FL, 0x382C FR, 0x3734 RL, 0x363C RR) crosses downward through 0.85, i.e. v27>0.4 and v29<=0.4 in VehicleDynamicsForceAccumulatorIntegration_00438130.c:146, once per crossing per corner. Replace the player eid dispatch for AI cars with 218 (severe). Subject id veh+0x489C.",
+   "state_reads": [
+    {
+     "what": "tread per corner",
+     "locator": "veh+0x3924 / 0x382C / 0x3734 / 0x363C",
+     "tier": "CONFIRMED",
+     "source": "name_index tirePuncture_*; EMITTER_SPECS tyre_condition"
+    },
+    {
+     "what": "per-wheel tread double",
+     "locator": "veh+0xE50 (this+916)",
+     "tier": "DERIVED",
+     "source": "VehicleDynamicsForceAccumulatorIntegration_00438130.c:138-139"
+    },
+    {
+     "what": "AI flag",
+     "locator": "veh+0x32C8",
+     "tier": "CONFIRMED",
+     "source": "EMITTER_SPECS slot live flag"
+    }
+   ],
+   "latch_cooldown": "once per corner per tyre life (reset when tread returns to 1.0, as dword_5EC3BC does at v27==1.0)",
+   "calibration_needed": "AI tyre wear rate (.tbc degradation, deferred in SPEC_EVF-008_C). Measure whether AI tread ever reaches 0.85 in a normal race.",
+   "conflicts": "tyre_blister_commentary threshold patch also changes AI thresholds (see PD rows). Today AI blisters may already queue player eids 94-101 with no subject: DERIVED from the code, not seen live, needs an isolation test before the hook.",
+   "live_test": "Owner runs an AI car to a high-wear stint (needs a long race) and checks PWS_AITYRES02 fires once per corner.",
+   "tier": "DERIVED",
+   "sources": [
+    "functions/VehicleDynamicsForceAccumulatorIntegration_00438130.c:138-146",
+    "docs/SPEC_EVF-008_C_aityres.md (NO_KNOWN_WRITER, two independent checks)",
+    "docs/SPEC_EVF-008_A_blister.md:87 (AI dispatch through same functions)"
+   ],
+   "open_questions": "Does the player-eid dispatch for an AI car actually play? Which vehicle is the player (for the AI gate)? Is the per-corner reset correct?"
+  },
+  {
+   "clip": "PWS_AITYRES01",
+   "sdt_index": 232,
+   "pws_eid": 219,
+   "all_eids": [
+    219,
+    473
+   ],
+   "says": "AI light blistering",
+   "eid_source": "full_event_dump.json eid 219 (sdt 232, cooldown 15, unblocked) and 473 (TV); doc56 lines 253 and 507",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none for 219/473 (same as AITYRES02)",
+   "why_silent": "no_emitter",
+   "technique": "hook_native",
+   "subject": "ai",
+   "trigger": "Same vehicle gate as AITYRES02. Light blister is a crossing of tread through 0.925: v27>0.7 and v29<=0.7 (VehicleDynamicsForceAccumulatorIntegration_00438130.c:144-146, the else branch). It is a one-tick crossing, NOT a band (see conflicts). Fire eid 219 once per crossing per corner.",
+   "state_reads": [
+    {
+     "what": "tread per corner",
+     "locator": "veh+0x3924 / 0x382C / 0x3734 / 0x363C",
+     "tier": "CONFIRMED",
+     "source": "as AITYRES02"
+    },
+    {
+     "what": "per-wheel tread double",
+     "locator": "veh+0xE50",
+     "tier": "DERIVED",
+     "source": "00438130.c:138-139"
+    }
+   ],
+   "latch_cooldown": "once per corner per tyre life",
+   "calibration_needed": "As AITYRES02",
+   "conflicts": "As AITYRES02. Also the light line for AI fires only when severe does not, so the two AI lines are one state (light then severe).",
+   "live_test": "As AITYRES02",
+   "tier": "DERIVED",
+   "sources": [
+    "functions/VehicleDynamicsForceAccumulatorIntegration_00438130.c:138-146",
+    "functions/AISessionPhaseCounter_0041aa10.c (name in ERE notes: sub_41AA10)"
+   ],
+   "open_questions": "Does the light line fire before severe for AI, which is what the owner expects?"
+  },
+  {
+   "clip": "PWS_2001_221",
+   "sdt_index": 298,
+   "pws_eid": 280,
+   "all_eids": [
+    280
+   ],
+   "says": "Rain starts - monsoon likely",
+   "eid_source": "full_event_dump.json eid 280 (sdt 298, cooldown 1.0); doc56 line 314",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "team",
+   "trigger": "OnLineWetness crosses above 0.66 upward, SessionType==7 and RaceActiveFlag==3, once per race. The monsoon wording is the owner opinion; the trigger only proves the wetness band.",
+   "state_reads": [
+    {
+     "what": "OnLineWetness",
+     "locator": "0x8AFEE8",
+     "tier": "CONFIRMED",
+     "source": "name_index; AIPushLap_0042a180.c:61 uses 0.66 as a tyre choice"
+    },
+    {
+     "what": "SessionType",
+     "locator": "SessionType global",
+     "tier": "FACT",
+     "source": "EMITTER_SPECS.md weather_track warning"
+    },
+    {
+     "what": "RaceActiveFlag",
+     "locator": "0x7D0308",
+     "tier": "FACT",
+     "source": "EMITTER_SPECS.md; EVF blister spec"
+    }
+   ],
+   "latch_cooldown": "once per race per direction",
+   "calibration_needed": "0.66 is an AI tyre-choice constant, not an emitter threshold (see conflicts). Measure real wetness during a rain race.",
+   "conflicts": "EMITTER_SPECS cites 0.66 as a threshold without a source; AIPushLap uses it for compound choice. Wetness writer is unknown (possibly the weather timeline consumer, see sub_4FE350), and weather.txt (sub_4FE350) seeds wetness at load: if it never changes mid race, this line never fires.",
+   "live_test": "Owner watches a race where rain starts; record wetness samples.",
+   "tier": "DERIVED",
+   "sources": [
+    "docs/EMITTER_SPECS.md weather_track row eid 280",
+    "functions/AIPushLap_0042a180.c:61",
+    "findings.jsonl weather-globals-ambient-track-2026-10-06 (weather.txt seed, runtime copy not traced)"
+   ],
+   "open_questions": "Who writes 0x8AFEE8 during a race? Does it ever rise mid race?"
+  },
+  {
+   "clip": "PWS_2001_222",
+   "sdt_index": 299,
+   "pws_eid": 281,
+   "all_eids": [
+    281
+   ],
+   "says": "Rain eases off",
+   "eid_source": "full_event_dump.json eid 281 (sdt 299, cooldown 1.0); doc56 line 315",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "team",
+   "trigger": "OnLineWetness crosses below 0.15 downward after having been above 0.33 this race; SessionType==7; RaceActiveFlag==3; once per race.",
+   "state_reads": [
+    {
+     "what": "OnLineWetness",
+     "locator": "0x8AFEE8",
+     "tier": "CONFIRMED",
+     "source": "name_index"
+    },
+    {
+     "what": "SessionType / RaceActiveFlag",
+     "locator": "SessionType, 0x7D0308",
+     "tier": "FACT",
+     "source": "EMITTER_SPECS.md"
+    }
+   ],
+   "latch_cooldown": "once per race",
+   "calibration_needed": "0.15 is not in the code: AIPushLap uses 0.2 (line 54) as the keep-tyre guard. Use the measured value.",
+   "conflicts": "Same writer question as PWS_2001_221. The 0.15 in EMITTER_SPECS has no citation.",
+   "live_test": "Owner drives a race where rain stops; record wetness.",
+   "tier": "DERIVED",
+   "sources": [
+    "docs/EMITTER_SPECS.md weather_track eid 281 (threshold marked not known)",
+    "functions/AIPushLap_0042a180.c:54"
+   ],
+   "open_questions": "Measured easing threshold. Whether wetness ever decays during a race."
+  },
+  {
+   "clip": "PWS_2001_218",
+   "sdt_index": 300,
+   "pws_eid": 282,
+   "all_eids": [
+    282
+   ],
+   "says": "Overcast conditions - possible rain",
+   "eid_source": "full_event_dump.json eid 282 (sdt 300, cooldown 1.0); doc56 line 316",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "team",
+   "trigger": "Once per session. Current OnLineWetness < 0.01 AND some timeline node in (t_now, t_now+1800 s] has wetness >= 0.01 (possible rain later). Wording caveat: the game has no cloud or sky state; 'overcast' is not measured. Owner decides between keeping 'overcast' text or the factual 'possible rain later' only. Forecast source FOUND: weather timeline built by sub_4FE350 from <track>weather.txt Minute entries (functions/sub_4FE350_004fe350.c:186-220). Head node at 0x8AFEFC (this[15]); node layout [time s @+0, ambient C @+4, wetness @+8, next @+12]. Session clock global UNKNOWN (needed for t_now). Runtime consumer that moves the timeline value into 0x8AFEE8 is not traced.",
+   "state_reads": [
+    {
+     "what": "weather timeline nodes",
+     "locator": "0x8AFEFC chain, +0 time, +8 wetness",
+     "tier": "DERIVED",
+     "source": "sub_4FE350_004fe350.c:186-220"
+    },
+    {
+     "what": "OnLineWetness",
+     "locator": "0x8AFEE8",
+     "tier": "CONFIRMED",
+     "source": "name_index"
+    },
+    {
+     "what": "session clock",
+     "locator": "UNKNOWN",
+     "tier": "UNKNOWN",
+     "source": "not located"
+    }
+   ],
+   "latch_cooldown": "once per session",
+   "calibration_needed": "30 min window and 0.01 band are proposals; 0.01 comes from AIPushLap.c:44 (tyre choice).",
+   "conflicts": "Replaces the earlier 0.01 proxy in EMITTER_SPECS row 282, which measured damp track now, not a future forecast.",
+   "live_test": "n/a until a sky state is found",
+   "tier": "DERIVED",
+   "sources": [
+    "docs/EMITTER_SPECS.md:365 (row 282)",
+    "functions/AIPushLap_0042a180.c:44",
+    "functions/sub_4FE350_004fe350.c:186-220 (weather timeline nodes)",
+    "findings.jsonl weather-parser-writes-globals-directly-2026-10-06 (FACT, Game_Restart calls sub_4FCC30)"
+   ],
+   "open_questions": "Is 'overcast' text acceptable without a sky state? Owner decision."
+  },
+  {
+   "clip": "PWS_2001_220",
+   "sdt_index": 301,
+   "pws_eid": 283,
+   "all_eids": [
+    283
+   ],
+   "says": "Rain starts - short shower",
+   "eid_source": "full_event_dump.json eid 283 (sdt 301, cooldown 1.0); doc56 line 317",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "team",
+   "trigger": "OnLineWetness crosses above 0.33 upward, SessionType==7 and RaceActiveFlag==3, once per race. Shower forecast wording cannot be checked: cut the words that predict the future, keep only rain starting.",
+   "state_reads": [
+    {
+     "what": "OnLineWetness",
+     "locator": "0x8AFEE8",
+     "tier": "CONFIRMED",
+     "source": "name_index; AIPushLap_0042a180.c:49"
+    }
+   ],
+   "latch_cooldown": "once per race",
+   "calibration_needed": "0.33 is an AI tyre-choice constant (AIPushLap.c:49), not an emitter threshold.",
+   "conflicts": "Same writer question. The shower wording is a forecast the game does not provide.",
+   "live_test": "Owner watches light rain start in a race.",
+   "tier": "DERIVED",
+   "sources": [
+    "docs/EMITTER_SPECS.md:366",
+    "functions/AIPushLap_0042a180.c:49"
+   ],
+   "open_questions": "Is a shorter, factual line acceptable? Owner decision."
+  },
+  {
+   "clip": "PWS_2001_311",
+   "sdt_index": 306,
+   "pws_eid": 285,
+   "all_eids": [
+    285
+   ],
+   "says": "Fastest AI is on Inters",
+   "eid_source": "full_event_dump.json eid 285 (sdt 306, cooldown 5.0); doc56 line 319",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Qualifying (SessionType==5) only. When an AI car sets a new fastest lap, and that car's compound id (veh+0x458C, see conflicts) is Intermediate (4), play this line in place of the pole line. Replace 'pole' only with intermediates, per owner note.",
+   "state_reads": [
+    {
+     "what": "fastest AI by best lap",
+     "locator": "RaceStandingsSortBuffer 0x7D2DB0, entry +408 (lap-time score)",
+     "tier": "DERIVED",
+     "source": "EMITTER_SPECS.md weather_track; BestLapEntrantFinder_0041e920.c:41"
+    },
+    {
+     "what": "compound id",
+     "locator": "veh+0x458C",
+     "tier": "CONFIRMED",
+     "source": "as RE_OD_INTER"
+    },
+    {
+     "what": "SessionType",
+     "locator": "SessionType",
+     "tier": "FACT",
+     "source": "EMITTER_SPECS.md"
+    }
+   ],
+   "latch_cooldown": "5 s native cooldown plus once per fastest-lap event",
+   "calibration_needed": "Whether +408 is best lap or total time (EMITTER_SPECS open question).",
+   "conflicts": "Pole line 'x is in pole position' is a separate line; design must replace it, not add to it. 0x458C is the planned compound, not confirmed as fitted.",
+   "live_test": "Owner runs qualifying and sets a fastest lap on Inters with an AI car, or watches an AI car do so.",
+   "tier": "DERIVED",
+   "sources": [
+    "docs/EMITTER_SPECS.md weather_track row 285",
+    "functions/BestLapEntrantFinder_0041e920.c:41"
+   ],
+   "open_questions": "Current fitted compound field (not 0x458C?)."
+  },
+  {
+   "clip": "PWS_2001_310",
+   "sdt_index": 307,
+   "pws_eid": 286,
+   "all_eids": [
+    286
+   ],
+   "says": "Fastest AI is on Slicks",
+   "eid_source": "full_event_dump.json eid 286 (sdt 307, cooldown 5.0); doc56 line 320",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "As PWS_2001_311 with compound Hard (2) or Soft (3) by the name map, and the wet or drying band is not required. Replace the pole line only in qualifying.",
+   "state_reads": [
+    {
+     "what": "fastest AI by best lap",
+     "locator": "0x7D2DB0 +408",
+     "tier": "DERIVED",
+     "source": "as PWS_2001_311"
+    },
+    {
+     "what": "compound id",
+     "locator": "veh+0x458C",
+     "tier": "CONFIRMED",
+     "source": "as RE_OD_INTER"
+    }
+   ],
+   "latch_cooldown": "5 s native plus once per fastest-lap event",
+   "calibration_needed": "As PWS_2001_311",
+   "conflicts": "Same as PWS_2001_311. Owner note says 'replaces the pole line only with intermediates' for 311; for slicks the owner says the same as 311, so the replacement rule must be confirmed.",
+   "live_test": "As PWS_2001_311",
+   "tier": "DERIVED",
+   "sources": [
+    "docs/EMITTER_SPECS.md weather_track row 286",
+    "functions/sub_4A4830 (name map 2/3)"
+   ],
+   "open_questions": "Should slicks replace the pole line at all? Owner rule is ambiguous (see 311 note)."
+  },
+  {
+   "clip": "PWS_2001_312",
+   "sdt_index": 308,
+   "pws_eid": 287,
+   "all_eids": [
+    287
+   ],
+   "says": "Fastest AI is on Wets",
+   "eid_source": "full_event_dump.json eid 287 (sdt 308, cooldown 5.0); doc56 line 321",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "As PWS_2001_311 with compound Wet (5 by the name map) and the track wet (OnLineWetness above 0.33, per EMITTER_SPECS).",
+   "state_reads": [
+    {
+     "what": "fastest AI by best lap",
+     "locator": "0x7D2DB0 +408",
+     "tier": "DERIVED",
+     "source": "as PWS_2001_311"
+    },
+    {
+     "what": "compound id",
+     "locator": "veh+0x458C",
+     "tier": "CONFIRMED",
+     "source": "as RE_OD_INTER"
+    },
+    {
+     "what": "OnLineWetness",
+     "locator": "0x8AFEE8",
+     "tier": "CONFIRMED",
+     "source": "name_index"
+    }
+   ],
+   "latch_cooldown": "5 s native plus once per fastest-lap event",
+   "calibration_needed": "As PWS_2001_311; wetness band 0.33 is AI tyre-choice constant.",
+   "conflicts": "As PWS_2001_311",
+   "live_test": "As PWS_2001_311 in wet qualifying",
+   "tier": "DERIVED",
+   "sources": [
+    "docs/EMITTER_SPECS.md weather_track row 287",
+    "functions/sub_4A4830 (name map 5)"
+   ],
+   "open_questions": "As PWS_2001_311"
+  },
+  {
+   "clip": "PWS_2001_308",
+   "sdt_index": 310,
+   "pws_eid": 289,
+   "all_eids": [
+    289
+   ],
+   "says": "You are being chased by AI driver",
+   "eid_source": "full_event_dump.json eid 289 (sdt 310, cooldown 1.0); doc56 line 323; EMITTER_SPECS.md line 187",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Race only. The car directly behind the player (position veh+0x4060 = player position + 1, AI) has gap below a threshold (UNKNOWN) and positive closing speed, and AI pace above player pace. Owner's team-order wording (team-mate let past) needs a team identity field that was NOT found, so do not use it yet.",
+   "state_reads": [
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md"
+    },
+    {
+     "what": "gap / closing speed",
+     "locator": "UNKNOWN",
+     "tier": "UNKNOWN",
+     "source": "EMITTER_SPECS.md line 187 predicate names gap threshold, value not given"
+    }
+   ],
+   "latch_cooldown": "once per chase episode (proposed)",
+   "calibration_needed": "Gap threshold (seconds) and closing-speed threshold.",
+   "conflicts": "Team-order wording contradicts the EMITTER_SPECS predicate, which is a generic chase. Keep to the chase part only.",
+   "live_test": "Owner races with an AI car closing on him.",
+   "tier": "DERIVED",
+   "sources": [
+    "docs/EMITTER_SPECS.md:187",
+    "full_event_dump.json eid 289"
+   ],
+   "open_questions": "Team identity field? Gap measure?"
+  },
+  {
+   "clip": "RE_OD_FASTEST_M",
+   "sdt_index": 311,
+   "pws_eid": 290,
+   "all_eids": [
+    290
+   ],
+   "says": "Other driver fastest - on Monsoon tires",
+   "eid_source": "full_event_dump.json eid 290 (sdt 311, cooldown 5.0); doc56 line 324",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "As PWS_2001_311 with compound Monsoon. Monsoon id is contested (1 in EMITTER_SPECS, 6 from the name map).",
+   "state_reads": [
+    {
+     "what": "fastest AI by best lap",
+     "locator": "0x7D2DB0 +408",
+     "tier": "DERIVED",
+     "source": "as PWS_2001_311"
+    },
+    {
+     "what": "compound id",
+     "locator": "veh+0x458C",
+     "tier": "CONFIRMED",
+     "source": "as RE_OD_INTER"
+    }
+   ],
+   "latch_cooldown": "5 s native plus once per fastest-lap event",
+   "calibration_needed": "Monsoon id value",
+   "conflicts": "Monsoon id 1 (EMITTER_SPECS) vs 6 (name map, see conflicts in RE_OD_MONSOON). Also replaces pole line, same rule as 311.",
+   "live_test": "Qualifying with a monsoon-shod AI fastest car (rare; may need a monsoon track).",
+   "tier": "DERIVED",
+   "sources": [
+    "docs/EMITTER_SPECS.md:378",
+    "functions/sub_4A4830"
+   ],
+   "open_questions": "As RE_OD_MONSOON"
+  },
+  {
+   "clip": "RE_PD_FL_BAD_BL",
+   "sdt_index": 93,
+   "pws_eid": 94,
+   "all_eids": [
+    94,
+    384
+   ],
+   "says": "Front Left severe blistering",
+   "eid_source": "full_event_dump.json eid 94 (sdt 93, cooldown 15) and 384 (TV); doc56 lines 128 and 418",
+   "eid_isolation_tested": false,
+   "already_modded_by": "tyre_blister_commentary (development/mods/tyre_blister_commentary/source.c:55-58 threshold patch on the shared blister code; FEATURE.md lists only PWS_TYRES01/02)",
+   "native_emitter": "functions/PitStateSlotActivation_0041ab30.c:28 (case 0 -> 94)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Player FL tread (veh+0x3924) crosses 0.85 downward (severe). Already native; only the threshold is the problem.",
+   "state_reads": [
+    {
+     "what": "tread FL",
+     "locator": "veh+0x3924",
+     "tier": "CONFIRMED",
+     "source": "name_index tirePuncture_FL"
+    }
+   ],
+   "latch_cooldown": "15 s native",
+   "calibration_needed": "Threshold 0.85 (0.4 scaled) is patched to 0.6 scaled (= tread 0.9) by the owner mod. Measure whether the player ever reaches it. Fix status: the threshold change is already registered by tyre_blister_commentary (patches manifest); no ERE code needed; live proof still missing (line reverted 2026-07-28).",
+   "conflicts": "Shares the threshold bytes with tyre_blister_commentary. Do not patch those bytes again in ERE.",
+   "live_test": "Owner drives a high-wear stint and hears the line (never heard in play; the line was reverted 2026-07-28).",
+   "tier": "CONFIRMED",
+   "sources": [
+    "functions/VehicleDynamicsForceAccumulatorIntegration_00438130.c:146",
+    "development/mods/tyre_blister_commentary/source.c:55-58",
+    "docs/SPEC_EVF-008_A_blister.md"
+   ],
+   "open_questions": "Live evidence still missing (reverted line)."
+  },
+  {
+   "clip": "RE_PD_FL_BLIST",
+   "sdt_index": 94,
+   "pws_eid": 95,
+   "all_eids": [
+    95,
+    385
+   ],
+   "says": "Front Left light blistering",
+   "eid_source": "full_event_dump.json eid 95 (sdt 94, cooldown 15) and 385; doc56 lines 129 and 419",
+   "eid_isolation_tested": false,
+   "already_modded_by": "tyre_blister_commentary (shared threshold 0x59E6E8)",
+   "native_emitter": "functions/AISessionPhaseCounter_0041aa10.c:28 (case 0 -> 95)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Player FL tread crosses 0.925 downward (light, one-tick crossing, v27>0.7 and v29<=0.7).",
+   "state_reads": [
+    {
+     "what": "tread FL",
+     "locator": "veh+0x3924",
+     "tier": "CONFIRMED",
+     "source": "name_index"
+    }
+   ],
+   "latch_cooldown": "15 s native",
+   "calibration_needed": "Threshold 0.7 scaled (= tread 0.925) patched to 0.9 (= tread 0.975) by owner mod. Fix status: the threshold change is already registered by tyre_blister_commentary (patches manifest); no ERE code needed; live proof still missing (line reverted 2026-07-28).",
+   "conflicts": "Same as RE_PD_FL_BAD_BL. Note that this same code also runs for AI cars and dispatches player eids (see PWS_AITYRES).",
+   "live_test": "As RE_PD_FL_BAD_BL",
+   "tier": "CONFIRMED",
+   "sources": [
+    "functions/VehicleDynamicsForceAccumulatorIntegration_00438130.c:144-146",
+    "development/mods/tyre_blister_commentary/source.c:55-56"
+   ],
+   "open_questions": "As RE_PD_FL_BAD_BL"
+  },
+  {
+   "clip": "RE_PD_FR_BAD_BL",
+   "sdt_index": 95,
+   "pws_eid": 96,
+   "all_eids": [
+    96,
+    386
+   ],
+   "says": "Front Right severe blistering",
+   "eid_source": "full_event_dump.json eid 96 (sdt 95, cooldown 15) and 386; doc56 lines 130 and 420",
+   "eid_isolation_tested": false,
+   "already_modded_by": "tyre_blister_commentary (shared threshold)",
+   "native_emitter": "functions/PitStateSlotActivation_0041ab30.c:31 (case 1 -> 96)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Player FR tread (veh+0x382C) crosses 0.85 downward.",
+   "state_reads": [
+    {
+     "what": "tread FR",
+     "locator": "veh+0x382C",
+     "tier": "CONFIRMED",
+     "source": "name_index tirePuncture_FR"
+    }
+   ],
+   "latch_cooldown": "15 s native",
+   "calibration_needed": "As RE_PD_FL_BAD_BL. Corner index 1 = FR is DERIVED from switch order. Fix status: the threshold change is already registered by tyre_blister_commentary (patches manifest); no ERE code needed; live proof still missing (line reverted 2026-07-28).",
+   "conflicts": "As RE_PD_FL_BAD_BL",
+   "live_test": "As RE_PD_FL_BAD_BL",
+   "tier": "CONFIRMED",
+   "sources": [
+    "functions/PitStateSlotActivation_0041ab30.c:31 (per A_blister spec)",
+    "development/mods/tyre_blister_commentary/source.c:55-58"
+   ],
+   "open_questions": "Corner order live check"
+  },
+  {
+   "clip": "RE_PD_FR_BLIST",
+   "sdt_index": 96,
+   "pws_eid": 97,
+   "all_eids": [
+    97,
+    392
+   ],
+   "says": "Front Right light blistering",
+   "eid_source": "full_event_dump.json eid 97 (sdt 96, cooldown 15) and 392; doc56 lines 131 and 426",
+   "eid_isolation_tested": false,
+   "already_modded_by": "tyre_blister_commentary (shared threshold)",
+   "native_emitter": "functions/AISessionPhaseCounter_0041aa10.c:31 (case 1 -> 97)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Player FR tread (veh+0x382C) crosses 0.925 downward (light).",
+   "state_reads": [
+    {
+     "what": "tread FR",
+     "locator": "veh+0x382C",
+     "tier": "CONFIRMED",
+     "source": "name_index"
+    }
+   ],
+   "latch_cooldown": "15 s native",
+   "calibration_needed": "As RE_PD_FL_BLIST Fix status: the threshold change is already registered by tyre_blister_commentary (patches manifest); no ERE code needed; live proof still missing (line reverted 2026-07-28).",
+   "conflicts": "As RE_PD_FL_BLIST",
+   "live_test": "As RE_PD_FL_BAD_BL",
+   "tier": "CONFIRMED",
+   "sources": [
+    "functions/AISessionPhaseCounter_0041aa10.c:31 (per A_blister spec)",
+    "development/mods/tyre_blister_commentary/source.c:56"
+   ],
+   "open_questions": "Corner order live check"
+  },
+  {
+   "clip": "RE_PD_RL_BAD_BL",
+   "sdt_index": 97,
+   "pws_eid": 98,
+   "all_eids": [
+    98,
+    391
+   ],
+   "says": "Rear Left severe blistering",
+   "eid_source": "full_event_dump.json eid 98 (sdt 97, cooldown 15) and 391; doc56 lines 133 and 425",
+   "eid_isolation_tested": false,
+   "already_modded_by": "tyre_blister_commentary (shared threshold)",
+   "native_emitter": "functions/PitStateSlotActivation_0041ab30.c:34 (case 2 -> 98)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Player RL tread (veh+0x3734) crosses 0.85 downward.",
+   "state_reads": [
+    {
+     "what": "tread RL",
+     "locator": "veh+0x3734",
+     "tier": "CONFIRMED",
+     "source": "name_index tirePuncture_RL"
+    }
+   ],
+   "latch_cooldown": "15 s native",
+   "calibration_needed": "Rear wear rate may be lower (A_blister spec open question 1) Fix status: the threshold change is already registered by tyre_blister_commentary (patches manifest); no ERE code needed; live proof still missing (line reverted 2026-07-28).",
+   "conflicts": "As RE_PD_FL_BAD_BL",
+   "live_test": "As RE_PD_FL_BAD_BL",
+   "tier": "CONFIRMED",
+   "sources": [
+    "functions/PitStateSlotActivation_0041ab30.c:34",
+    "development/mods/tyre_blister_commentary/source.c:55-58"
+   ],
+   "open_questions": "Rear wear rate"
+  },
+  {
+   "clip": "RE_PD_RL_BLIST",
+   "sdt_index": 98,
+   "pws_eid": 99,
+   "all_eids": [
+    99,
+    394
+   ],
+   "says": "Rear Left light blistering",
+   "eid_source": "full_event_dump.json eid 99 (sdt 98, cooldown 15) and 394; doc56 lines 134 and 428",
+   "eid_isolation_tested": false,
+   "already_modded_by": "tyre_blister_commentary (shared threshold)",
+   "native_emitter": "functions/AISessionPhaseCounter_0041aa10.c:34 (case 2 -> 99)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Player RL tread (veh+0x3734) crosses 0.925 downward.",
+   "state_reads": [
+    {
+     "what": "tread RL",
+     "locator": "veh+0x3734",
+     "tier": "CONFIRMED",
+     "source": "name_index"
+    }
+   ],
+   "latch_cooldown": "15 s native",
+   "calibration_needed": "As RE_PD_FL_BLIST Fix status: the threshold change is already registered by tyre_blister_commentary (patches manifest); no ERE code needed; live proof still missing (line reverted 2026-07-28).",
+   "conflicts": "As RE_PD_FL_BLIST",
+   "live_test": "As RE_PD_FL_BAD_BL",
+   "tier": "CONFIRMED",
+   "sources": [
+    "functions/AISessionPhaseCounter_0041aa10.c:34",
+    "development/mods/tyre_blister_commentary/source.c:56"
+   ],
+   "open_questions": "Rear wear rate"
+  },
+  {
+   "clip": "RE_PD_RR_BAD_BL",
+   "sdt_index": 99,
+   "pws_eid": 100,
+   "all_eids": [
+    100,
+    395
+   ],
+   "says": "Rear Right severe blistering",
+   "eid_source": "full_event_dump.json eid 100 (sdt 99, cooldown 15) and 395; doc56 lines 135 and 420",
+   "eid_isolation_tested": false,
+   "already_modded_by": "tyre_blister_commentary (shared threshold)",
+   "native_emitter": "functions/PitStateSlotActivation_0041ab30.c:37 (case 3 -> 100)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Player RR tread (veh+0x363C) crosses 0.85 downward.",
+   "state_reads": [
+    {
+     "what": "tread RR",
+     "locator": "veh+0x363C",
+     "tier": "CONFIRMED",
+     "source": "name_index tirePuncture_RR"
+    }
+   ],
+   "latch_cooldown": "15 s native",
+   "calibration_needed": "As RE_PD_RL_BAD_BL Fix status: the threshold change is already registered by tyre_blister_commentary (patches manifest); no ERE code needed; live proof still missing (line reverted 2026-07-28).",
+   "conflicts": "As RE_PD_FL_BAD_BL",
+   "live_test": "As RE_PD_FL_BAD_BL",
+   "tier": "CONFIRMED",
+   "sources": [
+    "functions/PitStateSlotActivation_0041ab30.c:37",
+    "development/mods/tyre_blister_commentary/source.c:55-58"
+   ],
+   "open_questions": "Rear wear rate"
+  },
+  {
+   "clip": "RE_PD_RR_BLIST",
+   "sdt_index": 100,
+   "pws_eid": 101,
+   "all_eids": [
+    101,
+    396
+   ],
+   "says": "Rear Right light blistering",
+   "eid_source": "full_event_dump.json eid 101 (sdt 100, cooldown 15) and 396; doc56 lines 136 and 430",
+   "eid_isolation_tested": false,
+   "already_modded_by": "tyre_blister_commentary (shared threshold)",
+   "native_emitter": "functions/AISessionPhaseCounter_0041aa10.c:37 (case 3 -> 101)",
+   "why_silent": "gate_never_true",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Player RR tread (veh+0x363C) crosses 0.925 downward.",
+   "state_reads": [
+    {
+     "what": "tread RR",
+     "locator": "veh+0x363C",
+     "tier": "CONFIRMED",
+     "source": "name_index"
+    }
+   ],
+   "latch_cooldown": "15 s native",
+   "calibration_needed": "As RE_PD_FL_BLIST Fix status: the threshold change is already registered by tyre_blister_commentary (patches manifest); no ERE code needed; live proof still missing (line reverted 2026-07-28).",
+   "conflicts": "As RE_PD_FL_BLIST",
+   "live_test": "As RE_PD_FL_BAD_BL",
+   "tier": "CONFIRMED",
+   "sources": [
+    "functions/AISessionPhaseCounter_0041aa10.c:37",
+    "development/mods/tyre_blister_commentary/source.c:56"
+   ],
+   "open_questions": "Rear wear rate"
+  }
+ ]
+}

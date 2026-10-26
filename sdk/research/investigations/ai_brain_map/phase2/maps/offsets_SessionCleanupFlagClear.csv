@@ -1,0 +1,4 @@
+func,line,dec,hex,access,width,base,form,expr
+SessionCleanupFlagClear,5,17424,0x4410,R,_BYTE,this,direct,result = *(_BYTE *)(this + 17424);
+SessionCleanupFlagClear,8,17444,0x4424,W,_DWORD,this,direct,*(_DWORD *)(this + 17444) = 0;
+SessionCleanupFlagClear,9,17908,0x45F4,W,_BYTE,this,direct,*(_BYTE *)(this + 17908) = 1;

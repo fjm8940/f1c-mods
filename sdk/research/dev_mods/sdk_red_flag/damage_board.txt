@@ -1,0 +1,29 @@
+=== DAMAGE / HAZARD MONITOR ===  RacePhase=None  (grid/pre-race)  00:11:18
+  HAZARD/RETIRED:0  PIT:0  damaged/TERM:0   (hazards latch until race restart)
+  >>> PILEUP: -
+
+  DRIVER         STATE       km/h  carCon  rsn   stop  near
+  ----------------------------------------------------------
+  M.Schumacher   ok             ?       ?    ?   0.0s    0 
+  Hakkinen       ok             ?       ?    ?   0.0s    0 
+  Coulthard      ok             ?       ?    ?   0.0s    0 
+  Barrichello    ok             ?       ?    ?   0.0s    0 
+  R.Schumacher   ok             ?       ?    ?   0.0s    0 
+  TesterA         ok             ?       ?    ?   0.0s    0 
+  Raikkonen      ok             ?       ?    ?   0.0s    0 
+  Trulli         ok             ?       ?    ?   0.0s    0 
+  Frentzen       ok             ?       ?    ?   0.0s    0 
+  Hill           ok             ?       ?    ?   0.0s    0 
+  Irvine         ok             ?       ?    ?   0.0s    0 
+  Montoya        ok             ?       ?    ?   0.0s    0 
+  Fisichella     ok             ?       ?    ?   0.0s    0 
+  Manning        ok             ?       ?    ?   0.0s    0 
+  Heidfeld       ok             ?       ?    ?   0.0s    0 
+  Salo           ok             ?       ?    ?   0.0s    0 
+  Sarrazin       ok             ?       ?    ?   0.0s    0 
+  Alesi          ok             ?       ?    ?   0.0s    0 
+  De La Rosa     ok             ?       ?    ?   0.0s    0 
+  Webber         ok             ?       ?    ?   0.0s    0 
+  Alonso         ok             ?       ?    ?   0.0s    0 
+
+  Ctrl+C to stop.

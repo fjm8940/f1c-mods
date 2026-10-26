@@ -1,0 +1,442 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 116,
+ "clip": "PWS_OFFROAD01",
+ "says": "Player went off track (1)",
+ "dump_rows_for_clip": [
+  {
+   "eid": 116,
+   "hex": "0x0074",
+   "priority": 20,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 114,
+   "sdt_index": 116,
+   "clip_name": "PWS_OFFROAD01.m",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 409,
+   "hex": "0x0199",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 114,
+   "sdt_index": 116,
+   "clip_name": "PWS_OFFROAD01.m",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  114
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 116,
+   "hex": "0x0074",
+   "priority": 20,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 114,
+   "sdt_index": 116,
+   "clip_name": "PWS_OFFROAD01.m",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 409,
+   "hex": "0x0199",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 114,
+   "sdt_index": 116,
+   "clip_name": "PWS_OFFROAD01.m",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  116
+ ],
+ "literal_hits": {
+  "116": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 263,
+       "text": "v5 = a4 != 0 ? 116 : 72;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 112,
+    "first": [
+     "AIRacingLine",
+     "AudioChannelInit",
+     "AudioStreamingThreadShutdown",
+     "BrakeBiasSetup",
+     "BufferEntryClear",
+     "CameraPositionDefinitions",
+     "CameraShakeRingBufferWrite",
+     "CollisionContactGenerationAndFrictionResponse",
+     "CompositeStringCompare",
+     "DamperSpringForceComputationWithAntiRoll",
+     "DotProductWithScaleOffset",
+     "DualVirtualDispatchWrapper",
+     "EngineStressSimulation",
+     "EnumValueTranslation",
+     "F_2DImageWeightedAverage",
+     "F_2DTransformStructCopy",
+     "F_3DBoundingBoxExtentsComputation",
+     "F_3DTransformObjectInit_83b0",
+     "F_3DVectorCrossProductRotationAccumulation",
+     "F_3FieldInitCall_0b00",
+     "GameOptionsWriter",
+     "HUDFlagRendererMain",
+     "IndexedFieldCopy",
+     "LinkedListNodeInsert",
+     "ListIterationWithVTableDispatch",
+     "LoopOverTwoParallelArrays",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "MeshBoundingBoxComputation",
+     "MultiLevelBufferAllocationWithVectorOps",
+     "NetworkPacketDataReader",
+     "NetworkPacketDataWriter",
+     "NetworkSocketCreate",
+     "PaletteVectorQuantizationNearestNeighbor",
+     "PerElementConditionalActionDispatcher",
+     "PhysicsChannelProcessingWithLocals",
+     "PhysicsNodePropagationWithDistanceFalloff",
+     "PitCrewAnimationMASSetup",
+     "PitStopOperationTimer",
+     "ResourceCleanupDestructionForDirectXObjects",
+     "RigidBodyConstraintJointSolver"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 116 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "EnumValueTranslation",
+    "file": "EnumValueTranslation_00414010.c",
+    "hits": [
+     {
+      "line": 19,
+      "text": "v3 = 116;"
+     }
+    ]
+   },
+   {
+    "function": "SessionStringNameLookup",
+    "file": "SessionStringNameLookup_004122c0.c",
+    "hits": [
+     {
+      "line": 37,
+      "text": "v8 = v5 + 116;"
+     }
+    ]
+   },
+   {
+    "function": "TLSValueRetrievalWithInit",
+    "file": "TLSValueRetrievalWithInit_0058e0c7.c",
+    "hits": [
+     {
+      "line": 12,
+      "text": "v2 = sub_58AB58(1, 116);"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:424: | 116 | PWS_OFFROAD01 | player off-track byte transitions 0->1, i.e. *(playerTracker + 0xB4) was 0 and becomes 1,  | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:425: | 409 | PWS_OFFROAD01 | same as eid 116: player off-track byte transitions 0->1. Both eids share score=114,sdt_ind | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:441: - SessionType gate per clip - PWS_AIBLUE01/02 likely race-only (SessionType==7) given blue flags only apply in race; PWS_OFFROAD01 might fire in both qual and race; verify by check",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:66: | `PWS_OFFROAD01` | 116 | 116,409 | Player went off track (1) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:171: | `PWS_OFFROAD01` | 116 | 116, 409 | — | Player went off track (1) | user triage: Z, player leaves the road, not sure if any mechanism exists directly on detecting if player is on ",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:105: | `PWS_OFFROAD01` | 116, 409 | Player went off track (1) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:155: | `PWS_OFFROAD01` | flags_incident | same 2.5m off-track byte as AIINCID03/06 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:169: PWS_OFFROAD01, PWS_OIL01, PWS_OIL02, PWS_OIL03, PWS_SCAR02, PWS_TEAMPIT01,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TO_LISTEN.txt:20: 116 PWS_OFFROAD01 -- Player went off track (1)"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": true,
+  "vanilla_source": "evf_user",
+  "modded_by": [],
+  "note": "user triage: Z, player leaves the road, not sure if any mechanism exists directly on detecting if player is on asphalt  [flags: NEEDS_RESEARCH]",
+  "triage": {
+   "sdt_index": 116,
+   "text": "Z, player leaves the road, not sure if any mechanism exists directly on detecting if player is on asphalt",
+   "subject": "Z",
+   "play": false,
+   "verdict": "EXISTS_VANILLA",
+   "flags": [
+    "NEEDS_RESEARCH"
+   ],
+   "inherited": false,
+   "status": "SHIPPED"
+  },
+  "evf_status": "SHIPPED"
+ }
+}

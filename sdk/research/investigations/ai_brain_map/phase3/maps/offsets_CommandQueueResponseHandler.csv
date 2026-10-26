@@ -1,0 +1,21 @@
+func,line,dec,hex,access,width,base,form,expr
+CommandQueueResponseHandler,7,,,CALL,,,call,SessionCleanupFlagClear
+CommandQueueResponseHandler,8,17732,0x4544,W,_DWORD,this,array,this[4433] = 0;
+CommandQueueResponseHandler,9,,,CALL,,,call,WrapPlayerCallback
+CommandQueueResponseHandler,11,,,CALL,,,call,PairArrayLinearSearch
+CommandQueueResponseHandler,13,17732,0x4544,W,_DWORD,this,array,this[4433] = 0;
+CommandQueueResponseHandler,14,,,CALL,,,call,ParameterValueSetter
+CommandQueueResponseHandler,15,17680,0x4510,W,_DWORD,this,array,this[4420] = 5;
+CommandQueueResponseHandler,16,,,CALL,,,call,AISpeedDeltaSetter
+CommandQueueResponseHandler,18,,,CALL,,,call,PairArrayLinearSearch
+CommandQueueResponseHandler,20,,,CALL,,,call,ParameterValueSetter
+CommandQueueResponseHandler,21,17732,0x4544,W,_DWORD,this,array,this[4433] = 1;
+CommandQueueResponseHandler,23,,,CALL,,,call,PairArrayLinearSearch
+CommandQueueResponseHandler,25,17468,0x443C,W,_DWORD,this,array,this[4367] = 1;
+CommandQueueResponseHandler,26,,,CALL,,,call,ParameterValueSetter
+CommandQueueResponseHandler,28,,,CALL,,,call,PairArrayLinearSearch
+CommandQueueResponseHandler,31,17732,0x4544,W,_DWORD,this,array,this[4433] = 0;
+CommandQueueResponseHandler,32,17468,0x443C,W,_DWORD,this,array,this[4367] = 1;
+CommandQueueResponseHandler,36,,,CALL,,,call,AISpeedDeltaSetter
+CommandQueueResponseHandler,37,,,CALL,,,call,ParameterValueSetter
+CommandQueueResponseHandler,38,17732,0x4544,W,_DWORD,this,array,this[4433] = 1;

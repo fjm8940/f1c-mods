@@ -1,0 +1,62 @@
+; EXCERPT of FileReading #0 (RTMI 0x0044E478), offsets 0x136B-0x1445: crown temp = center - (left+right)/2
+; full listing: python pcode_decode.py --disasm 0x0044E478
+  0x136B: LitStr                   pool[40]="fr tyre crown temp"
+  0x136E: EqStr                    
+  0x1370: BranchF                  target=+0x139F
+  0x1373: FLdRfVar                 var[-1632]
+  0x1376: LitVarR8                 var[-268] = 000000000000E03F
+  0x1382: FLdRfVar                 var[-1616]
+  0x1385: FLdRfVar                 var[-1648]
+  0x1388: AddVar                   raw=CCFE
+  0x138C: MulVar                   raw=50FE
+  0x1390: SubVar                   raw=94FD
+  0x1394: CR8Var                   
+  0x1396: FStFPR4                  var[-160]
+  0x1399: FFree1Var                var[-308]
+  0x139C: Branch                   target=+0x170E
+  0x139F: ILdRf                    var[-1972]
+  0x13A2: LitStr                   pool[42]="fl tyre crown temp"
+  0x13A5: EqStr                    
+  0x13A7: BranchF                  target=+0x13D6
+  0x13AA: FLdRfVar                 var[-1584]
+  0x13AD: LitVarR8                 var[-268] = 000000000000E03F
+  0x13B9: FLdRfVar                 var[-1568]
+  0x13BC: FLdRfVar                 var[-1600]
+  0x13BF: AddVar                   raw=CCFE
+  0x13C3: MulVar                   raw=50FE
+  0x13C7: SubVar                   raw=94FD
+  0x13CB: CR8Var                   
+  0x13CD: FStFPR4                  var[-160]
+  0x13D0: FFree1Var                var[-308]
+  0x13D3: Branch                   target=+0x170E
+  0x13D6: ILdRf                    var[-1972]
+  0x13D9: LitStr                   pool[44]="rr tyre crown temp"
+  0x13DC: EqStr                    
+  0x13DE: BranchF                  target=+0x140D
+  0x13E1: FLdRfVar                 var[-1728]
+  0x13E4: LitVarR8                 var[-268] = 000000000000E03F
+  0x13F0: FLdRfVar                 var[-1712]
+  0x13F3: FLdRfVar                 var[-1744]
+  0x13F6: AddVar                   raw=CCFE
+  0x13FA: MulVar                   raw=50FE
+  0x13FE: SubVar                   raw=94FD
+  0x1402: CR8Var                   
+  0x1404: FStFPR4                  var[-160]
+  0x1407: FFree1Var                var[-308]
+  0x140A: Branch                   target=+0x170E
+  0x140D: ILdRf                    var[-1972]
+  0x1410: LitStr                   pool[46]="rl tyre crown temp"
+  0x1413: EqStr                    
+  0x1415: BranchF                  target=+0x1444
+  0x1418: FLdRfVar                 var[-1680]
+  0x141B: LitVarR8                 var[-268] = 000000000000E03F
+  0x1427: FLdRfVar                 var[-1664]
+  0x142A: FLdRfVar                 var[-1696]
+  0x142D: AddVar                   raw=CCFE
+  0x1431: MulVar                   raw=50FE
+  0x1435: SubVar                   raw=94FD
+  0x1439: CR8Var                   
+  0x143B: FStFPR4                  var[-160]
+  0x143E: FFree1Var                var[-308]
+  0x1441: Branch                   target=+0x170E
+  0x1444: ILdRf                    var[-1972]

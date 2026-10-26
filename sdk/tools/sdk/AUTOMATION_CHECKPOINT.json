@@ -1,0 +1,722 @@
+{
+  "esc_pause_dq_variant_candidate_20260923": {
+    "state": "Protected ESC v1.0.2 and compatible-variant broker published as a free Lightloader-only two-DLL package",
+    "evidence": "../operations/release_management/esc_pause_menu/PUBLICATION_1_0_2.md",
+    "client_sha256": "A9FBC2FA4F8A788B4311B6879305A0B329A906DD581034D66296347FFAD17F05",
+    "broker_sha256": "F79A1563E3DD0C33ECA90C6F2C470D1C1931A037F833614AFAFBFD01D16BDCBC",
+    "verification": "Exact protected pair loaded through Lightloader in isolated 99-02; owner reports DQ retained and RACE RESULTS reached; logs corroborate state 3 preservation and native results transition; static/SDK and public hash checks pass",
+    "pending": "Observe customer reports and separately retest normal-retire DNF, all menu actions and V10 on the exact v1.0.2 pair"
+  },
+  "esc_pause_p_guard_20260923": {
+    "state": "Matias reports the installed P-key fix works and considers ESC Pause Menu development finished; owner-accepted candidate, not publicly released",
+    "evidence": "../development/mods/esc_pause_menu/verification/p-key-2026-09-23/REPORT.md",
+    "sha256": "9D85FD4DF7437E7DFD9729496D69BE89C9C46AB5CB1D0777EE4DEE461AE11B93",
+    "verification": "Manifest validation, immutable build, broker pause-menu regressions, hook layout and full SDK gate passed; installed DLL and SDK ownership marker match tested SHA-256; previous shared broker preserved",
+    "pending": "No further development requested. A later public release would require exact-hash packaging, registry and publication gates; detailed race/qualifying action and sound results were not separately reported."
+  },
+  "garage_leave_icon_20260923": {
+    "state": "Owner-reported native gameplay pass for installed r5 tested garage-icon/results flow",
+    "evidence": "mods/sdk_sandbox/game_update_broker/UI_LEAVE_RESULTS_20260923.md",
+    "sha256": "C1FA92039875F4B35ADFD9FAA94E960A184F0BB4B97DFC739F9AB76514AEF3B3",
+    "verification": "Build/full SDK/native UI fixture pass; owner reports proper behavior; installed hash verified; live log corroborates icon -> retained UI -> native finalization including maximized monitor",
+    "pending": "Broader ESC action/mode validation and mechanical-failure retirement path remain separate; no promotion authorized"
+  },
+  "esc_pause_menu_fix_20260922": {
+    "state": "canonical development port repaired and installed in the guarded V10 LightLoader directory; first gameplay found and repaired client-before-broker load-order failure; retest pending",
+    "evidence": "../development/mods/esc_pause_menu/verification/install-2026-09-22/REPORT.md",
+    "verification": "project validate/build, broker pause-menu regressions, hook-layout compatibility and full SDK gate pass; installed artifact hashes verified; live log proved discovery result 2 before broker load; client now retries only NOT_FOUND; ESC uses native P pause byte without the former extra audio-gate write",
+    "pending": "full-weekend race and qualifying validation of Continue, Retire/Return to Pits, Exit and Replay; confirm spectator garage to simulated results route"
+  },
+  "instant_replay_live_instances_20260922": {
+    "state": "Owner native acceptance and explicit shipment; SC0.10.66 beta1/RF1.1.3 published with exact accepted runtime hashes 2026-09-22",
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.66_replay_live_field/README.md",
+    "verification": "Actual native dispatch and reconciliation regression, repeated absent/older/future history, paused entry, nested playback, 5 retirement markers, exact unchanged instance bytes, empty historical slot, identity and hook refusal; full SDK gate and protected-byte equivalence passed",
+    "limitations": "Scene service stubs do not establish full physics behavior. Player displacement source instruction remains untraced; native retest required.",
+    "publication": "operations/release_management/safety_car/RELEASE_0_10_66_2026-09-22.md"
+  },
+  "rf_replay_roster_guard_20260922": {
+    "state": "Replay roster guard revision 2 after Codex R1-R5: game-thread capture, session-watchdog integration, reviewed identity contract, native render-visibility helper; SC-side parked-SC replay detour added; not installed",
+    "evidence": "../development/mods/red_flag/trials/2026-09-22/replay-roster-guard/README.md",
+    "verification": "RF replay guard extraction incl. the real session-watchdog branch, game-thread capture and R4/R5 refusal cases on canonical and hardened sources; SC replay detour extraction (identity/scene preservation, deploy, corrupt/unstable/active failures); green roster transaction, 10 RF + 12 SC focused tests, 59 static contracts and the full SDK gate pass",
+    "determination": "parked/excluded SC (+13000 == -1) has no replay identity; ProcessDriverEntries destroys it and decrements VehicleCount unconditionally; LoadingPhase2 then skips the last saved entry; independent of RF, also after a successful RF restart",
+    "pending": "human guarded gameplay: earlier-slot DNF + final-slot survivor RF, replay with SC parked/deployed, repeated replay/RF cycles, physics/render re-sync; Codex review first"
+  },
+  "rf_pit_strategy_restart_20260922": {
+    "state": "Reviewed SDK plan/request primitive plus RF capture-refresh-restore; revision 3 installed as exact hardened hash 2A8EF5FB... in Documents/F1 Challenge V10 for guarded in-game acceptance 2026-09-22 (existing broker/settings kept, rollback preserved); not published or promoted",
+    "evidence": "../development/mods/red_flag/trials/2026-09-22/ai-pit-strategy-preservation/README.md",
+    "installation": "../development/mods/red_flag/trials/2026-09-22/ai-pit-strategy-preservation/install-r4/INSTALLATION.json",
+    "verification": "extent/guard-page, native decision latch, parking-vs-service, fallback ownership survival, request preservation and ordering tests pass on canonical and hardened sources; 8 RF + 12 SC focused tests, 58 static contracts and the full SDK gate pass; independent r4 review passed; installed hash verified in place",
+    "pending": "human late-race RF restart acceptance per reviewer-r4 checklist (Countdown, DriveToPits and its timeout fallback, second RF/Y replay, fuel/penalty/T confirmation); any NOT PRESERVED log entry needs candidate hash, procedure, lap and logs"
+  },
+  "pit_retirement_voice_20260921": {
+    "state": "generic AI event237 wired after confirmed garage; listening pending",
+    "evidence": "PIT_VOICE_REVIEW.md",
+    "verification": "actual-client named subject, garage gating and dedup regressions pass; sdk-test.txt records full gate",
+    "pending": "native listening under busy radio; already retired cars not replayed across reload"
+  },
+  "pit_legacy_reuse_20260921": {
+    "state": "original wheel-gun WAV engine and HUD feedback integrated with policy events; gameplay validation pending",
+    "evidence": "REUSED_PIT_PRESENTATION.md",
+    "pending": "native listening/HUD verification; shared fuel-rate patch and session-changing retirement deliberately not transplanted"
+  },
+  "pit_voice_20260921": {
+    "state": "native enqueue helper and live pit client implemented; audible acceptance pending",
+    "evidence": "PIT_VOICE_REVIEW.md",
+    "verification": "full SDK gate and actual-client voice mapping/subject/lifecycle fixtures pass",
+    "pending": "listen to player and AI fault calls, recovery and lane cues; simultaneous-driver playback; retirement provider still absent"
+  },
+  "rf_grid_fuel_failure_20260921": {
+    "state": "private RF/broker fix installed; native retest pending",
+    "evidence": "../development/mods/red_flag/trials/2026-09-21/policy-v89/fuel-failure-fix/README.md",
+    "verification": "full SDK gate, pre-enter ledger regression, one-shot grid callback, RF10groups/53static checks",
+    "pending": "prove correct fuel on grid and green; no penalty/roster restore abort"
+  },
+  "rf_penalty_hold_20260921": {
+    "state": "Review implementation verified; not installed or promoted; owner full scope incomplete",
+    "evidence": "../development/mods/red_flag/trials/2026-09-21/policy-v89/completion-work/penalty-hold/README.md",
+    "verification": "Full SDK gate r5 including eleven reader tests; actual broker event/lifecycle hold and RF adapter tests; 10 focused RF regressions and 53 static contracts pass; broker -Werror build and RF review build r6; paused existing-installation service capture 2026-09-21T12:41:16Z, no new build gameplay acceptance",
+    "pending": "Native full-weekend penalty/fuel acceptance; repair/tyre preservation and compound/strategy policy; safe native race conclusion and ultimate recovery; protected paired packaging and installation"
+  },
+  "rf_sc_policy_20260921": {
+    "state": "RF89/SC063 core policy candidates verified; partial implementation, not installed or promoted",
+    "evidence": "../development/mods/red_flag/trials/2026-09-21/policy-v89/README.md",
+    "verification": "Bounded restart penalty queue tests and full SDK gate pass; 16 selected component regressions pass; four RF static baseline failures unchanged",
+    "pending": "Native penalty service-mode/deadline acceptance; independent repair/tyre/fuel APIs, correct early race results, last-resort physical/scene/collision recovery; complete weekend validation"
+  },
+  "qualifying_standalone_20260915": {
+    "state": "0.3.0 standalone candidate built and tested; running game installation unchanged",
+    "evidence": "mods/sdk_sandbox/qualifying_preservation/trials/2026-09-15-standalone/RESULT.md",
+    "verification": "1000 native trap/trampoline calls; actual 24-car callback preservation including archive failure; full SDK gate passed",
+    "pending": "install after game exit; native FINISH/NEXT exact grid/time equality, repeated weekends and mod interaction"
+  },
+  "sc_stint_pit_authority_20260915": {
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.58_stint_control/README.md",
+    "state": "SC58 exact verified private artifact installed2026-09-15T20:17+03:00 with game closed; RF87 retained; native acceptance pending",
+    "verification": "native setter bytes/thiscall/restore/fuel and outing tests; inherited SC and full final SDK gate passed",
+    "pending": "native pit-request prevention, per-outing reset and135litre fuel, U/max-lap return, unexpected-pit fault recovery; no promotion"
+  },
+  "sc_native_removal_20260915": {
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.57_native_removal/README.md",
+    "state": "SC57 verified; exact-target native expired-trigger adapter added; installation awaits game close",
+    "verification": "real captured Trulli bytes change only trigger; negative cases and full SDK gate pass; inherited SC and protected artifact tests pass",
+    "pending": "native timer progression, retirement and garage clearance, safe SC recall; no public promotion"
+  },
+  "sc_fault_redflag_20260915": {
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.56_fault_redflag/VERIFICATION_NOTES.md",
+    "state": "optional sequenced process-creation and generation scoped fault mailbox implemented; SC56/RF87 private installed",
+    "verification": "cross-DLL fault protocol tests and full SDK gate pass; actual consumer/handoff regressions pass; RF four legacy static failures unchanged",
+    "pending": "native fault to physical reset to RF restart and SC redeployment; partial native reset/identity failures cannot be forced; no public promotion"
+  },
+  "rf_replay_context_20260915": {
+    "evidence": "../development/mods/red_flag/trials/2026-09-15/sc53-replay-abort/README.md",
+    "state": "fixed read-only session context added;10focused tests/liveMCP pass",
+    "pending": "exact replay-abort predicate at event; completed RF restart/SC quarantine gameplay"
+  },
+  "retired_object_graph_20260915": {
+    "evidence": "../development/mods/red_flag/trials/2026-09-15/retired-object-graph/README.md",
+    "state": "read-only bounded active-slot/scene/part/spatial capture implemented; nine focused tests, full SDK gate and live MCP verified",
+    "live": "Sato successful restart: body/spatial centre in garage; stale detached visual matrices, collision centres at1e9; all65x3cell lists and14part records captured",
+    "pending": "failing invisible-collision capture; unresolved coordinate consumers and independent collider ownership; no collision fix installed"
+  },
+  "retired_positions_20260915": {
+    "evidence": "../development/mods/red_flag/trials/2026-09-15/retired-coordinate-audit/README.md",
+    "state": "bounded positions reader implemented; focused tests, full SDK gate and actual six-tool MCP verification passed",
+    "live": "three excluded AI retirees; complete vehicle blocks unchanged at sim69.7420706; checked coordinate copies near garages",
+    "pending": "external scene/collision ownership enumeration; advancing before/after retirement capture; no collision fix or RF84 installation"
+  },
+  "sc_fast_catchup_20260914": {
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.37_fast_catchup/README.md",
+    "state": "v0.10.37 installed; recorded-field planner replay, inherited tests and full SDK gate pass",
+    "pending": "native gathering speed, approach braking and no overtaking; no promotion"
+  },
+  "sc_emergency_ini_20260914": {
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.36_emergency_ini/README.md",
+    "state": "v0.10.36 installed; actual emergency/config adapters, inherited regressions and full SDK gate pass",
+    "pending": "native emergency reset and redeployment, handling/queue and SC/RF matrix; no promotion"
+  },
+  "memory_mcp_20260914": {
+    "evidence": "tools/sdk/F1C_MEMORY_MCP.md",
+    "state": "implemented; full SDK gate passed; elevated IPC and MCP calls verified; Codex registered",
+    "live": "25 drivers and SC status read; simulation/heartbeat unchanged; unsupported wire operation rejected",
+    "pending": "Codex task discovery after reload; native advancing-game and actual restart validation; no promotion"
+  },
+  "sc_rf_corpus_fixes_20260910": {
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.34_corpus_fixes/README.md",
+    "state": "consumer fixes installed; SDK ABI/broker unchanged",
+    "verification": "full sdk-test --exe Documents target passed; policy and actual-adapter regressions passed",
+    "native_validation": "pending; physical footprint contract not established"
+  },
+  "sc_rf_corpus_adversarial_audit_20260910": {
+    "evidence": "../development/mods/full_safety_car/trials/corpus_adversarial_audit_20260910/README.md",
+    "tier": "actual-policy reproduction plus raw corpus/source review; no live validation",
+    "result": "five policy counterexamples; two controls; no runtime change",
+    "next": "repair incident responsibility, opening-stall coverage and accelerated-sampling policy; then native paired and standalone validation"
+  },
+  "web_telemetry_engineering_comparison_20261009": {
+    "date": "2026-10-09",
+    "state": "Web Telemetry 4.2.0-rc.1 private candidate: distance-indexed player/AI engineering comparison (traces, /trace endpoints, Engineering UI, exports, run statistics) plus dashboard corrections C02/C06/C07/C08/C09/C10/C15; channel ledger and measured synthetic budget recorded; player steering and per-wheel advanced channels stay unavailable with evidence",
+    "target": "Lightloader manager 2.2.7, pinned 2.2.6 loader, broker ABI 15",
+    "dll_sha256": "22DEB680422DE43E2986647F4C3EA9C0158D28B7A004EDCBF8C8708A9BEB67C7",
+    "verification": "41053 runtime assertions PASS; synthetic HTTP trace/compare/select PASS; Node cmpGrid PASS; full SDK gate PASS; synthetic capture+read+traces p95 261-338us across runs; reproducible DLL build (--no-insert-timestamp)",
+    "pending": "Native guarded full-weekend trace/compare acceptance, live player-steering/per-wheel channel verification, human presentation acceptance, cross-PC Tailscale test",
+    "evidence": "mods/sdk_sandbox/web_telemetry/ENGINEERING_COMPARISON_2026-10-09.md; CHANNEL_LEDGER_2026-10-09.md; VERIFICATION_MANIFEST.json"
+  },
+  "schema": "f1c.sdk_automation_checkpoint.v1",
+  "updated_at": "2026-10-09T12:43:13.120307+00:00",
+  "priority": "anything_is_possible_mod_sdk",
+  "replacement_engine_paused": true,
+  "active_wave": "sdk_observation_r1_vehicle_001",
+  "state": "BROKER_DETERMINISTIC_REGRESSIONS_GATED",
+  "candidate_files": 6,
+  "candidate_valid": 6,
+  "candidate_invalid": 0,
+  "function_packets": 2,
+  "deterministic_reconciliation_records": 2,
+  "instruction_reviewed_records": 2,
+  "promotion_ready": 0,
+  "broker_discovery_candidates": 1,
+  "broker_compatibility_matrix_passed": 1,
+  "broker_regression_overflow_passed": 1,
+  "broker_regression_hostile_reader_passed": 1,
+  "broker_regression_slot_reuse_passed": 1,
+  "broker_regression_core_shared_with_broker": 1,
+  "broker_discovery_live_current_passed": 1,
+  "broker_discovery_live_missing_passed": 1,
+  "broker_discovery_live_duplicate_passed": 1,
+  "broker_discovery_orderly_release_unload_passed": 1,
+  "canonical_broker_packaged": 1,
+  "verified_abi6_table_prefix_canary": 1,
+  "observed_internal_anchors": 1,
+  "verified_dispatch_paths": 1,
+  "verified_hook_brokers": 1,
+  "verified_broker_stress_paths": 1,
+  "observed_semantic_commands": 1,
+  "observed_transactional_semantic_pulses": 1,
+  "observed_same_process_sessions": 2,
+  "verified_session_generation_rejection": 1,
+  "observed_interactive_garage": 1,
+  "observed_full_weekend_exits": 1,
+  "observed_restart_gate_return_6": 1,
+  "broker_abi_version": 15,
+  "broker_abi11_older_snapshot_prefix_compatibility_passed": 1,
+  "field_telemetry_static_build_passed": 1,
+  "field_telemetry_live_validation_passed": 0,
+  "observed_snapshot_vehicle_handles": 22,
+  "observed_poll_events": 23,
+  "observed_poll_events_dropped": 0,
+  "verified_snapshot_stale_session_rejection": 1,
+  "verified_snapshot_stale_object_rejection": 1,
+  "observed_session_environment_snapshots": 1,
+  "observed_session_snapshot_vehicle_count": 22,
+  "verified_second_session_snapshot_rejection": 1,
+  "observed_second_session_vehicle_handles": 22,
+  "observed_second_session_vehicle_snapshots": 1,
+  "live_opencode_processes": 0,
+  "live_schedulers": 0,
+  "game_processes": 0,
+  "blocker": "Deterministic broker regressions (event overflow/dropped accounting, hostile readers, within-session slot reuse) pass in the canonical sdk-test gate on broker_core.h shared with the live broker; live weekend validation of those same paths, timing/rules/track/camera/input snapshots, and semantic events remain",
+  "next_objective": [
+    "Resolve field_telemetry protected-initialization failure under Lightloader (or retire it from player packages) before live ABI-11 telemetry validation",
+    "Add timing, rules, track identity, camera, and input snapshots",
+    "Promote reviewed lap, pit, damage, failure, and race-control polling events"
+  ],
+  "deferred_objectives": [
+    "Build a guarded native scenario runner, starting with session exit/re-entry (tools/sdk/SCENARIO_RUNNER_SPEC_2026-09-30.md); most pending SDK capabilities wait only for native acceptance",
+    "Fix native resource ownership for the extra Safety Car across same-process race re-entry (public SC 0.10.66 second-load crash; development/mods/full_safety_car/trials/2026-09-23_session_reentry_crash/REPAIR_SPEC.md)"
+  ],
+  "safety": [
+    "Never exceed 50 OpenCode processes or 48 managed workers",
+    "Never modify production mods or the original executable",
+    "Never promote DeepSeek confidence as fact",
+    "Never rotate credentials except confirmed authentication failure with no active workers"
+  ],
+  "session_notes_2026_08_08": "Player suspension failure SHIPPED and DRIVER-CONFIRMED end to end (mods/extended_vanilla_features/patches/mechanical_failures/dll/suspension_failure.c, currently built as _v4.dll). The 2026-07-30 DISPROVEN suspension path is resolved: the control input is NOT a field write - it is the game's own call SteeringGeometryUpdate_00442060(0x7C7428, wheel, severity) (CollisionSparkParticleEffects_004ec1a0:515, player-gated by veh+0x32C8 role). DLL detours VehicleMainPhysicsUpdate_004441f0 (per-frame player physics; 0x4EBC60 is event-driven, unusable for on-demand) and calls the input at 20 Hz while armed. DRIVER-CONFIRMED handling effect (closes the 2026-07-29 open question - the bend is REAL geometry): stage 1 mild (~1-3 deg), stage 2 at 8x0.60 slammed to the +/-10 deg clamp, car pulled left, off-road, nearly undrivable; stage 2 retuned to 3x0.60 = RL -6.57 deg / RR +5.80 deg, driveable. Controls: Num7 cycles FAILING/FAILURE/COLLAPSED/off, Num8 cycles wheels REAR/FRONT/ALL (fix: Num8 must publish its mask into the ctl block or the change-detect re-adopts the stale 0x0C - 'does not change the tires'). GUI Suspension tab (F1C_SUSFAIL_CTL, ABI verified via live ctl writes). Radio eid 75 PWS_MECHPROB16 confirmed PLAYED every arm; repair restores clean. 10 findings rows appended; sdk-test green. Remaining: front-only bend not yet driven; canonical DLL filename locked by two dead double-injection copies until next game restart (then rebuild canonical, retire v2/v3/v4).",
+  "qualifying_preservation_20260907": {
+    "observed_changed_positions": 18,
+    "installed": false,
+    "evidence": "tools/sdk/QUALIFYING_PRESERVATION.md",
+    "script": "qualifying-order",
+    "observed_changed_laps": 6,
+    "status": "candidate-build-complete-live-validation-pending",
+    "native_candidate": "mods/sdk_sandbox/qualifying_preservation"
+  },
+  "safety_car_auditfix_20260907": {
+    "status": "linked-test-build-complete-gameplay-pending",
+    "product_evidence": "../development/mods/full_safety_car/LINKED_BUILD_2026-09-07.md",
+    "reviewed_abi": "DynMan_Restart cdecl(void), exact-target bytes",
+    "latched_inputs": [
+      "PassingNorm",
+      "TrackAggressionEffective"
+    ],
+    "scoring_override_removed": true,
+    "full_sdk_test": "PASS with explicit owner executable",
+    "candidate_sha256": "CA46DD17B0B28B8E7F30CA5271B85716A2D4B583D2EF1AC8BADD8564704B2F72",
+    "static_installed_broker_abi": 13,
+    "runtime_gameplay_verified": false
+  },
+  "restart_guard_chain_20260908": {
+    "status": "built and staged; full SDK tests pass; gameplay pending",
+    "abi": 13,
+    "semantics": "one guard per client; all callbacks run; any block cancels",
+    "sha256": "0710762AD4AEDD049A907C495D510B0D84C0FC8FBF9F00684BA1122D53099D31",
+    "evidence": "development/mods/full_safety_car/GUARD_CHAIN_FIX_2026-09-08.md"
+  },
+  "broker_preload_20260908": {
+    "status": "built, staged, full SDK pass; live preload and Safety Car deployment observed; full gameplay pending",
+    "abi": 14,
+    "broker_sha256": "10251E0FFBA09A5CF279B9FA275909A58C2740A9BE3A7DE9613DFC7B4D1C106A",
+    "safety_car_sha256": "2667AA32A8E5CFC17DB6CEDFCFB13AB24B1EA50DEDC4972AF0073A6B5A8477B1",
+    "evidence": "../development/mods/full_safety_car/PRELOAD_FIX_2026-09-08.md",
+    "runtime_verified": false,
+    "initialization_and_deployment_observed": true,
+    "activation_evidence": "../development/mods/full_safety_car/ACTIVATION_CONFIRMED_2026-09-08.md"
+  },
+  "local_yellow_20260908": {
+    "status": "deterministic gates passed, but v0.9.8 withdrawn after loading freeze; v0.9.7 restored; cause unconfirmed and runtime compatibility unverified",
+    "evidence": "../development/mods/full_safety_car/LOCAL_YELLOW_FIX_2026-09-08.md",
+    "dll_sha256": "D12ECC987D3E005354F015F533124BC8C7D6A80A0C5D0031DDBB6BA140B32DB4",
+    "runtime_verified": false
+  },
+  "placement_20260908": {
+    "status": "ABI reviewed; full SDK and product gates pass; v0.10.0 staged after game exit, installed hash verified; runtime pending",
+    "dll_sha256": "56A4E18B95E26534800CD9F0E2E1E2C4107056E1C844507DB6BF5D2A676C0B08",
+    "evidence": "../development/mods/full_safety_car/PIT_RESET_2026-09-08.md",
+    "runtime_verified": false
+  },
+  "ai_interaction_read_20260908": {
+    "contract": "tools/sdk/AI_INTERACTION_READ_2026-09-08.md",
+    "header": "tools/sdk/f1c_ai_interaction.h",
+    "canonical_sdk_test": "PASS",
+    "native_validation": "pending",
+    "writes": false,
+    "native_25ms_subscription": false
+  },
+  "car_restart_20260908": {
+    "contract": "tools/sdk/CAR_RESTART_REVIEW_2026-09-08.md",
+    "sdk_gate": "PASS",
+    "native_validation": "pending",
+    "safety_candidate": "v0.10.4",
+    "global_restart": false
+  },
+  "callback_recovery_20260908": {
+    "status": "installed verified candidate; pending native validation",
+    "abi": "14 optional capability extension, no existing layout changes",
+    "evidence": "../../../development/mods/full_safety_car/CALLBACK_RECOVERY_2026-09-08.md",
+    "sdk_gate": "passed",
+    "limits": "250ms current native callback only; default5ms; cleanup cannot preempt hung native work"
+  },
+  "pit_entry_marker_20260908": {
+    "status": "SDK gated; Safety Car v0.10.7 installed; native marker validation pending",
+    "header": "f1c_pit_marker.h",
+    "evidence": "../../../development/mods/full_safety_car/PIT_HANDOVER_2026-09-08.md",
+    "limitations": "horizontal distance to cached Xpitin world marker, not polygon-edge or route distance; pit-ownership fallback when unavailable"
+  },
+  "xpitin_cache_fix_20260908": {
+    "status": "SDK gated, live geometry read verified; v0.10.8 installed, native validation pending",
+    "diagnostic": "python tools/f1c_mod.py pit-marker-read",
+    "evidence": "../../../development/mods/full_safety_car/XPITIN_CACHE_FIX_2026-09-08.md",
+    "cause": "valid XPITIN local+matrix, optional world cache unset",
+    "live_distance_m": 52.12453812661102
+  },
+  "surface_contact_reader_2026_09_08": {
+    "header": "tools/sdk/f1c_surface_contact.h",
+    "evidence": "tools/sdk/SURFACE_CONTACT_REVIEW_2026-09-08.md",
+    "canonical_tests": "passed",
+    "native_validation": "pending",
+    "read_only": true
+  },
+  "weather_reader_2026_09_08": {
+    "header": "tools/sdk/f1c_weather.h",
+    "evidence": "tools/sdk/WEATHER_REVIEW_2026-09-08.md",
+    "canonical_tests": "passed",
+    "native_validation": "pending",
+    "read_only": true
+  },
+  "safety_car_guardrails_2026_09_08": {
+    "status": "independently verified and installed v0.10.16 candidate; native validation pending",
+    "header": "tools/sdk/f1c_session_guard.h",
+    "candidate": "development/mods/full_safety_car/trials/v0.10.16_guardrails",
+    "writes": false,
+    "limitations": "RF monitor is veto-only and not an atomic cross-mod coordinator; takeover avoids SC restoration writes after observed RF sequence activation",
+    "evidence": "tools/sdk/SESSION_GUARD_REVIEW_2026-09-08.md",
+    "canonical_tests": "passed",
+    "native_validation": "pending"
+  },
+  "vehicle_lifecycle_review_2026_09_08": {
+    "interface": "f1c_vehicle_lifecycle.h",
+    "command": "vehicle-lifecycle-read",
+    "deterministic_gate": "PASS including C and Python lifecycle tests",
+    "live_evidence": "Two retired garage cars, one track",
+    "native_full_cycle": "PENDING",
+    "record": "VEHICLE_LIFECYCLE_REVIEW_2026-09-08.md"
+  },
+  "broker_vm_timing_20260910": {
+    "policy": "ordinary 5ms: one overrun <=10ms allowed; consecutive overrun or >10ms quarantines; native 250ms unchanged",
+    "sdk_test_passed": true,
+    "native_validation_passed": false,
+    "record": "../development/mods/full_safety_car/VM_DIAGNOSTIC_INSTALLED_2026-09-10.md"
+  },
+  "dormant_garage_20260910": {
+    "record": "../development/mods/full_safety_car/DORMANT_GARAGE_FIXED_2026-09-10.md",
+    "original_incident_semantics_preserved": true,
+    "sdk_test_passed": true,
+    "native_validation_passed": false
+  },
+  "callback_policy_20260910": {
+    "ordinary_warning_us": 5000,
+    "sustained_us": 20000,
+    "sustained_count": 10,
+    "severe_us": 100000,
+    "native_us": 250000,
+    "sdk_tests": "passed",
+    "native_validation": "pending",
+    "record": "../development/mods/full_safety_car/IDLE_BUDGET_FIXED_2026-09-10.md"
+  },
+  "ai_restart_pending_20260910": {
+    "header": "tools/sdk/f1c_ai_restart_pending.h",
+    "status": "SDK gate passed; native validation pending",
+    "evidence": "../development/mods/full_safety_car/NATIVE_RESTART_EXCLUSION_2026-09-10.md",
+    "test": "tools/sdk/tests/test_ai_restart_pending.py"
+  },
+  "safety_car_status_20260910": {
+    "validation": "Full SDK gate passed; existing live ABI1 read succeeded",
+    "limitation": "Published current gates cannot reconstruct prior per-car blocker",
+    "read_only": true,
+    "command": "python tools/f1c_mod.py safety-car-status"
+  },
+  "safety_car_vehicle_diagnostics_20260910": {
+    "status": "Full SDK gate passed; live stable-simulation read succeeded",
+    "limitations": "Private movement/handled history not exposed; no write authority",
+    "command": "python tools/f1c_mod.py safety-car-status --vehicle-slot 20",
+    "evidence": "../development/mods/full_safety_car/MALCHAREK_DEEP_REVIEW_2026-09-10.md"
+  },
+  "start_stall_20260910": {
+    "header": "tools/sdk/f1c_start_stall.h",
+    "test": "tools/sdk/tests/test_start_stall.py",
+    "validation": "Canonical SDK gate and candidate policy tests pass",
+    "native": "v0.10.29 installed; fresh human test pending"
+  },
+  "engine_motion_20260910": {
+    "header": "tools/sdk/f1c_engine_motion.h",
+    "validation": "Full canonical SDK gate passed",
+    "test": "tools/sdk/tests/test_engine_motion.py",
+    "native": "v0.10.30 installed, native test pending"
+  },
+  "race_control_coordination_20260910": {
+    "status": "verified-private-candidate",
+    "header": "tools/sdk/f1c_race_control.h",
+    "test": "tools/sdk/tests/test_race_control.py",
+    "full_sdk_gate": "passed",
+    "evidence": "tools/sdk/RACE_CONTROL_COORDINATION_2026-09-10.md",
+    "native_validation": "pending",
+    "broker_abi_changed": false
+  },
+  "sc38_orientation_beta_20260914": {
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.38_beta_controls/README.md",
+    "state": "prepared_not_installed",
+    "broker_abi": 15,
+    "telemetry_abi": 2,
+    "verification": "full SDK + actual controls/orientation/geometry/planner tests + protected builds/package hashes pass",
+    "native": "pending; live pack failure recorded and false lapped wrap reproduced/corrected",
+    "front_door": "python tools/f1c_mod.py field-viewer --once --json",
+    "reader": "Restart existing elevated reader to obtain new MCP fields"
+  },
+  "removal_owner_sc41_rf81": {
+    "state": "verified_not_installed",
+    "evidence": "development/mods/full_safety_car/trials/v0.10.41_removal_owner/README.md",
+    "adapter": "tools/sdk/f1c_removal_options.h",
+    "tests": "canonical full SDK plus actual policy and protected query smoke pass",
+    "pending": "native ownership/removal/session restoration; prior field viewer failure"
+  },
+  "sc42_rf82_configurable_policy": {
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.42_release_names/README.md",
+    "state": "protected candidate builds, inherited and new policy/adapter/installer tests, full SDK gate pass; not installed",
+    "changes": "readiness return, identity/geometry retirement cooldown before clearance consumers, RF configured normal timers, public safetycar.dll/safetycar.ini migration",
+    "pending": "game closure, exact installation, native paired and solo gameplay/cleanup; field viewer initialization unresolved; no promotion"
+  },
+  "sc43_distance_gate": {
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.43_distance_gate/README.md",
+    "adapter": "tools/sdk/f1c_race_distance.h",
+    "state": "protected build, actual reader/config/policy tests, inherited regressions, upgrade fixture and full SDK gate pass; not installed",
+    "pending": "game closure, exact install and native5/10/20 percent/manual/automatic/custom cutoff tests; inherited release blockers remain"
+  },
+  "sc_finish_lifecycle_20260914": {
+    "state": "confirmed phase8 cleanup reachability bug; no implementation",
+    "evidence": "../development/mods/full_safety_car/trials/finish_lifecycle_investigation_20260914/README.md",
+    "verified": "native phase8/10laps, raw winner+subsequent-finisher transitions, extracted gate/actual session-guard reproduction",
+    "affects": "installed SCv038 and uninstalledv043",
+    "next": "dedicated post-finish ownership cleanup and SC return policy, native staggered finish validation"
+  },
+  "sc_finish_cleanup_20260914": {
+    "state": "v0.10.44r2 protected candidate verified, not installed",
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.44_finish_cleanup/README.md",
+    "verified": "actual adapter and inherited regressions, protected build, canonical SDK gate, final installer fixture",
+    "pending": "native per-finisher cleanup, last-finisher SC pit return, next-session deployment; game running; no promotion"
+  },
+  "sc_beta_messages_20260914": {
+    "state": "SC0.10.45/RF83 protected candidate installed with verified backups",
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.45_beta_messages/README.md",
+    "verified": "HUD actual adapters, full inherited SC and SDK gates, protected RF boundary/build, installer fixtures, exact installed hashes",
+    "pending": "native finish/parking and ordinary paid-member activation; not published"
+  },
+  "sc_plugin_ini_20260914": {
+    "state": "v0.10.46 installed; all old settings preserved",
+    "config": "plugins/lightloader/safetycar.ini beside DLL; no root/CWD fallback",
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.46_plugin_ini/README.md",
+    "verified": "actual path helper, inherited tests, protected build, SDK gate, migration/new install and installed hashes",
+    "pending": "existing native beta validation gates unchanged"
+  },
+  "sc_hud_spam_20260914": {
+    "state": "v0.10.47r2 protected build and regression/SDK/installer tests pass; not installed, game running",
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.47_hud_notifications/README.md",
+    "pending": "game closure for installation, native HUD expiration and remaining beta release gates"
+  },
+  "sc_exit_cleanup_20260914": {
+    "pending": "native mid-SC exit/results/all-racer retention and next-session validation",
+    "state": "SC0.10.48 and optional ABI15 broker installed; exact verified hashes match; 75 SC and 53 RF settings preserved",
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.48_session_exit/README.md"
+  },
+  "sc_esc_results_20260914": {
+    "pending": "all real drivers retained and next-session cleanup not explicitly confirmed; broader finish/parking and paid-member gates remain; no publication",
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.49_esc_results/README.md",
+    "state": "v0.10.49 installed; owner confirms Bernd absent from ESC results; native exclusion test passed"
+  },
+  "qualifying_portability_20260914": {
+    "evidence": "mods/sdk_sandbox/qualifying_preservation/trials/2026-09-14-portability/RESULT.md",
+    "state": "compatibility candidate built and installed; Online/modified offline native checks and full SDK gate pass",
+    "installed_sha256": "9B1AFA5F1F59CCE77092F1E5EE8F39DE7F21E818BC9E5872A16DC9E34B1C99EE",
+    "pending": "human guarded-weekend FINISH/NEXT qualifying preservation on both variants; no universal-engine or public-release claim"
+  },
+  "race_data_collector_20260914": {
+    "evidence": "../development/mods/race_data_collector/STATUS.md",
+    "state": "0.2.2 collector and Narrative bridge installed 2026-09-15; installed report regression passes; article-generation readiness documented",
+    "pending": "Native SC/RF lifecycle/performance acceptance; legacy mapping attribution and full cross-RF-segment reconstruction limited; no promotion"
+  },
+  "sc_inverted_removal_20260915": {
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.59_inverted_audio/VERIFICATION.md",
+    "state": "SC59 built and SDK verified, not installed; SC58 loaded",
+    "verification": "history/ABI/native prefix and inherited SC/protected DLL/SDK tests pass",
+    "pending": "game close then exact-hash install; native retirement/collision and audio validation"
+  },
+  "sc_engine_stop_20260915": {
+    "state": "SC60 built not installed; owner replaced SC59 timer approach",
+    "evidence": "../development/mods/full_safety_car/trials/v0.10.60_inverted_engine/VERIFICATION.md",
+    "verification": "actual native engine-off on captured struct and confirmation tests; inherited build passes; see sdk-test.txt",
+    "pending": "game close then installation; native engine shutdown/retirement/audio"
+  },
+  "pit_ai_mechanics_20260921": {
+    "state": "AI engine stop/restart and terminal diagnosis/native garage trial loaded; two native DNF/garage results",
+    "evidence": "tools/sdk/AI_PIT_FAILURE_REVIEW.md",
+    "verification": "SDK gate passed; 60k selected plans and adapter fixtures; Michael/Ralf garage observed, Sarrazin zero engine then restart",
+    "pending": "Second pair Ralf/Alonso mechanically completed; human visual/radio validation remains. Fire, per-car fuel suspension and player retirement absent"
+  },
+  "rf_restart_fuel_20260921": {
+    "state": "Native fuel mirror restoration and complete native penalty-mode fingerprint implemented in RF89 development; not installed",
+    "evidence": "tools/sdk/RESTART_FUEL_REVIEW_2026-09-21.md",
+    "verification": "Full SDK gate sdk-test-r3; actual native fuel bytes executed against isolated player/AI buffers with relocated private mirror; all byte mutations and bounds refused",
+    "pending": "Native weekend acceptance; independent service options, latest pre-service state, new penalty events/deadline freeze, results conclusion and terminal relocation remain incomplete"
+  },
+  "pit_voice_allowlist_repair_20260923": {
+    "state": "EID50 and EID57 admitted after live r13 XPITIN refusal; r19 pit client built, verified and staged in closed game with exact hash readback",
+    "evidence": "../development/mods/pitstop_modding/verification/xpitin-slow-wheel-audio-2026-09-23/REPORT.md",
+    "verification": "r19 actual-client allowlist and busy retry fixture, short tyre sound schedule fixture, full SDK gate pass",
+    "pending": "owner full-weekend audible XPITIN, selected-corner clear and wheel SFX timing validation"
+  },
+  "pit_crew_windows_20260923": {
+    "state": "bounded read-only crew actor/channel snapshot added to SDK and staged in pit-failure r13 trial; not gameplay accepted",
+    "evidence": "../development/mods/pitstop_modding/verification/crew-windows-2026-09-23/REPORT.md",
+    "verification": "actual-client synthetic four-corner, invalid-channel/count/pointer fixture; full SDK gate and panel contract tests pass; staged hash 04E887F2FC570AF1BAC31CC6B8A262EC821088EE0585BAC1866EBCBB7638E4A6",
+    "pending": "full-weekend player actor/window observation and audio/session-reset acceptance; raw channel ranges must not drive audible timing without simultaneous calibration"
+  },
+  "pit_garage_results_port_20260923": {
+    "state": "verified; pit and broker staged; native failure-path validation pending",
+    "evidence": "../development/mods/pitstop_modding/verification/broker-results-port-2026-09-23/REPORT.md",
+    "pit_sha256": "F98659078E883F86C0024DBF7DF8E0DA76B79AFF7914A4944D88F0A8CB584ECA",
+    "broker_sha256": "430115BCB036B450DE2E0BAE16E67DA3FDBC727575BC36E8D70ADA92995DB505",
+    "contract": "ABI15 optional GARAGE_RESULTS bit14; advertised only after hook install; pit requires it; no ESC client needed",
+    "verification": "actual pit worker -> both monitor eligibility; actual GetInfo/ABI masking/native ESC/UI fixture; build and full SDK pass",
+    "pending": "load staged pit DLL into next guarded game; player pit failure -> garage -> one icon -> populated results -> ACCEPT"
+  },
+  "checkpoint_summary_refresh_20260930": {
+    "state": "Checkpoint summary refreshed by owner-authorized review: updated_at, broker_abi_version 11 -> 15 (f1c_broker_abi.h), next_objective rewritten from the September pending fields (ESC live validation removed: v1.0.2 published and owner-validated per esc_pause_dq_variant_candidate_20260923).",
+    "evidence": "tools/sdk/CURRENT_STATE.md; tools/sdk/LLM_TOOLING_IMPLEMENTATION_LOG.md",
+    "verification": "start --json freshness.stale false after refresh; sdk-info conflicts empty",
+    "pending": "Objectives 1-3 are new; objective 4-5 carried over unchanged"
+  },
+  "objectives_deferred_20260930": {
+    "state": "Owner deferred the scenario runner and the extra-SC re-entry crash fix (2026-09-30): testing stays in person for now. Both moved from next_objective to deferred_objectives; the scenario runner specification stays as the plan when resumed.",
+    "evidence": "tools/sdk/CURRENT_STATE.md; tools/sdk/SCENARIO_RUNNER_SPEC_2026-09-30.md",
+    "pending": "Resume only on owner request"
+  },
+  "web_telemetry_compatibility_20261008": {
+    "state": "4.1.0-rc.1 private candidate offline verified; no native acceptance or production promotion",
+    "evidence": "mods/sdk_sandbox/web_telemetry/AUDIT_2026-10-08.md",
+    "verification": "24630 focused assertions, synthetic HTTP/JS and full SDK gate PASS",
+    "dll_sha256": "C0C52A913BFD5F2E190E732A50BEA297CB21F2AF330F4186202096FC46A1FFAF",
+    "pending": "Friend same-car/track repeated entry full-weekend test; dump required for causal d3d8 attribution"
+  },
+  "web_telemetry_ui_review_20261008": {
+    "date": "2026-10-08",
+    "state": "UI/corpus/mod investigation complete; 20 findings and provider/roadmap proposal, no runtime changes",
+    "target": "Lightloader manager 2.2.7, pinned 2.2.6 loader, broker ABI 15",
+    "pending": "Correctness implementation and native full-weekend/combined-mod validation; crash causality still open",
+    "evidence": "mods/sdk_sandbox/web_telemetry/UI_CORPUS_REVIEW_2026-10-08.md"
+  },
+  "web_telemetry_remote_rc2_20261008": {
+    "date": "2026-10-08",
+    "state": "4.1.0-rc.2 restores Tailscale/LAN TCP 8080; focused real-interface socket checks and full SDK gate PASS",
+    "dll_sha256": "E0C77D65D4D427B01897D62E1944DA612BD30ED186FF8997CC1504F28AF9269E",
+    "pending": "Native friend gameplay and actual cross-PC Tailscale acceptance; crash causality remains open",
+    "evidence": "mods/sdk_sandbox/web_telemetry/REMOTE_ACCESS_RC2_2026-10-08.md"
+  },
+  "web_telemetry_repairs_20261009": {
+    "date": "2026-10-09",
+    "state": "rc.1 native comparison failed; rc.2 private repair candidate fixes distance, selection/refresh, identity, partial laps, elapsed time, empty-team containment, retention and narrow UI",
+    "dll_sha256": "BA87BC2E6690C8E75D5E8EA96442E0DF7C743C420D85F30E3165FCCE50467FD4",
+    "verification": "41074 runtime assertions, HTTP on 18080, actual Engineering Node controller, browser preview, full SDK gate PASS; two identical builds",
+    "pending": "Exact tested rc.2 installed with game closed at 08:38 UTC; owner guarded startup and live retest pending, plus human presentation, native overhead/channels and cross-PC Tailscale. Shared broker roster producer defect recorded separately.",
+    "evidence": "mods/sdk_sandbox/web_telemetry/REPAIRS_2026-10-09.md; mods/sdk_sandbox/web_telemetry/VERIFICATION_MANIFEST.json"
+  },
+  "web_telemetry_native_boundary_20261009": {
+    "date": "2026-10-09",
+    "state": "rc.2 native complete-lap acceptance failed: early lap counter before distance wrap; rc.3 repairs boundary handling and adds immediate Engineering live snapshots/progress",
+    "pending": "rc.3 exact candidate not installed; game exit/replacement and guarded native/human retest required",
+    "evidence": "mods/sdk_sandbox/web_telemetry/NATIVE_BOUNDARY_REPAIR_2026-10-09.md"
+  },
+  "legacy_telemetry_stop1_20261009": {
+    "date": "2026-10-09",
+    "state": "STOP 1 of the legacy telemetry assignment: viewer is a VB6 p-code app (MSVBVM60-only imports, 1646 native bytes); isolated viewer IDB created via new front-door ida-new-project (IDB 3E66F6DC); ida-survey added; 171-file inventory, PE report and full native function coverage (50 thunks + 78 p-code stubs + 6 glue, 0 unresolved) recorded in web_telemetry/legacy_dossier; tooling suite PASS",
+    "pending": "STOP 2: VB6 p-code/project parsing, .spt/.lap/.dat schemas from live samples, Telemetry.doc extraction; review stop before continuing",
+    "evidence": "mods/sdk_sandbox/web_telemetry/legacy_dossier/STOP1_LEGACY_TELEMETRY_2026-10-09.md; mods/sdk_sandbox/legacy_telemetry/README.md"
+  },
+  "legacy_telemetry_stop2_20261009": {
+    "date": "2026-10-09",
+    "state": "STOP 2 of the legacy telemetry assignment: own VB6 p-code parser (13 objects, 207 methods, 195 RTMI, 207 exits; 195/195 back-pointer invariant; 30/30 tests PASS) and own CFB reader extracting Telemetry.doc (Word 6/95, 12773 chars) with a doc-vs-executable comparison; STOP 1 review corrections applied (coverage wording, RPM finding downgraded, README links)",
+    "pending": "STOP 3 (channel ledger, RPM investigation result, workbench design) after review; figure extraction and MPH/wear-scale checks remain open",
+    "evidence": "mods/sdk_sandbox/web_telemetry/legacy_dossier/STOP2_LEGACY_TELEMETRY_2026-10-09.md; PCODE_TABLES_f1_telemetry_2026-10-09.json; DOC_VS_EXECUTABLE_2026-10-09.md"
+  },
+  "legacy_telemetry_stop2r_20261009": {
+    "date": "2026-10-09",
+    "state": "STOP 2R revised submission: strict format decoders (spt/lap/dat/svm/cfg/ini, 32/32 tests), all 207 methods classified (195 RTMI + 12 no-RTMI), exit-terminator mismatch resolved, layout grammar and distance-axis evidence from method string refs; viewer never launched; .spt was being rewritten by the owner during analysis",
+    "pending": "Review of STOP 2R; then STOP 3 (channel ledger, RPM investigation, workbench design); open: .spt data stride, .lap obfuscated block, .dat trailer, distance formula",
+    "evidence": "mods/sdk_sandbox/web_telemetry/legacy_dossier/STOP2R_LEGACY_TELEMETRY_2026-10-09.md; FORMAT_SPECS_f1_telemetry_2026-10-09.md; METHOD_INDEX_f1_telemetry_2026-10-09.json"
+  },
+  "legacy_telemetry_stop3_20261009": {
+    "date": "2026-10-09",
+    "state": "STOP 3R revision (documentation-only) answering the STOP 3 review NOT ACCEPTED verdict: ledger corrected - car x/z is natively exposed for ALL cars (WorldPositionX/Z veh+0x34E0/+0x34E8 via broker world_x/world_z and /telemetry px/pz, mx/mz; /track line; y exposed/unused, yaw matrix FACT + DERIVED angle); LIVE player/AI workbench design mapped onto /trace/*, /track and SSE with new items named (G-G scatter, rpm/gear/track-position trace fields, open-lap drawing, LIVE/partial/completed/frozen, freeze/resume, linked cursor, missing-data reasons); live budgets added (2 traced vs 22 streamed, 20 Hz capture / 10 Hz SSE, 31,016 B frame measured, 16-client cap, no catch-up on reconnect); port 8080 removed and owned by parallel task A; player steering P+0x000/P+0x040 stays OPEN with the exact next-race check; validator 2 pre-existing errors/0 warnings; 56/56 + 30/30 tests retained from STOP 3",
+    "pending": "Review of STOP 3R; STOP 4 (workbench implementation + tests) only after the owner confirms parallel port task A landed - no web_telemetry.c edits before that; then STOP 5 (candidate hash, native/browser acceptance, docs/findings/checkpoint)",
+    "evidence": "mods/sdk_sandbox/web_telemetry/legacy_dossier/STOP3_LEGACY_TELEMETRY_2026-10-09.md (STOP 3R sections 4-7); STOP3_CLAUDE_REVIEW_2026-10-09.md; FORMAT_SPECS_f1_telemetry_2026-10-09.md; FORMATS_f1_telemetry_2026-10-09.json"
+  },
+  "web_telemetry_port_config_20261009": {
+    "date": "2026-10-09",
+    "state": "Web Telemetry rc.4 private candidate: configurable [Mod] Port (default 8080, 1024-65535, read once at init), bind fallback +1..+5 (8081-8085), HTTP-disabled no-crash path, /health and page footer report the actual bound port; carries the rc.3 crossing fix and closes the observed bind port 8080 failed: 10048 silent collision",
+    "dll_sha256": "22062C6DFC3FE22F3A46A597ED037655A28BAE51BAD441EA54DB771897D583B6",
+    "verification": "41,106 runtime assertions plus new end-to-end HTTP gates (occupied-port fallback, all-occupied disabled, TELEMETRY_INI-selected port, invalid ini), two identical builds, full SDK gate PASS",
+    "pending": "rc.4 exact candidate built, NOT installed (installed rc.2 unchanged); game exit/replacement, guarded native weekend with a held port and human acceptance pending",
+    "evidence": "mods/sdk_sandbox/web_telemetry/PORT_CONFIG_2026-10-09.md; mods/sdk_sandbox/web_telemetry/VERIFICATION_MANIFEST.json"
+  },
+  "web_telemetry_stop4_prep_20261009": {
+    "date": "2026-10-09",
+    "state": "STOP 4 preparation (owner-directed, before parallel port task A): C port of the legacy decoders in a separate file (legacy_dossier/c/legacy_formats.{h,c}; .lap + .spt, fail-closed, STOP 3R import bounds, payload rows, shared RPM factor 9.549296585513721 with lf_rad_s_to_rpm) with its offline harness passing 70 checks 0 failures against the real torn telemetry.spt and the real reference lap plus synthetic/hostile fixtures; UI/JS workbench draft (stop4_draft/workbench.js + mock_data.js + workbench.html + README) implementing the accepted live player/AI design, Node suite 18/18 including the raw-rad/s-never-labeled-as-RPM guard; STOP4_TEST_PLAN gates G1-G7; Tailscale/remote SSE cost recorded (31,016 B frame at 10 Hz = 310,160 B/s ~2.48 Mbit/s per client, 16-client cap ~4.96 MB/s) and A/B trace payloads bounded (524,288 B responses; measured exports A 218,453 B / B 328,121 B; <=1000 compare points; 80 B/sample <=2.7 MiB). No web_telemetry.c edit; the only existing file touched is the component README (one additive link line, before-state preserved).",
+    "pending": "Parallel port task A landing + review (owner gate) then STOP 4 execution: integrate the decoder into the build and POST /trace/import/legacy, trace rpm/gear/tx-tz additions (64->80 B) and open-lap serving, fix the existing RPM gauge/race-log labels, wire the draft UI into the Engineering tab, run gates G1-G7 and record the candidate hash; STOP 5 follows.",
+    "evidence": "mods/sdk_sandbox/web_telemetry/legacy_dossier/STOP4_PREP_2026-10-09.md; STOP4_TEST_PLAN_2026-10-09.md; c/README.md; stop4_draft/README.md; c/legacy_formats_test.c 70/70; stop4_draft/rpm_test.js 18/18"
+  },
+  "web_telemetry_stop4_rc5_20261009": {
+    "date": "2026-10-09",
+    "state": "STOP 4 executed: Web Telemetry 4.2.0-rc.5 candidate (SHA256 696E83CF5F9ADA0C73AAE077A5A1E8FAAB35932D73EF1435CD2E5A9F43A46D41, reproducible, NOT installed) integrates the legacy workbench on the reviewed rc.4 base (port + crossing preserved): C decoders compiled in with mem entry points and POST /trace/import/legacy (bounded 16 MB, conversion listed, per-side cache + GET route); trace 64->80 B with converted rpm/gear/tx-tz, /trace/open open-lap serving, CSV/compare/status additions and a truncation marker; RPM gauge/cross-check/race-log labels corrected (log: rpm converted + rpm_rad_s raw); workbench_ui.js sidecar served at /workbench.js with the product /workbench page and dashboard link; parallel-C formulas reused (velocity mph /2.2371365, accel g x9.8, spt distance/speed DM#8, UI delta DM#14; tyre/damper cited not carried). Verified: 41,536 runtime checks, C decoder 70/70, Node 21/21, Python parity pass, HTTP/Node gates (workbench/import/open/port) PASS, full SDK gate PASS, validator unchanged (2 pre-existing errors). Before-states under workspace_organization_audit/WEB_TELEMETRY_STOP4_BEFORE_2026-10-09/.",
+    "pending": "STOP 5: owner closes the game and installs the exact rc.5 candidate via the guarded route; native full-weekend acceptance (crossing + workbench/import + RPM display), browser screenshots, packaging note for the workbench_ui.js sidecar, steering and rev-limit read-only checks on the next race; manifest/checkpoint finalization.",
+    "evidence": "mods/sdk_sandbox/web_telemetry/STOP4_WORKBENCH_IMPLEMENTATION_2026-10-09.md; VERIFICATION_MANIFEST.json; %TEMP%/f1c-web-telemetry-4.2.0-rc.5/web_telemetry.dll; findings web-telemetry-stop4-workbench-rc5-20261009, legacy-lap-units-mph-g-20261009"
+  },
+  "web_telemetry_stop5_rc6_20261009": {
+    "date": "2026-10-09",
+    "state": "STOP 5 acceptance for Web Telemetry 4.2.0-rc.6 (DLL SHA256 7E1A690B83803856722F66193B75EF7C3A2A2946CEAA1C3EABF6894523C7626E reproducible, sidecar workbench_ui.js C095A07E..., NOT installed): both STOP 4 review fixes implemented - (1) sidecar carried with hash by mod.json/f1c_mod.json/dll.mod.json, build.bat and the rc.6 install/restore map; new sha256.c/h makes /health report workbench_ui.present/bytes/sha256; missing-sidecar page tested (404 + reinstall hint + present:false); (2) import POST requires application/octet-stream (415 otherwise), OPTIONS preflight 405 without allow header, ACAO:* only on GET /events; /action audited (GET-only 403, no state change, no CORS) with behavior unchanged. Gates: 41,543 runtime checks, HTTP/Node matrix (CORS, sidecar hash == hashlib, missing-sidecar, workbench/import/port), C 70/70, Node 21/21, Python parity, full SDK gate PASS, validator unchanged. STOP 5 pack: four SYNTHETIC-labeled screenshots + LIVE_ACCEPTANCE_CHECKLIST_2026-10-09.md (L1-L8: install DLL+sidecar, Hockenheim crossing, port fallback vs llama-server, live A/B incl. AI, RPM 4k/18k, steering P+0x000/0x040, rev-limit 0x39A4, reference lap import) + restoration map.",
+    "pending": "Owner install of the exact rc.6 pair (DLL + workbench_ui.js) and execution of L1-L8 with evidence; record results in the checklist copy + STOP5 record, update VERIFICATION_MANIFEST native_validation/installed, append steering/rev-limit outcomes to findings.jsonl; then promotion decisions.",
+    "evidence": "mods/sdk_sandbox/web_telemetry/STOP5_ACCEPTANCE_2026-10-09.md (85EDBC3A...); STOP5_ACCEPTANCE_2026-10-09/ (README DC582E2E..., checklist 9F1B67B2..., screenshots); VERIFICATION_MANIFEST.json (0E18F86D...); findings web-telemetry-stop5-rc6-fixes-20261009"
+  },
+  "web_telemetry_zz_backend1_rc7_20261009": {
+    "date": "2026-10-09",
+    "state": "BACKEND 1 READY: Web Telemetry 4.2.0-rc.7 candidate (DLL SHA256 FDE5D209804E1B3374F1D38D7A5DB7CD80918C5BEC97E049C428A85895A8C53C reproducible, sidecar C095A07E..., NOT installed). STOP 5 review defect fixed: staged workbench_ui.js was CRLF because test_telemetry.py text-mode-wrote it back into the build dir; served copy now write_bytes as workbench_ui_served.js; build.bat runs verify_sidecar.py (source==staged==manifest) and test_telemetry asserts it pre-server; /health reports workbench_ui present/bytes/sha256/expected/matches with the manifest-pinned hash embedded. Endpoint audit (BACKEND 1 item 3): 5 s slow-client header deadline; qs_get key-boundary (substring aliases refused); graceful close FIN+200 ms drain (fixes the refused-POST RST flake); JSON error shape for 400/404/405/413/415; oversized import body 413; HEAD body suppressed; id buffer init; duplicates first-wins; SSE cap 16 tested; CORS posture unchanged. Verification: canonical 41,545 runtime checks + HTTP/Node gates (staging, audit, robustness: slow client/oversized line/SSE cap, workbench/import/port) PASS; C decoder 73/0 and Python parity 58/0 against the pinned hashed torn fixture after the game rewrote the live telemetry.spt (first non-zero event records observed, 1998 Silverstone); SDK gate PASS; validator unchanged; two-build reproducible.",
+    "pending": "BACKEND 2 (frozen API contract + JSON schemas + contract tests + api_version; frontend needs incl. run metadata and counters), BACKEND 3 (lifecycle/robustness fixtures, all-cores soak/concurrency/fuzz per the owner CPU rule), BACKEND 4 (next-rc candidate, install/restore, backend live checklist + read-only live-check script).",
+    "evidence": "mods/sdk_sandbox/web_telemetry/BACKEND1_ENDPOINT_AUDIT_2026-10-09.md; VERIFICATION_MANIFEST.json; %TEMP%/f1c-web-telemetry-4.2.0-rc.7/web_telemetry.dll; findings web-telemetry-backend1-rc7-20261009, spt-live-rewrite-event-records-20261009"
+  },
+  "web_telemetry_zz_backend2_rc8_20261009": {
+    "date": "2026-10-09",
+    "state": "BACKEND 2 READY: Web Telemetry 4.2.0-rc.8 candidate (DLL SHA256 5764AEEE54D08697B7920F72E134FC742DDDC8C33AB4FD04624677F690B8A434 reproducible, sidecar C095A07E..., NOT installed). Owner conditions done: before-states hash-verified before edits (WEB_TELEMETRY_BACKEND2_BEFORE_2026-10-09, 14 files); clean payload dir payload/ (exactly DLL + workbench_ui.js + ini + mod manifest, no test artifacts) populated by build.bat and gated by verify_payload.py + test_telemetry; install route and manifest hashes point at payload/. Frozen contract: API_CONTRACT_2026-10-09.md + 11 JSON Schemas + version.json (api_version 1, schema_set_sha256 71CDE7F4...) + /health api_version + contract_validate.py gate validating every live document, the SSE payload and an error document (jsonschema 4.25.1, self-tested; schema edits without a version bump fail). Gates: canonical 41,546 runtime checks + payload/contract/audit/robustness/port/workbench HTTP gates PASS; C decoder 73/0; Python parity 58/0; Node 21/0; SDK gate PASS; validator unchanged; two-build reproducible.",
+    "pending": "BACKEND 3 (lifecycle/robustness fixtures: Hockenheim sequences, selection/identity/generation/track/replay/pause/pit/DNF/teardown/SSE reconnect; measured all-cores soak + 16-client + slow-client + worst-case payloads + game-callback CPU; bounded import fuzzing with recorded seeds per the owner CPU rule), BACKEND 4 (final candidate, install/restore, backend live checklist + read-only live-check script).",
+    "evidence": "mods/sdk_sandbox/web_telemetry/BACKEND2_API_CONTRACT_2026-10-09.md; API_CONTRACT_2026-10-09.md; schemas/; VERIFICATION_MANIFEST.json; %TEMP%/f1c-web-telemetry-4.2.0-rc.8/web_telemetry.dll; findings web-telemetry-backend2-rc8-20261009"
+  },
+  "web_telemetry_zz_backend2fixes_rc9_20261009": {
+    "date": "2026-10-09",
+    "state": "BACKEND 2 FIXES READY: Web Telemetry 4.2.0-rc.9 candidate (DLL SHA256 F2ED924A2C1CF46524837298B855120F7C9AD51561EE5F45EB5B895BBFA3E4B5 reproducible, sidecar C095A07E..., NOT installed). All four accepted BACKEND 2 review fixes done and contract bumped to api_version 2: (1) /telemetry rpm/max_rpm converted display RPM with raw r/mr documented rad/s and a schema rule that no RPM-labelled field documents rad/s; (2) stable lap identity lid {gen,rev,slot,lap,src} on status/data/compare with explicit eviction (status evicted[], 404 evicted:true/false, 409 stale gen/rev pins) and /trace/compare accepting an imported lap (lapA/lapB=import) on either side; (3) player steering unavailable with reasons (/telemetry steerwhy, /trace/status unavailable_why), AI steering unchanged; (4) candidate payload staging moved to %TEMP% with verify_payload.py refusing a workspace payload dir, and the former workspace payload/ quarantined via retention.py purge --only to %USERPROFILE%/F1_QUARANTINE_2026-10-09 (build_staging), not deleted; retention.py gained the narrow BUILD_STAGING entry + --only restriction. Before-states of all 33 edited/referenced files hash-verified first (WEB_TELEMETRY_BACKEND2_FIXES_BEFORE_2026-10-09). Gates: canonical 41,584 runtime checks + payload/contract/audit/robustness/port/workbench HTTP gates PASS; Node 3/3; SDK gate PASS; validator unchanged; two-build reproducible. Contract: API_CONTRACT_2026-10-09.md api_version 2, schema_set_sha256 737179FD....",
+    "pending": "BACKEND 3 (lifecycle/robustness fixtures: Hockenheim Michael/Ralf counter-before-wrap sequences, first partial lap, mid-lap selection, identity/control-mode change, session generation, track change, replay/rewind, pause, pit/garage/out-lap, DNF/retire, teardown/unload, SSE disconnect/reconnect; measured resource gates: all-cores soak, 16 SSE clients + slow client, worst-case payloads, game-callback CPU; bounded .lap/.spt import fuzzing on all logical cores with recorded seeds), BACKEND 4 (final candidate, install/restore, backend live checklist + read-only live-check script).",
+    "evidence": "mods/sdk_sandbox/web_telemetry/BACKEND2_FIXES_2026-10-09.md; API_CONTRACT_2026-10-09.md; schemas/ (version.json 737179FD...); VERIFICATION_MANIFEST.json; %TEMP%/f1c-web-telemetry-4.2.0-rc.9/web_telemetry.dll; workspace_organization_audit/WEB_TELEMETRY_BACKEND2_FIXES_BEFORE_2026-10-09/; findings web-telemetry-backend2fixes-rc9-20261009"
+  },
+  "web_telemetry_zz_backend3_rc9_20261009": {
+    "date": "2026-10-09",
+    "state": "BACKEND 3 READY: Web Telemetry 4.2.0-rc.9 (DLL SHA256 77E8B7987641D3C1F1946B0801274DE855216AE25278B4F41330258B5AF6C636 reproducible, sidecar C095A07E..., NOT installed) now carries the lifecycle/robustness gates on top of the BACKEND 2 fixes (api_version 2). runtime_test.c replays the exact Hockenheim counter-before-wrap Michael/Ralf tuples and covers first partial lap/mid-lap attach, identity/control-mode change, session generation change, defensive track-change reset (new rec_lap_len identity guard), replay/rewind, pause (no fabricated samples, grid holes), pit/garage/out-lap (PITTED carried into the completed lap), DNF/retire and teardown. Measured all-cores gates (robustness_backend3.py, workers = 20 logical CPUs detected at runtime): worst-case docs bounded (telemetry 129,028; trace_data 524,160; compare 211,762; status 2,949; track 66,019 B); soak 20 x 22-car shards x 2.00 h race time (144,000 ticks) in ~15 s wall at ~78% CPU (final gate 77.8%), flat working set (warm delta 0 KB), laps>=50/side, evictions <= 8; bounded import fuzzing 40 shards x 2,000 = 80,000 deterministic decodes (seeds 2001-2040), 21,082 ok / 58,918 refused, 0 crashes, corpus+results in %TEMP% (final gate corpus f1c-web-telemetry-import-fuzz-grxfev4p); SSE ~9-10 Hz, reconnect without catch-up, 16 drained clients + refused 17th + slow peer reaped; callback-only per-sample CPU p50 168.6us p95 208.7us (single-threaded by design). Defect root-caused: the old SSE cap test was timing-dependent (held streams never drained; the 17th receives SSE headers before the cap check); fixed deterministically, three consecutive full gates pass. Gates: canonical 41,626 runtime checks PASS; Node 3/3; SDK gate PASS; validator unchanged; reproducible.",
+    "pending": "BACKEND 4 (final candidate + install/restore + backend live checklist + read-only live-check script; owner closes the game, installs the exact pair and runs one full-weekend race for the native gates: Hockenheim crossing, port fallback, RPM ~4k/18k, steering/rev-limit checks, freeze, .lap import, export round trip, memory).",
+    "evidence": "mods/sdk_sandbox/web_telemetry/BACKEND3_ROBUSTNESS_2026-10-09.md; BACKEND2_FIXES_2026-10-09.md; runtime_test.c; robustness_backend3.py; test_telemetry.py; VERIFICATION_MANIFEST.json; %TEMP%/f1c-web-telemetry-import-fuzz-grxfev4p/resource_results.json; %TEMP%/f1c-web-telemetry-4.2.0-rc.9/web_telemetry.dll; findings web-telemetry-backend3-rc9-20261009"
+  },
+  "web_telemetry_zz_backend4_rc10_20261009": {
+    "date": "2026-10-09",
+    "state": "BACKEND 4 READY: Web Telemetry 4.2.0-rc.10 final backend candidate (DLL SHA256 1BA4C53236587C739FF332E6DD71B98349C3F0AD88F05781E8EED950C7311B5B reproducible, sidecar C095A07E..., NOT installed; api_version 3). Backend complete: frozen contract v3, workbench, endpoint hardening, clean %TEMP% payload staging, BACKEND 3 lifecycle/robustness gates. BACKEND 4 added per the BACKEND 3 review: (1) native game-thread capture cost measured with QPC in the broker callback and published in /health capture_cost_us {samples,p50,p95,max,rate_per_s} + the 10 s log line, with the checklist limit p95 < 500 us and no owner-reported frame hitch, plus /health memory.working_set_kb; (2) read-only live_check.py records capture time (UTC/sample_age_ms/sample_sequence) and sim time per poll and fails on identical samples (paused frame != pass), writing a dated LIVE_CHECK record; (3) the live checklist L1-L15 and the script exercise the api_version 2 additions (reference kept across a crossing or explicit evicted:true, evicted[] reporting, imported lap on either compare side, player steering unavailable with reason). Install/restore map workspace_organization_audit/WEB_TELEMETRY_BACKEND4_INSTALL/INSTALL_RESTORATION.json (DLL + dll.mod.json + sidecar + ini, before/after hashes). Before-states: WEB_TELEMETRY_BACKEND4_BEFORE_2026-10-09 (34 files). Gates: canonical 41,631 runtime checks PASS with api_version 3 pinned and all BACKEND 3 resource/SSE gates retained; live_check smoke 18 PASS/2 WARN/0 FAIL; SDK gate PASS; validator unchanged; two-build reproducible.",
+    "pending": "OWNER native gate: close the game, install the rc.10 payload from %TEMP%/f1c-web-telemetry-4.2.0-rc.10/payload (record hashes in the install map), run one full-weekend Hockenheim race and execute L1-L15 of BACKEND4_LIVE_ACCEPTANCE_CHECKLIST_2026-10-09.md (lap crossing, port fallback with llama-server on 8080, A/B via API, RPM ~4k/18k, steering P+0x000/P+0x040 + rev-limit veh+0x39A4 reads, freeze, import reference_2002_hockenheim.lap + imported compare side, export round trip, memory, capture cost p95<500us without a frame hitch, freshness, reference/eviction, live_check record with no FAIL rows), then record results in the checklist copy, BACKEND4_FINAL_2026-10-09.md, VERIFICATION_MANIFEST native_validation/installed and findings.jsonl. Frontend design (Claude) can start against API_CONTRACT_2026-10-09.md v3.",
+    "evidence": "mods/sdk_sandbox/web_telemetry/BACKEND4_FINAL_2026-10-09.md; BACKEND4_LIVE_ACCEPTANCE_CHECKLIST_2026-10-09.md; live_check.py; API_CONTRACT_2026-10-09.md (v3, schema set A6DADFA2...); VERIFICATION_MANIFEST.json; %TEMP%/f1c-web-telemetry-4.2.0-rc.10/web_telemetry.dll; workspace_organization_audit/WEB_TELEMETRY_BACKEND4_INSTALL/INSTALL_RESTORATION.json; %TEMP%/f1c-web-telemetry-import-fuzz-duv18jvc/resource_results.json; findings web-telemetry-backend4-rc10-20261009"
+  },
+  "web_telemetry_zzz_rc13_audit_20261009": {
+    "date": "2026-10-09",
+    "state": "rc.12 payload audited and preserved; canonical rc.13 private candidate at verify -> human validate. Correctness, HTTP/recorder/import validity, frontend lifecycle and bounded-work optimizations applied. NOT installed; installed state not inspected.",
+    "dll_sha256": "CA00F2771512F28171FD6A211FDDDE3392D653FA45DE299B39EE57643DD0E8E9",
+    "sidecar_sha256": "FA89D8B788CD1559ED828D287DC2DBD0C5920BC81FF895B4A30CDF0695C87268",
+    "verification": "42,209 runtime assertions; 19 frontend audit groups; served-bootstrap tests; 17 malformed HTTP refusals; endpoint/schema/port/SSE gates; 20 x 2-hour synthetic soak with flat warm RSS; 80,000 fuzz decodes, zero crashes; full SDK PASS, seven unchanged artifacts; repeat DLL; final metadata repack gate PASS. Validator: two pre-existing errors, zero warnings. Final complete gate includes the packaging junction/extra-directory refusal tests and all final metadata pins.",
+    "pending": "Exact-build guarded full-weekend gameplay and human browser/presentation/heap/native overhead/Tailscale acceptance; existing BACKEND4 L1-L15 plus targeted rc.13 cases. No promotion authority inferred.",
+    "evidence": "mods/sdk_sandbox/web_telemetry/RC12_AUDIT_REVIEW_2026-10-09.md; mods/sdk_sandbox/web_telemetry/CURRENT_STATE.md; mods/sdk_sandbox/web_telemetry/VERIFICATION_MANIFEST.json; findings web-telemetry-rc12-audit-*; restoration workspace_organization_audit/WEB_TELEMETRY_RC12_AUDIT_BEFORE_2026-10-09/RESTORATION.json"
+  },
+  "web_telemetry_zzzz_luna_rc14_20261009": {
+    "date": "2026-10-09",
+    "state": "rc.14 private candidate: Luna low-effort verification of rc.13 fixes plus completed-live-import boundary timing repair; parent independent diff/behavior/hash review accepted. Pipeline verify -> human validate. Not installed.",
+    "dll_sha256": "CDED101EF1867D14CCB506841FF2E44B413EAD6B0590BE2055C7009622D27C74",
+    "sidecar_sha256": "2A0ECA305530088C033D573313DE0379DC6672584359C888973303D248276930",
+    "verification": "Luna full component gate: 42,209 runtime assertions, 22 frontend groups, HTTP/schema/SSE/packaging, 20 x 2-hour soak, 80,000 fuzz decodes zero crashes. Parent: 27 import assertions, final 22 frontend groups, 42,209 runtime assertions and full SDK PASS seven unchanged artifacts. rc.12 and rc.13 preserved.",
+    "pending": "Exact rc.14 native guarded-weekend, human/actual-browser presentation/heap, overhead/hitches, lifecycle/crossings and cross-PC Tailscale. No install/promotion authority inferred.",
+    "evidence": "mods/sdk_sandbox/web_telemetry/LUNA_FIX_REVIEW_2026-10-09.md; mods/sdk_sandbox/web_telemetry/LUNA_WORK_REPORT_2026-10-09.md; CURRENT_STATE.md; VERIFICATION_MANIFEST.json; findings web-telemetry-rc14-*"
+  },
+  "render_optimizer_rejected_20261013": {
+    "date": "2026-10-13",
+    "state": "General FPS work: implemented D3D8 state-cache prototype; actual RTX 5080 setter benchmark slower and shadow-interface native access violation. Rejected; protected entry hard-disabled; final inert build and focused tests PASS; full SDK gate PASS; not installed.",
+    "pending": "No FPS gain delivered. Investigate native geometry/buffer/texture costs; any future active design needs real-device correctness and matched guarded-weekend FPS/frame-time/visual/mod/stability acceptance.",
+    "evidence": "mods/sdk_sandbox/render_optimizer/IMPLEMENTATION_REVIEW_2026-10-13.md; CURRENT_STATE.md; findings render-optimizer-*"
+  },
+  "render_optimizer_vertex_pack_20261013": {
+    "date": "2026-10-13",
+    "state": "Standalone fused vertex pack implemented. 2000 byte-exact/refusal cases PASS; real RTX 5080 static/DISCARD/NOOVERWRITE buffer update benchmark approximately 0.50-0.52 original CPU time, draw/present/clean release PASS. Full SDK gate PASS. Old state-cache DLL still hard-disabled; no install or game changes.",
+    "pending": "Native ABI/locking/thread/guard review and integration; hit frequency and exact-game FPS/frame-time/visual/mod/stability proof. Kernel benchmark is not gameplay FPS or exact original machine-code performance.",
+    "evidence": "mods/sdk_sandbox/render_optimizer/VERTEX_PACK_REVIEW_2026-10-13.md; vertex_pack.hpp; vertex_pack_benchmark.cpp; findings vertex-pack-*"
+  },
+  "render_optimizer_vertex_trial_installed_20261013": {
+    "date": "2026-10-13",
+    "state": "0.2.0-dev.1 private vertex trial installed at explicit owner request, Enabled=1 for next launch. 1600 captured-x86 differential, 2000 kernel, D3D8 buffer, DLL smoke and full SDK checks pass. Local EXE fingerprints match. Old state-cache DLL remains rejected/uninstalled.",
+    "pending": "Owner guarded full-weekend OFF/ON/OFF; observe ACTIVE and fused hits, FPS/frame-time, visuals, resets/mods/exit/stability. No gameplay benefit yet measured.",
+    "sha256": "83223FDF4C1A42B5B3BB58F246F1CA487C058FFD0C11C9F0A60D759F2C02D286",
+    "evidence": "mods/sdk_sandbox/render_optimizer/VERTEX_TRIAL_INSTALLATION_2026-10-13.md"
+  },
+  "render_optimizer_live_off_benchmark_20261013": {
+    "date": "2026-10-13",
+    "state": "Live 22-car race confirmed advancing with optimizer OFF/no hook; CPU/GPU/RAM baseline recorded. No FPS/frame times available.3DConfig benchmark control verified by strings and game config parser; no benchmark executed.",
+    "pending": "Qualify benchmark rendering process and ACTIVE/increasing fused_calls before using for prototype A/B; then matched OFF/ON runs and visual/frame-time/stability acceptance.",
+    "evidence": "mods/sdk_sandbox/render_optimizer/LIVE_OFF_BASELINE_AND_BENCHMARK_PLAN_2026-10-13.md"
+  },
+  "render_optimizer_broker_startup_fix_20261013": {
+    "date": "2026-10-13",
+    "state": "Enabled native attempt refused: API structure_size uninitialized. Actual discovery-wrapper regression added and passes; vertex/native/D3D8/DLL checks and full SDK pass. Corrected DLL installed after observing game closed, Enabled=1.",
+    "sha256": "D8FD10737BE3456A40D5685283D92BDCB0D6BDA2E357772E11BC41B0DB970BA5",
+    "pending": "New launch ACTIVE and increasing fused_calls; matched OFF/ON gameplay FPS/frame-time/visual/stability evidence remains pending.",
+    "evidence": "mods/sdk_sandbox/render_optimizer/BROKER_STARTUP_FIX_2026-10-13.md"
+  },
+  "render_optimizer_rejection_diagnostics_20261013": {
+    "date": "2026-10-13",
+    "state": "Installed corrected vertex build ACTIVE with increasing C dispatch, zero fused. Reason counters implemented, actual callback no-write/output regression and focused/full SDK gates PASS. Diagnostic hash 2BEC473A30961340EFD30B9ED38861B19BBAFF9595471A5D6CC41FBDE424B896 not installed; game restarted during verification.",
+    "pending": "Close game, stage diagnostic candidate, verify hash, capture rejection reasons in fresh full-weekend run. Do not remove material guard; native computes colour without bit0x20. No FPS gain proved.",
+    "evidence": "mods/sdk_sandbox/render_optimizer/VERTEX_REJECTION_DIAGNOSTICS_REVIEW_2026-10-13.md"
+  }
+}

@@ -1,0 +1,255 @@
+fisheye prototype (research build 2026-10-05)
+device 2560x1600 windowed=1: fisheye ready (F9 on/off, F10/F11 strength)
+-- game window IN FRONT
+-- game window tabbed out
+-- game window IN FRONT
+fisheye ON (strength 0.60)
+render-target texture 2560x1600 fmt=22 ready
+frame 801: flat before 3D 0, 3D draws 301 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 58; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+  -- detailed frame 803:
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x2
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x4
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x268
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x20
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=9131.42/9131.42/2739.93/-27394328.000/1.0
+    draw rt=512 vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 512x512 view=cam proj=9131.42/9131.42/2739.93/-27394328.000/1.0  x2
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=512 vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0  x5
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x2
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x4
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x91
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x4
+    clear-rects rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=2560 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x19
+    draw rt=2560 vs=1234 z=0 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x16
+    draw rt=2560 vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x21
+    draw rt=2560 vs=1234 z=0 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+frame 802: flat before 3D 0, 3D draws 301 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 43; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+    draw rt=2560 vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x5
+  -- end of detailed frame
+frame 803: flat before 3D 0, 3D draws 301 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 43; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+frame 900: flat before 3D 0, 3D draws 301 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 43; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+frame 1200: flat before 3D 0, 3D draws 301 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 43; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+-- game window tabbed out
+frame 1440: flat before 3D 0, 3D draws 329 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+frame 1441: flat before 3D 0, 3D draws 329 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+  -- detailed frame 1443:
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x2
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x4
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x268
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x20
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=9131.53/9131.53/2739.93/-27394328.000/1.0
+    draw rt=512 vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 512x512 view=cam proj=9131.53/9131.53/2739.93/-27394328.000/1.0  x2
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=512 vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0  x5
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x2
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x4
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x91
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x4
+    draw rt=2560(world) vs=1234 z=0 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=2560(world) vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x21
+    draw rt=2560(world) vs=1234 z=0 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+frame 1442: flat before 3D 0, 3D draws 329 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+    draw rt=2560(world) vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x5
+  -- end of detailed frame
+frame 1500: flat before 3D 0, 3D draws 329 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+frame 1800: flat before 3D 0, 3D draws 323 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+frame 2100: flat before 3D 0, 3D draws 323 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+-- game window IN FRONT
+frame 2169: flat before 3D 0, 3D draws 303 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 35; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+frame 2170: flat before 3D 0, 3D draws 301 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 37; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+  -- detailed frame 2172:
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x2
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x4
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x268
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x20
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=8435.61/8435.61/2531.39/-25308946.000/1.0
+    draw rt=512 vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 512x512 view=cam proj=8435.61/8435.61/2531.39/-25308946.000/1.0  x2
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=512 vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0  x5
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x2
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x4
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x91
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x4
+    clear-rects rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=2560 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x19
+    draw rt=2560 vs=1234 z=0 zw=0 blend=1 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x16
+frame 2171: flat before 3D 0, 3D draws 301 (viewport 0,0 2560x1600, full=1), bent at HUD clear, after 37; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+    draw rt=2560 vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x21
+  -- end of detailed frame
+frame 2400: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+-- game window tabbed out
+frame 2478: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+frame 2479: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+  -- detailed frame 2481:
+    draw rt=2560(world) vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x2
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x4
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x266
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x20
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=512 vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0  x5
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x2
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x4
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x91
+frame 2480: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x4
+  -- end of detailed frame
+-- game window IN FRONT
+frame 2647: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+frame 2648: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+  -- detailed frame 2650:
+    draw rt=2560(world) vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x2
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x4
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x266
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x20
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=512 vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0  x5
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x2
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x4
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x91
+frame 2649: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x4
+  -- end of detailed frame
+frame 2700: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+fisheye off (strength 0.60)
+fisheye ON (strength 0.60)
+frame 2728: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+  -- detailed frame 2730:
+    draw rt=2560(world) vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x2
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x4
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x266
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x20
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=512 vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0  x5
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x2
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x4
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x91
+frame 2729: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x4
+  -- end of detailed frame
+frame 2730: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+fisheye off (strength 0.60)
+fisheye ON (strength 0.60)
+frame 2812: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+  -- detailed frame 2814:
+    draw rt=2560(world) vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x2
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x4
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x266
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x20
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=512 vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0  x5
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x2
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x4
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x91
+frame 2813: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x4
+  -- end of detailed frame
+frame 2814: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+-- game window tabbed out
+frame 2899: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+frame 2900: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+  -- detailed frame 2902:
+    draw rt=2560(world) vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 2560x1600 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x2
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-1.000/1.0  x4
+    draw rt=2560(world) vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x266
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0  x20
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=512 vs=1234 z=0 zw=0 blend=0 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0  x5
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    clear-rects rt=512 vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=0,0 512x512 view=cam proj=3761.46/3761.46/1129.00/-11284988.000/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=0 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=2560(world) vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=35,498 1264x845 view=cam proj=1.14/1.91/1.00/-0.300/1.0
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x2
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.00/-1.000/1.0  x4
+    draw rt=256 vs=1234 z=1 zw=1 blend=0 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x91
+frame 2901: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+    draw rt=256 vs=1234 z=1 zw=0 blend=1 light=0 fog=1 vp=0,0 256x128 view=cam proj=1.60/8.14/1.01/-1.007/1.0  x4
+  -- end of detailed frame
+frame 3000: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+frame 3300: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+frame 3600: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00
+frame 3900: flat before 3D 0, 3D draws 299 (viewport 0,0 2560x1600, full=1), bent at PRESENT, after 0; present src=- dst=- hwnd=00000000 bb 2560x1600 fov 1.00/1.00

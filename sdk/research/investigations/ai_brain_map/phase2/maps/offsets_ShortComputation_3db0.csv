@@ -1,0 +1,9 @@
+func,line,dec,hex,access,width,base,form,expr
+ShortComputation_3db0,21,13536,0x34E0,R,float,*(_DWORD*)this,deref2,v7 = *(float *)(*(_DWORD *)this + 13536) - a5;
+ShortComputation_3db0,22,13544,0x34E8,R,float,*(_DWORD*)this,deref2,v8 = *(float *)(*(_DWORD *)this + 13544) - a7;
+ShortComputation_3db0,28,,,CALL,,,call,sqrt
+ShortComputation_3db0,30,,,CALL,,,call,sqrt
+ShortComputation_3db0,31,12,0xC,W,float,this,array,this[3] = v14;
+ShortComputation_3db0,38,,,CALL,,,call,sqrt
+ShortComputation_3db0,40,,,CALL,,,call,sqrt
+ShortComputation_3db0,41,4,0x4,W,float,this,array,this[1] = v20;

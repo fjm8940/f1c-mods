@@ -1,0 +1,29 @@
+func,line,dec,hex,access,width,base,form,expr
+Overtaking,11,,,CALL,,,call,ReplayAIStateCheck
+Overtaking,13,17604,0x44C4,R,float,a2,array,if ( a2[4401] >= (double)this[4419] )
+Overtaking,13,17676,0x450C,R,float,this,array,if ( a2[4401] >= (double)this[4419] )
+Overtaking,14,17604,0x44C4,R,float,a2,array,v6 = a2[4401];
+Overtaking,16,17676,0x450C,R,float,this,array,v6 = this[4419];
+Overtaking,17,17676,0x450C,W,float,this,array,this[4419] = v6;
+Overtaking,22,,,CALL,,,call,ServerSessionGateCheck
+Overtaking,22,,,CALL,,,call,ServerSessionGateCheck
+Overtaking,25,16540,0x409C,R,float,a2,array,else if ( a2[4135] >= (double)this[4135] )
+Overtaking,25,16540,0x409C,R,float,this,array,else if ( a2[4135] >= (double)this[4135] )
+Overtaking,32,16444,0x403C,R,_DWORD,this,arith,v8 = *((_DWORD *)this + 4111);
+Overtaking,33,16444,0x403C,R,_DWORD,*(_DWORD*)a2,deref2,if ( *(_DWORD *)(*(_DWORD *)a2 + 16444) > v8 )
+Overtaking,41,17912,0x45F8,R,float *,this,arith,if ( *((float **)this + 4478) != a2 )
+Overtaking,45,18600,0x48A8,R,_DWORD,*(_DWORD*)this,deref2,if ( *(_DWORD *)(*(_DWORD *)this + 18600) > *(_DWORD *)(LODWORD(v7) + 18600) && v8 > 3 )
+Overtaking,45,,,CALL,,,call,LODWORD
+Overtaking,47,,,CALL,,,call,LODWORD
+Overtaking,47,,,CALL,,,call,LODWORD
+Overtaking,48,,,CALL,,,call,LODWORD
+Overtaking,48,,,CALL,,,call,LODWORD
+Overtaking,49,,,CALL,,,call,LODWORD
+Overtaking,49,,,CALL,,,call,LODWORD
+Overtaking,50,,,CALL,,,call,LODWORD
+Overtaking,51,,,CALL,,,call,LODWORD
+Overtaking,56,15724,0x3D6C,R,_DWORD,this,arith,if ( v4 && *((_DWORD *)this + 3931) != 2 && this[3681] > 0.001 )
+Overtaking,56,14724,0x3984,R,float,this,array,if ( v4 && *((_DWORD *)this + 3931) != 2 && this[3681] > 0.001 )
+Overtaking,58,17916,0x45FC,W,_DWORD,this,arith,*((_DWORD *)this + 4479) = a2;
+Overtaking,61,17440,0x4420,W,float,this,array,this[4360] = 3.0;
+Overtaking,64,17440,0x4420,W,float,this,array,this[4360] = -3.0;

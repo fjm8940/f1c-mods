@@ -1,0 +1,11 @@
+func,line,dec,hex,access,width,base,form,expr
+VehicleClimbAdjust,5,12988,0x32BC,R,_DWORD,this,direct,if ( *(_DWORD *)(this + 12988) )
+VehicleClimbAdjust,9,14740,0x3994,R,float,this,direct,if ( *(float *)(this + 14740) < (double)*(float *)(this + 14748) )
+VehicleClimbAdjust,9,14748,0x399C,R,float,this,direct,if ( *(float *)(this + 14740) < (double)*(float *)(this + 14748) )
+VehicleClimbAdjust,10,14740,0x3994,W,_DWORD,this,direct,*(_DWORD *)(this + 14740) = *(_DWORD *)(this + 14748);
+VehicleClimbAdjust,10,14748,0x399C,R,_DWORD,this,direct,*(_DWORD *)(this + 14740) = *(_DWORD *)(this + 14748);
+VehicleClimbAdjust,15,14776,0x39B8,W,float,this,direct,*(float *)(this + 14776) = v2 * *(float *)(this + 14784) + *(float *)(this + 14788) + *(float *)(this + 14780);
+VehicleClimbAdjust,15,14784,0x39C0,R,float,this,direct,*(float *)(this + 14776) = v2 * *(float *)(this + 14784) + *(float *)(this + 14788) + *(float *)(this + 14780);
+VehicleClimbAdjust,15,14788,0x39C4,R,float,this,direct,*(float *)(this + 14776) = v2 * *(float *)(this + 14784) + *(float *)(this + 14788) + *(float *)(this + 14780);
+VehicleClimbAdjust,15,14780,0x39BC,R,float,this,direct,*(float *)(this + 14776) = v2 * *(float *)(this + 14784) + *(float *)(this + 14788) + *(float *)(this + 14780);
+VehicleClimbAdjust,20,,,CALL,,,call,SuspensionVibration

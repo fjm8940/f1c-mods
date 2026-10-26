@@ -1,0 +1,75 @@
+Telemetry 1.2.4 - live race telemetry in your browser
+Last updated 2026-10-18 / Author Matias
+
+What it is
+Live timing tower, track map, weather forecast, lap analysis and driver comparison for
+F1 Challenge 99-02, live while you drive. Every session is recorded, so you can find it again
+on the Recordings page. By default it only reads the game.
+
+How to open it
+- Lightloader: Tools tab > Telemetry > Open (opens your browser).
+- Or open http://127.0.0.1:8080/ in any browser while the game runs.
+  The port can be changed in plugins\lightloader\web_telemetry.ini ([Mod] Port).
+
+LIVE and PAST
+- The buttons at the top right switch between LIVE (this session) and PAST SESSION.
+- PAST SESSION plays a recording back like a tape: timing tower, track map with every car,
+  lap analysis and driver pages, with driver names and YOU / HUMAN badges. Back to live
+  returns to the current session.
+- In a replay, a car that has finished its runs (qualifying) or retired stays in the timing tower
+  with its last state, so its laps stay selectable.
+- Driver A and driver B are picked from the lists in the top bar. Pick "B off (show A only)"
+  in the B list to show one driver only.
+
+Lap strip
+- Every car keeps its newest laps plus its fastest lap, so an early fastest lap stays selectable.
+- When the laps do not fit, use the slider under the row or the mouse wheel over it.
+- Export (JSON) saves several laps in one file; Import loads all of them back into car A or B.
+- Lap times on the strip are the game's official times (the same as the timing tower) once the game
+  has published them; until then the time between the two line crossings is shown.
+
+Recordings
+- Page menu > Data > Recordings: every recorded weekend as a card with its sessions
+  (Practice 1, Qualifying, Race...). Search, filter by mode, select several, and move
+  recordings you do not need to the Windows Recycle Bin (nothing is deleted for good).
+  The session that is recording now cannot be deleted.
+- The oldest recordings are removed when the folder passes 3000 MB.
+  Change it with MaxStorageMB in web_telemetry.ini (0 = keep everything).
+
+TV Director (off by default)
+- The TV Director tab shows the TV camera state. With [Director] Enabled=1 in
+  web_telemetry.ini it can change the TV camera angle from this PC; CarSwitch=1 also lets it
+  jump to any car. MuteCarChangeCommentary=1 (default) keeps the commentator quiet on those
+  car changes. With Enabled=0 (default) nothing is ever sent to the game.
+- If the game is slow to change the camera, the page keeps working: Telemetry reconnects to
+  Lightloader by itself within a few seconds (1.2.1 and older stopped until a game restart).
+
+CO-OP (two PCs)
+- The other human's car shows its brake as ON or off only (the game sends one on/off flag,
+  not the pedal position) and its steering from the network (coarse steps).
+  The game does not apply the other car's throttle, g-forces or tyre data on your PC,
+  so the page cannot show them.
+
+Other devices (LAN / Tailscale)
+Set Remote=1 AND BindAddress=<this PC's private address> in plugins\lightloader\web_telemetry.ini
+and restart the game, then open http://<that-address>:8080/ from the other device.
+Remote=0 (default) = this PC only. Without a valid BindAddress, Remote=1 stays this PC only.
+
+Settings
+- Lightloader > Mods > Telemetry > settings (gear): every on/off option is a switch with a
+  short explanation. The TV Director Enabled switch is the camera control. The [Mod] Enabled
+  key is not used.
+- Updating keeps your web_telemetry.ini and its values. New installs get the new layout.
+  If the TV Director rows are missing in Mod settings, your file is older: add a [Director]
+  section with Enabled=1 (and CarSwitch=1 to jump between cars) to plugins\lightloader\web_telemetry.ini.
+
+Turning it off
+- Lightloader Mods tab > Telemetry > turn the mod off, then restart the game.
+  ([Mod] Enabled in web_telemetry.ini does nothing; it is kept only so old files stay valid.)
+The page only exists while the game (and the mod) is running.
+
+Reports
+With the Lightloader switch "Send crash, bug and mod usage reports automatically" on,
+anonymous usage and crash summaries help fix problems faster. Details on the privacy page.
+
+Public release: Telemetry 1.2.4. Telemetry engine diagnostic version: 4.4.0, API 10.

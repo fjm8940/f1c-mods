@@ -1,0 +1,2205 @@
+{
+ "schema": "ere.audit.v1",
+ "range": "B12_110-119",
+ "method_note": "Owner EXHAUSTIVE PER-LINE METHOD. Deviation disclosed: the 18 shared dynamic emitter functions and the literal emitters were read once and each clip was checked against them by eid domain; a global grep over all 7143 decompiled files replaced the 40-function list. Clean stock exe (Q19 VM copy) byte reads used for cooldowns. The owner exe 'F1 Challenge Online.exe' (99-02) was read too and differs.",
+ "verdict_counts": {
+  "MOD_ONLY": 2,
+  "NOT_ACTIVATED": 4,
+  "NATIVE_ACTIVE": 2,
+  "UNKNOWN": 2
+ },
+ "rows": [
+  {
+   "sdt_index": 110,
+   "eid": 111,
+   "clip": "PWS_HIT02",
+   "says": "Player lost rear wing",
+   "score": 109,
+   "cooldown": 3.4028234663852886e+38,
+   "cooldown_note": "stock clean exe 0x5C0258 = FLT_MAX (blocked). dump and the 99-02 exe show 15.0 (patched).",
+   "verdict": "MOD_ONLY",
+   "reason": "blocked_cooldown_in_stock",
+   "situation": "Player's rear wing is torn off by contact: the native spark routine sees the player's rear-wing point hit something and queues eid 111.",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": true,
+   "suppressed_note": "Stock cooldown of eid 111 is FLT_MAX (clean exe bytes at 0x5C0258). The trigger exists: CollisionSparkParticleEffects (sub_4EC1A0) calls RepairServiceStateDispatcher(5) at L364 and sub_41AFD0 case 5 emits 111 (sub_41AFD0:28). extended_damage_commentary writes 15.0 at attach, which lifts the suppression.",
+   "emitters": [
+    "sub_41AFD0 (sub_41AFD0_0041afd0.c:28)"
+   ],
+   "call_path": "MainGameTickUpdate (L15+49 loop) -> sub_4EB430 ParticleEffectUpdateDispatch -> sub_4EBC60 VehicleContactForceAccumulation (L31) -> sub_4EC1A0 CollisionSparkParticleEffects (L364) -> sub_4ED250 RepairServiceStateDispatcher(5) (L34) -> sub_41AFD0(a1, 5) (L28). Also sub_4F1C40 -> sub_4EBC60.",
+   "gates": [
+    "dword_7D0308 && flt_7CF3C8 != 0.0 (sub_41AFD0:5)",
+    "player: *(dword_7C54E8+18580) == *(a1+18580) (sub_41AFD0:8; sub_4EC1A0:145 'this == dword_7C54E8')",
+    "a2 == 5 (sub_41AFD0:27-28; dispatcher case 5 at sub_4ED250:25-34)",
+    "sub_4EC1A0:352 *(this+3340) != 0 (rear-wing slot alive), :354 this[3404] byte set, :359 contact radius (1-d2/v113)*v146 > this[3953], :361-362 random flt_8AAE74 < this[3954]",
+    "sub_4EBC60:25-31 this[3247] in {0,1} and a3==1 (from sub_4EB430:185)"
+   ],
+   "mod": "extended_damage_commentary (loaded in owner game; cooldown_unblock eid 111, 15 s; dev 1.0.6 / public 1.0.1-r2). player_damage_commentary (dev, not loaded) makes the same write at 0x5C0258 (source.c:149-160).",
+   "heard_evidence": "findings.jsonl:93 FACT 2026-07-28: PWS_HIT02 re-fired live with the cooldown patch applied (ts 25.66). voice_index 110 triage DONE.",
+   "tier": "CONFIRMED",
+   "notes": "Dump full_event_dump.json says cooldown 15.0 and blocked false for eid 111: the dump was regenerated after the patch (findings.jsonl:89). Clean stock exe says FLT_MAX. The owner's 99-02 'F1 Challenge Online.exe' also holds 15.0 at 0x5C0258, so the owner game is not stock (see docs contradictions C1-C2). Whether the cooldown is blocked therefore depends on which exe runs.",
+   "play_plan": {
+    "meaning": "Your rear wing has been torn off: the car has lost downforce and the engineer reports it.",
+    "when_it_should_play": "Race or qualifying, player car only, when the rear-wing part is lost to contact (sub_4EC1A0 proximity and random gates). Mod already plays it.",
+    "trigger": "Native: sub_4EC1A0:352-362 contact at the rear-wing point with random roll, then sub_4ED250 case 5 -> sub_41AFD0 a2=5 for the player. Broker reads for an ERE-owned version: F1CBrokerVehicleSnapshot.damage (F1C_VEH_SNAPSHOT_DAMAGE) and car_conditions (veh+0x3D6C, FACT), subject player = session player vehicle.",
+    "subject": "player (-1)",
+    "technique": "lift_suppression: cooldown of eid 111 (0x5C0258) from FLT_MAX to 15.0. Already done by extended_damage_commentary at runtime; ERE must not write it again.",
+    "latch_cooldown": "15 s event cooldown; once per wing loss (the dispatcher clears slot 5).",
+    "must_not_play_when": "Replay, pause (byte_7C749F / this[13376] / byte_7C74A4 gates at sub_4EC1A0:147-148), menus, and when no rear-wing loss happened (contact at a non-wing point).",
+    "conflicts": "Same eid 111 is written by extended_damage_commentary and by player_damage_commentary (dev). Owning one of them only; ERE must not queue 111 on top. Front-wing and wheel lines are eids 106-110.",
+    "calibration": "Constants v113 (speed-based radius), this[3953] threshold, this[3954] random threshold: UNKNOWN units, measure live if ERE ever owns the event.",
+    "live_test": "Owner drives the player car into a wall or AI car at the rear-wing point at speed; watch the controller's per-event timestamp for eid 111 (live reader) and the audio.",
+    "confidence": "CONFIRMED that the mod restores the line live (findings.jsonl:93). Stock block is CONFIRMED by clean exe bytes. Constants DERIVED/UNKNOWN."
+   },
+   "checked": [
+    {
+     "function": "sub_41AFD0 (literal emitter)",
+     "file": "sub_41AFD0_0041afd0.c",
+     "result": "emits 111 under L28 case a2==5 (RepairServiceStateDispatcher case 5), player branch L8 (dword_7C54E8+18580 == a1+18580), gate L5 dword_7D0308 && flt_7CF3C8 != 0",
+     "line": "L28 case a2==5 (RepairServiceStateDispatcher case 5), player branch L8 (dword_7C54E8+18580 == a1+18580), gate L5 dword_7D0308 && flt_7CF3C8 != 0"
+    },
+    {
+     "function": "sub_41AD80 (literal emitter)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41B250 (literal emitter)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41C440 (track-name id via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (track-name id via ThunkToFUN004201e0 -> sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AC50 (AI session messages)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A720 (penalty/flag messages)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (code 1-22 -> eid 113-134; NOT in the 40-function dossier list)",
+     "file": "EnumValueTranslation_00414010.c",
+     "result": "cannot produce this eid (no branch with value 111)",
+     "line": "-"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (driver-name clip ids, not event eids)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "number 111 is a driver-name clip id (L203 (PWS name id) and L526 (TV name id 111)), not an event eid",
+     "line": "L203 (PWS name id) and L526 (TV name id 111)"
+    },
+    {
+     "function": "CollisionDetectionSystem sub_4EA970",
+     "file": "CollisionDetectionSystem_004ea970.c:421",
+     "result": "relay only: relays every vehicle contact to sub_41AD80 when other index < dword_5C329C; no eid of its own",
+     "line": "CollisionDetectionSystem_004ea970.c:421"
+    },
+    {
+     "function": "CollisionSparkParticleEffects sub_4EC1A0",
+     "file": "CollisionSparkParticleEffects_004ec1a0.c:145,364",
+     "result": "relay only: player-only branch (L145) calls RepairServiceStateDispatcher(5) at L364 under proximity/random gates; no eid of its own",
+     "line": "CollisionSparkParticleEffects_004ec1a0.c:145,364"
+    },
+    {
+     "function": "RepairServiceStateDispatcher sub_4ED250",
+     "file": "RepairServiceStateDispatcher_004ed250.c:20,34,48",
+     "result": "relay only: passes a2 to sub_41AFD0; case 5 (L25-34) gives a2=5 -> eid 111",
+     "line": "RepairServiceStateDispatcher_004ed250.c:20,34,48"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "file": "sub_4F1FE0_004f1fe0.c:34,135",
+     "result": "relay only: sub_41B250 call at L135 sits in the else-arm of 'if (v4)' where v4 = veh+0x4064 FinishState (L33-34, L70)",
+     "line": "sub_4F1FE0_004f1fe0.c:34,135"
+    },
+    {
+     "function": "ParticleEffectUpdateDispatch sub_4EB430",
+     "file": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202",
+     "result": "relay only: calls CollisionDetectionSystem (L129) and VehicleContactForceAccumulation (L185); no eid",
+     "line": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202"
+    },
+    {
+     "function": "VehicleContactForceAccumulation sub_4EBC60",
+     "file": "VehicleContactForceAccumulation_004ebc60.c:27-31",
+     "result": "relay only: for this[3247] in {0,1} and a3==1 calls CollisionSparkParticleEffects (L31); no eid",
+     "line": "VehicleContactForceAccumulation_004ebc60.c:27-31"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40",
+     "file": "VehicleYawRotationRecoveryController_004f1c40.c",
+     "result": "relay only: callers chain to sub_4F1FE0 and sub_4EBC60; called from MainGameTickUpdate every 50 ticks (MainGameTickUpdate_0042c690.c, L30+49 via dword_7C5698 % 50)",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c"
+    }
+   ],
+   "global_grep": "Global search of all 7143 decompiled files for eid literals in DriverDataTableLookupAndTimeConversion / CommentaryEventQueue calls and for '= N;' assignments. Hits outside the lists above: sub_51B7CD:70,83 and sub_58E4D2:276 (decoder token ids 111), BitstreamTokenReader:58 (112), sub_51A794:59 and sub_535E80:43 (113), JPEGMarkerParsing:100 and sub_51B45F:160 (114/115), AudioVideoDecodeSubbandLoop:7 and ArrayProcessingWithValidation:15 (117/118), StreamBufferReadStateMachine:34 (119): all are non-eid bitstream/decoder fields, judged by name and context, not by full read.",
+   "sources": [
+    "functions/sub_41AFD0_0041afd0.c:5,8,28",
+    "functions/RepairServiceStateDispatcher_004ed250.c:20,25-34",
+    "functions/CollisionSparkParticleEffects_004ec1a0.c:145,352-364",
+    "functions/VehicleContactForceAccumulation_004ebc60.c:25-31",
+    "functions/ParticleEffectUpdateDispatch_004eb430.c:185",
+    "functions/MainGameTickUpdate_0042c690.c:L15+49",
+    "clean exe VA 0x5C0258 = ffff7f7f (FLT_MAX), owner exe = 00007041 (15.0)",
+    "findings.jsonl:89,93"
+   ]
+  },
+  {
+   "sdt_index": 111,
+   "eid": 112,
+   "clip": "RE_PD_STALLED",
+   "says": "Engine stalled - T-car prepared",
+   "score": 110,
+   "cooldown": 3.4028234663852886e+38,
+   "cooldown_note": "clean exe 0x5C026C = FLT_MAX; dump blocked true; owner exe FLT_MAX too.",
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No stall trigger in the game code. The native engine-death path (ReasonCode 1 at veh+0x4068, ENGINE_FAILURE.md:142) reaches sub_41B250:15 and emits eid 119 (RETIRE04), not 112.",
+   "emitters": [],
+   "call_path": "none (no emitter for eid 112 in the decompiled set)",
+   "gates": [],
+   "mod": "mechanical_failures 1.0.7 uses eid 112 as a radio-queue token only (token_only, voice_index). token_only does not count as playing the vanilla clip (DD-07).",
+   "heard_evidence": "voice_index 111 triage: 'Z, engine stall, working on T/spare car, unsure how this would play out' (NEEDS_RESEARCH). H3_mechanical.md:36: 'no spare-car (T-car) mechanic in game code found'.",
+   "tier": "CONFIRMED",
+   "notes": "Literal 112 appears only as a driver-name id (DriverNameIDLookup L746, L423 region) and in the BitstreamTokenReader decoder. T-car mechanic not found in code.",
+   "play_plan": {
+    "meaning": "The player's engine has stalled and the team is preparing the spare (T) car; the engineer tells the driver the car is done for now.",
+    "when_it_should_play": "Race only (SessionType 7, dword_7C56A4 == 7), player car only, when the engine has died (engine failure, not a crash or pit stop) and the car is stopped or coasting to a halt.",
+    "trigger": "ReasonCode (broker reason_code, veh+0x4068) == 1 (engine death, ENGINE_FAILURE.md:142, CONFIRMED) AND finish_state (veh+0x4064) == 0 AND speed (broker speed, veh+0x4440) < 2.0 m/s for 2.5 s. pit_status (veh+0x3450) == 0 (track). Read from F1CBrokerVehicleSnapshot fields reason_code, finish_state, speed, pit_status. Thresholds 2.0 m/s and 2.5 s are borrowed from the retire mod (DERIVED).",
+    "subject": "player (-1)",
+    "technique": "own_emitter: ERE queues PWS eid 112 after writing its cooldown (cooldown_unblock at 0x5C026C, FLT_MAX to e.g. 15.0). Use the queue and not sub_41B250, which would emit RETIRE lines.",
+    "latch_cooldown": "once per race (latch on first stall); 15 s event cooldown.",
+    "must_not_play_when": "Player already retired or DQ (finish_state != 0), car in pit lane or box (pit_status 1-4), car still moving above 2 m/s, a retire line (117-119) queued in the same second, and any time an MF line is pending on eid 112 (DD-07).",
+    "conflicts": "DD-07: mechanical_failures 1.0.7 queues eid 112 as its own token. ERE must check MF has no pending line on 112 before queuing; MF token move is a proposed follow-up. Native RETIRE04 (eid 119) also fires on ReasonCode 1 with the dwell, so the two lines can stack.",
+    "calibration": "speed threshold 2.0 m/s and dwell 2.5 s: DERIVED from retire_commentary_v5 (findings.jsonl:101), not measured for stalls.",
+    "live_test": "Owner runs an MF engine failure test on a race session (mech_test_panel.bat, feedback_mf_test_panel), stops the car, then checks the queue for eid 112 and the audio. Keep the test separate from the T-car idea.",
+    "confidence": "GUESS for the meaning and T-car behaviour (H3: T-car mechanic not in code, owner idea unproven). DERIVED for the trigger reads."
+   },
+   "checked": [
+    {
+     "function": "sub_41AFD0 (literal emitter)",
+     "file": "sub_41AFD0_0041afd0.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AD80 (literal emitter)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41B250 (literal emitter)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41C440 (track-name id via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (track-name id via ThunkToFUN004201e0 -> sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AC50 (AI session messages)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A720 (penalty/flag messages)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (code 1-22 -> eid 113-134; NOT in the 40-function dossier list)",
+     "file": "EnumValueTranslation_00414010.c",
+     "result": "cannot produce this eid (no branch with value 112)",
+     "line": "-"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (driver-name clip ids, not event eids)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "number 112 is a driver-name clip id (L423 (PWS) and L746 (TV)), not an event eid",
+     "line": "L423 (PWS) and L746 (TV)"
+    },
+    {
+     "function": "CollisionDetectionSystem sub_4EA970",
+     "file": "CollisionDetectionSystem_004ea970.c:421",
+     "result": "relay only: relays every vehicle contact to sub_41AD80 when other index < dword_5C329C; no eid of its own",
+     "line": "CollisionDetectionSystem_004ea970.c:421"
+    },
+    {
+     "function": "CollisionSparkParticleEffects sub_4EC1A0",
+     "file": "CollisionSparkParticleEffects_004ec1a0.c:145,364",
+     "result": "relay only: player-only branch (L145) calls RepairServiceStateDispatcher(5) at L364 under proximity/random gates; no eid of its own",
+     "line": "CollisionSparkParticleEffects_004ec1a0.c:145,364"
+    },
+    {
+     "function": "RepairServiceStateDispatcher sub_4ED250",
+     "file": "RepairServiceStateDispatcher_004ed250.c:20,34,48",
+     "result": "relay only: passes a2 to sub_41AFD0; case 5 (L25-34) gives a2=5 -> eid 111",
+     "line": "RepairServiceStateDispatcher_004ed250.c:20,34,48"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "file": "sub_4F1FE0_004f1fe0.c:34,135",
+     "result": "relay only: sub_41B250 call at L135 sits in the else-arm of 'if (v4)' where v4 = veh+0x4064 FinishState (L33-34, L70)",
+     "line": "sub_4F1FE0_004f1fe0.c:34,135"
+    },
+    {
+     "function": "ParticleEffectUpdateDispatch sub_4EB430",
+     "file": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202",
+     "result": "relay only: calls CollisionDetectionSystem (L129) and VehicleContactForceAccumulation (L185); no eid",
+     "line": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202"
+    },
+    {
+     "function": "VehicleContactForceAccumulation sub_4EBC60",
+     "file": "VehicleContactForceAccumulation_004ebc60.c:27-31",
+     "result": "relay only: for this[3247] in {0,1} and a3==1 calls CollisionSparkParticleEffects (L31); no eid",
+     "line": "VehicleContactForceAccumulation_004ebc60.c:27-31"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40",
+     "file": "VehicleYawRotationRecoveryController_004f1c40.c",
+     "result": "relay only: callers chain to sub_4F1FE0 and sub_4EBC60; called from MainGameTickUpdate every 50 ticks (MainGameTickUpdate_0042c690.c, L30+49 via dword_7C5698 % 50)",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c"
+    }
+   ],
+   "global_grep": "Global search of all 7143 decompiled files for eid literals in DriverDataTableLookupAndTimeConversion / CommentaryEventQueue calls and for '= N;' assignments. Hits outside the lists above: sub_51B7CD:70,83 and sub_58E4D2:276 (decoder token ids 111), BitstreamTokenReader:58 (112), sub_51A794:59 and sub_535E80:43 (113), JPEGMarkerParsing:100 and sub_51B45F:160 (114/115), AudioVideoDecodeSubbandLoop:7 and ArrayProcessingWithValidation:15 (117/118), StreamBufferReadStateMachine:34 (119): all are non-eid bitstream/decoder fields, judged by name and context, not by full read.",
+   "sources": [
+    "functions/ (global grep: no DriverDataTable/CommentaryEventQueue call with 112)",
+    "clean exe VA 0x5C026C = FLT_MAX",
+    "ENGINE_FAILURE.md:142",
+    "docs/design/H3_mechanical.md:36",
+    "data/voice_index.json 111 triage",
+    "docs/DESIGN_DECISIONS.md DD-07"
+   ]
+  },
+  {
+   "sdt_index": 112,
+   "eid": 113,
+   "clip": "RE_PD_STALLED_T",
+   "says": "T-car also stalled - session over",
+   "score": 111,
+   "cooldown": 3.4028234663852886e+38,
+   "cooldown_note": "clean exe 0x5C0280 = FLT_MAX; dump blocked true; owner exe FLT_MAX.",
+   "verdict": "NOT_ACTIVATED",
+   "reason": "blocked_cooldown",
+   "situation": "",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": true,
+   "suppressed_note": "Stock eid 113 cooldown FLT_MAX (0x5C0280) blocks every emit of 113. A non-literal route exists: EnumValueTranslation sub_414010 case 1 (L10) writes 113 into a text-formatter entry, reached only from the text overlay path (sub_411840 <- TextOverlayDisplayTimer). The FLT_MAX block applies to that route too. The code value 1 for that token is UNKNOWN.",
+   "emitters": [
+    "sub_414010 EnumValueTranslation case 1 (EnumValueTranslation_00414010.c:10) - text-formatter route, not an event emitter"
+   ],
+   "call_path": "TextOverlayDisplayTimer (sub_4186F0) -> sub_411840 FontRenderingPrep -> sub_411E90 SoundEventDispatcher / sub_411DB0 -> sub_414010 (case 1)",
+   "gates": [
+    "cooldown FLT_MAX at 0x5C0280 (clean exe and dump)"
+   ],
+   "mod": "mechanical_failures token_only on eid 113 (DD-07). Does not count.",
+   "heard_evidence": "voice_index 112 triage: 'Z, if stalling again, then this plays and player automatic DNF/ESC' (NEEDS_RESEARCH). H3_mechanical.md:37 UNKNOWN.",
+   "tier": "CONFIRMED",
+   "notes": "dossier missed the EnumValueTranslation route (it is not in the 40-function list). FLT_MAX blocks it anyway.",
+   "play_plan": {
+    "meaning": "A second engine stall in the same race while the T-car is prepared: the player is out and the session is over for him.",
+    "when_it_should_play": "Race only, player car, second engine death (ReasonCode 1 again) after the first stall line (eid 112) has played, car stopped.",
+    "trigger": "ReasonCode (veh+0x4068) transitions to 1 a second time in the same race, finish_state (veh+0x4064) == 0, speed < 2.0 m/s for 2.5 s; first-stall latch set. Broker fields reason_code, finish_state, speed. Thresholds DERIVED from retire_commentary_v5.",
+    "subject": "player (-1)",
+    "technique": "cooldown_unblock + own_emitter: write 15.0 to the eid 113 cooldown at 0x5C0280, then queue PWS eid 113. The EnumValueTranslation route is not used.",
+    "latch_cooldown": "once per race.",
+    "must_not_play_when": "First stall only (eid 112 not yet played), any retire line already queued (117-119, DD-11 style: do not stack), player finished or DQ.",
+    "conflicts": "DD-07: MF token on eid 113. H3 says it should not be a second retire line (117-119 owned by others).",
+    "calibration": "none beyond the 112 plan; DERIVED thresholds.",
+    "live_test": "Owner runs two MF engine failures in one race (repeat the 111 test), stops after the second, checks eid 113 queue and audio.",
+    "confidence": "GUESS. The second-stall condition is the owner's idea, not in game code."
+   },
+   "checked": [
+    {
+     "function": "sub_41AFD0 (literal emitter)",
+     "file": "sub_41AFD0_0041afd0.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AD80 (literal emitter)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41B250 (literal emitter)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41C440 (track-name id via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (track-name id via ThunkToFUN004201e0 -> sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AC50 (AI session messages)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A720 (penalty/flag messages)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (code 1-22 -> eid 113-134; NOT in the 40-function dossier list)",
+     "file": "EnumValueTranslation_00414010.c",
+     "result": "emits 113 under case 1 L10 (sets *(a1+8)=113 and returns 1)",
+     "line": "case 1 L10 (sets *(a1+8)=113 and returns 1)"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (driver-name clip ids, not event eids)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "cannot produce this eid (no branch with value 113)",
+     "line": "-"
+    },
+    {
+     "function": "CollisionDetectionSystem sub_4EA970",
+     "file": "CollisionDetectionSystem_004ea970.c:421",
+     "result": "relay only: relays every vehicle contact to sub_41AD80 when other index < dword_5C329C; no eid of its own",
+     "line": "CollisionDetectionSystem_004ea970.c:421"
+    },
+    {
+     "function": "CollisionSparkParticleEffects sub_4EC1A0",
+     "file": "CollisionSparkParticleEffects_004ec1a0.c:145,364",
+     "result": "relay only: player-only branch (L145) calls RepairServiceStateDispatcher(5) at L364 under proximity/random gates; no eid of its own",
+     "line": "CollisionSparkParticleEffects_004ec1a0.c:145,364"
+    },
+    {
+     "function": "RepairServiceStateDispatcher sub_4ED250",
+     "file": "RepairServiceStateDispatcher_004ed250.c:20,34,48",
+     "result": "relay only: passes a2 to sub_41AFD0; case 5 (L25-34) gives a2=5 -> eid 111",
+     "line": "RepairServiceStateDispatcher_004ed250.c:20,34,48"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "file": "sub_4F1FE0_004f1fe0.c:34,135",
+     "result": "relay only: sub_41B250 call at L135 sits in the else-arm of 'if (v4)' where v4 = veh+0x4064 FinishState (L33-34, L70)",
+     "line": "sub_4F1FE0_004f1fe0.c:34,135"
+    },
+    {
+     "function": "ParticleEffectUpdateDispatch sub_4EB430",
+     "file": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202",
+     "result": "relay only: calls CollisionDetectionSystem (L129) and VehicleContactForceAccumulation (L185); no eid",
+     "line": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202"
+    },
+    {
+     "function": "VehicleContactForceAccumulation sub_4EBC60",
+     "file": "VehicleContactForceAccumulation_004ebc60.c:27-31",
+     "result": "relay only: for this[3247] in {0,1} and a3==1 calls CollisionSparkParticleEffects (L31); no eid",
+     "line": "VehicleContactForceAccumulation_004ebc60.c:27-31"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40",
+     "file": "VehicleYawRotationRecoveryController_004f1c40.c",
+     "result": "relay only: callers chain to sub_4F1FE0 and sub_4EBC60; called from MainGameTickUpdate every 50 ticks (MainGameTickUpdate_0042c690.c, L30+49 via dword_7C5698 % 50)",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c"
+    }
+   ],
+   "global_grep": "Global search of all 7143 decompiled files for eid literals in DriverDataTableLookupAndTimeConversion / CommentaryEventQueue calls and for '= N;' assignments. Hits outside the lists above: sub_51B7CD:70,83 and sub_58E4D2:276 (decoder token ids 111), BitstreamTokenReader:58 (112), sub_51A794:59 and sub_535E80:43 (113), JPEGMarkerParsing:100 and sub_51B45F:160 (114/115), AudioVideoDecodeSubbandLoop:7 and ArrayProcessingWithValidation:15 (117/118), StreamBufferReadStateMachine:34 (119): all are non-eid bitstream/decoder fields, judged by name and context, not by full read.",
+   "sources": [
+    "functions/EnumValueTranslation_00414010.c:10,28",
+    "functions/sub_411840 (FontRenderingPrep)",
+    "clean exe VA 0x5C0280 = FLT_MAX",
+    "docs/design/H3_mechanical.md:37",
+    "data/voice_index.json 112 triage"
+   ]
+  },
+  {
+   "sdt_index": 113,
+   "eid": 114,
+   "clip": "PWS_HIT10",
+   "says": "Player hits AI driver (3)",
+   "score": 112,
+   "cooldown": 1.0,
+   "cooldown_note": "clean exe 0x5C0294 = 1.0, dump 1.0, owner exe 1.0 (not blocked).",
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "",
+   "situation": "The player's car makes contact with an AI car above the native closing-speed threshold (a4 > 1250.0, units UNKNOWN); the two cars are not in a 2-s latch. eid 114 is chosen when the player is the first car of the pair and the AI car has the smaller DistanceProjectionCalc value (or the reverse with the player second).",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "Not suppressed. Cooldown 1.0 and no blocking gate found.",
+   "emitters": [
+    "sub_41AD80 (sub_41AD80_0041ad80.c:35,45)"
+   ],
+   "call_path": "MainGameTickUpdate (L15+49 loop) -> sub_4EB430 ParticleEffectUpdateDispatch (L129) -> sub_4EA970 CollisionDetectionSystem (L421 call) -> sub_41AD80(this, a2, a3, relative speed)",
+   "gates": [
+    "dword_7D0308 (sub_41AD80:14)",
+    "flt_7CF3C8 != 0.0 && dword_7C56A8 != 8 (:16)",
+    "2-s latch dbl_8AFEA0 - 2.0 > timestamp for both cars (:19)",
+    "a4 > 1250.0 (:19)",
+    "one of a2/a3 is the player (:32, :40)",
+    "CollisionDetectionSystem:421 v83 < dword_5C329C"
+   ],
+   "mod": "none",
+   "heard_evidence": "none in owner notes. voice_index 113: vanilla True, evf_auto SHIPPED = reachable, not heard (VOICE_INDEX.md:17).",
+   "tier": "DERIVED",
+   "notes": "The 1250.0 threshold is in the same units as the contact speed from sub_4EA970; the unit is UNKNOWN. Not verified live: VOICE_INDEX says 'reachable, not heard'.",
+   "checked": [
+    {
+     "function": "sub_41AFD0 (literal emitter)",
+     "file": "sub_41AFD0_0041afd0.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AD80 (literal emitter)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "emits 114 under L35 (player=a2 and DistanceProjectionCalc(a3)<d(a2)) or L45 (player=a3 and d(a3)>=d(a2)); gates L14 dword_7D0308, L16 flt_7CF3C8!=0 && dword_7C56A8!=8, L19 2-s latch on both cars and a4>1250.0",
+     "line": "L35 (player=a2 and DistanceProjectionCalc(a3)<d(a2)) or L45 (player=a3 and d(a3)>=d(a2)); gates L14 dword_7D0308, L16 flt_7CF3C8!=0 && dword_7C56A8!=8, L19 2-s latch on both cars and a4>1250.0"
+    },
+    {
+     "function": "sub_41B250 (literal emitter)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41C440 (track-name id via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (track-name id via ThunkToFUN004201e0 -> sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AC50 (AI session messages)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A720 (penalty/flag messages)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (code 1-22 -> eid 113-134; NOT in the 40-function dossier list)",
+     "file": "EnumValueTranslation_00414010.c",
+     "result": "emits 114 under case 2 L13",
+     "line": "case 2 L13"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (driver-name clip ids, not event eids)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "cannot produce this eid (no branch with value 114)",
+     "line": "-"
+    },
+    {
+     "function": "CollisionDetectionSystem sub_4EA970",
+     "file": "CollisionDetectionSystem_004ea970.c:421",
+     "result": "relay only: relays every vehicle contact to sub_41AD80 when other index < dword_5C329C; no eid of its own",
+     "line": "CollisionDetectionSystem_004ea970.c:421"
+    },
+    {
+     "function": "CollisionSparkParticleEffects sub_4EC1A0",
+     "file": "CollisionSparkParticleEffects_004ec1a0.c:145,364",
+     "result": "relay only: player-only branch (L145) calls RepairServiceStateDispatcher(5) at L364 under proximity/random gates; no eid of its own",
+     "line": "CollisionSparkParticleEffects_004ec1a0.c:145,364"
+    },
+    {
+     "function": "RepairServiceStateDispatcher sub_4ED250",
+     "file": "RepairServiceStateDispatcher_004ed250.c:20,34,48",
+     "result": "relay only: passes a2 to sub_41AFD0; case 5 (L25-34) gives a2=5 -> eid 111",
+     "line": "RepairServiceStateDispatcher_004ed250.c:20,34,48"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "file": "sub_4F1FE0_004f1fe0.c:34,135",
+     "result": "relay only: sub_41B250 call at L135 sits in the else-arm of 'if (v4)' where v4 = veh+0x4064 FinishState (L33-34, L70)",
+     "line": "sub_4F1FE0_004f1fe0.c:34,135"
+    },
+    {
+     "function": "ParticleEffectUpdateDispatch sub_4EB430",
+     "file": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202",
+     "result": "relay only: calls CollisionDetectionSystem (L129) and VehicleContactForceAccumulation (L185); no eid",
+     "line": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202"
+    },
+    {
+     "function": "VehicleContactForceAccumulation sub_4EBC60",
+     "file": "VehicleContactForceAccumulation_004ebc60.c:27-31",
+     "result": "relay only: for this[3247] in {0,1} and a3==1 calls CollisionSparkParticleEffects (L31); no eid",
+     "line": "VehicleContactForceAccumulation_004ebc60.c:27-31"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40",
+     "file": "VehicleYawRotationRecoveryController_004f1c40.c",
+     "result": "relay only: callers chain to sub_4F1FE0 and sub_4EBC60; called from MainGameTickUpdate every 50 ticks (MainGameTickUpdate_0042c690.c, L30+49 via dword_7C5698 % 50)",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c"
+    }
+   ],
+   "global_grep": "Global search of all 7143 decompiled files for eid literals in DriverDataTableLookupAndTimeConversion / CommentaryEventQueue calls and for '= N;' assignments. Hits outside the lists above: sub_51B7CD:70,83 and sub_58E4D2:276 (decoder token ids 111), BitstreamTokenReader:58 (112), sub_51A794:59 and sub_535E80:43 (113), JPEGMarkerParsing:100 and sub_51B45F:160 (114/115), AudioVideoDecodeSubbandLoop:7 and ArrayProcessingWithValidation:15 (117/118), StreamBufferReadStateMachine:34 (119): all are non-eid bitstream/decoder fields, judged by name and context, not by full read.",
+   "sources": [
+    "functions/sub_41AD80_0041ad80.c:14-45",
+    "functions/CollisionDetectionSystem_004ea970.c:421",
+    "functions/ParticleEffectUpdateDispatch_004eb430.c:129",
+    "clean exe VA 0x5C0294 = 1.0"
+   ]
+  },
+  {
+   "sdt_index": 114,
+   "eid": 115,
+   "clip": "PWS_HIT08",
+   "says": "Player hits AI driver (1)",
+   "score": 113,
+   "cooldown": 1.0,
+   "cooldown_note": "clean exe 0x5C02A8 = 1.0, dump 1.0, owner exe 1.0.",
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "",
+   "situation": "Same contact as PWS_HIT10 (player and AI car, relative speed > 1250, 2-s pair latch). eid 115 is chosen for the other ordering: player first with the AI car's DistanceProjectionCalc >= the player's, or player second with the AI car's value smaller.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "Not suppressed.",
+   "emitters": [
+    "sub_41AD80 (sub_41AD80_0041ad80.c:37,43)"
+   ],
+   "call_path": "as PWS_HIT10 (sub_4EB430 -> sub_4EA970 -> sub_41AD80)",
+   "gates": [
+    "as PWS_HIT10: sub_41AD80:14, :16, :19 latch and a4 > 1250.0, one car is the player"
+   ],
+   "mod": "none",
+   "heard_evidence": "none in owner notes. voice_index 114: vanilla True, evf_auto SHIPPED = reachable, not heard.",
+   "tier": "DERIVED",
+   "notes": "Dump says eid 115 is score 113, priority 1; that is fine for the audio. Note: for one contact only one of 114/115 plays (the branch is chosen by the projection comparison).",
+   "checked": [
+    {
+     "function": "sub_41AFD0 (literal emitter)",
+     "file": "sub_41AFD0_0041afd0.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AD80 (literal emitter)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "emits 115 under L37 (player=a2 and d(a3)>=d(a2)) or L43 (player=a3 and d(a3)<d(a2)); same gates",
+     "line": "L37 (player=a2 and d(a3)>=d(a2)) or L43 (player=a3 and d(a3)<d(a2)); same gates"
+    },
+    {
+     "function": "sub_41B250 (literal emitter)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41C440 (track-name id via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (track-name id via ThunkToFUN004201e0 -> sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AC50 (AI session messages)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A720 (penalty/flag messages)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (no branch with value 115)",
+     "line": "-"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (code 1-22 -> eid 113-134; NOT in the 40-function dossier list)",
+     "file": "EnumValueTranslation_00414010.c",
+     "result": "emits 115 under case 3 L16",
+     "line": "case 3 L16"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (driver-name clip ids, not event eids)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "number 115 is a driver-name clip id (L43 (PWS name id 115)), not an event eid",
+     "line": "L43 (PWS name id 115)"
+    },
+    {
+     "function": "CollisionDetectionSystem sub_4EA970",
+     "file": "CollisionDetectionSystem_004ea970.c:421",
+     "result": "relay only: relays every vehicle contact to sub_41AD80 when other index < dword_5C329C; no eid of its own",
+     "line": "CollisionDetectionSystem_004ea970.c:421"
+    },
+    {
+     "function": "CollisionSparkParticleEffects sub_4EC1A0",
+     "file": "CollisionSparkParticleEffects_004ec1a0.c:145,364",
+     "result": "relay only: player-only branch (L145) calls RepairServiceStateDispatcher(5) at L364 under proximity/random gates; no eid of its own",
+     "line": "CollisionSparkParticleEffects_004ec1a0.c:145,364"
+    },
+    {
+     "function": "RepairServiceStateDispatcher sub_4ED250",
+     "file": "RepairServiceStateDispatcher_004ed250.c:20,34,48",
+     "result": "relay only: passes a2 to sub_41AFD0; case 5 (L25-34) gives a2=5 -> eid 111",
+     "line": "RepairServiceStateDispatcher_004ed250.c:20,34,48"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "file": "sub_4F1FE0_004f1fe0.c:34,135",
+     "result": "relay only: sub_41B250 call at L135 sits in the else-arm of 'if (v4)' where v4 = veh+0x4064 FinishState (L33-34, L70)",
+     "line": "sub_4F1FE0_004f1fe0.c:34,135"
+    },
+    {
+     "function": "ParticleEffectUpdateDispatch sub_4EB430",
+     "file": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202",
+     "result": "relay only: calls CollisionDetectionSystem (L129) and VehicleContactForceAccumulation (L185); no eid",
+     "line": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202"
+    },
+    {
+     "function": "VehicleContactForceAccumulation sub_4EBC60",
+     "file": "VehicleContactForceAccumulation_004ebc60.c:27-31",
+     "result": "relay only: for this[3247] in {0,1} and a3==1 calls CollisionSparkParticleEffects (L31); no eid",
+     "line": "VehicleContactForceAccumulation_004ebc60.c:27-31"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40",
+     "file": "VehicleYawRotationRecoveryController_004f1c40.c",
+     "result": "relay only: callers chain to sub_4F1FE0 and sub_4EBC60; called from MainGameTickUpdate every 50 ticks (MainGameTickUpdate_0042c690.c, L30+49 via dword_7C5698 % 50)",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c"
+    }
+   ],
+   "global_grep": "Global search of all 7143 decompiled files for eid literals in DriverDataTableLookupAndTimeConversion / CommentaryEventQueue calls and for '= N;' assignments. Hits outside the lists above: sub_51B7CD:70,83 and sub_58E4D2:276 (decoder token ids 111), BitstreamTokenReader:58 (112), sub_51A794:59 and sub_535E80:43 (113), JPEGMarkerParsing:100 and sub_51B45F:160 (114/115), AudioVideoDecodeSubbandLoop:7 and ArrayProcessingWithValidation:15 (117/118), StreamBufferReadStateMachine:34 (119): all are non-eid bitstream/decoder fields, judged by name and context, not by full read.",
+   "sources": [
+    "functions/sub_41AD80_0041ad80.c:37,43",
+    "functions/CollisionDetectionSystem_004ea970.c:421",
+    "clean exe VA 0x5C02A8 = 1.0"
+   ]
+  },
+  {
+   "sdt_index": 115,
+   "eid": null,
+   "clip": "PWS_HIT09",
+   "says": "Player hits AI driver (2)",
+   "score": null,
+   "cooldown": null,
+   "cooldown_note": "no event row",
+   "verdict": "NOT_ACTIVATED",
+   "reason": "orphan_clip",
+   "situation": "",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No event row points at sdt 115 (orphaned_clips.json lists 115). The player-AI contact that the owner calls 'hits AI driver (2)' is already handled by eids 114 and 115.",
+   "emitters": [],
+   "call_path": "none",
+   "gates": [],
+   "mod": "none",
+   "heard_evidence": "docs/TO_LISTEN.txt:19 lists it for listening; no heard note.",
+   "tier": "CONFIRMED",
+   "notes": "findings.jsonl:71 says HIT09 has siblings HIT01-03 that are DONE, which means a carrier could be proposed. No score in word_5BEBB0 targets it (dump: 0 of 23 orphan sdt indices are a score target). It is not in H8's shared-score list (H8_orphans.md) and the findings.jsonl:1695 list either.",
+   "play_plan": {
+    "meaning": "A third variant of 'you hit an AI car' (the owner's label '(2)'). Content = the same contact as PWS_HIT10 and PWS_HIT08.",
+    "when_it_should_play": "Player-AI contact above the same speed threshold (a4 > 1250.0), but only when the native variant choice would otherwise pick 114 or 115 and the owner wants the middle line instead. Owner decision needed: the game already has two variants.",
+    "trigger": "Same predicate as sub_41AD80: player is a2 or a3, a4 > 1250.0 (relative speed, units UNKNOWN), 2-s pair latch on both cars (dbl_8AFEA0 timestamps). Broker: speed of both cars, car ids driver_id, lap distance veh+0x4044 for ahead/behind (coordinator rule a).",
+    "subject": "player (-1)",
+    "technique": "UNKNOWN: a carrier score is not safe. Rotating the score of 114/115 would double the speech on one contact. Use the alternate-pick reader only if it is found; otherwise do not play.",
+    "latch_cooldown": "same 2-s pair latch as 114/115; never two of the three on one contact.",
+    "must_not_play_when": "AI-AI contact (owner: AI gets no penalty lines; this is a player line), any contact already producing 114 or 115 in the same tick, a contact at low speed.",
+    "conflicts": "114 and 115 on the same contact; DD-10 (no AI penalty lines) does not cover this, but 'player hits AI' must not stack.",
+    "calibration": "1250.0 threshold: measure in game units on a live contact (UNKNOWN units).",
+    "live_test": "Owner hits an AI car at speed; listen for which of 114/115 plays (TO_LISTEN.txt:19), then compare with the clip for 115-sdt (HIT09).",
+    "confidence": "GUESS. The orphan status is CONFIRMED; the usefulness of a third line is an owner call."
+   },
+   "checked": [
+    {
+     "function": "sub_41AFD0 (literal emitter)",
+     "file": "sub_41AFD0_0041afd0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AD80 (literal emitter)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41B250 (literal emitter)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41C440 (track-name id via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (track-name id via ThunkToFUN004201e0 -> sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AC50 (AI session messages)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A720 (penalty/flag messages)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (code 1-22 -> eid 113-134; NOT in the 40-function dossier list)",
+     "file": "EnumValueTranslation_00414010.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (driver-name clip ids, not event eids)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "CollisionDetectionSystem sub_4EA970",
+     "file": "CollisionDetectionSystem_004ea970.c:421",
+     "result": "relay only: relays every vehicle contact to sub_41AD80 when other index < dword_5C329C; no eid of its own",
+     "line": "CollisionDetectionSystem_004ea970.c:421"
+    },
+    {
+     "function": "CollisionSparkParticleEffects sub_4EC1A0",
+     "file": "CollisionSparkParticleEffects_004ec1a0.c:145,364",
+     "result": "relay only: player-only branch (L145) calls RepairServiceStateDispatcher(5) at L364 under proximity/random gates; no eid of its own",
+     "line": "CollisionSparkParticleEffects_004ec1a0.c:145,364"
+    },
+    {
+     "function": "RepairServiceStateDispatcher sub_4ED250",
+     "file": "RepairServiceStateDispatcher_004ed250.c:20,34,48",
+     "result": "relay only: passes a2 to sub_41AFD0; case 5 (L25-34) gives a2=5 -> eid 111",
+     "line": "RepairServiceStateDispatcher_004ed250.c:20,34,48"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "file": "sub_4F1FE0_004f1fe0.c:34,135",
+     "result": "relay only: sub_41B250 call at L135 sits in the else-arm of 'if (v4)' where v4 = veh+0x4064 FinishState (L33-34, L70)",
+     "line": "sub_4F1FE0_004f1fe0.c:34,135"
+    },
+    {
+     "function": "ParticleEffectUpdateDispatch sub_4EB430",
+     "file": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202",
+     "result": "relay only: calls CollisionDetectionSystem (L129) and VehicleContactForceAccumulation (L185); no eid",
+     "line": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202"
+    },
+    {
+     "function": "VehicleContactForceAccumulation sub_4EBC60",
+     "file": "VehicleContactForceAccumulation_004ebc60.c:27-31",
+     "result": "relay only: for this[3247] in {0,1} and a3==1 calls CollisionSparkParticleEffects (L31); no eid",
+     "line": "VehicleContactForceAccumulation_004ebc60.c:27-31"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40",
+     "file": "VehicleYawRotationRecoveryController_004f1c40.c",
+     "result": "relay only: callers chain to sub_4F1FE0 and sub_4EBC60; called from MainGameTickUpdate every 50 ticks (MainGameTickUpdate_0042c690.c, L30+49 via dword_7C5698 % 50)",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c"
+    }
+   ],
+   "global_grep": "Global search of all 7143 decompiled files for eid literals in DriverDataTableLookupAndTimeConversion / CommentaryEventQueue calls and for '= N;' assignments. Hits outside the lists above: sub_51B7CD:70,83 and sub_58E4D2:276 (decoder token ids 111), BitstreamTokenReader:58 (112), sub_51A794:59 and sub_535E80:43 (113), JPEGMarkerParsing:100 and sub_51B45F:160 (114/115), AudioVideoDecodeSubbandLoop:7 and ArrayProcessingWithValidation:15 (117/118), StreamBufferReadStateMachine:34 (119): all are non-eid bitstream/decoder fields, judged by name and context, not by full read.",
+   "sources": [
+    "data/line_trace/115_PWS_HIT09.json (no dump rows)",
+    "findings.jsonl:71,1695",
+    "docs/design/H8_orphans.md",
+    "docs/TO_LISTEN.txt:19"
+   ]
+  },
+  {
+   "sdt_index": 116,
+   "eid": 116,
+   "clip": "PWS_OFFROAD01",
+   "says": "Player went off track (1)",
+   "score": 114,
+   "cooldown": 1.0,
+   "cooldown_note": "clean exe 0x5C02BC = 1.0, dump 1.0, owner exe 1.0 (not blocked).",
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "The predicate exists in code (veh+0x40E8 off-track byte, broker off_track, ABI 9, FACT live 2026-07-28), read by the cut-track penalty logic. No code emits eid 116 from it. EMITTER_SPECS.md:424 names the predicate but no emit site was located.",
+   "emitters": [],
+   "call_path": "none for an event row. Only non-literal route: sub_414010 EnumValueTranslation case 4 (EnumValueTranslation_00414010.c:19), text-formatter path, code source UNKNOWN.",
+   "gates": [
+    "off-track byte veh+0x40E8 0->1 (predicate, not an emitter; f1c_broker_abi.h ABI 9)"
+   ],
+   "mod": "none (mod_sources 0; token_only not present)",
+   "heard_evidence": "voice_index 116: triage 'Z, player leaves the road, not sure if any mechanism exists' (NEEDS_RESEARCH); EMITTER_SPECS.md:424 predicate only; VOICE_LINES 'Player went off track (1)'.",
+   "tier": "CONFIRMED",
+   "notes": "Contradiction with EVF EMITTER_SPECS.md:424 (predicate 'Threshold known True' but no emit site). The owner's voice_index row says EXISTS_VANILLA, which is wrong: no emit site was found. Score 114 is shared with OFFROAD02 (117).",
+   "play_plan": {
+    "meaning": "The car has left the racing surface; the engineer warns the driver to get back on the track.",
+    "when_it_should_play": "Race (SessionType 7) and qualifying-lap warnings optional (owner decision), player car only, on the first frame of an off-track episode, not on grid or in pit lane.",
+    "trigger": "off_track (broker F1CBrokerVehicleSnapshot.off_track, veh+0x40E8 / tracker+0xB4) transitions 0 -> 1 for the player, with pit_status == 0 (track; 1-4 are in-lap, lane, box, exit), speed > 15 m/s (threshold UNKNOWN, calibrate), and no penalty line already queued for the same episode. Lap distance veh+0x4044 for the ahead/behind wording (coordinator rule a).",
+    "subject": "player (-1)",
+    "technique": "own_emitter: ERE queues PWS eid 116. eid 116 cooldown is 1.0 s (not blocked), so no lift is needed. The clip is resolved from score 114 at play time.",
+    "latch_cooldown": "once per off-track episode (reset when off_track returns to 0); plus a minimum gap of 20 s between off-track lines (DERIVED, UNKNOWN calibration).",
+    "must_not_play_when": "On track (off_track 0), in pit lane or box (pit_status 1-4), on the grid, during a spin or stop (speed < 2 m/s), when a cut-track penalty line is already queued, and while MF or SC has a pending line on eid 116 (DD-07 rule: do not queue while a line is pending on that eid).",
+    "conflicts": "Cut-track penalty system reads the same byte (SPEC_EVF-003). Safety Car and AI off-track lines (eid 227-231, 409 TV twin) use other eids. Stick to the track (117) shares score 114 and must not play at the same time.",
+    "calibration": "speed gate and minimum gap: UNKNOWN; measure from owner laps.",
+    "live_test": "Owner drives wide onto the grass in a race, watches off_track 0->1->0 in f1c-memory (broker) and checks ERE queue for eid 116 and audio. Repeat once in the pit lane to confirm no line.",
+    "confidence": "DERIVED for the predicate (live FACT of the byte). GUESS for the speed gate and the gap. Owner note 'not sure' stays open."
+   },
+   "checked": [
+    {
+     "function": "sub_41AFD0 (literal emitter)",
+     "file": "sub_41AFD0_0041afd0.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AD80 (literal emitter)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41B250 (literal emitter)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41C440 (track-name id via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (track-name id via ThunkToFUN004201e0 -> sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AC50 (AI session messages)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A720 (penalty/flag messages)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (no branch with value 116)",
+     "line": "-"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (code 1-22 -> eid 113-134; NOT in the 40-function dossier list)",
+     "file": "EnumValueTranslation_00414010.c",
+     "result": "emits 116 under case 4 L19",
+     "line": "case 4 L19"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (driver-name clip ids, not event eids)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "number 116 is a driver-name clip id (L263 (PWS name id 116)), not an event eid",
+     "line": "L263 (PWS name id 116)"
+    },
+    {
+     "function": "CollisionDetectionSystem sub_4EA970",
+     "file": "CollisionDetectionSystem_004ea970.c:421",
+     "result": "relay only: relays every vehicle contact to sub_41AD80 when other index < dword_5C329C; no eid of its own",
+     "line": "CollisionDetectionSystem_004ea970.c:421"
+    },
+    {
+     "function": "CollisionSparkParticleEffects sub_4EC1A0",
+     "file": "CollisionSparkParticleEffects_004ec1a0.c:145,364",
+     "result": "relay only: player-only branch (L145) calls RepairServiceStateDispatcher(5) at L364 under proximity/random gates; no eid of its own",
+     "line": "CollisionSparkParticleEffects_004ec1a0.c:145,364"
+    },
+    {
+     "function": "RepairServiceStateDispatcher sub_4ED250",
+     "file": "RepairServiceStateDispatcher_004ed250.c:20,34,48",
+     "result": "relay only: passes a2 to sub_41AFD0; case 5 (L25-34) gives a2=5 -> eid 111",
+     "line": "RepairServiceStateDispatcher_004ed250.c:20,34,48"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "file": "sub_4F1FE0_004f1fe0.c:34,135",
+     "result": "relay only: sub_41B250 call at L135 sits in the else-arm of 'if (v4)' where v4 = veh+0x4064 FinishState (L33-34, L70)",
+     "line": "sub_4F1FE0_004f1fe0.c:34,135"
+    },
+    {
+     "function": "ParticleEffectUpdateDispatch sub_4EB430",
+     "file": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202",
+     "result": "relay only: calls CollisionDetectionSystem (L129) and VehicleContactForceAccumulation (L185); no eid",
+     "line": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202"
+    },
+    {
+     "function": "VehicleContactForceAccumulation sub_4EBC60",
+     "file": "VehicleContactForceAccumulation_004ebc60.c:27-31",
+     "result": "relay only: for this[3247] in {0,1} and a3==1 calls CollisionSparkParticleEffects (L31); no eid",
+     "line": "VehicleContactForceAccumulation_004ebc60.c:27-31"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40",
+     "file": "VehicleYawRotationRecoveryController_004f1c40.c",
+     "result": "relay only: callers chain to sub_4F1FE0 and sub_4EBC60; called from MainGameTickUpdate every 50 ticks (MainGameTickUpdate_0042c690.c, L30+49 via dword_7C5698 % 50)",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c"
+    }
+   ],
+   "global_grep": "Global search of all 7143 decompiled files for eid literals in DriverDataTableLookupAndTimeConversion / CommentaryEventQueue calls and for '= N;' assignments. Hits outside the lists above: sub_51B7CD:70,83 and sub_58E4D2:276 (decoder token ids 111), BitstreamTokenReader:58 (112), sub_51A794:59 and sub_535E80:43 (113), JPEGMarkerParsing:100 and sub_51B45F:160 (114/115), AudioVideoDecodeSubbandLoop:7 and ArrayProcessingWithValidation:15 (117/118), StreamBufferReadStateMachine:34 (119): all are non-eid bitstream/decoder fields, judged by name and context, not by full read.",
+   "sources": [
+    "functions/EnumValueTranslation_00414010.c:19",
+    "docs/EMITTER_SPECS.md:424 (EVF)",
+    "f1c_ida_decompiled/tools/sdk/f1c_broker_abi.h ABI 9",
+    "findings.jsonl (off-track-byte-40e8)",
+    "data/voice_index.json 116",
+    "clean exe VA 0x5C02BC = 1.0"
+   ]
+  },
+  {
+   "sdt_index": 117,
+   "eid": null,
+   "clip": "PWS_OFFROAD02",
+   "says": "Stick to the track (label: Player went off track (2))",
+   "score": 114,
+   "cooldown": null,
+   "cooldown_note": "no own event row; carrier eid 116 cooldown 1.0 (not blocked)",
+   "verdict": "UNKNOWN",
+   "reason": "",
+   "situation": "Second clip at score 114, the same score as PWS_OFFROAD01.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No suppression. The clip cannot be reached through its own eid because no eid row points at sdt 117.",
+   "emitters": [],
+   "call_path": "carrier: eid 116 (no native emitter, see PWS_OFFROAD01). Alternate pick at score 114: reader NOT located.",
+   "gates": [],
+   "mod": "none",
+   "heard_evidence": "data/voice_index.json 117: 'owner heard: Stick to the track' (says_source 'owner listening 2026-10-18'). Provenance (natural or injected) not stated. No mod claims it.",
+   "tier": "DERIVED",
+   "notes": "Missing to decide: the code that picks between the sdt indices sharing score 114 (word_5BEBB0 consumer; H8_orphans.md:16 'roll reader'). The owner's 'heard' note with no mod source is a contradiction to resolve: either the roll exists, or the owner heard it through a route not in this dossier.",
+   "checked": [
+    {
+     "function": "sub_41AFD0 (literal emitter)",
+     "file": "sub_41AFD0_0041afd0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AD80 (literal emitter)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41B250 (literal emitter)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41C440 (track-name id via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (track-name id via ThunkToFUN004201e0 -> sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AC50 (AI session messages)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A720 (penalty/flag messages)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (code 1-22 -> eid 113-134; NOT in the 40-function dossier list)",
+     "file": "EnumValueTranslation_00414010.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (driver-name clip ids, not event eids)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "CollisionDetectionSystem sub_4EA970",
+     "file": "CollisionDetectionSystem_004ea970.c:421",
+     "result": "relay only: relays every vehicle contact to sub_41AD80 when other index < dword_5C329C; no eid of its own",
+     "line": "CollisionDetectionSystem_004ea970.c:421"
+    },
+    {
+     "function": "CollisionSparkParticleEffects sub_4EC1A0",
+     "file": "CollisionSparkParticleEffects_004ec1a0.c:145,364",
+     "result": "relay only: player-only branch (L145) calls RepairServiceStateDispatcher(5) at L364 under proximity/random gates; no eid of its own",
+     "line": "CollisionSparkParticleEffects_004ec1a0.c:145,364"
+    },
+    {
+     "function": "RepairServiceStateDispatcher sub_4ED250",
+     "file": "RepairServiceStateDispatcher_004ed250.c:20,34,48",
+     "result": "relay only: passes a2 to sub_41AFD0; case 5 (L25-34) gives a2=5 -> eid 111",
+     "line": "RepairServiceStateDispatcher_004ed250.c:20,34,48"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "file": "sub_4F1FE0_004f1fe0.c:34,135",
+     "result": "relay only: sub_41B250 call at L135 sits in the else-arm of 'if (v4)' where v4 = veh+0x4064 FinishState (L33-34, L70)",
+     "line": "sub_4F1FE0_004f1fe0.c:34,135"
+    },
+    {
+     "function": "ParticleEffectUpdateDispatch sub_4EB430",
+     "file": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202",
+     "result": "relay only: calls CollisionDetectionSystem (L129) and VehicleContactForceAccumulation (L185); no eid",
+     "line": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202"
+    },
+    {
+     "function": "VehicleContactForceAccumulation sub_4EBC60",
+     "file": "VehicleContactForceAccumulation_004ebc60.c:27-31",
+     "result": "relay only: for this[3247] in {0,1} and a3==1 calls CollisionSparkParticleEffects (L31); no eid",
+     "line": "VehicleContactForceAccumulation_004ebc60.c:27-31"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40",
+     "file": "VehicleYawRotationRecoveryController_004f1c40.c",
+     "result": "relay only: callers chain to sub_4F1FE0 and sub_4EBC60; called from MainGameTickUpdate every 50 ticks (MainGameTickUpdate_0042c690.c, L30+49 via dword_7C5698 % 50)",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c"
+    }
+   ],
+   "global_grep": "Global search of all 7143 decompiled files for eid literals in DriverDataTableLookupAndTimeConversion / CommentaryEventQueue calls and for '= N;' assignments. Hits outside the lists above: sub_51B7CD:70,83 and sub_58E4D2:276 (decoder token ids 111), BitstreamTokenReader:58 (112), sub_51A794:59 and sub_535E80:43 (113), JPEGMarkerParsing:100 and sub_51B45F:160 (114/115), AudioVideoDecodeSubbandLoop:7 and ArrayProcessingWithValidation:15 (117/118), StreamBufferReadStateMachine:34 (119): all are non-eid bitstream/decoder fields, judged by name and context, not by full read.",
+   "sources": [
+    "docs/design/H8_orphans.md:16",
+    "findings.jsonl:1695",
+    "data/voice_index.json 117",
+    "docs/VOICE_LINES.md:308"
+   ]
+  },
+  {
+   "sdt_index": 118,
+   "eid": 117,
+   "clip": "PWS_RETIRE02",
+   "says": "Player retired (generic 1)",
+   "score": 115,
+   "cooldown": 3.4028234663852886e+38,
+   "cooldown_note": "clean exe 0x5C02D0 = FLT_MAX (blocked). dump 6.0 and owner exe 6.0 (patched).",
+   "verdict": "MOD_ONLY",
+   "reason": "blocked_cooldown_in_stock_and_unreachable_native_path",
+   "situation": "Player's car is terminally damaged and stopped; the engineer says 'that's the end' (retirement).",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": true,
+   "suppressed_note": "Trigger exists: sub_41B250:23 emits 117 for the player when motive (veh+0x4068) is not 1 or 7, called from sub_4F1FE0:135. Suppressed by (a) FLT_MAX stock cooldown at 0x5C02D0, (b) the FinishState==0 arm plus early returns sub_4F1FE0:83-91 (this[3247], dword_7CE814), sub_4D21D0 and DistanceComparison (L107-109), and (c) the dwell timer flt_7D0A8C = 10.0 (L111-113). Four live designed runs (findings.jsonl:99) never fired it.",
+   "emitters": [
+    "sub_41B250 (sub_41B250_0041b250.c:23)"
+   ],
+   "call_path": "MainGameTickUpdate (every 50 ticks, dword_7C5698 % 50) -> sub_4F1C40 VehicleYawRotationRecoveryController -> sub_4F1FE0 (caller 0x4F1C40) -> sub_41B250 (L135)",
+   "gates": [
+    "sub_4F1FE0:33-34 v4 = veh+0x4064 FinishState; body in else-arm (FinishState == 0)",
+    "sub_4F1FE0:83-86 this[3247] != 0 and float(v3+16752) < FLT_MAX returns; :90 dword_7CE814 returns",
+    "sub_4F1FE0:107 sub_4D21D0() true (race phase cases 0-4 return 0, findings.jsonl:94)",
+    "sub_4F1FE0:109 (*this)[3348] != 3 && !DistanceComparison",
+    "sub_4F1FE0:111-113 timer > flt_7D0A8C (10.0)",
+    "sub_41B250:8 dword_7D0308 && flt_7CF3C8 != 0 && dword_7C56A4 == 7 && dword_7C56A8 != 8 && dword_7D0410 != 5",
+    "sub_41B250:13,23 player and motive not 1 or 7"
+   ],
+   "mod": "pitstop_failures 1.1.4 (released; registry name for pitstop_modding): dll_emit fire(EID_RETIRE) on terminal wheel jam (pit_commentary.c:55,1477). retire_commentary_v5.dll (findings.jsonl:101): polling injector, armed by ReasonCode != 0 with FinishState 0, speed < 2.0 m/s for 2.5 s. player_retire_commentary (candidate, not loaded) also writes 117.",
+   "heard_evidence": "findings.jsonl:101 FACT 2026-07-28: restored line audible in game, user confirmed by ear (via the injector). voice_index 118 triage 'Z, played when player receives terminal accident damage' (TODO, HAS_LEAD).",
+   "tier": "CONFIRMED",
+   "notes": "Native route: DEFINITIVE NEGATIVE in live runs (findings.jsonl:99), so the native path does not reach sub_41B250 in normal play. The mod plays the same clip through injection, and that is what the owner hears. Dump shows cooldown 6.0 (owner exe patched), stock is FLT_MAX.",
+   "play_plan": {
+    "meaning": "The race is over for the player: the car is wrecked and stopped, retirement announced ('that's the end').",
+    "when_it_should_play": "Race only (dword_7C56A4 == 7), player car only, after damage has made the car stop: ReasonCode != 0, finish_state 0, speed < 2.0 m/s for 2.5 s after it has been above 10 m/s this race; not after a DQ and not after a normal finish.",
+    "trigger": "Broker reads: reason_code (veh+0x4068) != 0 and != 1 or 7 for the generic line; finish_state (veh+0x4064) == 0; speed (veh+0x4440) < 2.0 m/s for 2.5 s; race_phase == 7 (session snapshot). Native gate chain as in gates[] (sub_4F1FE0:107-113, dwell flt_7D0A8C = 10.0 read live).",
+    "subject": "player (-1)",
+    "technique": "hook_native or polling injector: the working route is the injector (retire_commentary_v5, no code hook). Native lift_suppression would need the cooldown (done in owner exe) AND the reachability gates (sub_4F1FE0:107-113) verified live; findings.jsonl:99 left that open.",
+    "latch_cooldown": "once per race (latch on the first fire).",
+    "must_not_play_when": "Disqualification (separate exit, findings.jsonl:92), normal finish (finish_state != 0), ReasonCode 1 engine death (that path is eid 119 RETIRE04 / sdt 121, not this line), replay, pit box (pit_status 3) while not damaged.",
+    "conflicts": "Two mods write eid 117 (pitstop_failures on wheel jam, player_retire_commentary candidate). Only one may own it. Native RETIRE04 (eid 119) on ReasonCode 1 can stack. RETIRE03 (sdt 119) shares score 115 and must not play with this.",
+    "calibration": "10.0 s dwell (flt_7D0A8C) and 2.0 m/s / 2.5 s stop: 10 s is read live (findings:94); the 2.0/2.5 values are DERIVED from the injector.",
+    "live_test": "Owner damages the car until ReasonCode becomes non-zero (crash), then brakes to a stop and holds 3 s; the retirement line should follow the damage chatter (findings:103 says it arrives last). Check the controller per-event timestamp for eid 117.",
+    "confidence": "CONFIRMED (live injector success). Native reachability UNKNOWN beyond the four negative runs."
+   },
+   "checked": [
+    {
+     "function": "sub_41AFD0 (literal emitter)",
+     "file": "sub_41AFD0_0041afd0.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AD80 (literal emitter)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41B250 (literal emitter)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "emits 117 under L23 player and motive a1+16488 not 1 or 7; gates L8 dword_7C56A4==7 && dword_7C56A8!=8 && dword_7D0410!=5",
+     "line": "L23 player and motive a1+16488 not 1 or 7; gates L8 dword_7C56A4==7 && dword_7C56A8!=8 && dword_7D0410!=5"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41C440 (track-name id via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (track-name id via ThunkToFUN004201e0 -> sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AC50 (AI session messages)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A720 (penalty/flag messages)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (no branch with value 117)",
+     "line": "-"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (code 1-22 -> eid 113-134; NOT in the 40-function dossier list)",
+     "file": "EnumValueTranslation_00414010.c",
+     "result": "emits 117 under case 5 L22",
+     "line": "case 5 L22"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (driver-name clip ids, not event eids)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "number 117 is a driver-name clip id (L91 (TV name id 117)), not an event eid",
+     "line": "L91 (TV name id 117)"
+    },
+    {
+     "function": "CollisionDetectionSystem sub_4EA970",
+     "file": "CollisionDetectionSystem_004ea970.c:421",
+     "result": "relay only: relays every vehicle contact to sub_41AD80 when other index < dword_5C329C; no eid of its own",
+     "line": "CollisionDetectionSystem_004ea970.c:421"
+    },
+    {
+     "function": "CollisionSparkParticleEffects sub_4EC1A0",
+     "file": "CollisionSparkParticleEffects_004ec1a0.c:145,364",
+     "result": "relay only: player-only branch (L145) calls RepairServiceStateDispatcher(5) at L364 under proximity/random gates; no eid of its own",
+     "line": "CollisionSparkParticleEffects_004ec1a0.c:145,364"
+    },
+    {
+     "function": "RepairServiceStateDispatcher sub_4ED250",
+     "file": "RepairServiceStateDispatcher_004ed250.c:20,34,48",
+     "result": "relay only: passes a2 to sub_41AFD0; case 5 (L25-34) gives a2=5 -> eid 111",
+     "line": "RepairServiceStateDispatcher_004ed250.c:20,34,48"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "file": "sub_4F1FE0_004f1fe0.c:34,135",
+     "result": "relay only: sub_41B250 call at L135 sits in the else-arm of 'if (v4)' where v4 = veh+0x4064 FinishState (L33-34, L70)",
+     "line": "sub_4F1FE0_004f1fe0.c:34,135"
+    },
+    {
+     "function": "ParticleEffectUpdateDispatch sub_4EB430",
+     "file": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202",
+     "result": "relay only: calls CollisionDetectionSystem (L129) and VehicleContactForceAccumulation (L185); no eid",
+     "line": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202"
+    },
+    {
+     "function": "VehicleContactForceAccumulation sub_4EBC60",
+     "file": "VehicleContactForceAccumulation_004ebc60.c:27-31",
+     "result": "relay only: for this[3247] in {0,1} and a3==1 calls CollisionSparkParticleEffects (L31); no eid",
+     "line": "VehicleContactForceAccumulation_004ebc60.c:27-31"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40",
+     "file": "VehicleYawRotationRecoveryController_004f1c40.c",
+     "result": "relay only: callers chain to sub_4F1FE0 and sub_4EBC60; called from MainGameTickUpdate every 50 ticks (MainGameTickUpdate_0042c690.c, L30+49 via dword_7C5698 % 50)",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c"
+    }
+   ],
+   "global_grep": "Global search of all 7143 decompiled files for eid literals in DriverDataTableLookupAndTimeConversion / CommentaryEventQueue calls and for '= N;' assignments. Hits outside the lists above: sub_51B7CD:70,83 and sub_58E4D2:276 (decoder token ids 111), BitstreamTokenReader:58 (112), sub_51A794:59 and sub_535E80:43 (113), JPEGMarkerParsing:100 and sub_51B45F:160 (114/115), AudioVideoDecodeSubbandLoop:7 and ArrayProcessingWithValidation:15 (117/118), StreamBufferReadStateMachine:34 (119): all are non-eid bitstream/decoder fields, judged by name and context, not by full read.",
+   "sources": [
+    "functions/sub_41B250_0041b250.c:8-23,135",
+    "functions/sub_4F1FE0_004f1fe0.c:33-34,83-113,135",
+    "functions/MainGameTickUpdate_0042c690.c",
+    "clean exe VA 0x5C02D0 = FLT_MAX",
+    "findings.jsonl:88,89,92,94,99,101,103",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:55",
+    "development/mods/player_retire_commentary/retire_commentary.c:25,62"
+   ]
+  },
+  {
+   "sdt_index": 119,
+   "eid": null,
+   "clip": "PWS_RETIRE03",
+   "says": "Your race is over (label: Player retired, generic 2)",
+   "score": 115,
+   "cooldown": null,
+   "cooldown_note": "no own event row; carrier eid 117 is FLT_MAX in stock, 6.0 in the owner exe",
+   "verdict": "UNKNOWN",
+   "reason": "",
+   "situation": "Second clip at score 115 (same score as PWS_RETIRE02); the owner heard 'Your race is over'.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": true,
+   "suppressed_note": "Carrier emitter exists (sub_41B250:23 -> eid 117) and is suppressed in stock by the FLT_MAX cooldown at 0x5C02D0. Without that suppression the picker for score 115 is still not located.",
+   "emitters": [],
+   "call_path": "carrier: eid 117 (sub_41B250:23 path, see PWS_RETIRE02). Alternate pick at score 115: reader NOT located.",
+   "gates": [
+    "stock: eid 117 cooldown FLT_MAX blocks the carrier, so this clip cannot be reached in stock"
+   ],
+   "mod": "none (no mod writes sdt 119)",
+   "heard_evidence": "data/voice_index.json 119: 'owner heard: Your race is over' (says_source 'owner listening 2026-10-18'). Provenance not stated.",
+   "tier": "DERIVED",
+   "notes": "Contradiction: the owner heard it, but in stock the only carrier (eid 117) is blocked. In the owner's exe (cooldown 6.0) eid 117 can play, so a picker would make 119 possible. Owner heard it, so either the owner's exe picks it, or an unnamed route exists. Also 'retire-emitter conflict' (H8_orphans.md:17): RETIRE02 is already owned by a mod.",
+   "checked": [
+    {
+     "function": "sub_41AFD0 (literal emitter)",
+     "file": "sub_41AFD0_0041afd0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AD80 (literal emitter)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41B250 (literal emitter)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41C440 (track-name id via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (track-name id via ThunkToFUN004201e0 -> sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41AC50 (AI session messages)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "sub_41A720 (penalty/flag messages)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "PitExit sub_41C0F0",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (code 1-22 -> eid 113-134; NOT in the 40-function dossier list)",
+     "file": "EnumValueTranslation_00414010.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (driver-name clip ids, not event eids)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "cannot produce this eid (no branch with value n/a)",
+     "line": "-"
+    },
+    {
+     "function": "CollisionDetectionSystem sub_4EA970",
+     "file": "CollisionDetectionSystem_004ea970.c:421",
+     "result": "relay only: relays every vehicle contact to sub_41AD80 when other index < dword_5C329C; no eid of its own",
+     "line": "CollisionDetectionSystem_004ea970.c:421"
+    },
+    {
+     "function": "CollisionSparkParticleEffects sub_4EC1A0",
+     "file": "CollisionSparkParticleEffects_004ec1a0.c:145,364",
+     "result": "relay only: player-only branch (L145) calls RepairServiceStateDispatcher(5) at L364 under proximity/random gates; no eid of its own",
+     "line": "CollisionSparkParticleEffects_004ec1a0.c:145,364"
+    },
+    {
+     "function": "RepairServiceStateDispatcher sub_4ED250",
+     "file": "RepairServiceStateDispatcher_004ed250.c:20,34,48",
+     "result": "relay only: passes a2 to sub_41AFD0; case 5 (L25-34) gives a2=5 -> eid 111",
+     "line": "RepairServiceStateDispatcher_004ed250.c:20,34,48"
+    },
+    {
+     "function": "sub_4F1FE0 (caller of sub_41B250)",
+     "file": "sub_4F1FE0_004f1fe0.c:34,135",
+     "result": "relay only: sub_41B250 call at L135 sits in the else-arm of 'if (v4)' where v4 = veh+0x4064 FinishState (L33-34, L70)",
+     "line": "sub_4F1FE0_004f1fe0.c:34,135"
+    },
+    {
+     "function": "ParticleEffectUpdateDispatch sub_4EB430",
+     "file": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202",
+     "result": "relay only: calls CollisionDetectionSystem (L129) and VehicleContactForceAccumulation (L185); no eid",
+     "line": "ParticleEffectUpdateDispatch_004eb430.c:129,185,197-202"
+    },
+    {
+     "function": "VehicleContactForceAccumulation sub_4EBC60",
+     "file": "VehicleContactForceAccumulation_004ebc60.c:27-31",
+     "result": "relay only: for this[3247] in {0,1} and a3==1 calls CollisionSparkParticleEffects (L31); no eid",
+     "line": "VehicleContactForceAccumulation_004ebc60.c:27-31"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40",
+     "file": "VehicleYawRotationRecoveryController_004f1c40.c",
+     "result": "relay only: callers chain to sub_4F1FE0 and sub_4EBC60; called from MainGameTickUpdate every 50 ticks (MainGameTickUpdate_0042c690.c, L30+49 via dword_7C5698 % 50)",
+     "line": "VehicleYawRotationRecoveryController_004f1c40.c"
+    }
+   ],
+   "global_grep": "Global search of all 7143 decompiled files for eid literals in DriverDataTableLookupAndTimeConversion / CommentaryEventQueue calls and for '= N;' assignments. Hits outside the lists above: sub_51B7CD:70,83 and sub_58E4D2:276 (decoder token ids 111), BitstreamTokenReader:58 (112), sub_51A794:59 and sub_535E80:43 (113), JPEGMarkerParsing:100 and sub_51B45F:160 (114/115), AudioVideoDecodeSubbandLoop:7 and ArrayProcessingWithValidation:15 (117/118), StreamBufferReadStateMachine:34 (119): all are non-eid bitstream/decoder fields, judged by name and context, not by full read.",
+   "sources": [
+    "docs/design/H8_orphans.md:17",
+    "findings.jsonl:1695",
+    "data/voice_index.json 119",
+    "docs/VOICE_LINES.md:309",
+    "clean exe VA 0x5C02D0 = FLT_MAX"
+   ],
+   "play_plan": {
+    "meaning": "The race is over for the player; the 'generic 2' retirement variant ('Your race is over'), same situation as PWS_RETIRE02.",
+    "when_it_should_play": "Only together with, or instead of, PWS_RETIRE02: race, player car only, after the retirement state of PWS_RETIRE02 (sub_41B250 path). Which of the two the game plays is UNKNOWN until the picker is found.",
+    "trigger": "Same as PWS_RETIRE02 (reason_code != 0 and not 1/7, finish_state == 0, speed < 2.0 m/s for 2.5 s after 10 m/s, race_phase 7). The score-115 picker that chooses sdt 119 over sdt 118 is NOT located, so no read decides it.",
+    "subject": "player (-1)",
+    "technique": "UNKNOWN. Do not add a carrier score: score 115 is also the RETIRE02 score, and the picker is not known. Once the picker is found, rotate score 115 only inside the retirement state; a new event-table row would be an owner decision.",
+    "latch_cooldown": "once per race (same latch as PWS_RETIRE02).",
+    "must_not_play_when": "In the same retirement as PWS_RETIRE02 when that line already played (no double retire line), DQ, normal finish, ReasonCode 1 engine death (RETIRE04 path).",
+    "conflicts": "PWS_RETIRE02 owned by pitstop_failures / player_retire_commentary (eid 117). RETIRE04 (sdt 121, eid 119) on ReasonCode 1.",
+    "calibration": "As PWS_RETIRE02: 10.0 s dwell (read live), 2.0 m/s / 2.5 s stop (DERIVED).",
+    "live_test": "First find out how the owner heard 'Your race is over' (the owner's 99-02 exe has cooldown 6.0 on eid 117, so a picker would be reachable there). Then retire the car in a race and see whether 119 plays alongside 117.",
+    "confidence": "GUESS. Picker existence is the open question (H8_orphans.md:17)."
+   }
+  }
+ ]
+}

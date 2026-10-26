@@ -1,0 +1,1461 @@
+{
+ "schema": "ere.design.v1",
+ "batch": "H1_pit",
+ "rows": [
+  {
+   "clip": "PWS_PIT12",
+   "sdt_index": 42,
+   "pws_eid": 43,
+   "all_eids": [
+    43,
+    334
+   ],
+   "says": "Limiter Off - clear of pit lane",
+   "eid_source": "full_event_dump.json events['43'] (sdt 42); doc56 row 77 / TV 368",
+   "eid_isolation_tested": true,
+   "isolation_source": "findings.jsonl topic 'PWS_PIT10/PIT12 eid bug' (isolated live injection 2026-07-28)",
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:55 (return 43); development/mods/pitstop_modding/dll/pit_commentary.c:7,101",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player pittingStatus 4->0 (car crosses pit exit line)",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    }
+   ],
+   "latch_cooldown": "once per exit edge (pitstop terminal guard)",
+   "calibration_needed": null,
+   "conflicts": "none; pitstop already plays it",
+   "live_test": "Pit stop, drive out past exit line; expect Limiter Off once",
+   "tier": "FACT",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:55",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:101",
+    "f1c_ida_decompiled/tools/sdk/f1c_pit_voice.h:21-24"
+   ],
+   "open_questions": "none for ERE; pitstop owns this line"
+  },
+  {
+   "clip": "PWS_PIT10",
+   "sdt_index": 44,
+   "pws_eid": 45,
+   "all_eids": [
+    45,
+    336
+   ],
+   "says": "Go (pit procedure)",
+   "eid_source": "full_event_dump.json events['45'] (sdt 44); doc56 row 79 / TV 370",
+   "eid_isolation_tested": true,
+   "isolation_source": "findings.jsonl topic 'PWS_PIT10/PIT12 eid bug' (isolated live injection 2026-07-28)",
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:54 (return 45); development/mods/pitstop_modding/live/live_client.cpp:481 (front-queue list)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player pittingStatus 3->4 (box release)",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    }
+   ],
+   "latch_cooldown": "once per stop (pitstop latch)",
+   "calibration_needed": null,
+   "conflicts": "none found",
+   "live_test": "Stop; on box release expect Go once",
+   "tier": "FACT",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:54",
+    "development/mods/pitstop_modding/live/live_client.cpp:481",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:100"
+   ],
+   "open_questions": "none for ERE; pitstop owns this line"
+  },
+  {
+   "clip": "PWS_MISC54",
+   "sdt_index": 45,
+   "pws_eid": 46,
+   "all_eids": [
+    46
+   ],
+   "says": "Box! Pit now",
+   "eid_source": "full_event_dump.json events['46'] (sdt 45); doc56 row 80",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/live_client.cpp:1169 (voice(c,46)); SDK allowlist f1c_ida_decompiled/tools/sdk/f1c_pit_voice.h:21",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player in pit lane (pittingStatus 2), car world position (veh+0x34E0/E4/E8) within 10 m horizontal of own pit box PitPos, box call not yet made",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "car world position X/Y/Z",
+     "locator": "veh+0x34E0 / 0x34E4 / 0x34E8",
+     "tier": "FACT",
+     "source": "f1c_ida_decompiled/findings.jsonl id f1c-authoritative-car-position-is-34e0 (coordinator-confirmed)"
+    },
+    {
+     "what": "own pit box position PitPos",
+     "locator": "UNKNOWN locator in this batch (the pit box position used by finding f1c-frozen-car-can-be-teleported-into-its-pit-box-and-held)",
+     "tier": "DERIVED",
+     "source": "findings.jsonl id f1c-frozen-car-can-be-teleported-into-its-pit-box-and-held"
+    }
+   ],
+   "latch_cooldown": "once per stop (box_called latch, 0.5 s retry)",
+   "calibration_needed": "pit box PitPos per slot; check horizontal 10 m threshold live",
+   "conflicts": "pitstop uses a service-position distance (live_client.cpp:1160-1169) instead of PitPos; owner expects the box, pitstop calls it in the lane",
+   "live_test": "Drive into lane near box; expect Box! once",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/live_client.cpp:1169",
+    "f1c_ida_decompiled/tools/sdk/f1c_pit_voice.h:21"
+   ],
+   "open_questions": "Pitstop calls it in the pit lane, owner expects the box. Live check needed before any ERE change."
+  },
+  {
+   "clip": "PWS_MISC18",
+   "sdt_index": 46,
+   "pws_eid": 47,
+   "all_eids": [
+    47
+   ],
+   "says": "Stop next lap",
+   "eid_source": "full_event_dump.json events['47'] (score 45, priority 55); doc56 row 81",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "player",
+   "trigger": "once per lap, not in pit lane: (A) FuelLevel <= one lap of fuel (FuelLevel <= fuel per lap) OR (B) player's scheduled stop is on lapNumber+1",
+   "state_reads": [
+    {
+     "what": "FuelLevel (L)",
+     "locator": "veh+0x3984 float",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/docs/PIT_STOP_FIRING_ORDER.md:209 (RECALCULATED per tick)"
+    },
+    {
+     "what": "fuel per lap (L/lap, from .hdv)",
+     "locator": "veh+0x3990 float",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/docs/PIT_STOP_FIRING_ORDER.md:208 (LATCHED)"
+    },
+    {
+     "what": "lapNumber",
+     "locator": "veh+0x403C int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-004A_pit_timeline.md Phase 0 table"
+    },
+    {
+     "what": "scheduled pit laps",
+     "locator": "veh+0x342C count; veh+0x3430+8i lap numbers (pit object at veh+0x32CC)",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/findings.jsonl pit_stop_failure CORRECTION row (AI-side evidence; player UNKNOWN)"
+    },
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    }
+   ],
+   "latch_cooldown": "once per lapNumber value; reset on lap change",
+   "calibration_needed": "one-lap fuel margin; confirm the schedule array is readable for the player (SCHED evidence is AI-side)",
+   "conflicts": "EVF-004A says fuel and schedule offsets unknown; PIT_STOP_FIRING_ORDER.md gives FuelLevel 0x3984 (DERIVED). Owner thinks it may already play: no emitter in static index (no literal, no dynamic candidate for 47)",
+   "live_test": "Race: run low on fuel, or have a scheduled stop next lap; expect once per lap",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-004A_pit_timeline.md Sec.3 MISC18",
+    "development/mods/pitstop_modding/docs/PIT_STOP_FIRING_ORDER.md:208-209",
+    "f1c_ida_decompiled/findings.jsonl pit_stop_failure SCHED row",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/emitter_index.json (no 47)"
+   ],
+   "open_questions": "Is the schedule valid for the player? Fuel-per-lap at the current setting needs a live read."
+  },
+  {
+   "clip": "PWS_PIT13",
+   "sdt_index": 47,
+   "pws_eid": 48,
+   "all_eids": [
+    48,
+    355
+   ],
+   "says": "Stop-go penalty countdown",
+   "eid_source": "full_event_dump.json events['48'] (score 46) and events['355']; doc56 row 82 / TV 389",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "player",
+   "trigger": "player has a pending stop-go penalty AND pittingStatus 2->3 (driving into the box); once",
+   "state_reads": [
+    {
+     "what": "stop-go penalty pending (per car)",
+     "locator": "UNKNOWN (set by StopGoPenaltyHandler 0x4BBD60, arg 10 s)",
+     "tier": "GUESS",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-003_penalty.md (handler + 10 s); record layout not found"
+    },
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    }
+   ],
+   "latch_cooldown": "once per stop-go penalty",
+   "calibration_needed": "stop-go record locator (SG) and the countdown length (EVF-003 handler arg 10 s; confirm live)",
+   "conflicts": "player_dq_commentary (RE_PD_DQ eid 149/479) covers disqualification only; pitstop treats stop-go visits as no-work (development/mods/pitstop_modding/docs/SERVICE_CLASSIFICATION_PLAN_2026-09-25.md:14). No voice clash found",
+   "live_test": "Take a stop-go (e.g. cut track), pit inside the window; expect countdown at box entry",
+   "tier": "GUESS",
+   "sources": [
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-003_penalty.md (StopGoPenaltyHandler 0x4BBD60, 10 s)",
+    "development/mods/pitstop_modding/docs/SERVICE_CLASSIFICATION_PLAN_2026-09-25.md:14",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/archive/TODO_legacy_2026-07-28.md:103 (CI-016 Pit13 eid 48)"
+   ],
+   "open_questions": "Where is the per-player stop-go record and its countdown field? Not found in this batch."
+  },
+  {
+   "clip": "PWS_PIT01",
+   "sdt_index": 48,
+   "pws_eid": 49,
+   "all_eids": [
+    49,
+    363
+   ],
+   "says": "Pit on this lap",
+   "eid_source": "full_event_dump.json events['49'] (score 47) and events['363']; doc56 row 83 / TV 397",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "player",
+   "trigger": "player pittingStatus 0->1 (pit request accepted) while still before the S/F line of the current lap and the stop is on this lap",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "lapNumber",
+     "locator": "veh+0x403C int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-004A_pit_timeline.md Phase 0 table"
+    },
+    {
+     "what": "lap distance",
+     "locator": "veh+0x4044 float",
+     "tier": "FACT",
+     "source": "development/mods/extended_race_engineer/docs/HAIKU_BRIEF.md Facts (taken from brief, not re-read in code)"
+    }
+   ],
+   "latch_cooldown": "once per lapNumber",
+   "calibration_needed": "S/F lap-distance threshold and track length (measure live)",
+   "conflicts": "none found; pitstop uses pittingStatus 1 only as a call-active input (development/mods/pitstop_modding/live/pit_live_voice.h:7-10)",
+   "live_test": "Race: request pit before crossing S/F; expect Pit on this lap once",
+   "tier": "DERIVED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:7-10",
+    "f1c_ida_decompiled/findings.jsonl id f1c-pittingstatus-1-is-still-on-track (FACT)"
+   ],
+   "open_questions": "Owner also describes a planned strategy stop on this lap (SCHED); the strategy branch is untested for the player."
+  },
+  {
+   "clip": "PWS_PIT03",
+   "sdt_index": 49,
+   "pws_eid": 50,
+   "all_eids": [
+    50,
+    367
+   ],
+   "says": "Watch for pit lane entrance",
+   "eid_source": "full_event_dump.json events['50'] (sdt 49); doc56 row 84 / TV 401",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:15 (return 50); development/mods/pitstop_modding/live/live_client.cpp:1241 (voice(c,50))",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player pit call active, pittingStatus <= 2, and car near the XPITIN marker or the rising call latch",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "XPITIN distance",
+     "locator": "pitstop live_client.cpp c.xpitin.distance_m",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/live_client.cpp:1236"
+    }
+   ],
+   "latch_cooldown": "once per pit entry (pit_entry_pending latch)",
+   "calibration_needed": null,
+   "conflicts": "none found",
+   "live_test": "Call pit, approach the lane entry; expect Watch for pit lane entrance",
+   "tier": "DERIVED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:14-15",
+    "development/mods/pitstop_modding/live/live_client.cpp:1236-1241"
+   ],
+   "open_questions": "Isolation of eid 50 is not documented in the pitstop code."
+  },
+  {
+   "clip": "PWS_PIT06",
+   "sdt_index": 50,
+   "pws_eid": 51,
+   "all_eids": [
+    51,
+    356
+   ],
+   "says": "Limiter On",
+   "eid_source": "full_event_dump.json events['51'] (sdt 50); doc56 row 85 / TV 390",
+   "eid_isolation_tested": true,
+   "isolation_source": "pitstop assignment note: isolation-tested before wiring",
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:52 (return 51); development/mods/pitstop_modding/live/live_client.cpp:1253",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player pittingStatus 0 or 1 -> 2 (entering pit lane)",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    }
+   ],
+   "latch_cooldown": "once per entry (edge)",
+   "calibration_needed": null,
+   "conflicts": "none found",
+   "live_test": "Pit; at lane entry expect Limiter On once",
+   "tier": "FACT",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:52",
+    "development/mods/pitstop_modding/live/live_client.cpp:1253",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:99"
+   ],
+   "open_questions": "none for ERE; pitstop owns this line"
+  },
+  {
+   "clip": "PWS_PIT08",
+   "sdt_index": 52,
+   "pws_eid": 53,
+   "all_eids": [
+    53,
+    361
+   ],
+   "says": "Brake (pit procedure)",
+   "eid_source": "full_event_dump.json events['53'] (sdt 52); doc56 row 87 / TV 395",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:53 (return 53); development/mods/pitstop_modding/live/live_client.cpp:1259",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player pittingStatus 2->3 (stopped in box); retried up to 1.5 s if blocked",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    }
+   ],
+   "latch_cooldown": "once per box entry (brake_until latch)",
+   "calibration_needed": null,
+   "conflicts": "none found",
+   "live_test": "Drive into box; expect Brake once",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:53",
+    "development/mods/pitstop_modding/live/live_client.cpp:1259",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:102"
+   ],
+   "open_questions": "none for ERE; pitstop owns this line"
+  },
+  {
+   "clip": "PWS_2001_80",
+   "sdt_index": 53,
+   "pws_eid": 54,
+   "all_eids": [
+    54,
+    337
+   ],
+   "says": "Engine stalled - will get refired",
+   "eid_source": "full_event_dump.json events['54'] (sdt 53); doc56 row 88 / TV 371",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:38; development/mods/pitstop_modding/dll/pit_commentary.c:74 (EID_P_STALL 54)",
+   "native_emitter": "DisplayMessage0x151_0041c3e0 (sub_41C3E0) for TV eid 337 only",
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player pit fault STALL_DELAY (pitstop outcome), not a native event",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "pit fault outcome",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:38",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h:38"
+    }
+   ],
+   "latch_cooldown": "per fault (pitstop latch)",
+   "calibration_needed": null,
+   "conflicts": "TV 337 has a native emitter (DisplayMessage0x151) on the TV channel; PWS 54 has none",
+   "live_test": "Force a stall-delay fault in a pit; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:38",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:74"
+   ],
+   "open_questions": "Native TV 337: functions/DisplayMessage0x151_0041c3e0.c:9, reached via sub_40DE60_0040de60.c:101. Queue populator not identified.",
+   "native_diagnosis": "TV 337 is emitted natively only by DisplayMessage0x151 (functions/DisplayMessage0x151_0041c3e0.c:9), reached via sub_40DE60 case 7/0 (sub_40DE60_0040de60.c:101). The queue producer is not identified, so the TV line may never be scheduled. PWS 54 is never emitted natively. Fix: pitstop queues 54 (pit_live_voice.h:38). No ERE change."
+  },
+  {
+   "clip": "PWS_2001_79",
+   "sdt_index": 55,
+   "pws_eid": 56,
+   "all_eids": [
+    56,
+    365
+   ],
+   "says": "Fuel hose issue - slow refuel",
+   "eid_source": "full_event_dump.json events['56'] (sdt 55); doc56 row 90 / TV 399",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:37 (return 56); development/mods/pitstop_modding/dll/pit_commentary.c:73",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player fuel-hose fault (FUEL_RIG outcome) during stop",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "pit fault outcome FUEL_RIG",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:37",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h:37"
+    }
+   ],
+   "latch_cooldown": "once per fault",
+   "calibration_needed": null,
+   "conflicts": "none found (pitstop owns failure voices)",
+   "live_test": "Force fuel-hose fault; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:37",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:73",
+    "development/mods/pitstop_modding/mock/pit_mock_provider.c:1058"
+   ],
+   "open_questions": "none for ERE; pitstop owns this line"
+  },
+  {
+   "clip": "PWS_2001_78",
+   "sdt_index": 56,
+   "pws_eid": 57,
+   "all_eids": [
+    57,
+    362
+   ],
+   "says": "Refuel successful",
+   "eid_source": "full_event_dump.json events['57'] (sdt 56); doc56 row 91 / TV 396",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:22 (return 57); development/mods/pitstop_modding/live/live_client.cpp:1475",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player fuel fault owned and fuel >= requested - 0.15 (refuel complete), announced once",
+   "state_reads": [
+    {
+     "what": "FuelLevel (L)",
+     "locator": "veh+0x3984 float",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/docs/PIT_STOP_FIRING_ORDER.md:209 (RECALCULATED per tick)"
+    },
+    {
+     "what": "requested fuel target",
+     "locator": "pitstop live_client.cpp c.fuel_requested_target",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/live_client.cpp:1470-1475"
+    }
+   ],
+   "latch_cooldown": "once per fault (fuel_clear_announced)",
+   "calibration_needed": null,
+   "conflicts": "none found",
+   "live_test": "Fuel-hose fault, let refuel finish; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:22",
+    "development/mods/pitstop_modding/live/live_client.cpp:1475"
+   ],
+   "open_questions": "none for ERE; pitstop owns this line"
+  },
+  {
+   "clip": "PWS_TEAMPIT01",
+   "sdt_index": 57,
+   "pws_eid": 58,
+   "all_eids": [
+    58,
+    366
+   ],
+   "says": "Teammate pits this lap - stay out",
+   "eid_source": "full_event_dump.json events['58'] (score 56); doc56 row 92 / TV 400",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "team",
+   "trigger": "teammate car (same team index veh+0x48A0, different driver id) has pittingStatus 1 (called, in-lap) AND the player's next stop is within one lap",
+   "state_reads": [
+    {
+     "what": "constructor/team index (NOT unique)",
+     "locator": "veh+0x48A0",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl id f1c-veh-48a0-is-constructor-index"
+    },
+    {
+     "what": "driver id (AI subject)",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md Facts; development/mods/pitstop_modding/live/live_client.cpp:474-480 voice()"
+    },
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "scheduled pit laps",
+     "locator": "veh+0x342C count; veh+0x3430+8i lap numbers (pit object at veh+0x32CC)",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/findings.jsonl pit_stop_failure CORRECTION row (AI-side evidence; player UNKNOWN)"
+    },
+    {
+     "what": "lapNumber",
+     "locator": "veh+0x403C int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-004A_pit_timeline.md Phase 0 table"
+    }
+   ],
+   "latch_cooldown": "once per teammate call",
+   "calibration_needed": "teammate pairing rule: team index is not unique, so validate pairs per race",
+   "conflicts": "'pit order' meaning is undetermined; sub_4D1BC0 (functions/PitStopOrderRank_004d1bc0.c:4) ranks cars by pit order in race sessions, not confirmed as the owner's team call",
+   "live_test": "Race with teammate called to pit; expect stay-out line once",
+   "tier": "GUESS",
+   "sources": [
+    "f1c_ida_decompiled/findings.jsonl id f1c-veh-48a0-is-constructor-index (CONFIRMED)",
+    "f1c_ida_decompiled/functions/PitStopOrderRank_004d1bc0.c:4"
+   ],
+   "open_questions": "What is the game's pit-order state for team calls? Read PitStopOrderLoader_004d12c0 and the red_flag probe the owner mentioned."
+  },
+  {
+   "clip": "PWS_TEAMPIT02",
+   "sdt_index": 58,
+   "pws_eid": 59,
+   "all_eids": [
+    59,
+    368
+   ],
+   "says": "Player can now pit",
+   "eid_source": "full_event_dump.json events['59'] (score 57); doc56 row 93 / TV 402",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "team",
+   "trigger": "player has a pit order active (pittingStatus 1 or scheduled stop) AND teammate pittingStatus is 2 or 3 (in the pits); once",
+   "state_reads": [
+    {
+     "what": "constructor/team index (NOT unique)",
+     "locator": "veh+0x48A0",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl id f1c-veh-48a0-is-constructor-index"
+    },
+    {
+     "what": "driver id (AI subject)",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md Facts; development/mods/pitstop_modding/live/live_client.cpp:474-480 voice()"
+    },
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "scheduled pit laps",
+     "locator": "veh+0x342C count; veh+0x3430+8i lap numbers (pit object at veh+0x32CC)",
+     "tier": "DERIVED",
+     "source": "f1c_ida_decompiled/findings.jsonl pit_stop_failure CORRECTION row (AI-side evidence; player UNKNOWN)"
+    }
+   ],
+   "latch_cooldown": "once per teammate stop; never on same lap as TEAMPIT01",
+   "calibration_needed": "same as TEAMPIT01",
+   "conflicts": "TEAMPIT01, TEAMPIT02 and PIT01 can all qualify on the same lap; needs one priority rule",
+   "live_test": "Teammate pits while player has a pit order; expect once",
+   "tier": "GUESS",
+   "sources": [
+    "f1c_ida_decompiled/findings.jsonl id f1c-veh-48a0-is-constructor-index (CONFIRMED)"
+   ],
+   "open_questions": "Owner text says 'when team mate has pitted' but then 'currently in the pits'; the second reading is used here."
+  },
+  {
+   "clip": "PWS_2001_96",
+   "sdt_index": 59,
+   "pws_eid": 60,
+   "all_eids": [
+    60,
+    370
+   ],
+   "says": "Player rejoins track at X position",
+   "eid_source": "full_event_dump.json events['60'] (sdt 59); doc56 row 94 / TV 404",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/live_client.cpp:534 (voice_rejoin player eid 60); native PitExit does not emit 60",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player leaves pit exit in a race (SessionType 7) with a known race position",
+   "state_reads": [
+    {
+     "what": "race position",
+     "locator": "veh+0x4060 (brief Facts; used by voice_rejoin)",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md"
+    },
+    {
+     "what": "SessionType (5 quali, 7 race)",
+     "locator": "global 0x7C56A4",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md Facts; f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md pit_procedure"
+    }
+   ],
+   "latch_cooldown": "once per exit (rejoin latch)",
+   "calibration_needed": null,
+   "conflicts": "pitstop writes eid 60 directly, bypassing the SDK allowlist (f1c_ida_decompiled/tools/sdk/f1c_pit_voice.h:18-27 does not list 60)",
+   "live_test": "Pit, exit; expect 'rejoined in P'",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/live_client.cpp:521-534"
+   ],
+   "open_questions": "none for ERE; pitstop owns this line"
+  },
+  {
+   "clip": "PWS_2001_76",
+   "sdt_index": 60,
+   "pws_eid": 61,
+   "all_eids": [
+    61,
+    372
+   ],
+   "says": "Wheel gun failure",
+   "eid_source": "full_event_dump.json events['61'] (sdt 60); doc56 row 95 / TV 406",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:36; development/mods/pitstop_modding/live/live_client.cpp:1011",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player pit fault WHEELGUN outcome (also the generic fallback)",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "fault outcome",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:36",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h:36"
+    }
+   ],
+   "latch_cooldown": "once per fault",
+   "calibration_needed": null,
+   "conflicts": "pitstop adds its own timer delay (findings pit_stop_failure: veh+0x3470 write); ERE must not add delay",
+   "live_test": "Force wheelgun fault; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:36",
+    "development/mods/pitstop_modding/live/live_client.cpp:1011",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:66"
+   ],
+   "open_questions": "none for ERE; pitstop owns this line"
+  },
+  {
+   "clip": "PWS_2001_68",
+   "sdt_index": 61,
+   "pws_eid": 62,
+   "all_eids": [
+    62,
+    369
+   ],
+   "says": "Front Left tire change successful",
+   "eid_source": "full_event_dump.json events['62'] (sdt 61); doc56 row 96 / TV 403",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:44,47 (pitstop fault/recovery voices)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player FL wheel recovered after a fault on that corner (pitstop plays it only as recovery, not on normal stops)",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "fault outcome and wheel index",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:30-47",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h"
+    }
+   ],
+   "latch_cooldown": "once per fault",
+   "calibration_needed": null,
+   "conflicts": "none; normal stops are silent by design",
+   "live_test": "Force a fault on that corner; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:44,47"
+   ],
+   "open_questions": "Owner asked if it can play on a normal stop: pitstop plays it only after a fault. Owner decision."
+  },
+  {
+   "clip": "PWS_2001_72",
+   "sdt_index": 62,
+   "pws_eid": 63,
+   "all_eids": [
+    63,
+    358
+   ],
+   "says": "Slow Front Left tire change",
+   "eid_source": "full_event_dump.json events['63'] (sdt 62); doc56 row 97 / TV 392",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:33,35 (pitstop fault/recovery voices)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player SLOW_CORNER fault on wheel FL",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "fault outcome and wheel index",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:30-47",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h"
+    }
+   ],
+   "latch_cooldown": "once per fault",
+   "calibration_needed": null,
+   "conflicts": "none; normal stops are silent by design",
+   "live_test": "Force a fault on that corner; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:33,35"
+   ],
+   "open_questions": "Wheel index order FL=0,FR=1,RL=2,RR=3 is inferred from doc56 names and the corner array; confirm in pitstop code."
+  },
+  {
+   "clip": "PWS_2001_69",
+   "sdt_index": 63,
+   "pws_eid": 64,
+   "all_eids": [
+    64,
+    357
+   ],
+   "says": "Front Right tire change successful",
+   "eid_source": "full_event_dump.json events['64'] (sdt 63); doc56 row 98 / TV 391",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:44,47 (pitstop fault/recovery voices)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player FR wheel recovered after a fault on that corner (pitstop plays it only as recovery, not on normal stops)",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "fault outcome and wheel index",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:30-47",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h"
+    }
+   ],
+   "latch_cooldown": "once per fault",
+   "calibration_needed": null,
+   "conflicts": "none; normal stops are silent by design",
+   "live_test": "Force a fault on that corner; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:44,47"
+   ],
+   "open_questions": "Owner asked if it can play on a normal stop: pitstop plays it only after a fault. Owner decision."
+  },
+  {
+   "clip": "PWS_2001_73",
+   "sdt_index": 64,
+   "pws_eid": 65,
+   "all_eids": [
+    65,
+    359
+   ],
+   "says": "Slow Front Right tire change",
+   "eid_source": "full_event_dump.json events['65'] (sdt 64); doc56 row 99 / TV 393",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:33,35 (pitstop fault/recovery voices)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player SLOW_CORNER fault on wheel FR",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "fault outcome and wheel index",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:30-47",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h"
+    }
+   ],
+   "latch_cooldown": "once per fault",
+   "calibration_needed": null,
+   "conflicts": "none; normal stops are silent by design",
+   "live_test": "Force a fault on that corner; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:33,35"
+   ],
+   "open_questions": "Wheel index order FL=0,FR=1,RL=2,RR=3 is inferred from doc56 names and the corner array; confirm in pitstop code."
+  },
+  {
+   "clip": "PWS_2001_77",
+   "sdt_index": 65,
+   "pws_eid": 66,
+   "all_eids": [
+    66,
+    371
+   ],
+   "says": "Wheel is jammed",
+   "eid_source": "full_event_dump.json events['66'] (sdt 65); doc56 row 100 / TV 405",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:39; development/mods/pitstop_modding/dll/pit_commentary.c:87 (pitstop fault/recovery voices)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player CROSS_THREAD (wheel jam) outcome",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "fault outcome and wheel index",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:30-47",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h"
+    }
+   ],
+   "latch_cooldown": "once per fault",
+   "calibration_needed": null,
+   "conflicts": "none; normal stops are silent by design",
+   "live_test": "Force a fault on that corner; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:39; development/mods/pitstop_modding/dll/pit_commentary.c:87"
+   ],
+   "open_questions": "Wheel index order FL=0,FR=1,RL=2,RR=3 is inferred from doc56 names and the corner array; confirm in pitstop code."
+  },
+  {
+   "clip": "PWS_2001_70",
+   "sdt_index": 66,
+   "pws_eid": 67,
+   "all_eids": [
+    67,
+    338
+   ],
+   "says": "Rear Left tire change successful",
+   "eid_source": "full_event_dump.json events['67'] (sdt 66); doc56 row 101 / TV 372",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:44,47 (pitstop fault/recovery voices)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player RL wheel recovered after a fault on that corner (pitstop plays it only as recovery, not on normal stops)",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "fault outcome and wheel index",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:30-47",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h"
+    }
+   ],
+   "latch_cooldown": "once per fault",
+   "calibration_needed": null,
+   "conflicts": "none; normal stops are silent by design",
+   "live_test": "Force a fault on that corner; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:44,47"
+   ],
+   "open_questions": "Owner asked if it can play on a normal stop: pitstop plays it only after a fault. Owner decision."
+  },
+  {
+   "clip": "PWS_2001_74",
+   "sdt_index": 67,
+   "pws_eid": 68,
+   "all_eids": [
+    68,
+    346
+   ],
+   "says": "Slow Rear Left tire change",
+   "eid_source": "full_event_dump.json events['68'] (sdt 67); doc56 row 102 / TV 380",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:33,35 (pitstop fault/recovery voices)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player SLOW_CORNER fault on wheel RL",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "fault outcome and wheel index",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:30-47",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h"
+    }
+   ],
+   "latch_cooldown": "once per fault",
+   "calibration_needed": null,
+   "conflicts": "none; normal stops are silent by design",
+   "live_test": "Force a fault on that corner; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:33,35"
+   ],
+   "open_questions": "Wheel index order FL=0,FR=1,RL=2,RR=3 is inferred from doc56 names and the corner array; confirm in pitstop code."
+  },
+  {
+   "clip": "PWS_2001_71",
+   "sdt_index": 68,
+   "pws_eid": 69,
+   "all_eids": [
+    69,
+    349
+   ],
+   "says": "Rear Right tire change successful",
+   "eid_source": "full_event_dump.json events['69'] (sdt 68); doc56 row 103 / TV 383",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:44,47 (pitstop fault/recovery voices)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player RR wheel recovered after a fault on that corner (pitstop plays it only as recovery, not on normal stops)",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "fault outcome and wheel index",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:30-47",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h"
+    }
+   ],
+   "latch_cooldown": "once per fault",
+   "calibration_needed": null,
+   "conflicts": "none; normal stops are silent by design",
+   "live_test": "Force a fault on that corner; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:44,47"
+   ],
+   "open_questions": "Owner asked if it can play on a normal stop: pitstop plays it only after a fault. Owner decision."
+  },
+  {
+   "clip": "PWS_2001_75",
+   "sdt_index": 69,
+   "pws_eid": 70,
+   "all_eids": [
+    70,
+    339
+   ],
+   "says": "Slow Rear Right tire change",
+   "eid_source": "full_event_dump.json events['70'] (sdt 69); doc56 row 104 / TV 373",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:33,35 (pitstop fault/recovery voices)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "player SLOW_CORNER fault on wheel RR",
+   "state_reads": [
+    {
+     "what": "pittingStatus (player)",
+     "locator": "veh+0x3450 int32",
+     "tier": "CONFIRMED",
+     "source": "f1c_ida_decompiled/findings.jsonl topic 'pittingStatus full enum' (0 track,1 in-lap,2 lane,3 box,4 exit); development/mods/pitstop_modding/live/pit_live_voice.h:52-55"
+    },
+    {
+     "what": "fault outcome and wheel index",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:30-47",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h"
+    }
+   ],
+   "latch_cooldown": "once per fault",
+   "calibration_needed": null,
+   "conflicts": "none; normal stops are silent by design",
+   "live_test": "Force a fault on that corner; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:33,35"
+   ],
+   "open_questions": "Wheel index order FL=0,FR=1,RL=2,RR=3 is inferred from doc56 names and the corner array; confirm in pitstop code."
+  },
+  {
+   "clip": "PWS_MISC30",
+   "sdt_index": 195,
+   "pws_eid": 183,
+   "all_eids": [
+    183
+   ],
+   "says": "AI has pit stop issue",
+   "eid_source": "full_event_dump.json events['183'] (sdt 195); doc56 row 217",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:31 (return 183); development/mods/pitstop_modding/dll/pit_commentary.c:105",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI car pit outcome that is not stall, fuel or wheel (generic AI fault)",
+   "state_reads": [
+    {
+     "what": "AI pit fault outcome",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:31",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h:31"
+    }
+   ],
+   "latch_cooldown": "once per AI fault",
+   "calibration_needed": null,
+   "conflicts": "AI lines need subject driver id; Safety Car AI filter (full_safety_car pace_probe.c:3186-3210) does not list 183 (it lists 178-182 and 196)",
+   "live_test": "Let an AI car take a generic pit fault; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:31",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:105"
+   ],
+   "open_questions": "none for ERE; pitstop owns this line"
+  },
+  {
+   "clip": "PWS_2001_131",
+   "sdt_index": 196,
+   "pws_eid": 184,
+   "all_eids": [
+    184,
+    516
+   ],
+   "says": "AI driver engine stalled in pits",
+   "eid_source": "full_event_dump.json events['184'] (sdt 196); doc56 row 218 / TV 550",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:28 (return 184); development/mods/pitstop_modding/dll/pit_commentary.c:106",
+   "native_emitter": "PitExit_0041c0f0 (sub_41C0F0) for TV eid 516 only (position based); 184 not in its candidate list",
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI car STALL_DELAY outcome in pits",
+   "state_reads": [
+    {
+     "what": "AI stall outcome",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:28",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h:28"
+    }
+   ],
+   "latch_cooldown": "once per AI stall",
+   "calibration_needed": null,
+   "conflicts": "TV 516 is a native PitExit position line (functions/PitExit_0041c0f0.c:38 sets 516 for position 1 exit), which contradicts the doc56 label; EVF-008 E says PitExit emits 184, but 184 is not in PitExit's candidate list",
+   "live_test": "Force AI stall in pit; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:28",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:106"
+   ],
+   "open_questions": "Which TV eid the owner heard (516 or another) must be isolation-tested before any ERE change.",
+   "native_diagnosis": "TV 516 is emitted natively by PitExit_0041c0f0 (functions/PitExit_0041c0f0.c:38, position 1 exit). Gate: dword_7D0308 and flt_7CF3C8 plus the CarSelectionStateMachine caller (grid phase, SPEC_EVF-008_E). The PWS 184 (stall) has no native path, so it is never heard natively. Fix: pitstop already queues 184 (pit_live_voice.h:28); no ERE change. Diagnosis of the 516 label needs an isolation test."
+  },
+  {
+   "clip": "PWS_2001_132",
+   "sdt_index": 197,
+   "pws_eid": 185,
+   "all_eids": [
+    185
+   ],
+   "says": "AI driver jammed fuel hose",
+   "eid_source": "full_event_dump.json events['185'] (sdt 197); doc56 row 219",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:27 (return 185)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI car FUEL_RIG outcome in pits",
+   "state_reads": [
+    {
+     "what": "AI fuel outcome",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:27",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h:27"
+    }
+   ],
+   "latch_cooldown": "once per AI fault",
+   "calibration_needed": null,
+   "conflicts": "none found",
+   "live_test": "Force AI fuel fault; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:27",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:107",
+    "development/mods/pitstop_modding/mock/pit_mock_provider.c:1068"
+   ],
+   "open_questions": "none for ERE; pitstop owns this line"
+  },
+  {
+   "clip": "PWS_2001_133",
+   "sdt_index": 198,
+   "pws_eid": 186,
+   "all_eids": [
+    186
+   ],
+   "says": "AI driver stuck Front Left wheel",
+   "eid_source": "full_event_dump.json events['186'] (sdt 198); doc56 row 220",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:30 (186+wheel index)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI car CROSS_THREAD outcome on wheel FL",
+   "state_reads": [
+    {
+     "what": "AI cross-thread outcome and wheel",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:30",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h:30"
+    }
+   ],
+   "latch_cooldown": "once per AI fault",
+   "calibration_needed": null,
+   "conflicts": "none found",
+   "live_test": "Force AI stuck FL wheel; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:30",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:108"
+   ],
+   "open_questions": "none for ERE; pitstop owns this line"
+  },
+  {
+   "clip": "PWS_2001_134",
+   "sdt_index": 199,
+   "pws_eid": 187,
+   "all_eids": [
+    187
+   ],
+   "says": "AI driver stuck Front Right wheel",
+   "eid_source": "full_event_dump.json events['187'] (sdt 199); doc56 row 221",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:30 (186+wheel index)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI car CROSS_THREAD outcome on wheel FR",
+   "state_reads": [
+    {
+     "what": "AI cross-thread outcome and wheel",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:30",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h:30"
+    }
+   ],
+   "latch_cooldown": "once per AI fault",
+   "calibration_needed": null,
+   "conflicts": "none found",
+   "live_test": "Force AI stuck FR wheel; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:30",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:108"
+   ],
+   "open_questions": "none for ERE; pitstop owns this line"
+  },
+  {
+   "clip": "PWS_2001_135",
+   "sdt_index": 200,
+   "pws_eid": 188,
+   "all_eids": [
+    188
+   ],
+   "says": "AI driver stuck Rear Left wheel",
+   "eid_source": "full_event_dump.json events['188'] (sdt 200); doc56 row 222",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:30 (186+wheel index)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI car CROSS_THREAD outcome on wheel RL",
+   "state_reads": [
+    {
+     "what": "AI cross-thread outcome and wheel",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:30",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h:30"
+    }
+   ],
+   "latch_cooldown": "once per AI fault",
+   "calibration_needed": null,
+   "conflicts": "none found",
+   "live_test": "Force AI stuck RL wheel; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:30",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:108"
+   ],
+   "open_questions": "none for ERE; pitstop owns this line"
+  },
+  {
+   "clip": "PWS_2001_136",
+   "sdt_index": 201,
+   "pws_eid": 189,
+   "all_eids": [
+    189
+   ],
+   "says": "AI driver stuck Rear Right wheel",
+   "eid_source": "full_event_dump.json events['189'] (sdt 201); doc56 row 223",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/pit_live_voice.h:30 (186+wheel index)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI car CROSS_THREAD outcome on wheel RR",
+   "state_reads": [
+    {
+     "what": "AI cross-thread outcome and wheel",
+     "locator": "development/mods/pitstop_modding/live/pit_live_voice.h:30",
+     "tier": "DERIVED",
+     "source": "development/mods/pitstop_modding/live/pit_live_voice.h:30"
+    }
+   ],
+   "latch_cooldown": "once per AI fault",
+   "calibration_needed": null,
+   "conflicts": "none found",
+   "live_test": "Force AI stuck RR wheel; expect line",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/pit_live_voice.h:30",
+    "development/mods/pitstop_modding/dll/pit_commentary.c:108"
+   ],
+   "open_questions": "Owner triage text for this clip describes a rejoin with tyre choice (SOFT/HARD), which does not match its label. Check before use."
+  },
+  {
+   "clip": "PWS_AIPIT13",
+   "sdt_index": 202,
+   "pws_eid": 190,
+   "all_eids": [
+    190
+   ],
+   "says": "AI rejoins track at X position",
+   "eid_source": "full_event_dump.json events['190'] (sdt 202); doc56 row 224 (status SILENT)",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": "development/mods/pitstop_modding/live/live_client.cpp:534 (voice_rejoin AI eid 190)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "ai",
+   "trigger": "AI car leaves pit exit in a race (SessionType 7), position known",
+   "state_reads": [
+    {
+     "what": "driver id (AI subject)",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md Facts; development/mods/pitstop_modding/live/live_client.cpp:474-480 voice()"
+    },
+    {
+     "what": "SessionType (5 quali, 7 race)",
+     "locator": "global 0x7C56A4",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md Facts; f1c_ida_decompiled/mods/extended_vanilla_features/docs/EMITTER_SPECS.md pit_procedure"
+    }
+   ],
+   "latch_cooldown": "once per exit",
+   "calibration_needed": null,
+   "conflicts": "owner status SILENT, but pitstop code queues it; AI lines are also subject to the Safety Car filter",
+   "live_test": "Race: AI pits and exits; expect 'X rejoined in P'",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/pitstop_modding/live/live_client.cpp:534"
+   ],
+   "open_questions": "Owner status SILENT conflicts with pitstop code (live_client.cpp:534). Verify live before treating as owned."
+  },
+  {
+   "clip": "PWS_AIPIT11",
+   "sdt_index": 207,
+   "pws_eid": 195,
+   "all_eids": [
+    195,
+    510
+   ],
+   "says": "AI pits to serve stop-go penalty",
+   "eid_source": "full_event_dump.json events['195'] (score 198); doc56 row 229 / TV 544 (eid 510)",
+   "eid_isolation_tested": false,
+   "isolation_source": null,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "AI car has a pending stop-go penalty AND pittingStatus 1->2 (entering pit lane); once per penalty",
+   "state_reads": [
+    {
+     "what": "stop-go penalty pending (per car)",
+     "locator": "UNKNOWN (set by StopGoPenaltyHandler 0x4BBD60, arg 10 s)",
+     "tier": "GUESS",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-003_penalty.md (handler + 10 s); record layout not found"
+    },
+    {
+     "what": "AI pittingStatus",
+     "locator": "veh+0x3450",
+     "tier": "CONFIRMED",
+     "source": "findings.jsonl pittingStatus row"
+    },
+    {
+     "what": "driver id (AI subject)",
+     "locator": "veh+0x489C",
+     "tier": "FACT",
+     "source": "HAIKU_BRIEF.md Facts; development/mods/pitstop_modding/live/live_client.cpp:474-480 voice()"
+    }
+   ],
+   "latch_cooldown": "once per penalty",
+   "calibration_needed": "AI stop-go flag locator (SG); eid 195 needs driver id veh+0x489C",
+   "conflicts": "eid 510 has a literal native emitter at functions/PitRaceStatusMessageDispatcher_0041be60.c:34, but that dispatcher is weather/track status (506-513) per EVF docs; doc56 labels 510 as this clip. Contradiction. Safety Car AI filter may suppress AI pit lines",
+   "live_test": "AI with a stop-go is called to pit; expect line once",
+   "tier": "GUESS",
+   "sources": [
+    "f1c_ida_decompiled/functions/PitRaceStatusMessageDispatcher_0041be60.c:34",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-008_E_pit.md (NO_KNOWN_WRITER for 195)",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-003_penalty.md"
+   ],
+   "open_questions": "Does the AI stop-go state exist per AI car? Does eid 510 play the owner's clip or weather?",
+   "native_diagnosis": "Native literal 510 (functions/PitRaceStatusMessageDispatcher_0041be60.c:34) is a weather/track-status line, not the stop-go line. PWS 195 has no native emitter. Fix: ERE queues 195 itself (game_state_emitter), with the AI subject id. The native 510 is not a substitute."
+  }
+ ]
+}

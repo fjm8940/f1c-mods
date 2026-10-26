@@ -1,0 +1,4 @@
+# AIVehiclePathPositionTracking: offset-like lines with no extracted row (3)
+L17: v4 = (float *)(this + 13536);
+L18: v5 = (_DWORD *)(this + 13536);
+L22: EulerToRotationMatrix(v5, this + 13488);

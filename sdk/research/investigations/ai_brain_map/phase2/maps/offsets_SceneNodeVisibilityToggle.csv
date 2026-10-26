@@ -1,0 +1,5 @@
+func,line,dec,hex,access,width,base,form,expr
+SceneNodeVisibilityToggle,6,516,0x204,R,_DWORD,this,array,result = this[129];
+SceneNodeVisibilityToggle,7,20,0x14,R,_DWORD,result,direct,v3 = *(_DWORD *)(result + 20);
+SceneNodeVisibilityToggle,9,20,0x14,W,_DWORD,result,direct,*(_DWORD *)(result + 20) = v3 | 0x40;
+SceneNodeVisibilityToggle,11,20,0x14,W,_DWORD,result,direct,*(_DWORD *)(result + 20) = v3 & 0xFFFFFFBF;

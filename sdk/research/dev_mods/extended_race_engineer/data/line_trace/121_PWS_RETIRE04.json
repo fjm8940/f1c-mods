@@ -1,0 +1,488 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 121,
+ "clip": "PWS_RETIRE04",
+ "says": "Player blown engine",
+ "dump_rows_for_clip": [
+  {
+   "eid": 119,
+   "hex": "0x0077",
+   "priority": 55,
+   "cooldown": 6.0,
+   "blocked": false,
+   "score": 117,
+   "sdt_index": 121,
+   "clip_name": "PWS_RETIRE04.mp",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 412,
+   "hex": "0x019C",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 117,
+   "sdt_index": 121,
+   "clip_name": "PWS_RETIRE04.mp",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  117
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 119,
+   "hex": "0x0077",
+   "priority": 55,
+   "cooldown": 6.0,
+   "blocked": false,
+   "score": 117,
+   "sdt_index": 121,
+   "clip_name": "PWS_RETIRE04.mp",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 412,
+   "hex": "0x019C",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 117,
+   "sdt_index": 121,
+   "clip_name": "PWS_RETIRE04.mp",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  119
+ ],
+ "literal_hits": {
+  "119": {
+   "emitters": [
+    {
+     "function": "sub_41B250",
+     "file": "sub_41B250_0041b250.c",
+     "hits": [
+      {
+       "line": 15,
+       "text": "DriverDataTableLookupAndTimeConversion(v4, 119, -1, -1, -1, -1, -2.0, -2.0);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_4F1FE0",
+       "callers": [
+        {
+         "caller": "VehicleYawRotationRecoveryController",
+         "callers": [
+          {
+           "caller": "MainGameTickUpdate",
+           "callers": [
+            {
+             "caller": "GamePostMainLoop",
+             "callers": []
+            },
+            {
+             "caller": "StateTriggerCheck",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 224,
+       "text": "v5 = a4 != 0 ? 273 : 119;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 18,
+    "first": [
+     "AudioStreamBufferRead",
+     "BrakeBiasSetup",
+     "BufferFillWithTimeout",
+     "EnumValueTranslation",
+     "FileHandleDestructorWithModeCheck",
+     "FileReadLoop",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "StreamBufferReadStateMachine",
+     "StreamFileTypeCheckWithDispatch",
+     "VehicleGraphicsSceneLoader",
+     "VehicleMainPhysicsUpdate",
+     "sub_455580",
+     "sub_51177C",
+     "sub_530840",
+     "sub_534B10",
+     "sub_58AE69",
+     "sub_58C43C",
+     "sub_58E4D2"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 121 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "EnumValueTranslation",
+    "file": "EnumValueTranslation_00414010.c",
+    "hits": [
+     {
+      "line": 34,
+      "text": "v3 = 121;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:92: {\"tier\": \"OPEN\", \"claim\": \"A disqualification does NOT produce a player retirement commentary line, even with a nonzero ReasonCode - the DQ and retire exits are separate paths\", \"e",
+  "f1c_ida_decompiled\\findings.jsonl:563: {\"id\": \"pws-retire04-eid119-confirmed-not-120\", \"tier\": \"FACT\", \"date\": \"2026-08-07\", \"what\": \"PWS_RETIRE04 is eid 119 (score 117, sdt_index 121, cooldown 6.0). eid 120 is a DIFFER",
+  "f1c_ida_decompiled\\findings.jsonl:564: {\"id\": \"retire04-two-trigger-design-certain-vs-uncertain-death\", \"tier\": \"DERIVED\", \"date\": \"2026-08-07\", \"what\": \"engine_failure.c's PWS_RETIRE04 (eid 119) firing was split into t"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-005.md:20: `PWS_RETIRE01`, `PWS_RETIRE02`, `PWS_RETIRE04` are **handled by",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:190: | `PWS_RETIRE04` | 121 | 119 | 0x0041b250 | Player blown engine |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\HANDOFF_2026-07-28.md:49: 2. **Observe `ReasonCode` 1 and 7** to prove `PWS_RETIRE04`/`PWS_RETIRE01`. The",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:306: | `PWS_RETIRE04` | 121 | 119, 412 | — | Player blown engine | user triage: Z, when players engine overheats |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:217: | `PWS_RETIRE04` | 119, 412 | Player blown engine | eid 119 live, emitter literal sub_41B250_0041b250.c:15 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:52: | `PWS_RETIRE04` | 119, 412 | Player blown engine — same function/family | `functions/sub_41B250_0041b250.c:15` |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002B_player_retirement.md:30: | 1 (accident?) | 119 | PWS_RETIRE04 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:153: | 121 | `PWS_RETIRE04` | Z | - | Z, when players engine overheats |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:195: | `PWS_RETIRE04` | 121 | 119 | Player blown engine |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:83: | `PWS_RETIRE04` | 121 | 119, 412 | user triage: Z, when players engine overheats \\| BLOCKED 2026-07-28 (live, all preconditions met): emitter sub_41B250 is reached only from sub_4"
+ ],
+ "mod_sources": [
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:501: /* ---- PWS_RETIRE04 on a real engine death --------------------------------",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:527: #define EID_RETIRE04   119",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:538: /* 2026-10-01 messaging audit: RETIRE04 says \"engine is blown\" - only for a",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:544: static int   g_voice_dead = 0;      /* a mod-killed STOP: DEAD01/02, not RETIRE04 */",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:558: /* owner 2026-10-05: RETIRE04 \"...that's the end of your race\" is wrong outside",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:560: * keeps the vanilla RETIRE04. Vanilla SDT (voice OFF) -> RETIRE04 everywhere. */",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:566: logf_(\"RETIRE04 replaced by %s (session type %d, not a race)\",",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:570: radio_req(EID_RETIRE04, MFR_P_DEATH);",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:579: logf_(\"RETIRE04 pending in %lu ms\",",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:591: logf_(\"RADIO DROPPED (not driving): eid %d\", EID_RETIRE04);",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:598: /* V3: a mod-killed STOP gets DEAD01/02 (random) instead of RETIRE04 */",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:601: logf_(\"RETIRE04 replaced by %s (quiet stop)\",",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:604: logf_(\"RETIRE04 skipped (not a blow-up)\");",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:609: logf_(\"RETIRE04 fired (pending timer, known-certain death)\");",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:635: /* V3: a mod-killed STOP gets DEAD01/02 (random) instead of RETIRE04 */",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:638: logf_(\"RETIRE04 replaced by %s (quiet stop)\",",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:641: logf_(\"RETIRE04 skipped (not a blow-up)\");",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:646: logf_(\"RETIRE04 fired (engine death, stopped %lu ms)\",",
+  "development\\mods\\mechanical_failures\\dll\\engine_failure.c:7169: g_death_quiet = 1;                  /* 2026-10-01: not a blow-up - no RETIRE04 */",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:445: /* ---- PWS_RETIRE04 on a real engine death --------------------------------",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:471: #define EID_RETIRE04   119",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:482: /* 2026-10-01 messaging audit: RETIRE04 says \"engine is blown\" - only for a",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:488: static int   g_voice_dead = 0;      /* a mod-killed STOP: DEAD01/02, not RETIRE04 */",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:502: /* owner 2026-10-05: RETIRE04 \"...that's the end of your race\" is wrong outside",
+  "development\\mods\\mechanical_failures\\releases\\v1.0.0-rc.1\\src\\engine_failure.c:504: * keeps the vanilla RETIRE04. Vanilla SDT (voice OFF) -> RETIRE04 everywhere. */"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "mechanical_failures",
+    "mod_version": "1.0.7 public (RELEASE_REGISTRY 2026-10-12); dev dll/",
+    "eid": 119,
+    "mechanism": "dll_emit",
+    "condition": "player engine blown: radio_req(EID_RETIRE04) on death",
+    "source": "development/mods/mechanical_failures/dll/engine_failure.c:527,570",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Player blown engine"
+   },
+   {
+    "mod": "player_retire_commentary",
+    "mod_version": "candidate (folder release-aligned-1.0.1-dev; PRODUCT_STATUS active-candidate)",
+    "eid": 119,
+    "mechanism": "cooldown_unblock",
+    "condition": "retirement ReasonCode 1: cooldown patched if FLT_MAX",
+    "source": "development/mods/player_retire_commentary/src/retire_commentary.c:63,210,322,385",
+    "release_status": "candidate",
+    "live_verified": true,
+    "says": "Player blown engine"
+   }
+  ],
+  "note": "user triage: Z, when players engine overheats",
+  "triage": {
+   "sdt_index": 121,
+   "text": "Z, when players engine overheats",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

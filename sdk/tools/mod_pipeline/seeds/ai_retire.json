@@ -1,0 +1,24 @@
+{
+  "name": "ai_retire",
+  "description": "Ground-truth which vehicle-struct field triggers retirement. Watch ReasonCode(+0x4068), FinishState-candidate(+0x4064), ActiveFlag(+0x32c8) live for player(0) and AI(1,2,3), stride 0x48c0 off VehiclePtrArray. Confirms whether an external +0x4068 write sticks and whether the game reads it.",
+  "globals": [
+    { "addr": "0x005c329c", "label": "VehicleCount", "type": "int" }
+  ],
+  "seeds": [
+    "0x00438690",
+    "0x0043ef20",
+    "0x00442060",
+    "0x004199e0"
+  ],
+  "struct_watches": [
+    { "base_global": "0x007c54f0", "index": 0, "stride": 18624, "offset": 13000, "type": "int", "label": "p0_active_32c8" },
+    { "base_global": "0x007c54f0", "index": 0, "stride": 18624, "offset": 16484, "type": "int", "label": "p0_f4064" },
+    { "base_global": "0x007c54f0", "index": 0, "stride": 18624, "offset": 16488, "type": "int", "label": "p0_reason4068" },
+    { "base_global": "0x007c54f0", "index": 1, "stride": 18624, "offset": 13000, "type": "int", "label": "a1_active_32c8" },
+    { "base_global": "0x007c54f0", "index": 1, "stride": 18624, "offset": 16484, "type": "int", "label": "a1_f4064" },
+    { "base_global": "0x007c54f0", "index": 1, "stride": 18624, "offset": 16488, "type": "int", "label": "a1_reason4068" },
+    { "base_global": "0x007c54f0", "index": 2, "stride": 18624, "offset": 16488, "type": "int", "label": "a2_reason4068" },
+    { "base_global": "0x007c54f0", "index": 3, "stride": 18624, "offset": 16488, "type": "int", "label": "a3_reason4068" }
+  ],
+  "watch_hz": 5
+}

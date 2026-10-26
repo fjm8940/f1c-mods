@@ -1,0 +1,40 @@
+# Build output and local state
+build/
+out/
+*.o
+*.obj
+*.dll
+*.exe
+*.pdb
+*.log
+__pycache__/
+*.pyc
+
+# Corpus links created by sdk/tools/setup_corpus.py
+/sdk/analysis
+/sdk/functions
+/sdk/functions_typed_20260930
+/sdk/functions_annotated
+/sdk/skeletons
+/sdk/skeletons_filled
+/sdk/shadow_source
+/sdk/knowledge_graph
+/sdk/replacement_engine
+/sdk/ghidra
+/sdk/*.json
+!/sdk/config_schema.json
+/sdk/DATA_INDEX.md
+/sdk/SOURCE_FILES.md
+/sdk/STRINGS_REPORT.md
+/sdk/priority_index.md
+/sdk/mods/sdk_sandbox/*
+!/sdk/mods/sdk_sandbox/game_update_broker/
+
+# Never commit
+*.pem
+*.key
+*.i64
+*.idb
+*.vmp
+api1.txt
+.env

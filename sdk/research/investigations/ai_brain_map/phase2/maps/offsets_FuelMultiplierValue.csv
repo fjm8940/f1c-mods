@@ -1,0 +1,4 @@
+func,line,dec,hex,access,width,base,form,expr
+FuelMultiplierValue,4,,,CALL,,,call,CRTFtol
+FuelMultiplierValue,4,14724,0x3984,R,float,this,array,return CRTFtol(this[3681] * this[3346] - 0.2);
+FuelMultiplierValue,4,13384,0x3448,R,float,this,array,return CRTFtol(this[3681] * this[3346] - 0.2);

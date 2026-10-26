@@ -1,0 +1,1692 @@
+{
+ "schema": "ere.audit.v1",
+ "range": "B20_190-199",
+ "method_note": "EXHAUSTIVE PER-LINE METHOD (AUDIT_BRIEF). Each emitter and dynamic emitter read in functions/*.c; eid args enumerated per function; callers walked up to GameMainEntry with a caller index. Read-only; no live game.",
+ "owner_exe_check": {
+  "exe": "F1 Challenge Online.exe (sha256 prefix 1a70e5ed0c4a059f, 3141632 bytes) = owner game exe",
+  "method": "Read-only PE parse: image base 0x400000, table 0x5BF9A0 + eid*0x14 + 0x0C, file offset = VA - base in .data",
+  "results": {
+   "179": 1.0,
+   "180": 1.0,
+   "181": 1.0,
+   "182": 1.0,
+   "183": 1.0,
+   "184": 1.0,
+   "185": 1.0,
+   "186": 1.0,
+   "187": 1.0,
+   "516": 1.0
+  },
+  "control": "eid 80 reads FLT_MAX; eid 106 = 15.0 and 117 = 6.0 (match coordinator note)"
+ },
+ "verdict_counts": {
+  "NATIVE_ACTIVE": 2,
+  "NOT_ACTIVATED": 1,
+  "UNKNOWN": 2,
+  "MOD_ONLY": 5
+ },
+ "contradictions": [
+  {
+   "id": "C1",
+   "claim": "findings.jsonl:64 (CONFIRMED, 2026-07-27): veh+0x342C == 3 for all 12 cars incl. player; 180/181 never fire.",
+   "conflict": "VOICE_LINES/PROGRESS say SHIPPED. Rows 192/193 UNKNOWN; row 194 NATIVE_ACTIVE on the same sample.",
+   "tier": "CONFIRMED vs unverified SHIPPED"
+  },
+  {
+   "id": "C2",
+   "claim": "findings.jsonl:156 (DERIVED) corrects 0x342C to the pit-schedule stop count.",
+   "conflict": "Owner bug 'AIPit10 fires on 1-stoppers' (findings:64 note) needs count 3 on 1-stoppers. Both cannot be fully right.",
+   "tier": "DERIVED"
+  },
+  {
+   "id": "C3",
+   "claim": "SPEC_EVF-008_E_pit.md:31 and FULL_INVENTORY: PWS_2001_131 native route = eid 184 via PitExit.",
+   "conflict": "Code: PitExit writes only 516 (PitExit_0041c0f0.c:38). eid 184 has no native emitter.",
+   "tier": "CONFIRMED (code)"
+  },
+  {
+   "id": "C4",
+   "claim": "findings.jsonl:157: 516 = race position 1 in a 'finishing-position dispatcher'.",
+   "conflict": "SDK name is 'Pit_Exit_Release_Order_Commentary'; code runs in PitTimer phase 2 (pre-start release). Both agree 516 means the P1 car.",
+   "tier": "DERIVED"
+  },
+  {
+   "id": "C5",
+   "claim": "DUMP_RESULTS.md:57 'PWS_AIPIT04/06 | 188/190'.",
+   "conflict": "188/190 are SDT indices; eids are 178/179 (full_event_dump.json).",
+   "tier": "CONFIRMED (dump)"
+  },
+  {
+   "id": "C6",
+   "claim": "AIStateMachineWithModeDispatch_004a5d10.c:1 header calls veh+0x32C8 the pit state ('PitsUnderRed').",
+   "conflict": "findings.jsonl:118: veh+0x32C8 != -1 counts active grid slots. Meaning of 0x32C8 == 2/3 is UNKNOWN.",
+   "tier": "DERIVED"
+  },
+  {
+   "id": "C7",
+   "claim": "DriverNameIDLookup stores name records with eids 179-187 (PWS branch) and 457/458/215 (TV).",
+   "conflict": "Same numbers as event eids. No dynamic emitter reads a record eid (checked). Other readers of record +12 not exhaustively searched: UNKNOWN.",
+   "tier": "DERIVED"
+  },
+  {
+   "id": "C8",
+   "claim": "PitExit_0041c0f0.c:36-38 sends v3==1 to 516 only when this[v4]==1.",
+   "conflict": "this[v4]==1 (per-slot state) is not labelled in the corpus; whether it holds during the pre-start release is UNKNOWN.",
+   "tier": "UNKNOWN"
+  }
+ ],
+ "rows": [
+  {
+   "sdt_index": 190,
+   "clip": "PWS_AIPIT06",
+   "eid": 179,
+   "says": "Race leader pits",
+   "score": 182,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native_emitter_live_gated_on_ai_leader",
+   "situation": "Race (SessionType 7). An AI car that is race position 1 (veh+0x4060 == 1) enters the pit-entry state (AI state 2). Plays once per pit entry (latch this[384]). Never when the player leads: AISessionPhaseChange excludes the player (L13-14).",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "AISessionPhaseChange sub_41A2B0 (AISessionPhaseChange_0041a2b0.c:34-36, v5=179)"
+   ],
+   "call_path": "GamePostMainLoop sub_42D8A0 (:23 BufferReset) -> BufferReset sub_4B3B40 (:12) -> sub_4B3400 (:261, AI slot state 2) -> AIStateMachineWithModeDispatch sub_4A5D10 (:26-32, this[97]==2) -> sub_4A5EA0 (:9 StateChangeNotify(2), :12 AISessionPhaseChange) -> sub_41A2B0. Other entry: StateChangeNotify sub_4A5C80 (:21) and its callers.",
+   "gates": [
+    "AISessionPhaseChange_0041a2b0.c:8 dword_7D0308 && flt_7CF3C8 != 0.0 && dword_7C56A8 != 8 (flag values UNKNOWN in single player)",
+    "L13-14 player excluded (dword_7C54E8+18580 == a2+18580)",
+    "L30 dword_7C56A4 in {6,7} (race = 7, FACT findings:63)",
+    "L33 a2+16480 == 1 (race position 1; veh+0x4060 per AUDIT_BRIEF)",
+    "sub_4A5EA0:8 this[384]==0 latch (set L11; cleared in sub_4A5F20:12 on pit exit)",
+    "AIStateMachineWithModeDispatch:26-32 veh+0x32C8 in {2,3} and this[97]==2 (0x32C8 meaning UNKNOWN, see C6)"
+   ],
+   "mod": "",
+   "heard_evidence": "docs/VOICE_LINES.md:213 status SHIPPED (EVF claim, source 'browser'); no owner 'heard' note in TRIAGE_NOTES.txt",
+   "tier": "DERIVED",
+   "notes": "Owner exe cooldown 1.0 (byte-read .data 0x5C07A8). Calibration live: confirm 0x32C8 meaning and that 0x7D0308/0x7CF3C8 are non-zero in a single-player race.",
+   "play_plan": null,
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce 179 (possible eids: 120, 198, 259)",
+     "line": "L37,L39,L57"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce 179 (possible eids: 6, 180, 181, 182)",
+     "line": "L22,L35,L38,L41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce 179 (possible eids: 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "L29,L41,L47,L57"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce 179 (possible eids: 42, 52)",
+     "line": "L15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce 179 (possible eids: 7, 8, 9, 17, 18)",
+     "line": "L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "emits 179 under: race (SessionType 6/7), AI only; 179 when race position veh+0x4060==1, else 178",
+     "line": "L32,L34,L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce 179 (possible eids: 52, 196)",
+     "line": "L10,L16,L19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce 179 (possible eids: 157, 158, 159, 160, 161, 162, 163, 164, 165, 166 ...)",
+     "line": "L29-L177 table, L149, L159, L164"
+    },
+    {
+     "function": "PitExit sub_41C0F0 (SDK name: release-order commentary)",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce 179 (possible eids: 397, 516, 517, 518, 519, 521, 522, 523, 524, 525 ...)",
+     "line": "L38 (516), L43-L118"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid via ThunkToFUN004201e0 = sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce 179 (possible eids: 355, 356, 357, 358, 359, 360, 361, 362, 363, 364 ...)",
+     "line": "L26 (sub_4203D0 returns 355-371 or -1)"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce 179 (possible eids: 397, 447, 448, 449, 450, 451, 452, 453, 454, 455 ...)",
+     "line": "L107,L148,L158,L173,L191-L226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce 179 (possible eids: 293, 294, 295, 296, 297, 298, 299, 300, 301, 302 ...)",
+     "line": "L189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce 179 (possible eids: 34, 35, 276, 277, 278, 279)",
+     "line": "L25"
+    },
+    {
+     "function": "sub_41A720 (infraction strings)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce 179 (possible eids: 151, 153, 154, 155, 252, 253, 254, 256)",
+     "line": "L35"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce 179 (possible eids: 149, 243)",
+     "line": "L15"
+    },
+    {
+     "function": "sub_41AC50 (AI pit/retire state)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce 179 (possible eids: 208, 211, 212, 213, 214, 215, 216, 217, 220)",
+     "line": "L58"
+    },
+    {
+     "function": "sub_41B250 (AI position/overtake)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce 179 (possible eids: 117, 118, 119, 235, 236, 237, 238)",
+     "line": "L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440 (track-name eid via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce 179 (possible eids: -1, 338, 339, 340, 341, 342, 343, 344, 345, 346 ...)",
+     "line": "L16 (sub_420000 returns 338-354 or -1)"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent sub_4199E0",
+     "file": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "cannot produce 179 (possible eids: 1, 2, 41, 272, 273)",
+     "line": "L20,L29,L54,switch 272"
+    },
+    {
+     "function": "sub_41AD80 (overtake distance)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce 179 (possible eids: 114, 115, 225, 226)",
+     "line": "L35,L37,L53,L72,L88"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (step 3 lookup)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "DriverNameIDLookup_00415d90.c:107 `v5 = a4 != 0 ? 179 : 1` (name record for string aJeanA). Stored in name-entry record (a1+8). Not emitted: consumers pass the NamedEntryLookupInFormatList index to DriverDataTable 397 (PositionChangeDetector_00420490.c:111,189), not 179.",
+     "line": "107/327/139/359/208/428/123/343/53 as listed"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList sub_415230 (lookup callers, step 3)",
+     "file": "sub_414600_00414600.c; NamedEntryLookupInFormatList_00415230.c",
+     "result": "returns list index only; cannot produce 179",
+     "line": "NamedEntryLookupInFormatList_00415230.c:134; PositionChangeDetector_00420490.c:111,189"
+    }
+   ]
+  },
+  {
+   "sdt_index": 191,
+   "clip": "PWS_AIPIT07",
+   "eid": null,
+   "says": "AI driver pits (alt 2)",
+   "score": null,
+   "cooldown": null,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "orphan_clip",
+   "situation": "",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [],
+   "call_path": "none (no eid row)",
+   "gates": [],
+   "mod": "",
+   "heard_evidence": "docs/PROGRESS.md:103 'orphaned'; full_event_dump.json orphaned_clips key 191 (PWS_AIPIT07.mp2); findings.jsonl:71 (CONFIRMED) all 23 orphaned clips unreachable",
+   "tier": "CONFIRMED",
+   "notes": "Variant of PWS_AIPIT04 (eid 178, cooldown 10.0, same AI pit-entry event). DUMP_RESULTS.md:57 lists SDT indices 188/190, not eids. No sub-clip route applies (SUB-CLIP BANK FACT); no eid row targets SDT 191.",
+   "play_plan": {
+    "meaning": "AI car that is not the race leader enters the pits: generic 'AI driver pits' line, alternate wording of PWS_AIPIT04.",
+    "when_it_should_play": "Race only; AI car not race position 1 enters the pit-entry state. Alternate with PWS_AIPIT04 so one event does not play both.",
+    "trigger": "AISessionPhaseChange_0041a2b0.c:32 branch v5=178 (race, AI, race position != 1). On alternate entries use the carrier for SDT 191 (latch counter).",
+    "subject": "AI driver id veh+0x489C (a2+18588)",
+    "technique": "carrier_score (a PWS carrier eid whose score is rewritten to map to SDT 191; score mapping for an orphan is UNKNOWN)",
+    "latch_cooldown": "10 s as eid 178, plus alternation with 178",
+    "must_not_play_when": "player pits (excluded by L13); qualifying; race position 1 (use 179); MF pending line on eid 178 (DD-07 rule)",
+    "conflicts": "PWS_AIPIT04 (eid 178) same event; eid 179 for leader",
+    "calibration": "score value that maps to SDT 191 (no event row; needs static or live read of score table)",
+    "live_test": "Race: let an AI non-leader car pit; today AIPIT04 plays. After the plan, every second entry should give the alt-2 wording.",
+    "confidence": "DERIVED for trigger; GUESS for carrier route (score mapping UNKNOWN)"
+   },
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 120, 198, 259)",
+     "line": "L37,L39,L57"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 6, 180, 181, 182)",
+     "line": "L22,L35,L38,L41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "L29,L41,L47,L57"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 42, 52)",
+     "line": "L15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 7, 8, 9, 17, 18)",
+     "line": "L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 21, 22, 178, 179)",
+     "line": "L32,L34,L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 52, 196)",
+     "line": "L10,L16,L19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 157, 158, 159, 160, 161, 162, 163, 164, 165, 166 ...)",
+     "line": "L29-L177 table, L149, L159, L164"
+    },
+    {
+     "function": "PitExit sub_41C0F0 (SDK name: release-order commentary)",
+     "file": "PitExit_0041c0f0.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 397, 516, 517, 518, 519, 521, 522, 523, 524, 525 ...)",
+     "line": "L38 (516), L43-L118"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid via ThunkToFUN004201e0 = sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 355, 356, 357, 358, 359, 360, 361, 362, 363, 364 ...)",
+     "line": "L26 (sub_4203D0 returns 355-371 or -1)"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 397, 447, 448, 449, 450, 451, 452, 453, 454, 455 ...)",
+     "line": "L107,L148,L158,L173,L191-L226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 293, 294, 295, 296, 297, 298, 299, 300, 301, 302 ...)",
+     "line": "L189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 34, 35, 276, 277, 278, 279)",
+     "line": "L25"
+    },
+    {
+     "function": "sub_41A720 (infraction strings)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 151, 153, 154, 155, 252, 253, 254, 256)",
+     "line": "L35"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 149, 243)",
+     "line": "L15"
+    },
+    {
+     "function": "sub_41AC50 (AI pit/retire state)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 208, 211, 212, 213, 214, 215, 216, 217, 220)",
+     "line": "L58"
+    },
+    {
+     "function": "sub_41B250 (AI position/overtake)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 117, 118, 119, 235, 236, 237, 238)",
+     "line": "L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440 (track-name eid via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: -1, 338, 339, 340, 341, 342, 343, 344, 345, 346 ...)",
+     "line": "L16 (sub_420000 returns 338-354 or -1)"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent sub_4199E0",
+     "file": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 1, 2, 41, 272, 273)",
+     "line": "L20,L29,L54,switch 272"
+    },
+    {
+     "function": "sub_41AD80 (overtake distance)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "no eid row for this clip (orphan): nothing to emit; this function cannot queue it (possible eids: 114, 115, 225, 226)",
+     "line": "L35,L37,L53,L72,L88"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "Sub-clip routes removed as evidence; verdict unchanged (see stitch_recheck).",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "Verdict rests on the absence of any eid row (orphan_clip); the sub-clip resolver mention in notes was rewritten as not applicable."
+   }
+  },
+  {
+   "sdt_index": 192,
+   "clip": "PWS_AIPIT08",
+   "eid": 180,
+   "says": "AI has 1-stop strategy",
+   "score": 183,
+   "cooldown": 1.0,
+   "verdict": "UNKNOWN",
+   "reason": "activation_code_live_input_count_unproven",
+   "situation": "Would play: race, AI car leaving the pits (pit-exit state) with pit-schedule count veh+0x342C == 1, within +/-1 lap of its first scheduled stop (veh+0x3430). Not observed: live read (findings:64, CONFIRMED 2026-07-27) showed 0x342C == 3 for all 12 cars incl. player.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "Not code-suppressed: switch case 1 is live; the limiter is the input value.",
+   "emitters": [
+    "AIFormationLap sub_41A3A0 (AIFormationLap_0041a3a0.c:35, v3=180)"
+   ],
+   "call_path": "GamePostMainLoop sub_42D8A0 -> BufferReset -> sub_4B3400 (:261) -> AIStateMachineWithModeDispatch (:36, this[97]==0) -> sub_4A5F20 (:14 AIFormationLap). Also PitStateUpdateMachine (:51) and TrackTemperatureDisplay (:15) call sub_4A5F20.",
+   "gates": [
+    "AIFormationLap_0041a3a0.c:8-10 commentary flags and dword_7C56A8 != 8",
+    "L13 AI only (player != a1[4645])",
+    "L15-18 SessionType<=6 diverts to eid 6; only 7 continues",
+    "L19 dword_7D0410 == 5 returns (MP mode)",
+    "L28-31 lap window: a1[3340] (veh+0x3430) within a1[4111] (lapNumber veh+0x403C) +/-1",
+    "L32 switch a1[3339] (veh+0x342C) == 1 -> 180"
+   ],
+   "mod": "",
+   "heard_evidence": "docs/VOICE_LINES.md:214 SHIPPED (EVF claim); findings:64 (CONFIRMED) live 0x342C == 3 for all cars; findings:156 (DERIVED correction: 0x342C = scheduled stop count)",
+   "tier": "DERIVED",
+   "notes": "Contradiction C1/C2: findings:64 says 180/181 never fire; findings:156 says the count is the stop count (not poke-proven). Calibration: read 0x342C on a 1-stop AI in a live race.",
+   "play_plan": null,
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce 180 (possible eids: 120, 198, 259)",
+     "line": "L37,L39,L57"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "emits 180 under: race only (SessionType==7), dword_7D0410!=5, AI only, lap window |a1[3340]-a1[4111]|<=1, switch on a1[3339] 1/2/3",
+     "line": "L22,L35,L38,L41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce 180 (possible eids: 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "L29,L41,L47,L57"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce 180 (possible eids: 42, 52)",
+     "line": "L15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce 180 (possible eids: 7, 8, 9, 17, 18)",
+     "line": "L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce 180 (possible eids: 21, 22, 178, 179)",
+     "line": "L32,L34,L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce 180 (possible eids: 52, 196)",
+     "line": "L10,L16,L19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce 180 (possible eids: 157, 158, 159, 160, 161, 162, 163, 164, 165, 166 ...)",
+     "line": "L29-L177 table, L149, L159, L164"
+    },
+    {
+     "function": "PitExit sub_41C0F0 (SDK name: release-order commentary)",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce 180 (possible eids: 397, 516, 517, 518, 519, 521, 522, 523, 524, 525 ...)",
+     "line": "L38 (516), L43-L118"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid via ThunkToFUN004201e0 = sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce 180 (possible eids: 355, 356, 357, 358, 359, 360, 361, 362, 363, 364 ...)",
+     "line": "L26 (sub_4203D0 returns 355-371 or -1)"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce 180 (possible eids: 397, 447, 448, 449, 450, 451, 452, 453, 454, 455 ...)",
+     "line": "L107,L148,L158,L173,L191-L226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce 180 (possible eids: 293, 294, 295, 296, 297, 298, 299, 300, 301, 302 ...)",
+     "line": "L189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce 180 (possible eids: 34, 35, 276, 277, 278, 279)",
+     "line": "L25"
+    },
+    {
+     "function": "sub_41A720 (infraction strings)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce 180 (possible eids: 151, 153, 154, 155, 252, 253, 254, 256)",
+     "line": "L35"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce 180 (possible eids: 149, 243)",
+     "line": "L15"
+    },
+    {
+     "function": "sub_41AC50 (AI pit/retire state)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce 180 (possible eids: 208, 211, 212, 213, 214, 215, 216, 217, 220)",
+     "line": "L58"
+    },
+    {
+     "function": "sub_41B250 (AI position/overtake)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce 180 (possible eids: 117, 118, 119, 235, 236, 237, 238)",
+     "line": "L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440 (track-name eid via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce 180 (possible eids: -1, 338, 339, 340, 341, 342, 343, 344, 345, 346 ...)",
+     "line": "L16 (sub_420000 returns 338-354 or -1)"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent sub_4199E0",
+     "file": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "cannot produce 180 (possible eids: 1, 2, 41, 272, 273)",
+     "line": "L20,L29,L54,switch 272"
+    },
+    {
+     "function": "sub_41AD80 (overtake distance)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce 180 (possible eids: 114, 115, 225, 226)",
+     "line": "L35,L37,L53,L72,L88"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (step 3 lookup)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "DriverNameIDLookup_00415d90.c:327 `v5 = a4 != 0 ? 180 : 2` (name-record eid). Not emitted; same as 179.",
+     "line": "107/327/139/359/208/428/123/343/53 as listed"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList sub_415230 (lookup callers, step 3)",
+     "file": "sub_414600_00414600.c; NamedEntryLookupInFormatList_00415230.c",
+     "result": "returns list index only; cannot produce 180",
+     "line": "NamedEntryLookupInFormatList_00415230.c:134; PositionChangeDetector_00420490.c:111,189"
+    }
+   ]
+  },
+  {
+   "sdt_index": 193,
+   "clip": "PWS_AIPIT09",
+   "eid": 181,
+   "says": "AI has 2-stop strategy",
+   "score": 184,
+   "cooldown": 1.0,
+   "verdict": "UNKNOWN",
+   "reason": "activation_code_live_input_count_unproven",
+   "situation": "Would play: race, AI car leaving the pits with pit-schedule count veh+0x342C == 2, within +/-1 lap of its first scheduled stop. Not observed (same live read as 180).",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "Not code-suppressed; limited by input value.",
+   "emitters": [
+    "AIFormationLap sub_41A3A0 (AIFormationLap_0041a3a0.c:38, v3=181)"
+   ],
+   "call_path": "as PWS_AIPIT08 (sub_4A5F20 -> AIFormationLap)",
+   "gates": [
+    "as PWS_AIPIT08 L8-31",
+    "L38 switch a1[3339] == 2 -> 181"
+   ],
+   "mod": "",
+   "heard_evidence": "docs/VOICE_LINES.md:215 SHIPPED (EVF claim); findings:64 (CONFIRMED live reads all 3); docs/SILENT_WIRING_EFFORT.md:68 same function/bug",
+   "tier": "DERIVED",
+   "notes": "As PWS_AIPIT08. Owner bug 'AIPit10 fires on 1-stoppers' (findings:64 note) suggests count is not simply the stop count (C2).",
+   "play_plan": null,
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce 181 (possible eids: 120, 198, 259)",
+     "line": "L37,L39,L57"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "emits 181 under: race only (SessionType==7), dword_7D0410!=5, AI only, lap window |a1[3340]-a1[4111]|<=1, switch on a1[3339] 1/2/3",
+     "line": "L22,L35,L38,L41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce 181 (possible eids: 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "L29,L41,L47,L57"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce 181 (possible eids: 42, 52)",
+     "line": "L15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce 181 (possible eids: 7, 8, 9, 17, 18)",
+     "line": "L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce 181 (possible eids: 21, 22, 178, 179)",
+     "line": "L32,L34,L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce 181 (possible eids: 52, 196)",
+     "line": "L10,L16,L19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce 181 (possible eids: 157, 158, 159, 160, 161, 162, 163, 164, 165, 166 ...)",
+     "line": "L29-L177 table, L149, L159, L164"
+    },
+    {
+     "function": "PitExit sub_41C0F0 (SDK name: release-order commentary)",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce 181 (possible eids: 397, 516, 517, 518, 519, 521, 522, 523, 524, 525 ...)",
+     "line": "L38 (516), L43-L118"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid via ThunkToFUN004201e0 = sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce 181 (possible eids: 355, 356, 357, 358, 359, 360, 361, 362, 363, 364 ...)",
+     "line": "L26 (sub_4203D0 returns 355-371 or -1)"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce 181 (possible eids: 397, 447, 448, 449, 450, 451, 452, 453, 454, 455 ...)",
+     "line": "L107,L148,L158,L173,L191-L226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce 181 (possible eids: 293, 294, 295, 296, 297, 298, 299, 300, 301, 302 ...)",
+     "line": "L189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce 181 (possible eids: 34, 35, 276, 277, 278, 279)",
+     "line": "L25"
+    },
+    {
+     "function": "sub_41A720 (infraction strings)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce 181 (possible eids: 151, 153, 154, 155, 252, 253, 254, 256)",
+     "line": "L35"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce 181 (possible eids: 149, 243)",
+     "line": "L15"
+    },
+    {
+     "function": "sub_41AC50 (AI pit/retire state)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce 181 (possible eids: 208, 211, 212, 213, 214, 215, 216, 217, 220)",
+     "line": "L58"
+    },
+    {
+     "function": "sub_41B250 (AI position/overtake)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce 181 (possible eids: 117, 118, 119, 235, 236, 237, 238)",
+     "line": "L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440 (track-name eid via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce 181 (possible eids: -1, 338, 339, 340, 341, 342, 343, 344, 345, 346 ...)",
+     "line": "L16 (sub_420000 returns 338-354 or -1)"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent sub_4199E0",
+     "file": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "cannot produce 181 (possible eids: 1, 2, 41, 272, 273)",
+     "line": "L20,L29,L54,switch 272"
+    },
+    {
+     "function": "sub_41AD80 (overtake distance)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce 181 (possible eids: 114, 115, 225, 226)",
+     "line": "L35,L37,L53,L72,L88"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (step 3 lookup)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "DriverNameIDLookup_00415d90.c:139 `v5 = a4 != 0 ? 181 : 27` (name-record eid). Not emitted.",
+     "line": "107/327/139/359/208/428/123/343/53 as listed"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList sub_415230 (lookup callers, step 3)",
+     "file": "sub_414600_00414600.c; NamedEntryLookupInFormatList_00415230.c",
+     "result": "returns list index only; cannot produce 181",
+     "line": "NamedEntryLookupInFormatList_00415230.c:134; PositionChangeDetector_00420490.c:111,189"
+    }
+   ]
+  },
+  {
+   "sdt_index": 194,
+   "clip": "PWS_AIPIT10",
+   "eid": 182,
+   "says": "AI has 3-stop strategy",
+   "score": 185,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native_emitter_live_input_observed",
+   "situation": "Race: AI car leaving the pits with pit-schedule count veh+0x342C == 3 (the value read on every car in the one live sample), within +/-1 lap of its first scheduled stop. Plays on the first pit exit in that window. The owner reports it also plays on 1-stoppers (findings:64 note), so the message can be wrong.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "AIFormationLap sub_41A3A0 (AIFormationLap_0041a3a0.c:41, v3=182 via case 3 at :40-41)"
+   ],
+   "call_path": "as PWS_AIPIT08 (sub_4A5F20 -> AIFormationLap)",
+   "gates": [
+    "as PWS_AIPIT08 L8-31",
+    "L40-41 switch a1[3339] == 3 -> 182"
+   ],
+   "mod": "",
+   "heard_evidence": "findings:64 (CONFIRMED): 'only eid 182 is ever heard' (owner-observed race, 2026-07-27); docs/VOICE_LINES.md:215 SHIPPED",
+   "tier": "CONFIRMED",
+   "notes": "Message accuracy disputed (C2). Owner exe cooldown 1.0 (byte-read).",
+   "play_plan": null,
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce 182 (possible eids: 120, 198, 259)",
+     "line": "L37,L39,L57"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "emits 182 under: race only (SessionType==7), dword_7D0410!=5, AI only, lap window |a1[3340]-a1[4111]|<=1, switch on a1[3339] 1/2/3",
+     "line": "L22,L35,L38,L41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce 182 (possible eids: 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "L29,L41,L47,L57"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce 182 (possible eids: 42, 52)",
+     "line": "L15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce 182 (possible eids: 7, 8, 9, 17, 18)",
+     "line": "L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce 182 (possible eids: 21, 22, 178, 179)",
+     "line": "L32,L34,L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce 182 (possible eids: 52, 196)",
+     "line": "L10,L16,L19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce 182 (possible eids: 157, 158, 159, 160, 161, 162, 163, 164, 165, 166 ...)",
+     "line": "L29-L177 table, L149, L159, L164"
+    },
+    {
+     "function": "PitExit sub_41C0F0 (SDK name: release-order commentary)",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce 182 (possible eids: 397, 516, 517, 518, 519, 521, 522, 523, 524, 525 ...)",
+     "line": "L38 (516), L43-L118"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid via ThunkToFUN004201e0 = sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce 182 (possible eids: 355, 356, 357, 358, 359, 360, 361, 362, 363, 364 ...)",
+     "line": "L26 (sub_4203D0 returns 355-371 or -1)"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce 182 (possible eids: 397, 447, 448, 449, 450, 451, 452, 453, 454, 455 ...)",
+     "line": "L107,L148,L158,L173,L191-L226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce 182 (possible eids: 293, 294, 295, 296, 297, 298, 299, 300, 301, 302 ...)",
+     "line": "L189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce 182 (possible eids: 34, 35, 276, 277, 278, 279)",
+     "line": "L25"
+    },
+    {
+     "function": "sub_41A720 (infraction strings)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce 182 (possible eids: 151, 153, 154, 155, 252, 253, 254, 256)",
+     "line": "L35"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce 182 (possible eids: 149, 243)",
+     "line": "L15"
+    },
+    {
+     "function": "sub_41AC50 (AI pit/retire state)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce 182 (possible eids: 208, 211, 212, 213, 214, 215, 216, 217, 220)",
+     "line": "L58"
+    },
+    {
+     "function": "sub_41B250 (AI position/overtake)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce 182 (possible eids: 117, 118, 119, 235, 236, 237, 238)",
+     "line": "L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440 (track-name eid via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce 182 (possible eids: -1, 338, 339, 340, 341, 342, 343, 344, 345, 346 ...)",
+     "line": "L16 (sub_420000 returns 338-354 or -1)"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent sub_4199E0",
+     "file": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "cannot produce 182 (possible eids: 1, 2, 41, 272, 273)",
+     "line": "L20,L29,L54,switch 272"
+    },
+    {
+     "function": "sub_41AD80 (overtake distance)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce 182 (possible eids: 114, 115, 225, 226)",
+     "line": "L35,L37,L53,L72,L88"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (step 3 lookup)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "DriverNameIDLookup_00415d90.c:359 `v5 = a4 != 0 ? 182 : 28` (name-record eid). Not emitted.",
+     "line": "107/327/139/359/208/428/123/343/53 as listed"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList sub_415230 (lookup callers, step 3)",
+     "file": "sub_414600_00414600.c; NamedEntryLookupInFormatList_00415230.c",
+     "result": "returns list index only; cannot produce 182",
+     "line": "NamedEntryLookupInFormatList_00415230.c:134; PositionChangeDetector_00420490.c:111,189"
+    }
+   ]
+  },
+  {
+   "sdt_index": 195,
+   "clip": "PWS_MISC30",
+   "eid": 183,
+   "says": "AI has pit stop issue",
+   "score": 186,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "native_none_mod_pitstop_failures_active",
+   "situation": "AI car enters its pit box and the generic pit-failure outcome fires (mod roll 8%). The Pit Stop Failures mod queues eid 183 with the AI as subject.",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [],
+   "call_path": "mod: pit_live_voice.h:31 (default outcome -> 183) -> live_client.cpp:822 voice(car,f.eid) -> live_client.cpp:540-548 f1c_pit_voice_enqueue(183, subject)",
+   "gates": [
+    "mod-side: AI box stop with generic outcome (pit_live_voice.h:31 RC source; dev tree pit_commentary.c:591-592)"
+   ],
+   "mod": "pitstop_failures 1.1.4-rc.1 (dll_emit). Owner game: pitstop_failures.dll present, not in LightloaderDisabled.ini",
+   "heard_evidence": "docs/VOICE_LINES.md:324 (mod entry); owner triage 'X PLAY' in docs/PROGRESS.md:454 (wants it played; not heard evidence)",
+   "tier": "CONFIRMED",
+   "notes": "No game emitter (checked). Mechanism dll_emit (not token_only): the mod enqueues the real PWS eid. Rolls are mod-side.",
+   "play_plan": null,
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce 183 (possible eids: 120, 198, 259)",
+     "line": "L37,L39,L57"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce 183 (possible eids: 6, 180, 181, 182)",
+     "line": "L22,L35,L38,L41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce 183 (possible eids: 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "L29,L41,L47,L57"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce 183 (possible eids: 42, 52)",
+     "line": "L15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce 183 (possible eids: 7, 8, 9, 17, 18)",
+     "line": "L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce 183 (possible eids: 21, 22, 178, 179)",
+     "line": "L32,L34,L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce 183 (possible eids: 52, 196)",
+     "line": "L10,L16,L19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce 183 (possible eids: 157, 158, 159, 160, 161, 162, 163, 164, 165, 166 ...)",
+     "line": "L29-L177 table, L149, L159, L164"
+    },
+    {
+     "function": "PitExit sub_41C0F0 (SDK name: release-order commentary)",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce 183 (possible eids: 397, 516, 517, 518, 519, 521, 522, 523, 524, 525 ...)",
+     "line": "L38 (516), L43-L118"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid via ThunkToFUN004201e0 = sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce 183 (possible eids: 355, 356, 357, 358, 359, 360, 361, 362, 363, 364 ...)",
+     "line": "L26 (sub_4203D0 returns 355-371 or -1)"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce 183 (possible eids: 397, 447, 448, 449, 450, 451, 452, 453, 454, 455 ...)",
+     "line": "L107,L148,L158,L173,L191-L226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce 183 (possible eids: 293, 294, 295, 296, 297, 298, 299, 300, 301, 302 ...)",
+     "line": "L189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce 183 (possible eids: 34, 35, 276, 277, 278, 279)",
+     "line": "L25"
+    },
+    {
+     "function": "sub_41A720 (infraction strings)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce 183 (possible eids: 151, 153, 154, 155, 252, 253, 254, 256)",
+     "line": "L35"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce 183 (possible eids: 149, 243)",
+     "line": "L15"
+    },
+    {
+     "function": "sub_41AC50 (AI pit/retire state)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce 183 (possible eids: 208, 211, 212, 213, 214, 215, 216, 217, 220)",
+     "line": "L58"
+    },
+    {
+     "function": "sub_41B250 (AI position/overtake)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce 183 (possible eids: 117, 118, 119, 235, 236, 237, 238)",
+     "line": "L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440 (track-name eid via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce 183 (possible eids: -1, 338, 339, 340, 341, 342, 343, 344, 345, 346 ...)",
+     "line": "L16 (sub_420000 returns 338-354 or -1)"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent sub_4199E0",
+     "file": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "cannot produce 183 (possible eids: 1, 2, 41, 272, 273)",
+     "line": "L20,L29,L54,switch 272"
+    },
+    {
+     "function": "sub_41AD80 (overtake distance)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce 183 (possible eids: 114, 115, 225, 226)",
+     "line": "L35,L37,L53,L72,L88"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (step 3 lookup)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "DriverNameIDLookup_00415d90.c:208 `v5 = a4 != 0 ? 183 : 169` (name-record eid). Not emitted.",
+     "line": "107/327/139/359/208/428/123/343/53 as listed"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList sub_415230 (lookup callers, step 3)",
+     "file": "sub_414600_00414600.c; NamedEntryLookupInFormatList_00415230.c",
+     "result": "returns list index only; cannot produce 183",
+     "line": "NamedEntryLookupInFormatList_00415230.c:134; PositionChangeDetector_00420490.c:111,189"
+    }
+   ]
+  },
+  {
+   "sdt_index": 196,
+   "clip": "PWS_2001_131",
+   "eid": 184,
+   "says": "AI driver engine stalled in pits",
+   "score": 187,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "native_none_mod_pitstop_failures_active",
+   "situation": "AI car at box entry, engine-stall outcome (mod roll 3%). The mod queues eid 184 (pit_live_voice.h:28 STALL_DELAY). The game's TV twin eid 516 is queued by PitExit for the race-position-1 car in the pre-start release order (PitTimer phase 2), not in the pit lane: its text does not match the situation. Do not route 184 through PitExit.",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "PWS 184 has no native emitter. TV 516 native route exists (PitExit_0041c0f0.c:38) but is a different channel and situation.",
+   "emitters": [
+    "no native PWS-184 emitter",
+    "native TV twin 516: PitExit sub_41C0F0 (PitExit_0041c0f0.c:36-38, v3==1 && this[v4]==1)"
+   ],
+   "call_path": "mod: pit_live_voice.h:28 -> live_client.cpp voice(car,184). Native 516: GamePostMainLoop -> sub_4D4580 (:33) -> PitTimer sub_4D2E50 (:55 switch dword_7C56A8, case 2 :138) -> sub_40DE60 (:128) -> CarSelectionStateMachine sub_434460 (:107) -> PitExit.",
+   "gates": [
+    "mod: AI box stop, stall roll 3% (dev tree pit_commentary.c:587)",
+    "native 516: SessionType 7 + dword_7C56A8 == 2 (PitTimer switch) + dword_7D0410 != 2 (PitExit:32) + slot state v4 in 3/4 + ScoreThresholdGateCheck(520) (CarSelectionStateMachine:81)"
+   ],
+   "mod": "pitstop_failures 1.1.4-rc.1 (dll_emit)",
+   "heard_evidence": "docs/TODO.md:60 owner triage 'X PLAY ... probably doesn't exist but could happen with a small chance'; docs/VOICE_LINES.md:208 (mod entry)",
+   "tier": "CONFIRMED",
+   "notes": "Contradiction C3: SPEC_EVF-008_E_pit.md:31 and FULL_INVENTORY say native route is eid 184; code shows PitExit writes 516 only. findings:157 warns against routing 184 through PitExit.",
+   "play_plan": null,
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce 184 (possible eids: 120, 198, 259)",
+     "line": "L37,L39,L57"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce 184 (possible eids: 6, 180, 181, 182)",
+     "line": "L22,L35,L38,L41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce 184 (possible eids: 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "L29,L41,L47,L57"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce 184 (possible eids: 42, 52)",
+     "line": "L15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce 184 (possible eids: 7, 8, 9, 17, 18)",
+     "line": "L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce 184 (possible eids: 21, 22, 178, 179)",
+     "line": "L32,L34,L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce 184 (possible eids: 52, 196)",
+     "line": "L10,L16,L19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce 184 (possible eids: 157, 158, 159, 160, 161, 162, 163, 164, 165, 166 ...)",
+     "line": "L29-L177 table, L149, L159, L164"
+    },
+    {
+     "function": "PitExit sub_41C0F0 (SDK name: release-order commentary)",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce 184 (possible eids: 397, 516, 517, 518, 519, 521, 522, 523, 524, 525 ...)",
+     "line": "L38 (516), L43-L118"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid via ThunkToFUN004201e0 = sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce 184 (possible eids: 355, 356, 357, 358, 359, 360, 361, 362, 363, 364 ...)",
+     "line": "L26 (sub_4203D0 returns 355-371 or -1)"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce 184 (possible eids: 397, 447, 448, 449, 450, 451, 452, 453, 454, 455 ...)",
+     "line": "L107,L148,L158,L173,L191-L226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce 184 (possible eids: 293, 294, 295, 296, 297, 298, 299, 300, 301, 302 ...)",
+     "line": "L189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce 184 (possible eids: 34, 35, 276, 277, 278, 279)",
+     "line": "L25"
+    },
+    {
+     "function": "sub_41A720 (infraction strings)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce 184 (possible eids: 151, 153, 154, 155, 252, 253, 254, 256)",
+     "line": "L35"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce 184 (possible eids: 149, 243)",
+     "line": "L15"
+    },
+    {
+     "function": "sub_41AC50 (AI pit/retire state)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce 184 (possible eids: 208, 211, 212, 213, 214, 215, 216, 217, 220)",
+     "line": "L58"
+    },
+    {
+     "function": "sub_41B250 (AI position/overtake)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce 184 (possible eids: 117, 118, 119, 235, 236, 237, 238)",
+     "line": "L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440 (track-name eid via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce 184 (possible eids: -1, 338, 339, 340, 341, 342, 343, 344, 345, 346 ...)",
+     "line": "L16 (sub_420000 returns 338-354 or -1)"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent sub_4199E0",
+     "file": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "cannot produce 184 (possible eids: 1, 2, 41, 272, 273)",
+     "line": "L20,L29,L54,switch 272"
+    },
+    {
+     "function": "sub_41AD80 (overtake distance)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce 184 (possible eids: 114, 115, 225, 226)",
+     "line": "L35,L37,L53,L72,L88"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (step 3 lookup)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "DriverNameIDLookup_00415d90.c:428 `v5 = a4 != 0 ? 184 : 170` (name-record eid). Not emitted.",
+     "line": "107/327/139/359/208/428/123/343/53 as listed"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList sub_415230 (lookup callers, step 3)",
+     "file": "sub_414600_00414600.c; NamedEntryLookupInFormatList_00415230.c",
+     "result": "returns list index only; cannot produce 184",
+     "line": "NamedEntryLookupInFormatList_00415230.c:134; PositionChangeDetector_00420490.c:111,189"
+    }
+   ]
+  },
+  {
+   "sdt_index": 197,
+   "clip": "PWS_2001_132",
+   "eid": 185,
+   "says": "AI driver jammed fuel hose",
+   "score": 188,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "native_none_mod_pitstop_failures_active",
+   "situation": "AI car at box entry, fuel-rig outcome (mod roll 6%). The mod queues eid 185 (pit_live_voice.h:27 FUEL_RIG).",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [],
+   "call_path": "mod: pit_live_voice.h:27 -> live_client.cpp voice(car,185)",
+   "gates": [
+    "mod: AI box stop, fuel-rig roll 6% (dev tree pit_commentary.c:588)"
+   ],
+   "mod": "pitstop_failures 1.1.4-rc.1 (dll_emit). pit_mock_provider.c:1068 is a mock only",
+   "heard_evidence": "docs/PROGRESS.md:258 owner triage 'X PLAY' (wants it, not heard); findings:157 (no native emitter)",
+   "tier": "CONFIRMED",
+   "notes": "Native: no emitter for 185 (checked). Owner note about blocking AI refuelling is out of scope here.",
+   "play_plan": null,
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce 185 (possible eids: 120, 198, 259)",
+     "line": "L37,L39,L57"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce 185 (possible eids: 6, 180, 181, 182)",
+     "line": "L22,L35,L38,L41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce 185 (possible eids: 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "L29,L41,L47,L57"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce 185 (possible eids: 42, 52)",
+     "line": "L15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce 185 (possible eids: 7, 8, 9, 17, 18)",
+     "line": "L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce 185 (possible eids: 21, 22, 178, 179)",
+     "line": "L32,L34,L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce 185 (possible eids: 52, 196)",
+     "line": "L10,L16,L19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce 185 (possible eids: 157, 158, 159, 160, 161, 162, 163, 164, 165, 166 ...)",
+     "line": "L29-L177 table, L149, L159, L164"
+    },
+    {
+     "function": "PitExit sub_41C0F0 (SDK name: release-order commentary)",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce 185 (possible eids: 397, 516, 517, 518, 519, 521, 522, 523, 524, 525 ...)",
+     "line": "L38 (516), L43-L118"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid via ThunkToFUN004201e0 = sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce 185 (possible eids: 355, 356, 357, 358, 359, 360, 361, 362, 363, 364 ...)",
+     "line": "L26 (sub_4203D0 returns 355-371 or -1)"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce 185 (possible eids: 397, 447, 448, 449, 450, 451, 452, 453, 454, 455 ...)",
+     "line": "L107,L148,L158,L173,L191-L226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce 185 (possible eids: 293, 294, 295, 296, 297, 298, 299, 300, 301, 302 ...)",
+     "line": "L189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce 185 (possible eids: 34, 35, 276, 277, 278, 279)",
+     "line": "L25"
+    },
+    {
+     "function": "sub_41A720 (infraction strings)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce 185 (possible eids: 151, 153, 154, 155, 252, 253, 254, 256)",
+     "line": "L35"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce 185 (possible eids: 149, 243)",
+     "line": "L15"
+    },
+    {
+     "function": "sub_41AC50 (AI pit/retire state)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce 185 (possible eids: 208, 211, 212, 213, 214, 215, 216, 217, 220)",
+     "line": "L58"
+    },
+    {
+     "function": "sub_41B250 (AI position/overtake)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce 185 (possible eids: 117, 118, 119, 235, 236, 237, 238)",
+     "line": "L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440 (track-name eid via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce 185 (possible eids: -1, 338, 339, 340, 341, 342, 343, 344, 345, 346 ...)",
+     "line": "L16 (sub_420000 returns 338-354 or -1)"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent sub_4199E0",
+     "file": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "cannot produce 185 (possible eids: 1, 2, 41, 272, 273)",
+     "line": "L20,L29,L54,switch 272"
+    },
+    {
+     "function": "sub_41AD80 (overtake distance)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce 185 (possible eids: 114, 115, 225, 226)",
+     "line": "L35,L37,L53,L72,L88"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (step 3 lookup)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "DriverNameIDLookup_00415d90.c:123 `v5 = a4 != 0 ? 185 : 457` (name-record eid). Not emitted.",
+     "line": "107/327/139/359/208/428/123/343/53 as listed"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList sub_415230 (lookup callers, step 3)",
+     "file": "sub_414600_00414600.c; NamedEntryLookupInFormatList_00415230.c",
+     "result": "returns list index only; cannot produce 185",
+     "line": "NamedEntryLookupInFormatList_00415230.c:134; PositionChangeDetector_00420490.c:111,189"
+    }
+   ]
+  },
+  {
+   "sdt_index": 198,
+   "clip": "PWS_2001_133",
+   "eid": 186,
+   "says": "AI driver stuck Front Left wheel",
+   "score": 189,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "native_none_mod_pitstop_failures_active",
+   "situation": "AI car at box entry, cross-thread wheel outcome on wheel index 0 (mod roll 4% per corner). The mod queues eid 186 + wheel (pit_live_voice.h:30; live_client.cpp:1070). Corner-to-index mapping UNKNOWN (eid 188 = PWS_2001_135 suggests index 2 is a rear wheel).",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [],
+   "call_path": "mod: pit_live_voice.h:30 186+wheel -> live_client.cpp:1070 voice(car,186+car.plan.wheel)",
+   "gates": [
+    "mod: AI box stop, cross-thread roll 4% per corner (dev tree pit_commentary.c:590)"
+   ],
+   "mod": "pitstop_failures 1.1.4-rc.1 (dll_emit)",
+   "heard_evidence": "docs/TODO.md:37 'X PLAY, HAS_PLAN'; findings:157 (no native emitter)",
+   "tier": "CONFIRMED",
+   "notes": "Wheel-index to corner mapping UNKNOWN; verify in the RC source before naming a corner.",
+   "play_plan": null,
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce 186 (possible eids: 120, 198, 259)",
+     "line": "L37,L39,L57"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce 186 (possible eids: 6, 180, 181, 182)",
+     "line": "L22,L35,L38,L41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce 186 (possible eids: 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "L29,L41,L47,L57"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce 186 (possible eids: 42, 52)",
+     "line": "L15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce 186 (possible eids: 7, 8, 9, 17, 18)",
+     "line": "L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce 186 (possible eids: 21, 22, 178, 179)",
+     "line": "L32,L34,L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce 186 (possible eids: 52, 196)",
+     "line": "L10,L16,L19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce 186 (possible eids: 157, 158, 159, 160, 161, 162, 163, 164, 165, 166 ...)",
+     "line": "L29-L177 table, L149, L159, L164"
+    },
+    {
+     "function": "PitExit sub_41C0F0 (SDK name: release-order commentary)",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce 186 (possible eids: 397, 516, 517, 518, 519, 521, 522, 523, 524, 525 ...)",
+     "line": "L38 (516), L43-L118"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid via ThunkToFUN004201e0 = sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce 186 (possible eids: 355, 356, 357, 358, 359, 360, 361, 362, 363, 364 ...)",
+     "line": "L26 (sub_4203D0 returns 355-371 or -1)"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce 186 (possible eids: 397, 447, 448, 449, 450, 451, 452, 453, 454, 455 ...)",
+     "line": "L107,L148,L158,L173,L191-L226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce 186 (possible eids: 293, 294, 295, 296, 297, 298, 299, 300, 301, 302 ...)",
+     "line": "L189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce 186 (possible eids: 34, 35, 276, 277, 278, 279)",
+     "line": "L25"
+    },
+    {
+     "function": "sub_41A720 (infraction strings)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce 186 (possible eids: 151, 153, 154, 155, 252, 253, 254, 256)",
+     "line": "L35"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce 186 (possible eids: 149, 243)",
+     "line": "L15"
+    },
+    {
+     "function": "sub_41AC50 (AI pit/retire state)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce 186 (possible eids: 208, 211, 212, 213, 214, 215, 216, 217, 220)",
+     "line": "L58"
+    },
+    {
+     "function": "sub_41B250 (AI position/overtake)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce 186 (possible eids: 117, 118, 119, 235, 236, 237, 238)",
+     "line": "L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440 (track-name eid via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce 186 (possible eids: -1, 338, 339, 340, 341, 342, 343, 344, 345, 346 ...)",
+     "line": "L16 (sub_420000 returns 338-354 or -1)"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent sub_4199E0",
+     "file": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "cannot produce 186 (possible eids: 1, 2, 41, 272, 273)",
+     "line": "L20,L29,L54,switch 272"
+    },
+    {
+     "function": "sub_41AD80 (overtake distance)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce 186 (possible eids: 114, 115, 225, 226)",
+     "line": "L35,L37,L53,L72,L88"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (step 3 lookup)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "DriverNameIDLookup_00415d90.c:343 `v5 = a4 != 0 ? 186 : 458` (name-record eid). Not emitted.",
+     "line": "107/327/139/359/208/428/123/343/53 as listed"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList sub_415230 (lookup callers, step 3)",
+     "file": "sub_414600_00414600.c; NamedEntryLookupInFormatList_00415230.c",
+     "result": "returns list index only; cannot produce 186",
+     "line": "NamedEntryLookupInFormatList_00415230.c:134; PositionChangeDetector_00420490.c:111,189"
+    }
+   ]
+  },
+  {
+   "sdt_index": 199,
+   "clip": "PWS_2001_134",
+   "eid": 187,
+   "says": "AI driver stuck Front Right wheel",
+   "score": 190,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "native_none_mod_pitstop_failures_active",
+   "situation": "AI car at box entry, cross-thread wheel outcome on wheel index 1 (mod roll 4% per corner). The mod queues eid 186 + 1 = 187.",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [],
+   "call_path": "mod: pit_live_voice.h:30 186+wheel -> live_client.cpp:1070",
+   "gates": [
+    "mod: AI box stop, cross-thread roll 4% per corner (dev tree pit_commentary.c:590)"
+   ],
+   "mod": "pitstop_failures 1.1.4-rc.1 (dll_emit)",
+   "heard_evidence": "docs/TODO.md:38 'X PLAY, HAS_PLAN' (inherited from SDT 198); findings:157",
+   "tier": "CONFIRMED",
+   "notes": "Wheel-index mapping UNKNOWN (see 198).",
+   "play_plan": null,
+   "checked": [
+    {
+     "function": "AIDriverStateTransition sub_419120",
+     "file": "AIDriverStateTransition_00419120.c",
+     "result": "cannot produce 187 (possible eids: 120, 198, 259)",
+     "line": "L37,L39,L57"
+    },
+    {
+     "function": "AIFormationLap sub_41A3A0",
+     "file": "AIFormationLap_0041a3a0.c",
+     "result": "cannot produce 187 (possible eids: 6, 180, 181, 182)",
+     "line": "L22,L35,L38,L41"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange sub_419690",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "result": "cannot produce 187 (possible eids: 3, 4, 5, 10, 16, 33, 72, 262)",
+     "line": "L29,L41,L47,L57"
+    },
+    {
+     "function": "AIPitStrategyState sub_41A200",
+     "file": "AIPitStrategyState_0041a200.c",
+     "result": "cannot produce 187 (possible eids: 42, 52)",
+     "line": "L15"
+    },
+    {
+     "function": "AIPositionChangeEvent sub_4198B0",
+     "file": "AIPositionChangeEvent_004198b0.c",
+     "result": "cannot produce 187 (possible eids: 7, 8, 9, 17, 18)",
+     "line": "L36,L48"
+    },
+    {
+     "function": "AISessionPhaseChange sub_41A2B0",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "result": "cannot produce 187 (possible eids: 21, 22, 178, 179)",
+     "line": "L32,L34,L36"
+    },
+    {
+     "function": "AIVehicleDamageEvent sub_41A170",
+     "file": "AIVehicleDamageEvent_0041a170.c",
+     "result": "cannot produce 187 (possible eids: 52, 196)",
+     "line": "L10,L16,L19"
+    },
+    {
+     "function": "PerDriverRaceCommentary sub_419C50",
+     "file": "PerDriverRaceCommentary_00419c50.c",
+     "result": "cannot produce 187 (possible eids: 157, 158, 159, 160, 161, 162, 163, 164, 165, 166 ...)",
+     "line": "L29-L177 table, L149, L159, L164"
+    },
+    {
+     "function": "PitExit sub_41C0F0 (SDK name: release-order commentary)",
+     "file": "PitExit_0041c0f0.c",
+     "result": "cannot produce 187 (possible eids: 397, 516, 517, 518, 519, 521, 522, 523, 524, 525 ...)",
+     "line": "L38 (516), L43-L118"
+    },
+    {
+     "function": "PositionBasedMessageDisplay sub_41C4C0 (eid via ThunkToFUN004201e0 = sub_4203D0)",
+     "file": "PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "cannot produce 187 (possible eids: 355, 356, 357, 358, 359, 360, 361, 362, 363, 364 ...)",
+     "line": "L26 (sub_4203D0 returns 355-371 or -1)"
+    },
+    {
+     "function": "RaceCommentary sub_41D630",
+     "file": "RaceCommentary_0041d630.c",
+     "result": "cannot produce 187 (possible eids: 397, 447, 448, 449, 450, 451, 452, 453, 454, 455 ...)",
+     "line": "L107,L148,L158,L173,L191-L226"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup sub_41B980",
+     "file": "TeamNameDisplayIDLookup_0041b980.c",
+     "result": "cannot produce 187 (possible eids: 293, 294, 295, 296, 297, 298, 299, 300, 301, 302 ...)",
+     "line": "L189"
+    },
+    {
+     "function": "TimeBasedMessageChain sub_41A500",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "result": "cannot produce 187 (possible eids: 34, 35, 276, 277, 278, 279)",
+     "line": "L25"
+    },
+    {
+     "function": "sub_41A720 (infraction strings)",
+     "file": "sub_41A720_0041a720.c",
+     "result": "cannot produce 187 (possible eids: 151, 153, 154, 155, 252, 253, 254, 256)",
+     "line": "L35"
+    },
+    {
+     "function": "sub_41A940 (ignored stop-go)",
+     "file": "sub_41A940_0041a940.c",
+     "result": "cannot produce 187 (possible eids: 149, 243)",
+     "line": "L15"
+    },
+    {
+     "function": "sub_41AC50 (AI pit/retire state)",
+     "file": "sub_41AC50_0041ac50.c",
+     "result": "cannot produce 187 (possible eids: 208, 211, 212, 213, 214, 215, 216, 217, 220)",
+     "line": "L58"
+    },
+    {
+     "function": "sub_41B250 (AI position/overtake)",
+     "file": "sub_41B250_0041b250.c",
+     "result": "cannot produce 187 (possible eids: 117, 118, 119, 235, 236, 237, 238)",
+     "line": "L15,L19,L23,L45,L47,L53"
+    },
+    {
+     "function": "sub_41C440 (track-name eid via sub_420000)",
+     "file": "sub_41C440_0041c440.c",
+     "result": "cannot produce 187 (possible eids: -1, 338, 339, 340, 341, 342, 343, 344, 345, 346 ...)",
+     "line": "L16 (sub_420000 returns 338-354 or -1)"
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent sub_4199E0",
+     "file": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "result": "cannot produce 187 (possible eids: 1, 2, 41, 272, 273)",
+     "line": "L20,L29,L54,switch 272"
+    },
+    {
+     "function": "sub_41AD80 (overtake distance)",
+     "file": "sub_41AD80_0041ad80.c",
+     "result": "cannot produce 187 (possible eids: 114, 115, 225, 226)",
+     "line": "L35,L37,L53,L72,L88"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (step 3 lookup)",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "result": "DriverNameIDLookup_00415d90.c:53 `v9 = a4 != 0 ? 187 : 215` (name-record eid). Not emitted.",
+     "line": "107/327/139/359/208/428/123/343/53 as listed"
+    },
+    {
+     "function": "sub_414600 / NamedEntryLookupInFormatList sub_415230 (lookup callers, step 3)",
+     "file": "sub_414600_00414600.c; NamedEntryLookupInFormatList_00415230.c",
+     "result": "returns list index only; cannot produce 187",
+     "line": "NamedEntryLookupInFormatList_00415230.c:134; PositionChangeDetector_00420490.c:111,189"
+    }
+   ]
+  }
+ ]
+}

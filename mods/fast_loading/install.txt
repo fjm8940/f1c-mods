@@ -1,0 +1,34 @@
+Fast Loading 1.0.0 (release candidate 1, not yet tested in the game)
+
+What it does
+Makes race loads and game start faster by using all of your CPU cores.
+The texture cache is optional and off by default.
+
+Requires
+- F1 Challenge 99-02, the supported game executable.
+- Lightloader 2.0.0 or newer.
+- Close the game before installing.
+
+Install
+1. Copy fast_loading.dll and fast_loading.ini into the game's plugins\lightloader folder.
+2. Start the game through your usual Lightloader shortcut.
+
+If the game's code is not the expected build, Fast Loading does nothing and the game
+loads the normal way. The log says so.
+
+Settings
+Open fast_loading.ini with Notepad and read the comments. Restart the game after a change.
+
+Where files are kept
+- Log: fast_loading_log.txt beside fast_loading.dll (kept to about 512 KB; the last
+  session is kept as fast_loading_log_prev.txt).
+- Caches: %LOCALAPPDATA%\Lightloader\fast_loading
+  (the car scene cache, and the texture cache if you turn it on).
+- The texture cache has a size limit (CacheMaxMB, default 1024 MB). When it is full,
+  no new entries are saved. Delete the folder above to clear it (game closed).
+
+Remove
+Close the game, then delete fast_loading.dll and fast_loading.ini from plugins\lightloader.
+Optional: delete %LOCALAPPDATA%\Lightloader\fast_loading to free disk space.
+
+This build is a release candidate for testing. It is not the final release.

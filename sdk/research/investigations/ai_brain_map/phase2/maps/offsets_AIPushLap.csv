@@ -1,0 +1,27 @@
+func,line,dec,hex,access,width,base,form,expr
+AIPushLap,15,13000,0x32C8,R,_DWORD,*(_DWORD*)this,deref2,if ( *(_DWORD *)(*(_DWORD *)this + 13000) == 1 )
+AIPushLap,19,16444,0x403C,R,_DWORD,this,arith,v3 = *((_DWORD *)this + 4111);
+AIPushLap,23,17652,0x44F4,R,float,this,array,v4 = this[4413] + this[4406];
+AIPushLap,23,17624,0x44D8,R,float,this,array,v4 = this[4413] + this[4406];
+AIPushLap,24,17724,0x453C,R,float,this,array,if ( v4 >= (double)v10 * 0.003 + this[4431] )
+AIPushLap,29,17724,0x453C,R,float,this,array,v4 = (double)v11 * 0.003 + this[4431];
+AIPushLap,31,17724,0x453C,W,float,this,array,this[4431] = v4;
+AIPushLap,33,17608,0x44C8,R,float,this,array,v5 = 1.0 - flt_8AFEE8 * this[4402];
+AIPushLap,36,17740,0x454C,R,_DWORD,this,arith,v6 = *((_DWORD *)this + 4435);
+AIPushLap,37,17792,0x4580,W,float,this,array,this[4448] = v5;
+AIPushLap,40,,,CALL,,,call,SLODWORD
+AIPushLap,40,17808,0x4590,R,float,this,array,if ( SLODWORD(this[4 * *((_DWORD *)this + 4472) + 4452]) <= *(_DWORD *)(LODWORD(v2) + 16444) )
+AIPushLap,40,17888,0x45E0,R,_DWORD,this,arith,if ( SLODWORD(this[4 * *((_DWORD *)this + 4472) + 4452]) <= *(_DWORD *)(LODWORD(v2) + 16444) )
+AIPushLap,40,,,CALL,,,call,LODWORD
+AIPushLap,41,,,CALL,,,call,ForcePitExit
+AIPushLap,42,,,CALL,,,call,TireNameAccessor
+AIPushLap,43,,,CALL,,,call,TireCompoundNameIDMapping
+AIPushLap,46,17804,0x458C,R,_DWORD,this,arith,v9 = *((_DWORD *)this + 4451);
+AIPushLap,54,17804,0x458C,R,_DWORD,this,arith,if ( v8 == *((_DWORD *)this + 4451) && flt_8AFEE8 < 0.2 )
+AIPushLap,55,17804,0x458C,R,_DWORD,this,arith,v9 = *((_DWORD *)this + 4451);
+AIPushLap,77,,,CALL,,,call,ForcePitExit
+AIPushLap,86,14628,0x3924,R,float,this,array,if ( (this[3657] + this[3595] + this[3533] + this[3471]) * 0.25 < 0.89999998 )
+AIPushLap,86,14380,0x382C,R,float,this,array,if ( (this[3657] + this[3595] + this[3533] + this[3471]) * 0.25 < 0.89999998 )
+AIPushLap,86,14132,0x3734,R,float,this,array,if ( (this[3657] + this[3595] + this[3533] + this[3471]) * 0.25 < 0.89999998 )
+AIPushLap,86,13884,0x363C,R,float,this,array,if ( (this[3657] + this[3595] + this[3533] + this[3471]) * 0.25 < 0.89999998 )
+AIPushLap,87,,,CALL,,,call,ForcePitExit

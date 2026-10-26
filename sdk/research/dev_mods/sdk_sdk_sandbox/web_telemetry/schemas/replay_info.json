@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/replay_info.json",
+  "title": "/replay/info response (REPLAY 2.1, recorded sessions only)",
+  "type": "object",
+  "required": [
+    "schema",
+    "session",
+    "stem",
+    "track",
+    "session_type",
+    "t_first",
+    "t_last",
+    "hz",
+    "cars",
+    "events",
+    "events_truncated",
+    "outline"
+  ],
+  "properties": {
+    "schema": {
+      "const": "f1c.replay.info/1"
+    },
+    "session": {
+      "type": "string",
+      "pattern": "^v2_[A-Za-z0-9_-]+$"
+    },
+    "stem": {
+      "type": "string"
+    },
+    "track": {
+      "type": "string"
+    },
+    "session_type": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 7
+    },
+    "t_first": {
+      "type": "number",
+      "description": "sim seconds of the first tick"
+    },
+    "t_last": {
+      "type": "number",
+      "description": "sim seconds of the last tick"
+    },
+    "hz": {
+      "type": "number",
+      "minimum": 0,
+      "description": "measured tick rate: ticks / (t_last - t_first)"
+    },
+    "cars": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "slot",
+          "name",
+          "team",
+          "num",
+          "role",
+          "laps"
+        ],
+        "properties": {
+          "slot": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 103
+          },
+          "name": {
+            "type": "string",
+            "description": "newest driver EVENT, else #num, else Car N"
+          },
+          "team": {
+            "type": "string",
+            "description": "car/team text of the driver EVENT; empty when unknown"
+          },
+          "num": {
+            "type": "integer",
+            "description": "race number; -1 when unknown"
+          },
+          "role": {
+            "enum": [
+              "player",
+              "remote",
+              "ai"
+            ],
+            "description": "channel 98 at the last tick: 0 player, 2 remote, else ai"
+          },
+          "laps": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "events": {
+      "type": "array",
+      "maxItems": 4000,
+      "items": {
+        "type": "object",
+        "required": [
+          "t",
+          "type",
+          "car"
+        ],
+        "properties": {
+          "t": {
+            "type": "number"
+          },
+          "type": {
+            "enum": [
+              "lap",
+              "pit",
+              "incident"
+            ]
+          },
+          "car": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 103
+          },
+          "lap": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "lap type: the completed lap"
+          },
+          "last_lap_s": {
+            "type": "number",
+            "description": "lap type: game lap time, -1 when unknown"
+          },
+          "state": {
+            "type": "integer",
+            "description": "pit type: 1 in, 0 out"
+          },
+          "kind": {
+            "type": "string",
+            "description": "incident type: limits or contact"
+          },
+          "with": {
+            "type": "integer",
+            "description": "incident type: partner slot (contact)"
+          },
+          "count": {
+            "type": "integer",
+            "description": "incident type: track-limit count (limits)"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "events_truncated": {
+      "type": "boolean"
+    },
+    "outline": {
+      "type": "array",
+      "maxItems": 600,
+      "items": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

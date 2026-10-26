@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "id": "calltobox_pit_call",
+  "title": "CallToBox Pit Call Client",
+  "production": false,
+  "sdk_major": 1,
+  "language": "c",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "subsystems": [
+    "pit",
+    "vehicle",
+    "session"
+  ],
+  "seeds": [
+    "SetCallToBox"
+  ],
+  "hooks": [],
+  "writes": [],
+  "tracing": {
+    "driver": "AI",
+    "seconds": 240,
+    "hz": 20,
+    "wait_phase": 5,
+    "pit_cycle": true,
+    "semantics": [
+      "command_input"
+    ]
+  },
+  "regressions": [],
+  "build": {
+    "script": "build.bat",
+    "dll": "build/calltobox_pit_call.dll"
+  }
+}

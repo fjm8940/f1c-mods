@@ -1,0 +1,18 @@
+func,line,dec,hex,access,width,base,form,expr
+SceneRenderUpdate,6,,,CALL,,,call,VehicleRespawnReset
+SceneRenderUpdate,6,,,CALL,,,call,SLOBYTE
+SceneRenderUpdate,7,,,CALL,,,call,LargeConfigFunctionWithPhysicsConstants
+SceneRenderUpdate,8,,,CALL,,,call,DelegationWrapperToFUN0040ed10
+SceneRenderUpdate,9,,,CALL,,,call,LOBYTE
+SceneRenderUpdate,10,,,CALL,,,call,sub_4BB810
+SceneRenderUpdate,11,,,CALL,,,call,SingleFunctionDispatch_10e0
+SceneRenderUpdate,12,,,CALL,,,call,ConditionalDelegateDispatch
+SceneRenderUpdate,13,,,CALL,,,call,RenderCallWithGuard
+SceneRenderUpdate,14,,,CALL,,,call,LOBYTE
+SceneRenderUpdate,16,,,CALL,,,call,sub_4D1180
+SceneRenderUpdate,17,,,CALL,,,call,AIVehiclePathPositionTracking
+SceneRenderUpdate,19,,,CALL,,,call,AIDriverStructInit
+SceneRenderUpdate,20,,,CALL,,,call,sub_4C6B60
+SceneRenderUpdate,21,18612,0x48B4,W,int,this,array,this[4653] = -8388609;
+SceneRenderUpdate,22,,,CALL,,,call,sub_4D1670
+SceneRenderUpdate,24,,,CALL,,,call,CollisionWrapperWithLock

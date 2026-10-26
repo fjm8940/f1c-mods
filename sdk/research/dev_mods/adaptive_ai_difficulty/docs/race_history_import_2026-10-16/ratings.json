@@ -1,0 +1,145 @@
+{
+  "schema": "aad.race_history_ratings/1",
+  "source_schema": "f1c.race-data/2.0",
+  "ai_strength_factor": 1.0,
+  "ai_strength_note": "All races in this import ran at native AI (AI strength factor 1.0). Stated by the owner in the import brief; not read from the files.",
+  "files_total": 257,
+  "real_races": 3,
+  "method": {
+    "clean_lap": "lap>=2, not pit lap (lap, lap+1), 50s<t<200s, t<1.05x driver median, not in traffic",
+    "traffic": "another car crossed 0-1.0 s before at lap start AND end",
+    "top5_gap": "lap time minus median of 5 fastest AI clean laps ending in (start, end+30s]; per race = median over clean laps",
+    "field_gap": "same window, median of all AI clean laps in window",
+    "aggregation": "unweighted medians of per-race values; overall = median of track values"
+  },
+  "humans": {
+    "Tester A": {
+      "overall": {
+        "n_tracks": 2,
+        "n_races": 2,
+        "n_clean_laps": 31,
+        "gap_top5_median_s": -0.81,
+        "gap_field_median_s": -2.404,
+        "last_race_date": "2026-10-14"
+      },
+      "tracks": {
+        "Albert Park, 1997": {
+          "n_races": 1,
+          "n_clean_laps": 13,
+          "gap_top5_median_s": -0.41,
+          "gap_field_median_s": -2.531,
+          "last_race_date": "2026-10-14"
+        },
+        "Sepang, 2002": {
+          "n_races": 1,
+          "n_clean_laps": 18,
+          "gap_top5_median_s": -1.21,
+          "gap_field_median_s": -2.276,
+          "last_race_date": "2026-09-15"
+        }
+      }
+    },
+    "Matias Driver": {
+      "overall": {
+        "n_tracks": 2,
+        "n_races": 2,
+        "n_clean_laps": 22,
+        "gap_top5_median_s": -0.885,
+        "gap_field_median_s": -2.947,
+        "last_race_date": "2026-10-14"
+      },
+      "tracks": {
+        "Albert Park, 1997": {
+          "n_races": 1,
+          "n_clean_laps": 7,
+          "gap_top5_median_s": -1.196,
+          "gap_field_median_s": -3.722,
+          "last_race_date": "2026-10-14"
+        },
+        "Silverstone, 2002": {
+          "n_races": 1,
+          "n_clean_laps": 15,
+          "gap_top5_median_s": -0.575,
+          "gap_field_median_s": -2.173,
+          "last_race_date": "2026-10-12"
+        }
+      }
+    }
+  },
+  "races": [
+    {
+      "file": "MP_Albert Park, 1997_20261014_171747-3988-1_20261014_171747.json",
+      "track": "Albert Park, 1997",
+      "mode": "MP",
+      "export_date": "2026-10-14",
+      "laps_scheduled": 19,
+      "race_pct": 33,
+      "humans": [
+        {
+          "name": "Tester A",
+          "grid_position": 24,
+          "finish_position": 1,
+          "laps_completed": 19,
+          "n_clean": 13,
+          "median_clean_lap_s": 94.835,
+          "gap_top5_median_s": -0.41,
+          "gap_field_median_s": -2.531,
+          "gap_laps_n": 13
+        },
+        {
+          "name": "Matias Driver",
+          "grid_position": 23,
+          "finish_position": 7,
+          "laps_completed": 19,
+          "n_clean": 7,
+          "median_clean_lap_s": 94.708,
+          "gap_top5_median_s": -1.196,
+          "gap_field_median_s": -3.722,
+          "gap_laps_n": 7
+        }
+      ]
+    },
+    {
+      "file": "MP_Silverstone, 2002_20261012_175749-29772-1_20261012_175749.json",
+      "track": "Silverstone, 2002",
+      "mode": "MP",
+      "export_date": "2026-10-12",
+      "laps_scheduled": 19,
+      "race_pct": 33,
+      "humans": [
+        {
+          "name": "Matias Driver",
+          "grid_position": 18,
+          "finish_position": 1,
+          "laps_completed": 19,
+          "n_clean": 15,
+          "median_clean_lap_s": 83.4,
+          "gap_top5_median_s": -0.575,
+          "gap_field_median_s": -2.173,
+          "gap_laps_n": 15
+        }
+      ]
+    },
+    {
+      "file": "SINGLE_Sepang, 2002_20260915_183832-17756-1_20260915_183832.json",
+      "track": "Sepang, 2002",
+      "mode": "SINGLE",
+      "export_date": "2026-09-15",
+      "laps_scheduled": 28,
+      "race_pct": 50,
+      "humans": [
+        {
+          "name": "Tester A",
+          "grid_position": 6,
+          "finish_position": 19,
+          "laps_completed": 23,
+          "n_clean": 18,
+          "median_clean_lap_s": 100.541,
+          "gap_top5_median_s": -1.21,
+          "gap_field_median_s": -2.276,
+          "gap_laps_n": 18
+        }
+      ]
+    }
+  ]
+}

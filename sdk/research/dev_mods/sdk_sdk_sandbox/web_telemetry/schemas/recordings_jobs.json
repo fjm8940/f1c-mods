@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/recordings_jobs.json",
+  "title": "Recordings jobs (GET /recordings/jobs, f1c.recordings.jobs/1, api_version 9)",
+  "description": "The last eight archive and delete jobs. result is pending until the job is done. moved and not_moved hold names only (never paths).",
+  "type": "object",
+  "required": ["schema", "jobs"],
+  "properties": {
+    "schema": { "const": "f1c.recordings.jobs/1" },
+    "jobs": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["job", "kind", "state", "result", "message", "items", "recycle_working", "bytes_working", "bytes_archived", "bytes_moved", "moved", "not_moved"],
+        "properties": {
+          "job": { "type": "string", "pattern": "^(archive|delete)-[0-9]+$" },
+          "kind": { "enum": ["archive", "delete"] },
+          "state": { "enum": ["queued", "running", "done"] },
+          "result": { "enum": ["pending", "ok", "error"] },
+          "message": { "type": "string" },
+          "items": { "type": "integer", "minimum": 0, "maximum": 64 },
+          "recycle_working": { "type": "boolean" },
+          "bytes_working": { "type": "number", "minimum": 0 },
+          "bytes_archived": { "type": "number", "minimum": 0 },
+          "bytes_moved": { "type": "number", "minimum": 0 },
+          "moved": { "type": "array", "items": { "type": "string" } },
+          "not_moved": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

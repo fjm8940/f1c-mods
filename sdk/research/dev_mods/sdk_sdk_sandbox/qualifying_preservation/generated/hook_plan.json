@@ -1,0 +1,11 @@
+[
+  {
+    "handler": "preserve_completed_qualifying",
+    "expected_bytes": "81 EC C4 01 00 00",
+    "function": "SessionSimulationStep",
+    "stolen_length": 6,
+    "address": "0x004BEB10",
+    "thread": "game_thread",
+    "calling_convention": "thiscall"
+  }
+]

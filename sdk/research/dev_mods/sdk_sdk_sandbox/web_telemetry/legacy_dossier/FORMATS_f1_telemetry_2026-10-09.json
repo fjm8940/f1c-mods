@@ -1,0 +1,3775 @@
+{
+  "schema": "f1c.legacy_formats.v1",
+  "generated": "2026-10-09+0300",
+  "note": "Read-only decoding of the vendor files in place. Units come from the channel names and the extracted manual; sentinels are recorded only where proven.",
+  "spt": [
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\telemetry.spt",
+      "size": 4505600,
+      "sha256": "AA04E86E3C64311AC0D4AF93003E6AB82320162AAA5AB0B9F7FF6FE823B308E2",
+      "header": {
+        "0x00_u32": 0,
+        "0x04_seed_bytes": "25 e0 4d 19",
+        "0x08_float_sample_interval_s": 0.05000000074505806,
+        "note": "0x04 seed bytes are the recorder's LCG values; 0x08 is a constant 0x3D4CCCCD (0.05) in this writer build and is not the effective cadence (see record_stream). Whether 0x00-0x07 are rewritten at close is OPEN (crash-truncated sample).",
+        "driver": "Matthias Steppe",
+        "team": "2002 BAR",
+        "vehicle_path": "SEASONDATA\\VEHICLES\\BAR\\2002_BAR004\\2002_BAR11.VEH",
+        "track": "2002_Hockenheim",
+        "channel_count": 57
+      },
+      "channels": [
+        {
+          "index": 0,
+          "code": 4,
+          "name": "Elapsed Time (s)"
+        },
+        {
+          "index": 1,
+          "code": 4,
+          "name": "Pos X (m)"
+        },
+        {
+          "index": 2,
+          "code": 4,
+          "name": "Pos Y (m)"
+        },
+        {
+          "index": 3,
+          "code": 4,
+          "name": "Pos Z (m)"
+        },
+        {
+          "index": 4,
+          "code": 4,
+          "name": "Yaw (rads)"
+        },
+        {
+          "index": 5,
+          "code": 4,
+          "name": "Lat Accel (m/s)"
+        },
+        {
+          "index": 6,
+          "code": 4,
+          "name": "Vert Accel (m/s)"
+        },
+        {
+          "index": 7,
+          "code": 4,
+          "name": "Long Accel (m/s)"
+        },
+        {
+          "index": 8,
+          "code": 4,
+          "name": "Engine RPM"
+        },
+        {
+          "index": 9,
+          "code": 4,
+          "name": "Clutch RPM"
+        },
+        {
+          "index": 10,
+          "code": 4,
+          "name": "Unfiltered Throttle"
+        },
+        {
+          "index": 11,
+          "code": 4,
+          "name": "Throttle"
+        },
+        {
+          "index": 12,
+          "code": 4,
+          "name": "Unfiltered Brake"
+        },
+        {
+          "index": 13,
+          "code": 4,
+          "name": "Brake"
+        },
+        {
+          "index": 14,
+          "code": 4,
+          "name": "Unfiltered Steering"
+        },
+        {
+          "index": 15,
+          "code": 4,
+          "name": "Steering"
+        },
+        {
+          "index": 16,
+          "code": 4,
+          "name": "Unfiltered Clutch"
+        },
+        {
+          "index": 17,
+          "code": 4,
+          "name": "Clutch"
+        },
+        {
+          "index": 18,
+          "code": 4,
+          "name": "FL Wheelspin (rads/s)"
+        },
+        {
+          "index": 19,
+          "code": 4,
+          "name": "FL Suspension Deflection (m)"
+        },
+        {
+          "index": 20,
+          "code": 4,
+          "name": "FL Undertray Ride Height (m)"
+        },
+        {
+          "index": 21,
+          "code": 4,
+          "name": "FL Tyre Left Temp (K)"
+        },
+        {
+          "index": 22,
+          "code": 4,
+          "name": "FL Tyre Center Temp (K)"
+        },
+        {
+          "index": 23,
+          "code": 4,
+          "name": "FL Tyre Right Temp (K)"
+        },
+        {
+          "index": 24,
+          "code": 4,
+          "name": "FL Tyre Pressure (kPa)"
+        },
+        {
+          "index": 25,
+          "code": 4,
+          "name": "FL Tyre Wear"
+        },
+        {
+          "index": 26,
+          "code": 4,
+          "name": "FL Corner Weight"
+        },
+        {
+          "index": 27,
+          "code": 4,
+          "name": "FR Wheelspin (rads/s)"
+        },
+        {
+          "index": 28,
+          "code": 4,
+          "name": "FR Suspension Deflection (m)"
+        },
+        {
+          "index": 29,
+          "code": 4,
+          "name": "FR Undertray Ride Height (m)"
+        },
+        {
+          "index": 30,
+          "code": 4,
+          "name": "FR Tyre Left Temp (K)"
+        },
+        {
+          "index": 31,
+          "code": 4,
+          "name": "FR Tyre Center Temp (K)"
+        },
+        {
+          "index": 32,
+          "code": 4,
+          "name": "FR Tyre Right Temp (K)"
+        },
+        {
+          "index": 33,
+          "code": 4,
+          "name": "FR Tyre Pressure (kPa)"
+        },
+        {
+          "index": 34,
+          "code": 4,
+          "name": "FR Tyre Wear"
+        },
+        {
+          "index": 35,
+          "code": 4,
+          "name": "FR Corner Weight"
+        },
+        {
+          "index": 36,
+          "code": 4,
+          "name": "RL Wheelspin (rads/s)"
+        },
+        {
+          "index": 37,
+          "code": 4,
+          "name": "RL Suspension Deflection (m)"
+        },
+        {
+          "index": 38,
+          "code": 4,
+          "name": "RL Undertray Ride Height (m)"
+        },
+        {
+          "index": 39,
+          "code": 4,
+          "name": "RL Tyre Left Temp (K)"
+        },
+        {
+          "index": 40,
+          "code": 4,
+          "name": "RL Tyre Center Temp (K)"
+        },
+        {
+          "index": 41,
+          "code": 4,
+          "name": "RL Tyre Right Temp (K)"
+        },
+        {
+          "index": 42,
+          "code": 4,
+          "name": "RL Tyre Pressure (kPa)"
+        },
+        {
+          "index": 43,
+          "code": 4,
+          "name": "RL Tyre Wear"
+        },
+        {
+          "index": 44,
+          "code": 4,
+          "name": "RL Corner Weight"
+        },
+        {
+          "index": 45,
+          "code": 4,
+          "name": "RR Wheelspin (rads/s)"
+        },
+        {
+          "index": 46,
+          "code": 4,
+          "name": "RR Suspension Deflection (m)"
+        },
+        {
+          "index": 47,
+          "code": 4,
+          "name": "RR Undertray Ride Height (m)"
+        },
+        {
+          "index": 48,
+          "code": 4,
+          "name": "RR Tyre Left Temp (K)"
+        },
+        {
+          "index": 49,
+          "code": 4,
+          "name": "RR Tyre Center Temp (K)"
+        },
+        {
+          "index": 50,
+          "code": 4,
+          "name": "RR Tyre Right Temp (K)"
+        },
+        {
+          "index": 51,
+          "code": 4,
+          "name": "RR Tyre Pressure (kPa)"
+        },
+        {
+          "index": 52,
+          "code": 4,
+          "name": "RR Tyre Wear"
+        },
+        {
+          "index": 53,
+          "code": 4,
+          "name": "RR Corner Weight"
+        },
+        {
+          "index": 54,
+          "code": 4,
+          "name": "Gear"
+        },
+        {
+          "index": 55,
+          "code": 4,
+          "name": "Water Temperature"
+        },
+        {
+          "index": 56,
+          "code": 4,
+          "name": "Oil Temperature"
+        }
+      ],
+      "descriptor_end": "0x4e0",
+      "session_hash_words": [
+        "0x2e9fade5",
+        "0x13b4a54a",
+        "0x401a4ee4",
+        "0x1076021e",
+        "0x232ed4bb",
+        "0x39d1a142",
+        "0x70caf5d8",
+        "0x7f4b4e6f",
+        "0x90534b18",
+        "0xc21a1e02",
+        "0x1e5b2f84",
+        "0x8994e4cf",
+        "0x38d3cb8b",
+        "0xd69fd8b1",
+        "0x9760d2b9",
+        "0x51f177f2",
+        "0xb5d32cad"
+      ],
+      "embedded_vehicle_file": {
+        "size": 2214,
+        "xor_keys": [
+          92,
+          180,
+          18
+        ],
+        "xor_evidence": "FileReadWithXORDecode 0x004D5AF0 (game corpus)",
+        "first_line": "[GENERAL]",
+        "sections": [
+          "[GENERAL]",
+          "[LEFTFENDER]",
+          "[RIGHTFENDER]",
+          "[FRONTWING]",
+          "[REARWING]",
+          "[BODYAERO]",
+          "[SUSPENSION]",
+          "[CONTROLS]",
+          "[ENGINE]",
+          "[DRIVELINE]",
+          "[FRONTLEFT]",
+          "[FRONTRIGHT]",
+          "[REARLEFT]",
+          "[REARRIGHT]",
+          "[BASIC]"
+        ]
+      },
+      "record_stream": {
+        "start": "0xdce",
+        "record_sizes": {
+          "0x00": 229,
+          "0x01": 5,
+          "0x02": 5,
+          "0x03": 5,
+          "0x04": 25,
+          "0xFF": 5
+        },
+        "event_type_map_evidence": {
+          "0": "0x3",
+          "1": "0x1",
+          "2": "0x2",
+          "other": "0xff"
+        },
+        "type_counts": {
+          "0x00": 19447,
+          "0x04": 1945
+        },
+        "player_records": 19447,
+        "first_elapsed_s": 0.0024999999441206455,
+        "last_elapsed_s": 1947.3074951171875,
+        "dominant_elapsed_delta_s": 0.1,
+        "observed_player_rate_hz": 10.0,
+        "duration_s": 1947.305,
+        "stream_bytes": 4501988,
+        "average_bytes_per_second": 2311.9,
+        "expected_bytes_per_second": 2315.0,
+        "environment_record_examples": [
+          {
+            "flags_u32": "0x84095ea",
+            "floats_raw": [
+              0.0,
+              0.0,
+              0.0,
+              293.16,
+              293.1793
+            ],
+            "floats_last_two_plus_273_16_K": [
+              566.32,
+              566.3393
+            ]
+          },
+          {
+            "flags_u32": "0x84095ea",
+            "floats_raw": [
+              0.0,
+              0.0,
+              0.0,
+              293.16,
+              293.1793
+            ],
+            "floats_last_two_plus_273_16_K": [
+              566.32,
+              566.3393
+            ]
+          },
+          {
+            "flags_u32": "0x84095ea",
+            "floats_raw": [
+              0.0,
+              0.0,
+              0.0,
+              293.16,
+              293.1975
+            ],
+            "floats_last_two_plus_273_16_K": [
+              566.32,
+              566.3575
+            ]
+          }
+        ],
+        "event_record_examples": [],
+        "partial_final_record_bytes": 78,
+        "cadence_evidence": "MainGameTickUpdate 0x0042C690 lines 88-94: player record every dword_8AD23C frames of the 400-frame counter; environment record at counter 0 (1 Hz); observed 0.1 s cadence = divisor 40",
+        "field_map": [
+          {
+            "channel": "Elapsed Time (s)",
+            "source": "f32 @ P+0x060"
+          },
+          {
+            "channel": "Pos X (m)",
+            "source": "f32 @ S+0x004 (24 B block copied from S+4)"
+          },
+          {
+            "channel": "Pos Y (m)",
+            "source": "f32 @ S+0x00C"
+          },
+          {
+            "channel": "Pos Z (m)",
+            "source": "f32 @ S+0x010"
+          },
+          {
+            "channel": "Yaw (rads)",
+            "source": "atan2 of two rotation-matrix dot products on S+0x01C (elements +0x1C..+0x74)"
+          },
+          {
+            "channel": "Lat Accel (m/s)",
+            "source": "Mat3x3MulVec(S+0x01C, S+0x134) * f64 @ S+0x0B4, component 1"
+          },
+          {
+            "channel": "Vert Accel (m/s)",
+            "source": "same transform, component 2"
+          },
+          {
+            "channel": "Long Accel (m/s)",
+            "source": "same transform, component 3"
+          },
+          {
+            "channel": "Engine RPM",
+            "source": "f64 @ P+0x1C5C * 9.549296585513721 (rad/s -> RPM)"
+          },
+          {
+            "channel": "Clutch RPM",
+            "source": "f64 @ P+0x1E38 * 9.549296585513721"
+          },
+          {
+            "channel": "Unfiltered Throttle",
+            "source": "f64 @ P+0x048"
+          },
+          {
+            "channel": "Throttle",
+            "source": "f64 @ P+0x008"
+          },
+          {
+            "channel": "Unfiltered Brake",
+            "source": "f64 @ P+0x050"
+          },
+          {
+            "channel": "Brake",
+            "source": "f64 @ P+0x010"
+          },
+          {
+            "channel": "Unfiltered Steering",
+            "source": "f64 @ P+0x040"
+          },
+          {
+            "channel": "Steering",
+            "source": "f64 @ P+0x000"
+          },
+          {
+            "channel": "Unfiltered Clutch",
+            "source": "1 - f64 @ P+0x020"
+          },
+          {
+            "channel": "Clutch",
+            "source": "(1 - f64 @ P+0x018) * (1 - f64 @ P+0x020)"
+          },
+          {
+            "channel": "Wheelspin (rads/s)",
+            "index_range": "18..53 (4 wheels x 9)",
+            "source": "f64 @ W-0x12C"
+          },
+          {
+            "channel": "Suspension Deflection (m)",
+            "index_range": "18..53 (4 wheels x 9)",
+            "source": "f64 @ W"
+          },
+          {
+            "channel": "Undertray Ride Height (m)",
+            "index_range": "18..53 (4 wheels x 9)",
+            "source": "max(f64 @ P+0x16F0+8k, 0)"
+          },
+          {
+            "channel": "Tyre Left Temp (K)",
+            "index_range": "18..53 (4 wheels x 9)",
+            "source": "f64 @ W+0x164"
+          },
+          {
+            "channel": "Tyre Center Temp (K)",
+            "index_range": "18..53 (4 wheels x 9)",
+            "source": "f64 @ W+0x16C"
+          },
+          {
+            "channel": "Tyre Right Temp (K)",
+            "index_range": "18..53 (4 wheels x 9)",
+            "source": "f64 @ W+0x174"
+          },
+          {
+            "channel": "Tyre Pressure (kPa)",
+            "index_range": "18..53 (4 wheels x 9)",
+            "source": "f64 @ W+0x18C"
+          },
+          {
+            "channel": "Tyre Wear",
+            "index_range": "18..53 (4 wheels x 9)",
+            "source": "f64 @ W+0x1AC"
+          },
+          {
+            "channel": "Corner Weight",
+            "index_range": "18..53 (4 wheels x 9)",
+            "source": "f64 @ W+0x134"
+          },
+          {
+            "channel": "Gear",
+            "source": "int32 @ P+0x1EF0, stored as float32"
+          },
+          {
+            "channel": "Water Temperature",
+            "source": "f64 @ P+0x1D8C"
+          },
+          {
+            "channel": "Oil Temperature",
+            "source": "f64 @ P+0x1D4C"
+          }
+        ]
+      },
+      "note": "Header, descriptors, session hashes, the XOR-encoded .VEH copy and the typed record stream are decoded. RPM channels already carry the game's own rad/s -> RPM factor 9.549296585513721; yaw is radians in .spt. A torn or crash-cut file decodes up to the last complete record; the partial tail is reported, never guessed."
+    }
+  ],
+  "lap": [
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Reference\\reference_2002_hockenheim.lap",
+      "size": 487843,
+      "sha256": "6AA795B5FC05E3ADB8BAB5F4FE8350824AA095E4F3FA0A8434CC48E2CADE27AF",
+      "checksum_line": "CHECKSUM=246076184220",
+      "checksum_value": 246076184220,
+      "checksum_algorithm": "open (not recovered from the viewer p-code yet)",
+      "metadata_block": {
+        "offset": "0x17",
+        "length": 113,
+        "shift": 5,
+        "text": "DRIVER=Matthias Steppe TRACK=2002_Hockenheim DATE=09-10-2026 12.43 TEAM= VEH=2002 BAR TER=unknown VERSION=2003.14",
+        "pairs": {
+          "DRIVER": "Matthias Steppe",
+          "TRACK": "2002_Hockenheim",
+          "DATE": "09-10-2026 12.43",
+          "TEAM": "",
+          "VEH": "2002 BAR",
+          "TER": "unknown",
+          "VERSION": "2003.14"
+        }
+      },
+      "fields": {
+        "0x00_u32": 2,
+        "0x04_u32": 0,
+        "0x08_floats": [
+          133.4191,
+          667.0954,
+          117.232,
+          306.7413,
+          1091.0687
+        ],
+        "lap_time_seconds_candidate": 133.4191,
+        "0x1C_u32": 7,
+        "0x20_float": 1.0,
+        "0x24_u32_also_float": 3289855.0,
+        "0x28_five_zero_u32": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "0x40_name": "lap desc$"
+      },
+      "weather_block": {
+        "offset": "0xd5",
+        "length": 172,
+        "shift": 5,
+        "text": "LAPTIME=2.13.419 SECTOR1=0.58.616 SECTOR2=1.42.247    AIR_TEMP=20,1 TRK_TEMP=21,3 RAIN=0,0 TRK_WET=0,0 AIDS=[ST2OP1SC2SP1TC2AB2IN1SH1CL1]  OFFTRACK=FAILED UPLOAD_ALLOWED=NO",
+        "pairs": {
+          "LAPTIME": "2.13.419",
+          "SECTOR1": "0.58.616",
+          "SECTOR2": "1.42.247",
+          "AIR_TEMP": "20,1",
+          "TRK_TEMP": "21,3",
+          "RAIN": "0,0",
+          "TRK_WET": "0,0",
+          "AIDS": "[ST2OP1SC2SP1TC2AB2IN1SH1CL1]",
+          "OFFTRACK": "FAILED",
+          "UPLOAD_ALLOWED": "NO"
+        }
+      },
+      "channel_table_marker_u32": 1,
+      "channel_count": 86,
+      "channels": [
+        "time",
+        "x",
+        "y",
+        "z",
+        "yaw",
+        "lat accel",
+        "vert accel",
+        "long accel",
+        "engine rpm",
+        "clutch rpm",
+        "unfiltered throttle",
+        "throttle",
+        "unfiltered brake",
+        "brake",
+        "unfiltered steering",
+        "steering",
+        "unfiltered clutch",
+        "clutch",
+        "fl wheelspin",
+        "fl suspension deflection",
+        "fl undertray ride height",
+        "fl tyre left temp",
+        "fl tyre center temp",
+        "fl tyre right temp",
+        "fl tyre pressure",
+        "fl tyre wear",
+        "fl corner weight",
+        "fr wheelspin",
+        "fr suspension deflection",
+        "fr undertray ride height",
+        "fr tyre left temp",
+        "fr tyre center temp",
+        "fr tyre right temp",
+        "fr tyre pressure",
+        "fr tyre wear",
+        "fr corner weight",
+        "rl wheelspin",
+        "rl suspension deflection",
+        "rl undertray ride height",
+        "rl tyre left temp",
+        "rl tyre center temp",
+        "rl tyre right temp",
+        "rl tyre pressure",
+        "rl tyre wear",
+        "rl corner weight",
+        "rr wheelspin",
+        "rr suspension deflection",
+        "rr undertray ride height",
+        "rr tyre left temp",
+        "rr tyre center temp",
+        "rr tyre right temp",
+        "rr tyre pressure",
+        "rr tyre wear",
+        "rr corner weight",
+        "gear",
+        "water temperature",
+        "oil temperature",
+        "velocity",
+        "distance",
+        "rain",
+        "track dampness",
+        "air temp",
+        "track temp",
+        "fr tyre crown temp",
+        "fr tyre camber temp",
+        "fl tyre crown temp",
+        "fl tyre camber temp",
+        "rr tyre crown temp",
+        "rr tyre camber temp",
+        "rl tyre crown temp",
+        "rl tyre camber temp",
+        "fl tyre average temp",
+        "fr tyre average temp",
+        "rl tyre average temp",
+        "rr tyre average temp",
+        "front ride height",
+        "rear ride height",
+        "aids1",
+        "aids2",
+        "aids3",
+        "aids4",
+        "damper velocity rear lh",
+        "damper velocity rear rh",
+        "damper velocity front lh",
+        "damper velocity front rh",
+        "rear wheel speed differential"
+      ],
+      "samples": {
+        "data_start": "0x7e6",
+        "stride": 344,
+        "count": 1385,
+        "first_time_s": 0.0025,
+        "last_time_s": 138.4025,
+        "cadence_s": 0.1,
+        "note": "Samples are scanned while the time channel strictly increases; the first break ends the sample region and starts the trailer. A pause that repeats or reverses time therefore ends the decoded sample region.",
+        "first_sample_by_channel": {
+          "time": 0.0025,
+          "x": 172.1076,
+          "y": -7.158,
+          "z": 3.9335,
+          "yaw": -180.0,
+          "lat accel": 0.0,
+          "vert accel": -0.2579,
+          "long accel": 0.2954,
+          "engine rpm": 0.0,
+          "clutch rpm": 0.0,
+          "unfiltered throttle": 0.0,
+          "throttle": 0.0,
+          "unfiltered brake": 0.0,
+          "brake": 100.0,
+          "unfiltered steering": 0.0,
+          "steering": 0.0,
+          "unfiltered clutch": 0.0,
+          "clutch": 0.0,
+          "fl wheelspin": 0.0,
+          "fl suspension deflection": 3.6301,
+          "fl undertray ride height": 103.6672,
+          "fl tyre left temp": 86.8593,
+          "fl tyre center temp": 86.8593,
+          "fl tyre right temp": 86.8593,
+          "fl tyre pressure": 135.0,
+          "fl tyre wear": 1.0,
+          "fl corner weight": 0.0,
+          "fr wheelspin": 0.0,
+          "fr suspension deflection": 3.6301,
+          "fr undertray ride height": 103.6652,
+          "fr tyre left temp": 86.8593,
+          "fr tyre center temp": 86.8593,
+          "fr tyre right temp": 86.8593,
+          "fr tyre pressure": 135.0,
+          "fr tyre wear": 1.0,
+          "fr corner weight": 0.0,
+          "rl wheelspin": 0.0,
+          "rl suspension deflection": 8.4094,
+          "rl undertray ride height": 131.7965,
+          "rl tyre left temp": 86.8594,
+          "rl tyre center temp": 86.8594,
+          "rl tyre right temp": 86.8594,
+          "rl tyre pressure": 130.0,
+          "rl tyre wear": 1.0,
+          "rl corner weight": 0.0,
+          "rr wheelspin": 0.0,
+          "rr suspension deflection": 8.4094,
+          "rr undertray ride height": 131.7935,
+          "rr tyre left temp": 86.8594,
+          "rr tyre center temp": 86.8594,
+          "rr tyre right temp": 86.8594,
+          "rr tyre pressure": 130.0,
+          "rr tyre wear": 1.0,
+          "rr corner weight": 0.0,
+          "gear": 0.0,
+          "water temperature": 20.1606,
+          "oil temperature": -70.0,
+          "velocity": 0.0418,
+          "distance": 172.1525,
+          "rain": 0.0,
+          "track dampness": 0.0,
+          "air temp": 0.0,
+          "track temp": 0.0,
+          "fr tyre crown temp": 0.0,
+          "fr tyre camber temp": 0.0,
+          "fl tyre crown temp": 0.0,
+          "fl tyre camber temp": 0.0,
+          "rr tyre crown temp": 0.0,
+          "rr tyre camber temp": 0.0,
+          "rl tyre crown temp": 0.0,
+          "rl tyre camber temp": 0.0,
+          "fl tyre average temp": 86.8593,
+          "fr tyre average temp": 86.8593,
+          "rl tyre average temp": 86.8594,
+          "rr tyre average temp": 86.8594,
+          "front ride height": 103.6662,
+          "rear ride height": 131.795,
+          "aids1": 0.0,
+          "aids2": 0.0,
+          "aids3": 0.0,
+          "aids4": 0.0,
+          "damper velocity rear lh": 3363.7791,
+          "damper velocity rear rh": 3363.7791,
+          "damper velocity front lh": 1452.0586,
+          "damper velocity front rh": 1452.0586,
+          "rear wheel speed differential": 0.0
+        }
+      },
+      "trailer": {
+        "offset": "0x74cfe",
+        "size": 9381,
+        "decoded_text_blocks": [
+          {
+            "offset": "0x74e5a",
+            "length": 165,
+            "shift": 7,
+            "text": "DRIVER=Matthias Steppe TRACK=2002_Hockenheim DATE=09-10-2026 12.43 TEAM= VEH=2002 BAR TER=unknown VERSION=2003.14    AIR_TEMP=20,2 TRK_TEMP=23,1 RAIN=0,0 TRK_WET=0,0",
+            "pairs": {
+              "DRIVER": "Matthias Steppe",
+              "TRACK": "2002_Hockenheim",
+              "DATE": "09-10-2026 12.43",
+              "TEAM": "",
+              "VEH": "2002 BAR",
+              "TER": "unknown",
+              "VERSION": "2003.14",
+              "AIR_TEMP": "20,2",
+              "TRK_TEMP": "23,1",
+              "RAIN": "0,0",
+              "TRK_WET": "0,0"
+            }
+          }
+        ],
+        "note": "The trailer carries a byte-7 shifted+reversed text block (repeat of the lap identity plus end-of-lap weather). The remaining trailer bytes are not decoded yet (structure OPEN; recorded for follow-up)."
+      },
+      "lap_time_cross_check": {
+        "from_weather_block_s": 133.419,
+        "from_field_block_s": 133.4191,
+        "agree": true
+      },
+      "note": "Checksum line, byte-5 metadata and weather blocks, the fixed field block, the 86-channel name table, the 0.1 s sample region and the byte-7 trailer text block are decoded. Sample values are raw file floats: named channels are the viewer's own labels, not re-scaled here."
+    }
+  ],
+  "dat": [
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Tracks\\1999_a1ring.dat",
+      "size": 51250,
+      "sha256": "06ADBB5F27BE08FC40803A024E7A3C7FEF38B4C2362737FDB50F3F7FFAC0E419",
+      "header": {
+        "0x00_u16_version": 2,
+        "0x02_u16_point_count": 2562
+      },
+      "point_stride": 20,
+      "point_fields": 5,
+      "first_points": [
+        [
+          6.6,
+          -116.0,
+          6.6,
+          -116.0,
+          1.0
+        ],
+        [
+          6.5,
+          -165.1,
+          6.5,
+          -165.1,
+          1.0
+        ],
+        [
+          184.4,
+          463.5,
+          193.7,
+          467.1,
+          1.0
+        ]
+      ],
+      "trailing_bytes": "04 00 c0 65 b0 48",
+      "field_semantics": "candidate: [x, z, ?, ?, 1.0]; the first four floats look like two coordinate pairs and the fifth is 1.0 (verified across samples)",
+      "note": "geometry for the track map; version 2; little-endian float32; a 6-byte trailer is present in the observed files (purpose open)"
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Tracks\\1999_albert_park.dat",
+      "size": 36570,
+      "sha256": "241AFEB58158A193D5CE89903BB8EE4733D40DE619BDA48B5599E53F5D01F7BB",
+      "header": {
+        "0x00_u16_version": 2,
+        "0x02_u16_point_count": 1828
+      },
+      "point_stride": 20,
+      "point_fields": 5,
+      "first_points": [
+        [
+          -156.7,
+          4.8,
+          -196.7,
+          4.6,
+          1.0
+        ],
+        [
+          -196.6,
+          -9.4,
+          -156.6,
+          -9.2,
+          1.0
+        ],
+        [
+          -196.7,
+          4.6,
+          -236.7,
+          4.4,
+          1.0
+        ]
+      ],
+      "trailing_bytes": "04 00 40 dd 42 48",
+      "field_semantics": "candidate: [x, z, ?, ?, 1.0]; the first four floats look like two coordinate pairs and the fifth is 1.0 (verified across samples)",
+      "note": "geometry for the track map; version 2; little-endian float32; a 6-byte trailer is present in the observed files (purpose open)"
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Tracks\\1999_barcelona.dat",
+      "size": 68270,
+      "sha256": "1E19946DE21668F8A01F7B36FE0D17E9F60BC2F41F247275D77B6312D565623E",
+      "header": {
+        "0x00_u16_version": 2,
+        "0x02_u16_point_count": 3413
+      },
+      "point_stride": 20,
+      "point_fields": 5,
+      "first_points": [
+        [
+          -153.1,
+          123.3,
+          -153.1,
+          123.3,
+          1.0
+        ],
+        [
+          387.0,
+          2.8,
+          408.7,
+          2.8,
+          1.0
+        ],
+        [
+          408.7,
+          14.5,
+          387.0,
+          14.6,
+          1.0
+        ]
+      ],
+      "trailing_bytes": "04 00 a0 f5 ae 48",
+      "field_semantics": "candidate: [x, z, ?, ?, 1.0]; the first four floats look like two coordinate pairs and the fifth is 1.0 (verified across samples)",
+      "note": "geometry for the track map; version 2; little-endian float32; a 6-byte trailer is present in the observed files (purpose open)"
+    }
+  ],
+  "svm": [
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\2360498.svm",
+      "size": 2232,
+      "sha256": "7FAF010D6A3FD8328FCA790EBE0A4B12325D3412D4A20559CFE36BD57793FE82",
+      "format": "text INI-like, LF line endings, [section] + key=value",
+      "sections": {
+        "GENERAL": {
+          "Notes": "\"\"",
+          "Symmetric": "1",
+          "CGRightSetting": "0",
+          "CGRearSetting": "3",
+          "WedgeSetting": "0",
+          "TireCompoundSetting": "1",
+          "FuelSetting": "64",
+          "NumPitstopsSetting": "3",
+          "Pitstop1Setting": "64",
+          "Pitstop2Setting": "64",
+          "Pitstop3Setting": "64"
+        },
+        "LEFTFENDER": {
+          "FenderFlareSetting": "0"
+        },
+        "RIGHTFENDER": {
+          "FenderFlareSetting": "0"
+        },
+        "FRONTWING": {
+          "FWSetting": "41"
+        },
+        "REARWING": {
+          "RWSetting": "49"
+        },
+        "BODYAERO": {
+          "RadiatorSetting": "3",
+          "BrakeDuctSetting": "6"
+        },
+        "SUSPENSION": {
+          "FrontAntiSwaySetting": "7",
+          "RearAntiSwaySetting": "1",
+          "FrontToeInSetting": "17",
+          "RearToeInSetting": "22",
+          "LeftCasterSetting": "58",
+          "RightCasterSetting": "58",
+          "LeftTrackBarSetting": "0",
+          "RightTrackBarSetting": "0",
+          "Front3rdPackerSetting": "5",
+          "Front3rdSpringSetting": "8",
+          "Front3rdSlowBumpSetting": "4",
+          "Front3rdFastBumpSetting": "2",
+          "Front3rdSlowReboundSetting": "3",
+          "Front3rdFastReboundSetting": "2",
+          "Rear3rdPackerSetting": "10",
+          "Rear3rdSpringSetting": "7",
+          "Rear3rdSlowBumpSetting": "4",
+          "Rear3rdFastBumpSetting": "2",
+          "Rear3rdSlowReboundSetting": "3",
+          "Rear3rdFastReboundSetting": "2"
+        },
+        "CONTROLS": {
+          "SteerLockSetting": "30",
+          "RearBrakeSetting": "42",
+          "BrakePressureSetting": "6",
+          "HandbrakePressSetting": "0"
+        },
+        "ENGINE": {
+          "RevLimitSetting": "5",
+          "EngineMapSetting": "2",
+          "EngineBrakeMapSetting": "2"
+        },
+        "DRIVELINE": {
+          "FinalDriveSetting": "1",
+          "ReverseSetting": "7",
+          "Gear1Setting": "7",
+          "Gear2Setting": "25",
+          "Gear3Setting": "37",
+          "Gear4Setting": "48",
+          "Gear5Setting": "57",
+          "Gear6Setting": "65",
+          "Gear7Setting": "69",
+          "DiffPumpSetting": "5",
+          "DiffPowerSetting": "1",
+          "DiffCoastSetting": "0",
+          "DiffPreloadSetting": "0"
+        },
+        "FRONTLEFT": {
+          "CamberSetting": "35",
+          "PressureSetting": "45",
+          "PackerSetting": "10",
+          "SpringSetting": "12",
+          "RideHeightSetting": "15",
+          "SlowBumpSetting": "6",
+          "FastBumpSetting": "3",
+          "SlowReboundSetting": "5",
+          "FastReboundSetting": "5",
+          "BrakeDiscSetting": "1",
+          "BrakePadSetting": "2"
+        },
+        "FRONTRIGHT": {
+          "CamberSetting": "35",
+          "PressureSetting": "45",
+          "PackerSetting": "10",
+          "SpringSetting": "12",
+          "RideHeightSetting": "15",
+          "SlowBumpSetting": "6",
+          "FastBumpSetting": "3",
+          "SlowReboundSetting": "5",
+          "FastReboundSetting": "5",
+          "BrakeDiscSetting": "1",
+          "BrakePadSetting": "2"
+        },
+        "REARLEFT": {
+          "CamberSetting": "50",
+          "PressureSetting": "40",
+          "PackerSetting": "15",
+          "SpringSetting": "7",
+          "RideHeightSetting": "40",
+          "SlowBumpSetting": "5",
+          "FastBumpSetting": "2",
+          "SlowReboundSetting": "6",
+          "FastReboundSetting": "6",
+          "BrakeDiscSetting": "1",
+          "BrakePadSetting": "2"
+        },
+        "REARRIGHT": {
+          "CamberSetting": "50",
+          "PressureSetting": "40",
+          "PackerSetting": "15",
+          "SpringSetting": "7",
+          "RideHeightSetting": "40",
+          "SlowBumpSetting": "5",
+          "FastBumpSetting": "2",
+          "SlowReboundSetting": "6",
+          "FastReboundSetting": "6",
+          "BrakeDiscSetting": "1",
+          "BrakePadSetting": "2"
+        },
+        "BASIC": {
+          "Downforce": "0.500000",
+          "Balance": "0.500000",
+          "Ride": "0.500000",
+          "Gearing": "0.500000",
+          "Custom": "0"
+        }
+      }
+    }
+  ],
+  "cfg": [
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\f1_telemetry.cfg",
+      "size": 108,
+      "sha256": "7F60182FC613BFD2A91D4A8E87700834FF45B99B768826919B501177350F98FE",
+      "format": "text; key = value with // comments",
+      "entries": {
+        "display_in_mph": "0"
+      }
+    }
+  ],
+  "layouts": [
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\_revert_layout.ini",
+      "size": 115,
+      "sha256": "C8130B8DAF2AE90E17F6320218B3E0862F790D2D493A3EF78F598D46B83BEEC8",
+      "title": "current layout",
+      "order_prefix": null,
+      "description": "",
+      "graph_count": 1,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "  NOGRID NOXAXIS NOYAXIS  "
+          ],
+          "flags": "  NOGRID NOXAXIS NOYAXIS  ",
+          "ranges": [
+            -934.9476,
+            505.713,
+            -205.5585,
+            2777.782
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            1.0,
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\_single_layout.ini",
+      "size": 120,
+      "sha256": "6AB2064B1EE306A392573D62774F5BA1E2EF4F2CAC3D903450AC66F183D0576D",
+      "title": "single graph layout",
+      "order_prefix": null,
+      "description": "",
+      "graph_count": 1,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "  NOGRID NOXAXIS NOYAXIS  "
+          ],
+          "flags": "  NOGRID NOXAXIS NOYAXIS  ",
+          "ranges": [
+            -934.9476,
+            505.713,
+            -205.5585,
+            2777.782
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            1.0,
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\basic.ini",
+      "size": 195,
+      "sha256": "88B62D91C3FE3071A0CEFA1C7E2B08178FDAA031E8661F9101CBC47176D08447",
+      "title": "Basic",
+      "order_prefix": null,
+      "description": "Track and Velocity Trace",
+      "graph_count": 2,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\chassis_gears.ini",
+      "size": 409,
+      "sha256": "9F822A2F18E5CBFD0F3F5BDED9D872FE5DA01FB10034C8322E848895833B1E29",
+      "title": "04_Gears",
+      "order_prefix": null,
+      "description": "Engine and Gearbox Information",
+      "graph_count": 5,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "engine rpm",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            12000.0,
+            19000.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "gear",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -1.0,
+            8.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.5,
+            0.75
+          ]
+        },
+        {
+          "graph": 4,
+          "channels": [
+            "time",
+            "rear wheel speed differential",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.75,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\chassis_gg.ini",
+      "size": 257,
+      "sha256": "CE4F7F5C74B2D0181A5D95143058A2092627320AC57AF86DEEAA6222B5D9BBA6",
+      "title": "G-G",
+      "order_prefix": null,
+      "description": "[Advanced] - Friction Circle",
+      "graph_count": 3,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "lat accel",
+            "long accel",
+            "DOTS NOLINES"
+          ],
+          "flags": "DOTS NOLINES",
+          "ranges": [
+            -6.0,
+            6.0,
+            -2.0,
+            4.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\chassis_gxyz.ini",
+      "size": 385,
+      "sha256": "43A78491078A7EE00ED2913B5B70BC829C8F3614039622D9A696F7C7D3F998E8",
+      "title": "G-xyz",
+      "order_prefix": null,
+      "description": "[Advanced] - Chassis Accelerations XYZ",
+      "graph_count": 5,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "long accel",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -2.0,
+            4.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.0,
+            0.333
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "lat accel",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -5.0,
+            5.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.333,
+            0.666
+          ]
+        },
+        {
+          "graph": 4,
+          "channels": [
+            "time",
+            "vert accel",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -1.0,
+            1.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.666,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\chassis_inputs.ini",
+      "size": 495,
+      "sha256": "BE678CDFBB41902F82CC21333ADF91AE6E89E777360E3DDADDCD3F3C7E43ADCD",
+      "title": "Inputs",
+      "order_prefix": null,
+      "description": "Driver Inputs",
+      "graph_count": 7,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "throttle",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            10.0,
+            130.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.0,
+            0.2
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "brake",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            130.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.2,
+            0.4
+          ]
+        },
+        {
+          "graph": 4,
+          "channels": [
+            "time",
+            "steering",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -130.0,
+            130.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.4,
+            0.6
+          ]
+        },
+        {
+          "graph": 5,
+          "channels": [
+            "time",
+            "gear",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -1.0,
+            8.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.6,
+            0.8
+          ]
+        },
+        {
+          "graph": 6,
+          "channels": [
+            "time",
+            "clutch",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            130.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.8,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\chassis_rideheight.ini",
+      "size": 351,
+      "sha256": "5A90A6F588C81D85A179DE23AFD6F10AED092FC0036458D507BE1CEBFACDF1AD",
+      "title": "Ride Heights",
+      "order_prefix": null,
+      "description": "[Advanced] - Front and Rear Ride Height",
+      "graph_count": 4,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "rear ride height",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -5.0,
+            80.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "front ride height",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -5.0,
+            80.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.0,
+            0.5
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\chassis_rideheight_filtered.ini",
+      "size": 438,
+      "sha256": "928006CC9FBEAA97CEC51B60BBBE40D5A3F97957FDA1B70DB4190E90EDE59A21",
+      "title": "Ride Heights (filtered)",
+      "order_prefix": null,
+      "description": "[Advanced] - Front and Rear Ride Height Smoothed",
+      "graph_count": 4,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "filter[rear ride height",
+            "20]"
+          ],
+          "flags": "20]",
+          "ranges": [
+            -5.0,
+            100.0,
+            -5.0,
+            80.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "filter[front ride height",
+            "20]"
+          ],
+          "flags": "20]",
+          "ranges": [
+            -5.0,
+            100.0,
+            -5.0,
+            80.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.0,
+            0.5
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\chassis_slip.ini",
+      "size": 345,
+      "sha256": "E6413E9818A0C7D605121A1AEAA17D8005C0B316EFBF584E48A70CF713CDB3DC",
+      "title": "Slip Angle",
+      "order_prefix": null,
+      "description": "[Advanced] - Chassis Slip Angle",
+      "graph_count": 4,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "lat accel",
+            "long accel",
+            "DOTS NOLINES"
+          ],
+          "flags": "DOTS NOLINES",
+          "ranges": [
+            -5.0,
+            5.0,
+            -2.0,
+            5.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "yaw",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -20.0,
+            20.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.0,
+            0.5
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\dampers_all.ini",
+      "size": 518,
+      "sha256": "4AA04035BACE476E3C3345B082820BEF24DFF4DAC8A187B0428BC9D71D5CCB7B",
+      "title": "Dampers",
+      "order_prefix": null,
+      "description": "[Advanced] - Damper Velocities",
+      "graph_count": 6,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "damper velocity front lh",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -100.0,
+            100.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "damper velocity front rh",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -100.0,
+            100.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 4,
+          "channels": [
+            "time",
+            "damper velocity rear lh",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -100.0,
+            100.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "graph": 5,
+          "channels": [
+            "time",
+            "damper velocity rear rh",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -100.0,
+            100.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.5,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\dampers_all_filtered.ini",
+      "size": 686,
+      "sha256": "6AEF4A35E0EC2E2850150CD9D42FC183038060574D7AA3A9DABE227449752960",
+      "title": "Dampers (filtered)",
+      "order_prefix": null,
+      "description": "[Advanced] - Damper Velocities (Smoothed)",
+      "graph_count": 6,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "filter[damper velocity front lh",
+            "20]"
+          ],
+          "flags": "20]",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "filter[damper velocity front rh",
+            "20]"
+          ],
+          "flags": "20]",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 4,
+          "channels": [
+            "time",
+            "filter[damper velocity rear lh",
+            "20]"
+          ],
+          "flags": "20]",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "graph": 5,
+          "channels": [
+            "time",
+            "filter[damper velocity rear rh",
+            "20]"
+          ],
+          "flags": "20]",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.5,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\overview.ini",
+      "size": 346,
+      "sha256": "76E0B2072AB0BCB036E6A80E8456F07FCBABAE3751E3C3DC3F21EDA4FBF233A5",
+      "title": "Overview",
+      "order_prefix": "00_",
+      "description": "Chassis Overview",
+      "graph_count": 4,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "lat accel",
+            "long accel",
+            "DOTS NOLINES"
+          ],
+          "flags": "DOTS NOLINES",
+          "ranges": [
+            -6.0,
+            6.0,
+            -2.0,
+            4.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "engine rpm",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            7000.0,
+            20000.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.5,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\susp_deflection_all.ini",
+      "size": 725,
+      "sha256": "519DC36E54D184612B1CBB500D00B51D16E07D3E4A53219F8BABAE71038B457E",
+      "title": "Susp-All",
+      "order_prefix": null,
+      "description": "[Advanced] - Suspension Travel",
+      "graph_count": 6,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "fl suspension deflection",
+            "TITLE=FL suspension deflection|measured at damper#"
+          ],
+          "flags": "TITLE=FL suspension deflection|measured at damper#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            30.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "fr suspension deflection",
+            "TITLE=FR suspension deflection|measured at damper#"
+          ],
+          "flags": "TITLE=FR suspension deflection|measured at damper#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            30.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 4,
+          "channels": [
+            "time",
+            "rl suspension deflection",
+            "TITLE=RL suspension deflection|measured at damper#"
+          ],
+          "flags": "TITLE=RL suspension deflection|measured at damper#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            30.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "graph": 5,
+          "channels": [
+            "time",
+            "rr suspension deflection",
+            "TITLE=RR suspension deflection|measured at damper#"
+          ],
+          "flags": "TITLE=RR suspension deflection|measured at damper#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            30.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.5,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\time_diff.ini",
+      "size": 291,
+      "sha256": "9B7ADADC3D7479365453F04637B16940112EB4C140B20D7902B80ECDC46C3140",
+      "title": "00_Time Diff",
+      "order_prefix": null,
+      "description": "Incremental Time Difference",
+      "graph_count": 3,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "dtime",
+            "TITLE=Incremental Time Difference"
+          ],
+          "flags": "TITLE=Incremental Time Difference",
+          "ranges": [
+            -5.0,
+            100.0,
+            -3.0,
+            6.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            1.0,
+            0.0,
+            0.7
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\track.ini",
+      "size": 110,
+      "sha256": "F726DD4762046C0878D0A6B9281E1F0CDEAB5814E2D68E2FC007683DC1DFEAC2",
+      "title": "05_Track",
+      "order_prefix": null,
+      "description": "Track View",
+      "graph_count": 1,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            1.0,
+            0.0,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\track_conditions.ini",
+      "size": 371,
+      "sha256": "D72897BD42FBF22B06E9A780557432FC76556D3ED7865111853A5FCBAFDEF046",
+      "title": "Weather",
+      "order_prefix": null,
+      "description": "Weather",
+      "graph_count": 5,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "air temp",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            0.0,
+            50.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "track temp",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            0.0,
+            50.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "rain",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            110.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "graph": 4,
+          "channels": [
+            "time",
+            "track dampness",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            110.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.5,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\tyre_temp.ini",
+      "size": 507,
+      "sha256": "DBE0C9A6C39B5CB32B799C21D51B47EDD83E4033CA2793137E13C9A5E8CC8D77",
+      "title": "Tyre-Temp",
+      "order_prefix": null,
+      "description": "[Advanced] - Tyre Temperatures (Averaged)",
+      "graph_count": 6,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "fl tyre average temp",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            20.0,
+            160.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "fr tyre average temp",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            20.0,
+            160.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 4,
+          "channels": [
+            "time",
+            "rl tyre average temp",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            20.0,
+            160.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "graph": 5,
+          "channels": [
+            "time",
+            "rr tyre average temp",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            20.0,
+            160.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.5,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\tyre_temp_all.ini",
+      "size": 1322,
+      "sha256": "3BFCF7A4D6EA49A30337459AE97E8153EC7CE1CF5EB78FDAC3B696113AFCBAF5",
+      "title": "Tyre-All",
+      "order_prefix": null,
+      "description": "[Advanced] - Tyre Temperatures (Inside/Middle/Outside)",
+      "graph_count": 11,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "fl tyre crown temp",
+            "TITLE=FL Tyre Crown Temperature|Caused By Over Pressure#"
+          ],
+          "flags": "TITLE=FL Tyre Crown Temperature|Caused By Over Pressure#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "fl tyre camber temp",
+            "TITLE=FL Tyre Camber Temperature|caused by camber#"
+          ],
+          "flags": "TITLE=FL Tyre Camber Temperature|caused by camber#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "graph": 4,
+          "channels": [
+            "time",
+            "fr tyre crown temp",
+            "TITLE=FR Tyre Crown Temperature|Caused By Over Pressure#"
+          ],
+          "flags": "TITLE=FR Tyre Crown Temperature|Caused By Over Pressure#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.0,
+            0.25
+          ]
+        },
+        {
+          "graph": 5,
+          "channels": [
+            "time",
+            "fr tyre camber temp",
+            "TITLE=FR Tyre Camber Temperature|caused by camber#"
+          ],
+          "flags": "TITLE=FR Tyre Camber Temperature|caused by camber#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.25,
+            0.5
+          ]
+        },
+        {
+          "graph": 6,
+          "channels": [
+            "time",
+            "rl tyre crown temp",
+            "TITLE=RL Tyre Crown Temperature|Caused By Over Pressure#"
+          ],
+          "flags": "TITLE=RL Tyre Crown Temperature|Caused By Over Pressure#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.5,
+            0.75
+          ]
+        },
+        {
+          "graph": 7,
+          "channels": [
+            "time",
+            "rl tyre camber temp",
+            "TITLE=RL Tyre Camber Temperature|caused by camber#"
+          ],
+          "flags": "TITLE=RL Tyre Camber Temperature|caused by camber#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.75,
+            1.0
+          ]
+        },
+        {
+          "graph": 8,
+          "channels": [
+            "time",
+            "rr tyre crown temp",
+            "TITLE=RR Tyre Crown Temperature|Caused By Over Pressure#"
+          ],
+          "flags": "TITLE=RR Tyre Crown Temperature|Caused By Over Pressure#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.5,
+            0.75
+          ]
+        },
+        {
+          "graph": 9,
+          "channels": [
+            "time",
+            "rr tyre camber temp",
+            "TITLE=RR Tyre Camber Temperature|caused by camber#"
+          ],
+          "flags": "TITLE=RR Tyre Camber Temperature|caused by camber#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.75,
+            1.0
+          ]
+        },
+        {
+          "graph": 10,
+          "channels": [
+            "null",
+            "null",
+            "BMP=planview.jpg"
+          ],
+          "flags": "BMP=planview.jpg",
+          "ranges": [
+            0.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.35,
+            0.65,
+            0.4,
+            0.6
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\tyre_temp_front.ini",
+      "size": 733,
+      "sha256": "A418330A5FEF8CBE3A6E748B685D199B708C8578D8E8DF0B29CDA8E4B06B5C2D",
+      "title": "Tyre-Front",
+      "order_prefix": null,
+      "description": "[Advanced] - Front Tyre Temperatures (Inside/Middle/Outside)",
+      "graph_count": 6,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "fl tyre crown temp",
+            "TITLE=FL Tyre Crown Temperature|Caused By Over Pressure#"
+          ],
+          "flags": "TITLE=FL Tyre Crown Temperature|Caused By Over Pressure#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "fr tyre crown temp",
+            "TITLE=FR Tyre Crown Temperature|Caused By Over Pressure#"
+          ],
+          "flags": "TITLE=FR Tyre Crown Temperature|Caused By Over Pressure#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 4,
+          "channels": [
+            "time",
+            "fl tyre camber temp",
+            "TITLE=FL Tyre Camber Temperature|caused by camber#"
+          ],
+          "flags": "TITLE=FL Tyre Camber Temperature|caused by camber#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "graph": 5,
+          "channels": [
+            "time",
+            "fr tyre camber temp",
+            "TITLE=FR Tyre Camber Temperature|caused by camber#"
+          ],
+          "flags": "TITLE=FR Tyre Camber Temperature|caused by camber#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.5,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\tyre_temp_rear.ini",
+      "size": 731,
+      "sha256": "A9BE3DFEAEA9E79B559CD2E34CDF6B6AC9A3E17253C42141AF8AF9FAC368E742",
+      "title": "Tyre-Rear",
+      "order_prefix": null,
+      "description": "[Advanced] - Rear Tyre Temperatures (Inside/Middle/Outside)",
+      "graph_count": 6,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "rl tyre crown temp",
+            "TITLE=RL Tyre Crown Temperature|Caused By Over Pressure#"
+          ],
+          "flags": "TITLE=RL Tyre Crown Temperature|Caused By Over Pressure#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "rr tyre crown temp",
+            "TITLE=RR Tyre Crown Temperature|Caused By Over Pressure#"
+          ],
+          "flags": "TITLE=RR Tyre Crown Temperature|Caused By Over Pressure#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 4,
+          "channels": [
+            "time",
+            "rl tyre camber temp",
+            "TITLE=RL Tyre Camber Temperature|caused by camber#"
+          ],
+          "flags": "TITLE=RL Tyre Camber Temperature|caused by camber#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "graph": 5,
+          "channels": [
+            "time",
+            "rr tyre camber temp",
+            "TITLE=RR Tyre Camber Temperature|caused by camber#"
+          ],
+          "flags": "TITLE=RR Tyre Camber Temperature|caused by camber#",
+          "ranges": [
+            -5.0,
+            100.0,
+            -10.0,
+            10.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.5,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\tyre_wear.ini",
+      "size": 464,
+      "sha256": "721054879F5515B719D59BC6C743C3DC5F9669E1254DCE9A560B6CA95FA8202B",
+      "title": "Tyre-Wear",
+      "order_prefix": null,
+      "description": "[Advanced] - Tyre Wear",
+      "graph_count": 6,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "fl tyre wear",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            0.9,
+            1.01
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "fr tyre wear",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            0.9,
+            1.01
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 4,
+          "channels": [
+            "time",
+            "rl tyre wear",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            0.9,
+            1.01
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "graph": 5,
+          "channels": [
+            "time",
+            "rr tyre wear",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            0.9,
+            1.01
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.5,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    },
+    {
+      "path": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\Layouts\\wheels_slip.ini",
+      "size": 450,
+      "sha256": "502919BADDF32101706CC947C18085B756CEC17852B7B85F9ECEF3FE0BC2EB49",
+      "title": "Wheel-Spin",
+      "order_prefix": null,
+      "description": "[Advanced] - Wheel Spin",
+      "graph_count": 6,
+      "graphs": [
+        {
+          "graph": 0,
+          "channels": [
+            "x",
+            "z",
+            "NOGRID NOXAXIS NOYAXIS"
+          ],
+          "flags": "NOGRID NOXAXIS NOYAXIS",
+          "ranges": [
+            -1876.376,
+            1876.376,
+            -1500.0,
+            1500.0
+          ],
+          "autoscale": "#TRUE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.0,
+            0.7
+          ]
+        },
+        {
+          "graph": 1,
+          "channels": [
+            "time",
+            "velocity",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -25.0,
+            300.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.0,
+            0.4,
+            0.7,
+            1.0
+          ]
+        },
+        {
+          "graph": 2,
+          "channels": [
+            "time",
+            "fl wheelspin",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -1.0,
+            1.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 3,
+          "channels": [
+            "time",
+            "fr wheelspin",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -1.0,
+            1.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.0,
+            0.5
+          ]
+        },
+        {
+          "graph": 4,
+          "channels": [
+            "time",
+            "rl wheelspin",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -1.0,
+            1.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.4,
+            0.7,
+            0.5,
+            1.0
+          ]
+        },
+        {
+          "graph": 5,
+          "channels": [
+            "time",
+            "rr wheelspin",
+            ""
+          ],
+          "flags": "",
+          "ranges": [
+            -5.0,
+            100.0,
+            -1.0,
+            1.0
+          ],
+          "autoscale": "#FALSE#",
+          "rect": [
+            0.7,
+            1.0,
+            0.5,
+            1.0
+          ]
+        }
+      ],
+      "grammar": "line1: optional *NN_ order prefix + title; line2: description (may be blank); line3: graph count; blank; per graph: channel row (\"x\",\"y\",\"flags\"), range row (xmin,xmax,ymin,ymax[,#TRUE#|#FALSE#]), rect row (x0,x1,y0,y1). Flags observed: NOGRID NOXAXIS NOYAXIS DOTS NOLINES MINORGRID WIDELINES NOTONCHANGE. Token evidence in home #2/#53/#14/#43 of the method index."
+    }
+  ]
+}

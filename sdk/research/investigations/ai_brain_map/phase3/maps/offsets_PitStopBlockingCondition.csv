@@ -1,0 +1,4 @@
+func,line,dec,hex,access,width,base,form,expr
+PitStopBlockingCondition,4,17888,0x45E0,R,_DWORD,this,array,return this[4 * this[4472] + 4455] & 8;
+PitStopBlockingCondition,5,16444,0x403C,R,_DWORD,this,array,return this[4111] >= dword_8ACF8C
+PitStopBlockingCondition,7,14842,0x39FA,R,_BYTE,this,arith,|| *((_BYTE *)this + 14842)

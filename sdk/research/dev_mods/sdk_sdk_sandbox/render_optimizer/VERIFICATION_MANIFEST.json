@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-13",
+  "status": "INSTALLED_ACTIVE_ZERO_FUSED_DIAGNOSTIC_CANDIDATE_NOT_INSTALLED",
+  "dll": "%USERPROFILE%\\Documents\\F1 Challenge V10\\plugins\\lightloader\\render_vertex_optimizer.dll",
+  "sha256": "D8FD10737BE3456A40D5685283D92BDCB0D6BDA2E357772E11BC41B0DB970BA5",
+  "focused_tests": "PASS",
+  "sdk_full_gate": "PASS",
+  "native_performance_and_lifetime": "GAMEPLAY_UNVERIFIED",
+  "installed": true,
+  "fps_gain_demonstrated": false,
+  "workspace_validator": "existing .claude/plans errors unchanged",
+  "vertex_pack": {
+    "status": "CAPTURED_NATIVE_INTEGRATION_VERIFIED_INSTALLED",
+    "byte_cases": 2000,
+    "real_adapter": "NVIDIA GeForce test GPU",
+    "native_buffer_ratios": [
+      0.499,
+      0.511,
+      0.518,
+      0.512,
+      0.514,
+      0.496
+    ],
+    "draw_present_release": "PASS",
+    "gameplay_fps": "UNMEASURED",
+    "sources": {
+      "vertex_pack.hpp": "1579beae1f80749b4d49fe209017d6ca6889db57e7475b6a1abd944bdd3d7b74",
+      "vertex_pack_benchmark.cpp": "23033a267375cb04270f7338ad07d7b8f8fc0795ec0fa76313ef9f30a1c248dd",
+      "vertex_trial.hpp": "1EF36EE62F691EF293DE13D9F623634323E52F9C85577AEFB84EAB27265740D0",
+      "vertex_plugin.cpp": "3AA440785267F7E0BBD8B8F88651E7337FFFB21EFECD0666BA20597A71DA877E",
+      "vertex_native_test.cpp": "B518982985E5D3D397235760DDDA258973B331D29B5B03BE57BE294A28D71CCD",
+      "build_vertex.ps1": "1466627B816D024F85A36BA5FC524CCD9D1C0C359CEEF248B95BD9031C514FD3",
+      "vertex_native_bytes_20261013.json": "574F0FAF4860C3CD5C46927A041E533ABCEA1B736C83B1AAA934EDAF273BA516",
+      "../../../tools/sdk/f1c_vertex_pack_adapter.h": "734802BA7BFFBBEC7975265E5666A3E9D783781F9D167BD4602F56A36E628E4C",
+      "../../../tools/sdk/f1c_vertex_pack_bytes.h": "E59A6A7689FD187C3ECF96544A67E9F5633BC1674A0B33026E306C459A73DF38",
+      "vertex_startup_test.cpp": "A6C8C7B5FF1606165EE31030BC9511A30DEB755188DC217603B146E1FEBA6C63"
+    },
+    "native_integration_cases": 1600,
+    "activation": "ACTIVE_INCREASING_C_DISPATCH_ZERO_FUSED",
+    "minimum_vertices": 128,
+    "installed_ini_sha256": "94C923F89ABC37B0408B8A2067EF043E34AE310481E0E9A8C08641D473E83FFD",
+    "startup_regression": "PASS actual discovery wrapper size + absent-broker refusal"
+  },
+  "rejected_state_cache": {
+    "status": "REJECTED_RESEARCH_ACTIVATION_DISABLED",
+    "dll": "%USERPROFILE%\\AppData\\Local\\Temp\\f1c-render-optimizer-0.1.0-dev1\\render_optimizer.dll",
+    "sha256": "B04C12629D79B513AB22A6386194DCD6E364438273C5BD7393E2FF92CBC40792",
+    "native_performance_and_lifetime": "FAIL",
+    "installed": false
+  },
+  "last_live_observation": {
+    "date": "2026-10-13",
+    "pid": 26132,
+    "setting": "OFF",
+    "startup_log": "OFF/no hook; timestamp after process creation",
+    "vehicles": 22,
+    "freshness": "advancing",
+    "gpu_percent_mean_device_wide": 11.6,
+    "process_one_core_percent": 156.71,
+    "fps": "UNAVAILABLE",
+    "frame_times": "UNAVAILABLE",
+    "evidence": "LIVE_OFF_BASELINE_AND_BENCHMARK_PLAN_2026-10-13.md"
+  },
+  "diagnostic_candidate": {
+    "sha256": "2BEC473A30961340EFD30B9ED38861B19BBAFF9595471A5D6CC41FBDE424B896",
+    "path": "%TEMP%/f1c-render-vertex-0.2.0-dev1/render_vertex_optimizer.dll",
+    "installed": false,
+    "focused_tests": "PASS actual callback reasons/no-write/fused output plus prior native/kernel/D3D8/smoke",
+    "sdk_full_gate": "PASS; 7 artifacts unchanged",
+    "blocker": "Game running PID 30544 at 12:06:06 UTC; no stage invoked",
+    "evidence": "VERTEX_REJECTION_DIAGNOSTICS_REVIEW_2026-10-13.md",
+    "sources": {
+      "vertex_plugin.cpp": "038991D8477FB3F84966B9296FF879D8381D8300A0039C2BEC22ABC1B82B3AB0",
+      "vertex_trial.hpp": "86A7F0C28F4C8579C7C70041D3867CA87873C61A2DDACEED266AC16E794F2E97",
+      "vertex_startup_test.cpp": "584E1303B2F73E076B5DA46D471513CF43C0520AA23FE3BCDEC2C842E1E526DC"
+    }
+  }
+}

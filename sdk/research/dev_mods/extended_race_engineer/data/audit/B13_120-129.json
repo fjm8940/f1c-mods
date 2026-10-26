@@ -1,0 +1,2700 @@
+{
+ "schema": "ere.audit.v1",
+ "range": "B13_120-129",
+ "rows": [
+  {
+   "sdt_index": 120,
+   "eid": 118,
+   "clip": "PWS_RETIRE01",
+   "says": "Player engine stall",
+   "score": 116,
+   "cooldown": 6.0,
+   "cooldown_source": "owner exe 0x5C02E4 = 6.0; dump 6.0; clean VM exe FLT_MAX",
+   "verdict": "NOT_ACTIVATED",
+   "reason": "unreachable_emitter",
+   "blocker": "emitter sub_41B250 reason-7 branch is only reached through the FinishState==0 arm of sub_4F1FE0 behind four early-return gates and a 10 s dwell that the game's own retirement closes first; not reached in four live runs; ReasonCode 7 never observed live",
+   "situation": "",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": true,
+   "suppressed_note": "sub_41B250:19 emits 118 when ReasonCode veh+0x4068 == 7 inside the FinishState==0 arm of sub_4F1FE0. Suppressed by sub_4F1FE0:90 and :104 returns and the dwell flt_7D0A8C (:113, 10 s) that the game's own retirement (FinishState 0->2) closes first (findings.jsonl:97, :99). Cooldown is not the blocker (owner exe 6.0).",
+   "emitters": [
+    "sub_41B250 (functions/sub_41B250_0041b250.c:19)"
+   ],
+   "call_path": "sub_41B250 <- sub_4F1FE0 (line 135) <- VehicleYawRotationRecoveryController sub_4F1C40 (dossier chain) <- per-frame tick (root not fully re-read)",
+   "gates": [
+    "sub_41B250:8 dword_7D0308 && flt_7CF3C8!=0 && dword_7C56A4==7 && dword_7C56A8!=8 && dword_7D0410!=5",
+    "sub_41B250:9 player check *(dword_7C54E8+18580)==*(a1+18580)",
+    "sub_41B250:18 ReasonCode *(a1+16488)==7",
+    "sub_4F1FE0:33 FinishState veh+0x4064 == 0 (else arm, line 36 checks other values)",
+    "sub_4F1FE0:90 return if dword_7CE814 (player branch; live value 0 in race, not the blocker)",
+    "sub_4F1FE0:104 return if v12==4 && fabs(this[3685])>0.1",
+    "sub_4F1FE0:107 sub_4D21D0() race phase",
+    "sub_4F1FE0:109 (*this)[3348]!=3 && !DistanceComparison(this)",
+    "sub_4F1FE0:113 dwell v14 > flt_7D0A8C (10.0 live, runtime-written)"
+   ],
+   "mod": "player_retire_commentary (candidate, cooldown_unblock for 118; not loaded in owner game)",
+   "heard_evidence": "ERE/data/line_trace/120_PWS_RETIRE01.json voice_index_row.triage: play=false, 'Z, stalling ... no idea how to do this' (PARKED,NEEDS_RESEARCH); no heard record",
+   "tier": "CONFIRMED",
+   "notes": "ReasonCode 7 has never been observed live (findings:92 DQ=6, :94 suspension=4, :97 crash=6). 'Engine stall' is from the clip name only (DERIVED). findings.jsonl:94 was later corrected by :96 (FinishState must be 0), so cite the corrected reading.",
+   "play_plan": {
+    "meaning": "The engine has stalled and the car is stopped out on track: the engineer tells the driver the car is out with a stalled engine (a retirement, not a blow-up).",
+    "when_it_should_play": "Player's car stopped on track with a stalled engine during a race and still classified as running, after a 10 s stop.",
+    "trigger": "dword_7C56A4==7 AND dword_7C56A8==5 (green racing, FACT) AND player ReasonCode veh+0x4068==7 AND speed veh+0x4440 < ~2 m/s (CALIBRATE) for >= 10 s AND FinishState veh+0x4064==0 (checked before the game sets 2). Speed tier DERIVED; ReasonCode 7 meaning DERIVED.",
+    "subject": "player (-1)",
+    "technique": "own_emitter (queue eid 118 once when the predicate holds, before FinishState becomes 2) or hook_native (lift the dwell so sub_41B250 fires). The game's own retirement closes the window, so changing a flag alone is not enough",
+    "latch_cooldown": "once per race",
+    "must_not_play_when": "pit-lane or box stop (pittingStatus veh+0x3450 != 0), red flag, DQ exits (DQ does not use this path, findings:92), ReasonCode 1 (blow-up = RETIRE04) or 4 (suspension), non-race session",
+    "conflicts": "MF 1.0.7 engine death uses 119 (ReasonCode 1); pit mod wheel jam plays 117; player_retire_commentary candidate also wires 118 - one latch for all three",
+    "calibration": "stop-speed threshold; the 10 s dwell (flt_7D0A8C is runtime-written and not patchable per findings:98)",
+    "live_test": "UNKNOWN how to make ReasonCode 7 in game: no known mechanism in MF 1.0.7 (MF engine death = ReasonCode 1). First step: log veh+0x4068 in a race and look for 7.",
+    "confidence": "GUESS (ReasonCode 7 semantics unproven)"
+   },
+   "checked": [
+    {
+     "function": "sub_41B250 (literal 118 emitter)",
+     "result": "emits 118 on player + ReasonCode 7 + race + RacePhase!=8 + dword_7D0410!=5",
+     "line": "functions/sub_41B250_0041b250.c:8,9,18,19"
+    },
+    {
+     "function": "sub_4F1FE0 (only caller of sub_41B250)",
+     "result": "reaches sub_41B250 only in the FinishState==0 arm after four early-return gates and the 10 s dwell",
+     "line": "functions/sub_4F1FE0_004f1fe0.c:33,90,104,107,109,113,135"
+    },
+    {
+     "function": "player_retire_commentary (candidate source)",
+     "result": "emits 118 by ReasonCode 7 (cooldown_unblock); not loaded in owner plugins",
+     "line": "development/mods/player_retire_commentary/src/retire_commentary.c:64,211"
+    },
+    {
+     "function": "live negatives",
+     "result": "four live runs: 117/118/119 never dispatched; FinishState 0->2 about 26.5 s after a crash; DQ path (ReasonCode 6) does not use it",
+     "line": "f1c_ida_decompiled/findings.jsonl:97,99"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (emits {120,259,198} at lines 37,39,57,59)",
+     "line": "functions/AIDriverStateTransition_00419120.c"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (emits {6,180,181,182} at line 24 and switch 1-3)",
+     "line": "functions/AIFormationLap_0041a3a0.c"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (emits {3,4,5,10,16,33,72,262} at line 61; v5 default 5)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (emits {42,52} at line 15)",
+     "line": "functions/AIPitStrategyState_0041a200.c"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (emits {7,8,9,17,18} at lines 36,48; body needs dword_7C56A4==5 (qualifying only))",
+     "line": "functions/AIPositionChangeEvent_004198b0.c"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (emits {21,22,178,179} at line 36, then calls AIPositionChangeEvent)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (emits {52,196} at line 19)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (emits {157-177,158,159,260,261} at lines 113 and the track map)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (emits {397,516-519,523,526,527,530-533} at line 127 (v6 chain lines 29-118))",
+     "line": "functions/PitExit_0041c0f0.c"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid = sub_4203D0 result (track ids 355-363; ThunkToFUN004201e0_004203d0.c) at line 26)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (emits {397,447-477 track map,454,455,456,459,460,461,465,474,476} at lines 107,148,158,173,191-226)",
+     "line": "functions/RaceCommentary_0041d630.c"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (emits {293-336} at line 189)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (emits {34,35,276,277,278,279} at line 25 region)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c"
+    },
+    {
+     "function": "sub_41A720 (penalty text)",
+     "result": "cannot produce this eid (emits {151,153,154,155,252,253,254,256}; BooleanOR cancels 123,124,125 at lines 29-31 for aIgnoredBlueFla)",
+     "line": "functions/sub_41A720_0041a720.c"
+    },
+    {
+     "function": "sub_41A940 (stop-go)",
+     "result": "cannot produce this eid (emits {149,243} at line 15)",
+     "line": "functions/sub_41A940_0041a940.c"
+    },
+    {
+     "function": "sub_41AC50 (AI state)",
+     "result": "cannot produce this eid (emits {208,211-217,220})",
+     "line": "functions/sub_41AC50_0041ac50.c"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce this eid (eid = sub_420000 (338-354) or sub_4203D0 (355+) at line 16)",
+     "line": "functions/sub_41C440_0041c440.c"
+    },
+    {
+     "function": "sub_41B250 (retire emitter)",
+     "result": "emits this eid: emits 118 on ReasonCode==7 (line 19) inside the sub_4F1FE0 FinishState==0 arm",
+     "line": "functions/sub_41B250_0041b250.c"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (functions/DriverNameIDLookup_00415d90.c)",
+     "result": "name-table value written to a1+8 (lines 43,91,224,263,311,423,444,746; e.g. 444 'a4!=0 ? 274 : 120', 311 'a4!=0 ? 272 : 118', 224 'a4!=0 ? 273 : 119'); the file has no DriverDataTable or InsertDriverTable call; consumer sub_414600 only loads files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417640 (functions/sub_417640_00417640.c)",
+     "result": "offset arithmetic +124 (lines 18,23,100), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "NameListBuilderFromVehicleArray (functions/NameListBuilderFromVehicleArray_004159b0.c)",
+     "result": "offset +124 (lines 47,180), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "SessionStringNameLookup (functions/SessionStringNameLookup_004122c0.c)",
+     "result": "offsets +124 (line 24) and +116 (line 37), not eids; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417AF0 and sub_414A90 (functions/sub_417AF0_00417af0.c, sub_414A90_00414a90.c)",
+     "result": "team-name file ids 121-140 (lines 25-66: 121 McLaren, 122 Ferrari, 123 Williams, 124 Jordan, 125 Sauber, 126 Arrows, 127 Prost, 128 Minardi, 129 off_5C25E0, 130 Jaguar); zero DriverDataTable or InsertDriverTable in both files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_414600 (functions/sub_414600_00414600.c)",
+     "result": "calls DriverNameIDLookup and FilePathExtensionCheck; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (functions/EnumValueTranslation_00414010.c)",
+     "result": "SDT route only: case k writes SDT 112+k (lines 31-58; case 8 -> 120 ... case 17 -> 129); callers SoundEventDispatcher sub_411E90 (types 0x11/0x34 with a3[5]) and FontCharacterRenderDispatcher sub_411DB0 (type 9876, a5 1..2). The template that supplies enum value k is UNKNOWN",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_455580 (functions/sub_455580_00455580.c)",
+     "result": "126 at line 411 is a character-code mapping (case 0x29), not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_58E4D2 (functions/sub_58E4D2_0058e4d2.c)",
+     "result": "120 at line 270 is a decoder field, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "BufferChecksumValidator (functions/BufferChecksumValidator_00539600.c)",
+     "result": "121 at line 30 is a buffer constant, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690 (functions/MainGameTickUpdate_0042c690.c)",
+     "result": "lines 86-87: if !(player+13000) then sub_4BCCC0(0.025) on each sim step; SDK callers GamePostMainLoop 0x42D8A0 and StateTriggerCheck 0x4B8AE0",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4BCCC0 blue-flag monitor (functions/sub_4BCCC0_004bccc0.c)",
+     "result": "265 clear if player+13388, RacePhase!=5, |v68|>=8.0 or v45|v46 (x87 compare, UNKNOWN); 353 clear if flag off, this[54] changed or SessionType!=7 (qualifying never reaches the emit); 362/367/371 PSM a6=1/3/2; 379-381 30 s ignored-blue-flag penalty, sub_41A720, timer reset",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "PitSelectionStateMachine sub_41B3C0 (functions/PitSelectionStateMachine_0041b3c0.c)",
+     "result": "gate line 3: dword_7D0308 && flt_7CF3C8!=0 && !(player+13388) && RacePhase!=8; case 5 (lines 153-170) is player only (dword_7C54E8==a5): a6=1 emits 123 (line 159); a6=2 cancels 123 (162) and emits 124 (163); a6=3 cancels 123,124 (166-167) and emits 125 (168)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ClearPitSelectionFlags sub_41B910 (functions/ClearPitSelectionFlags_0041b910.c)",
+     "result": "a1==5: BooleanOR cancels 123,124,125 (lines 5-7); called by sub_4BCCC0 when the blue-flag ends",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4D1730 (functions/sub_4D1730_004d1730.c)",
+     "result": "line 87 calls PSM with a table state v13; whether v13 can equal 5 is UNKNOWN (table writers not enumerated); SDK callers sub_4D1D80 <- sub_4D4580 <- GamePostMainLoop/StateTriggerCheck",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ConditionalFieldSetter sub_4BC2F0 (functions/ConditionalFieldSetter_004bc2f0.c)",
+     "result": "if this+44 changes, calls AIDriverStateTransition(dword_5EB978, *this, old, new): the only route into eid 120",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "AIDriverSorting sub_4BF390 and callers",
+     "result": "callers: EngineFailureCheck sub_4BEC55 (SDK callers none), AIBehaviorInitialization sub_4BF0A0 <- AIOvertake sub_4BEB10 <- sub_46BF10 <- DispatchChainWithVTableCalls sub_46DA20 / sub_46DC60 (root UNKNOWN), AITickUpdate sub_4BF4F0 (SDK callers none). The per-frame root of the eid 120 route is NOT resolved",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4F1FE0 retire path (functions/sub_4F1FE0_004f1fe0.c)",
+     "result": "line 33 FinishState veh+0x4064; line 36 AI branch; line 90 return if dword_7CE814 (player branch); line 104 return if v12==4 && |this[3685]|>0.1; line 107 sub_4D21D0 race phase; line 109 !DistanceComparison; line 113 dwell > flt_7D0A8C (10.0 live); line 135 sub_41B250 call (only caller)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40 (dossier call tree)",
+     "result": "calls sub_4F1FE0 every 50 ticks per the dossier; not re-read in full for this audit",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "mechanical_failures 1.0.7 release source (development/mods/mechanical_failures/releases/v1.0.7/src/engine_failure.c)",
+     "result": "line 527 #define EID_RETIRE04 119; lines 565 and 570 radio_req(MFR_P_DEATH) on engine death; line 591 dropped when not driving; radio_pump 1543-1555 calls commentary_say(eid) unless mfv_line_of_eid(eid)>=0 (119 is not an MFV line; mf_voice.h:146 lists 119 as vanilla-in-use); commentary_say 3991 posts to the game thread, commentary_say_now 465 queues the event (refuses FLT_MAX cooldown); death_blowup_say 608/645 keeps the vanilla RETIRE04 in a race",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "player_retire_commentary (candidate, folder release-aligned-1.0.1-dev)",
+     "result": "emits 117/118/119 by ReasonCode through its own path; NOT in the owner plugins list (no player_retire* file under plugins\\lightloader)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "pitstop_failures 1.1.4-rc.1 census (ERE/data/modded_lines.json)",
+     "result": "census rows for eids 118-129: only 117 (pit_commentary.c:1477 wheel-jam retire); no 118-129 OVERTAKE/AILAPPIN/RETIRE04 rows from pit mod",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "owner exe cooldown table (PE read, read-only)",
+     "result": "F1 Challenge Online.exe in the 99-02 folder: cooldown at 0x5BF9A0+eid*0x14+0x0C: 118 = 6.0 (0x5C02E4), 119 = 6.0 (0x5C02F8), 120 = 10.0, 121 = 1.0, 122 = 1.0, 123 = 45.0, 124 = 45.0, 125 = 45.0, 126 = 5.0; clean VM exe: 118 and 119 FLT_MAX, 120-125 equal to the owner exe. Which exe runs live is UNKNOWN (a modified exe is also in the folder)",
+     "line": "reachability / gate evidence"
+    }
+   ]
+  },
+  {
+   "sdt_index": 121,
+   "eid": 119,
+   "clip": "PWS_RETIRE04",
+   "says": "Player blown engine",
+   "score": 117,
+   "cooldown": 6.0,
+   "cooldown_source": "owner exe 0x5C02F8 = 6.0; dump 6.0; clean VM exe FLT_MAX (commentary_say_now would refuse)",
+   "verdict": "MOD_ONLY",
+   "reason": "",
+   "situation": "Race (SessionType 7): the player's engine is blown (Mechanical Failures engine death). MF 1.0.7 queues eid 119 natively and the game plays SDT 121. Outside a race MF plays DEAD01/02 instead (death_blowup_say).",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": true,
+   "suppressed_note": "sub_41B250:15 emits 119 on ReasonCode==1 inside the same FinishState==0 arm of sub_4F1FE0 (unreachable, findings.jsonl:99). The owner-game line comes from MF 1.0.7 radio_req, not from this branch.",
+   "emitters": [
+    "mechanical_failures 1.0.7 engine_failure.c:570 radio_req(EID_RETIRE04) (development/mods/mechanical_failures/releases/v1.0.7/src/engine_failure.c; define at :527)",
+    "sub_41B250 (functions/sub_41B250_0041b250.c:15) native, unreachable"
+   ],
+   "call_path": "MF engine death -> radio_req (release src 1517 region) -> radio_pump (1543) -> commentary_say(119) (3991) -> broker post -> commentary_say_now (465; queues CM_QHEAD eid 119 with table score 117 = SDT 121)",
+   "gates": [
+    "MF radio_req: on_circuit() else dropped",
+    "MF radio_req: non-death prio dropped if the engine is finished (DEATH prio passes)",
+    "MF radio_pump: mfv_line_of_eid(119) = -1 (no WAV), so commentary_say(119) runs",
+    "commentary_say_now: !on_circuit drop; cooldown FLT_MAX refuse (owner exe 6.0 passes)",
+    "death_blowup_say: race (0x7C56A4==7) keeps vanilla RETIRE04; voice on + non-race uses DEAD01/02"
+   ],
+   "mod": "mechanical_failures 1.0.7 (installed and loaded: plugins\\lightloader\\mechanical_failures.dll; engine family live per DD-19); also in player_retire_commentary candidate (not loaded)",
+   "heard_evidence": "ERE/data/modded_lines.json row 119 mechanical_failures: live_verified 'unknown (MF owner live checks pending)'; triage 'Z, when players engine overheats' play=false (the text does not match the engine-death trigger)",
+   "tier": "DERIVED",
+   "notes": "The only row in this batch that changes bucket: the vanilla clip IS queued by an installed mod. It is not token_only: eid 119 is queued directly and MF borrows no WAV for it. The owner's triage says 'overheats' but the code path is engine death; flag to the owner. ERE must not queue 119 (DD-07).",
+   "play_plan": {
+    "meaning": "The engine has blown up in a race: the engineer says the engine is blown.",
+    "when_it_should_play": "Already played by MF 1.0.7 on engine death in a race. No new trigger is needed.",
+    "trigger": "MF engine death (existing). The native reason-1 path stays unreachable (see suppressed_note).",
+    "subject": "player (-1)",
+    "technique": "owned_by_other_mod (MF 1.0.7 radio_req(119)). If MF were disabled the native path is still closed by the FinishState==0 window; the lift would be the 118 plan (lift_suppression)",
+    "latch_cooldown": "MF latch g_retire_fired (one per retirement)",
+    "must_not_play_when": "non-race sessions (MF uses DEAD01/02); engine already finished (MF drops non-death lines)",
+    "conflicts": "player_retire_commentary candidate also wires 119 by ReasonCode 1 (candidate only, not loaded); ERE must not queue 119 (DD-07)",
+    "calibration": "none",
+    "live_test": "owner blows an engine in a race with MF 1.0.7 loaded; check the MF log for 'RADIO REQ eid 119' and hear the line",
+    "confidence": "DERIVED (static MF source; live check pending per census)"
+   },
+   "checked": [
+    {
+     "function": "sub_41B250 (literal 119 emitter)",
+     "result": "emits 119 on player + ReasonCode 1 + race; unreachable in live runs",
+     "line": "functions/sub_41B250_0041b250.c:8,9,15"
+    },
+    {
+     "function": "mechanical_failures 1.0.7 engine_failure.c",
+     "result": "emits 119 via radio_req(EID_RETIRE04, MFR_P_DEATH) on engine death; native commentary_say(119)",
+     "line": "development/mods/mechanical_failures/releases/v1.0.7/src/engine_failure.c:527,565,570"
+    },
+    {
+     "function": "MF radio_pump / commentary_say",
+     "result": "119 is not in MFV lines so no WAV; native commentary_say(119) queued",
+     "line": "releases/v1.0.7/src/engine_failure.c:1543-1555,3991; mf_voice.h:146"
+    },
+    {
+     "function": "pitstop_failures census",
+     "result": "no 119 row",
+     "line": "ERE/data/modded_lines.json"
+    },
+    {
+     "function": "live negatives",
+     "result": "native reason-1 path never reached live",
+     "line": "f1c_ida_decompiled/findings.jsonl:99"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (emits {120,259,198} at lines 37,39,57,59)",
+     "line": "functions/AIDriverStateTransition_00419120.c"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (emits {6,180,181,182} at line 24 and switch 1-3)",
+     "line": "functions/AIFormationLap_0041a3a0.c"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (emits {3,4,5,10,16,33,72,262} at line 61; v5 default 5)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (emits {42,52} at line 15)",
+     "line": "functions/AIPitStrategyState_0041a200.c"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (emits {7,8,9,17,18} at lines 36,48; body needs dword_7C56A4==5 (qualifying only))",
+     "line": "functions/AIPositionChangeEvent_004198b0.c"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (emits {21,22,178,179} at line 36, then calls AIPositionChangeEvent)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (emits {52,196} at line 19)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (emits {157-177,158,159,260,261} at lines 113 and the track map)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (emits {397,516-519,523,526,527,530-533} at line 127 (v6 chain lines 29-118))",
+     "line": "functions/PitExit_0041c0f0.c"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid = sub_4203D0 result (track ids 355-363; ThunkToFUN004201e0_004203d0.c) at line 26)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (emits {397,447-477 track map,454,455,456,459,460,461,465,474,476} at lines 107,148,158,173,191-226)",
+     "line": "functions/RaceCommentary_0041d630.c"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (emits {293-336} at line 189)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (emits {34,35,276,277,278,279} at line 25 region)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c"
+    },
+    {
+     "function": "sub_41A720 (penalty text)",
+     "result": "cannot produce this eid (emits {151,153,154,155,252,253,254,256}; BooleanOR cancels 123,124,125 at lines 29-31 for aIgnoredBlueFla)",
+     "line": "functions/sub_41A720_0041a720.c"
+    },
+    {
+     "function": "sub_41A940 (stop-go)",
+     "result": "cannot produce this eid (emits {149,243} at line 15)",
+     "line": "functions/sub_41A940_0041a940.c"
+    },
+    {
+     "function": "sub_41AC50 (AI state)",
+     "result": "cannot produce this eid (emits {208,211-217,220})",
+     "line": "functions/sub_41AC50_0041ac50.c"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce this eid (eid = sub_420000 (338-354) or sub_4203D0 (355+) at line 16)",
+     "line": "functions/sub_41C440_0041c440.c"
+    },
+    {
+     "function": "sub_41B250 (retire emitter)",
+     "result": "emits this eid: emits 119 on ReasonCode==1 (line 15) inside the sub_4F1FE0 FinishState==0 arm",
+     "line": "functions/sub_41B250_0041b250.c"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (functions/DriverNameIDLookup_00415d90.c)",
+     "result": "name-table value written to a1+8 (lines 43,91,224,263,311,423,444,746; e.g. 444 'a4!=0 ? 274 : 120', 311 'a4!=0 ? 272 : 118', 224 'a4!=0 ? 273 : 119'); the file has no DriverDataTable or InsertDriverTable call; consumer sub_414600 only loads files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417640 (functions/sub_417640_00417640.c)",
+     "result": "offset arithmetic +124 (lines 18,23,100), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "NameListBuilderFromVehicleArray (functions/NameListBuilderFromVehicleArray_004159b0.c)",
+     "result": "offset +124 (lines 47,180), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "SessionStringNameLookup (functions/SessionStringNameLookup_004122c0.c)",
+     "result": "offsets +124 (line 24) and +116 (line 37), not eids; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417AF0 and sub_414A90 (functions/sub_417AF0_00417af0.c, sub_414A90_00414a90.c)",
+     "result": "team-name file ids 121-140 (lines 25-66: 121 McLaren, 122 Ferrari, 123 Williams, 124 Jordan, 125 Sauber, 126 Arrows, 127 Prost, 128 Minardi, 129 off_5C25E0, 130 Jaguar); zero DriverDataTable or InsertDriverTable in both files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_414600 (functions/sub_414600_00414600.c)",
+     "result": "calls DriverNameIDLookup and FilePathExtensionCheck; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (functions/EnumValueTranslation_00414010.c)",
+     "result": "SDT route only: case k writes SDT 112+k (lines 31-58; case 8 -> 120 ... case 17 -> 129); callers SoundEventDispatcher sub_411E90 (types 0x11/0x34 with a3[5]) and FontCharacterRenderDispatcher sub_411DB0 (type 9876, a5 1..2). The template that supplies enum value k is UNKNOWN",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_455580 (functions/sub_455580_00455580.c)",
+     "result": "126 at line 411 is a character-code mapping (case 0x29), not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_58E4D2 (functions/sub_58E4D2_0058e4d2.c)",
+     "result": "120 at line 270 is a decoder field, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "BufferChecksumValidator (functions/BufferChecksumValidator_00539600.c)",
+     "result": "121 at line 30 is a buffer constant, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690 (functions/MainGameTickUpdate_0042c690.c)",
+     "result": "lines 86-87: if !(player+13000) then sub_4BCCC0(0.025) on each sim step; SDK callers GamePostMainLoop 0x42D8A0 and StateTriggerCheck 0x4B8AE0",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4BCCC0 blue-flag monitor (functions/sub_4BCCC0_004bccc0.c)",
+     "result": "265 clear if player+13388, RacePhase!=5, |v68|>=8.0 or v45|v46 (x87 compare, UNKNOWN); 353 clear if flag off, this[54] changed or SessionType!=7 (qualifying never reaches the emit); 362/367/371 PSM a6=1/3/2; 379-381 30 s ignored-blue-flag penalty, sub_41A720, timer reset",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "PitSelectionStateMachine sub_41B3C0 (functions/PitSelectionStateMachine_0041b3c0.c)",
+     "result": "gate line 3: dword_7D0308 && flt_7CF3C8!=0 && !(player+13388) && RacePhase!=8; case 5 (lines 153-170) is player only (dword_7C54E8==a5): a6=1 emits 123 (line 159); a6=2 cancels 123 (162) and emits 124 (163); a6=3 cancels 123,124 (166-167) and emits 125 (168)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ClearPitSelectionFlags sub_41B910 (functions/ClearPitSelectionFlags_0041b910.c)",
+     "result": "a1==5: BooleanOR cancels 123,124,125 (lines 5-7); called by sub_4BCCC0 when the blue-flag ends",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4D1730 (functions/sub_4D1730_004d1730.c)",
+     "result": "line 87 calls PSM with a table state v13; whether v13 can equal 5 is UNKNOWN (table writers not enumerated); SDK callers sub_4D1D80 <- sub_4D4580 <- GamePostMainLoop/StateTriggerCheck",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ConditionalFieldSetter sub_4BC2F0 (functions/ConditionalFieldSetter_004bc2f0.c)",
+     "result": "if this+44 changes, calls AIDriverStateTransition(dword_5EB978, *this, old, new): the only route into eid 120",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "AIDriverSorting sub_4BF390 and callers",
+     "result": "callers: EngineFailureCheck sub_4BEC55 (SDK callers none), AIBehaviorInitialization sub_4BF0A0 <- AIOvertake sub_4BEB10 <- sub_46BF10 <- DispatchChainWithVTableCalls sub_46DA20 / sub_46DC60 (root UNKNOWN), AITickUpdate sub_4BF4F0 (SDK callers none). The per-frame root of the eid 120 route is NOT resolved",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4F1FE0 retire path (functions/sub_4F1FE0_004f1fe0.c)",
+     "result": "line 33 FinishState veh+0x4064; line 36 AI branch; line 90 return if dword_7CE814 (player branch); line 104 return if v12==4 && |this[3685]|>0.1; line 107 sub_4D21D0 race phase; line 109 !DistanceComparison; line 113 dwell > flt_7D0A8C (10.0 live); line 135 sub_41B250 call (only caller)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40 (dossier call tree)",
+     "result": "calls sub_4F1FE0 every 50 ticks per the dossier; not re-read in full for this audit",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "mechanical_failures 1.0.7 release source (development/mods/mechanical_failures/releases/v1.0.7/src/engine_failure.c)",
+     "result": "line 527 #define EID_RETIRE04 119; lines 565 and 570 radio_req(MFR_P_DEATH) on engine death; line 591 dropped when not driving; radio_pump 1543-1555 calls commentary_say(eid) unless mfv_line_of_eid(eid)>=0 (119 is not an MFV line; mf_voice.h:146 lists 119 as vanilla-in-use); commentary_say 3991 posts to the game thread, commentary_say_now 465 queues the event (refuses FLT_MAX cooldown); death_blowup_say 608/645 keeps the vanilla RETIRE04 in a race",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "player_retire_commentary (candidate, folder release-aligned-1.0.1-dev)",
+     "result": "emits 117/118/119 by ReasonCode through its own path; NOT in the owner plugins list (no player_retire* file under plugins\\lightloader)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "pitstop_failures 1.1.4-rc.1 census (ERE/data/modded_lines.json)",
+     "result": "census rows for eids 118-129: only 117 (pit_commentary.c:1477 wheel-jam retire); no 118-129 OVERTAKE/AILAPPIN/RETIRE04 rows from pit mod",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "owner exe cooldown table (PE read, read-only)",
+     "result": "F1 Challenge Online.exe in the 99-02 folder: cooldown at 0x5BF9A0+eid*0x14+0x0C: 118 = 6.0 (0x5C02E4), 119 = 6.0 (0x5C02F8), 120 = 10.0, 121 = 1.0, 122 = 1.0, 123 = 45.0, 124 = 45.0, 125 = 45.0, 126 = 5.0; clean VM exe: 118 and 119 FLT_MAX, 120-125 equal to the owner exe. Which exe runs live is UNKNOWN (a modified exe is also in the folder)",
+     "line": "reachability / gate evidence"
+    }
+   ]
+  },
+  {
+   "sdt_index": 122,
+   "eid": 120,
+   "clip": "PWS_OVERTAKE01",
+   "says": "Player overtakes AI (1)",
+   "score": 118,
+   "cooldown": 10.0,
+   "cooldown_source": "owner exe 0x5C030C = 10.0; dump 10.0; clean VM exe same",
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "",
+   "situation": "Race (SessionType 7), after lap 1: the player gains a place by passing the AI car now in the new position (subject = that AI driver); at most one per 2 s; random table draws must pass (about 0.75 x 0.75 at face value; the remainder goes to eid 259). Also deterministic when the player takes P1 (lines 47-59, subject position 1).",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "AIDriverStateTransition (functions/AIDriverStateTransition_00419120.c:37 gain; :59 P1 via v11=120)"
+   ],
+   "call_path": "AIDriverStateTransition <- sub_4BC2F0 ConditionalFieldSetter (when this+44 changes) <- AIDriverSorting sub_4BF390 <- AIOvertake sub_4BEB10 <- sub_46BF10 <- DispatchChainWithVTableCalls sub_46DA20 / sub_46DC60 (per-frame root NOT resolved)",
+   "gates": [
+    "AIDriverStateTransition:14-18 dword_7D0308 && flt_7CF3C8!=0 && dword_7C56A8!=8 && LODWORD(this[player+108])!=a4 && a3!=a4",
+    "line 19 a4!=1; line 21 a4<a3 (gain)",
+    "line 23-24 car at position a4 (sub_4D1B50): !v5[13388] && !v5[4121] && a2[4111]>=1 (lap 1 done)",
+    "line 26 x87 compare (v7|v8): UNKNOWN (Hex-Rays drops it)",
+    "line 28 dbl_8AFEA0 - 2.0 > this[player+319] (2 s)",
+    "line 30 flt_8AAE74 draw v9<0.75; line 35 draw v10>=0.25, else 259 (line 39)",
+    "lines 47-59 P1 branch: cancel 259/120 then emit 120 subject 1; no random or 2 s gate",
+    "race only: dword_7C56A4==7 (line 14 region)"
+   ],
+   "mod": "",
+   "heard_evidence": "ERE/data/line_trace/122_PWS_OVERTAKE01.json voice_index_row.note: REVERTED 2026-07-28 - owner never heard this clip fire in real play; emitter 'live and not a menu trap' (SPEC_EVF-008)",
+   "tier": "DERIVED",
+   "notes": "Race only. Not modded in the owner game. Open: x87 gate at line 26 (read the asm before a live test), random table flt_8AAE74 contents, root of the AIOvertake chain. The owner has not heard it.",
+   "checked": [
+    {
+     "function": "AIDriverStateTransition (literal 120 emitter)",
+     "result": "emits 120 on race gain (line 37, subject a4) and on P1 (line 59, subject 1)",
+     "line": "functions/AIDriverStateTransition_00419120.c:37,59"
+    },
+    {
+     "function": "ConditionalFieldSetter sub_4BC2F0",
+     "result": "the only route into AIDriverStateTransition for a player position change",
+     "line": "functions/ConditionalFieldSetter_004bc2f0.c"
+    },
+    {
+     "function": "EnumValueTranslation (SDT 122 at case 10)",
+     "result": "not evidence: case 10 writes PC_RE_STITCH index 122; PC_RE_MAIN clip 122 plays only through its score 118 row (SUB-CLIP BANK FACT)",
+     "line": "functions/EnumValueTranslation_00414010.c:37"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "emits this eid: emits 120 on player position gain (line 37, subject = AI car at new position a4) and on player P1 (line 59 via v11=120, subject 1)",
+     "line": "functions/AIDriverStateTransition_00419120.c"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (emits {6,180,181,182} at line 24 and switch 1-3)",
+     "line": "functions/AIFormationLap_0041a3a0.c"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (emits {3,4,5,10,16,33,72,262} at line 61; v5 default 5)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (emits {42,52} at line 15)",
+     "line": "functions/AIPitStrategyState_0041a200.c"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (emits {7,8,9,17,18} at lines 36,48; body needs dword_7C56A4==5 (qualifying only))",
+     "line": "functions/AIPositionChangeEvent_004198b0.c"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (emits {21,22,178,179} at line 36, then calls AIPositionChangeEvent)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (emits {52,196} at line 19)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (emits {157-177,158,159,260,261} at lines 113 and the track map)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (emits {397,516-519,523,526,527,530-533} at line 127 (v6 chain lines 29-118))",
+     "line": "functions/PitExit_0041c0f0.c"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid = sub_4203D0 result (track ids 355-363; ThunkToFUN004201e0_004203d0.c) at line 26)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (emits {397,447-477 track map,454,455,456,459,460,461,465,474,476} at lines 107,148,158,173,191-226)",
+     "line": "functions/RaceCommentary_0041d630.c"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (emits {293-336} at line 189)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (emits {34,35,276,277,278,279} at line 25 region)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c"
+    },
+    {
+     "function": "sub_41A720 (penalty text)",
+     "result": "cannot produce this eid (emits {151,153,154,155,252,253,254,256}; BooleanOR cancels 123,124,125 at lines 29-31 for aIgnoredBlueFla)",
+     "line": "functions/sub_41A720_0041a720.c"
+    },
+    {
+     "function": "sub_41A940 (stop-go)",
+     "result": "cannot produce this eid (emits {149,243} at line 15)",
+     "line": "functions/sub_41A940_0041a940.c"
+    },
+    {
+     "function": "sub_41AC50 (AI state)",
+     "result": "cannot produce this eid (emits {208,211-217,220})",
+     "line": "functions/sub_41AC50_0041ac50.c"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce this eid (eid = sub_420000 (338-354) or sub_4203D0 (355+) at line 16)",
+     "line": "functions/sub_41C440_0041c440.c"
+    },
+    {
+     "function": "sub_41B250 (retire emitter)",
+     "result": "cannot produce this eid (emits {117,118,119} at lines 15,19,23 (plus 236,237,238 at lines 45,47,53))",
+     "line": "functions/sub_41B250_0041b250.c"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (functions/DriverNameIDLookup_00415d90.c)",
+     "result": "name-table value written to a1+8 (lines 43,91,224,263,311,423,444,746; e.g. 444 'a4!=0 ? 274 : 120', 311 'a4!=0 ? 272 : 118', 224 'a4!=0 ? 273 : 119'); the file has no DriverDataTable or InsertDriverTable call; consumer sub_414600 only loads files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417640 (functions/sub_417640_00417640.c)",
+     "result": "offset arithmetic +124 (lines 18,23,100), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "NameListBuilderFromVehicleArray (functions/NameListBuilderFromVehicleArray_004159b0.c)",
+     "result": "offset +124 (lines 47,180), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "SessionStringNameLookup (functions/SessionStringNameLookup_004122c0.c)",
+     "result": "offsets +124 (line 24) and +116 (line 37), not eids; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417AF0 and sub_414A90 (functions/sub_417AF0_00417af0.c, sub_414A90_00414a90.c)",
+     "result": "team-name file ids 121-140 (lines 25-66: 121 McLaren, 122 Ferrari, 123 Williams, 124 Jordan, 125 Sauber, 126 Arrows, 127 Prost, 128 Minardi, 129 off_5C25E0, 130 Jaguar); zero DriverDataTable or InsertDriverTable in both files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_414600 (functions/sub_414600_00414600.c)",
+     "result": "calls DriverNameIDLookup and FilePathExtensionCheck; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (functions/EnumValueTranslation_00414010.c)",
+     "result": "SDT route only: case k writes SDT 112+k (lines 31-58; case 8 -> 120 ... case 17 -> 129); callers SoundEventDispatcher sub_411E90 (types 0x11/0x34 with a3[5]) and FontCharacterRenderDispatcher sub_411DB0 (type 9876, a5 1..2). The template that supplies enum value k is UNKNOWN",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_455580 (functions/sub_455580_00455580.c)",
+     "result": "126 at line 411 is a character-code mapping (case 0x29), not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_58E4D2 (functions/sub_58E4D2_0058e4d2.c)",
+     "result": "120 at line 270 is a decoder field, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "BufferChecksumValidator (functions/BufferChecksumValidator_00539600.c)",
+     "result": "121 at line 30 is a buffer constant, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690 (functions/MainGameTickUpdate_0042c690.c)",
+     "result": "lines 86-87: if !(player+13000) then sub_4BCCC0(0.025) on each sim step; SDK callers GamePostMainLoop 0x42D8A0 and StateTriggerCheck 0x4B8AE0",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4BCCC0 blue-flag monitor (functions/sub_4BCCC0_004bccc0.c)",
+     "result": "265 clear if player+13388, RacePhase!=5, |v68|>=8.0 or v45|v46 (x87 compare, UNKNOWN); 353 clear if flag off, this[54] changed or SessionType!=7 (qualifying never reaches the emit); 362/367/371 PSM a6=1/3/2; 379-381 30 s ignored-blue-flag penalty, sub_41A720, timer reset",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "PitSelectionStateMachine sub_41B3C0 (functions/PitSelectionStateMachine_0041b3c0.c)",
+     "result": "gate line 3: dword_7D0308 && flt_7CF3C8!=0 && !(player+13388) && RacePhase!=8; case 5 (lines 153-170) is player only (dword_7C54E8==a5): a6=1 emits 123 (line 159); a6=2 cancels 123 (162) and emits 124 (163); a6=3 cancels 123,124 (166-167) and emits 125 (168)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ClearPitSelectionFlags sub_41B910 (functions/ClearPitSelectionFlags_0041b910.c)",
+     "result": "a1==5: BooleanOR cancels 123,124,125 (lines 5-7); called by sub_4BCCC0 when the blue-flag ends",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4D1730 (functions/sub_4D1730_004d1730.c)",
+     "result": "line 87 calls PSM with a table state v13; whether v13 can equal 5 is UNKNOWN (table writers not enumerated); SDK callers sub_4D1D80 <- sub_4D4580 <- GamePostMainLoop/StateTriggerCheck",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ConditionalFieldSetter sub_4BC2F0 (functions/ConditionalFieldSetter_004bc2f0.c)",
+     "result": "if this+44 changes, calls AIDriverStateTransition(dword_5EB978, *this, old, new): the only route into eid 120",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "AIDriverSorting sub_4BF390 and callers",
+     "result": "callers: EngineFailureCheck sub_4BEC55 (SDK callers none), AIBehaviorInitialization sub_4BF0A0 <- AIOvertake sub_4BEB10 <- sub_46BF10 <- DispatchChainWithVTableCalls sub_46DA20 / sub_46DC60 (root UNKNOWN), AITickUpdate sub_4BF4F0 (SDK callers none). The per-frame root of the eid 120 route is NOT resolved",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4F1FE0 retire path (functions/sub_4F1FE0_004f1fe0.c)",
+     "result": "line 33 FinishState veh+0x4064; line 36 AI branch; line 90 return if dword_7CE814 (player branch); line 104 return if v12==4 && |this[3685]|>0.1; line 107 sub_4D21D0 race phase; line 109 !DistanceComparison; line 113 dwell > flt_7D0A8C (10.0 live); line 135 sub_41B250 call (only caller)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40 (dossier call tree)",
+     "result": "calls sub_4F1FE0 every 50 ticks per the dossier; not re-read in full for this audit",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "mechanical_failures 1.0.7 release source (development/mods/mechanical_failures/releases/v1.0.7/src/engine_failure.c)",
+     "result": "line 527 #define EID_RETIRE04 119; lines 565 and 570 radio_req(MFR_P_DEATH) on engine death; line 591 dropped when not driving; radio_pump 1543-1555 calls commentary_say(eid) unless mfv_line_of_eid(eid)>=0 (119 is not an MFV line; mf_voice.h:146 lists 119 as vanilla-in-use); commentary_say 3991 posts to the game thread, commentary_say_now 465 queues the event (refuses FLT_MAX cooldown); death_blowup_say 608/645 keeps the vanilla RETIRE04 in a race",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "player_retire_commentary (candidate, folder release-aligned-1.0.1-dev)",
+     "result": "emits 117/118/119 by ReasonCode through its own path; NOT in the owner plugins list (no player_retire* file under plugins\\lightloader)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "pitstop_failures 1.1.4-rc.1 census (ERE/data/modded_lines.json)",
+     "result": "census rows for eids 118-129: only 117 (pit_commentary.c:1477 wheel-jam retire); no 118-129 OVERTAKE/AILAPPIN/RETIRE04 rows from pit mod",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "owner exe cooldown table (PE read, read-only)",
+     "result": "F1 Challenge Online.exe in the 99-02 folder: cooldown at 0x5BF9A0+eid*0x14+0x0C: 118 = 6.0 (0x5C02E4), 119 = 6.0 (0x5C02F8), 120 = 10.0, 121 = 1.0, 122 = 1.0, 123 = 45.0, 124 = 45.0, 125 = 45.0, 126 = 5.0; clean VM exe: 118 and 119 FLT_MAX, 120-125 equal to the owner exe. Which exe runs live is UNKNOWN (a modified exe is also in the folder)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "stitch recheck: sub-clip route removed; verdict unchanged",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NATIVE_ACTIVE",
+    "new_verdict": "NATIVE_ACTIVE",
+    "why": "Verdict rests on the native eid 120 emitter (AIDriverStateTransition:37) and the main-clip score 118 row. The EnumValueTranslation route was stitch-bank only and is removed as evidence; verdict unchanged."
+   }
+  },
+  {
+   "sdt_index": 123,
+   "eid": null,
+   "clip": "PWS_OVERTAKE02",
+   "says": "Player overtakes AI (2)",
+   "score": null,
+   "cooldown": null,
+   "cooldown_source": "no event row (dump: no eid maps to this sdt)",
+   "verdict": "NOT_ACTIVATED",
+   "reason": "orphan_clip",
+   "blocker": "no event row and no score maps to SDT 123 in the dump; no code queues any eid for it",
+   "situation": "",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "The race overtake trigger exists in AIDriverStateTransition but queues eid 120 only; nothing queues this clip.",
+   "emitters": [],
+   "call_path": "none (no emitter)",
+   "gates": [],
+   "mod": "",
+   "heard_evidence": "ERE/data/line_trace/123_PWS_OVERTAKE02.json voice_index_row.triage: EXISTS (inherited from 122); no heard record",
+   "tier": "CONFIRMED",
+   "notes": "Dump scores: 118 -> SDT 122, 119 -> SDT 125, 120 -> SDT 126; no score points at SDT 123 or 124 (findings.jsonl:71: 0 of 23 orphans targeted by any score; OVERTAKE02/03 siblings wired but not proven). No PC_RE_MAIN route: EnumValueTranslation case 11 (line 40) writes PC_RE_STITCH index 123, not this clip (SUB-CLIP BANK FACT).",
+   "play_plan": {
+    "meaning": "The player has overtaken an AI car: the engineer's alternate overtake acknowledgement (Player overtakes AI (2)), not stacked on top of PWS_OVERTAKE01.",
+    "when_it_should_play": "Race, after lap 1, the player gains a place by passing an AI car; used as an alternate of PWS_OVERTAKE01.",
+    "trigger": "same predicate as the eid 120 gain branch (AIDriverStateTransition lines 21-30); the variant is picked by a rotation counter or the random draw at line 30/35",
+    "subject": "AI driver at the new position a4 (veh+0x489C)",
+    "technique": "hook_native: substitute the queued eid at AIDriverStateTransition:37 with a carrier row whose score points to SDT 123. The PWS score->SDT table has NO entry for 123, so carrier_score alone cannot reach it",
+    "latch_cooldown": "shared with eid 120 (10 s)",
+    "must_not_play_when": "same as eid 120; never on top of 120 in the same pass",
+    "conflicts": "eid 120 (same branch); eid 259 random alternative",
+    "calibration": "PWS score->SDT table location and format: UNKNOWN in this audit",
+    "live_test": "owner passes an AI car after lap 1 in a race, after the table write is verified",
+    "confidence": "GUESS (no table write proven; alternate choice rule UNKNOWN)"
+   },
+   "checked": [
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce an eid that maps to this SDT: only 120/259/198 (lines 37,39,57,59)",
+     "line": "functions/AIDriverStateTransition_00419120.c:37,39,57,59"
+    },
+    {
+     "function": "EnumValueTranslation (SDT 123, case 11)",
+     "result": "not a route to PC_RE_MAIN clip 123: case 11 writes PC_RE_STITCH index 123 (SUB-CLIP BANK FACT)",
+     "line": "functions/EnumValueTranslation_00414010.c:40"
+    },
+    {
+     "function": "event dump scan",
+     "result": "no row with sdt_index 123; no score maps to it",
+     "line": "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json"
+    },
+    {
+     "function": "literal search of functions/*.c for this SDT index as a clip index",
+     "result": "only the EnumValueTranslation case; no DriverDataTable call",
+     "line": "functions/*.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (emits {120,259,198} at lines 37,39,57,59)",
+     "line": "functions/AIDriverStateTransition_00419120.c"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (emits {6,180,181,182} at line 24 and switch 1-3)",
+     "line": "functions/AIFormationLap_0041a3a0.c"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (emits {3,4,5,10,16,33,72,262} at line 61; v5 default 5)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (emits {42,52} at line 15)",
+     "line": "functions/AIPitStrategyState_0041a200.c"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (emits {7,8,9,17,18} at lines 36,48; body needs dword_7C56A4==5 (qualifying only))",
+     "line": "functions/AIPositionChangeEvent_004198b0.c"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (emits {21,22,178,179} at line 36, then calls AIPositionChangeEvent)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (emits {52,196} at line 19)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (emits {157-177,158,159,260,261} at lines 113 and the track map)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (emits {397,516-519,523,526,527,530-533} at line 127 (v6 chain lines 29-118))",
+     "line": "functions/PitExit_0041c0f0.c"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid = sub_4203D0 result (track ids 355-363; ThunkToFUN004201e0_004203d0.c) at line 26)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (emits {397,447-477 track map,454,455,456,459,460,461,465,474,476} at lines 107,148,158,173,191-226)",
+     "line": "functions/RaceCommentary_0041d630.c"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (emits {293-336} at line 189)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (emits {34,35,276,277,278,279} at line 25 region)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c"
+    },
+    {
+     "function": "sub_41A720 (penalty text)",
+     "result": "cannot produce this eid (emits {151,153,154,155,252,253,254,256}; BooleanOR cancels 123,124,125 at lines 29-31 for aIgnoredBlueFla)",
+     "line": "functions/sub_41A720_0041a720.c"
+    },
+    {
+     "function": "sub_41A940 (stop-go)",
+     "result": "cannot produce this eid (emits {149,243} at line 15)",
+     "line": "functions/sub_41A940_0041a940.c"
+    },
+    {
+     "function": "sub_41AC50 (AI state)",
+     "result": "cannot produce this eid (emits {208,211-217,220})",
+     "line": "functions/sub_41AC50_0041ac50.c"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce this eid (eid = sub_420000 (338-354) or sub_4203D0 (355+) at line 16)",
+     "line": "functions/sub_41C440_0041c440.c"
+    },
+    {
+     "function": "sub_41B250 (retire emitter)",
+     "result": "cannot produce this eid (emits {117,118,119} at lines 15,19,23 (plus 236,237,238 at lines 45,47,53))",
+     "line": "functions/sub_41B250_0041b250.c"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (functions/DriverNameIDLookup_00415d90.c)",
+     "result": "name-table value written to a1+8 (lines 43,91,224,263,311,423,444,746; e.g. 444 'a4!=0 ? 274 : 120', 311 'a4!=0 ? 272 : 118', 224 'a4!=0 ? 273 : 119'); the file has no DriverDataTable or InsertDriverTable call; consumer sub_414600 only loads files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417640 (functions/sub_417640_00417640.c)",
+     "result": "offset arithmetic +124 (lines 18,23,100), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "NameListBuilderFromVehicleArray (functions/NameListBuilderFromVehicleArray_004159b0.c)",
+     "result": "offset +124 (lines 47,180), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "SessionStringNameLookup (functions/SessionStringNameLookup_004122c0.c)",
+     "result": "offsets +124 (line 24) and +116 (line 37), not eids; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417AF0 and sub_414A90 (functions/sub_417AF0_00417af0.c, sub_414A90_00414a90.c)",
+     "result": "team-name file ids 121-140 (lines 25-66: 121 McLaren, 122 Ferrari, 123 Williams, 124 Jordan, 125 Sauber, 126 Arrows, 127 Prost, 128 Minardi, 129 off_5C25E0, 130 Jaguar); zero DriverDataTable or InsertDriverTable in both files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_414600 (functions/sub_414600_00414600.c)",
+     "result": "calls DriverNameIDLookup and FilePathExtensionCheck; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (functions/EnumValueTranslation_00414010.c)",
+     "result": "SDT route only: case k writes SDT 112+k (lines 31-58; case 8 -> 120 ... case 17 -> 129); callers SoundEventDispatcher sub_411E90 (types 0x11/0x34 with a3[5]) and FontCharacterRenderDispatcher sub_411DB0 (type 9876, a5 1..2). The template that supplies enum value k is UNKNOWN",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_455580 (functions/sub_455580_00455580.c)",
+     "result": "126 at line 411 is a character-code mapping (case 0x29), not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_58E4D2 (functions/sub_58E4D2_0058e4d2.c)",
+     "result": "120 at line 270 is a decoder field, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "BufferChecksumValidator (functions/BufferChecksumValidator_00539600.c)",
+     "result": "121 at line 30 is a buffer constant, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690 (functions/MainGameTickUpdate_0042c690.c)",
+     "result": "lines 86-87: if !(player+13000) then sub_4BCCC0(0.025) on each sim step; SDK callers GamePostMainLoop 0x42D8A0 and StateTriggerCheck 0x4B8AE0",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4BCCC0 blue-flag monitor (functions/sub_4BCCC0_004bccc0.c)",
+     "result": "265 clear if player+13388, RacePhase!=5, |v68|>=8.0 or v45|v46 (x87 compare, UNKNOWN); 353 clear if flag off, this[54] changed or SessionType!=7 (qualifying never reaches the emit); 362/367/371 PSM a6=1/3/2; 379-381 30 s ignored-blue-flag penalty, sub_41A720, timer reset",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "PitSelectionStateMachine sub_41B3C0 (functions/PitSelectionStateMachine_0041b3c0.c)",
+     "result": "gate line 3: dword_7D0308 && flt_7CF3C8!=0 && !(player+13388) && RacePhase!=8; case 5 (lines 153-170) is player only (dword_7C54E8==a5): a6=1 emits 123 (line 159); a6=2 cancels 123 (162) and emits 124 (163); a6=3 cancels 123,124 (166-167) and emits 125 (168)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ClearPitSelectionFlags sub_41B910 (functions/ClearPitSelectionFlags_0041b910.c)",
+     "result": "a1==5: BooleanOR cancels 123,124,125 (lines 5-7); called by sub_4BCCC0 when the blue-flag ends",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4D1730 (functions/sub_4D1730_004d1730.c)",
+     "result": "line 87 calls PSM with a table state v13; whether v13 can equal 5 is UNKNOWN (table writers not enumerated); SDK callers sub_4D1D80 <- sub_4D4580 <- GamePostMainLoop/StateTriggerCheck",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ConditionalFieldSetter sub_4BC2F0 (functions/ConditionalFieldSetter_004bc2f0.c)",
+     "result": "if this+44 changes, calls AIDriverStateTransition(dword_5EB978, *this, old, new): the only route into eid 120",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "AIDriverSorting sub_4BF390 and callers",
+     "result": "callers: EngineFailureCheck sub_4BEC55 (SDK callers none), AIBehaviorInitialization sub_4BF0A0 <- AIOvertake sub_4BEB10 <- sub_46BF10 <- DispatchChainWithVTableCalls sub_46DA20 / sub_46DC60 (root UNKNOWN), AITickUpdate sub_4BF4F0 (SDK callers none). The per-frame root of the eid 120 route is NOT resolved",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4F1FE0 retire path (functions/sub_4F1FE0_004f1fe0.c)",
+     "result": "line 33 FinishState veh+0x4064; line 36 AI branch; line 90 return if dword_7CE814 (player branch); line 104 return if v12==4 && |this[3685]|>0.1; line 107 sub_4D21D0 race phase; line 109 !DistanceComparison; line 113 dwell > flt_7D0A8C (10.0 live); line 135 sub_41B250 call (only caller)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40 (dossier call tree)",
+     "result": "calls sub_4F1FE0 every 50 ticks per the dossier; not re-read in full for this audit",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "mechanical_failures 1.0.7 release source (development/mods/mechanical_failures/releases/v1.0.7/src/engine_failure.c)",
+     "result": "line 527 #define EID_RETIRE04 119; lines 565 and 570 radio_req(MFR_P_DEATH) on engine death; line 591 dropped when not driving; radio_pump 1543-1555 calls commentary_say(eid) unless mfv_line_of_eid(eid)>=0 (119 is not an MFV line; mf_voice.h:146 lists 119 as vanilla-in-use); commentary_say 3991 posts to the game thread, commentary_say_now 465 queues the event (refuses FLT_MAX cooldown); death_blowup_say 608/645 keeps the vanilla RETIRE04 in a race",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "player_retire_commentary (candidate, folder release-aligned-1.0.1-dev)",
+     "result": "emits 117/118/119 by ReasonCode through its own path; NOT in the owner plugins list (no player_retire* file under plugins\\lightloader)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "pitstop_failures 1.1.4-rc.1 census (ERE/data/modded_lines.json)",
+     "result": "census rows for eids 118-129: only 117 (pit_commentary.c:1477 wheel-jam retire); no 118-129 OVERTAKE/AILAPPIN/RETIRE04 rows from pit mod",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "owner exe cooldown table (PE read, read-only)",
+     "result": "F1 Challenge Online.exe in the 99-02 folder: cooldown at 0x5BF9A0+eid*0x14+0x0C: 118 = 6.0 (0x5C02E4), 119 = 6.0 (0x5C02F8), 120 = 10.0, 121 = 1.0, 122 = 1.0, 123 = 45.0, 124 = 45.0, 125 = 45.0, 126 = 5.0; clean VM exe: 118 and 119 FLT_MAX, 120-125 equal to the owner exe. Which exe runs live is UNKNOWN (a modified exe is also in the folder)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "stitch recheck: sub-clip route removed; verdict unchanged",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "No eid row, no score maps to PC_RE_MAIN SDT 123, and no code queues any eid for it. The only sub-clip mention was stitch-bank only, so the orphan verdict stands."
+   }
+  },
+  {
+   "sdt_index": 124,
+   "eid": null,
+   "clip": "PWS_OVERTAKE03",
+   "says": "Player overtakes AI (3)",
+   "score": null,
+   "cooldown": null,
+   "cooldown_source": "no event row (dump: no eid maps to this sdt)",
+   "verdict": "NOT_ACTIVATED",
+   "reason": "orphan_clip",
+   "blocker": "no event row and no score maps to SDT 124 in the dump; no code queues any eid for it",
+   "situation": "",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "The race overtake trigger exists in AIDriverStateTransition but queues eid 120 only; nothing queues this clip.",
+   "emitters": [],
+   "call_path": "none (no emitter)",
+   "gates": [],
+   "mod": "",
+   "heard_evidence": "ERE/data/line_trace/124_PWS_OVERTAKE03.json voice_index_row.triage: EXISTS (inherited from 122); no heard record",
+   "tier": "CONFIRMED",
+   "notes": "Dump scores: 118 -> SDT 122, 119 -> SDT 125, 120 -> SDT 126; no score points at SDT 123 or 124 (findings.jsonl:71: 0 of 23 orphans targeted by any score; OVERTAKE02/03 siblings wired but not proven). No PC_RE_MAIN route: EnumValueTranslation case 12 (line 43) writes PC_RE_STITCH index 124, not this clip (SUB-CLIP BANK FACT).",
+   "play_plan": {
+    "meaning": "The player has overtaken an AI car: the engineer's alternate overtake acknowledgement (Player overtakes AI (3)), not stacked on top of PWS_OVERTAKE01.",
+    "when_it_should_play": "Race, after lap 1, the player gains a place by passing an AI car; used as an alternate of PWS_OVERTAKE01.",
+    "trigger": "same predicate as the eid 120 gain branch (AIDriverStateTransition lines 21-30); the variant is picked by a rotation counter or the random draw at line 30/35",
+    "subject": "AI driver at the new position a4 (veh+0x489C)",
+    "technique": "hook_native: substitute the queued eid at AIDriverStateTransition:37 with a carrier row whose score points to SDT 124. The PWS score->SDT table has NO entry for 124, so carrier_score alone cannot reach it",
+    "latch_cooldown": "shared with eid 120 (10 s)",
+    "must_not_play_when": "same as eid 120; never on top of 120 in the same pass",
+    "conflicts": "eid 120 (same branch); eid 259 random alternative",
+    "calibration": "PWS score->SDT table location and format: UNKNOWN in this audit",
+    "live_test": "owner passes an AI car after lap 1 in a race, after the table write is verified",
+    "confidence": "GUESS (no table write proven; alternate choice rule UNKNOWN)"
+   },
+   "checked": [
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce an eid that maps to this SDT: only 120/259/198 (lines 37,39,57,59)",
+     "line": "functions/AIDriverStateTransition_00419120.c:37,39,57,59"
+    },
+    {
+     "function": "EnumValueTranslation (SDT 124, case 12)",
+     "result": "not a route to PC_RE_MAIN clip 124: case 12 writes PC_RE_STITCH index 124 (SUB-CLIP BANK FACT)",
+     "line": "functions/EnumValueTranslation_00414010.c:43"
+    },
+    {
+     "function": "event dump scan",
+     "result": "no row with sdt_index 124; no score maps to it",
+     "line": "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json"
+    },
+    {
+     "function": "literal search of functions/*.c for this SDT index as a clip index",
+     "result": "only the EnumValueTranslation case; no DriverDataTable call",
+     "line": "functions/*.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (emits {120,259,198} at lines 37,39,57,59)",
+     "line": "functions/AIDriverStateTransition_00419120.c"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (emits {6,180,181,182} at line 24 and switch 1-3)",
+     "line": "functions/AIFormationLap_0041a3a0.c"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (emits {3,4,5,10,16,33,72,262} at line 61; v5 default 5)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (emits {42,52} at line 15)",
+     "line": "functions/AIPitStrategyState_0041a200.c"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (emits {7,8,9,17,18} at lines 36,48; body needs dword_7C56A4==5 (qualifying only))",
+     "line": "functions/AIPositionChangeEvent_004198b0.c"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (emits {21,22,178,179} at line 36, then calls AIPositionChangeEvent)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (emits {52,196} at line 19)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (emits {157-177,158,159,260,261} at lines 113 and the track map)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (emits {397,516-519,523,526,527,530-533} at line 127 (v6 chain lines 29-118))",
+     "line": "functions/PitExit_0041c0f0.c"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid = sub_4203D0 result (track ids 355-363; ThunkToFUN004201e0_004203d0.c) at line 26)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (emits {397,447-477 track map,454,455,456,459,460,461,465,474,476} at lines 107,148,158,173,191-226)",
+     "line": "functions/RaceCommentary_0041d630.c"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (emits {293-336} at line 189)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (emits {34,35,276,277,278,279} at line 25 region)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c"
+    },
+    {
+     "function": "sub_41A720 (penalty text)",
+     "result": "cannot produce this eid (emits {151,153,154,155,252,253,254,256}; BooleanOR cancels 123,124,125 at lines 29-31 for aIgnoredBlueFla)",
+     "line": "functions/sub_41A720_0041a720.c"
+    },
+    {
+     "function": "sub_41A940 (stop-go)",
+     "result": "cannot produce this eid (emits {149,243} at line 15)",
+     "line": "functions/sub_41A940_0041a940.c"
+    },
+    {
+     "function": "sub_41AC50 (AI state)",
+     "result": "cannot produce this eid (emits {208,211-217,220})",
+     "line": "functions/sub_41AC50_0041ac50.c"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce this eid (eid = sub_420000 (338-354) or sub_4203D0 (355+) at line 16)",
+     "line": "functions/sub_41C440_0041c440.c"
+    },
+    {
+     "function": "sub_41B250 (retire emitter)",
+     "result": "cannot produce this eid (emits {117,118,119} at lines 15,19,23 (plus 236,237,238 at lines 45,47,53))",
+     "line": "functions/sub_41B250_0041b250.c"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (functions/DriverNameIDLookup_00415d90.c)",
+     "result": "name-table value written to a1+8 (lines 43,91,224,263,311,423,444,746; e.g. 444 'a4!=0 ? 274 : 120', 311 'a4!=0 ? 272 : 118', 224 'a4!=0 ? 273 : 119'); the file has no DriverDataTable or InsertDriverTable call; consumer sub_414600 only loads files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417640 (functions/sub_417640_00417640.c)",
+     "result": "offset arithmetic +124 (lines 18,23,100), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "NameListBuilderFromVehicleArray (functions/NameListBuilderFromVehicleArray_004159b0.c)",
+     "result": "offset +124 (lines 47,180), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "SessionStringNameLookup (functions/SessionStringNameLookup_004122c0.c)",
+     "result": "offsets +124 (line 24) and +116 (line 37), not eids; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417AF0 and sub_414A90 (functions/sub_417AF0_00417af0.c, sub_414A90_00414a90.c)",
+     "result": "team-name file ids 121-140 (lines 25-66: 121 McLaren, 122 Ferrari, 123 Williams, 124 Jordan, 125 Sauber, 126 Arrows, 127 Prost, 128 Minardi, 129 off_5C25E0, 130 Jaguar); zero DriverDataTable or InsertDriverTable in both files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_414600 (functions/sub_414600_00414600.c)",
+     "result": "calls DriverNameIDLookup and FilePathExtensionCheck; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (functions/EnumValueTranslation_00414010.c)",
+     "result": "SDT route only: case k writes SDT 112+k (lines 31-58; case 8 -> 120 ... case 17 -> 129); callers SoundEventDispatcher sub_411E90 (types 0x11/0x34 with a3[5]) and FontCharacterRenderDispatcher sub_411DB0 (type 9876, a5 1..2). The template that supplies enum value k is UNKNOWN",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_455580 (functions/sub_455580_00455580.c)",
+     "result": "126 at line 411 is a character-code mapping (case 0x29), not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_58E4D2 (functions/sub_58E4D2_0058e4d2.c)",
+     "result": "120 at line 270 is a decoder field, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "BufferChecksumValidator (functions/BufferChecksumValidator_00539600.c)",
+     "result": "121 at line 30 is a buffer constant, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690 (functions/MainGameTickUpdate_0042c690.c)",
+     "result": "lines 86-87: if !(player+13000) then sub_4BCCC0(0.025) on each sim step; SDK callers GamePostMainLoop 0x42D8A0 and StateTriggerCheck 0x4B8AE0",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4BCCC0 blue-flag monitor (functions/sub_4BCCC0_004bccc0.c)",
+     "result": "265 clear if player+13388, RacePhase!=5, |v68|>=8.0 or v45|v46 (x87 compare, UNKNOWN); 353 clear if flag off, this[54] changed or SessionType!=7 (qualifying never reaches the emit); 362/367/371 PSM a6=1/3/2; 379-381 30 s ignored-blue-flag penalty, sub_41A720, timer reset",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "PitSelectionStateMachine sub_41B3C0 (functions/PitSelectionStateMachine_0041b3c0.c)",
+     "result": "gate line 3: dword_7D0308 && flt_7CF3C8!=0 && !(player+13388) && RacePhase!=8; case 5 (lines 153-170) is player only (dword_7C54E8==a5): a6=1 emits 123 (line 159); a6=2 cancels 123 (162) and emits 124 (163); a6=3 cancels 123,124 (166-167) and emits 125 (168)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ClearPitSelectionFlags sub_41B910 (functions/ClearPitSelectionFlags_0041b910.c)",
+     "result": "a1==5: BooleanOR cancels 123,124,125 (lines 5-7); called by sub_4BCCC0 when the blue-flag ends",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4D1730 (functions/sub_4D1730_004d1730.c)",
+     "result": "line 87 calls PSM with a table state v13; whether v13 can equal 5 is UNKNOWN (table writers not enumerated); SDK callers sub_4D1D80 <- sub_4D4580 <- GamePostMainLoop/StateTriggerCheck",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ConditionalFieldSetter sub_4BC2F0 (functions/ConditionalFieldSetter_004bc2f0.c)",
+     "result": "if this+44 changes, calls AIDriverStateTransition(dword_5EB978, *this, old, new): the only route into eid 120",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "AIDriverSorting sub_4BF390 and callers",
+     "result": "callers: EngineFailureCheck sub_4BEC55 (SDK callers none), AIBehaviorInitialization sub_4BF0A0 <- AIOvertake sub_4BEB10 <- sub_46BF10 <- DispatchChainWithVTableCalls sub_46DA20 / sub_46DC60 (root UNKNOWN), AITickUpdate sub_4BF4F0 (SDK callers none). The per-frame root of the eid 120 route is NOT resolved",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4F1FE0 retire path (functions/sub_4F1FE0_004f1fe0.c)",
+     "result": "line 33 FinishState veh+0x4064; line 36 AI branch; line 90 return if dword_7CE814 (player branch); line 104 return if v12==4 && |this[3685]|>0.1; line 107 sub_4D21D0 race phase; line 109 !DistanceComparison; line 113 dwell > flt_7D0A8C (10.0 live); line 135 sub_41B250 call (only caller)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40 (dossier call tree)",
+     "result": "calls sub_4F1FE0 every 50 ticks per the dossier; not re-read in full for this audit",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "mechanical_failures 1.0.7 release source (development/mods/mechanical_failures/releases/v1.0.7/src/engine_failure.c)",
+     "result": "line 527 #define EID_RETIRE04 119; lines 565 and 570 radio_req(MFR_P_DEATH) on engine death; line 591 dropped when not driving; radio_pump 1543-1555 calls commentary_say(eid) unless mfv_line_of_eid(eid)>=0 (119 is not an MFV line; mf_voice.h:146 lists 119 as vanilla-in-use); commentary_say 3991 posts to the game thread, commentary_say_now 465 queues the event (refuses FLT_MAX cooldown); death_blowup_say 608/645 keeps the vanilla RETIRE04 in a race",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "player_retire_commentary (candidate, folder release-aligned-1.0.1-dev)",
+     "result": "emits 117/118/119 by ReasonCode through its own path; NOT in the owner plugins list (no player_retire* file under plugins\\lightloader)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "pitstop_failures 1.1.4-rc.1 census (ERE/data/modded_lines.json)",
+     "result": "census rows for eids 118-129: only 117 (pit_commentary.c:1477 wheel-jam retire); no 118-129 OVERTAKE/AILAPPIN/RETIRE04 rows from pit mod",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "owner exe cooldown table (PE read, read-only)",
+     "result": "F1 Challenge Online.exe in the 99-02 folder: cooldown at 0x5BF9A0+eid*0x14+0x0C: 118 = 6.0 (0x5C02E4), 119 = 6.0 (0x5C02F8), 120 = 10.0, 121 = 1.0, 122 = 1.0, 123 = 45.0, 124 = 45.0, 125 = 45.0, 126 = 5.0; clean VM exe: 118 and 119 FLT_MAX, 120-125 equal to the owner exe. Which exe runs live is UNKNOWN (a modified exe is also in the folder)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "stitch recheck: sub-clip route removed; verdict unchanged",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "No eid row, no score maps to PC_RE_MAIN SDT 124, and no code queues any eid for it. The sub-clip mention was stitch-bank only; the orphan verdict stands."
+   }
+  },
+  {
+   "sdt_index": 125,
+   "eid": 121,
+   "clip": "PWS_AILAPPIN05",
+   "says": "AI driver passes player",
+   "score": 119,
+   "cooldown": 1.0,
+   "cooldown_source": "owner exe 0x5C0320 = 1.0; dump 1.0",
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "blocker": "no code queues eid 121; the race player branch handles only gains (line 21); the loss-of-place emitter exists only for qualifying (eid 18 under dword_7C56A4==5)",
+   "situation": "",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "No code queues 121. The race branch of AIDriverStateTransition handles only player gains (line 21, a4<a3); the player-loses case does not exist in race. Qualifying's loss-of-place is eid 18 (PWS_QUAL21), gated by dword_7C56A4==5 in AIPositionChangeEvent.",
+   "emitters": [],
+   "call_path": "none",
+   "gates": [],
+   "mod": "",
+   "heard_evidence": "ERE/data/line_trace/125_PWS_AILAPPIN05.json voice_index_row.triage: play=true, 'X PLAY, when player loses a position' (owner wants it). No heard record.",
+   "tier": "DERIVED",
+   "notes": "Contradiction: EVF EMITTER_SPECS.md:194 predicts 121 from 'AI position transitions'; the code has no 121 (AIPositionChangeEvent emits 7,8,9,17,18 only, qualifying only). OBSERVER_TABLE.md:110 says 'Player loses a position' while the dump and FULL_INVENTORY.md:282 say 'AI driver passes player'. No PC_RE_MAIN route: EnumValueTranslation case 13 (line 46) writes PC_RE_STITCH index 125, not this clip (SUB-CLIP BANK FACT).",
+   "play_plan": {
+    "meaning": "An AI driver has just passed you: you have lost a place in the race.",
+    "when_it_should_play": "Race (SessionType 7), same lap: the player's position goes from P to P+1 because an AI car overtakes the player.",
+    "trigger": "dword_7C56A4==7 AND dword_7C56A8==5 AND player new position a4 > old a3 (the missing branch beside AIDriverStateTransition:21) AND the AI car now at position a4-1 is on the same lap (a2[4111] equal) AND neither car pitting (pittingStatus veh+0x3450 in 1..4 excluded) AND both FinishState==0.",
+    "subject": "AI driver at position (new-1), veh+0x489C",
+    "technique": "own_emitter (queue eid 121 natively: its row exists with score 119 -> SDT 125, cooldown 1.0 s)",
+    "latch_cooldown": "once per (player, AI driver) pair per 10 s and at most one per 5 s",
+    "must_not_play_when": "pit lane entry or exit of either car; a lapped or lapping car (lap difference != 0); lap 1 start (a2[4111] < 1); red flag or SC (RacePhase != 5); the loss comes from a retirement or DQ of the car ahead",
+    "conflicts": "eid 120 (gain, opposite direction, no clash); eid 198 (AI takes P1: avoid a double line on a lead change); MF tokens do not use 121 (DD-07)",
+    "calibration": "same-lap gap threshold on lap distance veh+0x4044: UNKNOWN",
+    "live_test": "owner lets an AI car pass the player on the same lap in a race; the new branch should fire once",
+    "confidence": "DERIVED (trigger reads are existing vehicle fields; no emitter exists yet)"
+   },
+   "checked": [
+    {
+     "function": "literal search of functions/*.c for eid 121",
+     "result": "no DriverDataTable or InsertDriverTable call uses 121; hits only in name and buffer code (see lookups)",
+     "line": "functions/*.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce 121 (emits 120/259/198); player branch has no lose-place case",
+     "line": "functions/AIDriverStateTransition_00419120.c:21,37,39,57,59"
+    },
+    {
+     "function": "AIPositionChangeEvent (player branch)",
+     "result": "cannot produce 121 (emits 17/18 at lines 36,48 under dword_7C56A4==5 only)",
+     "line": "functions/AIPositionChangeEvent_004198b0.c:36,48"
+    },
+    {
+     "function": "EnumValueTranslation case 13 (SDT 125)",
+     "result": "not a route to PC_RE_MAIN clip 125: case 13 writes PC_RE_STITCH index 125 (SUB-CLIP BANK FACT)",
+     "line": "functions/EnumValueTranslation_00414010.c:46"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (emits {120,259,198} at lines 37,39,57,59)",
+     "line": "functions/AIDriverStateTransition_00419120.c"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (emits {6,180,181,182} at line 24 and switch 1-3)",
+     "line": "functions/AIFormationLap_0041a3a0.c"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (emits {3,4,5,10,16,33,72,262} at line 61; v5 default 5)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (emits {42,52} at line 15)",
+     "line": "functions/AIPitStrategyState_0041a200.c"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (emits {7,8,9,17,18} at lines 36,48; body needs dword_7C56A4==5 (qualifying only))",
+     "line": "functions/AIPositionChangeEvent_004198b0.c"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (emits {21,22,178,179} at line 36, then calls AIPositionChangeEvent)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (emits {52,196} at line 19)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (emits {157-177,158,159,260,261} at lines 113 and the track map)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (emits {397,516-519,523,526,527,530-533} at line 127 (v6 chain lines 29-118))",
+     "line": "functions/PitExit_0041c0f0.c"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid = sub_4203D0 result (track ids 355-363; ThunkToFUN004201e0_004203d0.c) at line 26)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (emits {397,447-477 track map,454,455,456,459,460,461,465,474,476} at lines 107,148,158,173,191-226)",
+     "line": "functions/RaceCommentary_0041d630.c"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (emits {293-336} at line 189)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (emits {34,35,276,277,278,279} at line 25 region)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c"
+    },
+    {
+     "function": "sub_41A720 (penalty text)",
+     "result": "cannot produce this eid (emits {151,153,154,155,252,253,254,256}; BooleanOR cancels 123,124,125 at lines 29-31 for aIgnoredBlueFla)",
+     "line": "functions/sub_41A720_0041a720.c"
+    },
+    {
+     "function": "sub_41A940 (stop-go)",
+     "result": "cannot produce this eid (emits {149,243} at line 15)",
+     "line": "functions/sub_41A940_0041a940.c"
+    },
+    {
+     "function": "sub_41AC50 (AI state)",
+     "result": "cannot produce this eid (emits {208,211-217,220})",
+     "line": "functions/sub_41AC50_0041ac50.c"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce this eid (eid = sub_420000 (338-354) or sub_4203D0 (355+) at line 16)",
+     "line": "functions/sub_41C440_0041c440.c"
+    },
+    {
+     "function": "sub_41B250 (retire emitter)",
+     "result": "cannot produce this eid (emits {117,118,119} at lines 15,19,23 (plus 236,237,238 at lines 45,47,53))",
+     "line": "functions/sub_41B250_0041b250.c"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (functions/DriverNameIDLookup_00415d90.c)",
+     "result": "name-table value written to a1+8 (lines 43,91,224,263,311,423,444,746; e.g. 444 'a4!=0 ? 274 : 120', 311 'a4!=0 ? 272 : 118', 224 'a4!=0 ? 273 : 119'); the file has no DriverDataTable or InsertDriverTable call; consumer sub_414600 only loads files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417640 (functions/sub_417640_00417640.c)",
+     "result": "offset arithmetic +124 (lines 18,23,100), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "NameListBuilderFromVehicleArray (functions/NameListBuilderFromVehicleArray_004159b0.c)",
+     "result": "offset +124 (lines 47,180), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "SessionStringNameLookup (functions/SessionStringNameLookup_004122c0.c)",
+     "result": "offsets +124 (line 24) and +116 (line 37), not eids; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417AF0 and sub_414A90 (functions/sub_417AF0_00417af0.c, sub_414A90_00414a90.c)",
+     "result": "team-name file ids 121-140 (lines 25-66: 121 McLaren, 122 Ferrari, 123 Williams, 124 Jordan, 125 Sauber, 126 Arrows, 127 Prost, 128 Minardi, 129 off_5C25E0, 130 Jaguar); zero DriverDataTable or InsertDriverTable in both files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_414600 (functions/sub_414600_00414600.c)",
+     "result": "calls DriverNameIDLookup and FilePathExtensionCheck; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (functions/EnumValueTranslation_00414010.c)",
+     "result": "SDT route only: case k writes SDT 112+k (lines 31-58; case 8 -> 120 ... case 17 -> 129); callers SoundEventDispatcher sub_411E90 (types 0x11/0x34 with a3[5]) and FontCharacterRenderDispatcher sub_411DB0 (type 9876, a5 1..2). The template that supplies enum value k is UNKNOWN",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_455580 (functions/sub_455580_00455580.c)",
+     "result": "126 at line 411 is a character-code mapping (case 0x29), not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_58E4D2 (functions/sub_58E4D2_0058e4d2.c)",
+     "result": "120 at line 270 is a decoder field, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "BufferChecksumValidator (functions/BufferChecksumValidator_00539600.c)",
+     "result": "121 at line 30 is a buffer constant, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690 (functions/MainGameTickUpdate_0042c690.c)",
+     "result": "lines 86-87: if !(player+13000) then sub_4BCCC0(0.025) on each sim step; SDK callers GamePostMainLoop 0x42D8A0 and StateTriggerCheck 0x4B8AE0",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4BCCC0 blue-flag monitor (functions/sub_4BCCC0_004bccc0.c)",
+     "result": "265 clear if player+13388, RacePhase!=5, |v68|>=8.0 or v45|v46 (x87 compare, UNKNOWN); 353 clear if flag off, this[54] changed or SessionType!=7 (qualifying never reaches the emit); 362/367/371 PSM a6=1/3/2; 379-381 30 s ignored-blue-flag penalty, sub_41A720, timer reset",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "PitSelectionStateMachine sub_41B3C0 (functions/PitSelectionStateMachine_0041b3c0.c)",
+     "result": "gate line 3: dword_7D0308 && flt_7CF3C8!=0 && !(player+13388) && RacePhase!=8; case 5 (lines 153-170) is player only (dword_7C54E8==a5): a6=1 emits 123 (line 159); a6=2 cancels 123 (162) and emits 124 (163); a6=3 cancels 123,124 (166-167) and emits 125 (168)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ClearPitSelectionFlags sub_41B910 (functions/ClearPitSelectionFlags_0041b910.c)",
+     "result": "a1==5: BooleanOR cancels 123,124,125 (lines 5-7); called by sub_4BCCC0 when the blue-flag ends",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4D1730 (functions/sub_4D1730_004d1730.c)",
+     "result": "line 87 calls PSM with a table state v13; whether v13 can equal 5 is UNKNOWN (table writers not enumerated); SDK callers sub_4D1D80 <- sub_4D4580 <- GamePostMainLoop/StateTriggerCheck",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ConditionalFieldSetter sub_4BC2F0 (functions/ConditionalFieldSetter_004bc2f0.c)",
+     "result": "if this+44 changes, calls AIDriverStateTransition(dword_5EB978, *this, old, new): the only route into eid 120",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "AIDriverSorting sub_4BF390 and callers",
+     "result": "callers: EngineFailureCheck sub_4BEC55 (SDK callers none), AIBehaviorInitialization sub_4BF0A0 <- AIOvertake sub_4BEB10 <- sub_46BF10 <- DispatchChainWithVTableCalls sub_46DA20 / sub_46DC60 (root UNKNOWN), AITickUpdate sub_4BF4F0 (SDK callers none). The per-frame root of the eid 120 route is NOT resolved",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4F1FE0 retire path (functions/sub_4F1FE0_004f1fe0.c)",
+     "result": "line 33 FinishState veh+0x4064; line 36 AI branch; line 90 return if dword_7CE814 (player branch); line 104 return if v12==4 && |this[3685]|>0.1; line 107 sub_4D21D0 race phase; line 109 !DistanceComparison; line 113 dwell > flt_7D0A8C (10.0 live); line 135 sub_41B250 call (only caller)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40 (dossier call tree)",
+     "result": "calls sub_4F1FE0 every 50 ticks per the dossier; not re-read in full for this audit",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "mechanical_failures 1.0.7 release source (development/mods/mechanical_failures/releases/v1.0.7/src/engine_failure.c)",
+     "result": "line 527 #define EID_RETIRE04 119; lines 565 and 570 radio_req(MFR_P_DEATH) on engine death; line 591 dropped when not driving; radio_pump 1543-1555 calls commentary_say(eid) unless mfv_line_of_eid(eid)>=0 (119 is not an MFV line; mf_voice.h:146 lists 119 as vanilla-in-use); commentary_say 3991 posts to the game thread, commentary_say_now 465 queues the event (refuses FLT_MAX cooldown); death_blowup_say 608/645 keeps the vanilla RETIRE04 in a race",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "player_retire_commentary (candidate, folder release-aligned-1.0.1-dev)",
+     "result": "emits 117/118/119 by ReasonCode through its own path; NOT in the owner plugins list (no player_retire* file under plugins\\lightloader)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "pitstop_failures 1.1.4-rc.1 census (ERE/data/modded_lines.json)",
+     "result": "census rows for eids 118-129: only 117 (pit_commentary.c:1477 wheel-jam retire); no 118-129 OVERTAKE/AILAPPIN/RETIRE04 rows from pit mod",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "owner exe cooldown table (PE read, read-only)",
+     "result": "F1 Challenge Online.exe in the 99-02 folder: cooldown at 0x5BF9A0+eid*0x14+0x0C: 118 = 6.0 (0x5C02E4), 119 = 6.0 (0x5C02F8), 120 = 10.0, 121 = 1.0, 122 = 1.0, 123 = 45.0, 124 = 45.0, 125 = 45.0, 126 = 5.0; clean VM exe: 118 and 119 FLT_MAX, 120-125 equal to the owner exe. Which exe runs live is UNKNOWN (a modified exe is also in the folder)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "stitch recheck: sub-clip route removed; verdict unchanged",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "No code queues eid 121 and the race branch has no player-loses-place case. The sub-clip mention was stitch-bank only; no_emitter stands."
+   }
+  },
+  {
+   "sdt_index": 126,
+   "eid": 122,
+   "clip": "PWS_AILAPPIN01",
+   "says": "AI driver approaches player",
+   "score": 120,
+   "cooldown": 1.0,
+   "cooldown_source": "owner exe 0x5C0334 = 1.0; dump 1.0 (prio 55)",
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "blocker": "no code queues eid 122; the blue-flag monitor drives only 123-125",
+   "situation": "",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "The blue-flag detector exists (sub_4BCCC0 loop) but drives only 123-125; nothing queues 122.",
+   "emitters": [],
+   "call_path": "none",
+   "gates": [],
+   "mod": "",
+   "heard_evidence": "ERE/data/line_trace/126_PWS_AILAPPIN01.json voice_index_row.triage: play=true, 'X PLAY, when blue flag driver behind player, played earlier than the existing vanilla blue flags'. No heard record.",
+   "tier": "CONFIRMED",
+   "notes": "This is the owner's own NOT_ACTIVATED example. Contradiction: EVF EMITTER_SPECS.md:192 predicts 122 'SessionType==7; AI behind player; gap decreasing', but no emitter exists in the decompile. The shared-score TV twin 421 (score 120, cd 1.0) also has no emitter (name tables only). No PC_RE_MAIN route: EnumValueTranslation case 14 (line 49) writes PC_RE_STITCH index 126, not this clip (SUB-CLIP BANK FACT).",
+   "play_plan": {
+    "meaning": "A faster car (usually a lapping car) is coming up behind you: the blue flag is coming, be ready to move over.",
+    "when_it_should_play": "Race only, while the player is on track, BEFORE the first blue-flag line 123 (which fires at blue-flag onset, 37 m).",
+    "trigger": "dword_7C56A4==7 AND dword_7C56A8==5 (green racing, FACT) AND player+13000==0 AND player+13388==0 AND player lateral offset |v68|<8 m AND a car behind (gap v67 = DistanceProjection(player) - DistanceProjection(other) > 0) with gap in the pre-warning band [37 m, PRE m] AND other speed v59>=5 m/s AND gap/v59 < PRE_T s; same reads as sub_4BCCC0 lines 277-345 including the other+16480 < this[11] lap test.",
+    "subject": "AI driver of the car behind (veh+0x489C)",
+    "technique": "own_emitter: queue eid 122 from the sub_4BCCC0 loop when the band condition first becomes true (eid 122 row exists: score 120, cooldown 1 s)",
+    "latch_cooldown": "once per approach episode; not again within 45 s (matches the 123 cooldown)",
+    "must_not_play_when": "player in pit lane (pittingStatus 1-4); qualifying (SessionType 5, where flags never run); the car behind is pitting; FinishState != 0; player off track (|v68| >= 8 m)",
+    "conflicts": "123/124/125 (same subject; intended order is 122 then 123 at onset). sub_41A720 penalty cancels pending 123-125 only, not 122 (add 122 to the cancel list if the owner wants it withdrawn).",
+    "calibration": "PRE band (m) and PRE_T (s), set above 37 m / 0.8 s: UNKNOWN, measure at blue-flag onset",
+    "live_test": "owner races with a lapping AI car; watch for 122 one to two car lengths before the first blue-flag line",
+    "confidence": "DERIVED for the reads, GUESS for the band"
+   },
+   "checked": [
+    {
+     "function": "literal search of functions/*.c for eid 122",
+     "result": "no DriverDataTable or InsertDriverTable call uses 122; only name-table 'a4!=0 ? 122 : 132' (sub_417AF0 line 31) and EnumValueTranslation cases",
+     "line": "functions/*.c"
+    },
+    {
+     "function": "sub_4BCCC0 blue-flag loop",
+     "result": "drives 123/124/125 only (via PSM); natural place for a pre-warning band",
+     "line": "functions/sub_4BCCC0_004bccc0.c:277-345,362,367,371"
+    },
+    {
+     "function": "EnumValueTranslation case 14 (SDT 126)",
+     "result": "not a route to PC_RE_MAIN clip 126: case 14 writes PC_RE_STITCH index 126 (SUB-CLIP BANK FACT)",
+     "line": "functions/EnumValueTranslation_00414010.c:49"
+    },
+    {
+     "function": "TV twin 421 (score 120)",
+     "result": "no commentary emitter; literal only in name tables",
+     "line": "functions/DriverNameIDLookup_00415d90.c, functions/sub_417640_00417640.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (emits {120,259,198} at lines 37,39,57,59)",
+     "line": "functions/AIDriverStateTransition_00419120.c"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (emits {6,180,181,182} at line 24 and switch 1-3)",
+     "line": "functions/AIFormationLap_0041a3a0.c"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (emits {3,4,5,10,16,33,72,262} at line 61; v5 default 5)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (emits {42,52} at line 15)",
+     "line": "functions/AIPitStrategyState_0041a200.c"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (emits {7,8,9,17,18} at lines 36,48; body needs dword_7C56A4==5 (qualifying only))",
+     "line": "functions/AIPositionChangeEvent_004198b0.c"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (emits {21,22,178,179} at line 36, then calls AIPositionChangeEvent)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (emits {52,196} at line 19)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (emits {157-177,158,159,260,261} at lines 113 and the track map)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (emits {397,516-519,523,526,527,530-533} at line 127 (v6 chain lines 29-118))",
+     "line": "functions/PitExit_0041c0f0.c"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid = sub_4203D0 result (track ids 355-363; ThunkToFUN004201e0_004203d0.c) at line 26)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (emits {397,447-477 track map,454,455,456,459,460,461,465,474,476} at lines 107,148,158,173,191-226)",
+     "line": "functions/RaceCommentary_0041d630.c"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (emits {293-336} at line 189)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (emits {34,35,276,277,278,279} at line 25 region)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c"
+    },
+    {
+     "function": "sub_41A720 (penalty text)",
+     "result": "cannot produce this eid (emits {151,153,154,155,252,253,254,256}; BooleanOR cancels 123,124,125 at lines 29-31 for aIgnoredBlueFla)",
+     "line": "functions/sub_41A720_0041a720.c"
+    },
+    {
+     "function": "sub_41A940 (stop-go)",
+     "result": "cannot produce this eid (emits {149,243} at line 15)",
+     "line": "functions/sub_41A940_0041a940.c"
+    },
+    {
+     "function": "sub_41AC50 (AI state)",
+     "result": "cannot produce this eid (emits {208,211-217,220})",
+     "line": "functions/sub_41AC50_0041ac50.c"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce this eid (eid = sub_420000 (338-354) or sub_4203D0 (355+) at line 16)",
+     "line": "functions/sub_41C440_0041c440.c"
+    },
+    {
+     "function": "sub_41B250 (retire emitter)",
+     "result": "cannot produce this eid (emits {117,118,119} at lines 15,19,23 (plus 236,237,238 at lines 45,47,53))",
+     "line": "functions/sub_41B250_0041b250.c"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (functions/DriverNameIDLookup_00415d90.c)",
+     "result": "name-table value written to a1+8 (lines 43,91,224,263,311,423,444,746; e.g. 444 'a4!=0 ? 274 : 120', 311 'a4!=0 ? 272 : 118', 224 'a4!=0 ? 273 : 119'); the file has no DriverDataTable or InsertDriverTable call; consumer sub_414600 only loads files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417640 (functions/sub_417640_00417640.c)",
+     "result": "offset arithmetic +124 (lines 18,23,100), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "NameListBuilderFromVehicleArray (functions/NameListBuilderFromVehicleArray_004159b0.c)",
+     "result": "offset +124 (lines 47,180), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "SessionStringNameLookup (functions/SessionStringNameLookup_004122c0.c)",
+     "result": "offsets +124 (line 24) and +116 (line 37), not eids; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417AF0 and sub_414A90 (functions/sub_417AF0_00417af0.c, sub_414A90_00414a90.c)",
+     "result": "team-name file ids 121-140 (lines 25-66: 121 McLaren, 122 Ferrari, 123 Williams, 124 Jordan, 125 Sauber, 126 Arrows, 127 Prost, 128 Minardi, 129 off_5C25E0, 130 Jaguar); zero DriverDataTable or InsertDriverTable in both files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_414600 (functions/sub_414600_00414600.c)",
+     "result": "calls DriverNameIDLookup and FilePathExtensionCheck; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (functions/EnumValueTranslation_00414010.c)",
+     "result": "SDT route only: case k writes SDT 112+k (lines 31-58; case 8 -> 120 ... case 17 -> 129); callers SoundEventDispatcher sub_411E90 (types 0x11/0x34 with a3[5]) and FontCharacterRenderDispatcher sub_411DB0 (type 9876, a5 1..2). The template that supplies enum value k is UNKNOWN",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_455580 (functions/sub_455580_00455580.c)",
+     "result": "126 at line 411 is a character-code mapping (case 0x29), not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_58E4D2 (functions/sub_58E4D2_0058e4d2.c)",
+     "result": "120 at line 270 is a decoder field, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "BufferChecksumValidator (functions/BufferChecksumValidator_00539600.c)",
+     "result": "121 at line 30 is a buffer constant, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690 (functions/MainGameTickUpdate_0042c690.c)",
+     "result": "lines 86-87: if !(player+13000) then sub_4BCCC0(0.025) on each sim step; SDK callers GamePostMainLoop 0x42D8A0 and StateTriggerCheck 0x4B8AE0",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4BCCC0 blue-flag monitor (functions/sub_4BCCC0_004bccc0.c)",
+     "result": "265 clear if player+13388, RacePhase!=5, |v68|>=8.0 or v45|v46 (x87 compare, UNKNOWN); 353 clear if flag off, this[54] changed or SessionType!=7 (qualifying never reaches the emit); 362/367/371 PSM a6=1/3/2; 379-381 30 s ignored-blue-flag penalty, sub_41A720, timer reset",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "PitSelectionStateMachine sub_41B3C0 (functions/PitSelectionStateMachine_0041b3c0.c)",
+     "result": "gate line 3: dword_7D0308 && flt_7CF3C8!=0 && !(player+13388) && RacePhase!=8; case 5 (lines 153-170) is player only (dword_7C54E8==a5): a6=1 emits 123 (line 159); a6=2 cancels 123 (162) and emits 124 (163); a6=3 cancels 123,124 (166-167) and emits 125 (168)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ClearPitSelectionFlags sub_41B910 (functions/ClearPitSelectionFlags_0041b910.c)",
+     "result": "a1==5: BooleanOR cancels 123,124,125 (lines 5-7); called by sub_4BCCC0 when the blue-flag ends",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4D1730 (functions/sub_4D1730_004d1730.c)",
+     "result": "line 87 calls PSM with a table state v13; whether v13 can equal 5 is UNKNOWN (table writers not enumerated); SDK callers sub_4D1D80 <- sub_4D4580 <- GamePostMainLoop/StateTriggerCheck",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ConditionalFieldSetter sub_4BC2F0 (functions/ConditionalFieldSetter_004bc2f0.c)",
+     "result": "if this+44 changes, calls AIDriverStateTransition(dword_5EB978, *this, old, new): the only route into eid 120",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "AIDriverSorting sub_4BF390 and callers",
+     "result": "callers: EngineFailureCheck sub_4BEC55 (SDK callers none), AIBehaviorInitialization sub_4BF0A0 <- AIOvertake sub_4BEB10 <- sub_46BF10 <- DispatchChainWithVTableCalls sub_46DA20 / sub_46DC60 (root UNKNOWN), AITickUpdate sub_4BF4F0 (SDK callers none). The per-frame root of the eid 120 route is NOT resolved",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4F1FE0 retire path (functions/sub_4F1FE0_004f1fe0.c)",
+     "result": "line 33 FinishState veh+0x4064; line 36 AI branch; line 90 return if dword_7CE814 (player branch); line 104 return if v12==4 && |this[3685]|>0.1; line 107 sub_4D21D0 race phase; line 109 !DistanceComparison; line 113 dwell > flt_7D0A8C (10.0 live); line 135 sub_41B250 call (only caller)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40 (dossier call tree)",
+     "result": "calls sub_4F1FE0 every 50 ticks per the dossier; not re-read in full for this audit",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "mechanical_failures 1.0.7 release source (development/mods/mechanical_failures/releases/v1.0.7/src/engine_failure.c)",
+     "result": "line 527 #define EID_RETIRE04 119; lines 565 and 570 radio_req(MFR_P_DEATH) on engine death; line 591 dropped when not driving; radio_pump 1543-1555 calls commentary_say(eid) unless mfv_line_of_eid(eid)>=0 (119 is not an MFV line; mf_voice.h:146 lists 119 as vanilla-in-use); commentary_say 3991 posts to the game thread, commentary_say_now 465 queues the event (refuses FLT_MAX cooldown); death_blowup_say 608/645 keeps the vanilla RETIRE04 in a race",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "player_retire_commentary (candidate, folder release-aligned-1.0.1-dev)",
+     "result": "emits 117/118/119 by ReasonCode through its own path; NOT in the owner plugins list (no player_retire* file under plugins\\lightloader)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "pitstop_failures 1.1.4-rc.1 census (ERE/data/modded_lines.json)",
+     "result": "census rows for eids 118-129: only 117 (pit_commentary.c:1477 wheel-jam retire); no 118-129 OVERTAKE/AILAPPIN/RETIRE04 rows from pit mod",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "owner exe cooldown table (PE read, read-only)",
+     "result": "F1 Challenge Online.exe in the 99-02 folder: cooldown at 0x5BF9A0+eid*0x14+0x0C: 118 = 6.0 (0x5C02E4), 119 = 6.0 (0x5C02F8), 120 = 10.0, 121 = 1.0, 122 = 1.0, 123 = 45.0, 124 = 45.0, 125 = 45.0, 126 = 5.0; clean VM exe: 118 and 119 FLT_MAX, 120-125 equal to the owner exe. Which exe runs live is UNKNOWN (a modified exe is also in the folder)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "stitch recheck: sub-clip route removed; verdict unchanged",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "NOT_ACTIVATED",
+    "new_verdict": "NOT_ACTIVATED",
+    "why": "No code queues eid 122 (blue-flag monitor drives only 123-125). The sub-clip mention was stitch-bank only; no_emitter stands."
+   }
+  },
+  {
+   "sdt_index": 127,
+   "eid": 123,
+   "clip": "PWS_AILAPPIN02",
+   "says": "Player under blue flag (1st)",
+   "score": 121,
+   "cooldown": 45.0,
+   "cooldown_source": "owner exe read (see helper notes); dump 45.0",
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "",
+   "situation": "Race (SessionType 7), player on track (|v68|<8 m), a car behind (lapped-car test) within 37 m and closing with a gap under 0.8 s: the first blue-flag line at onset.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "PitSelectionStateMachine sub_41B3C0 (functions/PitSelectionStateMachine_0041b3c0.c:159)"
+   ],
+   "call_path": "MainGameTickUpdate sub_42C690 (lines 86-87, gate player+13000==0) -> sub_4BCCC0 blue-flag monitor (line 362) -> PitSelectionStateMachine case 5 (line 159). SDK callers of sub_42C690: GamePostMainLoop 0x42D8A0, StateTriggerCheck 0x4B8AE0",
+   "gates": [
+    "PSM gate line 3: dword_7D0308 && flt_7CF3C8!=0 && !(player+13388) && RacePhase!=8",
+    "PSM case 5: dword_7C54E8 != 0 && dword_7C54E8 == a5 (player only)",
+    "sub_4BCCC0:265 clear if player+13388, RacePhase!=5, |v68|>=8.0 or v45|v46 (x87 UNKNOWN)",
+    "sub_4BCCC0:353 clear if flag off, this[54] changed or SessionType!=7 (qualifying never reaches the emit)",
+    "blue-flag test sub_4BCCC0:277-345: other car != player; !other+13376; v59>=5 m/s; v67 < 37 m (+3 when already flagged); v67/v59 < 0.8 s (+0.2 when flagged); race: other+16480 < this[11] and (other+16444 > this[2] or other+16448 != this[3]) (field names UNKNOWN)"
+   ],
+   "mod": "",
+   "heard_evidence": "ERE/data/line_trace/127_PWS_AILAPPIN02.json voice_index_row: vanilla True; no triage note; no heard record",
+   "tier": "DERIVED",
+   "notes": "Cooldown 45 s, priority 70 (owner exe). TV twin 401 (score 121, cd 1.0) has no commentary emitter: name table only, no commentary emitter.",
+   "checked": [
+    {
+     "function": "PitSelectionStateMachine (literal 123 emitter)",
+     "result": "emits 123 in case 5 when a6==1 (player only)",
+     "line": "functions/PitSelectionStateMachine_0041b3c0.c:159"
+    },
+    {
+     "function": "sub_4BCCC0 blue-flag monitor",
+     "result": "calls PSM case 5 with a6 by timer: 1 at onset (line 362), 2 at 10 s (371), 3 at 20 s (367); clear paths 265 and 353",
+     "line": "functions/sub_4BCCC0_004bccc0.c:265,353,362,367,371"
+    },
+    {
+     "function": "sub_41A720 (30 s penalty)",
+     "result": "cancels 123,124,125 (BooleanOR lines 29-31) when the ignored-blue-flag penalty fires; does not emit them",
+     "line": "functions/sub_41A720_0041a720.c:29-31; functions/sub_4BCCC0_004bccc0.c:379-381"
+    },
+    {
+     "function": "ClearPitSelectionFlags sub_41B910",
+     "result": "cancels 123,124,125 when the flag ends (a1==5)",
+     "line": "functions/ClearPitSelectionFlags_0041b910.c:5-7"
+    },
+    {
+     "function": "TV twin 401 (name table)",
+     "result": "name table only, no commentary emitter",
+     "line": "functions/DriverNameIDLookup_00415d90.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (emits {120,259,198} at lines 37,39,57,59)",
+     "line": "functions/AIDriverStateTransition_00419120.c"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (emits {6,180,181,182} at line 24 and switch 1-3)",
+     "line": "functions/AIFormationLap_0041a3a0.c"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (emits {3,4,5,10,16,33,72,262} at line 61; v5 default 5)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (emits {42,52} at line 15)",
+     "line": "functions/AIPitStrategyState_0041a200.c"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (emits {7,8,9,17,18} at lines 36,48; body needs dword_7C56A4==5 (qualifying only))",
+     "line": "functions/AIPositionChangeEvent_004198b0.c"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (emits {21,22,178,179} at line 36, then calls AIPositionChangeEvent)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (emits {52,196} at line 19)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (emits {157-177,158,159,260,261} at lines 113 and the track map)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (emits {397,516-519,523,526,527,530-533} at line 127 (v6 chain lines 29-118))",
+     "line": "functions/PitExit_0041c0f0.c"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid = sub_4203D0 result (track ids 355-363; ThunkToFUN004201e0_004203d0.c) at line 26)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (emits {397,447-477 track map,454,455,456,459,460,461,465,474,476} at lines 107,148,158,173,191-226)",
+     "line": "functions/RaceCommentary_0041d630.c"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (emits {293-336} at line 189)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (emits {34,35,276,277,278,279} at line 25 region)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c"
+    },
+    {
+     "function": "sub_41A720 (penalty text)",
+     "result": "cannot produce this eid (emits {151,153,154,155,252,253,254,256}; BooleanOR cancels 123,124,125 at lines 29-31 for aIgnoredBlueFla)",
+     "line": "functions/sub_41A720_0041a720.c"
+    },
+    {
+     "function": "sub_41A940 (stop-go)",
+     "result": "cannot produce this eid (emits {149,243} at line 15)",
+     "line": "functions/sub_41A940_0041a940.c"
+    },
+    {
+     "function": "sub_41AC50 (AI state)",
+     "result": "cannot produce this eid (emits {208,211-217,220})",
+     "line": "functions/sub_41AC50_0041ac50.c"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce this eid (eid = sub_420000 (338-354) or sub_4203D0 (355+) at line 16)",
+     "line": "functions/sub_41C440_0041c440.c"
+    },
+    {
+     "function": "sub_41B250 (retire emitter)",
+     "result": "cannot produce this eid (emits {117,118,119} at lines 15,19,23 (plus 236,237,238 at lines 45,47,53))",
+     "line": "functions/sub_41B250_0041b250.c"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (functions/DriverNameIDLookup_00415d90.c)",
+     "result": "name-table value written to a1+8 (lines 43,91,224,263,311,423,444,746; e.g. 444 'a4!=0 ? 274 : 120', 311 'a4!=0 ? 272 : 118', 224 'a4!=0 ? 273 : 119'); the file has no DriverDataTable or InsertDriverTable call; consumer sub_414600 only loads files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417640 (functions/sub_417640_00417640.c)",
+     "result": "offset arithmetic +124 (lines 18,23,100), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "NameListBuilderFromVehicleArray (functions/NameListBuilderFromVehicleArray_004159b0.c)",
+     "result": "offset +124 (lines 47,180), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "SessionStringNameLookup (functions/SessionStringNameLookup_004122c0.c)",
+     "result": "offsets +124 (line 24) and +116 (line 37), not eids; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417AF0 and sub_414A90 (functions/sub_417AF0_00417af0.c, sub_414A90_00414a90.c)",
+     "result": "team-name file ids 121-140 (lines 25-66: 121 McLaren, 122 Ferrari, 123 Williams, 124 Jordan, 125 Sauber, 126 Arrows, 127 Prost, 128 Minardi, 129 off_5C25E0, 130 Jaguar); zero DriverDataTable or InsertDriverTable in both files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_414600 (functions/sub_414600_00414600.c)",
+     "result": "calls DriverNameIDLookup and FilePathExtensionCheck; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (functions/EnumValueTranslation_00414010.c)",
+     "result": "SDT route only: case k writes SDT 112+k (lines 31-58; case 8 -> 120 ... case 17 -> 129); callers SoundEventDispatcher sub_411E90 (types 0x11/0x34 with a3[5]) and FontCharacterRenderDispatcher sub_411DB0 (type 9876, a5 1..2). The template that supplies enum value k is UNKNOWN",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_455580 (functions/sub_455580_00455580.c)",
+     "result": "126 at line 411 is a character-code mapping (case 0x29), not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_58E4D2 (functions/sub_58E4D2_0058e4d2.c)",
+     "result": "120 at line 270 is a decoder field, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "BufferChecksumValidator (functions/BufferChecksumValidator_00539600.c)",
+     "result": "121 at line 30 is a buffer constant, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690 (functions/MainGameTickUpdate_0042c690.c)",
+     "result": "lines 86-87: if !(player+13000) then sub_4BCCC0(0.025) on each sim step; SDK callers GamePostMainLoop 0x42D8A0 and StateTriggerCheck 0x4B8AE0",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4BCCC0 blue-flag monitor (functions/sub_4BCCC0_004bccc0.c)",
+     "result": "265 clear if player+13388, RacePhase!=5, |v68|>=8.0 or v45|v46 (x87 compare, UNKNOWN); 353 clear if flag off, this[54] changed or SessionType!=7 (qualifying never reaches the emit); 362/367/371 PSM a6=1/3/2; 379-381 30 s ignored-blue-flag penalty, sub_41A720, timer reset",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "PitSelectionStateMachine sub_41B3C0 (functions/PitSelectionStateMachine_0041b3c0.c)",
+     "result": "gate line 3: dword_7D0308 && flt_7CF3C8!=0 && !(player+13388) && RacePhase!=8; case 5 (lines 153-170) is player only (dword_7C54E8==a5): a6=1 emits 123 (line 159); a6=2 cancels 123 (162) and emits 124 (163); a6=3 cancels 123,124 (166-167) and emits 125 (168)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ClearPitSelectionFlags sub_41B910 (functions/ClearPitSelectionFlags_0041b910.c)",
+     "result": "a1==5: BooleanOR cancels 123,124,125 (lines 5-7); called by sub_4BCCC0 when the blue-flag ends",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4D1730 (functions/sub_4D1730_004d1730.c)",
+     "result": "line 87 calls PSM with a table state v13; whether v13 can equal 5 is UNKNOWN (table writers not enumerated); SDK callers sub_4D1D80 <- sub_4D4580 <- GamePostMainLoop/StateTriggerCheck",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ConditionalFieldSetter sub_4BC2F0 (functions/ConditionalFieldSetter_004bc2f0.c)",
+     "result": "if this+44 changes, calls AIDriverStateTransition(dword_5EB978, *this, old, new): the only route into eid 120",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "AIDriverSorting sub_4BF390 and callers",
+     "result": "callers: EngineFailureCheck sub_4BEC55 (SDK callers none), AIBehaviorInitialization sub_4BF0A0 <- AIOvertake sub_4BEB10 <- sub_46BF10 <- DispatchChainWithVTableCalls sub_46DA20 / sub_46DC60 (root UNKNOWN), AITickUpdate sub_4BF4F0 (SDK callers none). The per-frame root of the eid 120 route is NOT resolved",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4F1FE0 retire path (functions/sub_4F1FE0_004f1fe0.c)",
+     "result": "line 33 FinishState veh+0x4064; line 36 AI branch; line 90 return if dword_7CE814 (player branch); line 104 return if v12==4 && |this[3685]|>0.1; line 107 sub_4D21D0 race phase; line 109 !DistanceComparison; line 113 dwell > flt_7D0A8C (10.0 live); line 135 sub_41B250 call (only caller)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40 (dossier call tree)",
+     "result": "calls sub_4F1FE0 every 50 ticks per the dossier; not re-read in full for this audit",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "mechanical_failures 1.0.7 release source (development/mods/mechanical_failures/releases/v1.0.7/src/engine_failure.c)",
+     "result": "line 527 #define EID_RETIRE04 119; lines 565 and 570 radio_req(MFR_P_DEATH) on engine death; line 591 dropped when not driving; radio_pump 1543-1555 calls commentary_say(eid) unless mfv_line_of_eid(eid)>=0 (119 is not an MFV line; mf_voice.h:146 lists 119 as vanilla-in-use); commentary_say 3991 posts to the game thread, commentary_say_now 465 queues the event (refuses FLT_MAX cooldown); death_blowup_say 608/645 keeps the vanilla RETIRE04 in a race",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "player_retire_commentary (candidate, folder release-aligned-1.0.1-dev)",
+     "result": "emits 117/118/119 by ReasonCode through its own path; NOT in the owner plugins list (no player_retire* file under plugins\\lightloader)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "pitstop_failures 1.1.4-rc.1 census (ERE/data/modded_lines.json)",
+     "result": "census rows for eids 118-129: only 117 (pit_commentary.c:1477 wheel-jam retire); no 118-129 OVERTAKE/AILAPPIN/RETIRE04 rows from pit mod",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "owner exe cooldown table (PE read, read-only)",
+     "result": "F1 Challenge Online.exe in the 99-02 folder: cooldown at 0x5BF9A0+eid*0x14+0x0C: 118 = 6.0 (0x5C02E4), 119 = 6.0 (0x5C02F8), 120 = 10.0, 121 = 1.0, 122 = 1.0, 123 = 45.0, 124 = 45.0, 125 = 45.0, 126 = 5.0; clean VM exe: 118 and 119 FLT_MAX, 120-125 equal to the owner exe. Which exe runs live is UNKNOWN (a modified exe is also in the folder)",
+     "line": "reachability / gate evidence"
+    }
+   ]
+  },
+  {
+   "sdt_index": 128,
+   "eid": 124,
+   "clip": "PWS_AILAPPIN03",
+   "says": "Player under blue flag (2nd)",
+   "score": 122,
+   "cooldown": 45.0,
+   "cooldown_source": "owner exe read (see helper notes); dump 45.0",
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "",
+   "situation": "Same blue-flag episode, 10 s in: second line (cancels a pending 123 first, PSM line 162).",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "PitSelectionStateMachine sub_41B3C0 (functions/PitSelectionStateMachine_0041b3c0.c:163)"
+   ],
+   "call_path": "MainGameTickUpdate sub_42C690 (lines 86-87, gate player+13000==0) -> sub_4BCCC0 blue-flag monitor (line 371) -> PitSelectionStateMachine case 5 (line 163). SDK callers of sub_42C690: GamePostMainLoop 0x42D8A0, StateTriggerCheck 0x4B8AE0",
+   "gates": [
+    "PSM gate line 3: dword_7D0308 && flt_7CF3C8!=0 && !(player+13388) && RacePhase!=8",
+    "PSM case 5: dword_7C54E8 != 0 && dword_7C54E8 == a5 (player only)",
+    "sub_4BCCC0:265 clear if player+13388, RacePhase!=5, |v68|>=8.0 or v45|v46 (x87 UNKNOWN)",
+    "sub_4BCCC0:353 clear if flag off, this[54] changed or SessionType!=7 (qualifying never reaches the emit)",
+    "blue-flag test sub_4BCCC0:277-345: other car != player; !other+13376; v59>=5 m/s; v67 < 37 m (+3 when already flagged); v67/v59 < 0.8 s (+0.2 when flagged); race: other+16480 < this[11] and (other+16444 > this[2] or other+16448 != this[3]) (field names UNKNOWN)"
+   ],
+   "mod": "",
+   "heard_evidence": "ERE/data/line_trace/128_PWS_AILAPPIN03.json voice_index_row: vanilla True; no triage note; no heard record",
+   "tier": "DERIVED",
+   "notes": "Cooldown 45 s, priority 70 (owner exe). TV twin 422 (score 122, cd 1.0) has no commentary emitter: name table only, no commentary emitter.",
+   "checked": [
+    {
+     "function": "PitSelectionStateMachine (literal 124 emitter)",
+     "result": "emits 124 in case 5 when a6==2 (player only)",
+     "line": "functions/PitSelectionStateMachine_0041b3c0.c:163"
+    },
+    {
+     "function": "sub_4BCCC0 blue-flag monitor",
+     "result": "calls PSM case 5 with a6 by timer: 1 at onset (line 362), 2 at 10 s (371), 3 at 20 s (367); clear paths 265 and 353",
+     "line": "functions/sub_4BCCC0_004bccc0.c:265,353,362,367,371"
+    },
+    {
+     "function": "sub_41A720 (30 s penalty)",
+     "result": "cancels 123,124,125 (BooleanOR lines 29-31) when the ignored-blue-flag penalty fires; does not emit them",
+     "line": "functions/sub_41A720_0041a720.c:29-31; functions/sub_4BCCC0_004bccc0.c:379-381"
+    },
+    {
+     "function": "ClearPitSelectionFlags sub_41B910",
+     "result": "cancels 123,124,125 when the flag ends (a1==5)",
+     "line": "functions/ClearPitSelectionFlags_0041b910.c:5-7"
+    },
+    {
+     "function": "TV twin 422 (name table)",
+     "result": "name table only, no commentary emitter",
+     "line": "functions/DriverNameIDLookup_00415d90.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (emits {120,259,198} at lines 37,39,57,59)",
+     "line": "functions/AIDriverStateTransition_00419120.c"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (emits {6,180,181,182} at line 24 and switch 1-3)",
+     "line": "functions/AIFormationLap_0041a3a0.c"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (emits {3,4,5,10,16,33,72,262} at line 61; v5 default 5)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (emits {42,52} at line 15)",
+     "line": "functions/AIPitStrategyState_0041a200.c"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (emits {7,8,9,17,18} at lines 36,48; body needs dword_7C56A4==5 (qualifying only))",
+     "line": "functions/AIPositionChangeEvent_004198b0.c"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (emits {21,22,178,179} at line 36, then calls AIPositionChangeEvent)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (emits {52,196} at line 19)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (emits {157-177,158,159,260,261} at lines 113 and the track map)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (emits {397,516-519,523,526,527,530-533} at line 127 (v6 chain lines 29-118))",
+     "line": "functions/PitExit_0041c0f0.c"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid = sub_4203D0 result (track ids 355-363; ThunkToFUN004201e0_004203d0.c) at line 26)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (emits {397,447-477 track map,454,455,456,459,460,461,465,474,476} at lines 107,148,158,173,191-226)",
+     "line": "functions/RaceCommentary_0041d630.c"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (emits {293-336} at line 189)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (emits {34,35,276,277,278,279} at line 25 region)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c"
+    },
+    {
+     "function": "sub_41A720 (penalty text)",
+     "result": "cannot produce this eid (emits {151,153,154,155,252,253,254,256}; BooleanOR cancels 123,124,125 at lines 29-31 for aIgnoredBlueFla)",
+     "line": "functions/sub_41A720_0041a720.c"
+    },
+    {
+     "function": "sub_41A940 (stop-go)",
+     "result": "cannot produce this eid (emits {149,243} at line 15)",
+     "line": "functions/sub_41A940_0041a940.c"
+    },
+    {
+     "function": "sub_41AC50 (AI state)",
+     "result": "cannot produce this eid (emits {208,211-217,220})",
+     "line": "functions/sub_41AC50_0041ac50.c"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce this eid (eid = sub_420000 (338-354) or sub_4203D0 (355+) at line 16)",
+     "line": "functions/sub_41C440_0041c440.c"
+    },
+    {
+     "function": "sub_41B250 (retire emitter)",
+     "result": "cannot produce this eid (emits {117,118,119} at lines 15,19,23 (plus 236,237,238 at lines 45,47,53))",
+     "line": "functions/sub_41B250_0041b250.c"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (functions/DriverNameIDLookup_00415d90.c)",
+     "result": "name-table value written to a1+8 (lines 43,91,224,263,311,423,444,746; e.g. 444 'a4!=0 ? 274 : 120', 311 'a4!=0 ? 272 : 118', 224 'a4!=0 ? 273 : 119'); the file has no DriverDataTable or InsertDriverTable call; consumer sub_414600 only loads files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417640 (functions/sub_417640_00417640.c)",
+     "result": "offset arithmetic +124 (lines 18,23,100), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "NameListBuilderFromVehicleArray (functions/NameListBuilderFromVehicleArray_004159b0.c)",
+     "result": "offset +124 (lines 47,180), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "SessionStringNameLookup (functions/SessionStringNameLookup_004122c0.c)",
+     "result": "offsets +124 (line 24) and +116 (line 37), not eids; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417AF0 and sub_414A90 (functions/sub_417AF0_00417af0.c, sub_414A90_00414a90.c)",
+     "result": "team-name file ids 121-140 (lines 25-66: 121 McLaren, 122 Ferrari, 123 Williams, 124 Jordan, 125 Sauber, 126 Arrows, 127 Prost, 128 Minardi, 129 off_5C25E0, 130 Jaguar); zero DriverDataTable or InsertDriverTable in both files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_414600 (functions/sub_414600_00414600.c)",
+     "result": "calls DriverNameIDLookup and FilePathExtensionCheck; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (functions/EnumValueTranslation_00414010.c)",
+     "result": "SDT route only: case k writes SDT 112+k (lines 31-58; case 8 -> 120 ... case 17 -> 129); callers SoundEventDispatcher sub_411E90 (types 0x11/0x34 with a3[5]) and FontCharacterRenderDispatcher sub_411DB0 (type 9876, a5 1..2). The template that supplies enum value k is UNKNOWN",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_455580 (functions/sub_455580_00455580.c)",
+     "result": "126 at line 411 is a character-code mapping (case 0x29), not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_58E4D2 (functions/sub_58E4D2_0058e4d2.c)",
+     "result": "120 at line 270 is a decoder field, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "BufferChecksumValidator (functions/BufferChecksumValidator_00539600.c)",
+     "result": "121 at line 30 is a buffer constant, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690 (functions/MainGameTickUpdate_0042c690.c)",
+     "result": "lines 86-87: if !(player+13000) then sub_4BCCC0(0.025) on each sim step; SDK callers GamePostMainLoop 0x42D8A0 and StateTriggerCheck 0x4B8AE0",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4BCCC0 blue-flag monitor (functions/sub_4BCCC0_004bccc0.c)",
+     "result": "265 clear if player+13388, RacePhase!=5, |v68|>=8.0 or v45|v46 (x87 compare, UNKNOWN); 353 clear if flag off, this[54] changed or SessionType!=7 (qualifying never reaches the emit); 362/367/371 PSM a6=1/3/2; 379-381 30 s ignored-blue-flag penalty, sub_41A720, timer reset",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "PitSelectionStateMachine sub_41B3C0 (functions/PitSelectionStateMachine_0041b3c0.c)",
+     "result": "gate line 3: dword_7D0308 && flt_7CF3C8!=0 && !(player+13388) && RacePhase!=8; case 5 (lines 153-170) is player only (dword_7C54E8==a5): a6=1 emits 123 (line 159); a6=2 cancels 123 (162) and emits 124 (163); a6=3 cancels 123,124 (166-167) and emits 125 (168)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ClearPitSelectionFlags sub_41B910 (functions/ClearPitSelectionFlags_0041b910.c)",
+     "result": "a1==5: BooleanOR cancels 123,124,125 (lines 5-7); called by sub_4BCCC0 when the blue-flag ends",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4D1730 (functions/sub_4D1730_004d1730.c)",
+     "result": "line 87 calls PSM with a table state v13; whether v13 can equal 5 is UNKNOWN (table writers not enumerated); SDK callers sub_4D1D80 <- sub_4D4580 <- GamePostMainLoop/StateTriggerCheck",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ConditionalFieldSetter sub_4BC2F0 (functions/ConditionalFieldSetter_004bc2f0.c)",
+     "result": "if this+44 changes, calls AIDriverStateTransition(dword_5EB978, *this, old, new): the only route into eid 120",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "AIDriverSorting sub_4BF390 and callers",
+     "result": "callers: EngineFailureCheck sub_4BEC55 (SDK callers none), AIBehaviorInitialization sub_4BF0A0 <- AIOvertake sub_4BEB10 <- sub_46BF10 <- DispatchChainWithVTableCalls sub_46DA20 / sub_46DC60 (root UNKNOWN), AITickUpdate sub_4BF4F0 (SDK callers none). The per-frame root of the eid 120 route is NOT resolved",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4F1FE0 retire path (functions/sub_4F1FE0_004f1fe0.c)",
+     "result": "line 33 FinishState veh+0x4064; line 36 AI branch; line 90 return if dword_7CE814 (player branch); line 104 return if v12==4 && |this[3685]|>0.1; line 107 sub_4D21D0 race phase; line 109 !DistanceComparison; line 113 dwell > flt_7D0A8C (10.0 live); line 135 sub_41B250 call (only caller)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40 (dossier call tree)",
+     "result": "calls sub_4F1FE0 every 50 ticks per the dossier; not re-read in full for this audit",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "mechanical_failures 1.0.7 release source (development/mods/mechanical_failures/releases/v1.0.7/src/engine_failure.c)",
+     "result": "line 527 #define EID_RETIRE04 119; lines 565 and 570 radio_req(MFR_P_DEATH) on engine death; line 591 dropped when not driving; radio_pump 1543-1555 calls commentary_say(eid) unless mfv_line_of_eid(eid)>=0 (119 is not an MFV line; mf_voice.h:146 lists 119 as vanilla-in-use); commentary_say 3991 posts to the game thread, commentary_say_now 465 queues the event (refuses FLT_MAX cooldown); death_blowup_say 608/645 keeps the vanilla RETIRE04 in a race",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "player_retire_commentary (candidate, folder release-aligned-1.0.1-dev)",
+     "result": "emits 117/118/119 by ReasonCode through its own path; NOT in the owner plugins list (no player_retire* file under plugins\\lightloader)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "pitstop_failures 1.1.4-rc.1 census (ERE/data/modded_lines.json)",
+     "result": "census rows for eids 118-129: only 117 (pit_commentary.c:1477 wheel-jam retire); no 118-129 OVERTAKE/AILAPPIN/RETIRE04 rows from pit mod",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "owner exe cooldown table (PE read, read-only)",
+     "result": "F1 Challenge Online.exe in the 99-02 folder: cooldown at 0x5BF9A0+eid*0x14+0x0C: 118 = 6.0 (0x5C02E4), 119 = 6.0 (0x5C02F8), 120 = 10.0, 121 = 1.0, 122 = 1.0, 123 = 45.0, 124 = 45.0, 125 = 45.0, 126 = 5.0; clean VM exe: 118 and 119 FLT_MAX, 120-125 equal to the owner exe. Which exe runs live is UNKNOWN (a modified exe is also in the folder)",
+     "line": "reachability / gate evidence"
+    }
+   ]
+  },
+  {
+   "sdt_index": 129,
+   "eid": 125,
+   "clip": "PWS_AILAPPIN04",
+   "says": "Player under blue flag (3rd)",
+   "score": 123,
+   "cooldown": 45.0,
+   "cooldown_source": "owner exe read (see helper notes); dump 45.0",
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "",
+   "situation": "Same blue-flag episode, 20 s in: third line (cancels 123 and 124 first, PSM lines 166-167).",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "PitSelectionStateMachine sub_41B3C0 (functions/PitSelectionStateMachine_0041b3c0.c:168)"
+   ],
+   "call_path": "MainGameTickUpdate sub_42C690 (lines 86-87, gate player+13000==0) -> sub_4BCCC0 blue-flag monitor (line 367) -> PitSelectionStateMachine case 5 (line 168). SDK callers of sub_42C690: GamePostMainLoop 0x42D8A0, StateTriggerCheck 0x4B8AE0",
+   "gates": [
+    "PSM gate line 3: dword_7D0308 && flt_7CF3C8!=0 && !(player+13388) && RacePhase!=8",
+    "PSM case 5: dword_7C54E8 != 0 && dword_7C54E8 == a5 (player only)",
+    "sub_4BCCC0:265 clear if player+13388, RacePhase!=5, |v68|>=8.0 or v45|v46 (x87 UNKNOWN)",
+    "sub_4BCCC0:353 clear if flag off, this[54] changed or SessionType!=7 (qualifying never reaches the emit)",
+    "blue-flag test sub_4BCCC0:277-345: other car != player; !other+13376; v59>=5 m/s; v67 < 37 m (+3 when already flagged); v67/v59 < 0.8 s (+0.2 when flagged); race: other+16480 < this[11] and (other+16444 > this[2] or other+16448 != this[3]) (field names UNKNOWN)"
+   ],
+   "mod": "",
+   "heard_evidence": "ERE/data/line_trace/129_PWS_AILAPPIN04.json voice_index_row: vanilla True; no triage note; no heard record",
+   "tier": "DERIVED",
+   "notes": "Cooldown 45 s, priority 70 (owner exe). TV twin 414 (score 123, cd 1.0) has no commentary emitter: name table only, no commentary emitter.",
+   "checked": [
+    {
+     "function": "PitSelectionStateMachine (literal 125 emitter)",
+     "result": "emits 125 in case 5 when a6==3 (player only)",
+     "line": "functions/PitSelectionStateMachine_0041b3c0.c:168"
+    },
+    {
+     "function": "sub_4BCCC0 blue-flag monitor",
+     "result": "calls PSM case 5 with a6 by timer: 1 at onset (line 362), 2 at 10 s (371), 3 at 20 s (367); clear paths 265 and 353",
+     "line": "functions/sub_4BCCC0_004bccc0.c:265,353,362,367,371"
+    },
+    {
+     "function": "sub_41A720 (30 s penalty)",
+     "result": "cancels 123,124,125 (BooleanOR lines 29-31) when the ignored-blue-flag penalty fires; does not emit them",
+     "line": "functions/sub_41A720_0041a720.c:29-31; functions/sub_4BCCC0_004bccc0.c:379-381"
+    },
+    {
+     "function": "ClearPitSelectionFlags sub_41B910",
+     "result": "cancels 123,124,125 when the flag ends (a1==5)",
+     "line": "functions/ClearPitSelectionFlags_0041b910.c:5-7"
+    },
+    {
+     "function": "TV twin 414 (name table)",
+     "result": "name table only, no commentary emitter",
+     "line": "functions/DriverNameIDLookup_00415d90.c"
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce this eid (emits {120,259,198} at lines 37,39,57,59)",
+     "line": "functions/AIDriverStateTransition_00419120.c"
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce this eid (emits {6,180,181,182} at line 24 and switch 1-3)",
+     "line": "functions/AIFormationLap_0041a3a0.c"
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce this eid (emits {3,4,5,10,16,33,72,262} at line 61; v5 default 5)",
+     "line": "functions/AIOvertakeDefendStateChange_00419690.c"
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce this eid (emits {42,52} at line 15)",
+     "line": "functions/AIPitStrategyState_0041a200.c"
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce this eid (emits {7,8,9,17,18} at lines 36,48; body needs dword_7C56A4==5 (qualifying only))",
+     "line": "functions/AIPositionChangeEvent_004198b0.c"
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce this eid (emits {21,22,178,179} at line 36, then calls AIPositionChangeEvent)",
+     "line": "functions/AISessionPhaseChange_0041a2b0.c"
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce this eid (emits {52,196} at line 19)",
+     "line": "functions/AIVehicleDamageEvent_0041a170.c"
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce this eid (emits {157-177,158,159,260,261} at lines 113 and the track map)",
+     "line": "functions/PerDriverRaceCommentary_00419c50.c"
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce this eid (emits {397,516-519,523,526,527,530-533} at line 127 (v6 chain lines 29-118))",
+     "line": "functions/PitExit_0041c0f0.c"
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce this eid (eid = sub_4203D0 result (track ids 355-363; ThunkToFUN004201e0_004203d0.c) at line 26)",
+     "line": "functions/PositionBasedMessageDisplay_0041c4c0.c"
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce this eid (emits {397,447-477 track map,454,455,456,459,460,461,465,474,476} at lines 107,148,158,173,191-226)",
+     "line": "functions/RaceCommentary_0041d630.c"
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce this eid (emits {293-336} at line 189)",
+     "line": "functions/TeamNameDisplayIDLookup_0041b980.c"
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce this eid (emits {34,35,276,277,278,279} at line 25 region)",
+     "line": "functions/TimeBasedMessageChain_0041a500.c"
+    },
+    {
+     "function": "sub_41A720 (penalty text)",
+     "result": "cannot produce this eid (emits {151,153,154,155,252,253,254,256}; BooleanOR cancels 123,124,125 at lines 29-31 for aIgnoredBlueFla)",
+     "line": "functions/sub_41A720_0041a720.c"
+    },
+    {
+     "function": "sub_41A940 (stop-go)",
+     "result": "cannot produce this eid (emits {149,243} at line 15)",
+     "line": "functions/sub_41A940_0041a940.c"
+    },
+    {
+     "function": "sub_41AC50 (AI state)",
+     "result": "cannot produce this eid (emits {208,211-217,220})",
+     "line": "functions/sub_41AC50_0041ac50.c"
+    },
+    {
+     "function": "sub_41C440 (track name)",
+     "result": "cannot produce this eid (eid = sub_420000 (338-354) or sub_4203D0 (355+) at line 16)",
+     "line": "functions/sub_41C440_0041c440.c"
+    },
+    {
+     "function": "sub_41B250 (retire emitter)",
+     "result": "cannot produce this eid (emits {117,118,119} at lines 15,19,23 (plus 236,237,238 at lines 45,47,53))",
+     "line": "functions/sub_41B250_0041b250.c"
+    },
+    {
+     "function": "DriverNameIDLookup sub_415D90 (functions/DriverNameIDLookup_00415d90.c)",
+     "result": "name-table value written to a1+8 (lines 43,91,224,263,311,423,444,746; e.g. 444 'a4!=0 ? 274 : 120', 311 'a4!=0 ? 272 : 118', 224 'a4!=0 ? 273 : 119'); the file has no DriverDataTable or InsertDriverTable call; consumer sub_414600 only loads files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417640 (functions/sub_417640_00417640.c)",
+     "result": "offset arithmetic +124 (lines 18,23,100), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "NameListBuilderFromVehicleArray (functions/NameListBuilderFromVehicleArray_004159b0.c)",
+     "result": "offset +124 (lines 47,180), not an eid; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "SessionStringNameLookup (functions/SessionStringNameLookup_004122c0.c)",
+     "result": "offsets +124 (line 24) and +116 (line 37), not eids; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_417AF0 and sub_414A90 (functions/sub_417AF0_00417af0.c, sub_414A90_00414a90.c)",
+     "result": "team-name file ids 121-140 (lines 25-66: 121 McLaren, 122 Ferrari, 123 Williams, 124 Jordan, 125 Sauber, 126 Arrows, 127 Prost, 128 Minardi, 129 off_5C25E0, 130 Jaguar); zero DriverDataTable or InsertDriverTable in both files",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_414600 (functions/sub_414600_00414600.c)",
+     "result": "calls DriverNameIDLookup and FilePathExtensionCheck; zero DriverDataTable calls",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "EnumValueTranslation sub_414010 (functions/EnumValueTranslation_00414010.c)",
+     "result": "SDT route only: case k writes SDT 112+k (lines 31-58; case 8 -> 120 ... case 17 -> 129); callers SoundEventDispatcher sub_411E90 (types 0x11/0x34 with a3[5]) and FontCharacterRenderDispatcher sub_411DB0 (type 9876, a5 1..2). The template that supplies enum value k is UNKNOWN",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_455580 (functions/sub_455580_00455580.c)",
+     "result": "126 at line 411 is a character-code mapping (case 0x29), not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "sub_58E4D2 (functions/sub_58E4D2_0058e4d2.c)",
+     "result": "120 at line 270 is a decoder field, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "BufferChecksumValidator (functions/BufferChecksumValidator_00539600.c)",
+     "result": "121 at line 30 is a buffer constant, not an eid",
+     "line": "not an eid emission (checked)"
+    },
+    {
+     "function": "MainGameTickUpdate sub_42C690 (functions/MainGameTickUpdate_0042c690.c)",
+     "result": "lines 86-87: if !(player+13000) then sub_4BCCC0(0.025) on each sim step; SDK callers GamePostMainLoop 0x42D8A0 and StateTriggerCheck 0x4B8AE0",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4BCCC0 blue-flag monitor (functions/sub_4BCCC0_004bccc0.c)",
+     "result": "265 clear if player+13388, RacePhase!=5, |v68|>=8.0 or v45|v46 (x87 compare, UNKNOWN); 353 clear if flag off, this[54] changed or SessionType!=7 (qualifying never reaches the emit); 362/367/371 PSM a6=1/3/2; 379-381 30 s ignored-blue-flag penalty, sub_41A720, timer reset",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "PitSelectionStateMachine sub_41B3C0 (functions/PitSelectionStateMachine_0041b3c0.c)",
+     "result": "gate line 3: dword_7D0308 && flt_7CF3C8!=0 && !(player+13388) && RacePhase!=8; case 5 (lines 153-170) is player only (dword_7C54E8==a5): a6=1 emits 123 (line 159); a6=2 cancels 123 (162) and emits 124 (163); a6=3 cancels 123,124 (166-167) and emits 125 (168)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ClearPitSelectionFlags sub_41B910 (functions/ClearPitSelectionFlags_0041b910.c)",
+     "result": "a1==5: BooleanOR cancels 123,124,125 (lines 5-7); called by sub_4BCCC0 when the blue-flag ends",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4D1730 (functions/sub_4D1730_004d1730.c)",
+     "result": "line 87 calls PSM with a table state v13; whether v13 can equal 5 is UNKNOWN (table writers not enumerated); SDK callers sub_4D1D80 <- sub_4D4580 <- GamePostMainLoop/StateTriggerCheck",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "ConditionalFieldSetter sub_4BC2F0 (functions/ConditionalFieldSetter_004bc2f0.c)",
+     "result": "if this+44 changes, calls AIDriverStateTransition(dword_5EB978, *this, old, new): the only route into eid 120",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "AIDriverSorting sub_4BF390 and callers",
+     "result": "callers: EngineFailureCheck sub_4BEC55 (SDK callers none), AIBehaviorInitialization sub_4BF0A0 <- AIOvertake sub_4BEB10 <- sub_46BF10 <- DispatchChainWithVTableCalls sub_46DA20 / sub_46DC60 (root UNKNOWN), AITickUpdate sub_4BF4F0 (SDK callers none). The per-frame root of the eid 120 route is NOT resolved",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "sub_4F1FE0 retire path (functions/sub_4F1FE0_004f1fe0.c)",
+     "result": "line 33 FinishState veh+0x4064; line 36 AI branch; line 90 return if dword_7CE814 (player branch); line 104 return if v12==4 && |this[3685]|>0.1; line 107 sub_4D21D0 race phase; line 109 !DistanceComparison; line 113 dwell > flt_7D0A8C (10.0 live); line 135 sub_41B250 call (only caller)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "VehicleYawRotationRecoveryController sub_4F1C40 (dossier call tree)",
+     "result": "calls sub_4F1FE0 every 50 ticks per the dossier; not re-read in full for this audit",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "mechanical_failures 1.0.7 release source (development/mods/mechanical_failures/releases/v1.0.7/src/engine_failure.c)",
+     "result": "line 527 #define EID_RETIRE04 119; lines 565 and 570 radio_req(MFR_P_DEATH) on engine death; line 591 dropped when not driving; radio_pump 1543-1555 calls commentary_say(eid) unless mfv_line_of_eid(eid)>=0 (119 is not an MFV line; mf_voice.h:146 lists 119 as vanilla-in-use); commentary_say 3991 posts to the game thread, commentary_say_now 465 queues the event (refuses FLT_MAX cooldown); death_blowup_say 608/645 keeps the vanilla RETIRE04 in a race",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "player_retire_commentary (candidate, folder release-aligned-1.0.1-dev)",
+     "result": "emits 117/118/119 by ReasonCode through its own path; NOT in the owner plugins list (no player_retire* file under plugins\\lightloader)",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "pitstop_failures 1.1.4-rc.1 census (ERE/data/modded_lines.json)",
+     "result": "census rows for eids 118-129: only 117 (pit_commentary.c:1477 wheel-jam retire); no 118-129 OVERTAKE/AILAPPIN/RETIRE04 rows from pit mod",
+     "line": "reachability / gate evidence"
+    },
+    {
+     "function": "owner exe cooldown table (PE read, read-only)",
+     "result": "F1 Challenge Online.exe in the 99-02 folder: cooldown at 0x5BF9A0+eid*0x14+0x0C: 118 = 6.0 (0x5C02E4), 119 = 6.0 (0x5C02F8), 120 = 10.0, 121 = 1.0, 122 = 1.0, 123 = 45.0, 124 = 45.0, 125 = 45.0, 126 = 5.0; clean VM exe: 118 and 119 FLT_MAX, 120-125 equal to the owner exe. Which exe runs live is UNKNOWN (a modified exe is also in the folder)",
+     "line": "reachability / gate evidence"
+    }
+   ]
+  }
+ ]
+}

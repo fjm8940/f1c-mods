@@ -1,0 +1,6 @@
+func,line,dec,hex,access,width,base,form,expr
+RenderCallWithGuard,3,18596,0x48A4,R,_DWORD,a1,array,if ( (int)a1[4649] < 0 )
+RenderCallWithGuard,4,,,CALL,,,call,sub_4C6F10
+RenderCallWithGuard,5,,,CALL,,,call,IndexedStructDataRead
+RenderCallWithGuard,5,18596,0x48A4,R,_DWORD,a1,array,"return IndexedStructDataRead(dword_5EA2C0, a1[4649], a1[4650], a2, a3);"
+RenderCallWithGuard,5,18600,0x48A8,R,_DWORD,a1,array,"return IndexedStructDataRead(dword_5EA2C0, a1[4649], a1[4650], a2, a3);"

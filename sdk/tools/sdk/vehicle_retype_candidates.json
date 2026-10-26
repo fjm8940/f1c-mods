@@ -1,0 +1,478 @@
+{
+ "_meta": {
+  "rule": ">=2 distinctive vehicle anchor offsets dereferenced off `this`",
+  "anchors": [
+   "0x32C8",
+   "0x4064",
+   "0x4068",
+   "0x4410",
+   "0x4440",
+   "0x454C",
+   "0x45F4",
+   "0x4620",
+   "0x4678",
+   "0x4714",
+   "0x489C"
+  ],
+  "note": "DERIVED-grade inference. Back up the .i64 before applying; spot-check a couple of decompilations after."
+ },
+ "candidates": [
+  {
+   "addr": "0x00424E70",
+   "func": "AIMainUpdate",
+   "file": "AIMainUpdate_00424e70.c",
+   "anchors": 6,
+   "anchor_offsets": [
+    "0x32C8",
+    "0x4064",
+    "0x4068",
+    "0x4440",
+    "0x454C",
+    "0x45F4"
+   ],
+   "named_accesses": 17,
+   "total_this_accesses": 54
+  },
+  {
+   "addr": "0x004C79E0",
+   "func": "VehicleDriverInfoClear",
+   "file": "VehicleDriverInfoClear_004c79e0.c",
+   "anchors": 4,
+   "anchor_offsets": [
+    "0x4620",
+    "0x4678",
+    "0x4714",
+    "0x489C"
+   ],
+   "named_accesses": 6,
+   "total_this_accesses": 19
+  },
+  {
+   "addr": "0x00426430",
+   "func": "sub_426430",
+   "file": "sub_426430_00426430.c",
+   "anchors": 3,
+   "anchor_offsets": [
+    "0x32C8",
+    "0x4440",
+    "0x454C"
+   ],
+   "named_accesses": 10,
+   "total_this_accesses": 34
+  },
+  {
+   "addr": "0x00425920",
+   "func": "AIRacingLine",
+   "file": "AIRacingLine_00425920.c",
+   "anchors": 3,
+   "anchor_offsets": [
+    "0x4440",
+    "0x454C",
+    "0x45F4"
+   ],
+   "named_accesses": 9,
+   "total_this_accesses": 28
+  },
+  {
+   "addr": "0x004C78F0",
+   "func": "NationalityDriverInfoLoader",
+   "file": "NationalityDriverInfoLoader_004c78f0.c",
+   "anchors": 3,
+   "anchor_offsets": [
+    "0x4620",
+    "0x4678",
+    "0x4714"
+   ],
+   "named_accesses": 4,
+   "total_this_accesses": 9
+  },
+  {
+   "addr": "0x004A68B0",
+   "func": "PitStopProgress",
+   "file": "PitStopProgress_004a68b0.c",
+   "anchors": 3,
+   "anchor_offsets": [
+    "0x32C8",
+    "0x4064",
+    "0x4068"
+   ],
+   "named_accesses": 4,
+   "total_this_accesses": 18
+  },
+  {
+   "addr": "0x00424CD0",
+   "func": "AICommandMessageQueueDispatcher",
+   "file": "AICommandMessageQueueDispatcher_00424cd0.c",
+   "anchors": 3,
+   "anchor_offsets": [
+    "0x4064",
+    "0x4410",
+    "0x45F4"
+   ],
+   "named_accesses": 3,
+   "total_this_accesses": 5
+  },
+  {
+   "addr": "0x004C7B50",
+   "func": "VehicleSetupDriverNumber",
+   "file": "VehicleSetupDriverNumber_004c7b50.c",
+   "anchors": 3,
+   "anchor_offsets": [
+    "0x4620",
+    "0x4714",
+    "0x489C"
+   ],
+   "named_accesses": 3,
+   "total_this_accesses": 6
+  },
+  {
+   "addr": "0x00424B20",
+   "func": "CameraViewportFrustumInitialization",
+   "file": "CameraViewportFrustumInitialization_00424b20.c",
+   "anchors": 2,
+   "anchor_offsets": [
+    "0x454C",
+    "0x45F4"
+   ],
+   "named_accesses": 5,
+   "total_this_accesses": 35
+  },
+  {
+   "addr": "0x0042A3D0",
+   "func": "PitStopDecisionTireCompound",
+   "file": "PitStopDecisionTireCompound_0042a3d0.c",
+   "anchors": 2,
+   "anchor_offsets": [
+    "0x4410",
+    "0x45F4"
+   ],
+   "named_accesses": 5,
+   "total_this_accesses": 13
+  },
+  {
+   "addr": "0x00424790",
+   "func": "AIDriverStructInit",
+   "file": "AIDriverStructInit_00424790.c",
+   "anchors": 2,
+   "anchor_offsets": [
+    "0x4410",
+    "0x45F4"
+   ],
+   "named_accesses": 2,
+   "total_this_accesses": 12
+  },
+  {
+   "addr": "0x00423E80",
+   "func": "RaceStructInit",
+   "file": "RaceStructInit_00423e80.c",
+   "anchors": 2,
+   "anchor_offsets": [
+    "0x4410",
+    "0x45F4"
+   ],
+   "named_accesses": 2,
+   "total_this_accesses": 7
+  },
+  {
+   "addr": "0x0042ADB0",
+   "func": "SessionCleanupFlagClear",
+   "file": "SessionCleanupFlagClear_0042adb0.c",
+   "anchors": 2,
+   "anchor_offsets": [
+    "0x4410",
+    "0x45F4"
+   ],
+   "named_accesses": 2,
+   "total_this_accesses": 3
+  },
+  {
+   "addr": "0x00429960",
+   "func": "sub_429960",
+   "file": "sub_429960_00429960.c",
+   "anchors": 2,
+   "anchor_offsets": [
+    "0x32C8",
+    "0x4620"
+   ],
+   "named_accesses": 2,
+   "total_this_accesses": 14
+  }
+ ],
+ "rejected_single_anchor": [
+  {
+   "addr": "0x004C73F0",
+   "func": "VehiclePhysicsTimeStep",
+   "file": "VehiclePhysicsTimeStep_004c73f0.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x32C8"
+   ],
+   "named_accesses": 9,
+   "total_this_accesses": 27
+  },
+  {
+   "addr": "0x00425670",
+   "func": "SteeringAngleController",
+   "file": "SteeringAngleController_00425670.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x4440"
+   ],
+   "named_accesses": 6,
+   "total_this_accesses": 16
+  },
+  {
+   "addr": "0x00429470",
+   "func": "AIAbility",
+   "file": "AIAbility_00429470.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x45F4"
+   ],
+   "named_accesses": 2,
+   "total_this_accesses": 17
+  },
+  {
+   "addr": "0x00426CF0",
+   "func": "AISteeringCorrection",
+   "file": "AISteeringCorrection_00426cf0.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x4440"
+   ],
+   "named_accesses": 2,
+   "total_this_accesses": 16
+  },
+  {
+   "addr": "0x004C6C40",
+   "func": "VehgenScnFileLoader",
+   "file": "VehgenScnFileLoader_004c6c40.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x32C8"
+   ],
+   "named_accesses": 2,
+   "total_this_accesses": 10
+  },
+  {
+   "addr": "0x004258C0",
+   "func": "sub_4258C0",
+   "file": "sub_4258C0_004258c0.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x4440"
+   ],
+   "named_accesses": 2,
+   "total_this_accesses": 6
+  },
+  {
+   "addr": "0x0042A180",
+   "func": "AIPushLap",
+   "file": "AIPushLap_0042a180.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x32C8"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 6
+  },
+  {
+   "addr": "0x0042B0E0",
+   "func": "AISteeringRacingLineCorrection",
+   "file": "AISteeringRacingLineCorrection_0042b0e0.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x45F4"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 7
+  },
+  {
+   "addr": "0x004BC0E0",
+   "func": "DisqualificationHandler",
+   "file": "DisqualificationHandler_004bc0e0.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x32C8"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 1
+  },
+  {
+   "addr": "0x004C6A10",
+   "func": "DriverAbbreviationNameFormatter",
+   "file": "DriverAbbreviationNameFormatter_004c6a10.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x4620"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 3
+  },
+  {
+   "addr": "0x004ED960",
+   "func": "FuelConsumptionAndWear",
+   "file": "FuelConsumptionAndWear_004ed960.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x4068"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 9
+  },
+  {
+   "addr": "0x004F87C0",
+   "func": "HUDElementConfig",
+   "file": "HUDElementConfig_004f87c0.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x32C8"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 1
+  },
+  {
+   "addr": "0x004BC390",
+   "func": "LapSplitTimeEvent",
+   "file": "LapSplitTimeEvent_004bc390.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x32C8"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 6
+  },
+  {
+   "addr": "0x004A6E50",
+   "func": "PitStateUpdateMachine",
+   "file": "PitStateUpdateMachine_004a6e50.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x32C8"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 8
+  },
+  {
+   "addr": "0x004ED250",
+   "func": "RepairServiceStateDispatcher",
+   "file": "RepairServiceStateDispatcher_004ed250.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x4068"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 5
+  },
+  {
+   "addr": "0x004C6980",
+   "func": "SetDriverName",
+   "file": "SetDriverName_004c6980.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x4620"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 1
+  },
+  {
+   "addr": "0x004BBD60",
+   "func": "StopGoPenaltyHandler",
+   "file": "StopGoPenaltyHandler_004bbd60.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x32C8"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 1
+  },
+  {
+   "addr": "0x004A5FA0",
+   "func": "VehicleProximityCollisionDetection",
+   "file": "VehicleProximityCollisionDetection_004a5fa0.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x32C8"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 3
+  },
+  {
+   "addr": "0x004E0800",
+   "func": "VehicleRespawnReset",
+   "file": "VehicleRespawnReset_004e0800.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x32C8"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 19
+  },
+  {
+   "addr": "0x004BBC60",
+   "func": "WarningHandler",
+   "file": "WarningHandler_004bbc60.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x32C8"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 1
+  },
+  {
+   "addr": "0x00424080",
+   "func": "sub_424080",
+   "file": "sub_424080_00424080.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x4620"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 22
+  },
+  {
+   "addr": "0x004A4900",
+   "func": "sub_4A4900",
+   "file": "sub_4A4900_004a4900.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x4714"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 2
+  },
+  {
+   "addr": "0x004BB8E0",
+   "func": "sub_4BB8E0",
+   "file": "sub_4BB8E0_004bb8e0.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x32C8"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 4
+  },
+  {
+   "addr": "0x004BBA90",
+   "func": "sub_4BBA90",
+   "file": "sub_4BBA90_004bba90.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x32C8"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 2
+  },
+  {
+   "addr": "0x004F70C0",
+   "func": "sub_4F70C0",
+   "file": "sub_4F70C0_004f70c0.c",
+   "anchors": 1,
+   "anchor_offsets": [
+    "0x4714"
+   ],
+   "named_accesses": 1,
+   "total_this_accesses": 1
+  }
+ ]
+}

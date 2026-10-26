@@ -1,0 +1,3 @@
+func,line,dec,hex,access,width,base,form,expr
+ReplayAIStateCheck,5,15004,0x3A9C,R,_DWORD,this,array,v1 = this[3751];
+ReplayAIStateCheck,6,300,0x12C,R,_DWORD,v1,direct,return v1 && *(_DWORD *)(v1 + 300) == 1;

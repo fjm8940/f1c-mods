@@ -1,0 +1,27 @@
+
+== vanilla-era 99-02: 50 files
+ fallback flags used: 4 {'30': 4, '0': 46}
+ drain at limiter x: min 0.07 med 2.29 max 2.43
+ GENTLE: survived 3h  50  mod-terminal   0  clock   0 (no onset   0)  median end    0.0 min
+ RACE  : survived 3h   5  mod-terminal  45  clock   0 (no onset   0)  median end  112.8 min
+ CASUAL: survived 3h   5  mod-terminal   6  clock  39 (no onset   0)  median end  135.4 min
+ ABUSE : survived 3h   5  mod-terminal  45  clock   0 (no onset   0)  median end   20.1 min
+ manual oil pressure terminated: 50 / 50
+
+== mod: 92 files
+ fallback flags used: 7 {'64': 7, '0': 85}
+ drain at limiter x: min 0.50 med 2.28 max 24.71
+ GENTLE: survived 3h  92  mod-terminal   0  clock   0 (no onset   0)  median end    0.0 min
+ RACE  : survived 3h   6  mod-terminal  85  clock   1 (no onset   1)  median end  112.5 min
+ CASUAL: survived 3h  26  mod-terminal   2  clock  64 (no onset   0)  median end  138.2 min
+ ABUSE : survived 3h   0  mod-terminal  56  clock  36 (no onset  26)  median end   19.9 min
+ manual oil pressure terminated: 92 / 92
+
+== safety car: 3 files
+ fallback flags used: 2 {'30': 2, '0': 1}
+ drain at limiter x: min 0.00 med 1.54 max 1.54
+ GENTLE: survived 3h   3  mod-terminal   0  clock   0 (no onset   0)  median end    0.0 min
+ RACE  : survived 3h   3  mod-terminal   0  clock   0 (no onset   0)  median end    0.0 min
+ CASUAL: survived 3h   3  mod-terminal   0  clock   0 (no onset   0)  median end    0.0 min
+ ABUSE : survived 3h   3  mod-terminal   0  clock   0 (no onset   0)  median end    0.0 min
+ manual oil pressure terminated: 3 / 3

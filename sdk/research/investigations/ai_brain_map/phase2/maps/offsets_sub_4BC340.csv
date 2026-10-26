@@ -1,0 +1,2 @@
+func,line,dec,hex,access,width,base,form,expr
+sub_4BC340,7,48,0x30,R,_DWORD,this,array,"&& ((v1 = this[12], v1 != 1) && v1 != 3 || dword_7CEF84 && v1 != 3 && dword_7C56A4 == 5)"

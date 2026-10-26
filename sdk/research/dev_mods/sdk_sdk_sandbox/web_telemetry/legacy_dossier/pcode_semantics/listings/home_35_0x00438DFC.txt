@@ -1,0 +1,260 @@
+; home #35
+; RTMI 0x00438DFC  code 0x00438AC4  ProcSize 824  FrameSize 296
+  0x0000: FLdPr                    var[8]
+  0x0003: MemLdStr                 raw=5801
+  0x0006: LitStr                   pool[30]="Ooops...Error in File "
+  0x0009: GtStr                    
+  0x000B: BranchF                  target=+0x337
+  0x000E: LitVarI2                 var[-164] = 0
+  0x0013: FStVar                   raw=6CFF
+  0x0017: LitI4                    raw=01000000
+  0x001C: FLdPr                    var[8]
+  0x001F: MemLdStr                 raw=5801
+  0x0022: LitStr                   pool[162]="lap="
+  0x0025: LitI4                    raw=00000000
+  0x002A: FnInStr4                 
+  0x002C: LitI4                    raw=00000000
+  0x0031: GtI4                     
+  0x0032: BranchF                  target=+0x7B
+  0x0035: FLdPr                    var[8]
+  0x0038: MemLdRfVar               var[344]
+  0x003B: CVarRef                  raw=5CFF0840
+  0x0040: FLdRfVar                 var[-180]
+  0x0043: ImpAdCallFPR4            pool[109](MSVBVM60!__imp_rtcTrimVar) stack+8
+  0x0048: LitStr                   pool[163]="lap"
+  0x004B: FStStrCopy               raw=44FF
+  0x004E: FLdRfVar                 var[-188]
+  0x0051: FLdRfVar                 var[-180]
+  0x0054: CStrVarTmp               
+  0x0055: PopTmpLdAdStr            raw=48FF
+  0x0059: ImpAdCallI2              raw=1D000800
+  0x005E: FStStr                   raw=40FF
+  0x0061: FFreeStr                 raw=040048FF44FF
+  0x0068: FFree1Var                var[-180]
+  0x006B: ILdRf                    var[-192]
+  0x006E: ImpAdCallFPR4            pool[34](MSVBVM60!__imp_rtcR8ValFromBstr) stack+4
+  0x0073: CVarR8                   raw=5CFF
+  0x0077: FStVar                   raw=6CFF
+  0x007B: FLdRfVar                 var[-148]
+  0x007E: LitVarI2                 var[-164] = 0
+  0x0083: HardType                 
+  0x0084: GtVarBool                
+  0x0086: BranchF                  target=+0x337
+  0x0089: FLdRfVar                 var[-148]
+  0x008C: CI4Var                   
+  0x008E: ImpAdLdRf                raw=0A00
+  0x0091: Ary1LdI2                 
+  0x0092: CVarI2                   raw=5CFF
+  0x0095: FStVar                   raw=30FF
+  0x0099: LitStr                   pool[188]="DRIVER"
+  0x009C: FStStrCopy               raw=48FF
+  0x009F: FLdRfVar                 var[-184]
+  0x00A2: FLdRfVar                 var[-208]
+  0x00A5: CI4Var                   
+  0x00A7: ImpAdLdRf                raw=A500
+  0x00AA: Ary1LdRf                 
+  0x00AB: ImpAdCallI2              raw=1D000800
+  0x00B0: FStStr                   raw=2CFF
+  0x00B3: FFree1Str                var[-184]
+  0x00B6: LitStr                   pool[189]="CAR"
+  0x00B9: FStStrCopy               raw=48FF
+  0x00BC: FLdRfVar                 var[-184]
+  0x00BF: FLdRfVar                 var[-208]
+  0x00C2: CI4Var                   
+  0x00C4: ImpAdLdRf                raw=A500
+  0x00C7: Ary1LdRf                 
+  0x00C8: ImpAdCallI2              raw=1D000800
+  0x00CD: FStStr                   raw=28FF
+  0x00D0: FFree1Str                var[-184]
+  0x00D3: LitStr                   pool[190]="TEAM"
+  0x00D6: FStStrCopy               raw=48FF
+  0x00D9: FLdRfVar                 var[-184]
+  0x00DC: FLdRfVar                 var[-208]
+  0x00DF: CI4Var                   
+  0x00E1: ImpAdLdRf                raw=A500
+  0x00E4: Ary1LdRf                 
+  0x00E5: ImpAdCallI2              raw=1D000800
+  0x00EA: FStStr                   raw=24FF
+  0x00ED: FFree1Str                var[-184]
+  0x00F0: LitStr                   pool[191]="TRACK"
+  0x00F3: FStStrCopy               raw=48FF
+  0x00F6: FLdRfVar                 var[-184]
+  0x00F9: FLdRfVar                 var[-208]
+  0x00FC: CI4Var                   
+  0x00FE: ImpAdLdRf                raw=A500
+  0x0101: Ary1LdRf                 
+  0x0102: ImpAdCallI2              raw=1D000800
+  0x0107: FStStr                   raw=20FF
+  0x010A: FFree1Str                var[-184]
+  0x010D: LitStr                   pool[192]="DATE"
+  0x0110: FStStrCopy               raw=48FF
+  0x0113: FLdRfVar                 var[-184]
+  0x0116: FLdRfVar                 var[-208]
+  0x0119: CI4Var                   
+  0x011B: ImpAdLdRf                raw=A500
+  0x011E: Ary1LdRf                 
+  0x011F: ImpAdCallI2              raw=1D000800
+  0x0124: FStStr                   raw=1CFF
+  0x0127: FFree1Str                var[-184]
+  0x012A: LitStr                   pool[193]="VALID"
+  0x012D: FStStrCopy               raw=48FF
+  0x0130: FLdRfVar                 var[-184]
+  0x0133: FLdRfVar                 var[-208]
+  0x0136: CI4Var                   
+  0x0138: ImpAdLdRf                raw=A500
+  0x013B: Ary1LdRf                 
+  0x013C: ImpAdCallI2              raw=1D000800
+  0x0141: FStStr                   raw=18FF
+  0x0144: FFree1Str                var[-184]
+  0x0147: FLdRfVar                 var[-148]
+  0x014A: CI4Var                   
+  0x014C: ImpAdLdRf                raw=C200
+  0x014F: Ary1LdI4                 
+  0x0150: CVarI4                   raw=5CFF
+  0x0154: FStVar                   raw=08FF
+  0x0158: FLdRfVar                 var[-248]
+  0x015B: CI4Var                   
+  0x015D: ImpAdLdI4                raw=C300
+  0x0160: Ary1LdFPR4               
+  0x0161: CVarR4                   raw=5CFF
+  0x0165: FStVar                   raw=F8FE
+  0x0169: FLdRfVar                 var[-264]
+  0x016C: FLdRfVar                 var[-208]
+  0x016F: FLdRfVar                 var[-180]
+  0x0172: ImpAdCallFPR4            pool[196](call Data_management#6) stack+12
+  0x0177: FLdRfVar                 var[-180]
+  0x017A: FStVar                   raw=E8FE
+  0x017E: FLdRfVar                 var[-280]
+  0x0181: ImpAdCallI2              raw=C5000400
+  0x0186: FStStr                   raw=44FF
+  0x0189: FFreeStr                 raw=040048FF44FF
+  0x0190: FLdRfVar                 var[-224]
+  0x0193: ImpAdCallI2              raw=C6000400
+  0x0198: FStStrNoPop              var[-184]
+  0x019B: LitStr                   pool[108]="_"
+  0x019E: ConcatStr                
+  0x019F: FStStrNoPop              var[-188]
+  0x01A2: FLdRfVar                 var[-212]
+  0x01A5: ImpAdCallI2              raw=C6000400
+  0x01AA: FStStrNoPop              var[-284]
+  0x01AD: ConcatStr                
+  0x01AE: FStStrNoPop              var[-288]
+  0x01B1: LitStr                   pool[108]="_"
+  0x01B4: ConcatStr                
+  0x01B5: FStStrNoPop              var[-292]
+  0x01B8: FLdRfVar                 var[-280]
+  0x01BB: ImpAdCallI2              raw=C5000400
+  0x01C0: FStStrNoPop              var[-296]
+  0x01C3: ConcatStr                
+  0x01C4: FStStrNoPop              var[-300]
+  0x01C7: LitStr                   pool[199]=".lap"
+  0x01CA: ConcatStr                
+  0x01CB: FStStr                   raw=D0FE
+  0x01CE: FFreeStr                 raw=0E0048FF44FFE4FEE0FEDCFED8FED4FE
+  0x01DF: OnErrorGoto              target=+0x337
+  0x01E2: LitVar_TRUE              var[-164]
+  0x01E5: PopAdLdVar               
+  0x01E6: FLdRfVar                 var[-320]
+  0x01E9: VarLateMemSt             raw=C800
+  0x01ED: FLdVar                   raw=A0FE
+  0x01F1: FLdRfVar                 var[-320]
+  0x01F4: VarLateMemSt             raw=C900
+  0x01F8: LitStr                   pool[202]="All Files (*.*)|*.*|LAP Files"
+  0x01FB: LitStr                   pool[203]="(*.lap)|*.lap"
+  0x01FE: ConcatStr                
+  0x01FF: CVarStr                  raw=4CFF
+  0x0202: PopAdLdVar               
+  0x0203: FLdRfVar                 var[-320]
+  0x0206: VarLateMemSt             raw=CC00
+  0x020A: FFree1Var                var[-180]
+  0x020D: LitVarI2                 var[-164] = 2
+  0x0212: PopAdLdVar               
+  0x0213: FLdRfVar                 var[-320]
+  0x0216: VarLateMemSt             raw=CD00
+  0x021A: FLdRfVar                 var[-184]
+  0x021D: FLdRfVar                 var[-356]
+  0x0220: ImpAdLdRf                raw=1300
+  0x0223: NewIfNullPr              raw=1400
+  0x0226: VCallHresult             raw=14001500
+  0x022B: FLdPr                    var[-356]
+  0x022E: VCallHresult             raw=60003D00
+  0x0233: FLdRfVar                 var[-188]
+  0x0236: FLdRfVar                 var[-360]
+  0x0239: ImpAdLdRf                raw=1300
+  0x023C: NewIfNullPr              raw=1400
+  0x023F: VCallHresult             raw=14001500
+  0x0244: FLdPr                    var[-360]
+  0x0247: VCallHresult             raw=50003D00
+  0x024C: FLdZeroAd                var[-188]
+  0x024F: CVarStr                  raw=4CFF
+  0x0252: PopAdLdVar               
+  0x0253: LitStr                   pool[206]="LAST_LAP"
+  0x0256: LitStr                   pool[76]="Filepaths"
+  0x0259: ILdRf                    var[-184]
+  0x025C: ImpAdCallI2              raw=CF001C00
+  0x0261: FStStr                   raw=94FE
+  0x0264: FFree1Str                var[-184]
+  0x0267: FFreeAd                  raw=04009CFE98FE
+  0x026E: FFree1Var                var[-180]
+  0x0271: FLdRfVar                 var[-364]
+  0x0274: ImpAdCallI2              raw=D0000400
+  0x0279: FStStrNoPop              var[-184]
+  0x027C: ILdRf                    var[-304]
+  0x027F: ConcatStr                
+  0x0280: CVarStr                  raw=4CFF
+  0x0283: PopAdLdVar               
+  0x0284: FLdRfVar                 var[-320]
+  0x0287: VarLateMemSt             raw=D100
+  0x028B: FFree1Str                var[-184]
+  0x028E: FFree1Var                var[-180]
+  0x0291: FLdRfVar                 var[-320]
+  0x0294: LdPrVar                  
+  0x0296: LateMemCall              raw=D2000000
+  0x029C: FLdRfVar                 var[-320]
+  0x029F: VarLateMemLdVar          raw=4CFFD100
+  0x02A5: CStrVarTmp               
+  0x02A6: FStStr                   raw=D0FE
+  0x02A9: FFree1Var                var[-180]
+  0x02AC: OnErrorGoto              target=+0xFFFE
+  0x02AF: ILdRf                    var[-304]
+  0x02B2: LitStr                   pool[30]="Ooops...Error in File "
+  0x02B5: GtStr                    
+  0x02B7: BranchF                  target=+0x337
+  0x02BA: FLdRfVar                 var[-184]
+  0x02BD: FLdRfVar                 var[-356]
+  0x02C0: ImpAdLdRf                raw=1300
+  0x02C3: NewIfNullPr              raw=1400
+  0x02C6: VCallHresult             raw=14001500
+  0x02CB: FLdPr                    var[-356]
+  0x02CE: VCallHresult             raw=60003D00
+  0x02D3: ILdRf                    var[-304]
+  0x02D6: LitStr                   pool[206]="LAST_LAP"
+  0x02D9: LitStr                   pool[76]="Filepaths"
+  0x02DC: ILdRf                    var[-184]
+  0x02DF: ImpAdCallFPR4            pool[77](MSVBVM60!__imp_rtcSaveSetting) stack+16
+  0x02E4: FFree1Str                var[-184]
+  0x02E7: FFree1Ad                 var[-356]
+  0x02EA: LitVarI2                 var[-180] = -1
+  0x02EF: FLdRfVar                 var[-148]
+  0x02F2: FLdRfVar                 var[-304]
+  0x02F5: ImpAdCallFPR4            pool[211](call Data_management#9) stack+12
+  0x02FA: FFree1Var                var[-180]
+  0x02FD: LitVar_Missing           var[-428]
+  0x0300: LitVar_Missing           var[-396]
+  0x0303: LitVarStr                var[-164] = "FILE SAVED"
+  0x0308: FStVarCopyObj            raw=84FE
+  0x030B: FLdRfVar                 var[-380]
+  0x030E: LitI4                    raw=40000000
+  0x0313: LitStr                   pool[213]="File Saved to ..."
+  0x0316: LitStr                   pool[176]="
+"
+  0x0319: ConcatStr                
+  0x031A: FStStrNoPop              var[-184]
+  0x031D: ILdRf                    var[-304]
+  0x0320: ConcatStr                
+  0x0321: CVarStr                  raw=4CFF
+  0x0324: ImpAdCallFPR4            pool[173](MSVBVM60!__imp_rtcMsgBox) stack+20
+  0x0329: FFree1Str                var[-184]
+  0x032C: FFreeVar                 raw=08004CFF84FE74FE54FE
+  0x0337: ExitProcHresult          
+; status: {'unknown': None, 'truncated': None, 'stop_offset': 824, 'last_exit_end': 824, 'filler_len': 0, 'filler_hex': '', 'ok': True}

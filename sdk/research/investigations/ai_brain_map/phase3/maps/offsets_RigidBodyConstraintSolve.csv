@@ -1,0 +1,19 @@
+func,line,dec,hex,access,width,base,form,expr
+RigidBodyConstraintSolve,21,,,CALL,,,call,FPUControlWordMaskExtract
+RigidBodyConstraintSolve,22,,,CALL,,,call,EulerAnglesTo33RotationMatrix
+RigidBodyConstraintSolve,23,5616,0x15F0,R,_DWORD,this,direct,v5 = *(_DWORD *)(this + 5616);
+RigidBodyConstraintSolve,24,5628,0x15FC,R,double,this,direct,v6 = v12 * *(double *)(this + 5628) + v13 * *(double *)(this + 5636) + v14 * *(double *)(this + 5644);
+RigidBodyConstraintSolve,24,5636,0x1604,R,double,this,direct,v6 = v12 * *(double *)(this + 5628) + v13 * *(double *)(this + 5636) + v14 * *(double *)(this + 5644);
+RigidBodyConstraintSolve,24,5644,0x160C,R,double,this,direct,v6 = v12 * *(double *)(this + 5628) + v13 * *(double *)(this + 5636) + v14 * *(double *)(this + 5644);
+RigidBodyConstraintSolve,25,5628,0x15FC,R,double,this,direct,v7 = v15 * *(double *)(this + 5628) + v16 * *(double *)(this + 5636) + v17 * *(double *)(this + 5644);
+RigidBodyConstraintSolve,25,5636,0x1604,R,double,this,direct,v7 = v15 * *(double *)(this + 5628) + v16 * *(double *)(this + 5636) + v17 * *(double *)(this + 5644);
+RigidBodyConstraintSolve,25,5644,0x160C,R,double,this,direct,v7 = v15 * *(double *)(this + 5628) + v16 * *(double *)(this + 5636) + v17 * *(double *)(this + 5644);
+RigidBodyConstraintSolve,26,5628,0x15FC,R,double,this,direct,v11 = v18 * *(double *)(this + 5628) + v19 * *(double *)(this + 5636) + v20 * *(double *)(this + 5644);
+RigidBodyConstraintSolve,26,5636,0x1604,R,double,this,direct,v11 = v18 * *(double *)(this + 5628) + v19 * *(double *)(this + 5636) + v20 * *(double *)(this + 5644);
+RigidBodyConstraintSolve,26,5644,0x160C,R,double,this,direct,v11 = v18 * *(double *)(this + 5628) + v19 * *(double *)(this + 5636) + v20 * *(double *)(this + 5644);
+RigidBodyConstraintSolve,28,8,0x8,R,double,a2,array,v10[1] = a2[1] - v7;
+RigidBodyConstraintSolve,29,16,0x10,R,double,a2,array,v10[2] = a2[2] - v11;
+RigidBodyConstraintSolve,30,,,CALL,,,call,sub_56F100
+RigidBodyConstraintSolve,31,180,0xB4,W,_DWORD,this,direct,*(_DWORD *)(this + 180) = 0;
+RigidBodyConstraintSolve,39,4,0x4,W,_DWORD,result,array,result[1] = -1048577;
+RigidBodyConstraintSolve,45,,,CALL,,,call,EmptyStub_7780

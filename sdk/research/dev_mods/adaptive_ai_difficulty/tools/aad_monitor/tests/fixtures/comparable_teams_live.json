@@ -1,0 +1,16 @@
+{
+ "schema": "aad.live.v1", "version": "0.3.2-dev", "utc": "2026-10-16+00:00", "pid": 15376, "state": "active",
+ "session": {"type": 7, "kind": "race", "track": "2002_A-1_Ring", "slider": 93, "offline": true},
+ "rated": {"who": "player", "name": null, "car": "2002 Arrows", "slot": 7},
+ "level": {"factor": 1.025, "pct": 2.5, "applied": true, "tier": "track", "estimated": true, "locked": true, "source": "locked from practice", "why": "gap to comparable teams -0.80 s"},
+ "effect": {"ai_sec_per_lap": -0.55, "basis": "estimated", "ref_lap_s": 72.0},
+ "laps": [
+  {"lap": 5, "time": 71.882, "clean": false, "used": false, "reasons": ["traffic", "pit"], "teammate": null, "comparable": 72.474, "comparable_source": "weekend", "comparable_teams": ["2002 Jordan", "2002 Sauber"], "gap": null, "level": 1.025, "level_applied": true},
+  {"lap": 6, "time": 71.200, "clean": true, "used": true, "reasons": [], "teammate": null, "comparable": 72.000, "comparable_source": "weekend", "comparable_teams": ["2002 Jordan", "2002 Sauber"], "gap": -0.80, "level": 1.025, "level_applied": true},
+  {"lap": 7, "time": 73.100, "clean": false, "used": false, "reasons": [], "teammate": null, "comparable": null, "comparable_source": null, "comparable_teams": [], "gap": null, "level": 1.025, "level_applied": true}
+ ],
+ "session_stats": {"laps": 3, "clean": 1, "used": 1, "need_used": 5, "min_used": 3, "need_clean": 5, "teammate_laps": 0, "need_teammate": 5, "reference": "weekend", "reference_teams": ["2002 Jordan", "2002 Sauber"], "gap_fastest_half": -0.80, "gap_teammate_median": null},
+ "cars": [],
+ "next": {"factor": 1.0, "pct": 0.0, "tier": "native"},
+ "events": []
+}

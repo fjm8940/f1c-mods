@@ -1,0 +1,1948 @@
+{
+  "schema": "ere.audit.v1",
+  "range": "B30_290-299",
+  "date": "2026-10-18",
+  "method": "docs/AUDIT_BRIEF.md exhaustive per-line method. Dossier data/line_trace; emitter closure from functions/*.c; cooldowns from owner exe table.",
+  "rows": [
+    {
+      "schema": "ere.audit.v1",
+      "range": "B30_290-299",
+      "mod": "",
+      "mod_active_in_owner_game": false,
+      "heard_evidence": "No owner triage note. EVF docs/PROGRESS.md:63 says 'orphaned'.",
+      "tier": "FACT-static (dump) / DERIVED (play)",
+      "owner_exe_cooldown_check": "F1 Challenge Online.exe (sha256 1a70e5ed) read at VA 0x5BF9A0 + eid*0x14 + 0x0C: 1.0 for eids 273-281 and 291-299 (290 = 5.0, sdt 311 row). Validation: eid 80 = FLT_MAX, 106 = 15.0, 117 = 6.0 match the brief.",
+      "sdt_index": 290,
+      "eid": null,
+      "clip": "PWS_2001_161",
+      "says": "X laps to go (long)",
+      "score": null,
+      "cooldown": null,
+      "verdict": "NOT_ACTIVATED",
+      "reason": "orphan_clip",
+      "situation": "",
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "No trigger exists in code: no event row points at sdt 290.",
+      "emitters": [],
+      "call_path": "none: no event row (eid) has sdt_index 290",
+      "gates": [
+        "n/a: no eid row maps to this clip"
+      ],
+      "notes": "The sub_412490 literal 290 (l.60) is a stitch-bank sub-clip index, not a PC_RE_MAIN route; eid 290 is a different row (sdt 311 RE_OD_FASTEST_M, score 293, cooldown 5.0). Dossier literal_hits is empty.",
+      "checked": [
+        {
+          "function": "full_event_dump.json",
+          "result": "orphaned_clips contains '290' -> PWS_2001_161.mp; no event row has sdt_index 290",
+          "line": "mods/extended_vanilla_features/data/full_event_dump.json orphaned_clips"
+        },
+        {
+          "function": "sub_412490",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] writes EID 290 for a2=1,a4=1,a3=16; dump maps eid 290 to sdt 311. Cannot produce sdt 290",
+          "line": "sub_412490_00412490.c:60"
+        },
+        {
+          "function": "AIRetirementVehicleFailureEvent",
+          "result": "emits 273 only",
+          "line": "AIRetirementVehicleFailureEvent_004199e0.c:54"
+        },
+        {
+          "function": "DisplayMessage0x113",
+          "result": "emits 275 only",
+          "line": "DisplayMessage0x113_0041a6b0.c:10"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "emits 34,35,276-279 only",
+          "line": "TimeBasedMessageChain_0041a500.c:22,33,40,47,54,61"
+        },
+        {
+          "function": "DriverNameIDLookup",
+          "result": "no literal 290",
+          "line": "DriverNameIDLookup_00415d90.c (grep)"
+        },
+        {
+          "function": "RaceEventMessageDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] transports sub_412490 output only",
+          "line": "RaceEventMessageDispatcher_00411bf0.c:32"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] transports sub_412490 output only",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:15"
+        },
+        {
+          "function": "SoundEventDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] transports sub_412490 output only",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49"
+        },
+        {
+          "function": "AIDriverStateTransition",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v11` which maps to another clip",
+          "line": "AIDriverStateTransition_00419120.c:59"
+        },
+        {
+          "function": "AIFormationLap",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v3` which maps to another clip",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v5` which maps to another clip",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v3` which maps to another clip",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v6` which maps to another clip",
+          "line": "AIPositionChangeEvent_004198b0.c:36"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v8` which maps to another clip",
+          "line": "AIPositionChangeEvent_004198b0.c:48"
+        },
+        {
+          "function": "AISessionPhaseChange",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v5` which maps to another clip",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v1` which maps to another clip",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v2` which maps to another clip",
+          "line": "PerDriverRaceCommentary_00419c50.c:113"
+        },
+        {
+          "function": "PitExit",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v6` which maps to another clip",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v2` which maps to another clip",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v2` which maps to another clip",
+          "line": "RaceCommentary_0041d630.c:107"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v11` which maps to another clip",
+          "line": "RaceCommentary_0041d630.c:148"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v14` which maps to another clip",
+          "line": "RaceCommentary_0041d630.c:173"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v2` which maps to another clip",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v3` which maps to another clip",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v2` which maps to another clip",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v2` which maps to another clip",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v2` which maps to another clip",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v2` which maps to another clip",
+          "line": "sub_41B250_0041b250.c:53"
+        },
+        {
+          "function": "sub_41C440",
+          "result": "cannot produce sdt 290: no eid row maps to sdt 290 (dump orphaned_clips); this call queues eid `v1` which maps to another clip",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (sub-clips come from PC_RE_STITCH). Verdict unchanged.",
+          "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+        }
+      ],
+      "play_plan": {
+        "meaning": "Race engineer gives the number of laps still to run in a long race ('X laps to go (long)'). X is spoken inside the clip; one clip covers one fixed N.",
+        "when_it_should_play": "Race only (SessionType 7, RacePhase 5 green flag). Player only. Long races only: the threshold for 'long' is UNKNOWN in code.",
+        "trigger": "laps_remaining = TotalRaceLaps (0x8ACF8C, FACT findings.jsonl:80) - player lap counter (DERIVED +16444, findings.jsonl:76 'Player lapNumber'); fire when laps_remaining equals the N that the clip voices",
+        "subject": "player (-1)",
+        "technique": "carrier_score (no eid row exists; a free PWS carrier eid row must be rewritten to sdt 290; proven pattern in brief)",
+        "latch_cooldown": "once per race (latch); carrier cooldown 1.0 s is not enough",
+        "must_not_play_when": "Qualifying/practice (SessionType 1-6); laps_remaining == 1 (final-lap line 273 instead); AI-only laps",
+        "conflicts": "Final-lap line 273 (PWS_2001_167) at laps_remaining == 1; milestone 274 (PWS_2001_163) at 25%",
+        "calibration": "Which N the clip voices (listen once); threshold for 'long' race: UNKNOWN",
+        "live_test": "Owner: race with TotalRaceLaps >= the N in the clip; drive until laps_remaining equals N. Requires the carrier change first (agent-side work, not run by the agent).",
+        "confidence": "GUESS: carrier technique proven for other lines; N and 'long' are not in code. Raise by listening to the clip and finding the race-length rule."
+      },
+      "stitch_recheck": {
+        "old_verdict": "NOT_ACTIVATED",
+        "new_verdict": "NOT_ACTIVATED",
+        "why": "Orphan verdict unchanged; the only sub-clip literal (sub_412490 l.60, value 290) is a stitch-bank index and is removed as a route."
+      }
+    },
+    {
+      "schema": "ere.audit.v1",
+      "range": "B30_290-299",
+      "mod": "",
+      "mod_active_in_owner_game": false,
+      "heard_evidence": "No owner 'never heard' note. EVF docs/SHIPPED_MECHANISMS.md:89 lists it SHIPPED (DERIVED). No live finding for 2001_167.",
+      "tier": "DERIVED (code path; several gates FACT)",
+      "owner_exe_cooldown_check": "F1 Challenge Online.exe (sha256 1a70e5ed) read at VA 0x5BF9A0 + eid*0x14 + 0x0C: 1.0 for eids 273-281 and 291-299 (290 = 5.0, sdt 311 row). Validation: eid 80 = FLT_MAX, 106 = 15.0, 117 = 6.0 match the brief.",
+      "sdt_index": 291,
+      "eid": 273,
+      "clip": "PWS_2001_167",
+      "says": "Final lap of the race",
+      "score": 276,
+      "cooldown": 1.0,
+      "verdict": "NATIVE_ACTIVE",
+      "reason": "",
+      "situation": "Race only, player only: the player completes a lap that leaves exactly one lap to go (TotalRaceLaps minus player lap counter == 1). The engineer says 'Final lap of the race'.",
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "",
+      "emitters": [
+        "AIRetirementVehicleFailureEvent_004199e0.c:54 (eid 273 under dword_8ACF8C - player lap == 1, lines 50-53)"
+      ],
+      "call_path": "GameMainEntry 0x45B200 -> GamePostMainLoop 0x42D8A0 -> BufferReset 0x4B3B40 -> sub_4B3400 0x4B3400 -> LapCompletion 0x4BC4E0 (switch dword_7C56A4, case 7 line 137) -> AIRetirementVehicleFailureEvent 0x4199E0 (line 54)",
+      "gates": [
+        "dword_7D0308 != 0 (AIRetirement:12; race value 3, findings.jsonl:1501 FACT)",
+        "flt_7CF3C8 != 0.0 (AIRetirement:14; open in race, findings.jsonl:1501 FACT)",
+        "dword_7C56A8 != 8 (AIRetirement:14)",
+        "dword_7C56A4 == 7 (AIRetirement:14; SessionType 7 = race, findings.jsonl:63 FACT)",
+        "*(dword_7C54E8+18580) == *(a1+18580) (AIRetirement:17): event vehicle is the player car",
+        "dword_8ACF8C - *(dword_7C54E0+16444) == 1 (AIRetirement:50-53): TotalRaceLaps FACT (findings.jsonl:80); dword_7C54E0 = player vehicle pointer set by SetPlayerVehicleIndex 0x42BBD0 (DERIVED); +16444 lap counter (DERIVED)"
+      ],
+      "notes": "Owner test: race with N laps, complete lap N-1 as player. Name collision: DriverNameIDLookup_00415d90.c:224 and :885 also write eid 273 for a driver-name match (Pedro, a4!=0), but only under file-scan setup callers (sub_414600 lines 21,26,31,36, reached from NamedEntryLookupInFormatList / VehicleListBuilderFromGlobalArray). Not a race trigger. Residual: roots sub_4A0760 and sub_4C1050 not traced.",
+      "checked": [
+        {
+          "function": "AIRetirementVehicleFailureEvent",
+          "result": "emits eid 273 under player + race + one-lap-to-go gates (lines 12-17, 50-54)",
+          "line": "AIRetirementVehicleFailureEvent_004199e0.c:54"
+        },
+        {
+          "function": "DriverNameIDLookup",
+          "result": "emits eid 273 for driver-name match Pedro (a4!=0) at lines 224 and 885; record written at LABEL_321 (907-913). Only setup/file-scan callers; not race",
+          "line": "DriverNameIDLookup_00415d90.c:224,885,907-913"
+        },
+        {
+          "function": "sub_412490",
+          "result": "cannot produce 273: no case 273 (kind1,a4=1 starts at 275; kind0,a4=1 starts at 294)",
+          "line": "sub_412490_00412490.c:16-84,178-193"
+        },
+        {
+          "function": "DisplayMessage0x113",
+          "result": "emits 275 only",
+          "line": "DisplayMessage0x113_0041a6b0.c:10"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "emits 276-279 and 34/35 only",
+          "line": "TimeBasedMessageChain_0041a500.c:22-61"
+        },
+        {
+          "function": "LapCompletion",
+          "result": "calls AIRetirement under switch(dword_7C56A4): case 0 (line 78), case 6 (line 108), case 7 (line 137, race)",
+          "line": "LapCompletion_004bc4e0.c:78,108,137"
+        },
+        {
+          "function": "RaceEventMessageDispatcher",
+          "result": "no 273 path",
+          "line": "RaceEventMessageDispatcher_00411bf0.c:32"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher",
+          "result": "no 273 path",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:15"
+        },
+        {
+          "function": "SoundEventDispatcher",
+          "result": "no 273 path",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49"
+        },
+        {
+          "function": "AIDriverStateTransition",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "AIDriverStateTransition_00419120.c:59"
+        },
+        {
+          "function": "AIFormationLap",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "AIPositionChangeEvent_004198b0.c:36"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v8` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "AIPositionChangeEvent_004198b0.c:48"
+        },
+        {
+          "function": "AISessionPhaseChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "PerDriverRaceCommentary_00419c50.c:113"
+        },
+        {
+          "function": "PitExit",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "RaceCommentary_0041d630.c:107"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "RaceCommentary_0041d630.c:148"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v14` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "RaceCommentary_0041d630.c:173"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "sub_41B250_0041b250.c:53"
+        },
+        {
+          "function": "sub_41C440",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 273 in an eid-producing line; static read shows no path that carries 273",
+          "line": "sub_41C440_0041c440.c:16"
+        }
+      ]
+    },
+    {
+      "schema": "ere.audit.v1",
+      "range": "B30_290-299",
+      "mod": "",
+      "mod_active_in_owner_game": false,
+      "heard_evidence": "Owner triage (TODO.md:222, PROGRESS.md:268): PLAY, 'one quarter distance'. Not heard in any live check (no finding). EVF RESTORATION_PLAN.md:256 'eid 274 has no call site'.",
+      "tier": "DERIVED",
+      "owner_exe_cooldown_check": "F1 Challenge Online.exe (sha256 1a70e5ed) read at VA 0x5BF9A0 + eid*0x14 + 0x0C: 1.0 for eids 273-281 and 291-299 (290 = 5.0, sdt 311 row). Validation: eid 80 = FLT_MAX, 106 = 15.0, 117 = 6.0 match the brief.",
+      "sdt_index": 292,
+      "eid": 274,
+      "clip": "PWS_2001_163",
+      "says": "25% race distance complete",
+      "score": 277,
+      "cooldown": 1.0,
+      "verdict": "NOT_ACTIVATED",
+      "reason": "no_emitter",
+      "situation": "",
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "No trigger in code: no race-progress check emits 274. The only literal is a stitch-bank name-table value on setup paths, not a PC_RE_MAIN route.",
+      "emitters": [],
+      "call_path": "none: no race-time caller emits eid 274 (checked)",
+      "gates": [
+        "no race-distance comparison exists in the decompiled code for eid 274"
+      ],
+      "notes": "Contradiction: EVF EMITTER_SPECS.md:563 specifies race position == 1 for eid 274 (leader-based), but no such code exists. findings.jsonl:76 (DERIVED) says this needs 3 per-milestone latch flags. No residual on the main route; the DriverNameIDLookup literal (l.444) is a stitch-bank value on setup paths.",
+      "checked": [
+        {
+          "function": "DriverNameIDLookup",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] emits 274 for Pedro when a4!=0 (line 444); reached only from setup file scan (sub_414600 21-36). Not a race emitter",
+          "line": "DriverNameIDLookup_00415d90.c:444"
+        },
+        {
+          "function": "sub_412490",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] cannot produce 274: no case 274 (kind1,a4=1 case 1 = 275; kind0 cases start 294)",
+          "line": "sub_412490_00412490.c:16-84"
+        },
+        {
+          "function": "AIRetirementVehicleFailureEvent",
+          "result": "emits 273 only",
+          "line": "AIRetirementVehicleFailureEvent_004199e0.c:54"
+        },
+        {
+          "function": "DisplayMessage0x113",
+          "result": "emits 275 only",
+          "line": "DisplayMessage0x113_0041a6b0.c:10"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "emits 276-279 and 34/35 only",
+          "line": "TimeBasedMessageChain_0041a500.c:22-61"
+        },
+        {
+          "function": "RaceEventMessageDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] no 274 path",
+          "line": "RaceEventMessageDispatcher_00411bf0.c:32"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] no 274 path",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:15"
+        },
+        {
+          "function": "SoundEventDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] no 274 path",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49"
+        },
+        {
+          "function": "AIDriverStateTransition",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "AIDriverStateTransition_00419120.c:59"
+        },
+        {
+          "function": "AIFormationLap",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "AIPositionChangeEvent_004198b0.c:36"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v8` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "AIPositionChangeEvent_004198b0.c:48"
+        },
+        {
+          "function": "AISessionPhaseChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "PerDriverRaceCommentary_00419c50.c:113"
+        },
+        {
+          "function": "PitExit",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "RaceCommentary_0041d630.c:107"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "RaceCommentary_0041d630.c:148"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v14` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "RaceCommentary_0041d630.c:173"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "sub_41B250_0041b250.c:53"
+        },
+        {
+          "function": "sub_41C440",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 274 in an eid-producing line; static read shows no path that carries 274",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (sub-clips come from PC_RE_STITCH). Verdict unchanged; name-table emitter removed.",
+          "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+        }
+      ],
+      "play_plan": {
+        "meaning": "Race engineer marks that the race is a quarter complete (25% of the race distance).",
+        "when_it_should_play": "Race (SessionType 7, RacePhase 5 green flag). Player only. Once per race, when the player has completed 25% of the race distance.",
+        "trigger": "progress = (player_completed_laps + lap_fraction) / TotalRaceLaps >= 0.25. TotalRaceLaps 0x8ACF8C is post-reduction and truncated (FACT findings.jsonl:80). player_completed_laps = player lap counter (DERIVED, +16444). lap_fraction = player lap distance veh+0x4044 / lap length (lap length UNKNOWN; calibrate live).",
+        "subject": "player (-1)",
+        "technique": "own_emitter",
+        "latch_cooldown": "once per session (latch set when fired; cleared at session start). Cooldown 1.0 s cannot gate a threshold (findings.jsonl:76).",
+        "must_not_play_when": "Qualifying/practice; replay; if the player retired or pitted before 25% (owner decision needed); when the 25% point coincides with the final-lap window (check ordering in short races)",
+        "conflicts": "Final-lap line 273 (only at one lap to go); pit lines (shared cooldown family); MF tokens (DD-07) if a line is pending on eid 274",
+        "calibration": "lap length per track; exact truncation rule for TotalRaceLaps (FACT findings.jsonl:80)",
+        "live_test": "Owner: race of known lap count (e.g. 4 laps). After completing lap 1 of 4 the line should fire once. Agent cannot run the game.",
+        "confidence": "DERIVED: trigger inputs exist (TotalRaceLaps FACT; lap counter and distance DERIVED). Raise by a live read of +16444 and +0x4044 across a lap."
+      },
+      "stitch_recheck": {
+        "old_verdict": "NOT_ACTIVATED",
+        "new_verdict": "NOT_ACTIVATED",
+        "why": "Verdict rests on the absence of any race-time caller (checked); the DriverNameIDLookup setup literal is a stitch-bank name value and is removed as an emitter."
+      }
+    },
+    {
+      "schema": "ere.audit.v1",
+      "range": "B30_290-299",
+      "mod": "",
+      "mod_active_in_owner_game": false,
+      "heard_evidence": "Owner triage (TODO.md:93, WORK_CATEGORIES.md): PLAY, 'thats it, the session is over ... should be played when PRACTISE, QUALI or WARMUP time reaches 0:00'. EVF SPEC_EVF-008_F_misc.md:36-46 UNKNOWN. Not live-proven.",
+      "tier": "DERIVED",
+      "owner_exe_cooldown_check": "F1 Challenge Online.exe (sha256 1a70e5ed) read at VA 0x5BF9A0 + eid*0x14 + 0x0C: 1.0 for eids 273-281 and 291-299 (290 = 5.0, sdt 311 row). Validation: eid 80 = FLT_MAX, 106 = 15.0, 117 = 6.0 match the brief.",
+      "sdt_index": 293,
+      "eid": 275,
+      "clip": "PWS_2001_159",
+      "says": "Session ends",
+      "score": 278,
+      "cooldown": 1.0,
+      "verdict": "UNKNOWN",
+      "reason": "qualifying_globals_and_countdown_unknown",
+      "situation": "",
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "Trigger exists (PitTimer dbl_8AFEA0 >= session end, phase 5). Not suppressed in code; outcome depends on runtime flags in qualifying/practice, which are not known.",
+      "emitters": [
+        "DisplayMessage0x113_0041a6b0.c:10 (eid 275)"
+      ],
+      "call_path": "A) GamePostMainLoop -> sub_4D4580 (guard !byte_7C56AC, line 31) -> PitTimer 0x4D2E50 (line 25 dword_7C56A4 1..6; line 30 dword_7C56A8==5; line 32 dbl_8AFEA0 >= this+180; line 36) -> DisplayMessage0x113.",
+      "gates": [
+        "dword_7C56A4 in 1..6 (PitTimer:25): qualifying = 5 (FACT findings.jsonl:60,63); race (7) excluded",
+        "dword_7C56A8 == 5 (PitTimer:30): RacePhase 5 = green in race (FACT coordinator note); qualifying value UNKNOWN",
+        "dbl_8AFEA0 >= *(this+180) (PitTimer:32): session end time reached; this+180 not measured in qualifying",
+        "dword_7D0308 != 0 and flt_7CF3C8 != 0.0 (DisplayMessage:5): race values nonzero (findings.jsonl:1501); qualifying UNKNOWN",
+        "PitTimer call guard !byte_7C56AC (sub_4D4580:31): writer seen only at init (Thunk_0042ce00.c:10); runtime value UNKNOWN"
+      ],
+      "notes": "The owner's expectation (practice/qual end) matches the PitTimer branch. Missing facts: values of dword_7D0308, flt_7CF3C8 and dword_7C56A8 in qualifying at time zero, and whether this+180 is set in qualifying. Owner-run live read would settle it. The stitch-bank route B is not a main route and is not counted.",
+      "checked": [
+        {
+          "function": "DisplayMessage0x113",
+          "result": "emits 275 when called, gated by dword_7D0308 and flt_7CF3C8",
+          "line": "DisplayMessage0x113_0041a6b0.c:5-11"
+        },
+        {
+          "function": "PitTimer",
+          "result": "calls DisplayMessage0x113 for dword_7C56A4 1..6 and dword_7C56A8 == 5 when session end reached; race branch (7) never calls it",
+          "line": "PitTimer_004d2e50.c:25,30,32,36,53"
+        },
+        {
+          "function": "sub_4D4580",
+          "result": "calls PitTimer every frame unless byte_7C56AC; reached from GamePostMainLoop",
+          "line": "sub_4D4580_004d4580.c:31-33"
+        },
+        {
+          "function": "sub_412490",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] emits 275 for kind1,a4=1,a3=1 (route B); a4=1 caller is RaceEventMessageDispatcher kinds 8/F/21 only",
+          "line": "sub_412490_00412490.c:16; RaceEventMessageDispatcher_00411bf0.c:32"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "no 275 emit (it emits 276-279 and 34/35)",
+          "line": "TimeBasedMessageChain_0041a500.c:22-61"
+        },
+        {
+          "function": "AIRetirementVehicleFailureEvent",
+          "result": "emits 273 only",
+          "line": "AIRetirementVehicleFailureEvent_004199e0.c:54"
+        },
+        {
+          "function": "DriverNameIDLookup",
+          "result": "no 275 literal",
+          "line": "DriverNameIDLookup_00415d90.c (grep)"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] sub_412490 with a4=0 only (eids 298 and up); no 275 path",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:15"
+        },
+        {
+          "function": "SoundEventDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] sub_412490 with a4=0 only; no 275 path",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49"
+        },
+        {
+          "function": "AIDriverStateTransition",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "AIDriverStateTransition_00419120.c:59"
+        },
+        {
+          "function": "AIFormationLap",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "AIPositionChangeEvent_004198b0.c:36"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v8` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "AIPositionChangeEvent_004198b0.c:48"
+        },
+        {
+          "function": "AISessionPhaseChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "PerDriverRaceCommentary_00419c50.c:113"
+        },
+        {
+          "function": "PitExit",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "RaceCommentary_0041d630.c:107"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "RaceCommentary_0041d630.c:148"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v14` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "RaceCommentary_0041d630.c:173"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "sub_41B250_0041b250.c:53"
+        },
+        {
+          "function": "sub_41C440",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 275 in an eid-producing line; static read shows no path that carries 275",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (sub-clips come from PC_RE_STITCH). Verdict stays UNKNOWN on the main-route open questions.",
+          "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+        }
+      ],
+      "stitch_recheck": {
+        "old_verdict": "UNKNOWN",
+        "new_verdict": "UNKNOWN",
+        "why": "The sub_412490 route (kind 1, a4=1, RaceEventMessageDispatcher) was a stitch-bank sub-clip and is removed. UNKNOWN remains for qualifying/practice values of dword_7D0308, flt_7CF3C8, dword_7C56A8 and this+180, which are independent of the sub-clip route."
+      }
+    },
+    {
+      "schema": "ere.audit.v1",
+      "range": "B30_290-299",
+      "mod": "",
+      "mod_active_in_owner_game": false,
+      "heard_evidence": "EVF PROGRESS.md row says SHIPPED (evf_auto). No owner triage note for this clip. No live finding.",
+      "tier": "DERIVED",
+      "owner_exe_cooldown_check": "F1 Challenge Online.exe (sha256 1a70e5ed) read at VA 0x5BF9A0 + eid*0x14 + 0x0C: 1.0 for eids 273-281 and 291-299 (290 = 5.0, sdt 311 row). Validation: eid 80 = FLT_MAX, 106 = 15.0, 117 = 6.0 match the brief.",
+      "sdt_index": 294,
+      "eid": 276,
+      "clip": "PWS_2001_156",
+      "says": "10 minutes until session ends",
+      "score": 279,
+      "cooldown": 1.0,
+      "verdict": "UNKNOWN",
+      "reason": "qualifying_globals_and_countdown_unknown",
+      "situation": "",
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "Code plays this in sessions 1..6 and excludes race (7) by design (no session countdown in race). Not suppressed by a flag.",
+      "emitters": [
+        "TimeBasedMessageChain_0041a500.c:47 (v3 = 276 when crossing 600 s)"
+      ],
+      "call_path": "GamePostMainLoop -> sub_4D4580 (guard !byte_7C56AC, line 31) -> PitTimer 0x4D2E50 (line 25 gate 1..6; line 27 TimeBasedMessageChain(this+180)) -> TimeBasedMessageChain 0x41A500 (line 47)",
+      "gates": [
+        "dword_7C56A4 in 1..6 (PitTimer:25): qualifying 5 FACT; race excluded",
+        "dword_7D0308 != 0 and flt_7CF3C8 != 0.0 (TimeBasedMessageChain:10,12): race values nonzero; qualifying UNKNOWN",
+        "remaining v6 = *(this+180) - dbl_8AFEA0 (TB:14, PitTimer:27); crossing 600 s with previous-frame v4 = v6 + dbl_8AFE98 (TB:18; dbl_8AFE98 = per-frame step, DERIVED)",
+        "PitTimer guard !byte_7C56AC (sub_4D4580:31): runtime value UNKNOWN"
+      ],
+      "notes": "One-shot per countdown: the nested checks need the threshold above v4 and below v6, so the line fires once per crossing. Missing facts: qualifying/practice values of dword_7D0308 and flt_7CF3C8, and whether this+180 counts down in qualifying. Owner-run live read at the 10/15/5/3-minute marks would settle it.",
+      "checked": [
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "emits eid 276 at 600 s crossing under gates lines 10,12",
+          "line": "TimeBasedMessageChain_0041a500.c:47"
+        },
+        {
+          "function": "PitTimer",
+          "result": "calls TimeBasedMessageChain each frame in sessions 1..6 (line 27); race branch does not call it",
+          "line": "PitTimer_004d2e50.c:25-27,53"
+        },
+        {
+          "function": "sub_4D4580",
+          "result": "calls PitTimer each frame unless byte_7C56AC; reached from GamePostMainLoop",
+          "line": "sub_4D4580_004d4580.c:31-33"
+        },
+        {
+          "function": "sub_412490",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] emits eid 276 for kind1,a4=1,a3=1 (route B, RaceEventMessageDispatcher kind 8/F/21 from TV overlay); parent unidentified",
+          "line": "sub_412490_00412490.c:19"
+        },
+        {
+          "function": "DisplayMessage0x113",
+          "result": "emits 275 only",
+          "line": "DisplayMessage0x113_0041a6b0.c:10"
+        },
+        {
+          "function": "AIRetirementVehicleFailureEvent",
+          "result": "emits 273 only",
+          "line": "AIRetirementVehicleFailureEvent_004199e0.c:54"
+        },
+        {
+          "function": "DriverNameIDLookup",
+          "result": "no literal 276",
+          "line": "DriverNameIDLookup_00415d90.c (grep)"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] no path to 276 (a4=0 only)",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:15"
+        },
+        {
+          "function": "SoundEventDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] no path to 276 (a4=0 only)",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49"
+        },
+        {
+          "function": "AIDriverStateTransition",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "AIDriverStateTransition_00419120.c:59"
+        },
+        {
+          "function": "AIFormationLap",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "AIPositionChangeEvent_004198b0.c:36"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v8` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "AIPositionChangeEvent_004198b0.c:48"
+        },
+        {
+          "function": "AISessionPhaseChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "PerDriverRaceCommentary_00419c50.c:113"
+        },
+        {
+          "function": "PitExit",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "RaceCommentary_0041d630.c:107"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "RaceCommentary_0041d630.c:148"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v14` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "RaceCommentary_0041d630.c:173"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "sub_41B250_0041b250.c:53"
+        },
+        {
+          "function": "sub_41C440",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 276 in an eid-producing line; static read shows no path that carries 276",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (sub-clips come from PC_RE_STITCH). Verdict stays UNKNOWN on the main-route open questions.",
+          "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+        }
+      ],
+      "stitch_recheck": {
+        "old_verdict": "UNKNOWN",
+        "new_verdict": "UNKNOWN",
+        "why": "The sub_412490 route (kind 1, a4=1, RaceEventMessageDispatcher) was a stitch-bank sub-clip and is removed. UNKNOWN remains for qualifying/practice values of dword_7D0308, flt_7CF3C8, dword_7C56A8 and this+180, which are independent of the sub-clip route."
+      }
+    },
+    {
+      "schema": "ere.audit.v1",
+      "range": "B30_290-299",
+      "mod": "",
+      "mod_active_in_owner_game": false,
+      "heard_evidence": "EVF PROGRESS.md row says SHIPPED (evf_auto). No owner triage note for this clip. No live finding.",
+      "tier": "DERIVED",
+      "owner_exe_cooldown_check": "F1 Challenge Online.exe (sha256 1a70e5ed) read at VA 0x5BF9A0 + eid*0x14 + 0x0C: 1.0 for eids 273-281 and 291-299 (290 = 5.0, sdt 311 row). Validation: eid 80 = FLT_MAX, 106 = 15.0, 117 = 6.0 match the brief.",
+      "sdt_index": 295,
+      "eid": 277,
+      "clip": "PWS_2001_155",
+      "says": "15 minutes until session ends",
+      "score": 280,
+      "cooldown": 1.0,
+      "verdict": "UNKNOWN",
+      "reason": "qualifying_globals_and_countdown_unknown",
+      "situation": "",
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "Code plays this in sessions 1..6 and excludes race (7) by design (no session countdown in race). Not suppressed by a flag.",
+      "emitters": [
+        "TimeBasedMessageChain_0041a500.c:40 (v3 = 277 when crossing 900 s)"
+      ],
+      "call_path": "GamePostMainLoop -> sub_4D4580 (guard !byte_7C56AC, line 31) -> PitTimer 0x4D2E50 (line 25 gate 1..6; line 27 TimeBasedMessageChain(this+180)) -> TimeBasedMessageChain 0x41A500 (line 40)",
+      "gates": [
+        "dword_7C56A4 in 1..6 (PitTimer:25): qualifying 5 FACT; race excluded",
+        "dword_7D0308 != 0 and flt_7CF3C8 != 0.0 (TimeBasedMessageChain:10,12): race values nonzero; qualifying UNKNOWN",
+        "remaining v6 = *(this+180) - dbl_8AFEA0 (TB:14, PitTimer:27); crossing 900 s with previous-frame v4 = v6 + dbl_8AFE98 (TB:18; dbl_8AFE98 = per-frame step, DERIVED)",
+        "PitTimer guard !byte_7C56AC (sub_4D4580:31): runtime value UNKNOWN"
+      ],
+      "notes": "One-shot per countdown: the nested checks need the threshold above v4 and below v6, so the line fires once per crossing. Missing facts: qualifying/practice values of dword_7D0308 and flt_7CF3C8, and whether this+180 counts down in qualifying. Owner-run live read at the 10/15/5/3-minute marks would settle it.",
+      "checked": [
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "emits eid 277 at 900 s crossing under gates lines 10,12",
+          "line": "TimeBasedMessageChain_0041a500.c:40"
+        },
+        {
+          "function": "PitTimer",
+          "result": "calls TimeBasedMessageChain each frame in sessions 1..6 (line 27); race branch does not call it",
+          "line": "PitTimer_004d2e50.c:25-27,53"
+        },
+        {
+          "function": "sub_4D4580",
+          "result": "calls PitTimer each frame unless byte_7C56AC; reached from GamePostMainLoop",
+          "line": "sub_4D4580_004d4580.c:31-33"
+        },
+        {
+          "function": "sub_412490",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] emits eid 277 for kind1,a4=1,a3=2 (route B, RaceEventMessageDispatcher kind 8/F/21 from TV overlay); parent unidentified",
+          "line": "sub_412490_00412490.c:22"
+        },
+        {
+          "function": "DisplayMessage0x113",
+          "result": "emits 275 only",
+          "line": "DisplayMessage0x113_0041a6b0.c:10"
+        },
+        {
+          "function": "AIRetirementVehicleFailureEvent",
+          "result": "emits 273 only",
+          "line": "AIRetirementVehicleFailureEvent_004199e0.c:54"
+        },
+        {
+          "function": "DriverNameIDLookup",
+          "result": "no literal 277",
+          "line": "DriverNameIDLookup_00415d90.c (grep)"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] no path to 277 (a4=0 only)",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:15"
+        },
+        {
+          "function": "SoundEventDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] no path to 277 (a4=0 only)",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49"
+        },
+        {
+          "function": "AIDriverStateTransition",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "AIDriverStateTransition_00419120.c:59"
+        },
+        {
+          "function": "AIFormationLap",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "AIPositionChangeEvent_004198b0.c:36"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v8` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "AIPositionChangeEvent_004198b0.c:48"
+        },
+        {
+          "function": "AISessionPhaseChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "PerDriverRaceCommentary_00419c50.c:113"
+        },
+        {
+          "function": "PitExit",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "RaceCommentary_0041d630.c:107"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "RaceCommentary_0041d630.c:148"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v14` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "RaceCommentary_0041d630.c:173"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "sub_41B250_0041b250.c:53"
+        },
+        {
+          "function": "sub_41C440",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 277 in an eid-producing line; static read shows no path that carries 277",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (sub-clips come from PC_RE_STITCH). Verdict stays UNKNOWN on the main-route open questions.",
+          "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+        }
+      ],
+      "stitch_recheck": {
+        "old_verdict": "UNKNOWN",
+        "new_verdict": "UNKNOWN",
+        "why": "The sub_412490 route (kind 1, a4=1, RaceEventMessageDispatcher) was a stitch-bank sub-clip and is removed. UNKNOWN remains for qualifying/practice values of dword_7D0308, flt_7CF3C8, dword_7C56A8 and this+180, which are independent of the sub-clip route."
+      }
+    },
+    {
+      "schema": "ere.audit.v1",
+      "range": "B30_290-299",
+      "mod": "",
+      "mod_active_in_owner_game": false,
+      "heard_evidence": "EVF PROGRESS.md row says SHIPPED (evf_auto). No owner triage note for this clip. No live finding.",
+      "tier": "DERIVED",
+      "owner_exe_cooldown_check": "F1 Challenge Online.exe (sha256 1a70e5ed) read at VA 0x5BF9A0 + eid*0x14 + 0x0C: 1.0 for eids 273-281 and 291-299 (290 = 5.0, sdt 311 row). Validation: eid 80 = FLT_MAX, 106 = 15.0, 117 = 6.0 match the brief.",
+      "sdt_index": 296,
+      "eid": 278,
+      "clip": "PWS_2001_158",
+      "says": "3 minutes until session ends",
+      "score": 281,
+      "cooldown": 1.0,
+      "verdict": "UNKNOWN",
+      "reason": "qualifying_globals_and_countdown_unknown",
+      "situation": "",
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "Code plays this in sessions 1..6 and excludes race (7) by design (no session countdown in race). Not suppressed by a flag.",
+      "emitters": [
+        "TimeBasedMessageChain_0041a500.c:61 (v3 = 278 when crossing 180 s)"
+      ],
+      "call_path": "GamePostMainLoop -> sub_4D4580 (guard !byte_7C56AC, line 31) -> PitTimer 0x4D2E50 (line 25 gate 1..6; line 27 TimeBasedMessageChain(this+180)) -> TimeBasedMessageChain 0x41A500 (line 61)",
+      "gates": [
+        "dword_7C56A4 in 1..6 (PitTimer:25): qualifying 5 FACT; race excluded",
+        "dword_7D0308 != 0 and flt_7CF3C8 != 0.0 (TimeBasedMessageChain:10,12): race values nonzero; qualifying UNKNOWN",
+        "remaining v6 = *(this+180) - dbl_8AFEA0 (TB:14, PitTimer:27); crossing 180 s with previous-frame v4 = v6 + dbl_8AFE98 (TB:18; dbl_8AFE98 = per-frame step, DERIVED)",
+        "PitTimer guard !byte_7C56AC (sub_4D4580:31): runtime value UNKNOWN"
+      ],
+      "notes": "One-shot per countdown: the nested checks need the threshold above v4 and below v6, so the line fires once per crossing. Missing facts: qualifying/practice values of dword_7D0308 and flt_7CF3C8, and whether this+180 counts down in qualifying. Owner-run live read at the 10/15/5/3-minute marks would settle it.",
+      "checked": [
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "emits eid 278 at 180 s crossing under gates lines 10,12",
+          "line": "TimeBasedMessageChain_0041a500.c:61"
+        },
+        {
+          "function": "PitTimer",
+          "result": "calls TimeBasedMessageChain each frame in sessions 1..6 (line 27); race branch does not call it",
+          "line": "PitTimer_004d2e50.c:25-27,53"
+        },
+        {
+          "function": "sub_4D4580",
+          "result": "calls PitTimer each frame unless byte_7C56AC; reached from GamePostMainLoop",
+          "line": "sub_4D4580_004d4580.c:31-33"
+        },
+        {
+          "function": "sub_412490",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] emits eid 278 for kind1,a4=1,a3=3 (route B, RaceEventMessageDispatcher kind 8/F/21 from TV overlay); parent unidentified",
+          "line": "sub_412490_00412490.c:25"
+        },
+        {
+          "function": "DisplayMessage0x113",
+          "result": "emits 275 only",
+          "line": "DisplayMessage0x113_0041a6b0.c:10"
+        },
+        {
+          "function": "AIRetirementVehicleFailureEvent",
+          "result": "emits 273 only",
+          "line": "AIRetirementVehicleFailureEvent_004199e0.c:54"
+        },
+        {
+          "function": "DriverNameIDLookup",
+          "result": "no literal 278",
+          "line": "DriverNameIDLookup_00415d90.c (grep)"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] no path to 278 (a4=0 only)",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:15"
+        },
+        {
+          "function": "SoundEventDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] no path to 278 (a4=0 only)",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49"
+        },
+        {
+          "function": "AIDriverStateTransition",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "AIDriverStateTransition_00419120.c:59"
+        },
+        {
+          "function": "AIFormationLap",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "AIPositionChangeEvent_004198b0.c:36"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v8` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "AIPositionChangeEvent_004198b0.c:48"
+        },
+        {
+          "function": "AISessionPhaseChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "PerDriverRaceCommentary_00419c50.c:113"
+        },
+        {
+          "function": "PitExit",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "RaceCommentary_0041d630.c:107"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "RaceCommentary_0041d630.c:148"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v14` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "RaceCommentary_0041d630.c:173"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "sub_41B250_0041b250.c:53"
+        },
+        {
+          "function": "sub_41C440",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 278 in an eid-producing line; static read shows no path that carries 278",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (sub-clips come from PC_RE_STITCH). Verdict stays UNKNOWN on the main-route open questions.",
+          "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+        }
+      ],
+      "stitch_recheck": {
+        "old_verdict": "UNKNOWN",
+        "new_verdict": "UNKNOWN",
+        "why": "The sub_412490 route (kind 1, a4=1, RaceEventMessageDispatcher) was a stitch-bank sub-clip and is removed. UNKNOWN remains for qualifying/practice values of dword_7D0308, flt_7CF3C8, dword_7C56A8 and this+180, which are independent of the sub-clip route."
+      }
+    },
+    {
+      "schema": "ere.audit.v1",
+      "range": "B30_290-299",
+      "mod": "",
+      "mod_active_in_owner_game": false,
+      "heard_evidence": "EVF PROGRESS.md row says SHIPPED (evf_auto). No owner triage note for this clip. No live finding.",
+      "tier": "DERIVED",
+      "owner_exe_cooldown_check": "F1 Challenge Online.exe (sha256 1a70e5ed) read at VA 0x5BF9A0 + eid*0x14 + 0x0C: 1.0 for eids 273-281 and 291-299 (290 = 5.0, sdt 311 row). Validation: eid 80 = FLT_MAX, 106 = 15.0, 117 = 6.0 match the brief.",
+      "sdt_index": 297,
+      "eid": 279,
+      "clip": "PWS_2001_157",
+      "says": "5 minutes until session ends",
+      "score": 282,
+      "cooldown": 1.0,
+      "verdict": "UNKNOWN",
+      "reason": "qualifying_globals_and_countdown_unknown",
+      "situation": "",
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "Code plays this in sessions 1..6 and excludes race (7) by design (no session countdown in race). Not suppressed by a flag.",
+      "emitters": [
+        "TimeBasedMessageChain_0041a500.c:54 (v3 = 279 when crossing 300 s)"
+      ],
+      "call_path": "GamePostMainLoop -> sub_4D4580 (guard !byte_7C56AC, line 31) -> PitTimer 0x4D2E50 (line 25 gate 1..6; line 27 TimeBasedMessageChain(this+180)) -> TimeBasedMessageChain 0x41A500 (line 54)",
+      "gates": [
+        "dword_7C56A4 in 1..6 (PitTimer:25): qualifying 5 FACT; race excluded",
+        "dword_7D0308 != 0 and flt_7CF3C8 != 0.0 (TimeBasedMessageChain:10,12): race values nonzero; qualifying UNKNOWN",
+        "remaining v6 = *(this+180) - dbl_8AFEA0 (TB:14, PitTimer:27); crossing 300 s with previous-frame v4 = v6 + dbl_8AFE98 (TB:18; dbl_8AFE98 = per-frame step, DERIVED)",
+        "PitTimer guard !byte_7C56AC (sub_4D4580:31): runtime value UNKNOWN"
+      ],
+      "notes": "One-shot per countdown: the nested checks need the threshold above v4 and below v6, so the line fires once per crossing. Missing facts: qualifying/practice values of dword_7D0308 and flt_7CF3C8, and whether this+180 counts down in qualifying. Owner-run live read at the 10/15/5/3-minute marks would settle it.",
+      "checked": [
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "emits eid 279 at 300 s crossing under gates lines 10,12",
+          "line": "TimeBasedMessageChain_0041a500.c:54"
+        },
+        {
+          "function": "PitTimer",
+          "result": "calls TimeBasedMessageChain each frame in sessions 1..6 (line 27); race branch does not call it",
+          "line": "PitTimer_004d2e50.c:25-27,53"
+        },
+        {
+          "function": "sub_4D4580",
+          "result": "calls PitTimer each frame unless byte_7C56AC; reached from GamePostMainLoop",
+          "line": "sub_4D4580_004d4580.c:31-33"
+        },
+        {
+          "function": "sub_412490",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] emits eid 279 for kind1,a4=1,a3=4 (route B, RaceEventMessageDispatcher kind 8/F/21 from TV overlay); parent unidentified",
+          "line": "sub_412490_00412490.c:28"
+        },
+        {
+          "function": "DisplayMessage0x113",
+          "result": "emits 275 only",
+          "line": "DisplayMessage0x113_0041a6b0.c:10"
+        },
+        {
+          "function": "AIRetirementVehicleFailureEvent",
+          "result": "emits 273 only",
+          "line": "AIRetirementVehicleFailureEvent_004199e0.c:54"
+        },
+        {
+          "function": "DriverNameIDLookup",
+          "result": "no literal 279",
+          "line": "DriverNameIDLookup_00415d90.c (grep)"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] no path to 279 (a4=0 only)",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:15"
+        },
+        {
+          "function": "SoundEventDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] no path to 279 (a4=0 only)",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49"
+        },
+        {
+          "function": "AIDriverStateTransition",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "AIDriverStateTransition_00419120.c:59"
+        },
+        {
+          "function": "AIFormationLap",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "AIPositionChangeEvent_004198b0.c:36"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v8` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "AIPositionChangeEvent_004198b0.c:48"
+        },
+        {
+          "function": "AISessionPhaseChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "PerDriverRaceCommentary_00419c50.c:113"
+        },
+        {
+          "function": "PitExit",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "RaceCommentary_0041d630.c:107"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "RaceCommentary_0041d630.c:148"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v14` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "RaceCommentary_0041d630.c:173"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "sub_41B250_0041b250.c:53"
+        },
+        {
+          "function": "sub_41C440",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 279 in an eid-producing line; static read shows no path that carries 279",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (sub-clips come from PC_RE_STITCH). Verdict stays UNKNOWN on the main-route open questions.",
+          "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+        }
+      ],
+      "stitch_recheck": {
+        "old_verdict": "UNKNOWN",
+        "new_verdict": "UNKNOWN",
+        "why": "The sub_412490 route (kind 1, a4=1, RaceEventMessageDispatcher) was a stitch-bank sub-clip and is removed. UNKNOWN remains for qualifying/practice values of dword_7D0308, flt_7CF3C8, dword_7C56A8 and this+180, which are independent of the sub-clip route."
+      }
+    },
+    {
+      "schema": "ere.audit.v1",
+      "range": "B30_290-299",
+      "mod": "",
+      "mod_active_in_owner_game": false,
+      "heard_evidence": "Owner triage (TODO.md, PROGRESS.md:262-271 area): PLAY, 'starting to rain ... monsoon'; flagged HAS_LEAD (F1CUI radio messages). Not live-proven.",
+      "tier": "DERIVED",
+      "owner_exe_cooldown_check": "F1 Challenge Online.exe (sha256 1a70e5ed) read at VA 0x5BF9A0 + eid*0x14 + 0x0C: 1.0 for eids 273-281 and 291-299 (290 = 5.0, sdt 311 row). Validation: eid 80 = FLT_MAX, 106 = 15.0, 117 = 6.0 match the brief.",
+      "sdt_index": 298,
+      "eid": 280,
+      "clip": "PWS_2001_221",
+      "says": "Rain starts - monsoon likely",
+      "score": 283,
+      "cooldown": 1.0,
+      "verdict": "NOT_ACTIVATED",
+      "reason": "no_emitter",
+      "situation": "Intended: rain starts, monsoon likely (owner triage). No DDT emitter for 280 (checked) and no wetness state in game code.",
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "No wetness trigger exists in game code (grep OnLineWetness/LineWetness: no hits). EMITTER_SPECS.md:367 designs one (wetness crosses 0.66) that the game does not contain.",
+      "emitters": [],
+      "call_path": "none for eid 280: no literal emitter in the 40 callers (checked); the TV overlay path is a stitch-bank sub-clip route and is removed",
+      "gates": [
+        "no game-state gate for rain found in code"
+      ],
+      "notes": "Contradiction (documentation only): EVF SPEC_EVF-002F_t1_verify_and_wire.md:142 'T2 no emitter' matches the static read. The rain trigger (wetness crosses 0.66) in EMITTER_SPECS.md:367 has no code. The sub_412490 literal 298 is a stitch-bank index, not this clip (eid 298 = sdt 5 PWS_QUAL08).",
+      "checked": [
+        {
+          "function": "sub_412490",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] emits eid 280 for kind1,a4=1,a3=6 (route B); only route to 280",
+          "line": "sub_412490_00412490.c:31"
+        },
+        {
+          "function": "RaceEventMessageDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] calls sub_412490 with a4=1 for kinds 8/F/21; only a4=1 caller",
+          "line": "RaceEventMessageDispatcher_00411bf0.c:32"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] sub_412490 with a4=0 only (eid 298 for index 1 = sdt 5); no 280",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:15"
+        },
+        {
+          "function": "SoundEventDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] sub_412490 with a4=0 only; no 280",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49"
+        },
+        {
+          "function": "DisplayMessage0x113",
+          "result": "emits 275 only",
+          "line": "DisplayMessage0x113_0041a6b0.c:10"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "emits 276-279 only",
+          "line": "TimeBasedMessageChain_0041a500.c:22-61"
+        },
+        {
+          "function": "AIRetirementVehicleFailureEvent",
+          "result": "emits 273 only",
+          "line": "AIRetirementVehicleFailureEvent_004199e0.c:54"
+        },
+        {
+          "function": "DriverNameIDLookup",
+          "result": "no literal 280",
+          "line": "DriverNameIDLookup_00415d90.c (grep)"
+        },
+        {
+          "function": "AIDriverStateTransition",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "AIDriverStateTransition_00419120.c:59"
+        },
+        {
+          "function": "AIFormationLap",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "AIPositionChangeEvent_004198b0.c:36"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v8` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "AIPositionChangeEvent_004198b0.c:48"
+        },
+        {
+          "function": "AISessionPhaseChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "PerDriverRaceCommentary_00419c50.c:113"
+        },
+        {
+          "function": "PitExit",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "RaceCommentary_0041d630.c:107"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "RaceCommentary_0041d630.c:148"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v14` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "RaceCommentary_0041d630.c:173"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "sub_41B250_0041b250.c:53"
+        },
+        {
+          "function": "sub_41C440",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 280 in an eid-producing line; static read shows no path that carries 280",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (sub-clips come from PC_RE_STITCH). Verdict re-judged on own-eid emitters only; play_plan added.",
+          "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+        }
+      ],
+      "play_plan": {
+        "meaning": "Rain starts (monsoon likely): the engineer warns the player that conditions are turning wet.",
+        "when_it_should_play": "Race (SessionType 7) when track wetness starts rising sharply. Owner intent only; the game has no wetness state in code.",
+        "trigger": "UNKNOWN: no wetness/rain state read exists in code (grep OnLineWetness/LineWetness: no hits). Needs a live-readable track wetness field first.",
+        "subject": "player (-1)",
+        "technique": "own_emitter",
+        "latch_cooldown": "once per rain event (latch until wetness falls below the easing threshold, see PWS_2001_222)",
+        "must_not_play_when": "dry track; replay; menus; qualifying where wetness is constant; a brief puddle spike",
+        "conflicts": "PWS_2001_222 (rain eases off) is the reverse event on the same wetness source; DD-07 pending MF line on eid 280.",
+        "calibration": "wetness threshold: EMITTER_SPECS.md:367 design value 0.66 is not in code; UNKNOWN until measured",
+        "live_test": "Owner: in a race where the track turns wet, report the moment; an agent-side wetness read is needed before design is final.",
+        "confidence": "GUESS: meaning from owner triage; no wetness trigger in code."
+      },
+      "stitch_recheck": {
+        "old_verdict": "UNKNOWN",
+        "new_verdict": "NOT_ACTIVATED",
+        "why": "The only path was the TV overlay route to sub_412490 (stitch-bank index 6). No literal emitter for eid 280 exists and no wetness trigger is in code, so the clip is no_emitter."
+      }
+    },
+    {
+      "schema": "ere.audit.v1",
+      "range": "B30_290-299",
+      "mod": "",
+      "mod_active_in_owner_game": false,
+      "heard_evidence": "Owner triage: PLAY, 'rain easing off' (see PWS_2001_221). HAS_LEAD. Not live-proven.",
+      "tier": "DERIVED",
+      "owner_exe_cooldown_check": "F1 Challenge Online.exe (sha256 1a70e5ed) read at VA 0x5BF9A0 + eid*0x14 + 0x0C: 1.0 for eids 273-281 and 291-299 (290 = 5.0, sdt 311 row). Validation: eid 80 = FLT_MAX, 106 = 15.0, 117 = 6.0 match the brief.",
+      "sdt_index": 299,
+      "eid": 281,
+      "clip": "PWS_2001_222",
+      "says": "Rain eases off",
+      "score": 284,
+      "cooldown": 1.0,
+      "verdict": "NOT_ACTIVATED",
+      "reason": "no_emitter",
+      "situation": "Intended: rain eases off. No DDT emitter for 281 (checked) and no wetness state in game code.",
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "No wetness trigger in game code (see PWS_2001_221).",
+      "emitters": [],
+      "call_path": "none for eid 281: no literal emitter in the 40 callers (checked); the sub_412490 route is stitch-bank and is removed",
+      "gates": [
+        "no game-state gate for rain found in code (see PWS_2001_221)"
+      ],
+      "notes": "EMITTER_SPECS.md:368 specifies a falling-wetness trigger (below 0.15) that does not exist in code. The sub_412490 literal 299 is a stitch-bank index, not this clip (eid 299 = sdt 6).",
+      "checked": [
+        {
+          "function": "sub_412490",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] emits eid 281 for kind1,a4=1,a3=7 (route B); only route to 281",
+          "line": "sub_412490_00412490.c:34"
+        },
+        {
+          "function": "RaceEventMessageDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] only a4=1 caller; kinds 8/F/21",
+          "line": "RaceEventMessageDispatcher_00411bf0.c:32"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] a4=0 only; no 281",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:15"
+        },
+        {
+          "function": "SoundEventDispatcher",
+          "result": "[stitch-bank sub-clip, not PC_RE_MAIN; 2026-10-18] a4=0 only; no 281",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49"
+        },
+        {
+          "function": "DisplayMessage0x113",
+          "result": "emits 275 only",
+          "line": "DisplayMessage0x113_0041a6b0.c:10"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "emits 276-279 only",
+          "line": "TimeBasedMessageChain_0041a500.c:22-61"
+        },
+        {
+          "function": "AIRetirementVehicleFailureEvent",
+          "result": "emits 273 only",
+          "line": "AIRetirementVehicleFailureEvent_004199e0.c:54"
+        },
+        {
+          "function": "DriverNameIDLookup",
+          "result": "no literal 281",
+          "line": "DriverNameIDLookup_00415d90.c (grep)"
+        },
+        {
+          "function": "AIDriverStateTransition",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "AIDriverStateTransition_00419120.c:59"
+        },
+        {
+          "function": "AIFormationLap",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "AIPositionChangeEvent_004198b0.c:36"
+        },
+        {
+          "function": "AIPositionChangeEvent",
+          "result": "not excluded by static read: eid expression `v8` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "AIPositionChangeEvent_004198b0.c:48"
+        },
+        {
+          "function": "AISessionPhaseChange",
+          "result": "not excluded by static read: eid expression `v5` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "PerDriverRaceCommentary_00419c50.c:113"
+        },
+        {
+          "function": "PitExit",
+          "result": "not excluded by static read: eid expression `v6` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "RaceCommentary_0041d630.c:107"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v11` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "RaceCommentary_0041d630.c:148"
+        },
+        {
+          "function": "RaceCommentary",
+          "result": "not excluded by static read: eid expression `v14` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "RaceCommentary_0041d630.c:173"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain",
+          "result": "not excluded by static read: eid expression `v3` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "not excluded by static read: eid expression `v2` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "sub_41B250_0041b250.c:53"
+        },
+        {
+          "function": "sub_41C440",
+          "result": "not excluded by static read: eid expression `v1` is a runtime argument or table value; function has no literal 281 in an eid-producing line; static read shows no path that carries 281",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (sub-clips come from PC_RE_STITCH). Verdict re-judged on own-eid emitters only; play_plan added.",
+          "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+        }
+      ],
+      "play_plan": {
+        "meaning": "Rain eases off: the engineer reports that the rain is getting lighter.",
+        "when_it_should_play": "Race (SessionType 7) when track wetness falls after a wet period. Owner intent only; no wetness state in code.",
+        "trigger": "UNKNOWN: falling wetness (below 0.15 per EMITTER_SPECS.md:368) is not in code. Needs a live-readable track wetness field first.",
+        "subject": "player (-1)",
+        "technique": "own_emitter",
+        "latch_cooldown": "once per rain event; latch shared with PWS_2001_221",
+        "must_not_play_when": "dry or steady track; replay; menus; qualifying",
+        "conflicts": "PWS_2001_221 (rain starts) is the reverse event on the same wetness source; DD-07 pending MF line on eid 281.",
+        "calibration": "easing threshold 0.15 is a design value, not in code: UNKNOWN until measured",
+        "live_test": "Owner: after a wet period in a race, report when the track starts to dry; an agent-side wetness read is needed first.",
+        "confidence": "GUESS: meaning from owner triage; no wetness trigger in code."
+      },
+      "stitch_recheck": {
+        "old_verdict": "UNKNOWN",
+        "new_verdict": "NOT_ACTIVATED",
+        "why": "The only path was the TV overlay route to sub_412490 (stitch-bank index 7). No literal emitter for eid 281 exists and no wetness trigger is in code, so the clip is no_emitter."
+      }
+    }
+  ]
+}

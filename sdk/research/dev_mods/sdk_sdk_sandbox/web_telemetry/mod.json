@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "web_telemetry",
+  "name": "Web Telemetry Lightloader compatibility",
+  "sdk_version": "1.0.0",
+  "dll": "build/web_telemetry.dll",
+  "production": false,
+  "version": "1.2.5",
+  "compatibility": "Lightloader host ABI v2 + broker ABI 15 + reviewed code/layout fingerprint",
+  "stop_event": "Local\\f1c_web_telemetry_stop",
+  "hot_unload_supported": false,
+  "sidecars": [
+    {
+      "file": "workbench_ui.js",
+      "sha256": "29ECD1A638AAD455E72A4726BF2B948D8E56419E73953C6D993B9033763938AD"
+    },
+    {
+      "file": "telemetry_viewer.js",
+      "sha256": "BB6335C40504A3E07747DF854F550205BE730B15C4BA391C67A9B79B3CEAEC7B"
+    }
+  ]
+}

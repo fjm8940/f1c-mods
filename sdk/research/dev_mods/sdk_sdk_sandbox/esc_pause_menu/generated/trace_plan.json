@@ -1,0 +1,12 @@
+{
+  "driver": "",
+  "seconds": 180,
+  "hz": 20,
+  "wait_phase": 5,
+  "pit_cycle": false,
+  "semantics": [
+    "command_input",
+    "output",
+    "latched_control"
+  ]
+}

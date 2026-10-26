@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "esc_pause_menu",
+  "name": "ESC Pause Menu",
+  "version": "1.1.4",
+  "author": "Matias",
+  "description": "Pressing ESC during a session opens a pause menu instead of leaving straight away. Race: Continue, Retire to pits or Exit race (with confirmation). Practice, qualifying, warm-up and test day: Continue or Return to pits. In multiplayer and CO-OP the menu opens without pausing (needs Lightloader with the 2026-10-10 broker; older ones keep vanilla ESC online).",
+  "homepage": "https://mods.palloset.com/esc_pause_menu",
+  "requires": [
+    "shared_broker>=10"
+  ],
+  "settings": "esc_pause_menu.ini",
+  "lightloader": ">=2.2.3"
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "id": "ai_pass_commitment",
+  "title": "AI Pass Commitment",
+  "production": false,
+  "sdk_major": 1,
+  "language": "cpp",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "subsystems": [
+    "ai",
+    "vehicle",
+    "session"
+  ],
+  "seeds": [
+    "AISteering",
+    "Overtaking"
+  ],
+  "hooks": [
+    {
+      "function": "AIMainUpdate",
+      "handler": "ai_main_update_hook",
+      "stolen_length": 6,
+      "expected_bytes": "83 EC 1C 53 55 56"
+    }
+  ],
+  "writes": [
+    {"object":"F1CVehicle","field":"SteeringLanePressure0"},
+    {"object":"F1CVehicle","field":"SteeringLanePressure1"},
+    {"object":"F1CVehicle","field":"SteeringLanePressure2"},
+    {"object":"F1CVehicle","field":"SteeringLanePressure3"},
+    {"object":"F1CVehicle","field":"SteeringLanePressure4"}
+  ],
+  "tracing": {
+    "driver": "",
+    "seconds": 180,
+    "hz": 20,
+    "wait_phase": 5,
+    "pit_cycle": false,
+    "semantics": [
+      "command_input",
+      "output",
+      "latched_control"
+    ]
+  },
+  "regressions": [],
+  "build": {
+    "script": "build.bat",
+    "dll": "build/ai_pass_commitment.dll",
+    "injector": "build/f1c_pid_injector.exe"
+  },
+  "runtime_files": [
+    {
+      "source": "ai_pass_commitment.ini",
+      "destination": "ai_pass_commitment.ini"
+    }
+  ]
+}

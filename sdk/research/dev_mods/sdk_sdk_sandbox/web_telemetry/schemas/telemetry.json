@@ -1,0 +1,1092 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/telemetry.json",
+  "title": "/telemetry response and SSE event payload",
+  "type": "object",
+  "required": [
+    "version",
+    "sample_sequence",
+    "sample_age_ms",
+    "session_generation",
+    "ty",
+    "ph",
+    "ac",
+    "acr",
+    "tcf",
+    "tgf",
+    "tw",
+    "tl",
+    "vc",
+    "cm",
+    "rm",
+    "pi",
+    "ps",
+    "ai",
+    "rt",
+    "st",
+    "tk",
+    "wc",
+    "at",
+    "trkt",
+    "onw",
+    "offw",
+    "sg",
+    "sgn",
+    "sgl",
+    "trkl",
+    "yc",
+    "btmp",
+    "ttmp",
+    "trd",
+    "bls",
+    "otp",
+    "wtp",
+    "pel",
+    "pch",
+    "sc1",
+    "sc2",
+    "lapm",
+    "trk",
+    "lhlim",
+    "flapt",
+    "flapid",
+    "dotdid",
+    "dotdsc",
+    "c",
+    "ll"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "sample_sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sample_age_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "session_generation": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "ty": {
+      "type": "integer"
+    },
+    "ph": {
+      "type": "integer"
+    },
+    "ac": {
+      "type": "integer"
+    },
+    "acr": {
+      "type": "integer"
+    },
+    "tcf": {
+      "type": "number"
+    },
+    "tgf": {
+      "type": "number"
+    },
+    "tw": {
+      "type": "number"
+    },
+    "tl": {
+      "type": "integer"
+    },
+    "vc": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "cm": {
+      "type": "integer"
+    },
+    "rm": {
+      "type": "integer"
+    },
+    "pi": {
+      "type": "integer"
+    },
+    "ps": {
+      "type": "integer"
+    },
+    "ai": {
+      "type": "integer"
+    },
+    "rt": {
+      "type": "number"
+    },
+    "st": {
+      "type": "number"
+    },
+    "tk": {
+      "type": "integer"
+    },
+    "wc": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "at": {
+      "type": "number"
+    },
+    "trkt": {
+      "type": "number"
+    },
+    "onw": {
+      "type": "number"
+    },
+    "offw": {
+      "type": "number"
+    },
+    "sg": {
+      "type": "string",
+      "pattern": "^[0-9?]*$"
+    },
+    "sgn": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sgl": {
+      "type": "number"
+    },
+    "trkl": {
+      "type": "number"
+    },
+    "yc": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "btmp": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "number"
+      }
+    },
+    "ttmp": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+          "type": "number"
+        }
+      }
+    },
+    "trd": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "number"
+      }
+    },
+    "bls": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "integer"
+      }
+    },
+    "otp": {
+      "type": "number"
+    },
+    "wtp": {
+      "type": "number"
+    },
+    "pel": {
+      "type": "number",
+      "description": "Player engine life in seconds from SDK G_EngineLifeSeconds; distinct from each AI vehicle life counter."
+    },
+    "sc1": {
+      "type": "number",
+      "minimum": 0
+    },
+    "sc2": {
+      "type": "number",
+      "minimum": 0
+    },
+    "lapm": {
+      "type": "number",
+      "minimum": 0
+    },
+    "trk": {
+      "type": "string"
+    },
+    "lhlim": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "flapt": {
+      "type": "number"
+    },
+    "flapid": {
+      "type": "integer"
+    },
+    "dotdid": {
+      "type": "integer"
+    },
+    "dotdsc": {
+      "type": "integer"
+    },
+    "ll": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "leader lap number"
+    },
+    "ch_tiers": {
+      "type": "object",
+      "description": "4.4.0-rc.5 additive: evidence tier per channel (text)",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "c": {
+      "type": "array",
+      "maxItems": 104,
+      "items": {
+        "$ref": "#/$defs/car"
+      }
+    },
+    "pch": {
+      "type": "object",
+      "description": "1.1.0 player chassis channels from the vanilla full-physics object 0x7C7428 (player only). Wheel arrays FL,FR,RL,RR; -999 = unavailable; v=0 = no driven session. rh ride height mm, sus suspension deflection mm, tdf tyre deflection mm, pr hot tyre pressure kPa, prs garage pressure kPa, gr grip 0..1, opt optimum tyre temp C, cam camber deg (DERIVED unit), ws wheel spin (raw rad/s), roll wheel speed / car speed (0 locked, >1 wheelspin), disc brake disc thickness mm, discf disc failure thickness mm, bend suspension bend angle, bent/det damage flags, inr/inu raw and used inputs [throttle, brake, steering, clutch], bot bottoming latch, cmp compound index, ewr engine life lost per second, fuel litres, rpm/crpm engine and clutch rpm, oilp oil pressure, bias rear brake share, drag/lift body aero (move with damage), dragu drag in use.",
+      "required": [
+        "bend",
+        "bent",
+        "bias",
+        "bot",
+        "cam",
+        "cmp",
+        "crpm",
+        "det",
+        "disc",
+        "discf",
+        "drag",
+        "dragu",
+        "ewr",
+        "fuel",
+        "gr",
+        "inr",
+        "inu",
+        "lift",
+        "oilp",
+        "opt",
+        "pr",
+        "prs",
+        "rh",
+        "roll",
+        "rpm",
+        "sus",
+        "tdf",
+        "v",
+        "ws"
+      ],
+      "properties": {
+        "rh": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "sus": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "tdf": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "pr": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "prs": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "gr": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "opt": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "cam": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "ws": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "roll": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "disc": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "discf": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "bend": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "inr": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "inu": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          }
+        },
+        "bent": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "integer"
+          }
+        },
+        "det": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "integer"
+          }
+        },
+        "v": {
+          "type": "integer",
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "bot": {
+          "type": "integer"
+        },
+        "cmp": {
+          "type": "integer"
+        },
+        "ewr": {
+          "type": "number"
+        },
+        "fuel": {
+          "type": "number"
+        },
+        "rpm": {
+          "type": "number"
+        },
+        "crpm": {
+          "type": "number"
+        },
+        "oilp": {
+          "type": "number"
+        },
+        "bias": {
+          "type": "number"
+        },
+        "drag": {
+          "type": "number"
+        },
+        "lift": {
+          "type": "number"
+        },
+        "dragu": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "tape": {
+      "type": "object",
+      "description": "TAPE 2.3 (API 10, review only, optional): only in the /replay/frame document of a recorded session. t is the sim time of the frame; t_first and t_last bound the recording (seconds).",
+      "required": ["session", "t", "t_first", "t_last"],
+      "properties": {
+        "session": {"type": "string", "pattern": "^v2_[0-9a-f]{16}$"},
+        "t": {"type": "number"},
+        "t_first": {"type": "number"},
+        "t_last": {"type": "number"}
+      },
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "description": "R1-B (API 10): only in the synthesized review frame of a recorded session (/telemetry?session=v2_...). Not in the live frame.",
+      "required": [
+        "session",
+        "stem",
+        "ticks",
+        "end_t"
+      ],
+      "properties": {
+        "session": {
+          "type": "string",
+          "pattern": "^v2_[0-9a-f]{16}$"
+        },
+        "stem": {
+          "type": "string"
+        },
+        "ticks": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end_t": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "car": {
+      "type": "object",
+      "required": [
+        "id",
+        "l",
+        "p",
+        "n",
+        "s",
+        "r",
+        "mr",
+        "rpm",
+        "max_rpm",
+        "g",
+        "bl",
+        "ll",
+        "tt",
+        "tp",
+        "bs1",
+        "bs2",
+        "ls1",
+        "ls2",
+        "fs",
+        "a",
+        "ot2",
+        "sgi",
+        "yf",
+        "pt",
+        "tc",
+        "th",
+        "br",
+        "rt",
+        "cs",
+        "px",
+        "pz",
+        "mx",
+        "mz",
+        "dx",
+        "dy",
+        "pn",
+        "cb",
+        "pt0",
+        "gar_team",
+        "gar_bay",
+        "et",
+        "ms",
+        "ds",
+        "gp",
+        "rc",
+        "qt",
+        "lr",
+        "cc",
+        "tl",
+        "fc",
+        "hr",
+        "rl",
+        "hd",
+        "dd",
+        "tp2",
+        "p1",
+        "p2",
+        "lp",
+        "ps",
+        "nf",
+        "pe0",
+        "pe1",
+        "pe2",
+        "wfl",
+        "wfr",
+        "wrl",
+        "wrr",
+        "nx",
+        "nl",
+        "nc",
+        "ut",
+        "cn",
+        "sc",
+        "ap",
+        "dt",
+        "fw",
+        "rw",
+        "dm",
+        "dc",
+        "dpr",
+        "u4574",
+        "ed",
+        "eav",
+        "ot",
+        "wt",
+        "fl",
+        "lfe",
+        "lfb",
+        "lfg",
+        "lfs",
+        "lpe",
+        "lpb",
+        "lpg",
+        "lps",
+        "wg",
+        "ga",
+        "gb",
+        "gai",
+        "gbi",
+        "lsd",
+        "lsn",
+        "boxsoon",
+        "boxwhy",
+        "topl",
+        "toppl",
+        "tops",
+        "favg",
+        "faut",
+        "cw",
+        "vf",
+        "steer",
+        "steerwhy",
+        "glat",
+        "glon",
+        "tid",
+        "cr",
+        "secel",
+        "lspb",
+        "lspn",
+        "hlost",
+        "vf6",
+        "gv",
+        "yaw",
+        "ttc",
+        "tcc",
+        "rx",
+        "abt",
+        "aws"
+      ],
+      "properties": {
+        "num": {
+          "type": "integer",
+          "description": "4.4.0-rc.5 additive: race number veh+0x4710 (CONFIRMED); -1 = out of range"
+        },
+        "yr": {
+          "type": "number",
+          "description": "4.4.0-rc.5 additive: yaw rate, raw rad/s, DERIVED from heading between ticks (valid only with vf6 bit 2048)"
+        },
+        "tcn": {
+          "type": "string",
+          "description": "4.4.0-rc.7 additive (DERIVED): compound name for tc from SEASONDATA .veh -> .hdv TireBrand -> .tbc [COMPOUND] Name; empty when not resolved (viewer shows C<tc>)"
+        },
+        "id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "l": {
+          "type": "integer"
+        },
+        "p": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "n": {
+          "type": "string"
+        },
+        "s": {
+          "type": "number"
+        },
+        "r": {
+          "type": "number",
+          "description": "raw engine angular speed in rad/s (NOT display RPM; the contract multiplies by 9.549296585513721)"
+        },
+        "mr": {
+          "type": "number",
+          "description": "raw maximum engine angular speed in rad/s (NOT display RPM)"
+        },
+        "rpm": {
+          "type": "number",
+          "description": "display RPM, converted: the raw r field x 9.549296585513721; never the raw value itself"
+        },
+        "max_rpm": {
+          "type": "number",
+          "description": "display RPM ceiling, converted: the raw mr field x 9.549296585513721; never the raw value itself"
+        },
+        "g": {
+          "type": "integer"
+        },
+        "bl": {
+          "type": "number"
+        },
+        "ll": {
+          "type": "number"
+        },
+        "tt": {
+          "type": "number"
+        },
+        "tp": {
+          "type": "number"
+        },
+        "bs1": {
+          "type": "number"
+        },
+        "bs2": {
+          "type": "number"
+        },
+        "ls1": {
+          "type": "number"
+        },
+        "ls2": {
+          "type": "number"
+        },
+        "fs": {
+          "type": "integer"
+        },
+        "a": {
+          "type": "integer"
+        },
+        "ot2": {
+          "type": "integer"
+        },
+        "sgi": {
+          "type": "integer"
+        },
+        "yf": {
+          "type": "integer"
+        },
+        "pt": {
+          "type": "integer"
+        },
+        "tc": {
+          "type": "integer"
+        },
+        "th": {
+          "type": "number"
+        },
+        "br": {
+          "type": "number"
+        },
+        "rt": {
+          "type": "integer"
+        },
+        "cs": {
+          "type": "integer"
+        },
+        "px": {
+          "type": "number"
+        },
+        "pz": {
+          "type": "number"
+        },
+        "mx": {
+          "type": "number"
+        },
+        "mz": {
+          "type": "number"
+        },
+        "dx": {
+          "type": "number"
+        },
+        "dy": {
+          "type": "number"
+        },
+        "pn": {
+          "type": "integer"
+        },
+        "cb": {
+          "type": "integer"
+        },
+        "pt0": {
+          "type": "number"
+        },
+        "gar_team": {
+          "type": "integer"
+        },
+        "gar_bay": {
+          "type": "integer"
+        },
+        "et": {
+          "type": "number"
+        },
+        "ms": {
+          "type": "number",
+          "description": "game sentinel; not real telemetry"
+        },
+        "ds": {
+          "type": "integer"
+        },
+        "gp": {
+          "type": "integer"
+        },
+        "rc": {
+          "type": "integer"
+        },
+        "qt": {
+          "type": "number"
+        },
+        "lr": {
+          "type": "integer"
+        },
+        "cc": {
+          "type": "integer"
+        },
+        "tl": {
+          "type": "integer"
+        },
+        "fc": {
+          "type": "number"
+        },
+        "hr": {
+          "type": "integer"
+        },
+        "rl": {
+          "type": "integer"
+        },
+        "hd": {
+          "type": "integer"
+        },
+        "dd": {
+          "type": "integer"
+        },
+        "tp2": {
+          "type": "number"
+        },
+        "p1": {
+          "type": "number"
+        },
+        "p2": {
+          "type": "number"
+        },
+        "lp": {
+          "type": "number"
+        },
+        "ps": {
+          "type": "number"
+        },
+        "nf": {
+          "type": "number"
+        },
+        "pe0": {
+          "type": "integer"
+        },
+        "pe1": {
+          "type": "integer"
+        },
+        "pe2": {
+          "type": "integer"
+        },
+        "wfl": {
+          "type": "number"
+        },
+        "wfr": {
+          "type": "number"
+        },
+        "wrl": {
+          "type": "number"
+        },
+        "wrr": {
+          "type": "number"
+        },
+        "nx": {
+          "type": "number"
+        },
+        "nl": {
+          "type": "integer"
+        },
+        "nc": {
+          "type": "number"
+        },
+        "ut": {
+          "type": "number"
+        },
+        "cn": {
+          "type": "string"
+        },
+        "sc": {
+          "type": "number"
+        },
+        "ap": {
+          "type": "number"
+        },
+        "dt": {
+          "type": "integer"
+        },
+        "fw": {
+          "type": "integer"
+        },
+        "rw": {
+          "type": "integer"
+        },
+        "dm": {
+          "type": "integer"
+        },
+        "dc": {
+          "type": "integer"
+        },
+        "dpr": {
+          "type": "integer"
+        },
+        "u4574": {
+          "type": "integer"
+        },
+        "ed": {
+          "type": "integer"
+        },
+        "eav": {
+          "type": "number"
+        },
+        "ot": {
+          "type": "number"
+        },
+        "wt": {
+          "type": "number"
+        },
+        "fl": {
+          "type": "number"
+        },
+        "lfe": {
+          "type": "number"
+        },
+        "lfb": {
+          "type": "number"
+        },
+        "lfg": {
+          "type": "number"
+        },
+        "lfs": {
+          "type": "number"
+        },
+        "lpe": {
+          "type": "integer"
+        },
+        "lpb": {
+          "type": "integer"
+        },
+        "lpg": {
+          "type": "integer"
+        },
+        "lps": {
+          "type": "integer"
+        },
+        "wg": {
+          "type": "integer"
+        },
+        "ga": {
+          "type": "number"
+        },
+        "gb": {
+          "type": "number"
+        },
+        "gai": {
+          "type": "integer"
+        },
+        "gbi": {
+          "type": "integer"
+        },
+        "lsd": {
+          "type": "number"
+        },
+        "lsn": {
+          "type": "integer"
+        },
+        "boxsoon": {
+          "type": "integer"
+        },
+        "boxwhy": {
+          "type": "string"
+        },
+        "topl": {
+          "type": "number"
+        },
+        "toppl": {
+          "type": "number"
+        },
+        "tops": {
+          "type": "number"
+        },
+        "favg": {
+          "type": "number"
+        },
+        "faut": {
+          "type": "number"
+        },
+        "cw": {
+          "type": "integer"
+        },
+        "vf": {
+          "type": "integer",
+          "description": "validity bits: bit 1 speed, bit 2 throttle, bit 4 brake, bit 8 steering (AI only; player steering is unavailable until the live check passes), bit 16 tread, bit 32 acceleration"
+        },
+        "steer": {
+          "type": "number"
+        },
+        "steerwhy": {
+          "type": "string",
+          "description": "empty when vf bit 8 is set; otherwise the machine-readable reason steering is unavailable (player: live steering check pending, veh+0x3580 writer unproven; AI: channel invalid in the sample)"
+        },
+        "glat": {
+          "type": "number"
+        },
+        "glon": {
+          "type": "number"
+        },
+        "tid": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cr": {
+          "type": "integer",
+          "description": " controller mode veh+0x32C8 read every tick (4.3.0-rc.2): -1 inactive, 0 local human, 1 AI, 2 remote, 3 replay"
+        },
+        "secel": {
+          "type": "number"
+        },
+        "lspb": {
+          "type": "number"
+        },
+        "lspn": {
+          "type": "integer"
+        },
+        "hlost": {
+          "type": "integer"
+        },
+        "vf6": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "4.3.0 validity bits: 1 vertical accel, 2 yaw, 4 tyre temp FACT (player), 8 player carcass temp, 16 RESEARCH susp, 32 RESEARCH load, 64 RESEARCH slip, 128 RESEARCH force, 256 RESEARCH AI tyre temp; 512 = CO-OP remote car (controller mode 2): simulated channels cleared, speed derived from position; 1024 = remote car lap distance (tp2/tp) and lap (l) DERIVED by projecting its pose onto the AIW path (host copy keeps them frozen)"
+        },
+        "gv": {
+          "type": "number",
+          "description": "vertical accel m/s2; vf6 bit 1"
+        },
+        "yaw": {
+          "type": "number",
+          "description": "heading rad from the rotation matrix; vf6 bit 2"
+        },
+        "ttc": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          },
+          "description": "tyre temperature C FL,FR,RL,RR; player FACT (vf6 4), AI RESEARCH wheel+0x50 (vf6 256); -999 none"
+        },
+        "tcc": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          },
+          "description": "player carcass temperature C FL,FR,RL,RR (vf6 8); -999 otherwise"
+        },
+        "rx": {
+          "type": "array",
+          "minItems": 16,
+          "maxItems": 16,
+          "items": {
+            "type": "number"
+          },
+          "description": "RESEARCH raw candidates, unproven unit: susp x4 (vf6 16), load x4 (32), slip x4 (64), force x4 (128); wheel order FL,FR,RL,RR"
+        },
+        "abt": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          },
+          "description": "1.1.0 AI brake temperature C [front axle, rear axle] (wheel +0x5C, simulated per axle); -999 for player/remote"
+        },
+        "aws": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number"
+          },
+          "description": "1.1.0 AI wheel spin, raw rad/s, FL,FR,RL,RR (wheel +0x30); -999 for player/remote"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

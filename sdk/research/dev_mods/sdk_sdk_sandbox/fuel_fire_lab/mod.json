@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "id": "fuel_fire_lab",
+  "name": "Pit Fuel Fire Lab",
+  "sdk_version": "1.0.0",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "dll": "build/fuel_fire_lab.dll",
+  "unload_event": "F1C_FUEL_FIRE_LAB_UNLOAD",
+  "production": false
+}
+

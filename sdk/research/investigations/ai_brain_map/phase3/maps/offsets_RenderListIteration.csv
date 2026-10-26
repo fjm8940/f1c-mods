@@ -1,0 +1,5 @@
+func,line,dec,hex,access,width,base,form,expr
+RenderListIteration,8,480,0x1E0,R,_DWORD,this,array,v3 = this[120];
+RenderListIteration,10,8,0x8,R,_DWORD *,v3,direct,v5 = *(_DWORD **)(v3 + 8);
+RenderListIteration,12,4,0x4,R,int,v3,direct,if ( *(int *)(v3 + 4) <= 0 )
+RenderListIteration,36,480,0x1E0,R,_DWORD,this,array,while ( v4 < *(_DWORD *)(this[120] + 4) );

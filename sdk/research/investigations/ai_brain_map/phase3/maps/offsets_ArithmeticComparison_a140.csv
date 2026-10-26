@@ -1,0 +1,3 @@
+func,line,dec,hex,access,width,base,form,expr
+ArithmeticComparison_a140,5,8,0x8,R,_DWORD,this,array,result = this[2];
+ArithmeticComparison_a140,6,3960,0xF78,W,_BYTE,result,direct,*(_BYTE *)(result + 3960) = a2;

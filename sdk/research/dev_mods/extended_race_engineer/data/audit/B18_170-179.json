@@ -1,0 +1,1986 @@
+{
+ "schema": "ere.audit.v1",
+ "range": "B18_170-179",
+ "method_note": "Owner EXHAUSTIVE PER-LINE METHOD. 10 clips from data/audit_batches.json B18_170-179, dossiers from data/line_trace. Read only, no live game. Owner exe read byte-wise (read only) for the event table (0x5BF9A0 + eid*0x14) and the score->SDT table (word_5BEBB0). Cooldown and score for eids 161-169 and 177 match the dump (cooldown 1.0, not FLT_MAX).",
+ "owner_exe_check": "event table: 161 score 164, 162 165, 163 166, 164 167, 165 168, 166 169, 167 170, 168 171, 169 172, 177 180; all cooldown 1.0, priority 55. word_5BEBB0: 164->170, 165->171, 166->172, 167->173, 168->174, 169->175, 170->176 with 171->178 (score 170 owns SDT 176-177), 172->179, 180->187.",
+ "verdict_counts": {
+  "NATIVE_ACTIVE": 10,
+  "NOT_ACTIVATED": 0,
+  "MOD_ONLY": 0,
+  "UNKNOWN": 0
+ },
+ "contradictions": [
+  "Track name -> eid in PerDriverRaceCommentary:38-102 disagrees with the clip labels in dump / doc56 / VOICE_INDEX for 7 clips: 162 A1 Ring vs 'European GP', 163 Spa vs 'German GP', 164 Interlagos vs 'Malaysian GP', 165 Montreal vs 'Austrian GP', 166 Magny Cours vs 'Monaco GP', 168 Hockenheim vs 'French GP', 169 Silverstone vs 'Canadian GP'. Either the labels or the code track map is wrong. Owner listening decides.",
+  "EVF docs/SHIPPED_MECHANISMS.md:146 says the PerDriverRaceCommentary map is 'unambiguous, 1:1 with the 17 country-named clips'. The code and the labels disagree (see above), so that claim is not supported for these clips.",
+  "PWS_2001_110 (SDT 177): docs/VOICE_INDEX.md:95 and data/voice_index.json:6347 say 'owner heard', but docs/TRIAGE_NOTES.txt:164 asks 'check if loaded by the game already' and docs/design/H8_orphans.md:19 says owner must listen. No source of hearing recorded.",
+  "docs/design/H8_orphans.md:51 says the roll reader was not located. Resolved here: sub_411A50 (ShortComputation_1a50) calls sub_411650 CircularBufferIndexIncrement, which is round robin, not random. Only the initial offset is random (sub_411AB0:47-48).",
+  "full_event_dump.json row eid 482 (TV twin of WIN01) has via_pws_lookup=true and sdt_index 170, but TV eids use word_5BF2F8 / PC_TV_MAIN (CONFIRMED finding). The dump's TV-row sdt_index is not the TV clip.",
+  "docs/design/H8_orphans.md:19 lists the end-of-race win predicate as unverified. The predicate is now located: LapCompletion case 7 finish test (LapCompletion:125-180) -> RaceFinishHandler -> PerDriverRaceCommentary."
+ ],
+ "rows": [
+  {
+   "eid": 161,
+   "sdt_index": 170,
+   "clip": "PWS_WIN01",
+   "says": "Player wins Australian GP",
+   "score": 164,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native_emitter_reached_conditional_track",
+   "situation": "Race (SessionType 7) finish as P1 with no pending penalty, player car, track name Albert Park, game mode 2-5 (race = 3, live FACT).",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_419C50 PerDriverRaceCommentary:38 (track block)"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> BufferReset 0x4B3B40 -> sub_4B3400 -> LapCompletion 0x4BC4E0 (case 7, :125-180) -> RaceFinishHandler 0x4A0BA0 (:5 PerDriverRaceCommentary) -> PerDriverRaceCommentary 0x419C50 -> DriverDataTableLookup + InsertDriverTableEntry (PWS queue) -> consumer TextOverlayDisplayTimer 0x4186F0 (caller RenderTickUpdate 0x4C8B70, per frame) -> FontRenderingPrep 0x411840 -> SoundEventDispatcher 0x411E90",
+   "gates": [
+    "dword_7D0308 != 0 RaceActiveFlag (PerDriver:17; live 3 on track, findings FACT)",
+    "flt_7CF3C8 != 0.0 (PerDriver:19)",
+    "a1[4121]==1 = veh+0x4064 FinishState finished (PerDriver:22; docs/38)",
+    "!a1[4124] = veh+0x4070 noOfPenaltiesToProcess == 0 (PerDriver:22; findings evf-003)",
+    "player: dword_7C54E8+18580 == a1[4645] (PerDriver:25)",
+    "a1[4120]==1 = veh+0x4060 race position 1 (PerDriver:27; HAIKU_BRIEF fact)",
+    "dword_7D0410 in [2,5] = game mode quickrace/race/championship/MP (PerDriver:30; findings FACT modes)",
+    "LapCompletion case 7 only (SessionType 7 race) LapCompletion:125; finish test not(lap<total && time<limit) LapCompletion:134; RaceFinishHandler call LapCompletion:180"
+   ],
+   "mod": "",
+   "heard_evidence": "none recorded for this sdt (VOICE_INDEX.md row has no owner-heard note; no TRIAGE_NOTES entry).",
+   "tier": "DERIVED",
+   "notes": "Track-specific win line. Code track name -> eid mapping is in PerDriverRaceCommentary:36-102. Label matches. Dump twin eid 482 (score 164) is a TV eid (292-535 use word_5BF2F8 / PC_TV_MAIN, CONFIRMED finding). The dump marks it via_pws_lookup, which does not apply to TV eids, so 482 does not play this PWS clip. OPEN: FinishState (veh+0x4064) value at the moment RaceFinishHandler runs is not proven (its write point is not in this chain). OPEN: if LapCompletion re-enters the finish branch for an already finished car, the line can repeat every 1.0 s cooldown; not proven either way.",
+   "checked": [
+    {
+     "function": "sub_419C50 PerDriverRaceCommentary",
+     "file": "f1c_ida_decompiled/functions/PerDriverRaceCommentary_00419c50.c",
+     "result": "emits 161 at :38 under: dword_7D0308 != 0 (:17), flt_7CF3C8 != 0 (:19), a1[4121]==1 finished (:22), !a1[4124] no pending penalty (:22), player (:25), a1[4120]==1 race position 1 (:27), dword_7D0410 in [2,5] (:30), track substring 'Albert Park' (:36).",
+     "line": "38"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (eid-specific hit)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "no table hit for 161 (all a4 branches searched for this number, none found).",
+     "line": "-"
+    },
+    {
+     "function": "sub_419120 AIDriverStateTransition",
+     "file": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c",
+     "result": "emits 120 (:37), 259 (:39), 198 (:57) only; ArraySearchReturningIndex calls (:33-34, :47-48) are not emits. Cannot produce any eid 157-177.",
+     "line": "37,39,57"
+    },
+    {
+     "function": "sub_41A3A0 AIFormationLap",
+     "file": "f1c_ida_decompiled/functions/AIFormationLap_0041a3a0.c",
+     "result": "emits 6 (:22-24) or 180/181/182 (:35-37). Cannot produce 157-177.",
+     "line": "22-37"
+    },
+    {
+     "function": "sub_419690 AIOvertakeDefendStateChange",
+     "file": "f1c_ida_decompiled/functions/AIOvertakeDefendStateChange_00419690.c",
+     "result": "emits 10/16/3/33 (:21-27 via v8), 4 (:41), 5 (:47), 72/262 (:57), init 5. BooleanOROfTwoChecks calls are flags, not emits. Cannot produce 157-177.",
+     "line": "21-61"
+    },
+    {
+     "function": "sub_41A200 AIPitStrategyState",
+     "file": "f1c_ida_decompiled/functions/AIPitStrategyState_0041a200.c",
+     "result": "emits 42 or 52 only (:13-15). Cannot produce 157-177.",
+     "line": "13-15"
+    },
+    {
+     "function": "sub_4198B0 AIPositionChangeEvent",
+     "file": "f1c_ida_decompiled/functions/AIPositionChangeEvent_004198b0.c",
+     "result": "emits 17/18 (:30-36) or 7/8/9 (:41-48). Cannot produce 157-177.",
+     "line": "28-48"
+    },
+    {
+     "function": "sub_41A2B0 AISessionPhaseChange",
+     "file": "f1c_ida_decompiled/functions/AISessionPhaseChange_0041a2b0.c",
+     "result": "emits 21/22 (:17-36) or 178/179 (:32-34); calls AIPositionChangeEvent (:41). Cannot produce 157-177 (178/179 are not 168/169).",
+     "line": "17-36"
+    },
+    {
+     "function": "sub_41A170 AIVehicleDamageEvent",
+     "file": "f1c_ida_decompiled/functions/AIVehicleDamageEvent_0041a170.c",
+     "result": "emits 52 (:10) or 196 (:16). Cannot produce 157-177.",
+     "line": "10-19"
+    },
+    {
+     "function": "sub_41C0F0 PitExit",
+     "file": "f1c_ida_decompiled/functions/PitExit_0041c0f0.c",
+     "result": "emits 397 (:29) or 516-535 (:38-118, incl. RNG remap :100-118). Cannot produce 157-177.",
+     "line": "29-127"
+    },
+    {
+     "function": "sub_41C4C0 PositionBasedMessageDisplay",
+     "file": "f1c_ida_decompiled/functions/PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "eid = ThunkToFUN004201e0 result (sub_4203D0): 355-372 or -1 (:25-26). Cannot produce 157-177.",
+     "line": "25-26"
+    },
+    {
+     "function": "sub_41D630 RaceCommentary",
+     "file": "f1c_ida_decompiled/functions/RaceCommentary_0041d630.c",
+     "result": "TV-side track table 447-473 (:38-105), 397/465 (:107, :148), 474/459-461/454-456/476 (:158-226). Cannot produce 157-177 (TV range, separate table).",
+     "line": "38-226"
+    },
+    {
+     "function": "sub_41B980 TeamNameDisplayIDLookup",
+     "file": "f1c_ida_decompiled/functions/TeamNameDisplayIDLookup_0041b980.c",
+     "result": "emits 293-336 only (:13-190). Cannot produce 157-177.",
+     "line": "13-190"
+    },
+    {
+     "function": "sub_41A500 TimeBasedMessageChain",
+     "file": "f1c_ida_decompiled/functions/TimeBasedMessageChain_0041a500.c",
+     "result": "emits 34, 35, 276-279 only (:22-61). Cannot produce 157-177.",
+     "line": "22-61"
+    },
+    {
+     "function": "sub_41A720 (speeding / cut / jump / blue flag)",
+     "file": "f1c_ida_decompiled/functions/sub_41A720_0041a720.c",
+     "result": "emits 151, 153, 154, 155, 252, 253, 254, 256 only (:14-57). Cannot produce 157-177.",
+     "line": "14-57"
+    },
+    {
+     "function": "sub_41A940 (stop-go ignored)",
+     "file": "f1c_ida_decompiled/functions/sub_41A940_0041a940.c",
+     "result": "emits 149 (:12) or 243 (:21) only. Cannot produce 157-177.",
+     "line": "12-21"
+    },
+    {
+     "function": "sub_41AC50 (position / driver lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41AC50_0041ac50.c",
+     "result": "emits 208, 211-217, 220 only (:25-52, via a1[3711] switch). Cannot produce 157-177.",
+     "line": "25-58"
+    },
+    {
+     "function": "sub_41B250 (retire lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41B250_0041b250.c",
+     "result": "emits 117, 118, 119 (:15-23) or 235-238 (:38-53) only. Cannot produce 157-177.",
+     "line": "15-53"
+    },
+    {
+     "function": "sub_41C440 (dynamic eid from sub_420000)",
+     "file": "f1c_ida_decompiled/functions/sub_41C440_0041c440.c",
+     "result": "eid = sub_420000 result: 338-354 or -1 (:13-16). Cannot produce 157-177.",
+     "line": "13-16"
+    },
+    {
+     "function": "sub_4203D0 ThunkToFUN004201e0 (track table feeding sub_41C4C0)",
+     "file": "f1c_ida_decompiled/functions/ThunkToFUN004201e0_004203d0.c",
+     "result": "returns 355-372 or -1 (:13-47). Not a 157-177 source.",
+     "line": "13-47"
+    },
+    {
+     "function": "sub_420000 (track table feeding sub_41C440)",
+     "file": "f1c_ida_decompiled/functions/sub_420000_00420000.c",
+     "result": "returns 338-354 or -1 (:13-45). Not a 157-177 source.",
+     "line": "13-45"
+    },
+    {
+     "function": "sub_412C30 MapCollisionShapeToBoneIndex (SDT resolver, step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/MapCollisionShapeToBoneIndex_00412c30.c",
+     "result": "not an eid: returns an SDT index. Type 7 gives SDT 177 - (a4!=0) (:29-31). Reached from SoundEventDispatcher case 0x32 with a4=0 (SoundEventDispatcher:97-98) and RaceEventMessageDispatcher case 0x31 with a4=1 (RaceEventMessageDispatcher:63-65, gives 176). Producer of such overlay records UNKNOWN.",
+     "line": "29-31; SoundEventDispatcher 97-98; RaceEventMessageDispatcher 63-65"
+    },
+    {
+     "function": "sub_411A00 score -> SDT base (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a00_00411a00.c",
+     "result": "eid -> score via dword_5BF9B0[5*eid] (TableLookupByIndex sub_4144C0), then word_5BEBB0[score]. Owner exe read: 164->170, 165->171, 166->172, 167->173, 168->174, 169->175, 170->176 (and 171->178, so score 170 owns SDT 176-177), 172->179, 180->187.",
+     "line": "5-13"
+    },
+    {
+     "function": "sub_411A50 roll pointer (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a50_00411a50.c",
+     "result": "for 2 < eid < 291 returns CircularBufferIndexIncrement(&this[2*eid]) (:25). PWS eids 161-177 take this branch.",
+     "line": "22-25"
+    },
+    {
+     "function": "sub_411650 CircularBufferIndexIncrement",
+     "file": "f1c_ida_decompiled/functions/CircularBufferIndexIncrement_00411650.c",
+     "result": "round robin: returns this[1], then this[1] = this[1] + 1 wrapping at this[0] (count). Count and random start offset written by sub_411AB0 (RandomRangeTableInitializer:43-48) from word_5BEBB0[score+1] - word_5BEBB0[score]. Score 170 count = 2, so eid 167 alternates SDT 176 and 177.",
+     "line": "6-15"
+    },
+    {
+     "function": "sub_4119D0 mode select (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_19d0_004119d0.c",
+     "result": "eid 1..290 -> mode 0 = PWS (:6-7). Eids 161-177 are PWS.",
+     "line": "6-7"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "writes a driver-name entry id into name-entry +8 at LABEL_321 (not a queued eid). Consumers: sub_414600 -> NamedEntryLookupInFormatList (sub_415230) -> PositionChangeDetector:111,189 and SeasonDisplayIDResolver:99,146,158,170,182 pass a FIXED eid (397, 478, 490, 494, 498, 502) and the lookup result as arg3; VehicleSetupDriverNumber:18 stores it in +18588 (driver index).",
+     "line": "see eid-specific entry"
+    }
+   ]
+  },
+  {
+   "eid": 162,
+   "sdt_index": 171,
+   "clip": "PWS_WIN09",
+   "says": "Player wins European GP",
+   "score": 165,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native_emitter_reached_conditional_track",
+   "situation": "Race finish as P1 (same gates), track name A1 Ring (identifier aA1Ring). Label 'European GP' conflicts with the track.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_419C50 PerDriverRaceCommentary:70 (track block)"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> BufferReset 0x4B3B40 -> sub_4B3400 -> LapCompletion 0x4BC4E0 (case 7, :125-180) -> RaceFinishHandler 0x4A0BA0 (:5 PerDriverRaceCommentary) -> PerDriverRaceCommentary 0x419C50 -> DriverDataTableLookup + InsertDriverTableEntry (PWS queue) -> consumer TextOverlayDisplayTimer 0x4186F0 (caller RenderTickUpdate 0x4C8B70, per frame) -> FontRenderingPrep 0x411840 -> SoundEventDispatcher 0x411E90",
+   "gates": [
+    "dword_7D0308 != 0 RaceActiveFlag (PerDriver:17; live 3 on track, findings FACT)",
+    "flt_7CF3C8 != 0.0 (PerDriver:19)",
+    "a1[4121]==1 = veh+0x4064 FinishState finished (PerDriver:22; docs/38)",
+    "!a1[4124] = veh+0x4070 noOfPenaltiesToProcess == 0 (PerDriver:22; findings evf-003)",
+    "player: dword_7C54E8+18580 == a1[4645] (PerDriver:25)",
+    "a1[4120]==1 = veh+0x4060 race position 1 (PerDriver:27; HAIKU_BRIEF fact)",
+    "dword_7D0410 in [2,5] = game mode quickrace/race/championship/MP (PerDriver:30; findings FACT modes)",
+    "LapCompletion case 7 only (SessionType 7 race) LapCompletion:125; finish test not(lap<total && time<limit) LapCompletion:134; RaceFinishHandler call LapCompletion:180"
+   ],
+   "mod": "",
+   "heard_evidence": "none recorded for this sdt (VOICE_INDEX.md row has no owner-heard note; no TRIAGE_NOTES entry).",
+   "tier": "DERIVED",
+   "notes": "Track-specific win line. Code track name -> eid mapping is in PerDriverRaceCommentary:36-102. LABEL CONFLICT: dump/doc56 label 'Player wins European GP' but the code plays this eid at A1 Ring. Which one is right is UNKNOWN until the clip is listened to; the game plays this clip at A1 Ring. OPEN: FinishState (veh+0x4064) value at the moment RaceFinishHandler runs is not proven (its write point is not in this chain). OPEN: if LapCompletion re-enters the finish branch for an already finished car, the line can repeat every 1.0 s cooldown; not proven either way.",
+   "checked": [
+    {
+     "function": "sub_419C50 PerDriverRaceCommentary",
+     "file": "f1c_ida_decompiled/functions/PerDriverRaceCommentary_00419c50.c",
+     "result": "emits 162 at :70 under: dword_7D0308 != 0 (:17), flt_7CF3C8 != 0 (:19), a1[4121]==1 finished (:22), !a1[4124] no pending penalty (:22), player (:25), a1[4120]==1 race position 1 (:27), dword_7D0410 in [2,5] (:30), track substring 'A1 Ring (aA1Ring)' (:68).",
+     "line": "70"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (eid-specific hit)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "no table hit for 162 (all a4 branches searched for this number, none found).",
+     "line": "-"
+    },
+    {
+     "function": "sub_419120 AIDriverStateTransition",
+     "file": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c",
+     "result": "emits 120 (:37), 259 (:39), 198 (:57) only; ArraySearchReturningIndex calls (:33-34, :47-48) are not emits. Cannot produce any eid 157-177.",
+     "line": "37,39,57"
+    },
+    {
+     "function": "sub_41A3A0 AIFormationLap",
+     "file": "f1c_ida_decompiled/functions/AIFormationLap_0041a3a0.c",
+     "result": "emits 6 (:22-24) or 180/181/182 (:35-37). Cannot produce 157-177.",
+     "line": "22-37"
+    },
+    {
+     "function": "sub_419690 AIOvertakeDefendStateChange",
+     "file": "f1c_ida_decompiled/functions/AIOvertakeDefendStateChange_00419690.c",
+     "result": "emits 10/16/3/33 (:21-27 via v8), 4 (:41), 5 (:47), 72/262 (:57), init 5. BooleanOROfTwoChecks calls are flags, not emits. Cannot produce 157-177.",
+     "line": "21-61"
+    },
+    {
+     "function": "sub_41A200 AIPitStrategyState",
+     "file": "f1c_ida_decompiled/functions/AIPitStrategyState_0041a200.c",
+     "result": "emits 42 or 52 only (:13-15). Cannot produce 157-177.",
+     "line": "13-15"
+    },
+    {
+     "function": "sub_4198B0 AIPositionChangeEvent",
+     "file": "f1c_ida_decompiled/functions/AIPositionChangeEvent_004198b0.c",
+     "result": "emits 17/18 (:30-36) or 7/8/9 (:41-48). Cannot produce 157-177.",
+     "line": "28-48"
+    },
+    {
+     "function": "sub_41A2B0 AISessionPhaseChange",
+     "file": "f1c_ida_decompiled/functions/AISessionPhaseChange_0041a2b0.c",
+     "result": "emits 21/22 (:17-36) or 178/179 (:32-34); calls AIPositionChangeEvent (:41). Cannot produce 157-177 (178/179 are not 168/169).",
+     "line": "17-36"
+    },
+    {
+     "function": "sub_41A170 AIVehicleDamageEvent",
+     "file": "f1c_ida_decompiled/functions/AIVehicleDamageEvent_0041a170.c",
+     "result": "emits 52 (:10) or 196 (:16). Cannot produce 157-177.",
+     "line": "10-19"
+    },
+    {
+     "function": "sub_41C0F0 PitExit",
+     "file": "f1c_ida_decompiled/functions/PitExit_0041c0f0.c",
+     "result": "emits 397 (:29) or 516-535 (:38-118, incl. RNG remap :100-118). Cannot produce 157-177.",
+     "line": "29-127"
+    },
+    {
+     "function": "sub_41C4C0 PositionBasedMessageDisplay",
+     "file": "f1c_ida_decompiled/functions/PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "eid = ThunkToFUN004201e0 result (sub_4203D0): 355-372 or -1 (:25-26). Cannot produce 157-177.",
+     "line": "25-26"
+    },
+    {
+     "function": "sub_41D630 RaceCommentary",
+     "file": "f1c_ida_decompiled/functions/RaceCommentary_0041d630.c",
+     "result": "TV-side track table 447-473 (:38-105), 397/465 (:107, :148), 474/459-461/454-456/476 (:158-226). Cannot produce 157-177 (TV range, separate table).",
+     "line": "38-226"
+    },
+    {
+     "function": "sub_41B980 TeamNameDisplayIDLookup",
+     "file": "f1c_ida_decompiled/functions/TeamNameDisplayIDLookup_0041b980.c",
+     "result": "emits 293-336 only (:13-190). Cannot produce 157-177.",
+     "line": "13-190"
+    },
+    {
+     "function": "sub_41A500 TimeBasedMessageChain",
+     "file": "f1c_ida_decompiled/functions/TimeBasedMessageChain_0041a500.c",
+     "result": "emits 34, 35, 276-279 only (:22-61). Cannot produce 157-177.",
+     "line": "22-61"
+    },
+    {
+     "function": "sub_41A720 (speeding / cut / jump / blue flag)",
+     "file": "f1c_ida_decompiled/functions/sub_41A720_0041a720.c",
+     "result": "emits 151, 153, 154, 155, 252, 253, 254, 256 only (:14-57). Cannot produce 157-177.",
+     "line": "14-57"
+    },
+    {
+     "function": "sub_41A940 (stop-go ignored)",
+     "file": "f1c_ida_decompiled/functions/sub_41A940_0041a940.c",
+     "result": "emits 149 (:12) or 243 (:21) only. Cannot produce 157-177.",
+     "line": "12-21"
+    },
+    {
+     "function": "sub_41AC50 (position / driver lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41AC50_0041ac50.c",
+     "result": "emits 208, 211-217, 220 only (:25-52, via a1[3711] switch). Cannot produce 157-177.",
+     "line": "25-58"
+    },
+    {
+     "function": "sub_41B250 (retire lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41B250_0041b250.c",
+     "result": "emits 117, 118, 119 (:15-23) or 235-238 (:38-53) only. Cannot produce 157-177.",
+     "line": "15-53"
+    },
+    {
+     "function": "sub_41C440 (dynamic eid from sub_420000)",
+     "file": "f1c_ida_decompiled/functions/sub_41C440_0041c440.c",
+     "result": "eid = sub_420000 result: 338-354 or -1 (:13-16). Cannot produce 157-177.",
+     "line": "13-16"
+    },
+    {
+     "function": "sub_4203D0 ThunkToFUN004201e0 (track table feeding sub_41C4C0)",
+     "file": "f1c_ida_decompiled/functions/ThunkToFUN004201e0_004203d0.c",
+     "result": "returns 355-372 or -1 (:13-47). Not a 157-177 source.",
+     "line": "13-47"
+    },
+    {
+     "function": "sub_420000 (track table feeding sub_41C440)",
+     "file": "f1c_ida_decompiled/functions/sub_420000_00420000.c",
+     "result": "returns 338-354 or -1 (:13-45). Not a 157-177 source.",
+     "line": "13-45"
+    },
+    {
+     "function": "sub_412C30 MapCollisionShapeToBoneIndex (SDT resolver, step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/MapCollisionShapeToBoneIndex_00412c30.c",
+     "result": "not an eid: returns an SDT index. Type 7 gives SDT 177 - (a4!=0) (:29-31). Reached from SoundEventDispatcher case 0x32 with a4=0 (SoundEventDispatcher:97-98) and RaceEventMessageDispatcher case 0x31 with a4=1 (RaceEventMessageDispatcher:63-65, gives 176). Producer of such overlay records UNKNOWN.",
+     "line": "29-31; SoundEventDispatcher 97-98; RaceEventMessageDispatcher 63-65"
+    },
+    {
+     "function": "sub_411A00 score -> SDT base (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a00_00411a00.c",
+     "result": "eid -> score via dword_5BF9B0[5*eid] (TableLookupByIndex sub_4144C0), then word_5BEBB0[score]. Owner exe read: 164->170, 165->171, 166->172, 167->173, 168->174, 169->175, 170->176 (and 171->178, so score 170 owns SDT 176-177), 172->179, 180->187.",
+     "line": "5-13"
+    },
+    {
+     "function": "sub_411A50 roll pointer (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a50_00411a50.c",
+     "result": "for 2 < eid < 291 returns CircularBufferIndexIncrement(&this[2*eid]) (:25). PWS eids 161-177 take this branch.",
+     "line": "22-25"
+    },
+    {
+     "function": "sub_411650 CircularBufferIndexIncrement",
+     "file": "f1c_ida_decompiled/functions/CircularBufferIndexIncrement_00411650.c",
+     "result": "round robin: returns this[1], then this[1] = this[1] + 1 wrapping at this[0] (count). Count and random start offset written by sub_411AB0 (RandomRangeTableInitializer:43-48) from word_5BEBB0[score+1] - word_5BEBB0[score]. Score 170 count = 2, so eid 167 alternates SDT 176 and 177.",
+     "line": "6-15"
+    },
+    {
+     "function": "sub_4119D0 mode select (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_19d0_004119d0.c",
+     "result": "eid 1..290 -> mode 0 = PWS (:6-7). Eids 161-177 are PWS.",
+     "line": "6-7"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "writes a driver-name entry id into name-entry +8 at LABEL_321 (not a queued eid). Consumers: sub_414600 -> NamedEntryLookupInFormatList (sub_415230) -> PositionChangeDetector:111,189 and SeasonDisplayIDResolver:99,146,158,170,182 pass a FIXED eid (397, 478, 490, 494, 498, 502) and the lookup result as arg3; VehicleSetupDriverNumber:18 stores it in +18588 (driver index).",
+     "line": "see eid-specific entry"
+    }
+   ]
+  },
+  {
+   "eid": 163,
+   "sdt_index": 172,
+   "clip": "PWS_WIN12",
+   "says": "Player wins German GP",
+   "score": 166,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native_emitter_reached_conditional_track",
+   "situation": "Race finish as P1 (same gates), track name Spa-Francorchamps (identifier aSpaFrancorcham). Label 'German GP' conflicts with the track.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_419C50 PerDriverRaceCommentary:82 (track block)"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> BufferReset 0x4B3B40 -> sub_4B3400 -> LapCompletion 0x4BC4E0 (case 7, :125-180) -> RaceFinishHandler 0x4A0BA0 (:5 PerDriverRaceCommentary) -> PerDriverRaceCommentary 0x419C50 -> DriverDataTableLookup + InsertDriverTableEntry (PWS queue) -> consumer TextOverlayDisplayTimer 0x4186F0 (caller RenderTickUpdate 0x4C8B70, per frame) -> FontRenderingPrep 0x411840 -> SoundEventDispatcher 0x411E90",
+   "gates": [
+    "dword_7D0308 != 0 RaceActiveFlag (PerDriver:17; live 3 on track, findings FACT)",
+    "flt_7CF3C8 != 0.0 (PerDriver:19)",
+    "a1[4121]==1 = veh+0x4064 FinishState finished (PerDriver:22; docs/38)",
+    "!a1[4124] = veh+0x4070 noOfPenaltiesToProcess == 0 (PerDriver:22; findings evf-003)",
+    "player: dword_7C54E8+18580 == a1[4645] (PerDriver:25)",
+    "a1[4120]==1 = veh+0x4060 race position 1 (PerDriver:27; HAIKU_BRIEF fact)",
+    "dword_7D0410 in [2,5] = game mode quickrace/race/championship/MP (PerDriver:30; findings FACT modes)",
+    "LapCompletion case 7 only (SessionType 7 race) LapCompletion:125; finish test not(lap<total && time<limit) LapCompletion:134; RaceFinishHandler call LapCompletion:180"
+   ],
+   "mod": "",
+   "heard_evidence": "none recorded for this sdt (VOICE_INDEX.md row has no owner-heard note; no TRIAGE_NOTES entry).",
+   "tier": "DERIVED",
+   "notes": "Track-specific win line. Code track name -> eid mapping is in PerDriverRaceCommentary:36-102. LABEL CONFLICT: dump/doc56 label 'Player wins German GP' but the code plays this eid at Spa-Francorchamps. Which one is right is UNKNOWN until the clip is listened to; the game plays this clip at Spa-Francorchamps. OPEN: FinishState (veh+0x4064) value at the moment RaceFinishHandler runs is not proven (its write point is not in this chain). OPEN: if LapCompletion re-enters the finish branch for an already finished car, the line can repeat every 1.0 s cooldown; not proven either way.",
+   "checked": [
+    {
+     "function": "sub_419C50 PerDriverRaceCommentary",
+     "file": "f1c_ida_decompiled/functions/PerDriverRaceCommentary_00419c50.c",
+     "result": "emits 163 at :82 under: dword_7D0308 != 0 (:17), flt_7CF3C8 != 0 (:19), a1[4121]==1 finished (:22), !a1[4124] no pending penalty (:22), player (:25), a1[4120]==1 race position 1 (:27), dword_7D0410 in [2,5] (:30), track substring 'Spa-Francorchamps' (:80).",
+     "line": "82"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (eid-specific hit)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "number 163 is a driver-name entry id at :37 (name-entry +8). Not an eid argument of any queued call (see COMMON consumers). Not a clip emission.",
+     "line": "37"
+    },
+    {
+     "function": "sub_419120 AIDriverStateTransition",
+     "file": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c",
+     "result": "emits 120 (:37), 259 (:39), 198 (:57) only; ArraySearchReturningIndex calls (:33-34, :47-48) are not emits. Cannot produce any eid 157-177.",
+     "line": "37,39,57"
+    },
+    {
+     "function": "sub_41A3A0 AIFormationLap",
+     "file": "f1c_ida_decompiled/functions/AIFormationLap_0041a3a0.c",
+     "result": "emits 6 (:22-24) or 180/181/182 (:35-37). Cannot produce 157-177.",
+     "line": "22-37"
+    },
+    {
+     "function": "sub_419690 AIOvertakeDefendStateChange",
+     "file": "f1c_ida_decompiled/functions/AIOvertakeDefendStateChange_00419690.c",
+     "result": "emits 10/16/3/33 (:21-27 via v8), 4 (:41), 5 (:47), 72/262 (:57), init 5. BooleanOROfTwoChecks calls are flags, not emits. Cannot produce 157-177.",
+     "line": "21-61"
+    },
+    {
+     "function": "sub_41A200 AIPitStrategyState",
+     "file": "f1c_ida_decompiled/functions/AIPitStrategyState_0041a200.c",
+     "result": "emits 42 or 52 only (:13-15). Cannot produce 157-177.",
+     "line": "13-15"
+    },
+    {
+     "function": "sub_4198B0 AIPositionChangeEvent",
+     "file": "f1c_ida_decompiled/functions/AIPositionChangeEvent_004198b0.c",
+     "result": "emits 17/18 (:30-36) or 7/8/9 (:41-48). Cannot produce 157-177.",
+     "line": "28-48"
+    },
+    {
+     "function": "sub_41A2B0 AISessionPhaseChange",
+     "file": "f1c_ida_decompiled/functions/AISessionPhaseChange_0041a2b0.c",
+     "result": "emits 21/22 (:17-36) or 178/179 (:32-34); calls AIPositionChangeEvent (:41). Cannot produce 157-177 (178/179 are not 168/169).",
+     "line": "17-36"
+    },
+    {
+     "function": "sub_41A170 AIVehicleDamageEvent",
+     "file": "f1c_ida_decompiled/functions/AIVehicleDamageEvent_0041a170.c",
+     "result": "emits 52 (:10) or 196 (:16). Cannot produce 157-177.",
+     "line": "10-19"
+    },
+    {
+     "function": "sub_41C0F0 PitExit",
+     "file": "f1c_ida_decompiled/functions/PitExit_0041c0f0.c",
+     "result": "emits 397 (:29) or 516-535 (:38-118, incl. RNG remap :100-118). Cannot produce 157-177.",
+     "line": "29-127"
+    },
+    {
+     "function": "sub_41C4C0 PositionBasedMessageDisplay",
+     "file": "f1c_ida_decompiled/functions/PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "eid = ThunkToFUN004201e0 result (sub_4203D0): 355-372 or -1 (:25-26). Cannot produce 157-177.",
+     "line": "25-26"
+    },
+    {
+     "function": "sub_41D630 RaceCommentary",
+     "file": "f1c_ida_decompiled/functions/RaceCommentary_0041d630.c",
+     "result": "TV-side track table 447-473 (:38-105), 397/465 (:107, :148), 474/459-461/454-456/476 (:158-226). Cannot produce 157-177 (TV range, separate table).",
+     "line": "38-226"
+    },
+    {
+     "function": "sub_41B980 TeamNameDisplayIDLookup",
+     "file": "f1c_ida_decompiled/functions/TeamNameDisplayIDLookup_0041b980.c",
+     "result": "emits 293-336 only (:13-190). Cannot produce 157-177.",
+     "line": "13-190"
+    },
+    {
+     "function": "sub_41A500 TimeBasedMessageChain",
+     "file": "f1c_ida_decompiled/functions/TimeBasedMessageChain_0041a500.c",
+     "result": "emits 34, 35, 276-279 only (:22-61). Cannot produce 157-177.",
+     "line": "22-61"
+    },
+    {
+     "function": "sub_41A720 (speeding / cut / jump / blue flag)",
+     "file": "f1c_ida_decompiled/functions/sub_41A720_0041a720.c",
+     "result": "emits 151, 153, 154, 155, 252, 253, 254, 256 only (:14-57). Cannot produce 157-177.",
+     "line": "14-57"
+    },
+    {
+     "function": "sub_41A940 (stop-go ignored)",
+     "file": "f1c_ida_decompiled/functions/sub_41A940_0041a940.c",
+     "result": "emits 149 (:12) or 243 (:21) only. Cannot produce 157-177.",
+     "line": "12-21"
+    },
+    {
+     "function": "sub_41AC50 (position / driver lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41AC50_0041ac50.c",
+     "result": "emits 208, 211-217, 220 only (:25-52, via a1[3711] switch). Cannot produce 157-177.",
+     "line": "25-58"
+    },
+    {
+     "function": "sub_41B250 (retire lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41B250_0041b250.c",
+     "result": "emits 117, 118, 119 (:15-23) or 235-238 (:38-53) only. Cannot produce 157-177.",
+     "line": "15-53"
+    },
+    {
+     "function": "sub_41C440 (dynamic eid from sub_420000)",
+     "file": "f1c_ida_decompiled/functions/sub_41C440_0041c440.c",
+     "result": "eid = sub_420000 result: 338-354 or -1 (:13-16). Cannot produce 157-177.",
+     "line": "13-16"
+    },
+    {
+     "function": "sub_4203D0 ThunkToFUN004201e0 (track table feeding sub_41C4C0)",
+     "file": "f1c_ida_decompiled/functions/ThunkToFUN004201e0_004203d0.c",
+     "result": "returns 355-372 or -1 (:13-47). Not a 157-177 source.",
+     "line": "13-47"
+    },
+    {
+     "function": "sub_420000 (track table feeding sub_41C440)",
+     "file": "f1c_ida_decompiled/functions/sub_420000_00420000.c",
+     "result": "returns 338-354 or -1 (:13-45). Not a 157-177 source.",
+     "line": "13-45"
+    },
+    {
+     "function": "sub_412C30 MapCollisionShapeToBoneIndex (SDT resolver, step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/MapCollisionShapeToBoneIndex_00412c30.c",
+     "result": "not an eid: returns an SDT index. Type 7 gives SDT 177 - (a4!=0) (:29-31). Reached from SoundEventDispatcher case 0x32 with a4=0 (SoundEventDispatcher:97-98) and RaceEventMessageDispatcher case 0x31 with a4=1 (RaceEventMessageDispatcher:63-65, gives 176). Producer of such overlay records UNKNOWN.",
+     "line": "29-31; SoundEventDispatcher 97-98; RaceEventMessageDispatcher 63-65"
+    },
+    {
+     "function": "sub_411A00 score -> SDT base (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a00_00411a00.c",
+     "result": "eid -> score via dword_5BF9B0[5*eid] (TableLookupByIndex sub_4144C0), then word_5BEBB0[score]. Owner exe read: 164->170, 165->171, 166->172, 167->173, 168->174, 169->175, 170->176 (and 171->178, so score 170 owns SDT 176-177), 172->179, 180->187.",
+     "line": "5-13"
+    },
+    {
+     "function": "sub_411A50 roll pointer (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a50_00411a50.c",
+     "result": "for 2 < eid < 291 returns CircularBufferIndexIncrement(&this[2*eid]) (:25). PWS eids 161-177 take this branch.",
+     "line": "22-25"
+    },
+    {
+     "function": "sub_411650 CircularBufferIndexIncrement",
+     "file": "f1c_ida_decompiled/functions/CircularBufferIndexIncrement_00411650.c",
+     "result": "round robin: returns this[1], then this[1] = this[1] + 1 wrapping at this[0] (count). Count and random start offset written by sub_411AB0 (RandomRangeTableInitializer:43-48) from word_5BEBB0[score+1] - word_5BEBB0[score]. Score 170 count = 2, so eid 167 alternates SDT 176 and 177.",
+     "line": "6-15"
+    },
+    {
+     "function": "sub_4119D0 mode select (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_19d0_004119d0.c",
+     "result": "eid 1..290 -> mode 0 = PWS (:6-7). Eids 161-177 are PWS.",
+     "line": "6-7"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "writes a driver-name entry id into name-entry +8 at LABEL_321 (not a queued eid). Consumers: sub_414600 -> NamedEntryLookupInFormatList (sub_415230) -> PositionChangeDetector:111,189 and SeasonDisplayIDResolver:99,146,158,170,182 pass a FIXED eid (397, 478, 490, 494, 498, 502) and the lookup result as arg3; VehicleSetupDriverNumber:18 stores it in +18588 (driver index).",
+     "line": "see eid-specific entry"
+    }
+   ]
+  },
+  {
+   "eid": 164,
+   "sdt_index": 173,
+   "clip": "PWS_WIN02",
+   "says": "Player wins Malaysian GP",
+   "score": 167,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native_emitter_reached_conditional_track",
+   "situation": "Race finish as P1 (same gates), track name Interlagos (identifier aInterlagos). Label 'Malaysian GP' conflicts with the track.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_419C50 PerDriverRaceCommentary:42 (track block)"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> BufferReset 0x4B3B40 -> sub_4B3400 -> LapCompletion 0x4BC4E0 (case 7, :125-180) -> RaceFinishHandler 0x4A0BA0 (:5 PerDriverRaceCommentary) -> PerDriverRaceCommentary 0x419C50 -> DriverDataTableLookup + InsertDriverTableEntry (PWS queue) -> consumer TextOverlayDisplayTimer 0x4186F0 (caller RenderTickUpdate 0x4C8B70, per frame) -> FontRenderingPrep 0x411840 -> SoundEventDispatcher 0x411E90",
+   "gates": [
+    "dword_7D0308 != 0 RaceActiveFlag (PerDriver:17; live 3 on track, findings FACT)",
+    "flt_7CF3C8 != 0.0 (PerDriver:19)",
+    "a1[4121]==1 = veh+0x4064 FinishState finished (PerDriver:22; docs/38)",
+    "!a1[4124] = veh+0x4070 noOfPenaltiesToProcess == 0 (PerDriver:22; findings evf-003)",
+    "player: dword_7C54E8+18580 == a1[4645] (PerDriver:25)",
+    "a1[4120]==1 = veh+0x4060 race position 1 (PerDriver:27; HAIKU_BRIEF fact)",
+    "dword_7D0410 in [2,5] = game mode quickrace/race/championship/MP (PerDriver:30; findings FACT modes)",
+    "LapCompletion case 7 only (SessionType 7 race) LapCompletion:125; finish test not(lap<total && time<limit) LapCompletion:134; RaceFinishHandler call LapCompletion:180"
+   ],
+   "mod": "",
+   "heard_evidence": "none recorded for this sdt (VOICE_INDEX.md row has no owner-heard note; no TRIAGE_NOTES entry).",
+   "tier": "DERIVED",
+   "notes": "Track-specific win line. Code track name -> eid mapping is in PerDriverRaceCommentary:36-102. LABEL CONFLICT: dump/doc56 label 'Player wins Malaysian GP' but the code plays this eid at Interlagos. Which one is right is UNKNOWN until the clip is listened to; the game plays this clip at Interlagos. OPEN: FinishState (veh+0x4064) value at the moment RaceFinishHandler runs is not proven (its write point is not in this chain). OPEN: if LapCompletion re-enters the finish branch for an already finished car, the line can repeat every 1.0 s cooldown; not proven either way.",
+   "checked": [
+    {
+     "function": "sub_419C50 PerDriverRaceCommentary",
+     "file": "f1c_ida_decompiled/functions/PerDriverRaceCommentary_00419c50.c",
+     "result": "emits 164 at :42 under: dword_7D0308 != 0 (:17), flt_7CF3C8 != 0 (:19), a1[4121]==1 finished (:22), !a1[4124] no pending penalty (:22), player (:25), a1[4120]==1 race position 1 (:27), dword_7D0410 in [2,5] (:30), track substring 'Interlagos' (:40).",
+     "line": "42"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (eid-specific hit)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "number 164 is a driver-name entry id at :257 (name-entry +8). Not an eid argument of any queued call (see COMMON consumers). Not a clip emission.",
+     "line": "257"
+    },
+    {
+     "function": "sub_419120 AIDriverStateTransition",
+     "file": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c",
+     "result": "emits 120 (:37), 259 (:39), 198 (:57) only; ArraySearchReturningIndex calls (:33-34, :47-48) are not emits. Cannot produce any eid 157-177.",
+     "line": "37,39,57"
+    },
+    {
+     "function": "sub_41A3A0 AIFormationLap",
+     "file": "f1c_ida_decompiled/functions/AIFormationLap_0041a3a0.c",
+     "result": "emits 6 (:22-24) or 180/181/182 (:35-37). Cannot produce 157-177.",
+     "line": "22-37"
+    },
+    {
+     "function": "sub_419690 AIOvertakeDefendStateChange",
+     "file": "f1c_ida_decompiled/functions/AIOvertakeDefendStateChange_00419690.c",
+     "result": "emits 10/16/3/33 (:21-27 via v8), 4 (:41), 5 (:47), 72/262 (:57), init 5. BooleanOROfTwoChecks calls are flags, not emits. Cannot produce 157-177.",
+     "line": "21-61"
+    },
+    {
+     "function": "sub_41A200 AIPitStrategyState",
+     "file": "f1c_ida_decompiled/functions/AIPitStrategyState_0041a200.c",
+     "result": "emits 42 or 52 only (:13-15). Cannot produce 157-177.",
+     "line": "13-15"
+    },
+    {
+     "function": "sub_4198B0 AIPositionChangeEvent",
+     "file": "f1c_ida_decompiled/functions/AIPositionChangeEvent_004198b0.c",
+     "result": "emits 17/18 (:30-36) or 7/8/9 (:41-48). Cannot produce 157-177.",
+     "line": "28-48"
+    },
+    {
+     "function": "sub_41A2B0 AISessionPhaseChange",
+     "file": "f1c_ida_decompiled/functions/AISessionPhaseChange_0041a2b0.c",
+     "result": "emits 21/22 (:17-36) or 178/179 (:32-34); calls AIPositionChangeEvent (:41). Cannot produce 157-177 (178/179 are not 168/169).",
+     "line": "17-36"
+    },
+    {
+     "function": "sub_41A170 AIVehicleDamageEvent",
+     "file": "f1c_ida_decompiled/functions/AIVehicleDamageEvent_0041a170.c",
+     "result": "emits 52 (:10) or 196 (:16). Cannot produce 157-177.",
+     "line": "10-19"
+    },
+    {
+     "function": "sub_41C0F0 PitExit",
+     "file": "f1c_ida_decompiled/functions/PitExit_0041c0f0.c",
+     "result": "emits 397 (:29) or 516-535 (:38-118, incl. RNG remap :100-118). Cannot produce 157-177.",
+     "line": "29-127"
+    },
+    {
+     "function": "sub_41C4C0 PositionBasedMessageDisplay",
+     "file": "f1c_ida_decompiled/functions/PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "eid = ThunkToFUN004201e0 result (sub_4203D0): 355-372 or -1 (:25-26). Cannot produce 157-177.",
+     "line": "25-26"
+    },
+    {
+     "function": "sub_41D630 RaceCommentary",
+     "file": "f1c_ida_decompiled/functions/RaceCommentary_0041d630.c",
+     "result": "TV-side track table 447-473 (:38-105), 397/465 (:107, :148), 474/459-461/454-456/476 (:158-226). Cannot produce 157-177 (TV range, separate table).",
+     "line": "38-226"
+    },
+    {
+     "function": "sub_41B980 TeamNameDisplayIDLookup",
+     "file": "f1c_ida_decompiled/functions/TeamNameDisplayIDLookup_0041b980.c",
+     "result": "emits 293-336 only (:13-190). Cannot produce 157-177.",
+     "line": "13-190"
+    },
+    {
+     "function": "sub_41A500 TimeBasedMessageChain",
+     "file": "f1c_ida_decompiled/functions/TimeBasedMessageChain_0041a500.c",
+     "result": "emits 34, 35, 276-279 only (:22-61). Cannot produce 157-177.",
+     "line": "22-61"
+    },
+    {
+     "function": "sub_41A720 (speeding / cut / jump / blue flag)",
+     "file": "f1c_ida_decompiled/functions/sub_41A720_0041a720.c",
+     "result": "emits 151, 153, 154, 155, 252, 253, 254, 256 only (:14-57). Cannot produce 157-177.",
+     "line": "14-57"
+    },
+    {
+     "function": "sub_41A940 (stop-go ignored)",
+     "file": "f1c_ida_decompiled/functions/sub_41A940_0041a940.c",
+     "result": "emits 149 (:12) or 243 (:21) only. Cannot produce 157-177.",
+     "line": "12-21"
+    },
+    {
+     "function": "sub_41AC50 (position / driver lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41AC50_0041ac50.c",
+     "result": "emits 208, 211-217, 220 only (:25-52, via a1[3711] switch). Cannot produce 157-177.",
+     "line": "25-58"
+    },
+    {
+     "function": "sub_41B250 (retire lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41B250_0041b250.c",
+     "result": "emits 117, 118, 119 (:15-23) or 235-238 (:38-53) only. Cannot produce 157-177.",
+     "line": "15-53"
+    },
+    {
+     "function": "sub_41C440 (dynamic eid from sub_420000)",
+     "file": "f1c_ida_decompiled/functions/sub_41C440_0041c440.c",
+     "result": "eid = sub_420000 result: 338-354 or -1 (:13-16). Cannot produce 157-177.",
+     "line": "13-16"
+    },
+    {
+     "function": "sub_4203D0 ThunkToFUN004201e0 (track table feeding sub_41C4C0)",
+     "file": "f1c_ida_decompiled/functions/ThunkToFUN004201e0_004203d0.c",
+     "result": "returns 355-372 or -1 (:13-47). Not a 157-177 source.",
+     "line": "13-47"
+    },
+    {
+     "function": "sub_420000 (track table feeding sub_41C440)",
+     "file": "f1c_ida_decompiled/functions/sub_420000_00420000.c",
+     "result": "returns 338-354 or -1 (:13-45). Not a 157-177 source.",
+     "line": "13-45"
+    },
+    {
+     "function": "sub_412C30 MapCollisionShapeToBoneIndex (SDT resolver, step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/MapCollisionShapeToBoneIndex_00412c30.c",
+     "result": "not an eid: returns an SDT index. Type 7 gives SDT 177 - (a4!=0) (:29-31). Reached from SoundEventDispatcher case 0x32 with a4=0 (SoundEventDispatcher:97-98) and RaceEventMessageDispatcher case 0x31 with a4=1 (RaceEventMessageDispatcher:63-65, gives 176). Producer of such overlay records UNKNOWN.",
+     "line": "29-31; SoundEventDispatcher 97-98; RaceEventMessageDispatcher 63-65"
+    },
+    {
+     "function": "sub_411A00 score -> SDT base (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a00_00411a00.c",
+     "result": "eid -> score via dword_5BF9B0[5*eid] (TableLookupByIndex sub_4144C0), then word_5BEBB0[score]. Owner exe read: 164->170, 165->171, 166->172, 167->173, 168->174, 169->175, 170->176 (and 171->178, so score 170 owns SDT 176-177), 172->179, 180->187.",
+     "line": "5-13"
+    },
+    {
+     "function": "sub_411A50 roll pointer (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a50_00411a50.c",
+     "result": "for 2 < eid < 291 returns CircularBufferIndexIncrement(&this[2*eid]) (:25). PWS eids 161-177 take this branch.",
+     "line": "22-25"
+    },
+    {
+     "function": "sub_411650 CircularBufferIndexIncrement",
+     "file": "f1c_ida_decompiled/functions/CircularBufferIndexIncrement_00411650.c",
+     "result": "round robin: returns this[1], then this[1] = this[1] + 1 wrapping at this[0] (count). Count and random start offset written by sub_411AB0 (RandomRangeTableInitializer:43-48) from word_5BEBB0[score+1] - word_5BEBB0[score]. Score 170 count = 2, so eid 167 alternates SDT 176 and 177.",
+     "line": "6-15"
+    },
+    {
+     "function": "sub_4119D0 mode select (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_19d0_004119d0.c",
+     "result": "eid 1..290 -> mode 0 = PWS (:6-7). Eids 161-177 are PWS.",
+     "line": "6-7"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "writes a driver-name entry id into name-entry +8 at LABEL_321 (not a queued eid). Consumers: sub_414600 -> NamedEntryLookupInFormatList (sub_415230) -> PositionChangeDetector:111,189 and SeasonDisplayIDResolver:99,146,158,170,182 pass a FIXED eid (397, 478, 490, 494, 498, 502) and the lookup result as arg3; VehicleSetupDriverNumber:18 stores it in +18588 (driver index).",
+     "line": "see eid-specific entry"
+    }
+   ]
+  },
+  {
+   "eid": 165,
+   "sdt_index": 174,
+   "clip": "PWS_WIN06",
+   "says": "Player wins Austrian GP",
+   "score": 168,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native_emitter_reached_conditional_track",
+   "situation": "Race finish as P1 (same gates), track name Montreal. Label 'Austrian GP' conflicts with the track.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_419C50 PerDriverRaceCommentary:58 (track block)"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> BufferReset 0x4B3B40 -> sub_4B3400 -> LapCompletion 0x4BC4E0 (case 7, :125-180) -> RaceFinishHandler 0x4A0BA0 (:5 PerDriverRaceCommentary) -> PerDriverRaceCommentary 0x419C50 -> DriverDataTableLookup + InsertDriverTableEntry (PWS queue) -> consumer TextOverlayDisplayTimer 0x4186F0 (caller RenderTickUpdate 0x4C8B70, per frame) -> FontRenderingPrep 0x411840 -> SoundEventDispatcher 0x411E90",
+   "gates": [
+    "dword_7D0308 != 0 RaceActiveFlag (PerDriver:17; live 3 on track, findings FACT)",
+    "flt_7CF3C8 != 0.0 (PerDriver:19)",
+    "a1[4121]==1 = veh+0x4064 FinishState finished (PerDriver:22; docs/38)",
+    "!a1[4124] = veh+0x4070 noOfPenaltiesToProcess == 0 (PerDriver:22; findings evf-003)",
+    "player: dword_7C54E8+18580 == a1[4645] (PerDriver:25)",
+    "a1[4120]==1 = veh+0x4060 race position 1 (PerDriver:27; HAIKU_BRIEF fact)",
+    "dword_7D0410 in [2,5] = game mode quickrace/race/championship/MP (PerDriver:30; findings FACT modes)",
+    "LapCompletion case 7 only (SessionType 7 race) LapCompletion:125; finish test not(lap<total && time<limit) LapCompletion:134; RaceFinishHandler call LapCompletion:180"
+   ],
+   "mod": "",
+   "heard_evidence": "none recorded for this sdt (VOICE_INDEX.md row has no owner-heard note; no TRIAGE_NOTES entry).",
+   "tier": "DERIVED",
+   "notes": "Track-specific win line. Code track name -> eid mapping is in PerDriverRaceCommentary:36-102. LABEL CONFLICT: dump/doc56 label 'Player wins Austrian GP' but the code plays this eid at Montreal. Which one is right is UNKNOWN until the clip is listened to; the game plays this clip at Montreal. OPEN: FinishState (veh+0x4064) value at the moment RaceFinishHandler runs is not proven (its write point is not in this chain). OPEN: if LapCompletion re-enters the finish branch for an already finished car, the line can repeat every 1.0 s cooldown; not proven either way.",
+   "checked": [
+    {
+     "function": "sub_419C50 PerDriverRaceCommentary",
+     "file": "f1c_ida_decompiled/functions/PerDriverRaceCommentary_00419c50.c",
+     "result": "emits 165 at :58 under: dword_7D0308 != 0 (:17), flt_7CF3C8 != 0 (:19), a1[4121]==1 finished (:22), !a1[4124] no pending penalty (:22), player (:25), a1[4120]==1 race position 1 (:27), dword_7D0410 in [2,5] (:30), track substring 'Montreal' (:56).",
+     "line": "58"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (eid-specific hit)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "number 165 is a driver-name entry id at :96 (name-entry +8). Not an eid argument of any queued call (see COMMON consumers). Not a clip emission.",
+     "line": "96"
+    },
+    {
+     "function": "sub_419120 AIDriverStateTransition",
+     "file": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c",
+     "result": "emits 120 (:37), 259 (:39), 198 (:57) only; ArraySearchReturningIndex calls (:33-34, :47-48) are not emits. Cannot produce any eid 157-177.",
+     "line": "37,39,57"
+    },
+    {
+     "function": "sub_41A3A0 AIFormationLap",
+     "file": "f1c_ida_decompiled/functions/AIFormationLap_0041a3a0.c",
+     "result": "emits 6 (:22-24) or 180/181/182 (:35-37). Cannot produce 157-177.",
+     "line": "22-37"
+    },
+    {
+     "function": "sub_419690 AIOvertakeDefendStateChange",
+     "file": "f1c_ida_decompiled/functions/AIOvertakeDefendStateChange_00419690.c",
+     "result": "emits 10/16/3/33 (:21-27 via v8), 4 (:41), 5 (:47), 72/262 (:57), init 5. BooleanOROfTwoChecks calls are flags, not emits. Cannot produce 157-177.",
+     "line": "21-61"
+    },
+    {
+     "function": "sub_41A200 AIPitStrategyState",
+     "file": "f1c_ida_decompiled/functions/AIPitStrategyState_0041a200.c",
+     "result": "emits 42 or 52 only (:13-15). Cannot produce 157-177.",
+     "line": "13-15"
+    },
+    {
+     "function": "sub_4198B0 AIPositionChangeEvent",
+     "file": "f1c_ida_decompiled/functions/AIPositionChangeEvent_004198b0.c",
+     "result": "emits 17/18 (:30-36) or 7/8/9 (:41-48). Cannot produce 157-177.",
+     "line": "28-48"
+    },
+    {
+     "function": "sub_41A2B0 AISessionPhaseChange",
+     "file": "f1c_ida_decompiled/functions/AISessionPhaseChange_0041a2b0.c",
+     "result": "emits 21/22 (:17-36) or 178/179 (:32-34); calls AIPositionChangeEvent (:41). Cannot produce 157-177 (178/179 are not 168/169).",
+     "line": "17-36"
+    },
+    {
+     "function": "sub_41A170 AIVehicleDamageEvent",
+     "file": "f1c_ida_decompiled/functions/AIVehicleDamageEvent_0041a170.c",
+     "result": "emits 52 (:10) or 196 (:16). Cannot produce 157-177.",
+     "line": "10-19"
+    },
+    {
+     "function": "sub_41C0F0 PitExit",
+     "file": "f1c_ida_decompiled/functions/PitExit_0041c0f0.c",
+     "result": "emits 397 (:29) or 516-535 (:38-118, incl. RNG remap :100-118). Cannot produce 157-177.",
+     "line": "29-127"
+    },
+    {
+     "function": "sub_41C4C0 PositionBasedMessageDisplay",
+     "file": "f1c_ida_decompiled/functions/PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "eid = ThunkToFUN004201e0 result (sub_4203D0): 355-372 or -1 (:25-26). Cannot produce 157-177.",
+     "line": "25-26"
+    },
+    {
+     "function": "sub_41D630 RaceCommentary",
+     "file": "f1c_ida_decompiled/functions/RaceCommentary_0041d630.c",
+     "result": "TV-side track table 447-473 (:38-105), 397/465 (:107, :148), 474/459-461/454-456/476 (:158-226). Cannot produce 157-177 (TV range, separate table).",
+     "line": "38-226"
+    },
+    {
+     "function": "sub_41B980 TeamNameDisplayIDLookup",
+     "file": "f1c_ida_decompiled/functions/TeamNameDisplayIDLookup_0041b980.c",
+     "result": "emits 293-336 only (:13-190). Cannot produce 157-177.",
+     "line": "13-190"
+    },
+    {
+     "function": "sub_41A500 TimeBasedMessageChain",
+     "file": "f1c_ida_decompiled/functions/TimeBasedMessageChain_0041a500.c",
+     "result": "emits 34, 35, 276-279 only (:22-61). Cannot produce 157-177.",
+     "line": "22-61"
+    },
+    {
+     "function": "sub_41A720 (speeding / cut / jump / blue flag)",
+     "file": "f1c_ida_decompiled/functions/sub_41A720_0041a720.c",
+     "result": "emits 151, 153, 154, 155, 252, 253, 254, 256 only (:14-57). Cannot produce 157-177.",
+     "line": "14-57"
+    },
+    {
+     "function": "sub_41A940 (stop-go ignored)",
+     "file": "f1c_ida_decompiled/functions/sub_41A940_0041a940.c",
+     "result": "emits 149 (:12) or 243 (:21) only. Cannot produce 157-177.",
+     "line": "12-21"
+    },
+    {
+     "function": "sub_41AC50 (position / driver lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41AC50_0041ac50.c",
+     "result": "emits 208, 211-217, 220 only (:25-52, via a1[3711] switch). Cannot produce 157-177.",
+     "line": "25-58"
+    },
+    {
+     "function": "sub_41B250 (retire lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41B250_0041b250.c",
+     "result": "emits 117, 118, 119 (:15-23) or 235-238 (:38-53) only. Cannot produce 157-177.",
+     "line": "15-53"
+    },
+    {
+     "function": "sub_41C440 (dynamic eid from sub_420000)",
+     "file": "f1c_ida_decompiled/functions/sub_41C440_0041c440.c",
+     "result": "eid = sub_420000 result: 338-354 or -1 (:13-16). Cannot produce 157-177.",
+     "line": "13-16"
+    },
+    {
+     "function": "sub_4203D0 ThunkToFUN004201e0 (track table feeding sub_41C4C0)",
+     "file": "f1c_ida_decompiled/functions/ThunkToFUN004201e0_004203d0.c",
+     "result": "returns 355-372 or -1 (:13-47). Not a 157-177 source.",
+     "line": "13-47"
+    },
+    {
+     "function": "sub_420000 (track table feeding sub_41C440)",
+     "file": "f1c_ida_decompiled/functions/sub_420000_00420000.c",
+     "result": "returns 338-354 or -1 (:13-45). Not a 157-177 source.",
+     "line": "13-45"
+    },
+    {
+     "function": "sub_412C30 MapCollisionShapeToBoneIndex (SDT resolver, step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/MapCollisionShapeToBoneIndex_00412c30.c",
+     "result": "not an eid: returns an SDT index. Type 7 gives SDT 177 - (a4!=0) (:29-31). Reached from SoundEventDispatcher case 0x32 with a4=0 (SoundEventDispatcher:97-98) and RaceEventMessageDispatcher case 0x31 with a4=1 (RaceEventMessageDispatcher:63-65, gives 176). Producer of such overlay records UNKNOWN.",
+     "line": "29-31; SoundEventDispatcher 97-98; RaceEventMessageDispatcher 63-65"
+    },
+    {
+     "function": "sub_411A00 score -> SDT base (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a00_00411a00.c",
+     "result": "eid -> score via dword_5BF9B0[5*eid] (TableLookupByIndex sub_4144C0), then word_5BEBB0[score]. Owner exe read: 164->170, 165->171, 166->172, 167->173, 168->174, 169->175, 170->176 (and 171->178, so score 170 owns SDT 176-177), 172->179, 180->187.",
+     "line": "5-13"
+    },
+    {
+     "function": "sub_411A50 roll pointer (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a50_00411a50.c",
+     "result": "for 2 < eid < 291 returns CircularBufferIndexIncrement(&this[2*eid]) (:25). PWS eids 161-177 take this branch.",
+     "line": "22-25"
+    },
+    {
+     "function": "sub_411650 CircularBufferIndexIncrement",
+     "file": "f1c_ida_decompiled/functions/CircularBufferIndexIncrement_00411650.c",
+     "result": "round robin: returns this[1], then this[1] = this[1] + 1 wrapping at this[0] (count). Count and random start offset written by sub_411AB0 (RandomRangeTableInitializer:43-48) from word_5BEBB0[score+1] - word_5BEBB0[score]. Score 170 count = 2, so eid 167 alternates SDT 176 and 177.",
+     "line": "6-15"
+    },
+    {
+     "function": "sub_4119D0 mode select (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_19d0_004119d0.c",
+     "result": "eid 1..290 -> mode 0 = PWS (:6-7). Eids 161-177 are PWS.",
+     "line": "6-7"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "writes a driver-name entry id into name-entry +8 at LABEL_321 (not a queued eid). Consumers: sub_414600 -> NamedEntryLookupInFormatList (sub_415230) -> PositionChangeDetector:111,189 and SeasonDisplayIDResolver:99,146,158,170,182 pass a FIXED eid (397, 478, 490, 494, 498, 502) and the lookup result as arg3; VehicleSetupDriverNumber:18 stores it in +18588 (driver index).",
+     "line": "see eid-specific entry"
+    }
+   ]
+  },
+  {
+   "eid": 166,
+   "sdt_index": 175,
+   "clip": "PWS_WIN07",
+   "says": "Player wins Monaco GP",
+   "score": 169,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native_emitter_reached_conditional_track",
+   "situation": "Race finish as P1 (same gates), track name Magny Cours. Label 'Monaco GP' conflicts with the track (Monaco is eid 174 in code).",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_419C50 PerDriverRaceCommentary:62 (track block)"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> BufferReset 0x4B3B40 -> sub_4B3400 -> LapCompletion 0x4BC4E0 (case 7, :125-180) -> RaceFinishHandler 0x4A0BA0 (:5 PerDriverRaceCommentary) -> PerDriverRaceCommentary 0x419C50 -> DriverDataTableLookup + InsertDriverTableEntry (PWS queue) -> consumer TextOverlayDisplayTimer 0x4186F0 (caller RenderTickUpdate 0x4C8B70, per frame) -> FontRenderingPrep 0x411840 -> SoundEventDispatcher 0x411E90",
+   "gates": [
+    "dword_7D0308 != 0 RaceActiveFlag (PerDriver:17; live 3 on track, findings FACT)",
+    "flt_7CF3C8 != 0.0 (PerDriver:19)",
+    "a1[4121]==1 = veh+0x4064 FinishState finished (PerDriver:22; docs/38)",
+    "!a1[4124] = veh+0x4070 noOfPenaltiesToProcess == 0 (PerDriver:22; findings evf-003)",
+    "player: dword_7C54E8+18580 == a1[4645] (PerDriver:25)",
+    "a1[4120]==1 = veh+0x4060 race position 1 (PerDriver:27; HAIKU_BRIEF fact)",
+    "dword_7D0410 in [2,5] = game mode quickrace/race/championship/MP (PerDriver:30; findings FACT modes)",
+    "LapCompletion case 7 only (SessionType 7 race) LapCompletion:125; finish test not(lap<total && time<limit) LapCompletion:134; RaceFinishHandler call LapCompletion:180"
+   ],
+   "mod": "",
+   "heard_evidence": "none recorded for this sdt (VOICE_INDEX.md row has no owner-heard note; no TRIAGE_NOTES entry).",
+   "tier": "DERIVED",
+   "notes": "Track-specific win line. Code track name -> eid mapping is in PerDriverRaceCommentary:36-102. LABEL CONFLICT: dump/doc56 label 'Player wins Monaco GP' but the code plays this eid at Magny Cours. Which one is right is UNKNOWN until the clip is listened to; the game plays this clip at Magny Cours. OPEN: FinishState (veh+0x4064) value at the moment RaceFinishHandler runs is not proven (its write point is not in this chain). OPEN: if LapCompletion re-enters the finish branch for an already finished car, the line can repeat every 1.0 s cooldown; not proven either way.",
+   "checked": [
+    {
+     "function": "sub_419C50 PerDriverRaceCommentary",
+     "file": "f1c_ida_decompiled/functions/PerDriverRaceCommentary_00419c50.c",
+     "result": "emits 166 at :62 under: dword_7D0308 != 0 (:17), flt_7CF3C8 != 0 (:19), a1[4121]==1 finished (:22), !a1[4124] no pending penalty (:22), player (:25), a1[4120]==1 race position 1 (:27), dword_7D0410 in [2,5] (:30), track substring 'Magny Cours' (:60).",
+     "line": "62"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (eid-specific hit)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "number 166 is a driver-name entry id at :316 (name-entry +8). Not an eid argument of any queued call (see COMMON consumers). Not a clip emission.",
+     "line": "316"
+    },
+    {
+     "function": "sub_419120 AIDriverStateTransition",
+     "file": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c",
+     "result": "emits 120 (:37), 259 (:39), 198 (:57) only; ArraySearchReturningIndex calls (:33-34, :47-48) are not emits. Cannot produce any eid 157-177.",
+     "line": "37,39,57"
+    },
+    {
+     "function": "sub_41A3A0 AIFormationLap",
+     "file": "f1c_ida_decompiled/functions/AIFormationLap_0041a3a0.c",
+     "result": "emits 6 (:22-24) or 180/181/182 (:35-37). Cannot produce 157-177.",
+     "line": "22-37"
+    },
+    {
+     "function": "sub_419690 AIOvertakeDefendStateChange",
+     "file": "f1c_ida_decompiled/functions/AIOvertakeDefendStateChange_00419690.c",
+     "result": "emits 10/16/3/33 (:21-27 via v8), 4 (:41), 5 (:47), 72/262 (:57), init 5. BooleanOROfTwoChecks calls are flags, not emits. Cannot produce 157-177.",
+     "line": "21-61"
+    },
+    {
+     "function": "sub_41A200 AIPitStrategyState",
+     "file": "f1c_ida_decompiled/functions/AIPitStrategyState_0041a200.c",
+     "result": "emits 42 or 52 only (:13-15). Cannot produce 157-177.",
+     "line": "13-15"
+    },
+    {
+     "function": "sub_4198B0 AIPositionChangeEvent",
+     "file": "f1c_ida_decompiled/functions/AIPositionChangeEvent_004198b0.c",
+     "result": "emits 17/18 (:30-36) or 7/8/9 (:41-48). Cannot produce 157-177.",
+     "line": "28-48"
+    },
+    {
+     "function": "sub_41A2B0 AISessionPhaseChange",
+     "file": "f1c_ida_decompiled/functions/AISessionPhaseChange_0041a2b0.c",
+     "result": "emits 21/22 (:17-36) or 178/179 (:32-34); calls AIPositionChangeEvent (:41). Cannot produce 157-177 (178/179 are not 168/169).",
+     "line": "17-36"
+    },
+    {
+     "function": "sub_41A170 AIVehicleDamageEvent",
+     "file": "f1c_ida_decompiled/functions/AIVehicleDamageEvent_0041a170.c",
+     "result": "emits 52 (:10) or 196 (:16). Cannot produce 157-177.",
+     "line": "10-19"
+    },
+    {
+     "function": "sub_41C0F0 PitExit",
+     "file": "f1c_ida_decompiled/functions/PitExit_0041c0f0.c",
+     "result": "emits 397 (:29) or 516-535 (:38-118, incl. RNG remap :100-118). Cannot produce 157-177.",
+     "line": "29-127"
+    },
+    {
+     "function": "sub_41C4C0 PositionBasedMessageDisplay",
+     "file": "f1c_ida_decompiled/functions/PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "eid = ThunkToFUN004201e0 result (sub_4203D0): 355-372 or -1 (:25-26). Cannot produce 157-177.",
+     "line": "25-26"
+    },
+    {
+     "function": "sub_41D630 RaceCommentary",
+     "file": "f1c_ida_decompiled/functions/RaceCommentary_0041d630.c",
+     "result": "TV-side track table 447-473 (:38-105), 397/465 (:107, :148), 474/459-461/454-456/476 (:158-226). Cannot produce 157-177 (TV range, separate table).",
+     "line": "38-226"
+    },
+    {
+     "function": "sub_41B980 TeamNameDisplayIDLookup",
+     "file": "f1c_ida_decompiled/functions/TeamNameDisplayIDLookup_0041b980.c",
+     "result": "emits 293-336 only (:13-190). Cannot produce 157-177.",
+     "line": "13-190"
+    },
+    {
+     "function": "sub_41A500 TimeBasedMessageChain",
+     "file": "f1c_ida_decompiled/functions/TimeBasedMessageChain_0041a500.c",
+     "result": "emits 34, 35, 276-279 only (:22-61). Cannot produce 157-177.",
+     "line": "22-61"
+    },
+    {
+     "function": "sub_41A720 (speeding / cut / jump / blue flag)",
+     "file": "f1c_ida_decompiled/functions/sub_41A720_0041a720.c",
+     "result": "emits 151, 153, 154, 155, 252, 253, 254, 256 only (:14-57). Cannot produce 157-177.",
+     "line": "14-57"
+    },
+    {
+     "function": "sub_41A940 (stop-go ignored)",
+     "file": "f1c_ida_decompiled/functions/sub_41A940_0041a940.c",
+     "result": "emits 149 (:12) or 243 (:21) only. Cannot produce 157-177.",
+     "line": "12-21"
+    },
+    {
+     "function": "sub_41AC50 (position / driver lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41AC50_0041ac50.c",
+     "result": "emits 208, 211-217, 220 only (:25-52, via a1[3711] switch). Cannot produce 157-177.",
+     "line": "25-58"
+    },
+    {
+     "function": "sub_41B250 (retire lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41B250_0041b250.c",
+     "result": "emits 117, 118, 119 (:15-23) or 235-238 (:38-53) only. Cannot produce 157-177.",
+     "line": "15-53"
+    },
+    {
+     "function": "sub_41C440 (dynamic eid from sub_420000)",
+     "file": "f1c_ida_decompiled/functions/sub_41C440_0041c440.c",
+     "result": "eid = sub_420000 result: 338-354 or -1 (:13-16). Cannot produce 157-177.",
+     "line": "13-16"
+    },
+    {
+     "function": "sub_4203D0 ThunkToFUN004201e0 (track table feeding sub_41C4C0)",
+     "file": "f1c_ida_decompiled/functions/ThunkToFUN004201e0_004203d0.c",
+     "result": "returns 355-372 or -1 (:13-47). Not a 157-177 source.",
+     "line": "13-47"
+    },
+    {
+     "function": "sub_420000 (track table feeding sub_41C440)",
+     "file": "f1c_ida_decompiled/functions/sub_420000_00420000.c",
+     "result": "returns 338-354 or -1 (:13-45). Not a 157-177 source.",
+     "line": "13-45"
+    },
+    {
+     "function": "sub_412C30 MapCollisionShapeToBoneIndex (SDT resolver, step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/MapCollisionShapeToBoneIndex_00412c30.c",
+     "result": "not an eid: returns an SDT index. Type 7 gives SDT 177 - (a4!=0) (:29-31). Reached from SoundEventDispatcher case 0x32 with a4=0 (SoundEventDispatcher:97-98) and RaceEventMessageDispatcher case 0x31 with a4=1 (RaceEventMessageDispatcher:63-65, gives 176). Producer of such overlay records UNKNOWN.",
+     "line": "29-31; SoundEventDispatcher 97-98; RaceEventMessageDispatcher 63-65"
+    },
+    {
+     "function": "sub_411A00 score -> SDT base (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a00_00411a00.c",
+     "result": "eid -> score via dword_5BF9B0[5*eid] (TableLookupByIndex sub_4144C0), then word_5BEBB0[score]. Owner exe read: 164->170, 165->171, 166->172, 167->173, 168->174, 169->175, 170->176 (and 171->178, so score 170 owns SDT 176-177), 172->179, 180->187.",
+     "line": "5-13"
+    },
+    {
+     "function": "sub_411A50 roll pointer (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a50_00411a50.c",
+     "result": "for 2 < eid < 291 returns CircularBufferIndexIncrement(&this[2*eid]) (:25). PWS eids 161-177 take this branch.",
+     "line": "22-25"
+    },
+    {
+     "function": "sub_411650 CircularBufferIndexIncrement",
+     "file": "f1c_ida_decompiled/functions/CircularBufferIndexIncrement_00411650.c",
+     "result": "round robin: returns this[1], then this[1] = this[1] + 1 wrapping at this[0] (count). Count and random start offset written by sub_411AB0 (RandomRangeTableInitializer:43-48) from word_5BEBB0[score+1] - word_5BEBB0[score]. Score 170 count = 2, so eid 167 alternates SDT 176 and 177.",
+     "line": "6-15"
+    },
+    {
+     "function": "sub_4119D0 mode select (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_19d0_004119d0.c",
+     "result": "eid 1..290 -> mode 0 = PWS (:6-7). Eids 161-177 are PWS.",
+     "line": "6-7"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "writes a driver-name entry id into name-entry +8 at LABEL_321 (not a queued eid). Consumers: sub_414600 -> NamedEntryLookupInFormatList (sub_415230) -> PositionChangeDetector:111,189 and SeasonDisplayIDResolver:99,146,158,170,182 pass a FIXED eid (397, 478, 490, 494, 498, 502) and the lookup result as arg3; VehicleSetupDriverNumber:18 stores it in +18588 (driver index).",
+     "line": "see eid-specific entry"
+    }
+   ]
+  },
+  {
+   "eid": 167,
+   "sdt_index": 176,
+   "clip": "PWS_WIN19",
+   "says": "Player wins generic Grand Prix",
+   "score": 170,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native_emitter_reached_conditional_generic_track",
+   "situation": "Race finish as P1 (same gates) on a track name NOT in the 17 list, or game mode outside 2-5. Two-clip score: plays SDT 176 on one trigger and SDT 177 on the next (round robin).",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_419C50 PerDriverRaceCommentary:29 (default)"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> BufferReset 0x4B3B40 -> sub_4B3400 -> LapCompletion 0x4BC4E0 (case 7, :125-180) -> RaceFinishHandler 0x4A0BA0 (:5 PerDriverRaceCommentary) -> PerDriverRaceCommentary 0x419C50 -> DriverDataTableLookup + InsertDriverTableEntry (PWS queue) -> consumer TextOverlayDisplayTimer 0x4186F0 (caller RenderTickUpdate 0x4C8B70, per frame) -> FontRenderingPrep 0x411840 -> SoundEventDispatcher 0x411E90",
+   "gates": [
+    "dword_7D0308 != 0 RaceActiveFlag (PerDriver:17; live 3 on track, findings FACT)",
+    "flt_7CF3C8 != 0.0 (PerDriver:19)",
+    "a1[4121]==1 = veh+0x4064 FinishState finished (PerDriver:22; docs/38)",
+    "!a1[4124] = veh+0x4070 noOfPenaltiesToProcess == 0 (PerDriver:22; findings evf-003)",
+    "player: dword_7C54E8+18580 == a1[4645] (PerDriver:25)",
+    "a1[4120]==1 = veh+0x4060 race position 1 (PerDriver:27; HAIKU_BRIEF fact)",
+    "dword_7D0410 in [2,5] = game mode quickrace/race/championship/MP (PerDriver:30; findings FACT modes)",
+    "LapCompletion case 7 only (SessionType 7 race) LapCompletion:125; finish test not(lap<total && time<limit) LapCompletion:134; RaceFinishHandler call LapCompletion:180",
+    "roll: sub_411650 round robin, count 2 at score 170 (word_5BEBB0 170->176, 171->178)"
+   ],
+   "mod": "",
+   "heard_evidence": "none recorded for this sdt (VOICE_INDEX.md row has no owner-heard note; no TRIAGE_NOTES entry).",
+   "tier": "DERIVED",
+   "notes": "Default eid. Plays only when the track name matches none of the 17 names, or game mode is outside 2-5. Its score-170 twin is SDT 177 (round robin), see the 177 row. Label 'generic Grand Prix' is consistent with the default. OPEN: FinishState (veh+0x4064) value at the moment RaceFinishHandler runs is not proven (its write point is not in this chain). OPEN: if LapCompletion re-enters the finish branch for an already finished car, the line can repeat every 1.0 s cooldown; not proven either way.",
+   "checked": [
+    {
+     "function": "sub_419C50 PerDriverRaceCommentary",
+     "file": "f1c_ida_decompiled/functions/PerDriverRaceCommentary_00419c50.c",
+     "result": "emits 167 as default (:29) under: a1[4121]==1 finished (:22), !a1[4124] no pending penalty (:22), player (:25), a1[4120]==1 race position 1 (:27). Track block (:30-102) is skipped when dword_7D0410 not in [2,5] or no track name matches. Dump and owner exe: score 170 -> SDT 176 (shared with 177, roll).",
+     "line": "29"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (eid-specific hit)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "number 167 is a driver-name entry id at :59 (name-entry +8). Not an eid argument of any queued call (see COMMON consumers). Not a clip emission.",
+     "line": "59"
+    },
+    {
+     "function": "sub_419120 AIDriverStateTransition",
+     "file": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c",
+     "result": "emits 120 (:37), 259 (:39), 198 (:57) only; ArraySearchReturningIndex calls (:33-34, :47-48) are not emits. Cannot produce any eid 157-177.",
+     "line": "37,39,57"
+    },
+    {
+     "function": "sub_41A3A0 AIFormationLap",
+     "file": "f1c_ida_decompiled/functions/AIFormationLap_0041a3a0.c",
+     "result": "emits 6 (:22-24) or 180/181/182 (:35-37). Cannot produce 157-177.",
+     "line": "22-37"
+    },
+    {
+     "function": "sub_419690 AIOvertakeDefendStateChange",
+     "file": "f1c_ida_decompiled/functions/AIOvertakeDefendStateChange_00419690.c",
+     "result": "emits 10/16/3/33 (:21-27 via v8), 4 (:41), 5 (:47), 72/262 (:57), init 5. BooleanOROfTwoChecks calls are flags, not emits. Cannot produce 157-177.",
+     "line": "21-61"
+    },
+    {
+     "function": "sub_41A200 AIPitStrategyState",
+     "file": "f1c_ida_decompiled/functions/AIPitStrategyState_0041a200.c",
+     "result": "emits 42 or 52 only (:13-15). Cannot produce 157-177.",
+     "line": "13-15"
+    },
+    {
+     "function": "sub_4198B0 AIPositionChangeEvent",
+     "file": "f1c_ida_decompiled/functions/AIPositionChangeEvent_004198b0.c",
+     "result": "emits 17/18 (:30-36) or 7/8/9 (:41-48). Cannot produce 157-177.",
+     "line": "28-48"
+    },
+    {
+     "function": "sub_41A2B0 AISessionPhaseChange",
+     "file": "f1c_ida_decompiled/functions/AISessionPhaseChange_0041a2b0.c",
+     "result": "emits 21/22 (:17-36) or 178/179 (:32-34); calls AIPositionChangeEvent (:41). Cannot produce 157-177 (178/179 are not 168/169).",
+     "line": "17-36"
+    },
+    {
+     "function": "sub_41A170 AIVehicleDamageEvent",
+     "file": "f1c_ida_decompiled/functions/AIVehicleDamageEvent_0041a170.c",
+     "result": "emits 52 (:10) or 196 (:16). Cannot produce 157-177.",
+     "line": "10-19"
+    },
+    {
+     "function": "sub_41C0F0 PitExit",
+     "file": "f1c_ida_decompiled/functions/PitExit_0041c0f0.c",
+     "result": "emits 397 (:29) or 516-535 (:38-118, incl. RNG remap :100-118). Cannot produce 157-177.",
+     "line": "29-127"
+    },
+    {
+     "function": "sub_41C4C0 PositionBasedMessageDisplay",
+     "file": "f1c_ida_decompiled/functions/PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "eid = ThunkToFUN004201e0 result (sub_4203D0): 355-372 or -1 (:25-26). Cannot produce 157-177.",
+     "line": "25-26"
+    },
+    {
+     "function": "sub_41D630 RaceCommentary",
+     "file": "f1c_ida_decompiled/functions/RaceCommentary_0041d630.c",
+     "result": "TV-side track table 447-473 (:38-105), 397/465 (:107, :148), 474/459-461/454-456/476 (:158-226). Cannot produce 157-177 (TV range, separate table).",
+     "line": "38-226"
+    },
+    {
+     "function": "sub_41B980 TeamNameDisplayIDLookup",
+     "file": "f1c_ida_decompiled/functions/TeamNameDisplayIDLookup_0041b980.c",
+     "result": "emits 293-336 only (:13-190). Cannot produce 157-177.",
+     "line": "13-190"
+    },
+    {
+     "function": "sub_41A500 TimeBasedMessageChain",
+     "file": "f1c_ida_decompiled/functions/TimeBasedMessageChain_0041a500.c",
+     "result": "emits 34, 35, 276-279 only (:22-61). Cannot produce 157-177.",
+     "line": "22-61"
+    },
+    {
+     "function": "sub_41A720 (speeding / cut / jump / blue flag)",
+     "file": "f1c_ida_decompiled/functions/sub_41A720_0041a720.c",
+     "result": "emits 151, 153, 154, 155, 252, 253, 254, 256 only (:14-57). Cannot produce 157-177.",
+     "line": "14-57"
+    },
+    {
+     "function": "sub_41A940 (stop-go ignored)",
+     "file": "f1c_ida_decompiled/functions/sub_41A940_0041a940.c",
+     "result": "emits 149 (:12) or 243 (:21) only. Cannot produce 157-177.",
+     "line": "12-21"
+    },
+    {
+     "function": "sub_41AC50 (position / driver lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41AC50_0041ac50.c",
+     "result": "emits 208, 211-217, 220 only (:25-52, via a1[3711] switch). Cannot produce 157-177.",
+     "line": "25-58"
+    },
+    {
+     "function": "sub_41B250 (retire lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41B250_0041b250.c",
+     "result": "emits 117, 118, 119 (:15-23) or 235-238 (:38-53) only. Cannot produce 157-177.",
+     "line": "15-53"
+    },
+    {
+     "function": "sub_41C440 (dynamic eid from sub_420000)",
+     "file": "f1c_ida_decompiled/functions/sub_41C440_0041c440.c",
+     "result": "eid = sub_420000 result: 338-354 or -1 (:13-16). Cannot produce 157-177.",
+     "line": "13-16"
+    },
+    {
+     "function": "sub_4203D0 ThunkToFUN004201e0 (track table feeding sub_41C4C0)",
+     "file": "f1c_ida_decompiled/functions/ThunkToFUN004201e0_004203d0.c",
+     "result": "returns 355-372 or -1 (:13-47). Not a 157-177 source.",
+     "line": "13-47"
+    },
+    {
+     "function": "sub_420000 (track table feeding sub_41C440)",
+     "file": "f1c_ida_decompiled/functions/sub_420000_00420000.c",
+     "result": "returns 338-354 or -1 (:13-45). Not a 157-177 source.",
+     "line": "13-45"
+    },
+    {
+     "function": "sub_412C30 MapCollisionShapeToBoneIndex (SDT resolver, step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/MapCollisionShapeToBoneIndex_00412c30.c",
+     "result": "not an eid: returns an SDT index. Type 7 gives SDT 177 - (a4!=0) (:29-31). Reached from SoundEventDispatcher case 0x32 with a4=0 (SoundEventDispatcher:97-98) and RaceEventMessageDispatcher case 0x31 with a4=1 (RaceEventMessageDispatcher:63-65, gives 176). Producer of such overlay records UNKNOWN.",
+     "line": "29-31; SoundEventDispatcher 97-98; RaceEventMessageDispatcher 63-65"
+    },
+    {
+     "function": "sub_411A00 score -> SDT base (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a00_00411a00.c",
+     "result": "eid -> score via dword_5BF9B0[5*eid] (TableLookupByIndex sub_4144C0), then word_5BEBB0[score]. Owner exe read: 164->170, 165->171, 166->172, 167->173, 168->174, 169->175, 170->176 (and 171->178, so score 170 owns SDT 176-177), 172->179, 180->187.",
+     "line": "5-13"
+    },
+    {
+     "function": "sub_411A50 roll pointer (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a50_00411a50.c",
+     "result": "for 2 < eid < 291 returns CircularBufferIndexIncrement(&this[2*eid]) (:25). PWS eids 161-177 take this branch.",
+     "line": "22-25"
+    },
+    {
+     "function": "sub_411650 CircularBufferIndexIncrement",
+     "file": "f1c_ida_decompiled/functions/CircularBufferIndexIncrement_00411650.c",
+     "result": "round robin: returns this[1], then this[1] = this[1] + 1 wrapping at this[0] (count). Count and random start offset written by sub_411AB0 (RandomRangeTableInitializer:43-48) from word_5BEBB0[score+1] - word_5BEBB0[score]. Score 170 count = 2, so eid 167 alternates SDT 176 and 177.",
+     "line": "6-15"
+    },
+    {
+     "function": "sub_4119D0 mode select (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_19d0_004119d0.c",
+     "result": "eid 1..290 -> mode 0 = PWS (:6-7). Eids 161-177 are PWS.",
+     "line": "6-7"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "writes a driver-name entry id into name-entry +8 at LABEL_321 (not a queued eid). Consumers: sub_414600 -> NamedEntryLookupInFormatList (sub_415230) -> PositionChangeDetector:111,189 and SeasonDisplayIDResolver:99,146,158,170,182 pass a FIXED eid (397, 478, 490, 494, 498, 502) and the lookup result as arg3; VehicleSetupDriverNumber:18 stores it in +18588 (driver index).",
+     "line": "see eid-specific entry"
+    }
+   ]
+  },
+  {
+   "eid": null,
+   "sdt_index": 177,
+   "clip": "PWS_2001_110",
+   "says": "You won, great drive, well done",
+   "score": 170,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "shared_score_roll_alternate",
+   "situation": "Only as the second clip of score 170 (carrier eid 167): same gates as SDT 176, on a non-calendar track or game mode outside 2-5, on every second such trigger (round robin). Never on the 17 calendar tracks (they use their own eids).",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_419C50 PerDriverRaceCommentary:29 (carrier eid 167, score 170)",
+    "sub_411650 CircularBufferIndexIncrement (round robin SDT 176/177)",
+    "sub_412C30 MapCollisionShapeToBoneIndex:29-31 (type-7 route, producer UNKNOWN)"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> BufferReset 0x4B3B40 -> sub_4B3400 -> LapCompletion 0x4BC4E0 (case 7, :125-180) -> RaceFinishHandler 0x4A0BA0 (:5 PerDriverRaceCommentary) -> PerDriverRaceCommentary 0x419C50 -> DriverDataTableLookup + InsertDriverTableEntry (PWS queue) -> consumer TextOverlayDisplayTimer 0x4186F0 (caller RenderTickUpdate 0x4C8B70, per frame) -> FontRenderingPrep 0x411840 -> SoundEventDispatcher 0x411E90",
+   "gates": [
+    "dword_7D0308 != 0 RaceActiveFlag (PerDriver:17; live 3 on track, findings FACT)",
+    "flt_7CF3C8 != 0.0 (PerDriver:19)",
+    "a1[4121]==1 = veh+0x4064 FinishState finished (PerDriver:22; docs/38)",
+    "!a1[4124] = veh+0x4070 noOfPenaltiesToProcess == 0 (PerDriver:22; findings evf-003)",
+    "player: dword_7C54E8+18580 == a1[4645] (PerDriver:25)",
+    "a1[4120]==1 = veh+0x4060 race position 1 (PerDriver:27; HAIKU_BRIEF fact)",
+    "dword_7D0410 in [2,5] = game mode quickrace/race/championship/MP (PerDriver:30; findings FACT modes)",
+    "LapCompletion case 7 only (SessionType 7 race) LapCompletion:125; finish test not(lap<total && time<limit) LapCompletion:134; RaceFinishHandler call LapCompletion:180",
+    "roll: sub_411650 round robin, count 2 at score 170 (word_5BEBB0 170->176, 171->178)"
+   ],
+   "mod": "",
+   "heard_evidence": "CONFLICT: docs/VOICE_INDEX.md:95 and data/voice_index.json:6347 say 'owner heard'; docs/TRIAGE_NOTES.txt:164 says 'Z, check if loaded by the game already' (a question); docs/design/H8_orphans.md:19 says 'UNKNOWN - owner must listen'. Source of the 'heard' note not recorded.",
+   "tier": "DERIVED",
+   "notes": "No eid of its own (full_event_dump orphaned_clips contains 177). Reached as the second clip of score 170, which carries eid 167. Round robin is proven by sub_411650 (not random); only the start offset is random (sub_411AB0:47-48). Also reachable through SoundEventDispatcher case 0x32 (value 7, slot 0) if such an overlay record exists (producer UNKNOWN). Owner exe: score 170 covers SDT 176-177 (word_5BEBB0[170]=176, [171]=178). Eid 177 (Indianapolis win) plays SDT 187 WIN17, not this clip. OPEN: FinishState (veh+0x4064) value at the moment RaceFinishHandler runs is not proven (its write point is not in this chain). OPEN: if LapCompletion re-enters the finish branch for an already finished car, the line can repeat every 1.0 s cooldown; not proven either way.",
+   "checked": [
+    {
+     "function": "sub_419C50 PerDriverRaceCommentary",
+     "file": "f1c_ida_decompiled/functions/PerDriverRaceCommentary_00419c50.c",
+     "result": "does NOT emit SDT 177 as 2001_110. It emits eid 177 (Indianapolis win; dump -> SDT 187 WIN17) at :102, and the default eid 167 at :29. Eid 167 is the carrier of SDT 176/177 through the roll.",
+     "line": "29,102"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (eid-specific hit)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "no eid for SDT 177 (no dump row). The only number-177 hit is :64 (name entry, not queued).",
+     "line": "64"
+    },
+    {
+     "function": "sub_419120 AIDriverStateTransition",
+     "file": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c",
+     "result": "emits 120 (:37), 259 (:39), 198 (:57) only; ArraySearchReturningIndex calls (:33-34, :47-48) are not emits. Cannot produce any eid 157-177.",
+     "line": "37,39,57"
+    },
+    {
+     "function": "sub_41A3A0 AIFormationLap",
+     "file": "f1c_ida_decompiled/functions/AIFormationLap_0041a3a0.c",
+     "result": "emits 6 (:22-24) or 180/181/182 (:35-37). Cannot produce 157-177.",
+     "line": "22-37"
+    },
+    {
+     "function": "sub_419690 AIOvertakeDefendStateChange",
+     "file": "f1c_ida_decompiled/functions/AIOvertakeDefendStateChange_00419690.c",
+     "result": "emits 10/16/3/33 (:21-27 via v8), 4 (:41), 5 (:47), 72/262 (:57), init 5. BooleanOROfTwoChecks calls are flags, not emits. Cannot produce 157-177.",
+     "line": "21-61"
+    },
+    {
+     "function": "sub_41A200 AIPitStrategyState",
+     "file": "f1c_ida_decompiled/functions/AIPitStrategyState_0041a200.c",
+     "result": "emits 42 or 52 only (:13-15). Cannot produce 157-177.",
+     "line": "13-15"
+    },
+    {
+     "function": "sub_4198B0 AIPositionChangeEvent",
+     "file": "f1c_ida_decompiled/functions/AIPositionChangeEvent_004198b0.c",
+     "result": "emits 17/18 (:30-36) or 7/8/9 (:41-48). Cannot produce 157-177.",
+     "line": "28-48"
+    },
+    {
+     "function": "sub_41A2B0 AISessionPhaseChange",
+     "file": "f1c_ida_decompiled/functions/AISessionPhaseChange_0041a2b0.c",
+     "result": "emits 21/22 (:17-36) or 178/179 (:32-34); calls AIPositionChangeEvent (:41). Cannot produce 157-177 (178/179 are not 168/169).",
+     "line": "17-36"
+    },
+    {
+     "function": "sub_41A170 AIVehicleDamageEvent",
+     "file": "f1c_ida_decompiled/functions/AIVehicleDamageEvent_0041a170.c",
+     "result": "emits 52 (:10) or 196 (:16). Cannot produce 157-177.",
+     "line": "10-19"
+    },
+    {
+     "function": "sub_41C0F0 PitExit",
+     "file": "f1c_ida_decompiled/functions/PitExit_0041c0f0.c",
+     "result": "emits 397 (:29) or 516-535 (:38-118, incl. RNG remap :100-118). Cannot produce 157-177.",
+     "line": "29-127"
+    },
+    {
+     "function": "sub_41C4C0 PositionBasedMessageDisplay",
+     "file": "f1c_ida_decompiled/functions/PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "eid = ThunkToFUN004201e0 result (sub_4203D0): 355-372 or -1 (:25-26). Cannot produce 157-177.",
+     "line": "25-26"
+    },
+    {
+     "function": "sub_41D630 RaceCommentary",
+     "file": "f1c_ida_decompiled/functions/RaceCommentary_0041d630.c",
+     "result": "TV-side track table 447-473 (:38-105), 397/465 (:107, :148), 474/459-461/454-456/476 (:158-226). Cannot produce 157-177 (TV range, separate table).",
+     "line": "38-226"
+    },
+    {
+     "function": "sub_41B980 TeamNameDisplayIDLookup",
+     "file": "f1c_ida_decompiled/functions/TeamNameDisplayIDLookup_0041b980.c",
+     "result": "emits 293-336 only (:13-190). Cannot produce 157-177.",
+     "line": "13-190"
+    },
+    {
+     "function": "sub_41A500 TimeBasedMessageChain",
+     "file": "f1c_ida_decompiled/functions/TimeBasedMessageChain_0041a500.c",
+     "result": "emits 34, 35, 276-279 only (:22-61). Cannot produce 157-177.",
+     "line": "22-61"
+    },
+    {
+     "function": "sub_41A720 (speeding / cut / jump / blue flag)",
+     "file": "f1c_ida_decompiled/functions/sub_41A720_0041a720.c",
+     "result": "emits 151, 153, 154, 155, 252, 253, 254, 256 only (:14-57). Cannot produce 157-177.",
+     "line": "14-57"
+    },
+    {
+     "function": "sub_41A940 (stop-go ignored)",
+     "file": "f1c_ida_decompiled/functions/sub_41A940_0041a940.c",
+     "result": "emits 149 (:12) or 243 (:21) only. Cannot produce 157-177.",
+     "line": "12-21"
+    },
+    {
+     "function": "sub_41AC50 (position / driver lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41AC50_0041ac50.c",
+     "result": "emits 208, 211-217, 220 only (:25-52, via a1[3711] switch). Cannot produce 157-177.",
+     "line": "25-58"
+    },
+    {
+     "function": "sub_41B250 (retire lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41B250_0041b250.c",
+     "result": "emits 117, 118, 119 (:15-23) or 235-238 (:38-53) only. Cannot produce 157-177.",
+     "line": "15-53"
+    },
+    {
+     "function": "sub_41C440 (dynamic eid from sub_420000)",
+     "file": "f1c_ida_decompiled/functions/sub_41C440_0041c440.c",
+     "result": "eid = sub_420000 result: 338-354 or -1 (:13-16). Cannot produce 157-177.",
+     "line": "13-16"
+    },
+    {
+     "function": "sub_4203D0 ThunkToFUN004201e0 (track table feeding sub_41C4C0)",
+     "file": "f1c_ida_decompiled/functions/ThunkToFUN004201e0_004203d0.c",
+     "result": "returns 355-372 or -1 (:13-47). Not a 157-177 source.",
+     "line": "13-47"
+    },
+    {
+     "function": "sub_420000 (track table feeding sub_41C440)",
+     "file": "f1c_ida_decompiled/functions/sub_420000_00420000.c",
+     "result": "returns 338-354 or -1 (:13-45). Not a 157-177 source.",
+     "line": "13-45"
+    },
+    {
+     "function": "sub_412C30 MapCollisionShapeToBoneIndex (SDT resolver, step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/MapCollisionShapeToBoneIndex_00412c30.c",
+     "result": "not an eid: returns an SDT index. Type 7 gives SDT 177 - (a4!=0) (:29-31). Reached from SoundEventDispatcher case 0x32 with a4=0 (SoundEventDispatcher:97-98) and RaceEventMessageDispatcher case 0x31 with a4=1 (RaceEventMessageDispatcher:63-65, gives 176). Producer of such overlay records UNKNOWN.",
+     "line": "29-31; SoundEventDispatcher 97-98; RaceEventMessageDispatcher 63-65"
+    },
+    {
+     "function": "sub_411A00 score -> SDT base (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a00_00411a00.c",
+     "result": "eid -> score via dword_5BF9B0[5*eid] (TableLookupByIndex sub_4144C0), then word_5BEBB0[score]. Owner exe read: 164->170, 165->171, 166->172, 167->173, 168->174, 169->175, 170->176 (and 171->178, so score 170 owns SDT 176-177), 172->179, 180->187.",
+     "line": "5-13"
+    },
+    {
+     "function": "sub_411A50 roll pointer (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a50_00411a50.c",
+     "result": "for 2 < eid < 291 returns CircularBufferIndexIncrement(&this[2*eid]) (:25). PWS eids 161-177 take this branch.",
+     "line": "22-25"
+    },
+    {
+     "function": "sub_411650 CircularBufferIndexIncrement",
+     "file": "f1c_ida_decompiled/functions/CircularBufferIndexIncrement_00411650.c",
+     "result": "round robin: returns this[1], then this[1] = this[1] + 1 wrapping at this[0] (count). Count and random start offset written by sub_411AB0 (RandomRangeTableInitializer:43-48) from word_5BEBB0[score+1] - word_5BEBB0[score]. Score 170 count = 2, so eid 167 alternates SDT 176 and 177.",
+     "line": "6-15"
+    },
+    {
+     "function": "sub_4119D0 mode select (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_19d0_004119d0.c",
+     "result": "eid 1..290 -> mode 0 = PWS (:6-7). Eids 161-177 are PWS.",
+     "line": "6-7"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "writes a driver-name entry id into name-entry +8 at LABEL_321 (not a queued eid). Consumers: sub_414600 -> NamedEntryLookupInFormatList (sub_415230) -> PositionChangeDetector:111,189 and SeasonDisplayIDResolver:99,146,158,170,182 pass a FIXED eid (397, 478, 490, 494, 498, 502) and the lookup result as arg3; VehicleSetupDriverNumber:18 stores it in +18588 (driver index).",
+     "line": "see eid-specific entry"
+    }
+   ]
+  },
+  {
+   "eid": 168,
+   "sdt_index": 178,
+   "clip": "PWS_WIN10",
+   "says": "Player wins French GP",
+   "score": 171,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native_emitter_reached_conditional_track",
+   "situation": "Race finish as P1 (same gates), track name Hockenheim. Label 'French GP' conflicts with the track.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_419C50 PerDriverRaceCommentary:74 (track block)"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> BufferReset 0x4B3B40 -> sub_4B3400 -> LapCompletion 0x4BC4E0 (case 7, :125-180) -> RaceFinishHandler 0x4A0BA0 (:5 PerDriverRaceCommentary) -> PerDriverRaceCommentary 0x419C50 -> DriverDataTableLookup + InsertDriverTableEntry (PWS queue) -> consumer TextOverlayDisplayTimer 0x4186F0 (caller RenderTickUpdate 0x4C8B70, per frame) -> FontRenderingPrep 0x411840 -> SoundEventDispatcher 0x411E90",
+   "gates": [
+    "dword_7D0308 != 0 RaceActiveFlag (PerDriver:17; live 3 on track, findings FACT)",
+    "flt_7CF3C8 != 0.0 (PerDriver:19)",
+    "a1[4121]==1 = veh+0x4064 FinishState finished (PerDriver:22; docs/38)",
+    "!a1[4124] = veh+0x4070 noOfPenaltiesToProcess == 0 (PerDriver:22; findings evf-003)",
+    "player: dword_7C54E8+18580 == a1[4645] (PerDriver:25)",
+    "a1[4120]==1 = veh+0x4060 race position 1 (PerDriver:27; HAIKU_BRIEF fact)",
+    "dword_7D0410 in [2,5] = game mode quickrace/race/championship/MP (PerDriver:30; findings FACT modes)",
+    "LapCompletion case 7 only (SessionType 7 race) LapCompletion:125; finish test not(lap<total && time<limit) LapCompletion:134; RaceFinishHandler call LapCompletion:180"
+   ],
+   "mod": "",
+   "heard_evidence": "none recorded for this sdt (VOICE_INDEX.md row has no owner-heard note; no TRIAGE_NOTES entry).",
+   "tier": "DERIVED",
+   "notes": "Track-specific win line. Code track name -> eid mapping is in PerDriverRaceCommentary:36-102. LABEL CONFLICT: dump/doc56 label 'Player wins French GP' but the code plays this eid at Hockenheim. Which one is right is UNKNOWN until the clip is listened to; the game plays this clip at Hockenheim. OPEN: FinishState (veh+0x4064) value at the moment RaceFinishHandler runs is not proven (its write point is not in this chain). OPEN: if LapCompletion re-enters the finish branch for an already finished car, the line can repeat every 1.0 s cooldown; not proven either way.",
+   "checked": [
+    {
+     "function": "sub_419C50 PerDriverRaceCommentary",
+     "file": "f1c_ida_decompiled/functions/PerDriverRaceCommentary_00419c50.c",
+     "result": "emits 168 at :74 under: dword_7D0308 != 0 (:17), flt_7CF3C8 != 0 (:19), a1[4121]==1 finished (:22), !a1[4124] no pending penalty (:22), player (:25), a1[4120]==1 race position 1 (:27), dword_7D0410 in [2,5] (:30), track substring 'Hockenheim' (:72).",
+     "line": "74"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (eid-specific hit)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "number 168 is a driver-name entry id at :279 (name-entry +8). Not an eid argument of any queued call (see COMMON consumers). Not a clip emission.",
+     "line": "279"
+    },
+    {
+     "function": "sub_419120 AIDriverStateTransition",
+     "file": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c",
+     "result": "emits 120 (:37), 259 (:39), 198 (:57) only; ArraySearchReturningIndex calls (:33-34, :47-48) are not emits. Cannot produce any eid 157-177.",
+     "line": "37,39,57"
+    },
+    {
+     "function": "sub_41A3A0 AIFormationLap",
+     "file": "f1c_ida_decompiled/functions/AIFormationLap_0041a3a0.c",
+     "result": "emits 6 (:22-24) or 180/181/182 (:35-37). Cannot produce 157-177.",
+     "line": "22-37"
+    },
+    {
+     "function": "sub_419690 AIOvertakeDefendStateChange",
+     "file": "f1c_ida_decompiled/functions/AIOvertakeDefendStateChange_00419690.c",
+     "result": "emits 10/16/3/33 (:21-27 via v8), 4 (:41), 5 (:47), 72/262 (:57), init 5. BooleanOROfTwoChecks calls are flags, not emits. Cannot produce 157-177.",
+     "line": "21-61"
+    },
+    {
+     "function": "sub_41A200 AIPitStrategyState",
+     "file": "f1c_ida_decompiled/functions/AIPitStrategyState_0041a200.c",
+     "result": "emits 42 or 52 only (:13-15). Cannot produce 157-177.",
+     "line": "13-15"
+    },
+    {
+     "function": "sub_4198B0 AIPositionChangeEvent",
+     "file": "f1c_ida_decompiled/functions/AIPositionChangeEvent_004198b0.c",
+     "result": "emits 17/18 (:30-36) or 7/8/9 (:41-48). Cannot produce 157-177.",
+     "line": "28-48"
+    },
+    {
+     "function": "sub_41A2B0 AISessionPhaseChange",
+     "file": "f1c_ida_decompiled/functions/AISessionPhaseChange_0041a2b0.c",
+     "result": "emits 21/22 (:17-36) or 178/179 (:32-34); calls AIPositionChangeEvent (:41). Cannot produce 157-177 (178/179 are not 168/169).",
+     "line": "17-36"
+    },
+    {
+     "function": "sub_41A170 AIVehicleDamageEvent",
+     "file": "f1c_ida_decompiled/functions/AIVehicleDamageEvent_0041a170.c",
+     "result": "emits 52 (:10) or 196 (:16). Cannot produce 157-177.",
+     "line": "10-19"
+    },
+    {
+     "function": "sub_41C0F0 PitExit",
+     "file": "f1c_ida_decompiled/functions/PitExit_0041c0f0.c",
+     "result": "emits 397 (:29) or 516-535 (:38-118, incl. RNG remap :100-118). Cannot produce 157-177.",
+     "line": "29-127"
+    },
+    {
+     "function": "sub_41C4C0 PositionBasedMessageDisplay",
+     "file": "f1c_ida_decompiled/functions/PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "eid = ThunkToFUN004201e0 result (sub_4203D0): 355-372 or -1 (:25-26). Cannot produce 157-177.",
+     "line": "25-26"
+    },
+    {
+     "function": "sub_41D630 RaceCommentary",
+     "file": "f1c_ida_decompiled/functions/RaceCommentary_0041d630.c",
+     "result": "TV-side track table 447-473 (:38-105), 397/465 (:107, :148), 474/459-461/454-456/476 (:158-226). Cannot produce 157-177 (TV range, separate table).",
+     "line": "38-226"
+    },
+    {
+     "function": "sub_41B980 TeamNameDisplayIDLookup",
+     "file": "f1c_ida_decompiled/functions/TeamNameDisplayIDLookup_0041b980.c",
+     "result": "emits 293-336 only (:13-190). Cannot produce 157-177.",
+     "line": "13-190"
+    },
+    {
+     "function": "sub_41A500 TimeBasedMessageChain",
+     "file": "f1c_ida_decompiled/functions/TimeBasedMessageChain_0041a500.c",
+     "result": "emits 34, 35, 276-279 only (:22-61). Cannot produce 157-177.",
+     "line": "22-61"
+    },
+    {
+     "function": "sub_41A720 (speeding / cut / jump / blue flag)",
+     "file": "f1c_ida_decompiled/functions/sub_41A720_0041a720.c",
+     "result": "emits 151, 153, 154, 155, 252, 253, 254, 256 only (:14-57). Cannot produce 157-177.",
+     "line": "14-57"
+    },
+    {
+     "function": "sub_41A940 (stop-go ignored)",
+     "file": "f1c_ida_decompiled/functions/sub_41A940_0041a940.c",
+     "result": "emits 149 (:12) or 243 (:21) only. Cannot produce 157-177.",
+     "line": "12-21"
+    },
+    {
+     "function": "sub_41AC50 (position / driver lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41AC50_0041ac50.c",
+     "result": "emits 208, 211-217, 220 only (:25-52, via a1[3711] switch). Cannot produce 157-177.",
+     "line": "25-58"
+    },
+    {
+     "function": "sub_41B250 (retire lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41B250_0041b250.c",
+     "result": "emits 117, 118, 119 (:15-23) or 235-238 (:38-53) only. Cannot produce 157-177.",
+     "line": "15-53"
+    },
+    {
+     "function": "sub_41C440 (dynamic eid from sub_420000)",
+     "file": "f1c_ida_decompiled/functions/sub_41C440_0041c440.c",
+     "result": "eid = sub_420000 result: 338-354 or -1 (:13-16). Cannot produce 157-177.",
+     "line": "13-16"
+    },
+    {
+     "function": "sub_4203D0 ThunkToFUN004201e0 (track table feeding sub_41C4C0)",
+     "file": "f1c_ida_decompiled/functions/ThunkToFUN004201e0_004203d0.c",
+     "result": "returns 355-372 or -1 (:13-47). Not a 157-177 source.",
+     "line": "13-47"
+    },
+    {
+     "function": "sub_420000 (track table feeding sub_41C440)",
+     "file": "f1c_ida_decompiled/functions/sub_420000_00420000.c",
+     "result": "returns 338-354 or -1 (:13-45). Not a 157-177 source.",
+     "line": "13-45"
+    },
+    {
+     "function": "sub_412C30 MapCollisionShapeToBoneIndex (SDT resolver, step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/MapCollisionShapeToBoneIndex_00412c30.c",
+     "result": "not an eid: returns an SDT index. Type 7 gives SDT 177 - (a4!=0) (:29-31). Reached from SoundEventDispatcher case 0x32 with a4=0 (SoundEventDispatcher:97-98) and RaceEventMessageDispatcher case 0x31 with a4=1 (RaceEventMessageDispatcher:63-65, gives 176). Producer of such overlay records UNKNOWN.",
+     "line": "29-31; SoundEventDispatcher 97-98; RaceEventMessageDispatcher 63-65"
+    },
+    {
+     "function": "sub_411A00 score -> SDT base (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a00_00411a00.c",
+     "result": "eid -> score via dword_5BF9B0[5*eid] (TableLookupByIndex sub_4144C0), then word_5BEBB0[score]. Owner exe read: 164->170, 165->171, 166->172, 167->173, 168->174, 169->175, 170->176 (and 171->178, so score 170 owns SDT 176-177), 172->179, 180->187.",
+     "line": "5-13"
+    },
+    {
+     "function": "sub_411A50 roll pointer (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a50_00411a50.c",
+     "result": "for 2 < eid < 291 returns CircularBufferIndexIncrement(&this[2*eid]) (:25). PWS eids 161-177 take this branch.",
+     "line": "22-25"
+    },
+    {
+     "function": "sub_411650 CircularBufferIndexIncrement",
+     "file": "f1c_ida_decompiled/functions/CircularBufferIndexIncrement_00411650.c",
+     "result": "round robin: returns this[1], then this[1] = this[1] + 1 wrapping at this[0] (count). Count and random start offset written by sub_411AB0 (RandomRangeTableInitializer:43-48) from word_5BEBB0[score+1] - word_5BEBB0[score]. Score 170 count = 2, so eid 167 alternates SDT 176 and 177.",
+     "line": "6-15"
+    },
+    {
+     "function": "sub_4119D0 mode select (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_19d0_004119d0.c",
+     "result": "eid 1..290 -> mode 0 = PWS (:6-7). Eids 161-177 are PWS.",
+     "line": "6-7"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "writes a driver-name entry id into name-entry +8 at LABEL_321 (not a queued eid). Consumers: sub_414600 -> NamedEntryLookupInFormatList (sub_415230) -> PositionChangeDetector:111,189 and SeasonDisplayIDResolver:99,146,158,170,182 pass a FIXED eid (397, 478, 490, 494, 498, 502) and the lookup result as arg3; VehicleSetupDriverNumber:18 stores it in +18588 (driver index).",
+     "line": "see eid-specific entry"
+    }
+   ]
+  },
+  {
+   "eid": 169,
+   "sdt_index": 179,
+   "clip": "PWS_WIN08",
+   "says": "Player wins Canadian GP",
+   "score": 172,
+   "cooldown": 1.0,
+   "verdict": "NATIVE_ACTIVE",
+   "reason": "native_emitter_reached_conditional_track",
+   "situation": "Race finish as P1 (same gates), track name Silverstone (aSilverstone string confirmed in docs/12-globals-reference.md:2573). Label 'Canadian GP' conflicts with the track.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "sub_419C50 PerDriverRaceCommentary:66 (track block)"
+   ],
+   "call_path": "GamePostMainLoop 0x42D8A0 -> BufferReset 0x4B3B40 -> sub_4B3400 -> LapCompletion 0x4BC4E0 (case 7, :125-180) -> RaceFinishHandler 0x4A0BA0 (:5 PerDriverRaceCommentary) -> PerDriverRaceCommentary 0x419C50 -> DriverDataTableLookup + InsertDriverTableEntry (PWS queue) -> consumer TextOverlayDisplayTimer 0x4186F0 (caller RenderTickUpdate 0x4C8B70, per frame) -> FontRenderingPrep 0x411840 -> SoundEventDispatcher 0x411E90",
+   "gates": [
+    "dword_7D0308 != 0 RaceActiveFlag (PerDriver:17; live 3 on track, findings FACT)",
+    "flt_7CF3C8 != 0.0 (PerDriver:19)",
+    "a1[4121]==1 = veh+0x4064 FinishState finished (PerDriver:22; docs/38)",
+    "!a1[4124] = veh+0x4070 noOfPenaltiesToProcess == 0 (PerDriver:22; findings evf-003)",
+    "player: dword_7C54E8+18580 == a1[4645] (PerDriver:25)",
+    "a1[4120]==1 = veh+0x4060 race position 1 (PerDriver:27; HAIKU_BRIEF fact)",
+    "dword_7D0410 in [2,5] = game mode quickrace/race/championship/MP (PerDriver:30; findings FACT modes)",
+    "LapCompletion case 7 only (SessionType 7 race) LapCompletion:125; finish test not(lap<total && time<limit) LapCompletion:134; RaceFinishHandler call LapCompletion:180"
+   ],
+   "mod": "",
+   "heard_evidence": "none recorded for this sdt (VOICE_INDEX.md row has no owner-heard note; no TRIAGE_NOTES entry).",
+   "tier": "DERIVED",
+   "notes": "Track-specific win line. Code track name -> eid mapping is in PerDriverRaceCommentary:36-102. LABEL CONFLICT: dump/doc56 label 'Player wins Canadian GP' but the code plays this eid at Silverstone. Which one is right is UNKNOWN until the clip is listened to; the game plays this clip at Silverstone. OPEN: FinishState (veh+0x4064) value at the moment RaceFinishHandler runs is not proven (its write point is not in this chain). OPEN: if LapCompletion re-enters the finish branch for an already finished car, the line can repeat every 1.0 s cooldown; not proven either way.",
+   "checked": [
+    {
+     "function": "sub_419C50 PerDriverRaceCommentary",
+     "file": "f1c_ida_decompiled/functions/PerDriverRaceCommentary_00419c50.c",
+     "result": "emits 169 at :66 under: dword_7D0308 != 0 (:17), flt_7CF3C8 != 0 (:19), a1[4121]==1 finished (:22), !a1[4124] no pending penalty (:22), player (:25), a1[4120]==1 race position 1 (:27), dword_7D0410 in [2,5] (:30), track substring 'Silverstone' (:64).",
+     "line": "66"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (eid-specific hit)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "number 169 is a driver-name entry id at :208 (name-entry +8). Not an eid argument of any queued call (see COMMON consumers). Not a clip emission.",
+     "line": "208"
+    },
+    {
+     "function": "sub_419120 AIDriverStateTransition",
+     "file": "f1c_ida_decompiled/functions/AIDriverStateTransition_00419120.c",
+     "result": "emits 120 (:37), 259 (:39), 198 (:57) only; ArraySearchReturningIndex calls (:33-34, :47-48) are not emits. Cannot produce any eid 157-177.",
+     "line": "37,39,57"
+    },
+    {
+     "function": "sub_41A3A0 AIFormationLap",
+     "file": "f1c_ida_decompiled/functions/AIFormationLap_0041a3a0.c",
+     "result": "emits 6 (:22-24) or 180/181/182 (:35-37). Cannot produce 157-177.",
+     "line": "22-37"
+    },
+    {
+     "function": "sub_419690 AIOvertakeDefendStateChange",
+     "file": "f1c_ida_decompiled/functions/AIOvertakeDefendStateChange_00419690.c",
+     "result": "emits 10/16/3/33 (:21-27 via v8), 4 (:41), 5 (:47), 72/262 (:57), init 5. BooleanOROfTwoChecks calls are flags, not emits. Cannot produce 157-177.",
+     "line": "21-61"
+    },
+    {
+     "function": "sub_41A200 AIPitStrategyState",
+     "file": "f1c_ida_decompiled/functions/AIPitStrategyState_0041a200.c",
+     "result": "emits 42 or 52 only (:13-15). Cannot produce 157-177.",
+     "line": "13-15"
+    },
+    {
+     "function": "sub_4198B0 AIPositionChangeEvent",
+     "file": "f1c_ida_decompiled/functions/AIPositionChangeEvent_004198b0.c",
+     "result": "emits 17/18 (:30-36) or 7/8/9 (:41-48). Cannot produce 157-177.",
+     "line": "28-48"
+    },
+    {
+     "function": "sub_41A2B0 AISessionPhaseChange",
+     "file": "f1c_ida_decompiled/functions/AISessionPhaseChange_0041a2b0.c",
+     "result": "emits 21/22 (:17-36) or 178/179 (:32-34); calls AIPositionChangeEvent (:41). Cannot produce 157-177 (178/179 are not 168/169).",
+     "line": "17-36"
+    },
+    {
+     "function": "sub_41A170 AIVehicleDamageEvent",
+     "file": "f1c_ida_decompiled/functions/AIVehicleDamageEvent_0041a170.c",
+     "result": "emits 52 (:10) or 196 (:16). Cannot produce 157-177.",
+     "line": "10-19"
+    },
+    {
+     "function": "sub_41C0F0 PitExit",
+     "file": "f1c_ida_decompiled/functions/PitExit_0041c0f0.c",
+     "result": "emits 397 (:29) or 516-535 (:38-118, incl. RNG remap :100-118). Cannot produce 157-177.",
+     "line": "29-127"
+    },
+    {
+     "function": "sub_41C4C0 PositionBasedMessageDisplay",
+     "file": "f1c_ida_decompiled/functions/PositionBasedMessageDisplay_0041c4c0.c",
+     "result": "eid = ThunkToFUN004201e0 result (sub_4203D0): 355-372 or -1 (:25-26). Cannot produce 157-177.",
+     "line": "25-26"
+    },
+    {
+     "function": "sub_41D630 RaceCommentary",
+     "file": "f1c_ida_decompiled/functions/RaceCommentary_0041d630.c",
+     "result": "TV-side track table 447-473 (:38-105), 397/465 (:107, :148), 474/459-461/454-456/476 (:158-226). Cannot produce 157-177 (TV range, separate table).",
+     "line": "38-226"
+    },
+    {
+     "function": "sub_41B980 TeamNameDisplayIDLookup",
+     "file": "f1c_ida_decompiled/functions/TeamNameDisplayIDLookup_0041b980.c",
+     "result": "emits 293-336 only (:13-190). Cannot produce 157-177.",
+     "line": "13-190"
+    },
+    {
+     "function": "sub_41A500 TimeBasedMessageChain",
+     "file": "f1c_ida_decompiled/functions/TimeBasedMessageChain_0041a500.c",
+     "result": "emits 34, 35, 276-279 only (:22-61). Cannot produce 157-177.",
+     "line": "22-61"
+    },
+    {
+     "function": "sub_41A720 (speeding / cut / jump / blue flag)",
+     "file": "f1c_ida_decompiled/functions/sub_41A720_0041a720.c",
+     "result": "emits 151, 153, 154, 155, 252, 253, 254, 256 only (:14-57). Cannot produce 157-177.",
+     "line": "14-57"
+    },
+    {
+     "function": "sub_41A940 (stop-go ignored)",
+     "file": "f1c_ida_decompiled/functions/sub_41A940_0041a940.c",
+     "result": "emits 149 (:12) or 243 (:21) only. Cannot produce 157-177.",
+     "line": "12-21"
+    },
+    {
+     "function": "sub_41AC50 (position / driver lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41AC50_0041ac50.c",
+     "result": "emits 208, 211-217, 220 only (:25-52, via a1[3711] switch). Cannot produce 157-177.",
+     "line": "25-58"
+    },
+    {
+     "function": "sub_41B250 (retire lines)",
+     "file": "f1c_ida_decompiled/functions/sub_41B250_0041b250.c",
+     "result": "emits 117, 118, 119 (:15-23) or 235-238 (:38-53) only. Cannot produce 157-177.",
+     "line": "15-53"
+    },
+    {
+     "function": "sub_41C440 (dynamic eid from sub_420000)",
+     "file": "f1c_ida_decompiled/functions/sub_41C440_0041c440.c",
+     "result": "eid = sub_420000 result: 338-354 or -1 (:13-16). Cannot produce 157-177.",
+     "line": "13-16"
+    },
+    {
+     "function": "sub_4203D0 ThunkToFUN004201e0 (track table feeding sub_41C4C0)",
+     "file": "f1c_ida_decompiled/functions/ThunkToFUN004201e0_004203d0.c",
+     "result": "returns 355-372 or -1 (:13-47). Not a 157-177 source.",
+     "line": "13-47"
+    },
+    {
+     "function": "sub_420000 (track table feeding sub_41C440)",
+     "file": "f1c_ida_decompiled/functions/sub_420000_00420000.c",
+     "result": "returns 338-354 or -1 (:13-45). Not a 157-177 source.",
+     "line": "13-45"
+    },
+    {
+     "function": "sub_412C30 MapCollisionShapeToBoneIndex (SDT resolver, step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/MapCollisionShapeToBoneIndex_00412c30.c",
+     "result": "not an eid: returns an SDT index. Type 7 gives SDT 177 - (a4!=0) (:29-31). Reached from SoundEventDispatcher case 0x32 with a4=0 (SoundEventDispatcher:97-98) and RaceEventMessageDispatcher case 0x31 with a4=1 (RaceEventMessageDispatcher:63-65, gives 176). Producer of such overlay records UNKNOWN.",
+     "line": "29-31; SoundEventDispatcher 97-98; RaceEventMessageDispatcher 63-65"
+    },
+    {
+     "function": "sub_411A00 score -> SDT base (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a00_00411a00.c",
+     "result": "eid -> score via dword_5BF9B0[5*eid] (TableLookupByIndex sub_4144C0), then word_5BEBB0[score]. Owner exe read: 164->170, 165->171, 166->172, 167->173, 168->174, 169->175, 170->176 (and 171->178, so score 170 owns SDT 176-177), 172->179, 180->187.",
+     "line": "5-13"
+    },
+    {
+     "function": "sub_411A50 roll pointer (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_1a50_00411a50.c",
+     "result": "for 2 < eid < 291 returns CircularBufferIndexIncrement(&this[2*eid]) (:25). PWS eids 161-177 take this branch.",
+     "line": "22-25"
+    },
+    {
+     "function": "sub_411650 CircularBufferIndexIncrement",
+     "file": "f1c_ida_decompiled/functions/CircularBufferIndexIncrement_00411650.c",
+     "result": "round robin: returns this[1], then this[1] = this[1] + 1 wrapping at this[0] (count). Count and random start offset written by sub_411AB0 (RandomRangeTableInitializer:43-48) from word_5BEBB0[score+1] - word_5BEBB0[score]. Score 170 count = 2, so eid 167 alternates SDT 176 and 177.",
+     "line": "6-15"
+    },
+    {
+     "function": "sub_4119D0 mode select (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/ShortComputation_19d0_004119d0.c",
+     "result": "eid 1..290 -> mode 0 = PWS (:6-7). Eids 161-177 are PWS.",
+     "line": "6-7"
+    },
+    {
+     "function": "sub_415D90 DriverNameIDLookup (step 3 lookup)",
+     "file": "f1c_ida_decompiled/functions/DriverNameIDLookup_00415d90.c",
+     "result": "writes a driver-name entry id into name-entry +8 at LABEL_321 (not a queued eid). Consumers: sub_414600 -> NamedEntryLookupInFormatList (sub_415230) -> PositionChangeDetector:111,189 and SeasonDisplayIDResolver:99,146,158,170,182 pass a FIXED eid (397, 478, 490, 494, 498, 502) and the lookup result as arg3; VehicleSetupDriverNumber:18 stores it in +18588 (driver index).",
+     "line": "see eid-specific entry"
+    }
+   ]
+  }
+ ]
+}

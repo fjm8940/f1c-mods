@@ -1,0 +1,2 @@
+# SoundEffectTrigger: offset-like lines with no extracted row (1)
+L27: v5 = RatioComputationWithClamping((float *)(*(_DWORD *)this + 12));

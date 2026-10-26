@@ -1,0 +1,8 @@
+func,line,dec,hex,access,width,base,form,expr
+FieldReadDelegate,3,,,CALL,,,call,sub_54B4D0
+FieldReadDelegate,4,8,0x8,R,_DWORD,this,direct,"*(_DWORD *)(this + 8),"
+FieldReadDelegate,5,12,0xC,R,_DWORD,this,direct,"*(_DWORD *)(this + 12),"
+FieldReadDelegate,6,16,0x10,R,_DWORD,this,direct,"*(_DWORD *)(this + 16),"
+FieldReadDelegate,7,20,0x14,R,float,this,direct,"*(float *)(this + 20),"
+FieldReadDelegate,8,24,0x18,R,float,this,direct,"*(float *)(this + 24),"
+FieldReadDelegate,9,28,0x1C,R,float,this,direct,*(float *)(this + 28));

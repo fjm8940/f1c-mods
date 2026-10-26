@@ -1,0 +1,85 @@
+# Replay scenario: clean, every fault category, both wheelgun corners, all three
+# fuel subtypes, long recoverable, terminal, cancellation, simultaneous stops,
+# pause, epochs, masked and unknown-context commits.
+# Format: docs/POLICY_V2.md. The seed below is part of the fixture; identities
+# are chosen so the documented bucket mapping produces the named outcome.
+seed 20260921
+epoch 1
+# Clean stop
+commit 101 1
+advance 5
+# Slow corner (RR)
+commit 102 1
+advance 1
+advance 10
+# Wheelgun FL, two attempts
+commit 103 158
+advance 1
+advance 4
+advance 20
+# Wheelgun FR (second corner coverage)
+commit 104 36
+advance 1
+advance 4
+advance 20
+# Fuel rig: slow_flow
+commit 111 239
+advance 1
+advance 5
+advance 20
+# Fuel rig: temporary_no_flow
+commit 112 207
+advance 1
+advance 5
+advance 20
+# Fuel rig: interrupted_flow
+commit 113 985
+advance 1
+advance 5
+advance 20
+# Stall delay
+commit 105 864
+advance 1
+advance 20
+# Cross thread (long recoverable)
+commit 106 949
+advance 1
+advance 10
+advance 40
+# Terminal wheel
+commit 107 12638
+advance 1
+advance 30
+# Duplicate commit of the wheelgun service must return the same plan
+commit 103 158
+# Cancellation stops outstanding effects (stall service cancelled mid-life)
+commit 108 577
+advance 0.5
+cancel 108 577
+advance 10
+# Simultaneous stops on one session
+commit 201 1
+commit 202 2
+advance 0.5
+# Pause freezes both services; wall-clock pause time does not count
+pause
+advance 100
+resume
+advance 120
+# New epoch clears prior state
+epoch 2
+commit 201 1
+advance 1
+advance 30
+# Eligibility: no tyre work, no fuel (no-work visit draws clean)
+commit 301 1 tyre=0 nofuel nowork
+advance 5
+# Eligibility: tyre only, no fuel (fuel bucket stays clean)
+commit 302 2 nofuel
+advance 1
+advance 10
+# Unknown context remains neutral
+commit 303 3 late_request=unknown late_change=unknown wet=unknown positioning=unknown
+advance 1
+advance 30
+end

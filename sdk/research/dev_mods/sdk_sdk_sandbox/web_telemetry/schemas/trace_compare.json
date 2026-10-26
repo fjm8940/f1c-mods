@@ -1,0 +1,399 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/trace_compare.json",
+  "title": "f1c.compare/1 document (/trace/compare)",
+  "type": "object",
+  "required": [
+    "schema",
+    "gen",
+    "lap_len",
+    "step",
+    "n",
+    "conditions",
+    "a",
+    "b",
+    "dist",
+    "a_ch",
+    "b_ch",
+    "delta"
+  ],
+  "properties": {
+    "schema": {
+      "const": "f1c.compare/1"
+    },
+    "gen": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "lap_len": {
+      "type": "number",
+      "minimum": 0
+    },
+    "step": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 50
+    },
+    "n": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000
+    },
+    "conditions": {
+      "type": "object",
+      "required": [
+        "ty",
+        "ph",
+        "trk",
+        "at",
+        "trkt",
+        "onw",
+        "offw",
+        "ai",
+        "sc1",
+        "sc2",
+        "lhlim"
+      ],
+      "properties": {
+        "ty": {
+          "type": "integer"
+        },
+        "ph": {
+          "type": "integer"
+        },
+        "trk": {
+          "type": "string"
+        },
+        "at": {
+          "type": "number"
+        },
+        "trkt": {
+          "type": "number"
+        },
+        "onw": {
+          "type": "number"
+        },
+        "offw": {
+          "type": "number"
+        },
+        "ai": {
+          "type": "integer"
+        },
+        "sc1": {
+          "type": "number"
+        },
+        "sc2": {
+          "type": "number"
+        },
+        "lhlim": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "a": {
+      "$ref": "#/$defs/side"
+    },
+    "b": {
+      "$ref": "#/$defs/side"
+    },
+    "dist": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "type": "number"
+      }
+    },
+    "a_ch": {
+      "$ref": "#/$defs/channels"
+    },
+    "b_ch": {
+      "$ref": "#/$defs/channels"
+    },
+    "delta": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "description": "tB - tA at each distance grid point, relative lap time"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "side": {
+      "type": "object",
+      "required": [
+        "which",
+        "slot",
+        "driver",
+        "car",
+        "ai",
+        "team",
+        "lap",
+        "lap_time",
+        "start_sim",
+        "flags",
+        "lid",
+        "avail",
+        "breaks",
+        "break_dist"
+      ],
+      "properties": {
+        "which": {
+          "type": "string",
+          "enum": [
+            "A",
+            "B"
+          ]
+        },
+        "slot": {
+          "type": "integer"
+        },
+        "driver": {
+          "type": "string"
+        },
+        "car": {
+          "type": "string"
+        },
+        "ai": {
+          "type": "integer"
+        },
+        "team": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "lap": {
+          "type": "integer"
+        },
+        "lap_time": {
+          "type": "number"
+        },
+        "start_sim": {
+          "type": "number"
+        },
+        "flags": {
+          "type": "integer"
+        },
+        "lid": {
+          "type": "object",
+          "description": "stable lap identity of this compare side (live ring lap or cached import)",
+          "required": [
+            "gen",
+            "rev",
+            "slot",
+            "lap",
+            "src"
+          ],
+          "properties": {
+            "gen": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "rev": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "slot": {
+              "type": "integer"
+            },
+            "lap": {
+              "type": "integer"
+            },
+            "src": {
+              "type": "string",
+              "enum": [
+                "live",
+                "import"
+              ]
+            },
+            "serial": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "imports only"
+            }
+          },
+          "additionalProperties": false
+        },
+        "avail": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "breaks": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "break_dist": {
+          "type": "array",
+          "maxItems": 64,
+          "items": {
+            "type": "number"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "channels": {
+      "type": "object",
+      "required": [
+        "speed",
+        "throttle",
+        "brake",
+        "steer",
+        "glat",
+        "glon",
+        "gvert",
+        "yaw",
+        "yaw_rate",
+        "rpm",
+        "tread0",
+        "tread1",
+        "tread2",
+        "tread3",
+        "ttemp0",
+        "ttemp1",
+        "ttemp2",
+        "ttemp3",
+        "rx_su0",
+        "rx_su1",
+        "rx_su2",
+        "rx_su3",
+        "rx_ld0",
+        "rx_ld1",
+        "rx_ld2",
+        "rx_ld3",
+        "rx_sl0",
+        "rx_sl1",
+        "rx_sl2",
+        "rx_sl3",
+        "rx_fo0",
+        "rx_fo1",
+        "rx_fo2",
+        "rx_fo3",
+        "elapsed"
+      ],
+      "properties": {
+        "speed": {
+          "$ref": "#/$defs/series"
+        },
+        "throttle": {
+          "$ref": "#/$defs/series"
+        },
+        "brake": {
+          "$ref": "#/$defs/series"
+        },
+        "steer": {
+          "$ref": "#/$defs/series"
+        },
+        "glat": {
+          "$ref": "#/$defs/series"
+        },
+        "glon": {
+          "$ref": "#/$defs/series"
+        },
+        "gvert": {
+          "$ref": "#/$defs/series"
+        },
+        "yaw": {
+          "$ref": "#/$defs/series"
+        },
+        "yaw_rate": {
+          "$ref": "#/$defs/series"
+        },
+        "rpm": {
+          "$ref": "#/$defs/series"
+        },
+        "tread0": {
+          "$ref": "#/$defs/series"
+        },
+        "tread1": {
+          "$ref": "#/$defs/series"
+        },
+        "tread2": {
+          "$ref": "#/$defs/series"
+        },
+        "tread3": {
+          "$ref": "#/$defs/series"
+        },
+        "elapsed": {
+          "$ref": "#/$defs/series"
+        },
+        "ttemp0": {
+          "$ref": "#/$defs/series"
+        },
+        "ttemp1": {
+          "$ref": "#/$defs/series"
+        },
+        "ttemp2": {
+          "$ref": "#/$defs/series"
+        },
+        "ttemp3": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_su0": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_su1": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_su2": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_su3": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_ld0": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_ld1": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_ld2": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_ld3": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_sl0": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_sl1": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_sl2": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_sl3": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_fo0": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_fo1": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_fo2": {
+          "$ref": "#/$defs/series"
+        },
+        "rx_fo3": {
+          "$ref": "#/$defs/series"
+        }
+      },
+      "additionalProperties": false
+    },
+    "series": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "type": [
+          "number",
+          "null"
+        ],
+        "description": "null = hole (never bridged)"
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "engine_overhaul_lab",
+  "title": "Engine Overhaul Lab",
+  "production": false,
+  "language": "c",
+  "sdk_major": 1,
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "subsystems": [
+    "pit",
+    "ai",
+    "vehicle",
+    "session"
+  ],
+  "seeds": [
+    "RequestPitEntry",
+    "PitStateUpdateMachine",
+    "PitStopOperationTimer",
+    "AICommandMessageQueueDispatcher"
+  ],
+  "hooks": [],
+  "writes": [
+    {
+      "object": "F1CVehicle",
+      "field": "CallToBox",
+      "purpose": "reviewed organic pit command"
+    },
+    {
+      "object": "F1CVehicle",
+      "field": "PitDecisionTimer",
+      "purpose": "request immediate strategy evaluation"
+    }
+  ],
+  "tracing": {
+    "driver": "Bernd Maylander",
+    "seconds": 180,
+    "hz": 20,
+    "wait_phase": 5,
+    "pit_cycle": true,
+    "semantics": [
+      "command_input",
+      "output",
+      "latched_control"
+    ]
+  },
+  "regressions": [],
+  "build": {
+    "script": "build.bat",
+    "dll": "build/engine_overhaul_lab.dll"
+  }
+}

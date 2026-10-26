@@ -1,0 +1,3 @@
+func,line,dec,hex,access,width,base,form,expr
+ConditionalGate,5,12988,0x32BC,R,_DWORD,this,array,result = this[3247];
+ConditionalGate,7,14740,0x3994,W,_DWORD,this,array,this[3685] = 0;

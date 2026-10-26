@@ -1,0 +1,1152 @@
+{
+  "schema": "f1c.tool_catalog.v1",
+  "catalog_version": 1,
+  "purpose": "Give LLMs one preferred tool for each job while preserving every implementation and its evidence.",
+  "selection_rule": "Choose a preferred capability by job. Backends are reached through the front door; specialists are chosen only for their narrow job; superseded, paused, evidence-only, and locked-cabinet implementations are never default choices.",
+  "roles": {
+    "workbench": "Orients and coordinates a complete workflow.",
+    "tool_chest": "Finds the right capability and explains why it is the right choice.",
+    "magnifying_glass": "Finds and explains static evidence.",
+    "measuring_tape": "Measures known state without changing it.",
+    "multimeter": "Observes live process state without commanding behavior.",
+    "camera": "Captures a visual or temporal record.",
+    "level": "Validates, compares, or tests an artifact.",
+    "saw": "Generates or builds a bounded artifact.",
+    "jig": "Repeats a multi-step workflow deterministically.",
+    "tool_cart": "Stages or packages an owned artifact.",
+    "hammer": "Intentionally commands live state or user input.",
+    "dremel": "Performs a narrow expert investigation with sharp edges.",
+    "label_maker": "Builds indexes, schemas, or generated reference material.",
+    "locked_cabinet": "Requires exceptional manual review because it can affect credentials, binaries, production state, or desktop control.",
+    "museum_shelf": "Preserved history or a superseded implementation; evidence only."
+  },
+  "statuses": {
+    "preferred": "The sole default choice for this job.",
+    "specialist": "Supported only for the narrow job stated here.",
+    "backend": "Implementation detail used through a preferred front-door command.",
+    "superseded": "A better supported tool owns this job.",
+    "evidence-only": "Preserved to explain or reproduce historical evidence, not for current execution.",
+    "paused": "Belongs to a deliberately paused product direction.",
+    "locked-cabinet": "Never run automatically; requires explicit owner review."
+  },
+  "effects": {
+    "read-only": "Reads repository or process state and writes nothing.",
+    "artifact-write": "Creates new evidence or build output and refuses unsafe overwrite where supported.",
+    "config-write": "Edits a game or project configuration with restoration requirements.",
+    "live-write": "Writes to the running game or injects input.",
+    "process-control": "Attaches, launches, unloads, pauses, or otherwise controls a process.",
+    "credential-write": "Changes authentication material.",
+    "binary-write": "Patches, injects, or replaces executable code or binary state."
+  },
+  "discovery": {
+    "roots": [
+      ".",
+      "tools",
+      "mods"
+    ],
+    "extensions": [
+      ".py",
+      ".js",
+      ".bat",
+      ".cmd",
+      ".ps1",
+      ".exe"
+    ],
+    "exclude_globs": [
+      ".git/**",
+      "**/__pycache__/**",
+      "**/.pytest_cache/**",
+      "tools/sdk/tests/**",
+      "mods/**/build/**",
+      "mods/**/generated/**"
+    ]
+  },
+  "capabilities": [
+    {
+      "id": "memory-mcp",
+      "role": "multimeter",
+      "status": "preferred",
+      "summary": "Local read-only MCP bridge to a hidden elevated session reader; fixed reviewed F1C target only.",
+      "command": "python tools/f1c_mod.py memory-mcp health",
+      "effects": ["read-only"],
+      "keywords": ["mcp", "live", "memory", "drivers", "safety car", "freshness", "positions", "retired", "garage"]
+    },
+    {
+      "id": "orient",
+      "role": "workbench",
+      "status": "preferred",
+      "summary": "Return the current SDK state, priorities, safety rules, and workflow map.",
+      "command": "python tools/f1c_mod.py start --json",
+      "effects": [
+        "read-only"
+      ],
+      "keywords": [
+        "start",
+        "orient",
+        "status",
+        "priority",
+        "workflow"
+      ]
+    },
+    {
+      "id": "choose-tool",
+      "role": "tool_chest",
+      "status": "preferred",
+      "summary": "Recommend the one preferred capability for a natural-language job.",
+      "command": "python tools/f1c_mod.py recommend \"TASK\" --json",
+      "effects": [
+        "read-only"
+      ],
+      "keywords": [
+        "tool",
+        "choose",
+        "recommend",
+        "how",
+        "capability"
+      ]
+    },
+    {
+      "id": "list-tools",
+      "role": "tool_chest",
+      "status": "preferred",
+      "summary": "List public capabilities or every preserved implementation with its label.",
+      "command": "python tools/f1c_mod.py capabilities --json",
+      "effects": [
+        "read-only"
+      ],
+      "keywords": [
+        "tools",
+        "catalog",
+        "inventory",
+        "list",
+        "discover"
+      ]
+    },
+    {
+      "id": "route-path",
+      "role": "tool_chest",
+      "status": "preferred",
+      "summary": "Classify an unfamiliar repository path before relying on it.",
+      "command": "python tools/f1c_mod.py route PATH --json",
+      "effects": [
+        "read-only"
+      ],
+      "keywords": [
+        "path",
+        "file",
+        "route",
+        "classify",
+        "archive"
+      ]
+    },
+    {
+      "id": "query-evidence",
+      "role": "magnifying_glass",
+      "status": "preferred",
+      "summary": "Join functions, offsets, globals, config tokens, trust tiers, and prior findings.",
+      "command": "python tools/f1c_mod.py evidence-query {func|offset|global|token|findings|stats} [VALUE]",
+      "effects": [
+        "read-only"
+      ],
+      "keywords": [
+        "function",
+        "offset",
+        "global",
+        "token",
+        "finding",
+        "prior art",
+        "disproven"
+      ]
+    },
+    {
+      "id": "search-source",
+      "role": "magnifying_glass",
+      "status": "preferred",
+      "summary": "Search raw, annotated, fact, and derived decompiler corpora with provenance.",
+      "command": "python tools/f1c_mod.py search QUERY --json",
+      "effects": [
+        "read-only"
+      ],
+      "keywords": [
+        "search",
+        "source",
+        "decompile",
+        "hex-rays",
+        "text"
+      ]
+    },
+    {
+      "id": "inspect-function",
+      "role": "magnifying_glass",
+      "status": "preferred",
+      "summary": "Show an address-linked function dossier and reviewed ABI status.",
+      "command": "python tools/f1c_mod.py inspect FUNCTION --json",
+      "effects": [
+        "read-only"
+      ],
+      "keywords": [
+        "inspect",
+        "function",
+        "address",
+        "callers",
+        "callees",
+        "abi"
+      ]
+    },
+    {
+      "id": "query-sdk",
+      "role": "measuring_tape",
+      "status": "preferred",
+      "summary": "Search canonical SDK vehicle fields and function catalogue entries without opening the large JSON file.",
+      "command": "python tools/f1c_mod.py sdk-query {field|function|stats} [QUERY] --json",
+      "effects": [
+        "read-only"
+      ],
+      "keywords": [
+        "sdk",
+        "field",
+        "api",
+        "function",
+        "trust",
+        "catalogue"
+      ]
+    },
+    {
+      "id": "validate-sdk",
+      "role": "level",
+      "status": "preferred",
+      "summary": "Verify the canonical SDK contract, catalogue, target identity, and complete test gate.",
+      "command": "python tools/f1c_mod.py doctor --json",
+      "effects": [
+        "read-only"
+      ],
+      "keywords": [
+        "doctor",
+        "validate",
+        "sdk",
+        "health",
+        "target",
+        "test"
+      ]
+    },
+    {
+      "id": "maintain-sdk",
+      "role": "label_maker",
+      "status": "preferred",
+      "summary": "Regenerate canonical SDK artifacts through the reviewed generator chain.",
+      "command": "python tools/f1c_mod.py sdk-refresh",
+      "effects": [
+        "artifact-write"
+      ],
+      "keywords": [
+        "refresh",
+        "regenerate",
+        "headers",
+        "catalogue",
+        "sdk"
+      ]
+    },
+    {
+      "id": "harvest-addresses",
+      "role": "label_maker",
+      "status": "preferred",
+      "summary": "Collect every address the headers, mods and records already use into one read-only review list joined with the name index.",
+      "command": "python tools/f1c_mod.py address-harvest --output DIR",
+      "effects": [
+        "artifact-write"
+      ],
+      "keywords": [
+        "address",
+        "harvest",
+        "offset",
+        "collect",
+        "review",
+        "index"
+      ]
+    },
+    {
+      "id": "propose-address-tiers",
+      "role": "label_maker",
+      "status": "preferred",
+      "summary": "Propose review-only trust tiers for a harvest list by fixed rules, with the evidence and the review table.",
+      "command": "python tools/f1c_mod.py address-tier --harvest DIR",
+      "effects": [
+        "artifact-write"
+      ],
+      "keywords": [
+        "tier",
+        "trust",
+        "propose",
+        "review",
+        "harvest",
+        "address"
+      ]
+    },
+    {
+      "id": "create-mod",
+      "role": "saw",
+      "status": "preferred",
+      "summary": "Create an isolated manifest-driven SDK mod in the supported sandbox.",
+      "command": "python tools/f1c_mod.py init MOD_ID --title \"TITLE\"",
+      "effects": [
+        "artifact-write"
+      ],
+      "keywords": [
+        "create",
+        "new mod",
+        "scaffold",
+        "template",
+        "project"
+      ]
+    },
+    {
+      "id": "build-mod",
+      "role": "jig",
+      "status": "preferred",
+      "summary": "Discover, validate, generate, test, and build a sandbox mod through one deterministic workflow.",
+      "command": "python tools/f1c_mod.py pipeline MOD_ID",
+      "effects": [
+        "artifact-write"
+      ],
+      "keywords": [
+        "build",
+        "compile",
+        "pipeline",
+        "generate",
+        "mod"
+      ]
+    },
+    {
+      "id": "red-flag-trial",
+      "role": "specialist",
+      "status": "specialist",
+      "summary": "Build and hash-check the preserved Red Flag development trial, or load an exact approved hash into a running F1C process.",
+      "command": "python tools/f1c_mod.py tool-run --acknowledge-risk red-flag-trial {build|load} ...",
+      "effects": [
+        "artifact-write",
+        "live-write",
+        "binary-write"
+      ],
+      "keywords": [
+        "red flag",
+        "trial",
+        "compile",
+        "load",
+        "dll"
+      ]
+    },
+    {
+      "id": "stage-mod",
+      "role": "tool_cart",
+      "status": "preferred",
+      "summary": "Stage a built SDK-owned mod without overwriting unowned files.",
+      "command": "python tools/f1c_mod.py stage MOD_ID DESTINATION",
+      "effects": [
+        "artifact-write"
+      ],
+      "keywords": [
+        "stage",
+        "deploy",
+        "copy",
+        "package",
+        "destination"
+      ]
+    },
+    {
+      "id": "observe-field",
+      "role": "multimeter",
+      "status": "preferred",
+      "summary": "Passively validate or discover a live field from natural game behavior.",
+      "command": "python tools/f1c_mod.py runtime-observe RECIPE TAG",
+      "effects": [
+        "artifact-write"
+      ],
+      "keywords": [
+        "observe",
+        "runtime",
+        "field",
+        "memory",
+        "read-only",
+        "discover"
+      ]
+    },
+    {
+      "id": "snapshot-memory",
+      "role": "camera",
+      "status": "preferred",
+      "summary": "Capture and compare relocation-aware read-only process memory snapshots.",
+      "command": "python tools/f1c_mod.py memory-snapshot TAG",
+      "effects": [
+        "artifact-write"
+      ],
+      "keywords": [
+        "snapshot",
+        "memory",
+        "diff",
+        "capture",
+        "process"
+      ]
+    },
+    {
+      "id": "link-memory",
+      "role": "measuring_tape",
+      "status": "preferred",
+      "summary": "Join static layouts to runtime captures and rank event-correlated fields.",
+      "command": "python tools/f1c_mod.py memory-correlate LABEL --control CONTROL",
+      "effects": [
+        "read-only"
+      ],
+      "keywords": [
+        "correlate",
+        "fingerprint",
+        "layout",
+        "semantic",
+        "memory"
+      ]
+    },
+    {
+      "id": "resolve-variant",
+      "role": "measuring_tape",
+      "status": "preferred",
+      "summary": "Profile an executable and resolve symbols fail-closed across variants.",
+      "command": "python tools/f1c_mod.py resolve-symbols EXE",
+      "effects": [
+        "read-only"
+      ],
+      "keywords": [
+        "variant",
+        "executable",
+        "resolve",
+        "symbol",
+        "relocation"
+      ]
+    },
+    {
+      "id": "prepare-ida",
+      "role": "jig",
+      "status": "preferred",
+      "summary": "Prepare an isolated IDA database copy for reviewed analysis work.",
+      "command": "python tools/f1c_mod.py ida-prepare MOD_ID",
+      "effects": [
+        "artifact-write"
+      ],
+      "keywords": [
+        "ida",
+        "database",
+        "analysis",
+        "copy",
+        "idb"
+      ]
+    },
+    {
+      "id": "query-ida",
+      "role": "magnifying_glass",
+      "status": "preferred",
+      "summary": "Read-only IDB answers on a disposable copy: info, fresh decompile, disassembly, xrefs to/from, bytes.",
+      "command": "python tools/f1c_mod.py ida-query {info|decompile|disasm|xrefs-to|xrefs-from|bytes} ADDRESS --json",
+      "effects": [
+        "read-only"
+      ],
+      "keywords": [
+        "ida",
+        "idb",
+        "xref",
+        "xrefs",
+        "callers",
+        "decompile",
+        "disassemble",
+        "bytes",
+        "idalib"
+      ]
+    },
+    {
+      "id": "export-ida",
+      "role": "label_maker",
+      "status": "preferred",
+      "summary": "Apply reviewed SDK types and names to an IDB copy and export a new typed Hex-Rays corpus with a provenance manifest.",
+      "command": "python tools/f1c_mod.py ida-export --output functions_typed_YYYYMMDD --save-idb PATH",
+      "effects": [
+        "artifact-write"
+      ],
+      "keywords": [
+        "ida",
+        "export",
+        "typed",
+        "hex-rays",
+        "corpus",
+        "refresh",
+        "names"
+      ]
+    },
+    {
+      "id": "new-external-ida-project",
+      "role": "jig",
+      "status": "preferred",
+      "summary": "Create an isolated IDB for a non-game PE target (for example the legacy telemetry viewer) with recorded provenance; the vendor file is read-only and the game IDB is never touched.",
+      "command": "python tools/f1c_mod.py ida-new-project PROJECT --exe PATH",
+      "effects": [
+        "artifact-write"
+      ],
+      "keywords": [
+        "ida",
+        "external",
+        "viewer",
+        "provenance",
+        "idb",
+        "isolated"
+      ]
+    },
+    {
+      "id": "survey-ida",
+      "role": "magnifying_glass",
+      "status": "preferred",
+      "summary": "One-pass read-only IDB survey (functions, strings, imports, exports, string xrefs, call edges) written to a new JSON file for coverage work.",
+      "command": "python tools/f1c_mod.py ida-survey --idb PATH --output FILE.json",
+      "effects": [
+        "artifact-write"
+      ],
+      "keywords": [
+        "ida",
+        "survey",
+        "functions",
+        "strings",
+        "imports",
+        "call graph",
+        "coverage"
+      ]
+    },
+    {
+      "id": "capture-window",
+      "role": "camera",
+      "status": "specialist",
+      "summary": "Capture only the game window using the proven DirectX-compatible method.",
+      "command": "python tools/f1c_mod.py tool-run capture-window -- OUTPUT.png",
+      "effects": [
+        "artifact-write"
+      ],
+      "keywords": [
+        "screenshot",
+        "window",
+        "image",
+        "capture",
+        "visual"
+      ]
+    },
+    {
+      "id": "read-standings",
+      "role": "multimeter",
+      "status": "specialist",
+      "summary": "Read a one-shot live standings table from the running game.",
+      "command": "python tools/f1c_mod.py tool-run read-standings",
+      "effects": [
+        "read-only"
+      ],
+      "keywords": [
+        "standings",
+        "position",
+        "cars",
+        "race",
+        "live"
+      ]
+    },
+    {
+      "id": "send-game-key",
+      "role": "hammer",
+      "status": "specialist",
+      "summary": "Send a guarded background key through the game's own pending-key queue.",
+      "command": "python tools/f1c_mod.py tool-run --acknowledge-risk send-game-key -- press KEY",
+      "effects": [
+        "live-write"
+      ],
+      "keywords": [
+        "key",
+        "keyboard",
+        "input",
+        "background",
+        "game"
+      ]
+    },
+    {
+      "id": "click-game-ui",
+      "role": "hammer",
+      "status": "specialist",
+      "summary": "Send a guarded background mouse action to the game UI.",
+      "command": "python tools/f1c_mod.py tool-run --acknowledge-risk click-game-ui -- click ARGS",
+      "effects": [
+        "live-write"
+      ],
+      "keywords": [
+        "mouse",
+        "click",
+        "menu",
+        "ui",
+        "background"
+      ]
+    },
+    {
+      "id": "configure-session",
+      "role": "jig",
+      "status": "specialist",
+      "summary": "Select track/session by guarded player-file edit with backup and restoration behavior.",
+      "command": "python tools/f1c_mod.py tool-run --acknowledge-risk configure-session -- ARGS",
+      "effects": [
+        "config-write"
+      ],
+      "keywords": [
+        "session",
+        "track",
+        "player",
+        "setup",
+        "config"
+      ]
+    },
+    {
+      "id": "calculate-ai-difficulty",
+      "role": "measuring_tape",
+      "status": "specialist",
+      "summary": "Calculate AI strength and realism from observed lap-time evidence.",
+      "command": "python tools/f1c_mod.py tool-run calculate-ai-difficulty -- ARGS",
+      "effects": [
+        "read-only",
+        "artifact-write"
+      ],
+      "keywords": [
+        "ai",
+        "difficulty",
+        "strength",
+        "realism",
+        "lap time"
+      ]
+    },
+    {
+      "id": "edit-ai-form",
+      "role": "dremel",
+      "status": "specialist",
+      "summary": "Apply or restore bounded AI form variation in driver files.",
+      "command": "python tools/f1c_mod.py tool-run --acknowledge-risk edit-ai-form -- ARGS",
+      "effects": [
+        "config-write"
+      ],
+      "keywords": [
+        "ai",
+        "form",
+        "jitter",
+        "driver",
+        "rcd"
+      ]
+    },
+    {
+      "id": "control-ai-pace",
+      "role": "dremel",
+      "status": "specialist",
+      "summary": "Adjust or restore a named AI driver's proven live pace input.",
+      "command": "python tools/f1c_mod.py tool-run --acknowledge-risk control-ai-pace -- ARGS",
+      "effects": [
+        "live-write"
+      ],
+      "keywords": [
+        "ai",
+        "pace",
+        "live",
+        "fade",
+        "driver"
+      ]
+    },
+    {
+      "id": "edit-camera",
+      "role": "dremel",
+      "status": "specialist",
+      "summary": "Launch the supported live camera position editor.",
+      "command": "python tools/f1c_mod.py camera-editor",
+      "effects": [
+        "live-write",
+        "config-write"
+      ],
+      "keywords": [
+        "camera",
+        "editor",
+        "position",
+        "freecam",
+        "gui"
+      ]
+    },
+    {
+      "id": "unload-mod",
+      "role": "hammer",
+      "status": "specialist",
+      "summary": "Request cooperative self-unload through a reviewed named event.",
+      "command": "python tools/f1c_mod.py unload EVENT",
+      "effects": [
+        "process-control"
+      ],
+      "keywords": [
+        "unload",
+        "dll",
+        "event",
+        "release",
+        "process"
+      ]
+    },
+    {
+      "id": "live-debugger",
+      "role": "dremel",
+      "status": "specialist",
+      "summary": "Choose Frida, x32dbg, or Cheat Engine for a bounded live-debugging job; availability is external to this repository.",
+      "command": "python tools/f1c_mod.py tool-info live-debugger --json",
+      "effects": [
+        "process-control",
+        "live-write",
+        "binary-write"
+      ],
+      "keywords": [
+        "mcp",
+        "frida",
+        "x64dbg",
+        "x32dbg",
+        "cheat engine",
+        "debugger",
+        "breakpoint"
+      ]
+    },
+    {
+      "command": "python tools/f1c_mod.py qualifying-order capture TAG --output FILE",
+      "effects": [
+        "read-only",
+        "artifact-write"
+      ],
+      "id": "preserve-qualifying-order",
+      "role": "camera",
+      "keywords": [
+        "qualifying",
+        "classification",
+        "save",
+        "order",
+        "grid",
+        "next session"
+      ],
+      "status": "specialist",
+      "summary": "Archive full qualifying order and stored grid times; compare transitions without live writes."
+    }
+  ],
+  "runners": [
+    {
+      "id": "capture-window",
+      "path": "tools/screenshot.py",
+      "effects": [
+        "artifact-write"
+      ],
+      "risk_ack_required": false
+    },
+    {
+      "id": "read-standings",
+      "path": "tools/standings.py",
+      "effects": [
+        "read-only"
+      ],
+      "risk_ack_required": false
+    },
+    {
+      "id": "send-game-key",
+      "path": "tools/gkey.py",
+      "effects": [
+        "live-write"
+      ],
+      "risk_ack_required": true
+    },
+    {
+      "id": "click-game-ui",
+      "path": "tools/gmouse.py",
+      "effects": [
+        "live-write"
+      ],
+      "risk_ack_required": true
+    },
+    {
+      "id": "configure-session",
+      "path": "tools/session_setup.py",
+      "effects": [
+        "config-write"
+      ],
+      "risk_ack_required": true
+    },
+    {
+      "id": "calculate-ai-difficulty",
+      "path": "tools/ai_difficulty_calculator.py",
+      "effects": [
+        "read-only",
+        "artifact-write"
+      ],
+      "risk_ack_required": false
+    },
+    {
+      "id": "edit-ai-form",
+      "path": "tools/ai_form_jitter.py",
+      "effects": [
+        "config-write"
+      ],
+      "risk_ack_required": true
+    },
+    {
+      "id": "control-ai-pace",
+      "path": "tools/ai_live_form.py",
+      "effects": [
+        "live-write"
+      ],
+      "risk_ack_required": true
+    },
+    {
+      "id": "red-flag-trial",
+      "path": "tools/red_flag_trial.py",
+      "effects": [
+        "artifact-write",
+        "live-write",
+        "binary-write"
+      ],
+      "risk_ack_required": true
+    }
+  ],
+  "implementation_overrides": [
+    {
+      "path": "tools/f1c_memory_mcp.py",
+      "capability": "memory-mcp",
+      "role": "multimeter",
+      "status": "backend",
+      "reason": "Fixed read-only semantic tools behind canonical memory-mcp command. Hidden reader launch is an explicit CLI action."
+    },
+    {
+      "path": "tools/f1c_mod.py",
+      "capability": "orient",
+      "role": "workbench",
+      "status": "preferred",
+      "reason": "Sole public executable front door."
+    },
+    {
+      "path": "tools/ask.py",
+      "capability": "query-evidence",
+      "role": "magnifying_glass",
+      "status": "backend",
+      "reason": "Reached through evidence-query; never invoke directly."
+    },
+    {
+      "path": "tools/address_harvest.py",
+      "capability": "harvest-addresses",
+      "role": "label_maker",
+      "status": "backend",
+      "reason": "Read-only harvester backend for address-harvest; reached through the canonical front door; never invoke directly."
+    },
+    {
+      "path": "tools/address_tiering.py",
+      "capability": "propose-address-tiers",
+      "role": "label_maker",
+      "status": "backend",
+      "reason": "Review-only tier proposal backend for address-tier; reached through the canonical front door; never invoke directly."
+    },
+    {
+      "path": "tools/ida_bridge.py",
+      "capability": "query-ida",
+      "role": "magnifying_glass",
+      "status": "backend",
+      "reason": "idalib backend for ida-query and ida-export; operates only on disposable IDB copies; never invoke directly."
+    },
+    {
+      "path": "tools/screenshot.py",
+      "capability": "capture-window",
+      "role": "camera",
+      "status": "backend",
+      "reason": "Reached through tool-run capture-window."
+    },
+    {
+      "path": "tools/standings.py",
+      "capability": "read-standings",
+      "role": "multimeter",
+      "status": "backend",
+      "reason": "Reached through tool-run read-standings."
+    },
+    {
+      "path": "tools/gkey.py",
+      "capability": "send-game-key",
+      "role": "hammer",
+      "status": "backend",
+      "reason": "Preferred keyboard implementation; reached through the front door."
+    },
+    {
+      "path": "tools/inject_key.py",
+      "capability": "send-game-key",
+      "role": "museum_shelf",
+      "status": "superseded",
+      "reason": "Earlier raw queue injector; gkey owns the supported job."
+    },
+    {
+      "path": "tools/vkey.py",
+      "capability": "send-game-key",
+      "role": "dremel",
+      "status": "specialist",
+      "reason": "Requires the vkeys DLL/shared-memory adapter; not the ordinary input path."
+    },
+    {
+      "path": "tools/input.py",
+      "capability": "send-game-key",
+      "role": "museum_shelf",
+      "status": "superseded",
+      "reason": "SendInput is not reliably observed by this game's DirectInput path."
+    },
+    {
+      "path": "tools/gamekey.py",
+      "capability": "send-game-key",
+      "role": "locked_cabinet",
+      "status": "locked-cabinet",
+      "reason": "Driver-dependent focus-stealing fallback; never automatic."
+    },
+    {
+      "path": "tools/gmouse.py",
+      "capability": "click-game-ui",
+      "role": "hammer",
+      "status": "backend",
+      "reason": "Preferred guarded UI mouse implementation; reached through the front door."
+    },
+    {
+      "path": "tools/session_setup.py",
+      "capability": "configure-session",
+      "role": "jig",
+      "status": "backend",
+      "reason": "Preferred non-coordinate session selection; reached through the front door."
+    },
+    {
+      "path": "tools/ai_difficulty_calculator.py",
+      "capability": "calculate-ai-difficulty",
+      "role": "measuring_tape",
+      "status": "backend",
+      "reason": "Unique deterministic calculator; reached through the front door."
+    },
+    {
+      "path": "tools/ai_form_jitter.py",
+      "capability": "edit-ai-form",
+      "role": "dremel",
+      "status": "backend",
+      "reason": "Unique bounded driver-file form editor with restoration; reached through the front door."
+    },
+    {
+      "path": "tools/ai_live_form.py",
+      "capability": "control-ai-pace",
+      "role": "dremel",
+      "status": "backend",
+      "reason": "Unique proven live pace controller; reached through the front door."
+    },
+    {
+      "path": "tools/red_flag_trial.py",
+      "capability": "red-flag-trial",
+      "role": "specialist",
+      "status": "backend",
+      "reason": "Hash-gated Red Flag development-trial build/load backend; reached only through the canonical front door."
+    },
+    {
+      "path": "tools/ai_live_form_gui.py",
+      "capability": "control-ai-pace",
+      "role": "dremel",
+      "status": "specialist",
+      "reason": "Human GUI over the preferred controller; not selected for LLM automation."
+    },
+    {
+      "path": "tools/create_f1c_mod.py",
+      "capability": "create-mod",
+      "role": "saw",
+      "status": "backend",
+      "reason": "Internal implementation of init."
+    },
+    {
+      "path": "tools/gen_hook.py",
+      "capability": "create-mod",
+      "role": "museum_shelf",
+      "status": "superseded",
+      "reason": "Legacy raw-hook scaffolder; manifest-driven init/generate owns this job."
+    },
+    {
+      "path": "tools/deploy_f1c_mod.py",
+      "capability": "stage-mod",
+      "role": "tool_cart",
+      "status": "backend",
+      "reason": "Internal implementation of guarded stage."
+    },
+    {
+      "path": "tools/patch.py",
+      "capability": "build-mod",
+      "role": "locked_cabinet",
+      "status": "locked-cabinet",
+      "reason": "Legacy byte-patch manager; reviewed SDK hooks and copied targets are preferred."
+    },
+    {
+      "path": "tools/poke.py",
+      "capability": "observe-field",
+      "role": "locked_cabinet",
+      "status": "locked-cabinet",
+      "reason": "General live memory console can write arbitrary state; runtime-observe is the default measurement tool."
+    },
+    {
+      "path": "tools/lab.py",
+      "capability": "observe-field",
+      "role": "locked_cabinet",
+      "status": "locked-cabinet",
+      "reason": "Historical experiment harness includes prohibited QuickRace and live-write paths."
+    },
+    {
+      "path": "tools/MCP_TOOLS.md",
+      "capability": "live-debugger",
+      "role": "dremel",
+      "status": "specialist",
+      "reason": "Reference only; actual MCP availability must be discovered from the current host."
+    },
+    {
+      "capability": "preserve-qualifying-order",
+      "reason": "Reached through qualifying-order; immutable evidence, never a live grid write.",
+      "status": "backend",
+      "path": "tools/qualifying_order.py",
+      "role": "camera"
+    }
+  ],
+  "implementation_rules": [
+    {
+      "glob": "tools/sdk/tests/**",
+      "role": "level",
+      "status": "backend",
+      "reason": "SDK verification backend; run through sdk-test."
+    },
+    {
+      "glob": "tools/sdk/**",
+      "role": "label_maker",
+      "status": "backend",
+      "reason": "Canonical SDK surface or maintenance backend; use the matching front-door capability."
+    },
+    {
+      "glob": "tools/source_explorer.py",
+      "role": "magnifying_glass",
+      "status": "backend",
+      "reason": "Backend for search and inspect."
+    },
+    {
+      "glob": "tools/semantic_memory_linker.py",
+      "role": "measuring_tape",
+      "status": "backend",
+      "reason": "Backend for memory-* commands."
+    },
+    {
+      "glob": "tools/process_memory_snapshot.py",
+      "role": "camera",
+      "status": "backend",
+      "reason": "Backend for memory-snapshot and memory-diff."
+    },
+    {
+      "glob": "tools/runtime_validator.py",
+      "role": "multimeter",
+      "status": "backend",
+      "reason": "Backend for runtime-observe and runtime-validate."
+    },
+    {
+      "glob": "tools/variant_resolver.py",
+      "role": "measuring_tape",
+      "status": "backend",
+      "reason": "Backend for variant commands."
+    },
+    {
+      "glob": "tools/compare_event_traces.py",
+      "role": "level",
+      "status": "backend",
+      "reason": "Backend for regression trace comparison."
+    },
+    {
+      "glob": "tools/query_recovery_index.py",
+      "role": "magnifying_glass",
+      "status": "superseded",
+      "reason": "inspect/discover expose the supported recovery-index queries."
+    },
+    {
+      "glob": "tools/gen_*.py",
+      "role": "label_maker",
+      "status": "backend",
+      "reason": "Generator reached through sdk-refresh or manifest generation."
+    },
+    {
+      "glob": "tools/build_recovery_index.py",
+      "role": "label_maker",
+      "status": "backend",
+      "reason": "Recovery-index generator reached through sdk-refresh."
+    },
+    {
+      "glob": "tools/apply_*_idb.py",
+      "role": "dremel",
+      "status": "specialist",
+      "reason": "Reviewed IDA-only operation; use only on an isolated database copy."
+    },
+    {
+      "glob": "tools/ida_export_*.py",
+      "role": "dremel",
+      "status": "specialist",
+      "reason": "Read-only IDA evidence exporter for a bounded research wave."
+    },
+    {
+      "glob": "tools/reconstruction*.py",
+      "role": "museum_shelf",
+      "status": "paused",
+      "reason": "Replacement-engine reconstruction is deliberately paused."
+    },
+    {
+      "glob": "tools/shadow_*.py",
+      "role": "museum_shelf",
+      "status": "paused",
+      "reason": "Completed/paused shadow-source workflow; evidence only for SDK tasks."
+    },
+    {
+      "glob": "tools/mod_pipeline/**",
+      "role": "museum_shelf",
+      "status": "evidence-only",
+      "reason": "Historical raw-hook/patch investigation pipeline superseded by manifest-driven SDK workflows."
+    },
+    {
+      "glob": "tools/*.js",
+      "role": "museum_shelf",
+      "status": "evidence-only",
+      "reason": "Preserved one-off Frida probe; use current runtime or debugger capabilities for new evidence."
+    },
+    {
+      "glob": "tools/*.bat",
+      "role": "museum_shelf",
+      "status": "superseded",
+      "reason": "Convenience launcher; select the underlying front-door capability instead."
+    },
+    {
+      "glob": "mods/**/tools/**",
+      "role": "museum_shelf",
+      "status": "evidence-only",
+      "reason": "Project-local experiment or human utility; not a repository-wide SDK tool."
+    },
+    {
+      "glob": "mods/sdk_sandbox/**/tools/**",
+      "role": "dremel",
+      "status": "specialist",
+      "reason": "Sandbox-local specialist owned by that project; never a global default."
+    },
+    {
+      "glob": "*.py",
+      "role": "museum_shelf",
+      "status": "evidence-only",
+      "reason": "Top-level corpus-generation history; use search, inspect, and sdk-refresh for current work."
+    },
+    {
+      "glob": "tools/*.py",
+      "role": "dremel",
+      "status": "evidence-only",
+      "reason": "Preserved specialist or experiment without a supported front-door job; use as evidence until deliberately promoted."
+    },
+    {
+      "glob": "tools/**",
+      "role": "museum_shelf",
+      "status": "evidence-only",
+      "reason": "Preserved tool-adjacent artifact without a public execution contract."
+    },
+    {
+      "glob": "mods/**",
+      "role": "museum_shelf",
+      "status": "evidence-only",
+      "reason": "Mod-local executable artifact; follow the mod's lifecycle rather than treating it as a global tool."
+    }
+  ]
+}

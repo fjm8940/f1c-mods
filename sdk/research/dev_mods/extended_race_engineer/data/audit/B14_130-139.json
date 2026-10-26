@@ -1,0 +1,2523 @@
+{
+ "schema": "ere.audit.v1",
+ "range": "B14_130-139",
+ "rows": [
+  {
+   "sdt_index": 130,
+   "clip": "PWS_GREEN01",
+   "says": "Green flag conditions",
+   "eid": 126,
+   "dump_eids_all": [
+    126,
+    419
+   ],
+   "score": 124,
+   "cooldown": 5.0,
+   "verdict": "UNKNOWN",
+   "reason": "blocked_gate while racing (proven for phase 5); phases 6/7 unresolved",
+   "situation": "Real event: the last yellow zone clears and the race is green again (all-clear). Native line is reachable only with RacePhase 6 or 7 at the clear edge.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": true,
+   "suppressed_note": "Clear trigger exists (PitSelectionStateMachine line 72) but line 36 blocks it when dword_7C56A8==5 (racing). Dispatcher runs only in race phases 5-8 (sub_4D4580 lines 43-115), phase 8 blocked at line 11, so 126 needs phase 6 or 7. No visible writer sets 6 or 7 (writes to dword_7C56A8 are indirect), so whether a vanilla race ever enters 6/7 is UNKNOWN.",
+   "emitters": [
+    "PitSelectionStateMachine_0041b3c0.c:72 (sub_41B3C0 case 0, flag clear)"
+   ],
+   "call_path": "GamePostMainLoop_0042d8a0.c / StateTriggerCheck_004b8ae0.c -> sub_4D4580 (lines 31-115; race branch lines 43-115 calls sub_4D1D80 only for dword_7C56A8 in 5-8) -> sub_4D1D80 (0.25 s timer, line 179) -> sub_4D1730 zone-diff loop (line 87) -> sub_41B3C0 with a2 = new zone state",
+   "gates": [
+    "sub_41B3C0 line 11: dword_7D0308 && flt_7CF3C8 != 0 && !*(byte*)(dword_7C54E8+13388) && dword_7C56A8 != 8 (byte +13388 read as pit-lane flag by sub_4BCCC0 lines 92-106, DERIVED)",
+    "line 31: this[v7+316]==2 (zone latch, set by a raise at line 148)",
+    "line 36: dword_7C56A4!=7 || dword_7C56A8==5 -> exit (race only; racing phase 5 blocked)",
+    "lines 62-64: v7==2 and v8!=0; lines 69/81 emit 126 when v9 (v7==v8); line 83 emits 135 otherwise",
+    "sub_4D4580 lines 43-115: race branch calls the dispatcher only in phases 5,6,7,8",
+    "UNKNOWN: ScoringGateSelector(v7) line 33; FloatRangeIndexLookup band edges; StateCheckedVirtualDispatch(136)"
+   ],
+   "mod": "",
+   "heard_evidence": "EVF PROGRESS.md:409 REVERTED 2026-07-28: owner states the line has NEVER fired naturally (voice_index_row.note). findings.jsonl:129 'live-confirmed' was isolated single-eid injection, not natural play.",
+   "tier": "DERIVED",
+   "notes": "owner exe F1 Challenge Online.exe (sha256 prefix 1A70E5ED) event table at 0x5BF9A0+eid*0x14, read statically: cooldown and score match the dump for eids 126-132. TV twin 419 has no emitter. findings.jsonl:329 (restart design) assumes native GREEN01 at restart: contradicted, see MD.",
+   "play_plan": {
+    "meaning": "All yellow flags are cleared: racing green again. Said when the zone the driver was in is clear and no yellow remains.",
+    "when_it_should_play": "Race (SessionType 7), in the player's sector, after a yellow in that sector has cleared and no yellow zone remains on track. Subject: player (-1).",
+    "trigger": "Steward zone table (base 0x8ACEE0; count +0x10C; entries +0x110, stride 8, {state,end}; writer sub_4D1730, state 2 = yellow, 0 = clear, DERIVED). Fire on the 0.25 s tick when a zone in the player's sector flips 2->0 and no zone has state 2, race session, RacePhase == 5.",
+    "subject": "player (-1)",
+    "technique": "own_emitter (ERE queues eid 126 at the zone-clear edge; native line 72 is NOT lifted, because lifting dword_7C56A8==5 would also release 133/135/137)",
+    "latch_cooldown": "once per yellow period; at most once per 60 s",
+    "must_not_play_when": "race start (RacePhase 0-4); red/caution (RacePhase 8); player in pit lane (+13388); any zone still yellow",
+    "conflicts": "Clear lines 133/135/137 use the same edge: one clear line per edge (green only when zero yellow zones remain). DD-07: do not queue while an MF line is pending on eid 126.",
+    "calibration": "FloatRangeIndexLookup sector edges (UNKNOWN constants); zone edge tolerance",
+    "live_test": "Race: get a yellow into the player's sector (slow car in a zone), then drive out of it; watch zone state 2->0 and RacePhase. Expect GREEN01 once.",
+    "confidence": "DERIVED (static); GUESS on sector edges; raise with a live zone-table trace"
+   },
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['13', '14', '19', '20'] at lines [22, 26, 31, 35]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 22
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['120', '259', 'v11'] at lines [37, 39, 59]; constants assigned or returned in the function (1-600): [1, 120, 198]; no batch eid among them.",
+     "line": 37
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['v3'] at lines [24]; constants assigned or returned in the function (1-600): [6, 180, 181, 182]; no batch eid among them.",
+     "line": 24
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['264'] at lines [11]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 11
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['v5'] at lines [61]; constants assigned or returned in the function (1-600): [1, 4, 5]; no batch eid among them.",
+     "line": 61
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['v3'] at lines [15]; constants assigned or returned in the function (1-600): [52]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['v6', 'v8'] at lines [36, 48]; constants assigned or returned in the function (1-600): [7, 17, 18]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['1', '2', '272', '273', '41'] at lines [20, 29, 47, 54, 75]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 20
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['55'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "emits eids 134/136/138 (other clips: PWS_YELLOW01-03 raise) at lines 23/29/35. None of this row's eids.",
+     "line": 23
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['v5'] at lines [36]; constants assigned or returned in the function (1-600): [21, 22, 178, 179]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['101', '105', '95', '97', '99'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [1, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['v1'] at lines [19]; constants assigned or returned in the function (1-600): [52, 196]; no batch eid among them.",
+     "line": 19
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['423', '424', '488'] at lines [163, 245, 255]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 163
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['275'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['284'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['337'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['514'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['74'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['492', '496', '500', '504'] at lines [349, 358, 367, 376]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 349
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['159', '260', '261', 'v2'] at lines [113, 149, 159, 164]; constants assigned or returned in the function (1-600): [157, 158, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177]; no batch eid among them.",
+     "line": 113
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['v6'] at lines [127]; constants assigned or returned in the function (1-600): [397, 516, 517, 518, 519, 523, 526, 527, 530, 531, 532, 533]; no batch eid among them.",
+     "line": 127
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['506', '507', '509', '510', '511', '512', '513'] at lines [17, 21, 27, 29, 34, 39, 44, 52]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 17
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "emits eid 126 at line 72 (case 0 = flag CLEAR; zone band 2, player band 2). Gates: line 11 top gate; line 36 needs dword_7C56A4==7 AND dword_7C56A8!=5 (phase 5 blocks); line 31 needs this[v7+316]==2 (latch from a raise at line 148); lines 62-64 need v7==2 and v8!=0; lines 69/81 emit 126 only when v9 (v7==v8); line 83 emits 135 otherwise. Dispatcher is called only in race phases 5-8 (sub_4D4580 lines 43-115).",
+     "line": 72
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['100', '104', '94', '96', '98'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [2, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['v2'] at lines [26]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call ThunkToFUN004201e0 (body of sub_4203D0): returns TRACK eids 355-372 or -1.",
+     "line": 26
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['397'] at lines [111, 189]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 111
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['454', '455', '456', '474', '476', 'v11', 'v14', 'v2'] at lines [107, 148, 158, 173, 191, 201, 213, 226]; constants assigned or returned in the function (1-600): [1, 397, 447, 448, 449, 450, 451, 452, 453, 457, 458, 459, 460, 462, 463, 464, 465, 466, 467, 471, 472, 473, 477]; no batch eid among them.",
+     "line": 107
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['427', '483', '484', '485', '486', '487'] at lines [98, 129, 157, 193, 204, 215, 227, 245]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 98
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['397', '478', '479', '480', '481', '490', '491', '494', '495', '498', '499', '502', '503'] at lines [99, 146, 158, 170, 182, 273, 284, 304, 315, 334, 345, 364, 375, 415, 425, 439, 453]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 99
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['v2'] at lines [35]; constants assigned or returned in the function (1-600): [151, 153, 154, 155, 252, 253, 254, 256]; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['v2'] at lines [15]; constants assigned or returned in the function (1-600): [149, 243]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['v2'] at lines [58]; constants assigned or returned in the function (1-600): [208, 211, 212, 213, 214, 215, 216, 217, 220]; no batch eid among them.",
+     "line": 58
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['114', '115', '225', '226'] at lines [35, 37, 43, 45, 53, 72, 88]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['106', '107', '108', '109', '110', '111', '221', '222', '223'] at lines [13, 16, 19, 22, 25, 28, 42, 45, 48]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 13
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['77'] at lines [7]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 7
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['117', '118', '119', '236', '237', 'v2'] at lines [15, 19, 23, 45, 47, 53]; constants assigned or returned in the function (1-600): [3, 235, 238]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['v1'] at lines [16]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call sub_420000: returns TRACK eids 338-354 or -1.",
+     "line": 16
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['v2'] at lines [189]; constants assigned or returned in the function (1-600): [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317] ...; no batch eid among them.",
+     "line": 189
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eids [126, 419]: DriverDataTable eid args ['v3'] at lines [25]; constants assigned or returned in the function (1-600): [34, 35, 276, 277, 278, 279]; no batch eid among them.",
+     "line": 25
+    },
+    {
+     "function": "sub_417640",
+     "result": "Team/driver ID lookup (not a DriverDataTable caller). Result stored at a1+8 (line 180). Its eid candidates are TV-range only: 412-416, 423-429, 436-440, 460, 474, 490 (lines 25-168). No batch PWS eid 126-139 is produced. TV 425/427/428 appear here as lookup outputs (lines 25, 36, 40); consumer of a1+8 not traced, so any claim that these reach the channel is UNKNOWN.",
+     "line": null
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "Eid-lookup table (not a DriverDataTable caller). Line 149 assigns 423 (a4!=0) or 201. No PWS eid 126-139. Consumer not traced: UNKNOWN for TV 423.",
+     "line": null
+    }
+   ]
+  },
+  {
+   "sdt_index": 131,
+   "clip": "PWS_OIL01",
+   "says": "Oil on track Sector 1",
+   "eid": 127,
+   "dump_eids_all": [
+    127,
+    420
+   ],
+   "score": 125,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "Real event: oil on the track in sector 1, from a car whose engine oil is leaking.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [],
+   "call_path": "none: no DriverDataTable call with eid 127 in the 40 emitters (scan of functions/)",
+   "gates": [],
+   "mod": "",
+   "heard_evidence": "voice_index_row.note (EVF): 'user triage: Z, oil on track ... NEEDS_RESEARCH'; no 'never heard' note found",
+   "tier": "DERIVED",
+   "notes": "owner exe F1 Challenge Online.exe (sha256 prefix 1A70E5ED) event table at 0x5BF9A0+eid*0x14, read statically: cooldown and score match the dump for eids 126-132. EVF EMITTER_SPECS.md:372-377 'ReasonCode 9 and sector' is an EVF proposal, not a native emitter. Mechanical Failures oil leak (oil_on, engine_failure.c:832/873) emits eid 130 (EID_MECHWARN), not 127.",
+   "play_plan": {
+    "meaning": "Oil on the racing line in sector 1: drive carefully there, a car has lost engine oil.",
+    "when_it_should_play": "Race (SessionType 7). A car (AI or player) whose Mechanical Failures oil leak is active and whose lap distance is in sector 1. Subject: the leaking car (AI: subject driver id veh+0x489C).",
+    "trigger": "Mechanical Failures engine oil-leak state (dll/engine_failure.c oil_on, oil_rate_x100, ABI 8, MF-owned) AND lap distance veh+0x4044 in sector 1 (edges UNKNOWN).",
+    "subject": "leaking car (AI id veh+0x489C or player -1)",
+    "technique": "own_emitter (ERE queues eid 127)",
+    "latch_cooldown": "once per leaking car per 60 s",
+    "must_not_play_when": "car in pit (veh+0x3450 != 0) or retired (veh+0x4064 != 0); leak not active; sector edges unknown",
+    "conflicts": "MF lines on the same car (DD-07: do not queue while an MF line is pending on eid 127); MF oil-smoke line EID_MECHWARN 130 (engine_failure.c:2889)",
+    "calibration": "sector 1 edge distances (UNKNOWN)",
+    "live_test": "Start an MF engine oil leak (mech_test_panel.bat), drive the leaking car through sector 1 while the leak is active; expect this line once.",
+    "confidence": "GUESS: depends on MF leak semantics and sector edges; raise by reading oil_on and sector edges live"
+   },
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['13', '14', '19', '20'] at lines [22, 26, 31, 35]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 22
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['120', '259', 'v11'] at lines [37, 39, 59]; constants assigned or returned in the function (1-600): [1, 120, 198]; no batch eid among them.",
+     "line": 37
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['v3'] at lines [24]; constants assigned or returned in the function (1-600): [6, 180, 181, 182]; no batch eid among them.",
+     "line": 24
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['264'] at lines [11]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 11
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['v5'] at lines [61]; constants assigned or returned in the function (1-600): [1, 4, 5]; no batch eid among them.",
+     "line": 61
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['v3'] at lines [15]; constants assigned or returned in the function (1-600): [52]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['v6', 'v8'] at lines [36, 48]; constants assigned or returned in the function (1-600): [7, 17, 18]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['1', '2', '272', '273', '41'] at lines [20, 29, 47, 54, 75]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 20
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['55'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "emits eids 134/136/138 (other clips: PWS_YELLOW01-03 raise) at lines 23/29/35. None of this row's eids.",
+     "line": 23
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['v5'] at lines [36]; constants assigned or returned in the function (1-600): [21, 22, 178, 179]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['101', '105', '95', '97', '99'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [1, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['v1'] at lines [19]; constants assigned or returned in the function (1-600): [52, 196]; no batch eid among them.",
+     "line": 19
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['423', '424', '488'] at lines [163, 245, 255]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 163
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['275'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['284'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['337'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['514'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['74'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['492', '496', '500', '504'] at lines [349, 358, 367, 376]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 349
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['159', '260', '261', 'v2'] at lines [113, 149, 159, 164]; constants assigned or returned in the function (1-600): [157, 158, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177]; no batch eid among them.",
+     "line": 113
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['v6'] at lines [127]; constants assigned or returned in the function (1-600): [397, 516, 517, 518, 519, 523, 526, 527, 530, 531, 532, 533]; no batch eid among them.",
+     "line": 127
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['506', '507', '509', '510', '511', '512', '513'] at lines [17, 21, 27, 29, 34, 39, 44, 52]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 17
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['123', '124', '125', '126', '131', '133', '134', '135', '136', '137', '138'] at lines [55, 72, 83, 101, 117, 130, 142, 151, 159, 163, 168]; constants assigned or returned in the function (1-600): [2]; no batch eid among them.",
+     "line": 55
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['100', '104', '94', '96', '98'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [2, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['v2'] at lines [26]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call ThunkToFUN004201e0 (body of sub_4203D0): returns TRACK eids 355-372 or -1.",
+     "line": 26
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['397'] at lines [111, 189]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 111
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['454', '455', '456', '474', '476', 'v11', 'v14', 'v2'] at lines [107, 148, 158, 173, 191, 201, 213, 226]; constants assigned or returned in the function (1-600): [1, 397, 447, 448, 449, 450, 451, 452, 453, 457, 458, 459, 460, 462, 463, 464, 465, 466, 467, 471, 472, 473, 477]; no batch eid among them.",
+     "line": 107
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['427', '483', '484', '485', '486', '487'] at lines [98, 129, 157, 193, 204, 215, 227, 245]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 98
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['397', '478', '479', '480', '481', '490', '491', '494', '495', '498', '499', '502', '503'] at lines [99, 146, 158, 170, 182, 273, 284, 304, 315, 334, 345, 364, 375, 415, 425, 439, 453]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 99
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['v2'] at lines [35]; constants assigned or returned in the function (1-600): [151, 153, 154, 155, 252, 253, 254, 256]; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['v2'] at lines [15]; constants assigned or returned in the function (1-600): [149, 243]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['v2'] at lines [58]; constants assigned or returned in the function (1-600): [208, 211, 212, 213, 214, 215, 216, 217, 220]; no batch eid among them.",
+     "line": 58
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['114', '115', '225', '226'] at lines [35, 37, 43, 45, 53, 72, 88]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['106', '107', '108', '109', '110', '111', '221', '222', '223'] at lines [13, 16, 19, 22, 25, 28, 42, 45, 48]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 13
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['77'] at lines [7]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 7
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['117', '118', '119', '236', '237', 'v2'] at lines [15, 19, 23, 45, 47, 53]; constants assigned or returned in the function (1-600): [3, 235, 238]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['v1'] at lines [16]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call sub_420000: returns TRACK eids 338-354 or -1.",
+     "line": 16
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['v2'] at lines [189]; constants assigned or returned in the function (1-600): [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317] ...; no batch eid among them.",
+     "line": 189
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eids [127, 420]: DriverDataTable eid args ['v3'] at lines [25]; constants assigned or returned in the function (1-600): [34, 35, 276, 277, 278, 279]; no batch eid among them.",
+     "line": 25
+    },
+    {
+     "function": "sub_417640",
+     "result": "Team/driver ID lookup (not a DriverDataTable caller). Result stored at a1+8 (line 180). Its eid candidates are TV-range only: 412-416, 423-429, 436-440, 460, 474, 490 (lines 25-168). No batch PWS eid 126-139 is produced. TV 425/427/428 appear here as lookup outputs (lines 25, 36, 40); consumer of a1+8 not traced, so any claim that these reach the channel is UNKNOWN.",
+     "line": null
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "Eid-lookup table (not a DriverDataTable caller). Line 149 assigns 423 (a4!=0) or 201. No PWS eid 126-139. Consumer not traced: UNKNOWN for TV 423.",
+     "line": null
+    }
+   ]
+  },
+  {
+   "sdt_index": 132,
+   "clip": "PWS_OIL02",
+   "says": "Oil on track Sector 2",
+   "eid": 128,
+   "dump_eids_all": [
+    128,
+    417
+   ],
+   "score": 126,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "Real event: oil on the track in sector 2, from a car whose engine oil is leaking.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [],
+   "call_path": "none: no DriverDataTable call with eid 128 in the 40 emitters (scan of functions/)",
+   "gates": [],
+   "mod": "",
+   "heard_evidence": "voice_index_row.note (EVF): 'user triage: Z, oil on track ... NEEDS_RESEARCH'; no 'never heard' note found",
+   "tier": "DERIVED",
+   "notes": "owner exe F1 Challenge Online.exe (sha256 prefix 1A70E5ED) event table at 0x5BF9A0+eid*0x14, read statically: cooldown and score match the dump for eids 126-132. EVF EMITTER_SPECS.md:372-377 'ReasonCode 9 and sector' is an EVF proposal, not a native emitter. Mechanical Failures oil leak (oil_on, engine_failure.c:832/873) emits eid 130 (EID_MECHWARN), not 128.",
+   "play_plan": {
+    "meaning": "Oil on the racing line in sector 2: drive carefully there, a car has lost engine oil.",
+    "when_it_should_play": "Race (SessionType 7). A car (AI or player) whose Mechanical Failures oil leak is active and whose lap distance is in sector 2. Subject: the leaking car (AI: subject driver id veh+0x489C).",
+    "trigger": "Mechanical Failures engine oil-leak state (dll/engine_failure.c oil_on, oil_rate_x100, ABI 8, MF-owned) AND lap distance veh+0x4044 in sector 2 (edges UNKNOWN).",
+    "subject": "leaking car (AI id veh+0x489C or player -1)",
+    "technique": "own_emitter (ERE queues eid 128)",
+    "latch_cooldown": "once per leaking car per 60 s",
+    "must_not_play_when": "car in pit (veh+0x3450 != 0) or retired (veh+0x4064 != 0); leak not active; sector edges unknown",
+    "conflicts": "MF lines on the same car (DD-07: do not queue while an MF line is pending on eid 128); MF oil-smoke line EID_MECHWARN 130 (engine_failure.c:2889)",
+    "calibration": "sector 2 edge distances (UNKNOWN)",
+    "live_test": "Start an MF engine oil leak (mech_test_panel.bat), drive the leaking car through sector 2 while the leak is active; expect this line once.",
+    "confidence": "GUESS: depends on MF leak semantics and sector edges; raise by reading oil_on and sector edges live"
+   },
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['13', '14', '19', '20'] at lines [22, 26, 31, 35]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 22
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['120', '259', 'v11'] at lines [37, 39, 59]; constants assigned or returned in the function (1-600): [1, 120, 198]; no batch eid among them.",
+     "line": 37
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['v3'] at lines [24]; constants assigned or returned in the function (1-600): [6, 180, 181, 182]; no batch eid among them.",
+     "line": 24
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['264'] at lines [11]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 11
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['v5'] at lines [61]; constants assigned or returned in the function (1-600): [1, 4, 5]; no batch eid among them.",
+     "line": 61
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['v3'] at lines [15]; constants assigned or returned in the function (1-600): [52]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['v6', 'v8'] at lines [36, 48]; constants assigned or returned in the function (1-600): [7, 17, 18]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['1', '2', '272', '273', '41'] at lines [20, 29, 47, 54, 75]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 20
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['55'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "emits eids 134/136/138 (other clips: PWS_YELLOW01-03 raise) at lines 23/29/35. None of this row's eids.",
+     "line": 23
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['v5'] at lines [36]; constants assigned or returned in the function (1-600): [21, 22, 178, 179]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['101', '105', '95', '97', '99'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [1, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['v1'] at lines [19]; constants assigned or returned in the function (1-600): [52, 196]; no batch eid among them.",
+     "line": 19
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['423', '424', '488'] at lines [163, 245, 255]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 163
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['275'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['284'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['337'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['514'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['74'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['492', '496', '500', '504'] at lines [349, 358, 367, 376]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 349
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['159', '260', '261', 'v2'] at lines [113, 149, 159, 164]; constants assigned or returned in the function (1-600): [157, 158, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177]; no batch eid among them.",
+     "line": 113
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['v6'] at lines [127]; constants assigned or returned in the function (1-600): [397, 516, 517, 518, 519, 523, 526, 527, 530, 531, 532, 533]; no batch eid among them.",
+     "line": 127
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['506', '507', '509', '510', '511', '512', '513'] at lines [17, 21, 27, 29, 34, 39, 44, 52]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 17
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['123', '124', '125', '126', '131', '133', '134', '135', '136', '137', '138'] at lines [55, 72, 83, 101, 117, 130, 142, 151, 159, 163, 168]; constants assigned or returned in the function (1-600): [2]; no batch eid among them.",
+     "line": 55
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['100', '104', '94', '96', '98'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [2, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['v2'] at lines [26]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call ThunkToFUN004201e0 (body of sub_4203D0): returns TRACK eids 355-372 or -1.",
+     "line": 26
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['397'] at lines [111, 189]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 111
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['454', '455', '456', '474', '476', 'v11', 'v14', 'v2'] at lines [107, 148, 158, 173, 191, 201, 213, 226]; constants assigned or returned in the function (1-600): [1, 397, 447, 448, 449, 450, 451, 452, 453, 457, 458, 459, 460, 462, 463, 464, 465, 466, 467, 471, 472, 473, 477]; no batch eid among them.",
+     "line": 107
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['427', '483', '484', '485', '486', '487'] at lines [98, 129, 157, 193, 204, 215, 227, 245]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 98
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['397', '478', '479', '480', '481', '490', '491', '494', '495', '498', '499', '502', '503'] at lines [99, 146, 158, 170, 182, 273, 284, 304, 315, 334, 345, 364, 375, 415, 425, 439, 453]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 99
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['v2'] at lines [35]; constants assigned or returned in the function (1-600): [151, 153, 154, 155, 252, 253, 254, 256]; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['v2'] at lines [15]; constants assigned or returned in the function (1-600): [149, 243]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['v2'] at lines [58]; constants assigned or returned in the function (1-600): [208, 211, 212, 213, 214, 215, 216, 217, 220]; no batch eid among them.",
+     "line": 58
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['114', '115', '225', '226'] at lines [35, 37, 43, 45, 53, 72, 88]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['106', '107', '108', '109', '110', '111', '221', '222', '223'] at lines [13, 16, 19, 22, 25, 28, 42, 45, 48]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 13
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['77'] at lines [7]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 7
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['117', '118', '119', '236', '237', 'v2'] at lines [15, 19, 23, 45, 47, 53]; constants assigned or returned in the function (1-600): [3, 235, 238]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['v1'] at lines [16]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call sub_420000: returns TRACK eids 338-354 or -1.",
+     "line": 16
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['v2'] at lines [189]; constants assigned or returned in the function (1-600): [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317] ...; no batch eid among them.",
+     "line": 189
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eids [128, 417]: DriverDataTable eid args ['v3'] at lines [25]; constants assigned or returned in the function (1-600): [34, 35, 276, 277, 278, 279]; no batch eid among them.",
+     "line": 25
+    },
+    {
+     "function": "sub_417640",
+     "result": "Team/driver ID lookup (not a DriverDataTable caller). Result stored at a1+8 (line 180). Its eid candidates are TV-range only: 412-416, 423-429, 436-440, 460, 474, 490 (lines 25-168). No batch PWS eid 126-139 is produced. TV 425/427/428 appear here as lookup outputs (lines 25, 36, 40); consumer of a1+8 not traced, so any claim that these reach the channel is UNKNOWN.",
+     "line": null
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "Eid-lookup table (not a DriverDataTable caller). Line 149 assigns 423 (a4!=0) or 201. No PWS eid 126-139. Consumer not traced: UNKNOWN for TV 423.",
+     "line": null
+    }
+   ]
+  },
+  {
+   "sdt_index": 133,
+   "clip": "PWS_OIL03",
+   "says": "Oil on track Sector 3",
+   "eid": 129,
+   "dump_eids_all": [
+    129,
+    418
+   ],
+   "score": 127,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "Real event: oil on the track in sector 3, from a car whose engine oil is leaking.",
+   "mod_active_in_owner_game": null,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [],
+   "call_path": "none: no DriverDataTable call with eid 129 in the 40 emitters (scan of functions/)",
+   "gates": [],
+   "mod": "",
+   "heard_evidence": "voice_index_row.note (EVF): 'user triage: Z, oil on track ... NEEDS_RESEARCH'; no 'never heard' note found",
+   "tier": "DERIVED",
+   "notes": "owner exe F1 Challenge Online.exe (sha256 prefix 1A70E5ED) event table at 0x5BF9A0+eid*0x14, read statically: cooldown and score match the dump for eids 126-132. EVF EMITTER_SPECS.md:372-377 'ReasonCode 9 and sector' is an EVF proposal, not a native emitter. Mechanical Failures oil leak (oil_on, engine_failure.c:832/873) emits eid 130 (EID_MECHWARN), not 129.",
+   "play_plan": {
+    "meaning": "Oil on the racing line in sector 3: drive carefully there, a car has lost engine oil.",
+    "when_it_should_play": "Race (SessionType 7). A car (AI or player) whose Mechanical Failures oil leak is active and whose lap distance is in sector 3. Subject: the leaking car (AI: subject driver id veh+0x489C).",
+    "trigger": "Mechanical Failures engine oil-leak state (dll/engine_failure.c oil_on, oil_rate_x100, ABI 8, MF-owned) AND lap distance veh+0x4044 in sector 3 (edges UNKNOWN).",
+    "subject": "leaking car (AI id veh+0x489C or player -1)",
+    "technique": "own_emitter (ERE queues eid 129)",
+    "latch_cooldown": "once per leaking car per 60 s",
+    "must_not_play_when": "car in pit (veh+0x3450 != 0) or retired (veh+0x4064 != 0); leak not active; sector edges unknown",
+    "conflicts": "MF lines on the same car (DD-07: do not queue while an MF line is pending on eid 129); MF oil-smoke line EID_MECHWARN 130 (engine_failure.c:2889)",
+    "calibration": "sector 3 edge distances (UNKNOWN)",
+    "live_test": "Start an MF engine oil leak (mech_test_panel.bat), drive the leaking car through sector 3 while the leak is active; expect this line once.",
+    "confidence": "GUESS: depends on MF leak semantics and sector edges; raise by reading oil_on and sector edges live"
+   },
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['13', '14', '19', '20'] at lines [22, 26, 31, 35]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 22
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['120', '259', 'v11'] at lines [37, 39, 59]; constants assigned or returned in the function (1-600): [1, 120, 198]; no batch eid among them.",
+     "line": 37
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['v3'] at lines [24]; constants assigned or returned in the function (1-600): [6, 180, 181, 182]; no batch eid among them.",
+     "line": 24
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['264'] at lines [11]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 11
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['v5'] at lines [61]; constants assigned or returned in the function (1-600): [1, 4, 5]; no batch eid among them.",
+     "line": 61
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['v3'] at lines [15]; constants assigned or returned in the function (1-600): [52]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['v6', 'v8'] at lines [36, 48]; constants assigned or returned in the function (1-600): [7, 17, 18]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['1', '2', '272', '273', '41'] at lines [20, 29, 47, 54, 75]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 20
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['55'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "emits eids 134/136/138 (other clips: PWS_YELLOW01-03 raise) at lines 23/29/35. None of this row's eids.",
+     "line": 23
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['v5'] at lines [36]; constants assigned or returned in the function (1-600): [21, 22, 178, 179]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['101', '105', '95', '97', '99'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [1, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['v1'] at lines [19]; constants assigned or returned in the function (1-600): [52, 196]; no batch eid among them.",
+     "line": 19
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['423', '424', '488'] at lines [163, 245, 255]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 163
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['275'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['284'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['337'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['514'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['74'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['492', '496', '500', '504'] at lines [349, 358, 367, 376]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 349
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['159', '260', '261', 'v2'] at lines [113, 149, 159, 164]; constants assigned or returned in the function (1-600): [157, 158, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177]; no batch eid among them.",
+     "line": 113
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['v6'] at lines [127]; constants assigned or returned in the function (1-600): [397, 516, 517, 518, 519, 523, 526, 527, 530, 531, 532, 533]; no batch eid among them.",
+     "line": 127
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['506', '507', '509', '510', '511', '512', '513'] at lines [17, 21, 27, 29, 34, 39, 44, 52]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 17
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['123', '124', '125', '126', '131', '133', '134', '135', '136', '137', '138'] at lines [55, 72, 83, 101, 117, 130, 142, 151, 159, 163, 168]; constants assigned or returned in the function (1-600): [2]; no batch eid among them.",
+     "line": 55
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['100', '104', '94', '96', '98'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [2, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['v2'] at lines [26]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call ThunkToFUN004201e0 (body of sub_4203D0): returns TRACK eids 355-372 or -1.",
+     "line": 26
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['397'] at lines [111, 189]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 111
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['454', '455', '456', '474', '476', 'v11', 'v14', 'v2'] at lines [107, 148, 158, 173, 191, 201, 213, 226]; constants assigned or returned in the function (1-600): [1, 397, 447, 448, 449, 450, 451, 452, 453, 457, 458, 459, 460, 462, 463, 464, 465, 466, 467, 471, 472, 473, 477]; no batch eid among them.",
+     "line": 107
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['427', '483', '484', '485', '486', '487'] at lines [98, 129, 157, 193, 204, 215, 227, 245]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 98
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['397', '478', '479', '480', '481', '490', '491', '494', '495', '498', '499', '502', '503'] at lines [99, 146, 158, 170, 182, 273, 284, 304, 315, 334, 345, 364, 375, 415, 425, 439, 453]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 99
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['v2'] at lines [35]; constants assigned or returned in the function (1-600): [151, 153, 154, 155, 252, 253, 254, 256]; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['v2'] at lines [15]; constants assigned or returned in the function (1-600): [149, 243]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['v2'] at lines [58]; constants assigned or returned in the function (1-600): [208, 211, 212, 213, 214, 215, 216, 217, 220]; no batch eid among them.",
+     "line": 58
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['114', '115', '225', '226'] at lines [35, 37, 43, 45, 53, 72, 88]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['106', '107', '108', '109', '110', '111', '221', '222', '223'] at lines [13, 16, 19, 22, 25, 28, 42, 45, 48]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 13
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['77'] at lines [7]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 7
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['117', '118', '119', '236', '237', 'v2'] at lines [15, 19, 23, 45, 47, 53]; constants assigned or returned in the function (1-600): [3, 235, 238]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['v1'] at lines [16]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call sub_420000: returns TRACK eids 338-354 or -1.",
+     "line": 16
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['v2'] at lines [189]; constants assigned or returned in the function (1-600): [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317] ...; no batch eid among them.",
+     "line": 189
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eids [129, 418]: DriverDataTable eid args ['v3'] at lines [25]; constants assigned or returned in the function (1-600): [34, 35, 276, 277, 278, 279]; no batch eid among them.",
+     "line": 25
+    },
+    {
+     "function": "sub_417640",
+     "result": "Team/driver ID lookup (not a DriverDataTable caller). Result stored at a1+8 (line 180). Its eid candidates are TV-range only: 412-416, 423-429, 436-440, 460, 474, 490 (lines 25-168). No batch PWS eid 126-139 is produced. TV 425/427/428 appear here as lookup outputs (lines 25, 36, 40); consumer of a1+8 not traced, so any claim that these reach the channel is UNKNOWN.",
+     "line": null
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "Eid-lookup table (not a DriverDataTable caller). Line 149 assigns 423 (a4!=0) or 201. No PWS eid 126-139. Consumer not traced: UNKNOWN for TV 423.",
+     "line": null
+    }
+   ]
+  },
+  {
+   "sdt_index": 134,
+   "clip": "PWS_MECHANWARN0",
+   "says": "Meatball flag - must pit",
+   "eid": 130,
+   "dump_eids_all": [
+    130,
+    415
+   ],
+   "score": 128,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no native emitter; mechanical_failures 1.0.7 (engine family) emits it (dll_emit)",
+   "situation": "Marshals: pit this lap, you have a mechanical problem (smoke, exhaust or blow-by).",
+   "mod_active_in_owner_game": true,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [],
+   "call_path": "none native. Mod path: mechanical_failures engine_failure.c line 2889 say_after(R_OILSMOKE, ..., EID_MECHWARN=130), also line 2986",
+   "gates": [
+    "mod: loss >= OIL_WARN_SEVERITY (engine_failure.c:2889)"
+   ],
+   "mod": "mechanical_failures 1.0.7 public (RELEASE_REGISTRY 2026-10-12); census modded_lines.json dll_emit, source engine_failure.c:454,2889,5120,5384,5745. Engine family is ACTIVE in the owner game (brief, hash-checked).",
+   "heard_evidence": "findings.jsonl:562 FACT: isolation-injected via commentary_inject, driver said it 'works well' (injection, not natural). Census live_verified: unknown.",
+   "tier": "DERIVED",
+   "notes": "owner exe F1 Challenge Online.exe (sha256 prefix 1A70E5ED) event table at 0x5BF9A0+eid*0x14, read statically: cooldown and score match the dump for eids 126-132. CONTRADICTION: EVF EMITTER_SPECS.md:91 says StewardObject (0x8ACEE0) dispatches eid 130 natively: not found (no DriverDataTable call with 130; steward functions use 428 only as struct offsets). Sub-clip route removed as evidence 2026-10-18: EnumValueTranslation enum 22 writes PC_RE_STITCH index 134, not this clip (SUB-CLIP BANK FACT).",
+   "play_plan": null,
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['13', '14', '19', '20'] at lines [22, 26, 31, 35]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 22
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['120', '259', 'v11'] at lines [37, 39, 59]; constants assigned or returned in the function (1-600): [1, 120, 198]; no batch eid among them.",
+     "line": 37
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['v3'] at lines [24]; constants assigned or returned in the function (1-600): [6, 180, 181, 182]; no batch eid among them.",
+     "line": 24
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['264'] at lines [11]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 11
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['v5'] at lines [61]; constants assigned or returned in the function (1-600): [1, 4, 5]; no batch eid among them.",
+     "line": 61
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['v3'] at lines [15]; constants assigned or returned in the function (1-600): [52]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['v6', 'v8'] at lines [36, 48]; constants assigned or returned in the function (1-600): [7, 17, 18]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['1', '2', '272', '273', '41'] at lines [20, 29, 47, 54, 75]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 20
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['55'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "emits eids 134/136/138 (other clips: PWS_YELLOW01-03 raise) at lines 23/29/35. None of this row's eids.",
+     "line": 23
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['v5'] at lines [36]; constants assigned or returned in the function (1-600): [21, 22, 178, 179]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['101', '105', '95', '97', '99'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [1, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['v1'] at lines [19]; constants assigned or returned in the function (1-600): [52, 196]; no batch eid among them.",
+     "line": 19
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['423', '424', '488'] at lines [163, 245, 255]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 163
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['275'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['284'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['337'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['514'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['74'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['492', '496', '500', '504'] at lines [349, 358, 367, 376]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 349
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['159', '260', '261', 'v2'] at lines [113, 149, 159, 164]; constants assigned or returned in the function (1-600): [157, 158, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177]; no batch eid among them.",
+     "line": 113
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['v6'] at lines [127]; constants assigned or returned in the function (1-600): [397, 516, 517, 518, 519, 523, 526, 527, 530, 531, 532, 533]; no batch eid among them.",
+     "line": 127
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['506', '507', '509', '510', '511', '512', '513'] at lines [17, 21, 27, 29, 34, 39, 44, 52]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 17
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['123', '124', '125', '126', '131', '133', '134', '135', '136', '137', '138'] at lines [55, 72, 83, 101, 117, 130, 142, 151, 159, 163, 168]; constants assigned or returned in the function (1-600): [2]; no batch eid among them.",
+     "line": 55
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['100', '104', '94', '96', '98'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [2, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['v2'] at lines [26]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call ThunkToFUN004201e0 (body of sub_4203D0): returns TRACK eids 355-372 or -1.",
+     "line": 26
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['397'] at lines [111, 189]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 111
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['454', '455', '456', '474', '476', 'v11', 'v14', 'v2'] at lines [107, 148, 158, 173, 191, 201, 213, 226]; constants assigned or returned in the function (1-600): [1, 397, 447, 448, 449, 450, 451, 452, 453, 457, 458, 459, 460, 462, 463, 464, 465, 466, 467, 471, 472, 473, 477]; no batch eid among them.",
+     "line": 107
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['427', '483', '484', '485', '486', '487'] at lines [98, 129, 157, 193, 204, 215, 227, 245]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 98
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['397', '478', '479', '480', '481', '490', '491', '494', '495', '498', '499', '502', '503'] at lines [99, 146, 158, 170, 182, 273, 284, 304, 315, 334, 345, 364, 375, 415, 425, 439, 453]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 99
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['v2'] at lines [35]; constants assigned or returned in the function (1-600): [151, 153, 154, 155, 252, 253, 254, 256]; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['v2'] at lines [15]; constants assigned or returned in the function (1-600): [149, 243]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['v2'] at lines [58]; constants assigned or returned in the function (1-600): [208, 211, 212, 213, 214, 215, 216, 217, 220]; no batch eid among them.",
+     "line": 58
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['114', '115', '225', '226'] at lines [35, 37, 43, 45, 53, 72, 88]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['106', '107', '108', '109', '110', '111', '221', '222', '223'] at lines [13, 16, 19, 22, 25, 28, 42, 45, 48]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 13
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['77'] at lines [7]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 7
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['117', '118', '119', '236', '237', 'v2'] at lines [15, 19, 23, 45, 47, 53]; constants assigned or returned in the function (1-600): [3, 235, 238]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['v1'] at lines [16]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call sub_420000: returns TRACK eids 338-354 or -1.",
+     "line": 16
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['v2'] at lines [189]; constants assigned or returned in the function (1-600): [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317] ...; no batch eid among them.",
+     "line": 189
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eids [130, 415]: DriverDataTable eid args ['v3'] at lines [25]; constants assigned or returned in the function (1-600): [34, 35, 276, 277, 278, 279]; no batch eid among them.",
+     "line": 25
+    },
+    {
+     "function": "sub_417640",
+     "result": "Team/driver ID lookup (not a DriverDataTable caller). Result stored at a1+8 (line 180). Its eid candidates are TV-range only: 412-416, 423-429, 436-440, 460, 474, 490 (lines 25-168). No batch PWS eid 126-139 is produced. TV 425/427/428 appear here as lookup outputs (lines 25, 36, 40); consumer of a1+8 not traced, so any claim that these reach the channel is UNKNOWN.",
+     "line": null
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "Eid-lookup table (not a DriverDataTable caller). Line 149 assigns 423 (a4!=0) or 201. No PWS eid 126-139. Consumer not traced: UNKNOWN for TV 423.",
+     "line": null
+    },
+    {
+     "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+     "result": "stitch recheck: sub-clip route removed; verdict unchanged",
+     "line": "docs/AUDIT_BRIEF.md SUB-CLIP BANK FACT"
+    }
+   ],
+   "stitch_recheck": {
+    "old_verdict": "MOD_ONLY",
+    "new_verdict": "MOD_ONLY",
+    "why": "MOD_ONLY rests on mechanical_failures 1.0.7 dll_emit (engine_failure.c:2889). The SDT 134 sub-clip route and the code-9876 record question were stitch-bank only and are removed; verdict unchanged."
+   }
+  },
+  {
+   "sdt_index": 135,
+   "clip": "PWS_RED01",
+   "says": "Red flag - session stopped",
+   "eid": 131,
+   "dump_eids_all": [
+    131,
+    416
+   ],
+   "score": 129,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no native producer of flag state 3 (case 3 dead in native flow); red_flag mod disabled in owner game",
+   "situation": "Red flag: the session is stopped.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": true,
+   "suppressed_note": "Case 3 (lines 150-152) emits 131 with no gate beyond line 11, but zone state 3 has no native writer. Only received flag records (sub_4B3400 case 4 -> sub_4D1A50 at line 221) can carry it; the local writer sub_4D1730 writes 0 and 2. Native red flag is not reachable in single player by static evidence (record source UNKNOWN).",
+   "emitters": [
+    "PitSelectionStateMachine_0041b3c0.c:151 (sub_41B3C0 case 3, red flag)"
+   ],
+   "call_path": "GamePostMainLoop -> sub_4D4580 -> sub_4D1D80 -> sub_4D1730 -> sub_41B3C0 with a2==3 (only if a record set zone state 3)",
+   "gates": [
+    "sub_41B3C0 line 11: dword_7D0308 && flt_7CF3C8 != 0 && !*(byte*)(dword_7C54E8+13388) && dword_7C56A8 != 8 (byte +13388 read as pit-lane flag by sub_4BCCC0 lines 92-106, DERIVED)",
+    "no further gate; provenance of state 3 is the only condition"
+   ],
+   "mod": "red_flag 1.1.5 public (RELEASE_REGISTRY 2026-09-29): inject_commentary(131), dev src gr44.c:3480-3600 (inject 3536-3546, play 3595). Owner game: LightloaderDisabled.ini redflag.dll=1 (DISABLED).",
+   "heard_evidence": "EVF PROGRESS.md:223 'EXISTS VIA ANOTHER MOD' (not vanilla). Census live_verified unknown (no playback record).",
+   "tier": "DERIVED",
+   "notes": "owner exe F1 Challenge Online.exe (sha256 prefix 1A70E5ED) event table at 0x5BF9A0+eid*0x14, read statically: cooldown and score match the dump for eids 126-132. Census score 129 matches dump. findings.jsonl:328 reading a2==3 = red flag is consistent; the missing piece is the producer of state 3.",
+   "play_plan": {
+    "meaning": "Red flag: the race is stopped.",
+    "when_it_should_play": "Only after a real red flag stops the race. Subject: player and team (no driver). No native red flag was found in F1C.",
+    "trigger": "Red flag state from the red_flag mod (NUMPAD1 arming or its auto monitor, census). ERE must not invent a red flag.",
+    "subject": "team/player",
+    "technique": "hook_native (call PitSelectionStateMachine with a2=3 only from a real red flag) OR keep the red_flag mod (owner decision)",
+    "latch_cooldown": "once per red flag",
+    "must_not_play_when": "any session stop that is not a red flag; qualifying stops",
+    "conflicts": "red_flag mod also queues eid 131: enabling both plays it twice",
+    "calibration": null,
+    "live_test": "Owner decision first: enable redflag.dll in the Lightloader manager, arm NUMPAD1 in a race, confirm one line. Not run here.",
+    "confidence": "DERIVED"
+   },
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['13', '14', '19', '20'] at lines [22, 26, 31, 35]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 22
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['120', '259', 'v11'] at lines [37, 39, 59]; constants assigned or returned in the function (1-600): [1, 120, 198]; no batch eid among them.",
+     "line": 37
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['v3'] at lines [24]; constants assigned or returned in the function (1-600): [6, 180, 181, 182]; no batch eid among them.",
+     "line": 24
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['264'] at lines [11]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 11
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['v5'] at lines [61]; constants assigned or returned in the function (1-600): [1, 4, 5]; no batch eid among them.",
+     "line": 61
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['v3'] at lines [15]; constants assigned or returned in the function (1-600): [52]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['v6', 'v8'] at lines [36, 48]; constants assigned or returned in the function (1-600): [7, 17, 18]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['1', '2', '272', '273', '41'] at lines [20, 29, 47, 54, 75]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 20
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['55'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "emits eids 134/136/138 (other clips: PWS_YELLOW01-03 raise) at lines 23/29/35. None of this row's eids.",
+     "line": 23
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['v5'] at lines [36]; constants assigned or returned in the function (1-600): [21, 22, 178, 179]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['101', '105', '95', '97', '99'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [1, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['v1'] at lines [19]; constants assigned or returned in the function (1-600): [52, 196]; no batch eid among them.",
+     "line": 19
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['423', '424', '488'] at lines [163, 245, 255]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 163
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['275'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['284'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['337'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['514'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['74'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['492', '496', '500', '504'] at lines [349, 358, 367, 376]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 349
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['159', '260', '261', 'v2'] at lines [113, 149, 159, 164]; constants assigned or returned in the function (1-600): [157, 158, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177]; no batch eid among them.",
+     "line": 113
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['v6'] at lines [127]; constants assigned or returned in the function (1-600): [397, 516, 517, 518, 519, 523, 526, 527, 530, 531, 532, 533]; no batch eid among them.",
+     "line": 127
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['506', '507', '509', '510', '511', '512', '513'] at lines [17, 21, 27, 29, 34, 39, 44, 52]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 17
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "emits eid 131 at line 151 (case 3 = red flag). No gate beyond line 11. Reached only when zone state a2==3. Zone state 3 has no local writer: sub_4D1730 writes only 0 (line 27) and 2 (line 71); state 3 can only come from a received flag record via sub_4B3400 case 4 -> sub_4D1A50 (ParseMidiBitstream, sub_4B3400 line 221).",
+     "line": 151
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['100', '104', '94', '96', '98'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [2, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['v2'] at lines [26]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call ThunkToFUN004201e0 (body of sub_4203D0): returns TRACK eids 355-372 or -1.",
+     "line": 26
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['397'] at lines [111, 189]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 111
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['454', '455', '456', '474', '476', 'v11', 'v14', 'v2'] at lines [107, 148, 158, 173, 191, 201, 213, 226]; constants assigned or returned in the function (1-600): [1, 397, 447, 448, 449, 450, 451, 452, 453, 457, 458, 459, 460, 462, 463, 464, 465, 466, 467, 471, 472, 473, 477]; no batch eid among them.",
+     "line": 107
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['427', '483', '484', '485', '486', '487'] at lines [98, 129, 157, 193, 204, 215, 227, 245]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 98
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['397', '478', '479', '480', '481', '490', '491', '494', '495', '498', '499', '502', '503'] at lines [99, 146, 158, 170, 182, 273, 284, 304, 315, 334, 345, 364, 375, 415, 425, 439, 453]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 99
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['v2'] at lines [35]; constants assigned or returned in the function (1-600): [151, 153, 154, 155, 252, 253, 254, 256]; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['v2'] at lines [15]; constants assigned or returned in the function (1-600): [149, 243]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['v2'] at lines [58]; constants assigned or returned in the function (1-600): [208, 211, 212, 213, 214, 215, 216, 217, 220]; no batch eid among them.",
+     "line": 58
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['114', '115', '225', '226'] at lines [35, 37, 43, 45, 53, 72, 88]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['106', '107', '108', '109', '110', '111', '221', '222', '223'] at lines [13, 16, 19, 22, 25, 28, 42, 45, 48]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 13
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['77'] at lines [7]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 7
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['117', '118', '119', '236', '237', 'v2'] at lines [15, 19, 23, 45, 47, 53]; constants assigned or returned in the function (1-600): [3, 235, 238]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['v1'] at lines [16]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call sub_420000: returns TRACK eids 338-354 or -1.",
+     "line": 16
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['v2'] at lines [189]; constants assigned or returned in the function (1-600): [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317] ...; no batch eid among them.",
+     "line": 189
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eids [131, 416]: DriverDataTable eid args ['v3'] at lines [25]; constants assigned or returned in the function (1-600): [34, 35, 276, 277, 278, 279]; no batch eid among them.",
+     "line": 25
+    },
+    {
+     "function": "sub_417640",
+     "result": "Team/driver ID lookup (not a DriverDataTable caller). Result stored at a1+8 (line 180). Its eid candidates are TV-range only: 412-416, 423-429, 436-440, 460, 474, 490 (lines 25-168). No batch PWS eid 126-139 is produced. TV 425/427/428 appear here as lookup outputs (lines 25, 36, 40); consumer of a1+8 not traced, so any claim that these reach the channel is UNKNOWN.",
+     "line": null
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "Eid-lookup table (not a DriverDataTable caller). Line 149 assigns 423 (a4!=0) or 201. No PWS eid 126-139. Consumer not traced: UNKNOWN for TV 423.",
+     "line": null
+    }
+   ]
+  },
+  {
+   "sdt_index": 136,
+   "clip": "PWS_SLOWCAR01",
+   "says": "Slow car ahead",
+   "eid": 132,
+   "dump_eids_all": [
+    132,
+    427
+   ],
+   "score": 130,
+   "cooldown": 1.0,
+   "verdict": "NOT_ACTIVATED",
+   "reason": "no_emitter",
+   "situation": "Player is approaching a slower car ahead (DD-09). No native trigger exists for this eid.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [],
+   "call_path": "none for PWS 132. TV twin 427 only in ScoringClassificationDisplay_0041e320.c:129 (post-race standings, findings.jsonl:132)",
+   "gates": [],
+   "mod": "full_safety_car uses eid 132 as a CARRIER for SC clips and parks SLOWCAR01's own cooldown at FLT_MAX (pace_probe.c:490,506). The mod does not play SLOWCAR01 by design; its carrier restore could leak it (findings.jsonl:132). safetycar.dll=1 (DISABLED).",
+   "heard_evidence": "findings.jsonl:132 retracted 'working emitter' (post-race false positive). EVF PROGRESS.md:399 REVERTED 2026-07-28.",
+   "tier": "DERIVED",
+   "notes": "owner exe F1 Challenge Online.exe (sha256 prefix 1A70E5ED) event table at 0x5BF9A0+eid*0x14, read statically: cooldown and score match the dump for eids 126-132. findings.jsonl:82/132 claimed a working emitter: disproven for PWS 132 (no emitter); the 427 path is post-race.",
+   "play_plan": {
+    "meaning": "Slow car ahead: the player is closing on a slower car on the same lap. Not a fault.",
+    "when_it_should_play": "Race (SessionType 7), RacePhase 5, player closing on the car directly ahead that is slower, on the same lap (or across the lap wrap). Subject: player (-1); the slow car is AI or player.",
+    "trigger": "Car directly ahead by lap distance veh+0x4044 (same lap or wrap; coordinator rule a: NOT race position), gap below a calibrated distance and closing speed above a calibrated value; car ahead not in pit (veh+0x3450==0) and not retired (veh+0x4064==0).",
+    "subject": "player (-1)",
+    "technique": "own_emitter (ERE queues eid 132 by its own trigger; no native line to lift)",
+    "latch_cooldown": "once per slow car per 20 s; at most once per lap",
+    "must_not_play_when": "car ahead in pit; player in pit; yellow zone or SC/red (RacePhase != 5); qualifying (race position unusable there)",
+    "conflicts": "Yellow lines 133-138 (zone state 2 in the same stretch); MF lines for the player; SC carrier 132 (disabled; must not write score on eid 132 while SLOWCAR01 queues)",
+    "calibration": "gap threshold and closing speed threshold (UNKNOWN); speed from velocity triple (sub_4BCCC0 lines 99-102, offsets relative to veh+12, DERIVED)",
+    "live_test": "Race: sit behind an AI car that is slower on the same lap, close to the calibrated gap; expect SLOWCAR01 once per car.",
+    "confidence": "GUESS on constants; DERIVED on state reads"
+   },
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['13', '14', '19', '20'] at lines [22, 26, 31, 35]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 22
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['120', '259', 'v11'] at lines [37, 39, 59]; constants assigned or returned in the function (1-600): [1, 120, 198]; no batch eid among them.",
+     "line": 37
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['v3'] at lines [24]; constants assigned or returned in the function (1-600): [6, 180, 181, 182]; no batch eid among them.",
+     "line": 24
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['264'] at lines [11]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 11
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['v5'] at lines [61]; constants assigned or returned in the function (1-600): [1, 4, 5]; no batch eid among them.",
+     "line": 61
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['v3'] at lines [15]; constants assigned or returned in the function (1-600): [52]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['v6', 'v8'] at lines [36, 48]; constants assigned or returned in the function (1-600): [7, 17, 18]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['1', '2', '272', '273', '41'] at lines [20, 29, 47, 54, 75]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 20
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['55'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "emits eids 134/136/138 (other clips: PWS_YELLOW01-03 raise) at lines 23/29/35. None of this row's eids.",
+     "line": 23
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['v5'] at lines [36]; constants assigned or returned in the function (1-600): [21, 22, 178, 179]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['101', '105', '95', '97', '99'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [1, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['v1'] at lines [19]; constants assigned or returned in the function (1-600): [52, 196]; no batch eid among them.",
+     "line": 19
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['423', '424', '488'] at lines [163, 245, 255]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 163
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['275'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['284'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['337'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['514'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['74'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['492', '496', '500', '504'] at lines [349, 358, 367, 376]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 349
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['159', '260', '261', 'v2'] at lines [113, 149, 159, 164]; constants assigned or returned in the function (1-600): [157, 158, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177]; no batch eid among them.",
+     "line": 113
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['v6'] at lines [127]; constants assigned or returned in the function (1-600): [397, 516, 517, 518, 519, 523, 526, 527, 530, 531, 532, 533]; no batch eid among them.",
+     "line": 127
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['506', '507', '509', '510', '511', '512', '513'] at lines [17, 21, 27, 29, 34, 39, 44, 52]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 17
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['123', '124', '125', '126', '131', '133', '134', '135', '136', '137', '138'] at lines [55, 72, 83, 101, 117, 130, 142, 151, 159, 163, 168]; constants assigned or returned in the function (1-600): [2]; no batch eid among them.",
+     "line": 55
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['100', '104', '94', '96', '98'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [2, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['v2'] at lines [26]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call ThunkToFUN004201e0 (body of sub_4203D0): returns TRACK eids 355-372 or -1.",
+     "line": 26
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['397'] at lines [111, 189]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 111
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['454', '455', '456', '474', '476', 'v11', 'v14', 'v2'] at lines [107, 148, 158, 173, 191, 201, 213, 226]; constants assigned or returned in the function (1-600): [1, 397, 447, 448, 449, 450, 451, 452, 453, 457, 458, 459, 460, 462, 463, 464, 465, 466, 467, 471, 472, 473, 477]; no batch eid among them.",
+     "line": 107
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "emits TV eid 427 at line 129 (TV twin of SLOWCAR01). Not PWS eid 132. Context: post-race standings (findings.jsonl:132; caller sub_4A08E0 gated on DelegatedFieldGetter==3, dword_7D032C==1 and a win movie load).",
+     "line": 129
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['397', '478', '479', '480', '481', '490', '491', '494', '495', '498', '499', '502', '503'] at lines [99, 146, 158, 170, 182, 273, 284, 304, 315, 334, 345, 364, 375, 415, 425, 439, 453]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 99
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['v2'] at lines [35]; constants assigned or returned in the function (1-600): [151, 153, 154, 155, 252, 253, 254, 256]; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['v2'] at lines [15]; constants assigned or returned in the function (1-600): [149, 243]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['v2'] at lines [58]; constants assigned or returned in the function (1-600): [208, 211, 212, 213, 214, 215, 216, 217, 220]; no batch eid among them.",
+     "line": 58
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['114', '115', '225', '226'] at lines [35, 37, 43, 45, 53, 72, 88]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['106', '107', '108', '109', '110', '111', '221', '222', '223'] at lines [13, 16, 19, 22, 25, 28, 42, 45, 48]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 13
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['77'] at lines [7]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 7
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['117', '118', '119', '236', '237', 'v2'] at lines [15, 19, 23, 45, 47, 53]; constants assigned or returned in the function (1-600): [3, 235, 238]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['v1'] at lines [16]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call sub_420000: returns TRACK eids 338-354 or -1.",
+     "line": 16
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['v2'] at lines [189]; constants assigned or returned in the function (1-600): [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317] ...; no batch eid among them.",
+     "line": 189
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eids [132, 427]: DriverDataTable eid args ['v3'] at lines [25]; constants assigned or returned in the function (1-600): [34, 35, 276, 277, 278, 279]; no batch eid among them.",
+     "line": 25
+    },
+    {
+     "function": "sub_417640",
+     "result": "Team/driver ID lookup (not a DriverDataTable caller). Result stored at a1+8 (line 180). Its eid candidates are TV-range only: 412-416, 423-429, 436-440, 460, 474, 490 (lines 25-168). No batch PWS eid 126-139 is produced. TV 425/427/428 appear here as lookup outputs (lines 25, 36, 40); consumer of a1+8 not traced, so any claim that these reach the channel is UNKNOWN.",
+     "line": null
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "Eid-lookup table (not a DriverDataTable caller). Line 149 assigns 423 (a4!=0) or 201. No PWS eid 126-139. Consumer not traced: UNKNOWN for TV 423.",
+     "line": null
+    }
+   ]
+  },
+  {
+   "sdt_index": 137,
+   "clip": "PWS_SCAR05",
+   "says": "Safety car in pit lane (2)",
+   "eid": null,
+   "dump_eids_all": [
+    428
+   ],
+   "score": 131,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no PWS eid; TV twin 428 has no emitter; activated only by full_safety_car (DISABLED)",
+   "situation": "Safety car is entering the pits now: the SC period is ending.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [],
+   "call_path": "none native (TV 428 not passed to DriverDataTable by any of the 40 emitters)",
+   "gates": [],
+   "mod": "full_safety_car (pace_probe.c:541,555,2595,4074,4848-4858, sc_say_later(SCORE_SCAR05)) plays it through carrier eid 132 with score rewritten to 131. Owner game: safetycar.dll=1 (DISABLED).",
+   "heard_evidence": "EVF PROGRESS.md:412 'UNDER WORK VIA ANOTHER MOD'. findings.jsonl:345 fixed scores (driver-listened isolation injections via carrier 132).",
+   "tier": "DERIVED",
+   "notes": "No PWS eid in dump. Route exists only by the carrier-score trick (findings.jsonl:321). Dump TV row eid 428 score 131.",
+   "play_plan": {
+    "meaning": "The safety car enters the pit lane: the SC period ends soon.",
+    "when_it_should_play": "Safety car deployed and the SC vehicle reaches pit-lane entry at the end of the SC period. Subject: team/player (no driver).",
+    "trigger": "full_safety_car state machine: SC vehicle pit-lane entry edge (veh+0x3450 transition of the FIA SC vehicle, SeasonData/Vehicles/FIA/1999_SafetyCar). MOD-owned.",
+    "subject": "team/player",
+    "technique": "carrier_score (only through full_safety_car on carrier 132; ERE cannot play it without the mod)",
+    "latch_cooldown": "once per SC period",
+    "must_not_play_when": "no SC deployed; red flag; SC mod disabled",
+    "conflicts": "Carrier 132 is shared with SCAR01 and SLOWCAR01 (SLOWCAR01 must never play); MF DD-07",
+    "calibration": null,
+    "live_test": "Owner decision needed: enable safetycar.dll in the Lightloader manager and run one safety car. Not run here.",
+    "confidence": "DERIVED (mod source); owner must enable the mod"
+   },
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['13', '14', '19', '20'] at lines [22, 26, 31, 35]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 22
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['120', '259', 'v11'] at lines [37, 39, 59]; constants assigned or returned in the function (1-600): [1, 120, 198]; no batch eid among them.",
+     "line": 37
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['v3'] at lines [24]; constants assigned or returned in the function (1-600): [6, 180, 181, 182]; no batch eid among them.",
+     "line": 24
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['264'] at lines [11]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 11
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['v5'] at lines [61]; constants assigned or returned in the function (1-600): [1, 4, 5]; no batch eid among them.",
+     "line": 61
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['v3'] at lines [15]; constants assigned or returned in the function (1-600): [52]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['v6', 'v8'] at lines [36, 48]; constants assigned or returned in the function (1-600): [7, 17, 18]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['1', '2', '272', '273', '41'] at lines [20, 29, 47, 54, 75]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 20
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['55'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "emits eids 134/136/138 (other clips: PWS_YELLOW01-03 raise) at lines 23/29/35. None of this row's eids.",
+     "line": 23
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['v5'] at lines [36]; constants assigned or returned in the function (1-600): [21, 22, 178, 179]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['101', '105', '95', '97', '99'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [1, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['v1'] at lines [19]; constants assigned or returned in the function (1-600): [52, 196]; no batch eid among them.",
+     "line": 19
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['423', '424', '488'] at lines [163, 245, 255]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 163
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['275'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['284'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['337'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['514'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['74'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['492', '496', '500', '504'] at lines [349, 358, 367, 376]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 349
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['159', '260', '261', 'v2'] at lines [113, 149, 159, 164]; constants assigned or returned in the function (1-600): [157, 158, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177]; no batch eid among them.",
+     "line": 113
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['v6'] at lines [127]; constants assigned or returned in the function (1-600): [397, 516, 517, 518, 519, 523, 526, 527, 530, 531, 532, 533]; no batch eid among them.",
+     "line": 127
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['506', '507', '509', '510', '511', '512', '513'] at lines [17, 21, 27, 29, 34, 39, 44, 52]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 17
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['123', '124', '125', '126', '131', '133', '134', '135', '136', '137', '138'] at lines [55, 72, 83, 101, 117, 130, 142, 151, 159, 163, 168]; constants assigned or returned in the function (1-600): [2]; no batch eid among them.",
+     "line": 55
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['100', '104', '94', '96', '98'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [2, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['v2'] at lines [26]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call ThunkToFUN004201e0 (body of sub_4203D0): returns TRACK eids 355-372 or -1.",
+     "line": 26
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['397'] at lines [111, 189]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 111
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['454', '455', '456', '474', '476', 'v11', 'v14', 'v2'] at lines [107, 148, 158, 173, 191, 201, 213, 226]; constants assigned or returned in the function (1-600): [1, 397, 447, 448, 449, 450, 451, 452, 453, 457, 458, 459, 460, 462, 463, 464, 465, 466, 467, 471, 472, 473, 477]; no batch eid among them.",
+     "line": 107
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['427', '483', '484', '485', '486', '487'] at lines [98, 129, 157, 193, 204, 215, 227, 245]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 98
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['397', '478', '479', '480', '481', '490', '491', '494', '495', '498', '499', '502', '503'] at lines [99, 146, 158, 170, 182, 273, 284, 304, 315, 334, 345, 364, 375, 415, 425, 439, 453]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 99
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['v2'] at lines [35]; constants assigned or returned in the function (1-600): [151, 153, 154, 155, 252, 253, 254, 256]; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['v2'] at lines [15]; constants assigned or returned in the function (1-600): [149, 243]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['v2'] at lines [58]; constants assigned or returned in the function (1-600): [208, 211, 212, 213, 214, 215, 216, 217, 220]; no batch eid among them.",
+     "line": 58
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['114', '115', '225', '226'] at lines [35, 37, 43, 45, 53, 72, 88]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['106', '107', '108', '109', '110', '111', '221', '222', '223'] at lines [13, 16, 19, 22, 25, 28, 42, 45, 48]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 13
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['77'] at lines [7]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 7
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['117', '118', '119', '236', '237', 'v2'] at lines [15, 19, 23, 45, 47, 53]; constants assigned or returned in the function (1-600): [3, 235, 238]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['v1'] at lines [16]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call sub_420000: returns TRACK eids 338-354 or -1.",
+     "line": 16
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['v2'] at lines [189]; constants assigned or returned in the function (1-600): [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317] ...; no batch eid among them.",
+     "line": 189
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eids [428]: DriverDataTable eid args ['v3'] at lines [25]; constants assigned or returned in the function (1-600): [34, 35, 276, 277, 278, 279]; no batch eid among them.",
+     "line": 25
+    },
+    {
+     "function": "sub_417640",
+     "result": "Team/driver ID lookup (not a DriverDataTable caller). Result stored at a1+8 (line 180). Its eid candidates are TV-range only: 412-416, 423-429, 436-440, 460, 474, 490 (lines 25-168). No batch PWS eid 126-139 is produced. TV 425/427/428 appear here as lookup outputs (lines 25, 36, 40); consumer of a1+8 not traced, so any claim that these reach the channel is UNKNOWN.",
+     "line": null
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "Eid-lookup table (not a DriverDataTable caller). Line 149 assigns 423 (a4!=0) or 201. No PWS eid 126-139. Consumer not traced: UNKNOWN for TV 423.",
+     "line": null
+    }
+   ]
+  },
+  {
+   "sdt_index": 138,
+   "clip": "PWS_SCAR01",
+   "says": "Safety car deployed - exiting pits",
+   "eid": null,
+   "dump_eids_all": [
+    423
+   ],
+   "score": 132,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no PWS eid; TV twin 423 has a native emitter that is a constructor-standings line (caller unresolved); activated by full_safety_car (DISABLED)",
+   "situation": "Safety car deployed and exiting the pits now.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [
+    "ConstructorStandingsParser_00420820.c:163 (TV eid 423, only when a1!=0; no static caller found)"
+   ],
+   "call_path": "UNKNOWN: sub_420820 has no static caller in functions/",
+   "gates": [
+    "line 162: if (a1) (parameter)",
+    "constructor ranking of 14 teams (lines 27-60, 116-140)"
+   ],
+   "mod": "full_safety_car (pace_probe.c:542,556,4062,4761, sc_say_later(SCORE_SCAR01)) via carrier 132. safetycar.dll=1 (DISABLED).",
+   "heard_evidence": "EVF PROGRESS.md:411 'UNDER WORK VIA ANOTHER MOD'. findings.jsonl:321 proven live only through carrier 132 score swap (injection, not native).",
+   "tier": "DERIVED",
+   "notes": "owner exe F1 Challenge Online.exe (sha256 prefix 1A70E5ED) event table at 0x5BF9A0+eid*0x14, read statically: cooldown and score match the dump for eids 126-132. CONTRADICTION: docs/RESTORATION_PLAN.md:218 says 'eid 423 live'; the emitter is a constructor-standings line and its caller is not found.",
+   "play_plan": {
+    "meaning": "Safety car deployed and exiting the pits: the field now runs behind it under the SC rules.",
+    "when_it_should_play": "The SC leaves the pit lane onto the track after the pit period. Subject: team/player (no driver).",
+    "trigger": "full_safety_car state: SC vehicle pit exit (veh+0x3450 pittingStatus 4->0 edge for the SC car). MOD-owned.",
+    "subject": "team/player",
+    "technique": "carrier_score (full_safety_car, carrier 132 score rewritten to 132). Do not use TV 423 as a carrier (its native caller is unknown).",
+    "latch_cooldown": "once per SC deployment",
+    "must_not_play_when": "no SC; SC not in pit exit; red flag",
+    "conflicts": "Carrier 132 shared with SLOWCAR01 (must never play); TV 423 native emitter",
+    "calibration": null,
+    "live_test": "Owner decision needed: enable safetycar.dll and run one SC. Not run here.",
+    "confidence": "DERIVED (mod source)"
+   },
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['13', '14', '19', '20'] at lines [22, 26, 31, 35]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 22
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['120', '259', 'v11'] at lines [37, 39, 59]; constants assigned or returned in the function (1-600): [1, 120, 198]; no batch eid among them.",
+     "line": 37
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['v3'] at lines [24]; constants assigned or returned in the function (1-600): [6, 180, 181, 182]; no batch eid among them.",
+     "line": 24
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['264'] at lines [11]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 11
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['v5'] at lines [61]; constants assigned or returned in the function (1-600): [1, 4, 5]; no batch eid among them.",
+     "line": 61
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['v3'] at lines [15]; constants assigned or returned in the function (1-600): [52]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['v6', 'v8'] at lines [36, 48]; constants assigned or returned in the function (1-600): [7, 17, 18]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['1', '2', '272', '273', '41'] at lines [20, 29, 47, 54, 75]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 20
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['55'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "emits eids 134/136/138 (other clips: PWS_YELLOW01-03 raise) at lines 23/29/35. None of this row's eids.",
+     "line": 23
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['v5'] at lines [36]; constants assigned or returned in the function (1-600): [21, 22, 178, 179]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['101', '105', '95', '97', '99'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [1, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['v1'] at lines [19]; constants assigned or returned in the function (1-600): [52, 196]; no batch eid among them.",
+     "line": 19
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "emits TV eid 423 at line 163 (TV twin of SCAR01) only when parameter a1 != 0. The function ranks 14 constructors by ChampionshipPointsAccumulator and emits the team with a unique rank; the label SCAR01 does not match the code. Static caller of sub_420820 not found (grep 'sub_420820(' and '420820' in functions/ = self only): reachability UNKNOWN.",
+     "line": 163
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['275'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['284'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['337'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['514'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['74'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['492', '496', '500', '504'] at lines [349, 358, 367, 376]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 349
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['159', '260', '261', 'v2'] at lines [113, 149, 159, 164]; constants assigned or returned in the function (1-600): [157, 158, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177]; no batch eid among them.",
+     "line": 113
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['v6'] at lines [127]; constants assigned or returned in the function (1-600): [397, 516, 517, 518, 519, 523, 526, 527, 530, 531, 532, 533]; no batch eid among them.",
+     "line": 127
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['506', '507', '509', '510', '511', '512', '513'] at lines [17, 21, 27, 29, 34, 39, 44, 52]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 17
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['123', '124', '125', '126', '131', '133', '134', '135', '136', '137', '138'] at lines [55, 72, 83, 101, 117, 130, 142, 151, 159, 163, 168]; constants assigned or returned in the function (1-600): [2]; no batch eid among them.",
+     "line": 55
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['100', '104', '94', '96', '98'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [2, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['v2'] at lines [26]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call ThunkToFUN004201e0 (body of sub_4203D0): returns TRACK eids 355-372 or -1.",
+     "line": 26
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['397'] at lines [111, 189]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 111
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['454', '455', '456', '474', '476', 'v11', 'v14', 'v2'] at lines [107, 148, 158, 173, 191, 201, 213, 226]; constants assigned or returned in the function (1-600): [1, 397, 447, 448, 449, 450, 451, 452, 453, 457, 458, 459, 460, 462, 463, 464, 465, 466, 467, 471, 472, 473, 477]; no batch eid among them.",
+     "line": 107
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['427', '483', '484', '485', '486', '487'] at lines [98, 129, 157, 193, 204, 215, 227, 245]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 98
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['397', '478', '479', '480', '481', '490', '491', '494', '495', '498', '499', '502', '503'] at lines [99, 146, 158, 170, 182, 273, 284, 304, 315, 334, 345, 364, 375, 415, 425, 439, 453]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 99
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['v2'] at lines [35]; constants assigned or returned in the function (1-600): [151, 153, 154, 155, 252, 253, 254, 256]; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['v2'] at lines [15]; constants assigned or returned in the function (1-600): [149, 243]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['v2'] at lines [58]; constants assigned or returned in the function (1-600): [208, 211, 212, 213, 214, 215, 216, 217, 220]; no batch eid among them.",
+     "line": 58
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['114', '115', '225', '226'] at lines [35, 37, 43, 45, 53, 72, 88]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['106', '107', '108', '109', '110', '111', '221', '222', '223'] at lines [13, 16, 19, 22, 25, 28, 42, 45, 48]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 13
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['77'] at lines [7]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 7
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['117', '118', '119', '236', '237', 'v2'] at lines [15, 19, 23, 45, 47, 53]; constants assigned or returned in the function (1-600): [3, 235, 238]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['v1'] at lines [16]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call sub_420000: returns TRACK eids 338-354 or -1.",
+     "line": 16
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['v2'] at lines [189]; constants assigned or returned in the function (1-600): [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317] ...; no batch eid among them.",
+     "line": 189
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eids [423]: DriverDataTable eid args ['v3'] at lines [25]; constants assigned or returned in the function (1-600): [34, 35, 276, 277, 278, 279]; no batch eid among them.",
+     "line": 25
+    },
+    {
+     "function": "sub_417640",
+     "result": "Team/driver ID lookup (not a DriverDataTable caller). Result stored at a1+8 (line 180). Its eid candidates are TV-range only: 412-416, 423-429, 436-440, 460, 474, 490 (lines 25-168). No batch PWS eid 126-139 is produced. TV 425/427/428 appear here as lookup outputs (lines 25, 36, 40); consumer of a1+8 not traced, so any claim that these reach the channel is UNKNOWN.",
+     "line": null
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "Eid-lookup table (not a DriverDataTable caller). Line 149 assigns 423 (a4!=0) or 201. No PWS eid 126-139. Consumer not traced: UNKNOWN for TV 423.",
+     "line": null
+    }
+   ]
+  },
+  {
+   "sdt_index": 139,
+   "clip": "PWS_SCAR02",
+   "says": "Safety car on track",
+   "eid": null,
+   "dump_eids_all": [
+    425
+   ],
+   "score": 133,
+   "cooldown": 1.0,
+   "verdict": "MOD_ONLY",
+   "reason": "no PWS eid; TV twin 425 not emitted by any of the 40 emitters; activated only by full_safety_car (DISABLED)",
+   "situation": "Safety car is on track: deployed and out behind the field.",
+   "mod_active_in_owner_game": false,
+   "suppressed_trigger_exists": false,
+   "suppressed_note": "",
+   "emitters": [],
+   "call_path": "none native for 425 (sub_417640 can OUTPUT 425 for McLaren at line 25; consumer not traced)",
+   "gates": [],
+   "mod": "full_safety_car (pace_probe.c:543,557,4790 sc_say_later(SCORE_SCAR02)) via carrier 132 with score rewritten to 133. safetycar.dll=1 (DISABLED).",
+   "heard_evidence": "EVF PROGRESS.md:412 'UNDER WORK VIA ANOTHER MOD'. EVF EMITTER_SPECS.md:432 spec (RacePhase transitions to 8) is a proposal.",
+   "tier": "DERIVED",
+   "notes": "owner exe F1 Challenge Online.exe (sha256 prefix 1A70E5ED) event table at 0x5BF9A0+eid*0x14, read statically: cooldown and score match the dump for eids 126-132. No native 425 emitter found.",
+   "play_plan": {
+    "meaning": "Safety car is on track: deployed and out with the field behind it.",
+    "when_it_should_play": "Safety car deployed on track (after the deploy sequence). Subject: team/player.",
+    "trigger": "full_safety_car deployed state (MOD-owned); the SC car is on track and not in pit lane.",
+    "subject": "team/player",
+    "technique": "carrier_score (full_safety_car carrier 132, score 133)",
+    "latch_cooldown": "once per SC deployment",
+    "must_not_play_when": "no SC; SC in pit lane; red flag",
+    "conflicts": "Carrier 132 shared with SLOWCAR01 (must never play)",
+    "calibration": null,
+    "live_test": "Owner decision needed: enable safetycar.dll and deploy the SC. Not run here.",
+    "confidence": "DERIVED (mod source)"
+   },
+   "checked": [
+    {
+     "function": "AICornerSpeedComparison",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['13', '14', '19', '20'] at lines [22, 26, 31, 35]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 22
+    },
+    {
+     "function": "AIDriverStateTransition",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['120', '259', 'v11'] at lines [37, 39, 59]; constants assigned or returned in the function (1-600): [1, 120, 198]; no batch eid among them.",
+     "line": 37
+    },
+    {
+     "function": "AIFormationLap",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['v3'] at lines [24]; constants assigned or returned in the function (1-600): [6, 180, 181, 182]; no batch eid among them.",
+     "line": 24
+    },
+    {
+     "function": "AIOutOfTrackEvent",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['264'] at lines [11]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 11
+    },
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['v5'] at lines [61]; constants assigned or returned in the function (1-600): [1, 4, 5]; no batch eid among them.",
+     "line": 61
+    },
+    {
+     "function": "AIPitStrategyState",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['v3'] at lines [15]; constants assigned or returned in the function (1-600): [52]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "AIPositionChangeEvent",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['v6', 'v8'] at lines [36, 48]; constants assigned or returned in the function (1-600): [7, 17, 18]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['1', '2', '272', '273', '41'] at lines [20, 29, 47, 54, 75]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 20
+    },
+    {
+     "function": "AISessionEventAudio",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['55'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "AISessionModeTransition",
+     "result": "emits eids 134/136/138 (other clips: PWS_YELLOW01-03 raise) at lines 23/29/35. None of this row's eids.",
+     "line": 23
+    },
+    {
+     "function": "AISessionPhaseChange",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['v5'] at lines [36]; constants assigned or returned in the function (1-600): [21, 22, 178, 179]; no batch eid among them.",
+     "line": 36
+    },
+    {
+     "function": "AISessionPhaseCounter",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['101', '105', '95', '97', '99'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [1, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "AIVehicleDamageEvent",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['v1'] at lines [19]; constants assigned or returned in the function (1-600): [52, 196]; no batch eid among them.",
+     "line": 19
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['423', '424', '488'] at lines [163, 245, 255]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 163
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['275'] at lines [10]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 10
+    },
+    {
+     "function": "DisplayMessage0x11c",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['284'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x151",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['337'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x202",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['514'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "DisplayMessage0x4a",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['74'] at lines [9]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 9
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['492', '496', '500', '504'] at lines [349, 358, 367, 376]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 349
+    },
+    {
+     "function": "PerDriverRaceCommentary",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['159', '260', '261', 'v2'] at lines [113, 149, 159, 164]; constants assigned or returned in the function (1-600): [157, 158, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177]; no batch eid among them.",
+     "line": 113
+    },
+    {
+     "function": "PitExit",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['v6'] at lines [127]; constants assigned or returned in the function (1-600): [397, 516, 517, 518, 519, 523, 526, 527, 530, 531, 532, 533]; no batch eid among them.",
+     "line": 127
+    },
+    {
+     "function": "PitRaceStatusMessageDispatcher",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['506', '507', '509', '510', '511', '512', '513'] at lines [17, 21, 27, 29, 34, 39, 44, 52]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 17
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['123', '124', '125', '126', '131', '133', '134', '135', '136', '137', '138'] at lines [55, 72, 83, 101, 117, 130, 142, 151, 159, 163, 168]; constants assigned or returned in the function (1-600): [2]; no batch eid among them.",
+     "line": 55
+    },
+    {
+     "function": "PitStateSlotActivation",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['100', '104', '94', '96', '98'] at lines [28, 31, 34, 37, 45]; constants assigned or returned in the function (1-600): [2, 4]; no batch eid among them.",
+     "line": 28
+    },
+    {
+     "function": "PositionBasedMessageDisplay",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['v2'] at lines [26]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call ThunkToFUN004201e0 (body of sub_4203D0): returns TRACK eids 355-372 or -1.",
+     "line": 26
+    },
+    {
+     "function": "PositionChangeDetector",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['397'] at lines [111, 189]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 111
+    },
+    {
+     "function": "RaceCommentary",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['454', '455', '456', '474', '476', 'v11', 'v14', 'v2'] at lines [107, 148, 158, 173, 191, 201, 213, 226]; constants assigned or returned in the function (1-600): [1, 397, 447, 448, 449, 450, 451, 452, 453, 457, 458, 459, 460, 462, 463, 464, 465, 466, 467, 471, 472, 473, 477]; no batch eid among them.",
+     "line": 107
+    },
+    {
+     "function": "ScoringClassificationDisplay",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['427', '483', '484', '485', '486', '487'] at lines [98, 129, 157, 193, 204, 215, 227, 245]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 98
+    },
+    {
+     "function": "SeasonDisplayIDResolver",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['397', '478', '479', '480', '481', '490', '491', '494', '495', '498', '499', '502', '503'] at lines [99, 146, 158, 170, 182, 273, 284, 304, 315, 334, 345, 364, 375, 415, 425, 439, 453]; constants assigned or returned in the function (1-600): [1]; no batch eid among them.",
+     "line": 99
+    },
+    {
+     "function": "sub_41A720",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['v2'] at lines [35]; constants assigned or returned in the function (1-600): [151, 153, 154, 155, 252, 253, 254, 256]; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41A940",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['v2'] at lines [15]; constants assigned or returned in the function (1-600): [149, 243]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41AC50",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['v2'] at lines [58]; constants assigned or returned in the function (1-600): [208, 211, 212, 213, 214, 215, 216, 217, 220]; no batch eid among them.",
+     "line": 58
+    },
+    {
+     "function": "sub_41AD80",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['114', '115', '225', '226'] at lines [35, 37, 43, 45, 53, 72, 88]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 35
+    },
+    {
+     "function": "sub_41AFD0",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['106', '107', '108', '109', '110', '111', '221', '222', '223'] at lines [13, 16, 19, 22, 25, 28, 42, 45, 48]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 13
+    },
+    {
+     "function": "sub_41B190",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['77'] at lines [7]; constants assigned or returned in the function (1-600): []; no batch eid among them.",
+     "line": 7
+    },
+    {
+     "function": "sub_41B250",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['117', '118', '119', '236', '237', 'v2'] at lines [15, 19, 23, 45, 47, 53]; constants assigned or returned in the function (1-600): [3, 235, 238]; no batch eid among them.",
+     "line": 15
+    },
+    {
+     "function": "sub_41C440",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['v1'] at lines [16]; constants assigned or returned in the function (1-600): []; no batch eid among them. Eid comes from call sub_420000: returns TRACK eids 338-354 or -1.",
+     "line": 16
+    },
+    {
+     "function": "TeamNameDisplayIDLookup",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['v2'] at lines [189]; constants assigned or returned in the function (1-600): [293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317] ...; no batch eid among them.",
+     "line": 189
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "result": "cannot produce eids [425]: DriverDataTable eid args ['v3'] at lines [25]; constants assigned or returned in the function (1-600): [34, 35, 276, 277, 278, 279]; no batch eid among them.",
+     "line": 25
+    },
+    {
+     "function": "sub_417640",
+     "result": "Team/driver ID lookup (not a DriverDataTable caller). Result stored at a1+8 (line 180). Its eid candidates are TV-range only: 412-416, 423-429, 436-440, 460, 474, 490 (lines 25-168). No batch PWS eid 126-139 is produced. TV 425/427/428 appear here as lookup outputs (lines 25, 36, 40); consumer of a1+8 not traced, so any claim that these reach the channel is UNKNOWN.",
+     "line": null
+    },
+    {
+     "function": "DriverNameIDLookup",
+     "result": "Eid-lookup table (not a DriverDataTable caller). Line 149 assigns 423 (a4!=0) or 201. No PWS eid 126-139. Consumer not traced: UNKNOWN for TV 423.",
+     "line": null
+    }
+   ]
+  }
+ ],
+ "method": "exhaustive per-line (AUDIT_BRIEF): all 40 DriverDataTable callers read by scan of f1c_ida_decompiled/functions (eid args, constants, lines); owner exe event table read statically; no live game."
+}

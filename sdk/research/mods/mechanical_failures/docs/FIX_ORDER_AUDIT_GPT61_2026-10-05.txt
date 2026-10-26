@@ -1,0 +1,98 @@
+FIX ORDER - findings of docs\AUDIT_GPT61_SOL_2026-10-05.md
+mechanical_failures (engine family), 2026-10-05. Owner: Matias. Spec + review: Claude.
+Dev root: %USERPROFILE%\Desktop\F1\development\mods\mechanical_failures
+Start dll: 73F30551 (dev + game plugin). Engineer SDT installed: 226E5402.
+
+READ FIRST: docs\HANDOFF_2026-10-05.md, docs\AUDIT_GPT61_SOL_2026-10-05.md (full), this file.
+HARD RULES: docs\ENGINE_SIM_MODEL_DEEPSEEK_HANDOFF_2026-09-30.md section 7 apply, plus:
+- Never write the game folder (%USERPROFILE%\Documents\F1 Challenge V10). No install in this run.
+- Never touch the owner's originals %USERPROFILE%\Desktop\mf_re_sounds (read-only) or any audio content.
+- Never edit development\mods\pitstop_modding (read it only).
+- Do not run dll\build_merged.bat (it overwrites the dev dll). Build into %TEMP%\<dir>\mechanical_failures.dll
+  with C:\msys64\mingw32\bin\gcc.exe using the build_merged.bat command lines; report SHA-256, build twice
+  (must be identical).
+- Before-copy per batch: workspace_organization_audit\AUDITFIX_BEFORE_2026-10-05_<batch>\ + MANIFEST.md.
+- One log entry per batch in section 8 of the handoff file above ("### AUDITFIX <batch>").
+- Gates after every code batch (all must pass, report numbers): run_engine_model_test.bat (67630 baseline),
+  run_msg_test.bat (817), run_voice_test.bat (330), run_lamps_test.bat, run_ai_pulloff_test.bat (81/0),
+  run_ai_react_test.bat (40). Tests may only be ADDED or corrected to the current spec, never weakened.
+- Stop and report (no workaround) if a fix needs a game-memory address not already used by the code, or if a
+  baseline gate fails before your change.
+Order: X1 -> X2 -> X3 -> X4 -> X5 -> X6. Stop after each batch with its log entry.
+
+------------------------------------------------------------------------------------------------------------
+X1 HOOK INSTALL / REMOVE SAFETY (audit A01, A02; also imp burst sample) - dll\engine_failure.c, mechanical_failures.c
+ 1. One shared helper used by ALL detours added since 2026-10-05 (imp 0x4EC1A0, lamp 0x49B9A0, lamp 0x49BA50)
+    and, if the change is mechanical, the older ones (fuelcut, cam tap, ai pulloff, ai gear):
+    a. build the trampoline completely and publish its pointer (and a memory barrier) BEFORE the site jump
+       becomes reachable;
+    b. write the site with ONE atomic 8-byte compare-exchange (InterlockedCompareExchange64 on the first
+       8 bytes, keeping bytes beyond the stolen length unchanged; expected value = the verified original
+       bytes) - no byte-by-byte stores. VirtualProtect + FlushInstructionCache around it.
+    c. remove the same way (atomic 8-byte exchange back to the original, only if the site still holds OUR
+       jump - otherwise log "<site> changed by someone else, left alone" and keep the DLL pinned).
+ 2. Lifetime: once any hook has been installed, the DLL must never be unmapped while game code can still
+    enter it. Use the existing pin-on-failure path in mechanical_failures.c (GetModuleHandleEx PIN) when
+    removal could not be verified OR any in-flight counter is nonzero after the wait. Counters: increment as
+    the first statement of each hook, decrement only after the LAST instruction that touches DLL data
+    (fix the lamp hooks that decrement before reading g_lamp_*). Trampolines are never freed.
+ 3. imp burst: make the hook->worker handoff one coherent sample (struct + sequence counter or a small
+    interlocked ring); the worker must not dereference phys+0x3D84/+0x3D8C from a pointer that may be stale
+    - copy those two floats inside the hook instead.
+ 4. Tests: a pure, unit-tested header for the patch-byte composition (8-byte value built from jump + kept
+    bytes; original-bytes check; "site changed" refusal). Log lines on install/remove/pin.
+
+X2 VOICE DONORS + RESTORE (audit A03, A04, duplicate scores) - dll\mf_voice.h, engine_failure.c, voice_test.c
+ 1. Replace donor eids 50, 57, 62, 64, 67, 69 (used by Pit Stop Failures: pitstop_modding\live\
+    pit_live_voice.h). Pick replacements from the V0 dead-eid list in docs\ENGINEER_VOICE_INTEGRATION_2026-10-05.md.
+    Before choosing, scan ALL of development\mods and f1c_ida_decompiled\mods for any numeric eid use
+    (commentary_say / radio / queue writes / tables); document the scan command and result. A donor must be
+    unused by every mod and have no native emitter.
+ 2. mfv_check / mfv_plan_validate: reject duplicate scores (unit test: all-42 must be rejected).
+ 3. Restore uses the SAVED score per line (never the current row's score); restore a row's four parity fields
+    and its lookup entry only if every field still holds exactly what we wrote; otherwise leave it and log.
+    Correct the doc claim "per-field" vs whole-row to match the code you ship.
+ 4. The worker-thread transaction: document why concurrent table use is acceptable or move the write to a
+    point where the commentary queue is idle (report which). No new addresses.
+
+X3 UNINSTALL / TOOL SAFETY (audit F01, F02, sdt_append --out) - tools\*.py, tools\voice_uninstall.bat
+ 1. sdt_restore.py: refuse if F1 Challenge Online.exe is running; refuse unless the current target is
+    EITHER vanilla (nothing to do) OR exactly our installed build (SHA-256 226E5402...); for anything else
+    stop and print the hash. Copy the current target to a new timestamped backup before replacing; replace
+    atomically (write temp file in the same folder, verify hash, os.replace).
+ 2. voice_uninstall.bat: no automatic --yes; ask the user to type YES.
+ 3. voice_build.py --verify must be read-only (no mkdir, no copies, no manifest write); a failing build must
+    not rewrite MANIFEST.csv (write to temp, replace only when all 35 succeed).
+ 4. sdt_append.py: --out may not equal its input, the game SDT path, or any path under Desktop\mf_re_sounds.
+ 5. Dry-run each tool against %TEMP% copies; report.
+
+X4 FAULT LOGIC (audit C01, B01, D01, D02, valve/over-rev/exhaust notes) - mf_engine_model.h, engine_failure.c, mf_msg.h
+ 1. C01: when a cooling or oil fault is armed with no learned normal, use a conservative default normal
+    (water: max(current, 85 C); oil: max(current, optimum)) so the absolute floors and +12/+18 rules still
+    work; the WATER02 voice must use the model's warn_cool_engine (incl. its absolute floor), not a separate
+    condition. Test: arm before warm-up, water climbs to 125 C -> WATER TEMP and COOL THE ENGINE fire.
+ 2. B01: for radiator debris the diagnosis line is RAD01 (not WATER01); WATER01 only for the water leak.
+    Test: debris above threshold -> RAD01 spoken, not WATER01.
+ 3. D01: a timed instruction fires only if its fault is still active and its narrated condition still holds
+    at fire time (VALVE02 needs float, WATER02 needs cool-engine, OILP02/03 need the oil warning, RAD02 needs
+    the debris); cancel all pending slots on repair, stabilise/clear, stint end.
+ 4. D02: on the terminal transition purge already QUEUED non-death radio items (not just new requests).
+    Test in msg_test.c: info queued, terminal, then death -> only death lines play.
+ 5. Do not change any calibration number in this batch.
+
+X5 TESTS THAT CAN FAIL (audit E01) - tools\*test.c
+ Update stale expectations to the shipped rules (fuel leak 0.1 L; oil pressure = gauge OR film) and add, for
+ each fix in X1-X4, a test that FAILS on the 73F30551 source (prove it: build the test against the
+ before-copy and report the failing line) and passes after.
+
+X6 DOCS (audit section 4) - docs only
+ Bring docs\FAULT_MESSAGING_REFERENCE_2026-10-05.md in line with the code: hashes, 50 C floor, 90/95/88 C
+ minimums, OIL TEMP rule, 5 s death gap, request-vs-playback timing, COOLANT01 timing, radiator line,
+ EXH01 trigger (3 pops + 5-20 s), over-rev = car torque-zero (not a fixed 115 %), HIT01 range. Mark every
+ value that is not live-verified as "harness only". Update README line 2-3 stale claims. Write a short
+ summary section "AUDITFIX results" at the end of docs\HANDOFF_2026-10-05.md (do not rewrite the rest).
+
+DELIVERABLE
+Per batch: files changed, before-copy folder, gate numbers, test-against-old proof (X5), build hash. Final:
+one table audit-id -> status (FIXED / PARTIAL / NOT FIXED + reason). Do not install; Claude reviews and the
+owner installs with the game closed.

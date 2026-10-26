@@ -1,0 +1,4 @@
+func,line,dec,hex,access,width,base,form,expr
+SignedIndexTableLookup,6,,,CALL,,,call,CRTFtol
+SignedIndexTableLookup,11,236,0xEC,R,float,this,array,return this[v3 + 59];
+SignedIndexTableLookup,18,204,0xCC,R,float,this,array,return this[v4 + 51];

@@ -1,0 +1,8 @@
+func,line,dec,hex,access,width,base,form,expr
+ClampedIndexAssignment,6,,,CALL,,,call,CRTFtol
+ClampedIndexAssignment,6,88,0x58,R,double,this,direct,result = CRTFtol((a2 - *(double *)(this + 88)) / *(double *)(this + 96) + 0.5);
+ClampedIndexAssignment,6,96,0x60,R,double,this,direct,result = CRTFtol((a2 - *(double *)(this + 88)) / *(double *)(this + 96) + 0.5);
+ClampedIndexAssignment,9,104,0x68,R,_DWORD,this,direct,v4 = *(_DWORD *)(this + 104);
+ClampedIndexAssignment,11,108,0x6C,W,_DWORD,this,direct,*(_DWORD *)(this + 108) = result;
+ClampedIndexAssignment,13,108,0x6C,W,_DWORD,this,direct,*(_DWORD *)(this + 108) = v4 - 1;
+ClampedIndexAssignment,17,108,0x6C,W,_DWORD,this,direct,*(_DWORD *)(this + 108) = 0;

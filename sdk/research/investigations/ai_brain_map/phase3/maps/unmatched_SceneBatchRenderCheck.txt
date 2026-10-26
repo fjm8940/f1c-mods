@@ -1,0 +1,2 @@
+# SceneBatchRenderCheck: offset-like lines with no extracted row (1)
+L36: (*(void (__cdecl **)(int, int, int, int))(*(_DWORD *)dword_8B8F24 + 4))(

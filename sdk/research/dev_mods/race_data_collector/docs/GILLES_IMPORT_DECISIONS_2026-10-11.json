@@ -1,0 +1,20 @@
+{
+  "mode": "combined",
+  "profile": "restart_order_plain",
+  "ignored_segments": [
+    "20260927_141747-5064-1"
+  ],
+  "params": {},
+  "proposals": {
+    "laps": false,
+    "grid": false,
+    "earlier_retirements": false,
+    "retirement_plausibility": false,
+    "times": false,
+    "fastest_lap": false,
+    "lap_history": false,
+    "retirement_lists": false,
+    "mirror": true
+  },
+  "confirm_final": true
+}

@@ -1,0 +1,25 @@
+func,line,dec,hex,access,width,base,form,expr
+AICommandMessageQueueDispatcher,13,,,CALL,,,call,sub_4A46F0
+AICommandMessageQueueDispatcher,16,17736,0x4548,W,_BYTE,this,arith,*((_BYTE *)this + 17736) = 0;
+AICommandMessageQueueDispatcher,17,,,CALL,,,call,sub_4A46F0
+AICommandMessageQueueDispatcher,20,16700,0x413C,W,float,this,arith,*((float *)this + 4175) = dbl_8AFEA0 + 2.0;
+AICommandMessageQueueDispatcher,29,17424,0x4410,R,_BYTE,this,arith,if ( !*((_BYTE *)this + 17424) )
+AICommandMessageQueueDispatcher,30,,,CALL,,,call,SessionCleanupFlagClear
+AICommandMessageQueueDispatcher,34,,,CALL,,,call,SceneRenderUpdate
+AICommandMessageQueueDispatcher,35,,,CALL,,,call,StateChangeNotify
+AICommandMessageQueueDispatcher,37,17732,0x4544,W,int,this,array,this[4433] = 0;
+AICommandMessageQueueDispatcher,38,,,CALL,,,call,ParameterValueSetter
+AICommandMessageQueueDispatcher,39,17744,0x4550,W,int,this,array,this[4436] = 1;
+AICommandMessageQueueDispatcher,40,17736,0x4548,W,_BYTE,this,arith,*((_BYTE *)this + 17736) = 1;
+AICommandMessageQueueDispatcher,43,17576,0x44A8,R,int,this,array,v5 = this[4394];
+AICommandMessageQueueDispatcher,46,17584,0x44B0,R,int,this,array,v6 = this[4396];
+AICommandMessageQueueDispatcher,51,17580,0x44AC,R,int,this,array,v9 = v6 + 1 < this[4395];
+AICommandMessageQueueDispatcher,52,17584,0x44B0,W,int,this,array,this[4396] = v6 + 1;
+AICommandMessageQueueDispatcher,56,17576,0x44A8,R,int,this,array,*(_DWORD *)(this[4394] + 8 * this[4396] + 4) = a3;
+AICommandMessageQueueDispatcher,56,17584,0x44B0,R,int,this,array,*(_DWORD *)(this[4394] + 8 * this[4396] + 4) = a3;
+AICommandMessageQueueDispatcher,57,,,CALL,,,call,CommandQueueResponseHandler
+AICommandMessageQueueDispatcher,58,17584,0x44B0,W,int,this,array,this[4396] = -1;
+AICommandMessageQueueDispatcher,59,16484,0x4064,R,int,this,array,if ( !a2 && this[4121] == 2 )
+AICommandMessageQueueDispatcher,60,17908,0x45F4,W,_BYTE,this,arith,*((_BYTE *)this + 17908) = 0;
+AICommandMessageQueueDispatcher,64,17584,0x44B0,W,int,this,array,this[4396] = v6;
+AICommandMessageQueueDispatcher,69,17576,0x44A8,R,int,this,array,v8 = (_DWORD *)this[4394];

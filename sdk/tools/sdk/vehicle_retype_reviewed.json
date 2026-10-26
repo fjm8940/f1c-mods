@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "purpose": "Human-reviewed allowlist for applying F1CVehicle* to arg1 in the isolated SDK-lab IDB.",
+    "policy": "Generated anchor matches are leads only. Approval requires constructor/caller evidence or direct access to the full vehicle layout.",
+    "reviewed_on": "2026-08-05"
+  },
+  "approved": [
+    {"addr":"0x00424E70","func":"AIMainUpdate","evidence":"MainGameTickUpdate passes entries from the global active-vehicle array; direct vehicle fields."},
+    {"addr":"0x004C79E0","func":"VehicleDriverInfoClear","evidence":"VehicleObjectConstructor passes its vehicle this pointer directly."},
+    {"addr":"0x00426430","func":"sub_426430","evidence":"Called with the unchanged vehicle this pointer by AIMainUpdate and AIRacingLine."},
+    {"addr":"0x00425920","func":"AIRacingLine","evidence":"Called with the unchanged vehicle this pointer by AIMainUpdate."},
+    {"addr":"0x004C78F0","func":"NationalityDriverInfoLoader","evidence":"Writes the established vehicle driver-info region 0x4620..0x4898."},
+    {"addr":"0x00424CD0","func":"AICommandMessageQueueDispatcher","evidence":"Called with the owning vehicle pointer from PitStopProgress and vehicle AI methods."},
+    {"addr":"0x004C7B50","func":"VehicleSetupDriverNumber","evidence":"VehgenScnFileLoader passes its unchanged vehicle this pointer."},
+    {"addr":"0x00424B20","func":"CameraViewportFrustumInitialization","evidence":"Despite the provisional name, it initializes established AI fields on the vehicle and forwards the unchanged pointer to vehicle AI methods."},
+    {"addr":"0x0042A3D0","func":"PitStopDecisionTireCompound","evidence":"PitStopReadyCheck passes pit_machine->vehicle; AIAbility passes its unchanged vehicle pointer."},
+    {"addr":"0x00424790","func":"AIDriverStructInit","evidence":"SceneRenderUpdate supplies the same vehicle pointer later used by the vehicle AI chain."},
+    {"addr":"0x00423E80","func":"RaceStructInit","evidence":"First call in VehicleObjectConstructor with the constructor's unchanged this pointer."},
+    {"addr":"0x0042ADB0","func":"SessionCleanupFlagClear","evidence":"Called with vehicle pointers from AIMainUpdate and pit/command paths; direct established vehicle fields."},
+    {"addr":"0x00429960","func":"sub_429960","evidence":"Called with the unchanged vehicle this pointer by AIDriverStructInit; accesses full vehicle regions."},
+    {"addr":"0x0042AEE0","func":"PitStopBlockingCondition","evidence":"Directly evaluates established vehicle damage, lap, and pit-command fields; reviewed thiscall ABI."},
+    {"addr":"0x0042A110","func":"ForcePitExit","evidence":"AIAbility/AIPushLap pass vehicle this; disassembly explicitly derives pit controller as vehicle+0x32CC."},
+    {"addr":"0x0042A6F0","func":"PostPitCleanup","evidence":"PitStopProgress passes pit_machine->vehicle; vehicle pit strategy callers pass unchanged vehicle this."},
+    {"addr":"0x0042AC70","func":"AIStateFlagSetter","evidence":"ForcePitExit restores vehicle ecx before the call; writes established vehicle field 0x454C-adjacent AI state."},
+    {"addr":"0x0042ACD0","func":"ParameterValueSetter","evidence":"Reviewed live ABI and direct vehicle max-speed field write."},
+    {"addr":"0x0041A200","func":"AIPitStrategyState","evidence":"Pit event application passes pit_machine->vehicle on the stack; direct full-vehicle fields and reviewed stdcall ABI."}
+  ],
+  "rejected": [
+    {"addr":"0x004A68B0","func":"PitStopProgress","reason":"Arg1 is F1CPitMachine*, the embedded controller at vehicle+0x32CC. Vehicle anchors are reached indirectly through pit_machine->vehicle."}
+  ]
+}

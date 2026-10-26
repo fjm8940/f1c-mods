@@ -1,0 +1,15 @@
+func,line,dec,hex,access,width,base,form,expr
+BrakeThermalModel,6,14792,0x39C8,R,float,this,array,if ( this[3698] == 0.0 )
+BrakeThermalModel,8,14764,0x39AC,R,float,this,array,if ( this[3691] == 0.0 )
+BrakeThermalModel,10,13568,0x3500,R,float,this,array,v2 = this[3392] - (this[3736] * this[3380] + this[3735] * this[3377] + this[3374] * this[3734]);
+BrakeThermalModel,10,14944,0x3A60,R,float,this,array,v2 = this[3392] - (this[3736] * this[3380] + this[3735] * this[3377] + this[3374] * this[3734]);
+BrakeThermalModel,10,13520,0x34D0,R,float,this,array,v2 = this[3392] - (this[3736] * this[3380] + this[3735] * this[3377] + this[3374] * this[3734]);
+BrakeThermalModel,10,14940,0x3A5C,R,float,this,array,v2 = this[3392] - (this[3736] * this[3380] + this[3735] * this[3377] + this[3374] * this[3734]);
+BrakeThermalModel,10,13508,0x34C4,R,float,this,array,v2 = this[3392] - (this[3736] * this[3380] + this[3735] * this[3377] + this[3374] * this[3734]);
+BrakeThermalModel,10,13496,0x34B8,R,float,this,array,v2 = this[3392] - (this[3736] * this[3380] + this[3735] * this[3377] + this[3374] * this[3734]);
+BrakeThermalModel,10,14936,0x3A58,R,float,this,array,v2 = this[3392] - (this[3736] * this[3380] + this[3735] * this[3377] + this[3374] * this[3734]);
+BrakeThermalModel,11,15684,0x3D44,R,float,this,array,result = (v2 * this[3921] * v2 * this[3920] / this[3698] - this[3690]) / this[3691];
+BrakeThermalModel,11,15680,0x3D40,R,float,this,array,result = (v2 * this[3921] * v2 * this[3920] / this[3698] - this[3690]) / this[3691];
+BrakeThermalModel,11,14792,0x39C8,R,float,this,array,result = (v2 * this[3921] * v2 * this[3920] / this[3698] - this[3690]) / this[3691];
+BrakeThermalModel,11,14760,0x39A8,R,float,this,array,result = (v2 * this[3921] * v2 * this[3920] / this[3698] - this[3690]) / this[3691];
+BrakeThermalModel,11,14764,0x39AC,R,float,this,array,result = (v2 * this[3921] * v2 * this[3920] / this[3698] - this[3690]) / this[3691];

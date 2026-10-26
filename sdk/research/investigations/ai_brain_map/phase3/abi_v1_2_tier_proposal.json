@@ -1,0 +1,139 @@
+{
+  "schema": "f1c.ai_brain_abi_tier_proposal.v1",
+  "based_on": "ai_brain_abi_v1_1.json",
+  "proposed_version": "v1.2",
+  "author": "DeepSeek V4.1 (phase 3, D2), 2026-10-02",
+  "rules": "OBSERVED only where the documented meaning matched live logs (prefer 2+ tracks, stated per entry); meaning corrections and recorder observations kept at the current tier; Claude decides and owns the ABI.",
+  "entries": [
+    {
+      "id": "unnamed_4480", "hex": "0x4480", "old_tier": "GUESS", "new_tier": "OBSERVED",
+      "evidence": "D3.2 GUESS_FIELDS.md: r=1.000 against sim_t over n=62510 overview samples (watch_race4fullc + watch_race4fulld); median 1687.2 s = session time",
+      "tracks": ["Monza"],
+      "note": "Session-time stamp confirmed; only one track (two runs)."
+    },
+    {
+      "id": "unnamed_4894", "hex": "0x4894", "old_tier": "GUESS", "new_tier": "OBSERVED",
+      "evidence": "LIVE_RESULTS C1b Run C + REVIEW_9 (4-car live check, Imola); LIVE_RESULTS C1b2 fields C1 (68165/68169, Monaco); LIVE_RESULTS C1b4 Run C (63191/63191, Monza); D3.2: id 1..19 constant per car",
+      "tracks": ["Imola", "Monaco", "Monza"],
+      "note": "Meaning refined: driver/team identity key used to pair an opponent vehicle with the 28-byte team record (+4)."
+    },
+    {
+      "id": "opp_team_id", "hex": "0x42D0", "old_tier": "GUESS", "new_tier": "OBSERVED",
+      "evidence": "Same 3-track record-pairing evidence as unnamed_4894; D3.2: values 0..19 plus 0xFFFFFFFF empty-record sentinel, constant per car",
+      "tracks": ["Imola", "Monaco", "Monza"],
+      "note": "Team id in the 28-byte record confirmed as the pairing key."
+    },
+    {
+      "id": "opp_team_match_flag", "hex": "0x42CC", "old_tier": "GUESS", "new_tier": "OBSERVED",
+      "evidence": "Same 3-track record-pairing evidence; D3.2: 0/1 on every car in all 62510 samples",
+      "tracks": ["Imola", "Monaco", "Monza"]
+    },
+    {
+      "id": "command_queue_array", "hex": "0x44A8", "old_tier": "GUESS", "new_tier": "OBSERVED",
+      "evidence": "Finding f1c-command-queue-is-per-car-not-global-ring (CONFIRMED static read of AICommandMessageQueueDispatcher + CommandQueueResponseHandler); D3.2: per-car constant pointer, 19 distinct values for 19 cars",
+      "tracks": ["Monza"],
+      "note": "Static finding is CONFIRMED; live data matches the per-car pointer semantics."
+    },
+    {
+      "id": "command_queue_capacity", "hex": "0x44AC", "old_tier": "GUESS", "new_tier": "OBSERVED",
+      "evidence": "Finding f1c-command-queue-is-per-car-not-global-ring (CONFIRMED); D3.2: constant 10 on every car in both runs",
+      "tracks": ["Monza"]
+    },
+    {
+      "id": "unnamed_4544", "hex": "0x4544", "old_tier": "GUESS", "new_tier": "OBSERVED",
+      "evidence": "Finding f1c-cmd-0xe-writes-veh-443c (CONFIRMED): cmd 5 sets 0x4544=1, cmds 0/14 set 0; D3.2: 0/1 with 1742 changes",
+      "tracks": ["Monza"],
+      "note": "Meaning refined: command-response flag on the per-car AI command queue (was 'pit command flag')."
+    },
+    {
+      "id": "unnamed_4364", "hex": "0x4364", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D3.2: pointer-like waypoint addresses (0x31B0....), 1175 distinct, changes with the waypoint chain",
+      "tracks": ["Monza"],
+      "note": "Meaning correction: waypoint-node pointer scratch in the locator, not a generic read."
+    },
+    {
+      "id": "unnamed_4400", "hex": "0x4400", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D3.2: pointer-like waypoint address, constant per car (0 changes), 10 distinct values",
+      "tracks": ["Monza"],
+      "note": "Meaning correction: cached waypoint pointer, constant per run."
+    },
+    {
+      "id": "unnamed_441c", "hex": "0x441C", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D3.2: pointer-like 0xBC0.... addresses, 56835 distinct",
+      "tracks": ["Monza"],
+      "note": "Meaning correction: pointer scratch (heap node), not a float."
+    },
+    {
+      "id": "unnamed_444c", "hex": "0x444C", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D3.2: small integer enum {2,4,5}, 38 changes (RECORDER_REQUESTS D2 earlier saw implausible raw ints at 0x444C; the overview log shows small ints)",
+      "tracks": ["Monza"],
+      "note": "Meaning correction: small state enum, not a float; identity still open."
+    },
+    {
+      "id": "unnamed_4454", "hex": "0x4454", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D3.2: 89101..224900, r=0.95 against the integral of speed over time",
+      "tracks": ["Monza"],
+      "note": "Meaning correction: cumulative distance-like quantity (m), not a scratch float."
+    },
+    {
+      "id": "unnamed_4528", "hex": "0x4528", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D3.2: raw float bits 1065353216/3212836864 = +1.0/-1.0 only",
+      "tracks": ["Monza"],
+      "note": "Meaning correction: sign scratch (+-1.0 float)."
+    },
+    {
+      "id": "unnamed_452c", "hex": "0x452C", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D3.2: raw float bits 1065353216/3212836864 = +1.0/-1.0 only",
+      "tracks": ["Monza"],
+      "note": "Meaning correction: sign scratch (+-1.0 float)."
+    },
+    {
+      "id": "unnamed_4554", "hex": "0x4554", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D1 (phase3/D1_CORNER_SPEED.md): constant 1.0 float (raw bits 1065353216) in all 4242 replay samples and all 62510 overview samples",
+      "tracks": ["Monza"],
+      "note": "Meaning correction: constant 1.0 in these runs; multiplier in the 0x43FC corner-target chain (AIRacingLine 0x425DBC)."
+    },
+    {
+      "id": "unnamed_455c", "hex": "0x455C", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D3.2: integers 0..6, battle correlation r=0.45",
+      "tracks": ["Monza"],
+      "note": "Meaning correction: battle/steering state counter; D6 should name it."
+    },
+    {
+      "id": "unnamed_4578", "hex": "0x4578", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D3.2: values {0,1,256,257}, battle r=0.28",
+      "tracks": ["Monza"],
+      "note": "Meaning correction: bitfield (bit0 and bit8), not a single flag."
+    },
+    {
+      "id": "unnamed_45f8", "hex": "0x45F8", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D3.2: pointer-like 0x5F.... values, 19 distinct, one per car",
+      "tracks": ["Monza"],
+      "note": "Meaning correction: per-car pointer scratch."
+    },
+    {
+      "id": "placement_pose_x", "hex": "0x34D4", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D3.2: floats -1..+1, 14756 distinct, weak state correlation",
+      "tracks": ["Monza"],
+      "note": "Meaning correction candidate: direction-like component, not a metric pose; re-read the writer before raising."
+    },
+    {
+      "id": "placement_pose_y", "hex": "0x34D8", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D3.2: floats -0.85..+0.25, weak lap r=0.31",
+      "tracks": ["Monza"],
+      "note": "Meaning correction candidate: direction-like component."
+    },
+    {
+      "id": "placement_pose_z", "hex": "0x34DC", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D3.2: floats -1..+1, no state correlation",
+      "tracks": ["Monza"],
+      "note": "Meaning correction candidate: direction-like component."
+    },
+    {
+      "id": "command_queue_write_index", "hex": "0x44B0", "old_tier": "GUESS", "new_tier": "GUESS",
+      "evidence": "D3.2: all 62510 overview samples read NaN in both runs; finding f1c-command-queue-is-per-car-not-global-ring says 0x44B0 is the index (-1 = empty)",
+      "tracks": ["Monza"],
+      "note": "No tier change: the live log cannot read it. Recorder request R1 added (phase3/RECORDER_REQUESTS.md)."
+    }
+  ]
+}

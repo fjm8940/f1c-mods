@@ -1,0 +1,4 @@
+func,line,dec,hex,access,width,base,form,expr
+RacePhasePitEntryTrigger,5,,,CALL,,,call,FuelMultiplierValue
+RacePhasePitEntryTrigger,8,17744,0x4550,R,_DWORD,this,array,result = this[4436];
+RacePhasePitEntryTrigger,10,,,CALL,,,call,ForcePitExit

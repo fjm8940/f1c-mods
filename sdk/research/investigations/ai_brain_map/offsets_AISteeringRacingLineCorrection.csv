@@ -1,0 +1,86 @@
+func,line,dec,hex,access,width,base,form,expr
+AISteeringRacingLineCorrection,54,16480,0x4060,R,_DWORD,this,arith,v26 = *((_DWORD *)this + 4120) - 1;
+AISteeringRacingLineCorrection,57,16480,0x4060,R,_DWORD,this,arith,while ( *(_DWORD *)(dword_7C54F0[v3] + 16480) != *((_DWORD *)this + 4120) - 1 )
+AISteeringRacingLineCorrection,62,,,CALL,,,call,DistanceProjectionCalc
+AISteeringRacingLineCorrection,63,,,CALL,,,call,DistanceProjectionCalc
+AISteeringRacingLineCorrection,80,,,CALL,,,call,TrackParameterMinimumClamp
+AISteeringRacingLineCorrection,84,,,CALL,,,call,TrackParameterMinimumClamp
+AISteeringRacingLineCorrection,86,17472,0x4440,R,float,this,array,if ( this[4368] < 1.0 )
+AISteeringRacingLineCorrection,89,,,CALL,,,call,sqrt
+AISteeringRacingLineCorrection,89,13560,0x34F8,R,float,v7,array,if ( sqrt(v7[3390] * v7[3390] + v7[3391] * v7[3391] + v7[3392] * v7[3392]) < 0.2
+AISteeringRacingLineCorrection,89,13560,0x34F8,R,float,v7,array,if ( sqrt(v7[3390] * v7[3390] + v7[3391] * v7[3391] + v7[3392] * v7[3392]) < 0.2
+AISteeringRacingLineCorrection,89,13564,0x34FC,R,float,v7,array,if ( sqrt(v7[3390] * v7[3390] + v7[3391] * v7[3391] + v7[3392] * v7[3392]) < 0.2
+AISteeringRacingLineCorrection,89,13564,0x34FC,R,float,v7,array,if ( sqrt(v7[3390] * v7[3390] + v7[3391] * v7[3391] + v7[3392] * v7[3392]) < 0.2
+AISteeringRacingLineCorrection,89,13568,0x3500,R,float,v7,array,if ( sqrt(v7[3390] * v7[3390] + v7[3391] * v7[3391] + v7[3392] * v7[3392]) < 0.2
+AISteeringRacingLineCorrection,89,13568,0x3500,R,float,v7,array,if ( sqrt(v7[3390] * v7[3390] + v7[3391] * v7[3391] + v7[3392] * v7[3392]) < 0.2
+AISteeringRacingLineCorrection,92,17460,0x4434,W,float,this,array,this[4365] = 0.0;
+AISteeringRacingLineCorrection,99,,,CALL,,,call,TrackParameterMinimumClamp
+AISteeringRacingLineCorrection,100,17460,0x4434,R,float,this,array,if ( this[4365] > 0.89999998 )
+AISteeringRacingLineCorrection,101,17460,0x4434,W,float,this,array,this[4365] = 0.89999998;
+AISteeringRacingLineCorrection,105,15016,0x3AA8,R,_DWORD,this,arith,v8 = *((_DWORD *)this + 3754);
+AISteeringRacingLineCorrection,106,300,0x12C,R,_DWORD,v8,direct,if ( v8 && *(_DWORD *)(v8 + 300) )
+AISteeringRacingLineCorrection,110,,,CALL,,,call,DistanceComparison
+AISteeringRacingLineCorrection,112,14760,0x39A8,R,float,this,array,if ( this[3690] > (double)this[3688] )
+AISteeringRacingLineCorrection,112,14752,0x39A0,R,float,this,array,if ( this[3690] > (double)this[3688] )
+AISteeringRacingLineCorrection,115,,,CALL,,,call,fabs
+AISteeringRacingLineCorrection,115,17504,0x4460,R,float,this,array,if ( fabs(dbl_8AFEA0 - this[4376]) > 10.0 )
+AISteeringRacingLineCorrection,117,4,0x4,R,int,this,arith,v9 = (double)*((int *)this + 1) * 8.5;
+AISteeringRacingLineCorrection,118,,,CALL,,,call,InterruptDispatch
+AISteeringRacingLineCorrection,119,17480,0x4448,R,float,this,array,if ( v27 <= v9 + 1.0 + this[4370] * 20.0 + flt_8ACF90 )
+AISteeringRacingLineCorrection,121,17452,0x442C,W,float,this,array,this[4363] = 0.0;
+AISteeringRacingLineCorrection,125,,,CALL,,,call,RandomWeightedTierSelection
+AISteeringRacingLineCorrection,126,,,CALL,,,call,LoopWithConditionalSubCall
+AISteeringRacingLineCorrection,127,17896,0x45E8,R,float,this,array,v11 = this[4474] * 1.5 + this[3681];
+AISteeringRacingLineCorrection,127,14724,0x3984,R,float,this,array,v11 = this[4474] * 1.5 + this[3681];
+AISteeringRacingLineCorrection,128,14728,0x3988,R,float,this,array,if ( v11 >= this[3682] )
+AISteeringRacingLineCorrection,129,14728,0x3988,R,float,this,array,v11 = this[3682];
+AISteeringRacingLineCorrection,131,,,CALL,,,call,SpeedValueSetterWithGlobalMirror
+AISteeringRacingLineCorrection,131,,,CALL,,,call,LODWORD
+AISteeringRacingLineCorrection,132,,,CALL,,,call,VehicleClimbAdjust
+AISteeringRacingLineCorrection,134,17236,0x4354,W,float,this,array,this[4309] = 0.0;
+AISteeringRacingLineCorrection,135,17240,0x4358,W,float,this,array,this[4310] = 0.0;
+AISteeringRacingLineCorrection,136,17504,0x4460,W,float,this,array,this[4376] = v12;
+AISteeringRacingLineCorrection,137,17680,0x4510,W,_DWORD,this,arith,*((_DWORD *)this + 4420) = 5;
+AISteeringRacingLineCorrection,138,17744,0x4550,W,_DWORD,this,arith,*((_DWORD *)this + 4436) = 1;
+AISteeringRacingLineCorrection,139,17720,0x4538,W,float,this,array,this[4430] = flt_8ACFB4;
+AISteeringRacingLineCorrection,148,,,CALL,,,call,SingleFunctionDispatch_10e0
+AISteeringRacingLineCorrection,149,,,CALL,,,call,F_3DTransformWithMatrixMultiplication
+AISteeringRacingLineCorrection,154,,,CALL,,,call,sqrt
+AISteeringRacingLineCorrection,157,,,CALL,,,call,TrackParameterMinimumClamp
+AISteeringRacingLineCorrection,169,,,CALL,,,call,sub_403CD0
+AISteeringRacingLineCorrection,173,,,CALL,,,call,sqrt
+AISteeringRacingLineCorrection,188,,,CALL,,,call,TrackParameterMinimumClamp
+AISteeringRacingLineCorrection,192,,,CALL,,,call,TrackParameterMinimumClamp
+AISteeringRacingLineCorrection,200,,,CALL,,,call,sub_403CD0
+AISteeringRacingLineCorrection,204,,,CALL,,,call,sub_403CD0
+AISteeringRacingLineCorrection,210,17452,0x442C,W,float,this,array,this[4363] = atan2(
+AISteeringRacingLineCorrection,210,,,CALL,,,call,atan2
+AISteeringRacingLineCorrection,211,13524,0x34D4,R,float,this,array,"-(v21 * this[3381] + v31 * this[3378] + v30 * this[3375]),"
+AISteeringRacingLineCorrection,211,13512,0x34C8,R,float,this,array,"-(v21 * this[3381] + v31 * this[3378] + v30 * this[3375]),"
+AISteeringRacingLineCorrection,211,13500,0x34BC,R,float,this,array,"-(v21 * this[3381] + v31 * this[3378] + v30 * this[3375]),"
+AISteeringRacingLineCorrection,212,13532,0x34DC,R,float,this,array,-(v21 * this[3383] + v31 * this[3380] + v30 * this[3377]))
+AISteeringRacingLineCorrection,212,13520,0x34D0,R,float,this,array,-(v21 * this[3383] + v31 * this[3380] + v30 * this[3377]))
+AISteeringRacingLineCorrection,212,13508,0x34C4,R,float,this,array,-(v21 * this[3383] + v31 * this[3380] + v30 * this[3377]))
+AISteeringRacingLineCorrection,213,17588,0x44B4,R,float,this,array,/ this[4397];
+AISteeringRacingLineCorrection,214,17452,0x442C,R,float,this,array,if ( this[4363] >= -1.0 )
+AISteeringRacingLineCorrection,216,17452,0x442C,R,float,this,array,if ( this[4363] > 1.0 )
+AISteeringRacingLineCorrection,217,17452,0x442C,W,float,this,array,this[4363] = 1.0;
+AISteeringRacingLineCorrection,221,17452,0x442C,W,float,this,array,this[4363] = -1.0;
+AISteeringRacingLineCorrection,229,,,CALL,,,call,EulerToRotationMatrix
+AISteeringRacingLineCorrection,237,17452,0x442C,W,float,this,array,this[4363] = atan2(
+AISteeringRacingLineCorrection,237,,,CALL,,,call,atan2
+AISteeringRacingLineCorrection,238,13524,0x34D4,R,float,this,array,"-(v35 * this[3381] + v34 * this[3378] + v33 * this[3375]),"
+AISteeringRacingLineCorrection,238,13512,0x34C8,R,float,this,array,"-(v35 * this[3381] + v34 * this[3378] + v33 * this[3375]),"
+AISteeringRacingLineCorrection,238,13500,0x34BC,R,float,this,array,"-(v35 * this[3381] + v34 * this[3378] + v33 * this[3375]),"
+AISteeringRacingLineCorrection,239,13532,0x34DC,R,float,this,array,-(v35 * this[3383] + v34 * this[3380] + v33 * this[3377]))
+AISteeringRacingLineCorrection,239,13520,0x34D0,R,float,this,array,-(v35 * this[3383] + v34 * this[3380] + v33 * this[3377]))
+AISteeringRacingLineCorrection,239,13508,0x34C4,R,float,this,array,-(v35 * this[3383] + v34 * this[3380] + v33 * this[3377]))
+AISteeringRacingLineCorrection,240,17588,0x44B4,R,float,this,array,/ this[4397];
+AISteeringRacingLineCorrection,241,17452,0x442C,R,float,this,array,if ( this[4363] >= -1.0 )
+AISteeringRacingLineCorrection,243,17452,0x442C,R,float,this,array,if ( this[4363] > 1.0 )
+AISteeringRacingLineCorrection,244,17452,0x442C,W,float,this,array,this[4363] = 1.0;
+AISteeringRacingLineCorrection,248,17452,0x442C,W,float,this,array,this[4363] = -1.0;
+AISteeringRacingLineCorrection,254,,,CALL,,,call,VehicleDynamicsStateReset
+AISteeringRacingLineCorrection,255,,,CALL,,,call,AIVehiclePathPositionTracking
+AISteeringRacingLineCorrection,256,17908,0x45F4,W,_BYTE,this,arith,*((_BYTE *)this + 17908) = 0;
+AISteeringRacingLineCorrection,258,,,CALL,,,call,ConditionalGate

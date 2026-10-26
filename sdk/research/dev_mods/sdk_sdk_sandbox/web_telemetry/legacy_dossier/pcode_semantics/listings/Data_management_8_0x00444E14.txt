@@ -1,0 +1,943 @@
+; Data_management #8
+; RTMI 0x00444E14  code 0x00444084  ProcSize 3472  FrameSize 1364
+  0x0000: LitVarI2                 var[-196] = 0
+  0x0005: FStVar                   raw=4CFF
+  0x0009: ILdRfDarg                raw=0C003CFF
+  0x000F: CI4Var                   
+  0x0011: FMemLdRf                 raw=08007C00
+  0x0016: Ary1LdI2                 
+  0x0017: LitI2_Byte               raw=02
+  0x0019: EqI2                     
+  0x001A: BranchF                  target=+0xD8F
+  0x001D: ILdRfDarg                raw=0C003CFF
+  0x0023: CI4Var                   
+  0x0025: FMemLdRf                 raw=08003C00
+  0x002A: Ary1LdI4                 
+  0x002B: CVarI4                   raw=1CFF
+  0x002F: FStVar                   raw=2CFF
+  0x0033: FLdRfVar                 var[-212]
+  0x0036: LitVarI2                 var[-196] = 0
+  0x003B: AddVar                   raw=0CFF
+  0x003F: CI4Var                   
+  0x0041: FMemLdR4                 raw=0800A400
+  0x0046: Ary1LdFPR4               
+  0x0047: CVarR4                   raw=1CFF
+  0x004B: FStVar                   raw=FCFE
+  0x004F: FFree1Var                var[-244]
+  0x0052: FLdRfVar                 var[-212]
+  0x0055: LitVarI2                 var[-196] = 1
+  0x005A: AddVar                   raw=0CFF
+  0x005E: CI4Var                   
+  0x0060: FMemLdR4                 raw=0800A400
+  0x0065: Ary1LdFPR4               
+  0x0066: CVarR4                   raw=1CFF
+  0x006A: FStVar                   raw=ECFE
+  0x006E: FFree1Var                var[-244]
+  0x0071: FLdRfVar                 var[-212]
+  0x0074: LitVarI2                 var[-196] = 2
+  0x0079: AddVar                   raw=0CFF
+  0x007D: CI4Var                   
+  0x007F: FMemLdR4                 raw=0800A400
+  0x0084: Ary1LdFPR4               
+  0x0085: CVarR4                   raw=1CFF
+  0x0089: FStVar                   raw=DCFE
+  0x008D: FFree1Var                var[-244]
+  0x0090: LitStr                   pool[15]="time"
+  0x0093: FStStrCopy               raw=D8FE
+  0x0096: FLdRfVar                 var[-296]
+  0x0099: FLdRfVar                 var[-244]
+  0x009C: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x00A1: FLdRfVar                 var[-244]
+  0x00A4: FStVar                   raw=C8FE
+  0x00A8: FFree1Str                var[-296]
+  0x00AB: LitStr                   pool[28]="x"
+  0x00AE: FStStrCopy               raw=D8FE
+  0x00B1: FLdRfVar                 var[-296]
+  0x00B4: FLdRfVar                 var[-244]
+  0x00B7: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x00BC: FLdRfVar                 var[-244]
+  0x00BF: FStVar                   raw=B8FE
+  0x00C3: FFree1Str                var[-296]
+  0x00C6: LitStr                   pool[29]="y"
+  0x00C9: FStStrCopy               raw=D8FE
+  0x00CC: FLdRfVar                 var[-296]
+  0x00CF: FLdRfVar                 var[-244]
+  0x00D2: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x00D7: FLdRfVar                 var[-244]
+  0x00DA: FStVar                   raw=A8FE
+  0x00DE: FFree1Str                var[-296]
+  0x00E1: LitStr                   pool[30]="z"
+  0x00E4: FStStrCopy               raw=D8FE
+  0x00E7: FLdRfVar                 var[-296]
+  0x00EA: FLdRfVar                 var[-244]
+  0x00ED: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x00F2: FLdRfVar                 var[-244]
+  0x00F5: FStVar                   raw=98FE
+  0x00F9: FFree1Str                var[-296]
+  0x00FC: LitStr                   pool[31]="velocity"
+  0x00FF: FStStrCopy               raw=D8FE
+  0x0102: FLdRfVar                 var[-296]
+  0x0105: FLdRfVar                 var[-244]
+  0x0108: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x010D: FLdRfVar                 var[-244]
+  0x0110: FStVar                   raw=88FE
+  0x0114: FFree1Str                var[-296]
+  0x0117: LitStr                   pool[32]="lat accel"
+  0x011A: FStStrCopy               raw=D8FE
+  0x011D: FLdRfVar                 var[-296]
+  0x0120: FLdRfVar                 var[-244]
+  0x0123: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x0128: FLdRfVar                 var[-244]
+  0x012B: FStVar                   raw=78FE
+  0x012F: FFree1Str                var[-296]
+  0x0132: LitStr                   pool[33]="long accel"
+  0x0135: FStStrCopy               raw=D8FE
+  0x0138: FLdRfVar                 var[-296]
+  0x013B: FLdRfVar                 var[-244]
+  0x013E: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x0143: FLdRfVar                 var[-244]
+  0x0146: FStVar                   raw=68FE
+  0x014A: FFree1Str                var[-296]
+  0x014D: LitStr                   pool[34]="vert accel"
+  0x0150: FStStrCopy               raw=D8FE
+  0x0153: FLdRfVar                 var[-296]
+  0x0156: FLdRfVar                 var[-244]
+  0x0159: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x015E: FLdRfVar                 var[-244]
+  0x0161: FStVar                   raw=58FE
+  0x0165: FFree1Str                var[-296]
+  0x0168: LitStr                   pool[35]="gear"
+  0x016B: FStStrCopy               raw=D8FE
+  0x016E: FLdRfVar                 var[-296]
+  0x0171: FLdRfVar                 var[-244]
+  0x0174: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x0179: FLdRfVar                 var[-244]
+  0x017C: FStVar                   raw=48FE
+  0x0180: FFree1Str                var[-296]
+  0x0183: LitStr                   pool[16]="distance"
+  0x0186: FStStrCopy               raw=D8FE
+  0x0189: FLdRfVar                 var[-296]
+  0x018C: FLdRfVar                 var[-244]
+  0x018F: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x0194: FLdRfVar                 var[-244]
+  0x0197: FStVar                   raw=38FE
+  0x019B: FFree1Str                var[-296]
+  0x019E: LitStr                   pool[36]="fr wheelspin"
+  0x01A1: FStStrCopy               raw=D8FE
+  0x01A4: FLdRfVar                 var[-296]
+  0x01A7: FLdRfVar                 var[-244]
+  0x01AA: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x01AF: FLdRfVar                 var[-244]
+  0x01B2: FStVar                   raw=28FE
+  0x01B6: FFree1Str                var[-296]
+  0x01B9: LitStr                   pool[37]="fl wheelspin"
+  0x01BC: FStStrCopy               raw=D8FE
+  0x01BF: FLdRfVar                 var[-296]
+  0x01C2: FLdRfVar                 var[-244]
+  0x01C5: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x01CA: FLdRfVar                 var[-244]
+  0x01CD: FStVar                   raw=18FE
+  0x01D1: FFree1Str                var[-296]
+  0x01D4: LitStr                   pool[38]="rr wheelspin"
+  0x01D7: FStStrCopy               raw=D8FE
+  0x01DA: FLdRfVar                 var[-296]
+  0x01DD: FLdRfVar                 var[-244]
+  0x01E0: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x01E5: FLdRfVar                 var[-244]
+  0x01E8: FStVar                   raw=08FE
+  0x01EC: FFree1Str                var[-296]
+  0x01EF: LitStr                   pool[39]="rl wheelspin"
+  0x01F2: FStStrCopy               raw=D8FE
+  0x01F5: FLdRfVar                 var[-296]
+  0x01F8: FLdRfVar                 var[-244]
+  0x01FB: ImpAdCallFPR4            pool[14](call Data_management#3) stack+8
+  0x0200: FLdRfVar                 var[-244]
+  0x0203: FStVar                   raw=F8FD
+  0x0207: FFree1Str                var[-296]
+  0x020A: LitVarI2                 var[-196] = 0
+  0x020F: FStVar                   raw=E8FD
+  0x0213: LitVarI2                 var[-228] = 1
+  0x0218: FLdRfVar                 var[-552]
+  0x021B: FLdRfVar                 var[-292]
+  0x021E: ForVar                   raw=B8FD7703
+  0x0224: FLdRfVar                 var[-212]
+  0x0227: LitVarI2                 var[-196] = 2
+  0x022C: AddVar                   raw=0CFF
+  0x0230: FLdRfVar                 var[-552]
+  0x0233: AddVar                   raw=A8FD
+  0x0237: CI4Var                   
+  0x0239: FMemLdR4                 raw=0800A400
+  0x023E: Ary1LdFPR4               
+  0x023F: CVarR4                   raw=1CFF
+  0x0243: FStVar                   raw=98FD
+  0x0247: FFreeVar                 raw=04000CFFA8FD
+  0x024E: FLdRfVar                 var[-616]
+  0x0251: FLdRfVar                 var[-312]
+  0x0254: EqVarBool                
+  0x0256: BranchF                  target=+0x260
+  0x0259: FLdRfVar                 var[-552]
+  0x025C: FStVarCopy               raw=88FD
+  0x0260: FLdRfVar                 var[-616]
+  0x0263: FLdRfVar                 var[-328]
+  0x0266: EqVarBool                
+  0x0268: BranchF                  target=+0x272
+  0x026B: FLdRfVar                 var[-552]
+  0x026E: FStVarCopy               raw=78FD
+  0x0272: FLdRfVar                 var[-616]
+  0x0275: FLdRfVar                 var[-344]
+  0x0278: EqVarBool                
+  0x027A: BranchF                  target=+0x284
+  0x027D: FLdRfVar                 var[-552]
+  0x0280: FStVarCopy               raw=68FD
+  0x0284: FLdRfVar                 var[-616]
+  0x0287: FLdRfVar                 var[-360]
+  0x028A: EqVarBool                
+  0x028C: BranchF                  target=+0x296
+  0x028F: FLdRfVar                 var[-552]
+  0x0292: FStVarCopy               raw=58FD
+  0x0296: FLdRfVar                 var[-616]
+  0x0299: FLdRfVar                 var[-376]
+  0x029C: EqVarBool                
+  0x029E: BranchF                  target=+0x2A8
+  0x02A1: FLdRfVar                 var[-552]
+  0x02A4: FStVarCopy               raw=48FD
+  0x02A8: FLdRfVar                 var[-616]
+  0x02AB: FLdRfVar                 var[-392]
+  0x02AE: EqVarBool                
+  0x02B0: BranchF                  target=+0x2BA
+  0x02B3: FLdRfVar                 var[-552]
+  0x02B6: FStVarCopy               raw=38FD
+  0x02BA: FLdRfVar                 var[-616]
+  0x02BD: FLdRfVar                 var[-408]
+  0x02C0: EqVarBool                
+  0x02C2: BranchF                  target=+0x2CC
+  0x02C5: FLdRfVar                 var[-552]
+  0x02C8: FStVarCopy               raw=28FD
+  0x02CC: FLdRfVar                 var[-616]
+  0x02CF: FLdRfVar                 var[-424]
+  0x02D2: EqVarBool                
+  0x02D4: BranchF                  target=+0x2DE
+  0x02D7: FLdRfVar                 var[-552]
+  0x02DA: FStVarCopy               raw=18FD
+  0x02DE: FLdRfVar                 var[-616]
+  0x02E1: FLdRfVar                 var[-440]
+  0x02E4: EqVarBool                
+  0x02E6: BranchF                  target=+0x2F0
+  0x02E9: FLdRfVar                 var[-552]
+  0x02EC: FStVarCopy               raw=08FD
+  0x02F0: FLdRfVar                 var[-616]
+  0x02F3: FLdRfVar                 var[-776]
+  0x02F6: EqVarBool                
+  0x02F8: BranchF                  target=+0x302
+  0x02FB: FLdRfVar                 var[-552]
+  0x02FE: FStVarCopy               raw=E8FC
+  0x0302: FLdRfVar                 var[-616]
+  0x0305: FLdRfVar                 var[-456]
+  0x0308: EqVarBool                
+  0x030A: BranchF                  target=+0x314
+  0x030D: FLdRfVar                 var[-552]
+  0x0310: FStVarCopy               raw=D8FC
+  0x0314: FLdRfVar                 var[-616]
+  0x0317: FLdRfVar                 var[-824]
+  0x031A: EqVarBool                
+  0x031C: BranchF                  target=+0x326
+  0x031F: FLdRfVar                 var[-552]
+  0x0322: FStVarCopy               raw=B8FC
+  0x0326: FLdRfVar                 var[-616]
+  0x0329: FLdRfVar                 var[-472]
+  0x032C: EqVarBool                
+  0x032E: BranchF                  target=+0x338
+  0x0331: FLdRfVar                 var[-552]
+  0x0334: FStVarCopy               raw=A8FC
+  0x0338: FLdRfVar                 var[-616]
+  0x033B: FLdRfVar                 var[-488]
+  0x033E: EqVarBool                
+  0x0340: BranchF                  target=+0x34A
+  0x0343: FLdRfVar                 var[-552]
+  0x0346: FStVarCopy               raw=98FC
+  0x034A: FLdRfVar                 var[-616]
+  0x034D: FLdRfVar                 var[-504]
+  0x0350: EqVarBool                
+  0x0352: BranchF                  target=+0x35C
+  0x0355: FLdRfVar                 var[-552]
+  0x0358: FStVarCopy               raw=88FC
+  0x035C: FLdRfVar                 var[-616]
+  0x035F: FLdRfVar                 var[-520]
+  0x0362: EqVarBool                
+  0x0364: BranchF                  target=+0x36E
+  0x0367: FLdRfVar                 var[-552]
+  0x036A: FStVarCopy               raw=78FC
+  0x036E: FLdRfVar                 var[-552]
+  0x0371: NextStepVar              raw=B8FD2402
+  0x0377: LitVarI2                 var[-196] = 0
+  0x037C: FStVar                   raw=68FC
+  0x0380: FLdRfVar                 var[-696]
+  0x0383: LitVarI2                 var[-196] = 0
+  0x0388: HardType                 
+  0x0389: EqVarBool                
+  0x038B: BranchF                  target=+0x39A
+  0x038E: LitVarI2                 var[-196] = 0
+  0x0393: FStVar                   raw=4CFF
+  0x0397: Branch                   target=+0xD8F
+  0x039A: LitVarI2                 var[-228] = 1
+  0x039F: FLdRfVar                 var[-552]
+  0x03A2: FLdRfVar                 var[-276]
+  0x03A5: ForVar                   raw=48FC880D
+  0x03AB: FLdRfVar                 var[-968]
+  0x03AE: FStVarCopy               raw=28FC
+  0x03B2: FLdRfVar                 var[-1000]
+  0x03B5: FStVarCopy               raw=08FC
+  0x03B9: FLdRfVar                 var[-1032]
+  0x03BC: FStVarCopy               raw=E8FB
+  0x03C0: FLdRfVar                 var[-1064]
+  0x03C3: FStVarCopy               raw=C8FB
+  0x03C7: FLdRfVar                 var[-212]
+  0x03CA: LitVarI2                 var[-196] = 2
+  0x03CF: AddVar                   raw=0CFF
+  0x03D3: FLdRfVar                 var[-292]
+  0x03D6: AddVar                   raw=A8FD
+  0x03DA: FLdRfVar                 var[-552]
+  0x03DD: LitVarI2                 var[-228] = 1
+  0x03E2: SubVar                   raw=B8FB
+  0x03E6: FLdRfVar                 var[-292]
+  0x03E9: MulVar                   raw=A8FB
+  0x03ED: AddVar                   raw=98FB
+  0x03F1: FLdRfVar                 var[-632]
+  0x03F4: AddVar                   raw=88FB
+  0x03F8: CI4Var                   
+  0x03FA: FMemLdR4                 raw=0800A400
+  0x03FF: Ary1LdFPR4               
+  0x0400: CVarR4                   raw=78FB
+  0x0404: FStVar                   raw=38FC
+  0x0408: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x0413: FLdRfVar                 var[-212]
+  0x0416: LitVarI2                 var[-196] = 2
+  0x041B: AddVar                   raw=0CFF
+  0x041F: FLdRfVar                 var[-292]
+  0x0422: AddVar                   raw=A8FD
+  0x0426: FLdRfVar                 var[-552]
+  0x0429: LitVarI2                 var[-228] = 1
+  0x042E: SubVar                   raw=B8FB
+  0x0432: FLdRfVar                 var[-292]
+  0x0435: MulVar                   raw=A8FB
+  0x0439: AddVar                   raw=98FB
+  0x043D: FLdRfVar                 var[-648]
+  0x0440: AddVar                   raw=88FB
+  0x0444: CI4Var                   
+  0x0446: FMemLdR4                 raw=0800A400
+  0x044B: Ary1LdFPR4               
+  0x044C: CVarR4                   raw=78FB
+  0x0450: FStVar                   raw=18FC
+  0x0454: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x045F: FLdRfVar                 var[-212]
+  0x0462: LitVarI2                 var[-196] = 2
+  0x0467: AddVar                   raw=0CFF
+  0x046B: FLdRfVar                 var[-292]
+  0x046E: AddVar                   raw=A8FD
+  0x0472: FLdRfVar                 var[-552]
+  0x0475: LitVarI2                 var[-228] = 1
+  0x047A: SubVar                   raw=B8FB
+  0x047E: FLdRfVar                 var[-292]
+  0x0481: MulVar                   raw=A8FB
+  0x0485: AddVar                   raw=98FB
+  0x0489: FLdRfVar                 var[-664]
+  0x048C: AddVar                   raw=88FB
+  0x0490: CI4Var                   
+  0x0492: FMemLdR4                 raw=0800A400
+  0x0497: Ary1LdFPR4               
+  0x0498: CVarR4                   raw=78FB
+  0x049C: FStVar                   raw=F8FB
+  0x04A0: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x04AB: FLdRfVar                 var[-212]
+  0x04AE: LitVarI2                 var[-196] = 2
+  0x04B3: AddVar                   raw=0CFF
+  0x04B7: FLdRfVar                 var[-292]
+  0x04BA: AddVar                   raw=A8FD
+  0x04BE: FLdRfVar                 var[-552]
+  0x04C1: LitVarI2                 var[-228] = 1
+  0x04C6: SubVar                   raw=B8FB
+  0x04CA: FLdRfVar                 var[-292]
+  0x04CD: MulVar                   raw=A8FB
+  0x04D1: AddVar                   raw=98FB
+  0x04D5: FLdRfVar                 var[-680]
+  0x04D8: AddVar                   raw=88FB
+  0x04DC: CI4Var                   
+  0x04DE: FMemLdR4                 raw=0800A400
+  0x04E3: Ary1LdFPR4               
+  0x04E4: CVarR4                   raw=78FB
+  0x04E8: FStVar                   raw=D8FB
+  0x04EC: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x04F7: FLdRfVar                 var[-1000]
+  0x04FA: FLdRfVar                 var[-1016]
+  0x04FD: SubVar                   raw=0CFF
+  0x0501: FStVar                   raw=68FB
+  0x0505: FLdRfVar                 var[-1032]
+  0x0508: FLdRfVar                 var[-1048]
+  0x050B: SubVar                   raw=0CFF
+  0x050F: FStVar                   raw=58FB
+  0x0513: FLdRfVar                 var[-1064]
+  0x0516: FLdRfVar                 var[-1080]
+  0x0519: SubVar                   raw=0CFF
+  0x051D: FStVar                   raw=48FB
+  0x0521: FLdRfVar                 var[-1224]
+  0x0524: FStVarCopy               raw=28FB
+  0x0528: FLdRfVar                 var[-1176]
+  0x052B: FLdRfVar                 var[-1176]
+  0x052E: MulVar                   raw=0CFF
+  0x0532: FLdRfVar                 var[-1208]
+  0x0535: FLdRfVar                 var[-1208]
+  0x0538: MulVar                   raw=A8FD
+  0x053C: AddVar                   raw=B8FB
+  0x0540: CR4Var                   
+  0x0541: PopFPR8                  
+  0x0542: ImpAdCallFPR4            pool[40](MSVBVM60!__imp_rtcSqr) stack+8
+  0x0547: CVarR8                   raw=3CFF
+  0x054B: FStVar                   raw=38FB
+  0x054F: FFree1Var                var[-1096]
+  0x0552: FLdRfVar                 var[-968]
+  0x0555: FLdRfVar                 var[-984]
+  0x0558: SubVar                   raw=0CFF
+  0x055C: FStVar                   raw=18FB
+  0x0560: FLdRfVar                 var[-1256]
+  0x0563: LitVarR8                 var[-196] = 48AFBC9AF2D77A3E
+  0x056F: HardType                 
+  0x0570: LtVarBool                
+  0x0572: BranchF                  target=+0x585
+  0x0575: LitVarR8                 var[-196] = 48AFBC9AF2D77A3E
+  0x0581: FStVar                   raw=18FB
+  0x0585: FLdRfVar                 var[-1272]
+  0x0588: FStVarCopy               raw=F8FA
+  0x058C: FLdRfVar                 var[-1256]
+  0x058F: LitVarR8                 var[-196] = 7B14AE47E17A843F
+  0x059B: HardType                 
+  0x059C: GtVarBool                
+  0x059E: BranchF                  target=+0x5B2
+  0x05A1: FLdRfVar                 var[-1224]
+  0x05A4: FLdRfVar                 var[-1256]
+  0x05A7: DivVar                   raw=0CFF
+  0x05AB: FStVar                   raw=08FB
+  0x05AF: Branch                   target=+0x5B9
+  0x05B2: FLdRfVar                 var[-1288]
+  0x05B5: FStVarCopy               raw=08FB
+  0x05B9: FLdRfVar                 var[-1272]
+  0x05BC: LitVarR8                 var[-196] = D48041D2A7E50140
+  0x05C8: MulVar                   raw=0CFF
+  0x05CC: CR8Var                   
+  0x05CE: FLdRfVar                 var[-212]
+  0x05D1: LitVarI2                 var[-228] = 2
+  0x05D6: AddVar                   raw=A8FD
+  0x05DA: FLdRfVar                 var[-292]
+  0x05DD: AddVar                   raw=B8FB
+  0x05E1: FLdRfVar                 var[-552]
+  0x05E4: LitVarI2                 var[-1160] = 1
+  0x05E9: SubVar                   raw=A8FB
+  0x05ED: FLdRfVar                 var[-292]
+  0x05F0: MulVar                   raw=98FB
+  0x05F4: AddVar                   raw=88FB
+  0x05F8: FLdRfVar                 var[-696]
+  0x05FB: AddVar                   raw=E8FA
+  0x05FF: CI4Var                   
+  0x0601: FMemLdR4                 raw=0800A400
+  0x0606: Ary1StFPR4               
+  0x0607: FFreeVar                 raw=0800A8FDB8FB88FBE8FA
+  0x0612: FLdRfVar                 var[-920]
+  0x0615: FLdRfVar                 var[-1224]
+  0x0618: AddVar                   raw=0CFF
+  0x061C: FStVar                   raw=68FC
+  0x0620: FLdRfVar                 var[-920]
+  0x0623: CR8Var                   
+  0x0625: FLdRfVar                 var[-212]
+  0x0628: LitVarI2                 var[-196] = 2
+  0x062D: AddVar                   raw=0CFF
+  0x0631: FLdRfVar                 var[-292]
+  0x0634: AddVar                   raw=A8FD
+  0x0638: FLdRfVar                 var[-552]
+  0x063B: LitVarI2                 var[-228] = 1
+  0x0640: SubVar                   raw=B8FB
+  0x0644: FLdRfVar                 var[-292]
+  0x0647: MulVar                   raw=A8FB
+  0x064B: AddVar                   raw=98FB
+  0x064F: FLdRfVar                 var[-808]
+  0x0652: AddVar                   raw=88FB
+  0x0656: CI4Var                   
+  0x0658: FMemLdR4                 raw=0800A400
+  0x065D: Ary1StFPR4               
+  0x065E: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x0669: FLdRfVar                 var[-728]
+  0x066C: LitVarI2                 var[-196] = 0
+  0x0671: HardType                 
+  0x0672: GtVarBool                
+  0x0674: BranchF                  target=+0x71C
+  0x0677: FLdRfVar                 var[-212]
+  0x067A: LitVarI2                 var[-196] = 2
+  0x067F: AddVar                   raw=0CFF
+  0x0683: FLdRfVar                 var[-292]
+  0x0686: AddVar                   raw=A8FD
+  0x068A: FLdRfVar                 var[-552]
+  0x068D: LitVarI2                 var[-228] = 1
+  0x0692: SubVar                   raw=B8FB
+  0x0696: FLdRfVar                 var[-292]
+  0x0699: MulVar                   raw=A8FB
+  0x069D: AddVar                   raw=98FB
+  0x06A1: FLdRfVar                 var[-728]
+  0x06A4: AddVar                   raw=88FB
+  0x06A8: CI4Var                   
+  0x06AA: FMemLdR4                 raw=0800A400
+  0x06AF: Ary1LdFPR4               
+  0x06B0: CVarR4                   raw=78FB
+  0x06B4: FStVar                   raw=D8FA
+  0x06B8: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x06C3: FLdRfVar                 var[-1320]
+  0x06C6: LitVarR8                 var[-196] = 23DBF97E6A9C2340
+  0x06D2: DivVar                   raw=0CFF
+  0x06D6: CR8Var                   
+  0x06D8: FLdRfVar                 var[-212]
+  0x06DB: LitVarI2                 var[-228] = 2
+  0x06E0: AddVar                   raw=A8FD
+  0x06E4: FLdRfVar                 var[-292]
+  0x06E7: AddVar                   raw=B8FB
+  0x06EB: FLdRfVar                 var[-552]
+  0x06EE: LitVarI2                 var[-1160] = 1
+  0x06F3: SubVar                   raw=A8FB
+  0x06F7: FLdRfVar                 var[-292]
+  0x06FA: MulVar                   raw=98FB
+  0x06FE: AddVar                   raw=88FB
+  0x0702: FLdRfVar                 var[-728]
+  0x0705: AddVar                   raw=E8FA
+  0x0709: CI4Var                   
+  0x070B: FMemLdR4                 raw=0800A400
+  0x0710: Ary1StFPR4               
+  0x0711: FFreeVar                 raw=0800A8FDB8FB88FBE8FA
+  0x071C: FLdRfVar                 var[-712]
+  0x071F: LitVarI2                 var[-196] = 0
+  0x0724: HardType                 
+  0x0725: GtVarBool                
+  0x0727: BranchF                  target=+0x7CF
+  0x072A: FLdRfVar                 var[-212]
+  0x072D: LitVarI2                 var[-196] = 2
+  0x0732: AddVar                   raw=0CFF
+  0x0736: FLdRfVar                 var[-292]
+  0x0739: AddVar                   raw=A8FD
+  0x073D: FLdRfVar                 var[-552]
+  0x0740: LitVarI2                 var[-228] = 1
+  0x0745: SubVar                   raw=B8FB
+  0x0749: FLdRfVar                 var[-292]
+  0x074C: MulVar                   raw=A8FB
+  0x0750: AddVar                   raw=98FB
+  0x0754: FLdRfVar                 var[-712]
+  0x0757: AddVar                   raw=88FB
+  0x075B: CI4Var                   
+  0x075D: FMemLdR4                 raw=0800A400
+  0x0762: Ary1LdFPR4               
+  0x0763: CVarR4                   raw=78FB
+  0x0767: FStVar                   raw=C8FA
+  0x076B: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x0776: FLdRfVar                 var[-1336]
+  0x0779: LitVarR8                 var[-196] = 23DBF97E6A9C2340
+  0x0785: DivVar                   raw=0CFF
+  0x0789: CR8Var                   
+  0x078B: FLdRfVar                 var[-212]
+  0x078E: LitVarI2                 var[-228] = 2
+  0x0793: AddVar                   raw=A8FD
+  0x0797: FLdRfVar                 var[-292]
+  0x079A: AddVar                   raw=B8FB
+  0x079E: FLdRfVar                 var[-552]
+  0x07A1: LitVarI2                 var[-1160] = 1
+  0x07A6: SubVar                   raw=A8FB
+  0x07AA: FLdRfVar                 var[-292]
+  0x07AD: MulVar                   raw=98FB
+  0x07B1: AddVar                   raw=88FB
+  0x07B5: FLdRfVar                 var[-712]
+  0x07B8: AddVar                   raw=E8FA
+  0x07BC: CI4Var                   
+  0x07BE: FMemLdR4                 raw=0800A400
+  0x07C3: Ary1StFPR4               
+  0x07C4: FFreeVar                 raw=0800A8FDB8FB88FBE8FA
+  0x07CF: FLdRfVar                 var[-744]
+  0x07D2: LitVarI2                 var[-196] = 0
+  0x07D7: HardType                 
+  0x07D8: GtVarBool                
+  0x07DA: BranchF                  target=+0x882
+  0x07DD: FLdRfVar                 var[-212]
+  0x07E0: LitVarI2                 var[-196] = 2
+  0x07E5: AddVar                   raw=0CFF
+  0x07E9: FLdRfVar                 var[-292]
+  0x07EC: AddVar                   raw=A8FD
+  0x07F0: FLdRfVar                 var[-552]
+  0x07F3: LitVarI2                 var[-228] = 1
+  0x07F8: SubVar                   raw=B8FB
+  0x07FC: FLdRfVar                 var[-292]
+  0x07FF: MulVar                   raw=A8FB
+  0x0803: AddVar                   raw=98FB
+  0x0807: FLdRfVar                 var[-744]
+  0x080A: AddVar                   raw=88FB
+  0x080E: CI4Var                   
+  0x0810: FMemLdR4                 raw=0800A400
+  0x0815: Ary1LdFPR4               
+  0x0816: CVarR4                   raw=78FB
+  0x081A: FStVar                   raw=B8FA
+  0x081E: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x0829: FLdRfVar                 var[-1352]
+  0x082C: LitVarR8                 var[-196] = 23DBF97E6A9C2340
+  0x0838: DivVar                   raw=0CFF
+  0x083C: CR8Var                   
+  0x083E: FLdRfVar                 var[-212]
+  0x0841: LitVarI2                 var[-228] = 2
+  0x0846: AddVar                   raw=A8FD
+  0x084A: FLdRfVar                 var[-292]
+  0x084D: AddVar                   raw=B8FB
+  0x0851: FLdRfVar                 var[-552]
+  0x0854: LitVarI2                 var[-1160] = 1
+  0x0859: SubVar                   raw=A8FB
+  0x085D: FLdRfVar                 var[-292]
+  0x0860: MulVar                   raw=98FB
+  0x0864: AddVar                   raw=88FB
+  0x0868: FLdRfVar                 var[-744]
+  0x086B: AddVar                   raw=E8FA
+  0x086F: CI4Var                   
+  0x0871: FMemLdR4                 raw=0800A400
+  0x0876: Ary1StFPR4               
+  0x0877: FFreeVar                 raw=0800A8FDB8FB88FBE8FA
+  0x0882: FLdRfVar                 var[-840]
+  0x0885: LitVarI2                 var[-196] = 0
+  0x088A: HardType                 
+  0x088B: GtVarBool                
+  0x088D: BranchF                  target=+0x9AA
+  0x0890: FLdUI1                   raw=7AFF
+  0x0894: CI2UI1                   
+  0x0896: LitI2_Byte               raw=0F
+  0x0898: AndI4                    
+  0x0899: CVarI2                   raw=3CFF
+  0x089C: FStVar                   raw=A8FA
+  0x08A0: LitVarI2                 var[-196] = 0
+  0x08A5: FStVar                   raw=98FA
+  0x08A9: FLdRfVar                 var[-1368]
+  0x08AC: LitVarI2                 var[-196] = 8
+  0x08B1: HardType                 
+  0x08B2: GeVarBool                
+  0x08B4: BranchF                  target=+0x8D7
+  0x08B7: FLdRfVar                 var[-1384]
+  0x08BA: LitVarI2                 var[-196] = 1
+  0x08BF: AddVar                   raw=0CFF
+  0x08C3: FStVar                   raw=98FA
+  0x08C7: FLdRfVar                 var[-1368]
+  0x08CA: LitVarI2                 var[-196] = 8
+  0x08CF: SubVar                   raw=0CFF
+  0x08D3: FStVar                   raw=A8FA
+  0x08D7: FLdRfVar                 var[-1368]
+  0x08DA: LitVarI2                 var[-196] = 4
+  0x08DF: HardType                 
+  0x08E0: GeVarBool                
+  0x08E2: BranchF                  target=+0x905
+  0x08E5: FLdRfVar                 var[-1384]
+  0x08E8: LitVarI2                 var[-196] = 1
+  0x08ED: AddVar                   raw=0CFF
+  0x08F1: FStVar                   raw=98FA
+  0x08F5: FLdRfVar                 var[-1368]
+  0x08F8: LitVarI2                 var[-196] = 4
+  0x08FD: SubVar                   raw=0CFF
+  0x0901: FStVar                   raw=A8FA
+  0x0905: FLdRfVar                 var[-1368]
+  0x0908: LitVarI2                 var[-196] = 2
+  0x090D: HardType                 
+  0x090E: GeVarBool                
+  0x0910: BranchF                  target=+0x933
+  0x0913: FLdRfVar                 var[-1384]
+  0x0916: LitVarI2                 var[-196] = 1
+  0x091B: AddVar                   raw=0CFF
+  0x091F: FStVar                   raw=98FA
+  0x0923: FLdRfVar                 var[-1368]
+  0x0926: LitVarI2                 var[-196] = 2
+  0x092B: SubVar                   raw=0CFF
+  0x092F: FStVar                   raw=A8FA
+  0x0933: FLdRfVar                 var[-1368]
+  0x0936: LitVarI2                 var[-196] = 1
+  0x093B: HardType                 
+  0x093C: GeVarBool                
+  0x093E: BranchF                  target=+0x961
+  0x0941: FLdRfVar                 var[-1384]
+  0x0944: LitVarI2                 var[-196] = 1
+  0x0949: AddVar                   raw=0CFF
+  0x094D: FStVar                   raw=98FA
+  0x0951: FLdRfVar                 var[-1368]
+  0x0954: LitVarI2                 var[-196] = 1
+  0x0959: SubVar                   raw=0CFF
+  0x095D: FStVar                   raw=A8FA
+  0x0961: FLdRfVar                 var[-1384]
+  0x0964: CR8Var                   
+  0x0966: FLdRfVar                 var[-212]
+  0x0969: LitVarI2                 var[-196] = 2
+  0x096E: AddVar                   raw=0CFF
+  0x0972: FLdRfVar                 var[-292]
+  0x0975: AddVar                   raw=A8FD
+  0x0979: FLdRfVar                 var[-552]
+  0x097C: LitVarI2                 var[-228] = 1
+  0x0981: SubVar                   raw=B8FB
+  0x0985: FLdRfVar                 var[-292]
+  0x0988: MulVar                   raw=A8FB
+  0x098C: AddVar                   raw=98FB
+  0x0990: FLdRfVar                 var[-840]
+  0x0993: AddVar                   raw=88FB
+  0x0997: CI4Var                   
+  0x0999: FMemLdR4                 raw=0800A400
+  0x099E: Ary1StFPR4               
+  0x099F: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x09AA: FLdRfVar                 var[-856]
+  0x09AD: LitVarI2                 var[-196] = 0
+  0x09B2: HardType                 
+  0x09B3: GtVarBool                
+  0x09B5: BranchF                  target=+0xD1F
+  0x09B8: LitI2_Byte               raw=01
+  0x09BA: CR8I2                    
+  0x09BB: LitDate                  raw=6666666666660840
+  0x09C4: DivR8                    
+  0x09C5: CVarR8                   raw=3CFF
+  0x09C9: FStVar                   raw=88FA
+  0x09CD: LitI2_Byte               raw=01
+  0x09CF: CR8I2                    
+  0x09D0: LitDate                  raw=9A99999999990940
+  0x09D9: DivR8                    
+  0x09DA: CVarR8                   raw=3CFF
+  0x09DE: FStVar                   raw=78FA
+  0x09E2: FLdRfVar                 var[-212]
+  0x09E5: LitVarI2                 var[-196] = 2
+  0x09EA: AddVar                   raw=0CFF
+  0x09EE: FLdRfVar                 var[-292]
+  0x09F1: AddVar                   raw=A8FD
+  0x09F5: FLdRfVar                 var[-552]
+  0x09F8: LitVarI2                 var[-228] = 1
+  0x09FD: SubVar                   raw=B8FB
+  0x0A01: FLdRfVar                 var[-292]
+  0x0A04: MulVar                   raw=A8FB
+  0x0A08: AddVar                   raw=98FB
+  0x0A0C: FLdRfVar                 var[-856]
+  0x0A0F: AddVar                   raw=88FB
+  0x0A13: CI4Var                   
+  0x0A15: FMemLdR4                 raw=0800A400
+  0x0A1A: Ary1LdFPR4               
+  0x0A1B: FnAbsR4                  
+  0x0A1C: CVarR4                   raw=78FB
+  0x0A20: FLdRfVar                 var[-1400]
+  0x0A23: MulVar                   raw=E8FA
+  0x0A27: FLdRfVar                 var[-1272]
+  0x0A2A: SubVar                   raw=68FA
+  0x0A2E: FStVar                   raw=58FA
+  0x0A32: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x0A3D: FLdRfVar                 var[-212]
+  0x0A40: LitVarI2                 var[-196] = 2
+  0x0A45: AddVar                   raw=0CFF
+  0x0A49: FLdRfVar                 var[-292]
+  0x0A4C: AddVar                   raw=A8FD
+  0x0A50: FLdRfVar                 var[-552]
+  0x0A53: LitVarI2                 var[-228] = 1
+  0x0A58: SubVar                   raw=B8FB
+  0x0A5C: FLdRfVar                 var[-292]
+  0x0A5F: MulVar                   raw=A8FB
+  0x0A63: AddVar                   raw=98FB
+  0x0A67: FLdRfVar                 var[-872]
+  0x0A6A: AddVar                   raw=88FB
+  0x0A6E: CI4Var                   
+  0x0A70: FMemLdR4                 raw=0800A400
+  0x0A75: Ary1LdFPR4               
+  0x0A76: FnAbsR4                  
+  0x0A77: CVarR4                   raw=78FB
+  0x0A7B: FLdRfVar                 var[-1400]
+  0x0A7E: MulVar                   raw=E8FA
+  0x0A82: FLdRfVar                 var[-1272]
+  0x0A85: SubVar                   raw=68FA
+  0x0A89: FStVar                   raw=48FA
+  0x0A8D: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x0A98: FLdRfVar                 var[-212]
+  0x0A9B: LitVarI2                 var[-196] = 2
+  0x0AA0: AddVar                   raw=0CFF
+  0x0AA4: FLdRfVar                 var[-292]
+  0x0AA7: AddVar                   raw=A8FD
+  0x0AAB: FLdRfVar                 var[-552]
+  0x0AAE: LitVarI2                 var[-228] = 1
+  0x0AB3: SubVar                   raw=B8FB
+  0x0AB7: FLdRfVar                 var[-292]
+  0x0ABA: MulVar                   raw=A8FB
+  0x0ABE: AddVar                   raw=98FB
+  0x0AC2: FLdRfVar                 var[-888]
+  0x0AC5: AddVar                   raw=88FB
+  0x0AC9: CI4Var                   
+  0x0ACB: FMemLdR4                 raw=0800A400
+  0x0AD0: Ary1LdFPR4               
+  0x0AD1: FnAbsR4                  
+  0x0AD2: CVarR4                   raw=78FB
+  0x0AD6: FLdRfVar                 var[-1416]
+  0x0AD9: MulVar                   raw=E8FA
+  0x0ADD: FLdRfVar                 var[-1272]
+  0x0AE0: SubVar                   raw=68FA
+  0x0AE4: FStVar                   raw=38FA
+  0x0AE8: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x0AF3: FLdRfVar                 var[-212]
+  0x0AF6: LitVarI2                 var[-196] = 2
+  0x0AFB: AddVar                   raw=0CFF
+  0x0AFF: FLdRfVar                 var[-292]
+  0x0B02: AddVar                   raw=A8FD
+  0x0B06: FLdRfVar                 var[-552]
+  0x0B09: LitVarI2                 var[-228] = 1
+  0x0B0E: SubVar                   raw=B8FB
+  0x0B12: FLdRfVar                 var[-292]
+  0x0B15: MulVar                   raw=A8FB
+  0x0B19: AddVar                   raw=98FB
+  0x0B1D: FLdRfVar                 var[-904]
+  0x0B20: AddVar                   raw=88FB
+  0x0B24: CI4Var                   
+  0x0B26: FMemLdR4                 raw=0800A400
+  0x0B2B: Ary1LdFPR4               
+  0x0B2C: FnAbsR4                  
+  0x0B2D: CVarR4                   raw=78FB
+  0x0B31: FLdRfVar                 var[-1416]
+  0x0B34: MulVar                   raw=E8FA
+  0x0B38: FLdRfVar                 var[-1272]
+  0x0B3B: SubVar                   raw=68FA
+  0x0B3F: FStVar                   raw=28FA
+  0x0B43: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x0B4E: FLdRfVar                 var[-1272]
+  0x0B51: LitVarI2                 var[-196] = 0
+  0x0B56: HardType                 
+  0x0B57: GtVarBool                
+  0x0B59: BranchF                  target=+0xBD7
+  0x0B5C: FLdRfVar                 var[-1448]
+  0x0B5F: FLdRfVar                 var[-1272]
+  0x0B62: DivVar                   raw=0CFF
+  0x0B66: LitVarR8                 var[-196] = 7B14AE47E17AA43F
+  0x0B72: SubVar                   raw=A8FD
+  0x0B76: FStVar                   raw=58FA
+  0x0B7A: FLdRfVar                 var[-1464]
+  0x0B7D: FLdRfVar                 var[-1272]
+  0x0B80: DivVar                   raw=0CFF
+  0x0B84: LitVarR8                 var[-196] = 7B14AE47E17AA43F
+  0x0B90: SubVar                   raw=A8FD
+  0x0B94: FStVar                   raw=48FA
+  0x0B98: FLdRfVar                 var[-1480]
+  0x0B9B: FLdRfVar                 var[-1272]
+  0x0B9E: DivVar                   raw=0CFF
+  0x0BA2: LitVarR8                 var[-196] = B81E85EB51B8AE3F
+  0x0BAE: SubVar                   raw=A8FD
+  0x0BB2: FStVar                   raw=38FA
+  0x0BB6: FLdRfVar                 var[-1496]
+  0x0BB9: FLdRfVar                 var[-1272]
+  0x0BBC: DivVar                   raw=0CFF
+  0x0BC0: LitVarR8                 var[-196] = B81E85EB51B8AE3F
+  0x0BCC: SubVar                   raw=A8FD
+  0x0BD0: FStVar                   raw=28FA
+  0x0BD4: Branch                   target=+0xBFB
+  0x0BD7: LitVarI2                 var[-196] = 0
+  0x0BDC: FStVar                   raw=58FA
+  0x0BE0: LitVarI2                 var[-196] = 0
+  0x0BE5: FStVar                   raw=48FA
+  0x0BE9: LitVarI2                 var[-196] = 0
+  0x0BEE: FStVar                   raw=38FA
+  0x0BF2: LitVarI2                 var[-196] = 0
+  0x0BF7: FStVar                   raw=28FA
+  0x0BFB: FLdRfVar                 var[-1448]
+  0x0BFE: CR8Var                   
+  0x0C00: FLdRfVar                 var[-212]
+  0x0C03: LitVarI2                 var[-196] = 2
+  0x0C08: AddVar                   raw=0CFF
+  0x0C0C: FLdRfVar                 var[-292]
+  0x0C0F: AddVar                   raw=A8FD
+  0x0C13: FLdRfVar                 var[-552]
+  0x0C16: LitVarI2                 var[-228] = 1
+  0x0C1B: SubVar                   raw=B8FB
+  0x0C1F: FLdRfVar                 var[-292]
+  0x0C22: MulVar                   raw=A8FB
+  0x0C26: AddVar                   raw=98FB
+  0x0C2A: FLdRfVar                 var[-856]
+  0x0C2D: AddVar                   raw=88FB
+  0x0C31: CI4Var                   
+  0x0C33: FMemLdR4                 raw=0800A400
+  0x0C38: Ary1StFPR4               
+  0x0C39: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x0C44: FLdRfVar                 var[-1464]
+  0x0C47: CR8Var                   
+  0x0C49: FLdRfVar                 var[-212]
+  0x0C4C: LitVarI2                 var[-196] = 2
+  0x0C51: AddVar                   raw=0CFF
+  0x0C55: FLdRfVar                 var[-292]
+  0x0C58: AddVar                   raw=A8FD
+  0x0C5C: FLdRfVar                 var[-552]
+  0x0C5F: LitVarI2                 var[-228] = 1
+  0x0C64: SubVar                   raw=B8FB
+  0x0C68: FLdRfVar                 var[-292]
+  0x0C6B: MulVar                   raw=A8FB
+  0x0C6F: AddVar                   raw=98FB
+  0x0C73: FLdRfVar                 var[-872]
+  0x0C76: AddVar                   raw=88FB
+  0x0C7A: CI4Var                   
+  0x0C7C: FMemLdR4                 raw=0800A400
+  0x0C81: Ary1StFPR4               
+  0x0C82: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x0C8D: FLdRfVar                 var[-1480]
+  0x0C90: CR8Var                   
+  0x0C92: FLdRfVar                 var[-212]
+  0x0C95: LitVarI2                 var[-196] = 2
+  0x0C9A: AddVar                   raw=0CFF
+  0x0C9E: FLdRfVar                 var[-292]
+  0x0CA1: AddVar                   raw=A8FD
+  0x0CA5: FLdRfVar                 var[-552]
+  0x0CA8: LitVarI2                 var[-228] = 1
+  0x0CAD: SubVar                   raw=B8FB
+  0x0CB1: FLdRfVar                 var[-292]
+  0x0CB4: MulVar                   raw=A8FB
+  0x0CB8: AddVar                   raw=98FB
+  0x0CBC: FLdRfVar                 var[-888]
+  0x0CBF: AddVar                   raw=88FB
+  0x0CC3: CI4Var                   
+  0x0CC5: FMemLdR4                 raw=0800A400
+  0x0CCA: Ary1StFPR4               
+  0x0CCB: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x0CD6: FLdRfVar                 var[-1496]
+  0x0CD9: CR8Var                   
+  0x0CDB: FLdRfVar                 var[-212]
+  0x0CDE: LitVarI2                 var[-196] = 2
+  0x0CE3: AddVar                   raw=0CFF
+  0x0CE7: FLdRfVar                 var[-292]
+  0x0CEA: AddVar                   raw=A8FD
+  0x0CEE: FLdRfVar                 var[-552]
+  0x0CF1: LitVarI2                 var[-228] = 1
+  0x0CF6: SubVar                   raw=B8FB
+  0x0CFA: FLdRfVar                 var[-292]
+  0x0CFD: MulVar                   raw=A8FB
+  0x0D01: AddVar                   raw=98FB
+  0x0D05: FLdRfVar                 var[-904]
+  0x0D08: AddVar                   raw=88FB
+  0x0D0C: CI4Var                   
+  0x0D0E: FMemLdR4                 raw=0800A400
+  0x0D13: Ary1StFPR4               
+  0x0D14: FFreeVar                 raw=08000CFFA8FD98FB88FB
+  0x0D1F: FLdRfVar                 var[-552]
+  0x0D22: LitVarI2                 var[-196] = 2
+  0x0D27: HardType                 
+  0x0D28: EqVarBool                
+  0x0D2A: BranchF                  target=+0xD7F
+  0x0D2D: FLdRfVar                 var[-1272]
+  0x0D30: CR8Var                   
+  0x0D32: FLdRfVar                 var[-212]
+  0x0D35: LitVarI2                 var[-196] = 2
+  0x0D3A: AddVar                   raw=0CFF
+  0x0D3E: FLdRfVar                 var[-292]
+  0x0D41: AddVar                   raw=A8FD
+  0x0D45: FLdRfVar                 var[-552]
+  0x0D48: LitVarI2                 var[-228] = 1
+  0x0D4D: SubVar                   raw=B8FB
+  0x0D51: LitVarI2                 var[-1160] = 1
+  0x0D56: SubVar                   raw=A8FB
+  0x0D5A: FLdRfVar                 var[-292]
+  0x0D5D: MulVar                   raw=98FB
+  0x0D61: AddVar                   raw=88FB
+  0x0D65: FLdRfVar                 var[-696]
+  0x0D68: AddVar                   raw=E8FA
+  0x0D6C: CI4Var                   
+  0x0D6E: FMemLdR4                 raw=0800A400
+  0x0D73: Ary1StFPR4               
+  0x0D74: FFreeVar                 raw=08000CFFA8FD88FBE8FA
+  0x0D7F: FLdRfVar                 var[-552]
+  0x0D82: NextStepVar              raw=48FCAB03
+  0x0D88: FLdRfVar                 var[-276]
+  0x0D8B: FStVarCopy               raw=4CFF
+  0x0D8F: ExitProc                 
+; status: {'unknown': None, 'truncated': None, 'stop_offset': 3472, 'last_exit_end': 3472, 'filler_len': 0, 'filler_hex': '', 'ok': True}

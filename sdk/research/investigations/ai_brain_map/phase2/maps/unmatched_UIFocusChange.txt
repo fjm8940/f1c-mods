@@ -1,0 +1,3 @@
+# UIFocusChange: offset-like lines with no extracted row (2)
+L15: (*(void (__cdecl **)(int, int, int, _DWORD *))(*(_DWORD *)dword_8B8F24 + 4))(
+L19: this + 69);

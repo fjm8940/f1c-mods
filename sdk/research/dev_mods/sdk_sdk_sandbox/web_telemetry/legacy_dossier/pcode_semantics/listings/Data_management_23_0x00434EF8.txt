@@ -1,0 +1,135 @@
+; Data_management #23
+; RTMI 0x00434EF8  code 0x00434D30  ProcSize 456  FrameSize 204
+  0x0000: LitStr                   pool[125]="OFFTRACK"
+  0x0003: FStStrCopy               raw=68FF
+  0x0006: FLdRfVar                 var[-152]
+  0x0009: ILdRfDarg                raw=0C006CFF
+  0x000F: CI4Var                   
+  0x0011: FMemLdRf                 raw=08000400
+  0x0016: Ary1LdRf                 
+  0x0017: ImpAdCallI2              raw=48000800
+  0x001C: FStStr                   raw=64FF
+  0x001F: FFree1Str                var[-152]
+  0x0022: LitI4                    raw=01000000
+  0x0027: ILdRfDarg                raw=0C006CFF
+  0x002D: CI4Var                   
+  0x002F: FMemLdRf                 raw=08000400
+  0x0034: Ary1LdI4                 
+  0x0035: LitStr                   pool[126]="OFFTRACK=PASS"
+  0x0038: LitI4                    raw=00000000
+  0x003D: FnInStr4                 
+  0x003F: CVarI4                   raw=44FF
+  0x0043: FStVar                   raw=54FF
+  0x0047: FLdRfVar                 var[-172]
+  0x004A: LitVarI2                 var[-148] = 0
+  0x004F: HardType                 
+  0x0050: GtVarBool                
+  0x0052: BranchF                  target=+0x8A
+  0x0055: FLdRfVar                 var[-172]
+  0x0058: LitVarI2                 var[-188] = 1
+  0x005D: SubVar                   raw=34FF
+  0x0061: CI4Var                   
+  0x0063: ILdRfDarg                raw=0C006CFF
+  0x0069: CI4Var                   
+  0x006B: FMemLdRf                 raw=08000400
+  0x0070: Ary1LdI4                 
+  0x0071: ImpAdCallI2              raw=06000800
+  0x0076: FStStrNoPop              var[-152]
+  0x0079: ILdRfDarg                raw=0C0024FF
+  0x007F: CI4Var                   
+  0x0081: FMemLdRf                 raw=08000400
+  0x0086: Ary1StStrCopy            
+  0x0087: FFree1Str                var[-152]
+  0x008A: LitI4                    raw=01000000
+  0x008F: ILdRfDarg                raw=0C006CFF
+  0x0095: CI4Var                   
+  0x0097: FMemLdRf                 raw=08000400
+  0x009C: Ary1LdI4                 
+  0x009D: LitStr                   pool[127]="OFFTRACK=FAIL"
+  0x00A0: LitI4                    raw=00000000
+  0x00A5: FnInStr4                 
+  0x00A7: CVarI4                   raw=44FF
+  0x00AB: FStVar                   raw=54FF
+  0x00AF: FLdRfVar                 var[-172]
+  0x00B2: LitVarI2                 var[-148] = 0
+  0x00B7: HardType                 
+  0x00B8: GtVarBool                
+  0x00BA: BranchF                  target=+0xF2
+  0x00BD: FLdRfVar                 var[-172]
+  0x00C0: LitVarI2                 var[-188] = 1
+  0x00C5: SubVar                   raw=34FF
+  0x00C9: CI4Var                   
+  0x00CB: ILdRfDarg                raw=0C006CFF
+  0x00D1: CI4Var                   
+  0x00D3: FMemLdRf                 raw=08000400
+  0x00D8: Ary1LdI4                 
+  0x00D9: ImpAdCallI2              raw=06000800
+  0x00DE: FStStrNoPop              var[-152]
+  0x00E1: ILdRfDarg                raw=0C0024FF
+  0x00E7: CI4Var                   
+  0x00E9: FMemLdRf                 raw=08000400
+  0x00EE: Ary1StStrCopy            
+  0x00EF: FFree1Str                var[-152]
+  0x00F2: LitVarI2                 var[-252] = 5
+  0x00F7: ILdRfDarg                raw=0C0044FF
+  0x00FD: LitVarI2                 var[-148] = 1
+  0x0102: SubVar                   raw=34FF
+  0x0106: FStVar                   raw=14FF
+  0x010A: FLdRfVar                 var[-236]
+  0x010D: FLdRfVar                 var[-268]
+  0x0110: ImpAdCallFPR4            pool[128](call Data_management#16) stack+12
+  0x0115: FLdRfVar                 var[-268]
+  0x0118: FStVar                   raw=E4FE
+  0x011C: FFreeVar                 raw=040014FF04FF
+  0x0123: LitVarI2                 var[-204] = 9999
+  0x0128: ILdRf                    var[12]
+  0x012B: FLdRfVar                 var[-236]
+  0x012E: ImpAdCallFPR4            pool[128](call Data_management#16) stack+12
+  0x0133: FLdRfVar                 var[-236]
+  0x0136: FStVar                   raw=D4FE
+  0x013A: FFree1Var                var[-204]
+  0x013D: FLdRfVar                 var[-284]
+  0x0140: FLdRfVar                 var[-300]
+  0x0143: AddVar                   raw=34FF
+  0x0147: FStVar                   raw=C4FE
+  0x014B: FLdRfVar                 var[-316]
+  0x014E: LitVarI2                 var[-148] = 0
+  0x0153: HardType                 
+  0x0154: EqVarBool                
+  0x0156: BranchF                  target=+0x189
+  0x0159: LitVar_TRUE              var[-148]
+  0x015C: FStVar                   raw=B4FE
+  0x0160: ILdRfDarg                raw=0C006CFF
+  0x0166: CI4Var                   
+  0x0168: FMemLdRf                 raw=08000400
+  0x016D: Ary1LdI4                 
+  0x016E: LitStr                   pool[129]=" OFFTRACK=PASS"
+  0x0171: ConcatStr                
+  0x0172: FStStrNoPop              var[-152]
+  0x0175: ILdRfDarg                raw=0C0044FF
+  0x017B: CI4Var                   
+  0x017D: FMemLdRf                 raw=08000400
+  0x0182: Ary1StStrCopy            
+  0x0183: FFree1Str                var[-152]
+  0x0186: Branch                   target=+0x1B7
+  0x0189: ILdRfDarg                raw=0C006CFF
+  0x018F: CI4Var                   
+  0x0191: FMemLdRf                 raw=08000400
+  0x0196: Ary1LdI4                 
+  0x0197: LitStr                   pool[130]=" OFFTRACK=FAILED"
+  0x019A: ConcatStr                
+  0x019B: FStStrNoPop              var[-152]
+  0x019E: ILdRfDarg                raw=0C0044FF
+  0x01A4: CI4Var                   
+  0x01A6: FMemLdRf                 raw=08000400
+  0x01AB: Ary1StStrCopy            
+  0x01AC: FFree1Str                var[-152]
+  0x01AF: LitVar_FALSE             var[-148]
+  0x01B3: FStVar                   raw=B4FE
+  0x01B7: LitI2_Byte               raw=00
+  0x01B9: PopTmpLdAd2              raw=B2FE
+  0x01BC: ImpAdLdRf                raw=6500
+  0x01BF: NewIfNullPr              raw=6600
+  0x01C2: VCallHresult             raw=08078300
+  0x01C7: ExitProc                 
+; status: {'unknown': None, 'truncated': None, 'stop_offset': 456, 'last_exit_end': 456, 'filler_len': 0, 'filler_hex': '', 'ok': True}

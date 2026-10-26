@@ -1,0 +1,34 @@
+{
+ "keys": {
+  "throttle": [
+   73,
+   "i"
+  ],
+  "brake": [
+   75,
+   "k"
+  ],
+  "steer_left": [
+   74,
+   "j"
+  ],
+  "steer_right": [
+   76,
+   "l"
+  ],
+  "gear_up": [
+   38,
+   "Up"
+  ],
+  "gear_down": [
+   40,
+   "Down"
+  ],
+  "panic": [
+   35,
+   "End"
+  ]
+ },
+ "invert_steer": false,
+ "help_mode": "simple"
+}

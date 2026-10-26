@@ -1,0 +1,1229 @@
+{
+ "generated_by": "tools/evf_emitter_index.py",
+ "helper": "DriverDataTableLookupAndTimeConversion",
+ "stats": {
+  "files_scanned": 7132,
+  "call_sites": 135,
+  "literal_sites": 114,
+  "distinct_literal_eids": 99,
+  "dynamic_sites": 21,
+  "dynamic_files": 18
+ },
+ "literal": {
+  "1": [
+   {
+    "file": "functions/AIRetirementVehicleFailureEvent_004199e0.c",
+    "line": 29,
+    "func_addr": "0x004199e0",
+    "arg": "1"
+   }
+  ],
+  "2": [
+   {
+    "file": "functions/AIRetirementVehicleFailureEvent_004199e0.c",
+    "line": 47,
+    "func_addr": "0x004199e0",
+    "arg": "2"
+   }
+  ],
+  "13": [
+   {
+    "file": "functions/AICornerSpeedComparison_00419500.c",
+    "line": 22,
+    "func_addr": "0x00419500",
+    "arg": "13"
+   }
+  ],
+  "14": [
+   {
+    "file": "functions/AICornerSpeedComparison_00419500.c",
+    "line": 26,
+    "func_addr": "0x00419500",
+    "arg": "14"
+   }
+  ],
+  "19": [
+   {
+    "file": "functions/AICornerSpeedComparison_00419500.c",
+    "line": 31,
+    "func_addr": "0x00419500",
+    "arg": "19"
+   }
+  ],
+  "20": [
+   {
+    "file": "functions/AICornerSpeedComparison_00419500.c",
+    "line": 35,
+    "func_addr": "0x00419500",
+    "arg": "20"
+   }
+  ],
+  "41": [
+   {
+    "file": "functions/AIRetirementVehicleFailureEvent_004199e0.c",
+    "line": 20,
+    "func_addr": "0x004199e0",
+    "arg": "41"
+   }
+  ],
+  "55": [
+   {
+    "file": "functions/AISessionEventAudio_0041a8c0.c",
+    "line": 10,
+    "func_addr": "0x0041a8c0",
+    "arg": "55"
+   }
+  ],
+  "74": [
+   {
+    "file": "functions/DisplayMessage0x4a_0041b200.c",
+    "line": 9,
+    "func_addr": "0x0041b200",
+    "arg": "74"
+   }
+  ],
+  "77": [
+   {
+    "file": "functions/sub_41B190_0041b190.c",
+    "line": 7,
+    "func_addr": "0x0041b190",
+    "arg": "77"
+   }
+  ],
+  "94": [
+   {
+    "file": "functions/PitStateSlotActivation_0041ab30.c",
+    "line": 28,
+    "func_addr": "0x0041ab30",
+    "arg": "94"
+   }
+  ],
+  "95": [
+   {
+    "file": "functions/AISessionPhaseCounter_0041aa10.c",
+    "line": 28,
+    "func_addr": "0x0041aa10",
+    "arg": "95"
+   }
+  ],
+  "96": [
+   {
+    "file": "functions/PitStateSlotActivation_0041ab30.c",
+    "line": 31,
+    "func_addr": "0x0041ab30",
+    "arg": "96"
+   }
+  ],
+  "97": [
+   {
+    "file": "functions/AISessionPhaseCounter_0041aa10.c",
+    "line": 31,
+    "func_addr": "0x0041aa10",
+    "arg": "97"
+   }
+  ],
+  "98": [
+   {
+    "file": "functions/PitStateSlotActivation_0041ab30.c",
+    "line": 34,
+    "func_addr": "0x0041ab30",
+    "arg": "98"
+   }
+  ],
+  "99": [
+   {
+    "file": "functions/AISessionPhaseCounter_0041aa10.c",
+    "line": 34,
+    "func_addr": "0x0041aa10",
+    "arg": "99"
+   }
+  ],
+  "100": [
+   {
+    "file": "functions/PitStateSlotActivation_0041ab30.c",
+    "line": 37,
+    "func_addr": "0x0041ab30",
+    "arg": "100"
+   }
+  ],
+  "101": [
+   {
+    "file": "functions/AISessionPhaseCounter_0041aa10.c",
+    "line": 37,
+    "func_addr": "0x0041aa10",
+    "arg": "101"
+   }
+  ],
+  "104": [
+   {
+    "file": "functions/PitStateSlotActivation_0041ab30.c",
+    "line": 45,
+    "func_addr": "0x0041ab30",
+    "arg": "104"
+   }
+  ],
+  "105": [
+   {
+    "file": "functions/AISessionPhaseCounter_0041aa10.c",
+    "line": 45,
+    "func_addr": "0x0041aa10",
+    "arg": "105"
+   }
+  ],
+  "106": [
+   {
+    "file": "functions/sub_41AFD0_0041afd0.c",
+    "line": 13,
+    "func_addr": "0x0041afd0",
+    "arg": "106"
+   }
+  ],
+  "107": [
+   {
+    "file": "functions/sub_41AFD0_0041afd0.c",
+    "line": 16,
+    "func_addr": "0x0041afd0",
+    "arg": "107"
+   }
+  ],
+  "108": [
+   {
+    "file": "functions/sub_41AFD0_0041afd0.c",
+    "line": 25,
+    "func_addr": "0x0041afd0",
+    "arg": "108"
+   }
+  ],
+  "109": [
+   {
+    "file": "functions/sub_41AFD0_0041afd0.c",
+    "line": 19,
+    "func_addr": "0x0041afd0",
+    "arg": "109"
+   }
+  ],
+  "110": [
+   {
+    "file": "functions/sub_41AFD0_0041afd0.c",
+    "line": 22,
+    "func_addr": "0x0041afd0",
+    "arg": "110"
+   }
+  ],
+  "111": [
+   {
+    "file": "functions/sub_41AFD0_0041afd0.c",
+    "line": 28,
+    "func_addr": "0x0041afd0",
+    "arg": "111"
+   }
+  ],
+  "114": [
+   {
+    "file": "functions/sub_41AD80_0041ad80.c",
+    "line": 35,
+    "func_addr": "0x0041ad80",
+    "arg": "114"
+   },
+   {
+    "file": "functions/sub_41AD80_0041ad80.c",
+    "line": 45,
+    "func_addr": "0x0041ad80",
+    "arg": "114"
+   }
+  ],
+  "115": [
+   {
+    "file": "functions/sub_41AD80_0041ad80.c",
+    "line": 37,
+    "func_addr": "0x0041ad80",
+    "arg": "115"
+   },
+   {
+    "file": "functions/sub_41AD80_0041ad80.c",
+    "line": 43,
+    "func_addr": "0x0041ad80",
+    "arg": "115"
+   }
+  ],
+  "117": [
+   {
+    "file": "functions/sub_41B250_0041b250.c",
+    "line": 23,
+    "func_addr": "0x0041b250",
+    "arg": "117"
+   }
+  ],
+  "118": [
+   {
+    "file": "functions/sub_41B250_0041b250.c",
+    "line": 19,
+    "func_addr": "0x0041b250",
+    "arg": "118"
+   }
+  ],
+  "119": [
+   {
+    "file": "functions/sub_41B250_0041b250.c",
+    "line": 15,
+    "func_addr": "0x0041b250",
+    "arg": "119"
+   }
+  ],
+  "120": [
+   {
+    "file": "functions/AIDriverStateTransition_00419120.c",
+    "line": 37,
+    "func_addr": "0x00419120",
+    "arg": "120"
+   }
+  ],
+  "123": [
+   {
+    "file": "functions/PitSelectionStateMachine_0041b3c0.c",
+    "line": 159,
+    "func_addr": "0x0041b3c0",
+    "arg": "123"
+   }
+  ],
+  "124": [
+   {
+    "file": "functions/PitSelectionStateMachine_0041b3c0.c",
+    "line": 163,
+    "func_addr": "0x0041b3c0",
+    "arg": "124"
+   }
+  ],
+  "125": [
+   {
+    "file": "functions/PitSelectionStateMachine_0041b3c0.c",
+    "line": 168,
+    "func_addr": "0x0041b3c0",
+    "arg": "125"
+   }
+  ],
+  "126": [
+   {
+    "file": "functions/PitSelectionStateMachine_0041b3c0.c",
+    "line": 72,
+    "func_addr": "0x0041b3c0",
+    "arg": "126"
+   }
+  ],
+  "131": [
+   {
+    "file": "functions/PitSelectionStateMachine_0041b3c0.c",
+    "line": 151,
+    "func_addr": "0x0041b3c0",
+    "arg": "131"
+   }
+  ],
+  "133": [
+   {
+    "file": "functions/PitSelectionStateMachine_0041b3c0.c",
+    "line": 101,
+    "func_addr": "0x0041b3c0",
+    "arg": "133"
+   }
+  ],
+  "134": [
+   {
+    "file": "functions/AISessionModeTransition_004193a0.c",
+    "line": 23,
+    "func_addr": "0x004193a0",
+    "arg": "134"
+   },
+   {
+    "file": "functions/PitSelectionStateMachine_0041b3c0.c",
+    "line": 117,
+    "func_addr": "0x0041b3c0",
+    "arg": "134"
+   }
+  ],
+  "135": [
+   {
+    "file": "functions/PitSelectionStateMachine_0041b3c0.c",
+    "line": 83,
+    "func_addr": "0x0041b3c0",
+    "arg": "135"
+   }
+  ],
+  "136": [
+   {
+    "file": "functions/AISessionModeTransition_004193a0.c",
+    "line": 29,
+    "func_addr": "0x004193a0",
+    "arg": "136"
+   },
+   {
+    "file": "functions/PitSelectionStateMachine_0041b3c0.c",
+    "line": 130,
+    "func_addr": "0x0041b3c0",
+    "arg": "136"
+   }
+  ],
+  "137": [
+   {
+    "file": "functions/PitSelectionStateMachine_0041b3c0.c",
+    "line": 55,
+    "func_addr": "0x0041b3c0",
+    "arg": "137"
+   }
+  ],
+  "138": [
+   {
+    "file": "functions/AISessionModeTransition_004193a0.c",
+    "line": 35,
+    "func_addr": "0x004193a0",
+    "arg": "138"
+   },
+   {
+    "file": "functions/PitSelectionStateMachine_0041b3c0.c",
+    "line": 142,
+    "func_addr": "0x0041b3c0",
+    "arg": "138"
+   }
+  ],
+  "159": [
+   {
+    "file": "functions/PerDriverRaceCommentary_00419c50.c",
+    "line": 149,
+    "func_addr": "0x00419c50",
+    "arg": "159"
+   }
+  ],
+  "221": [
+   {
+    "file": "functions/sub_41AFD0_0041afd0.c",
+    "line": 42,
+    "func_addr": "0x0041afd0",
+    "arg": "221"
+   }
+  ],
+  "222": [
+   {
+    "file": "functions/sub_41AFD0_0041afd0.c",
+    "line": 45,
+    "func_addr": "0x0041afd0",
+    "arg": "222"
+   }
+  ],
+  "223": [
+   {
+    "file": "functions/sub_41AFD0_0041afd0.c",
+    "line": 48,
+    "func_addr": "0x0041afd0",
+    "arg": "223"
+   }
+  ],
+  "225": [
+   {
+    "file": "functions/sub_41AD80_0041ad80.c",
+    "line": 53,
+    "func_addr": "0x0041ad80",
+    "arg": "225"
+   },
+   {
+    "file": "functions/sub_41AD80_0041ad80.c",
+    "line": 72,
+    "func_addr": "0x0041ad80",
+    "arg": "225"
+   }
+  ],
+  "226": [
+   {
+    "file": "functions/sub_41AD80_0041ad80.c",
+    "line": 88,
+    "func_addr": "0x0041ad80",
+    "arg": "226"
+   }
+  ],
+  "236": [
+   {
+    "file": "functions/sub_41B250_0041b250.c",
+    "line": 45,
+    "func_addr": "0x0041b250",
+    "arg": "236"
+   }
+  ],
+  "237": [
+   {
+    "file": "functions/sub_41B250_0041b250.c",
+    "line": 47,
+    "func_addr": "0x0041b250",
+    "arg": "237"
+   }
+  ],
+  "259": [
+   {
+    "file": "functions/AIDriverStateTransition_00419120.c",
+    "line": 39,
+    "func_addr": "0x00419120",
+    "arg": "259"
+   }
+  ],
+  "260": [
+   {
+    "file": "functions/PerDriverRaceCommentary_00419c50.c",
+    "line": 164,
+    "func_addr": "0x00419c50",
+    "arg": "260"
+   }
+  ],
+  "261": [
+   {
+    "file": "functions/PerDriverRaceCommentary_00419c50.c",
+    "line": 159,
+    "func_addr": "0x00419c50",
+    "arg": "261"
+   }
+  ],
+  "264": [
+   {
+    "file": "functions/AIOutOfTrackEvent_0041a0c0.c",
+    "line": 11,
+    "func_addr": "0x0041a0c0",
+    "arg": "264"
+   }
+  ],
+  "272": [
+   {
+    "file": "functions/AIRetirementVehicleFailureEvent_004199e0.c",
+    "line": 75,
+    "func_addr": "0x004199e0",
+    "arg": "272"
+   }
+  ],
+  "273": [
+   {
+    "file": "functions/AIRetirementVehicleFailureEvent_004199e0.c",
+    "line": 54,
+    "func_addr": "0x004199e0",
+    "arg": "273"
+   }
+  ],
+  "275": [
+   {
+    "file": "functions/DisplayMessage0x113_0041a6b0.c",
+    "line": 10,
+    "func_addr": "0x0041a6b0",
+    "arg": "275"
+   }
+  ],
+  "284": [
+   {
+    "file": "functions/DisplayMessage0x11c_0041a4a0.c",
+    "line": 9,
+    "func_addr": "0x0041a4a0",
+    "arg": "284"
+   }
+  ],
+  "337": [
+   {
+    "file": "functions/DisplayMessage0x151_0041c3e0.c",
+    "line": 9,
+    "func_addr": "0x0041c3e0",
+    "arg": "337"
+   }
+  ],
+  "397": [
+   {
+    "file": "functions/PositionChangeDetector_00420490.c",
+    "line": 111,
+    "func_addr": "0x00420490",
+    "arg": "397"
+   },
+   {
+    "file": "functions/PositionChangeDetector_00420490.c",
+    "line": 189,
+    "func_addr": "0x00420490",
+    "arg": "397"
+   },
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 425,
+    "func_addr": "0x0041daf0",
+    "arg": "397"
+   }
+  ],
+  "423": [
+   {
+    "file": "functions/ConstructorStandingsParser_00420820.c",
+    "line": 163,
+    "func_addr": "0x00420820",
+    "arg": "423"
+   }
+  ],
+  "424": [
+   {
+    "file": "functions/ConstructorStandingsParser_00420820.c",
+    "line": 245,
+    "func_addr": "0x00420820",
+    "arg": "424"
+   }
+  ],
+  "427": [
+   {
+    "file": "functions/ScoringClassificationDisplay_0041e320.c",
+    "line": 129,
+    "func_addr": "0x0041e320",
+    "arg": "427"
+   }
+  ],
+  "454": [
+   {
+    "file": "functions/RaceCommentary_0041d630.c",
+    "line": 226,
+    "func_addr": "0x0041d630",
+    "arg": "454"
+   }
+  ],
+  "455": [
+   {
+    "file": "functions/RaceCommentary_0041d630.c",
+    "line": 191,
+    "func_addr": "0x0041d630",
+    "arg": "455"
+   }
+  ],
+  "456": [
+   {
+    "file": "functions/RaceCommentary_0041d630.c",
+    "line": 201,
+    "func_addr": "0x0041d630",
+    "arg": "456"
+   }
+  ],
+  "474": [
+   {
+    "file": "functions/RaceCommentary_0041d630.c",
+    "line": 158,
+    "func_addr": "0x0041d630",
+    "arg": "474"
+   }
+  ],
+  "476": [
+   {
+    "file": "functions/RaceCommentary_0041d630.c",
+    "line": 213,
+    "func_addr": "0x0041d630",
+    "arg": "476"
+   }
+  ],
+  "478": [
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 99,
+    "func_addr": "0x0041daf0",
+    "arg": "478"
+   }
+  ],
+  "479": [
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 453,
+    "func_addr": "0x0041daf0",
+    "arg": "479"
+   }
+  ],
+  "480": [
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 439,
+    "func_addr": "0x0041daf0",
+    "arg": "480"
+   }
+  ],
+  "481": [
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 415,
+    "func_addr": "0x0041daf0",
+    "arg": "481"
+   }
+  ],
+  "483": [
+   {
+    "file": "functions/ScoringClassificationDisplay_0041e320.c",
+    "line": 98,
+    "func_addr": "0x0041e320",
+    "arg": "483"
+   },
+   {
+    "file": "functions/ScoringClassificationDisplay_0041e320.c",
+    "line": 157,
+    "func_addr": "0x0041e320",
+    "arg": "483"
+   }
+  ],
+  "484": [
+   {
+    "file": "functions/ScoringClassificationDisplay_0041e320.c",
+    "line": 245,
+    "func_addr": "0x0041e320",
+    "arg": "484"
+   }
+  ],
+  "485": [
+   {
+    "file": "functions/ScoringClassificationDisplay_0041e320.c",
+    "line": 193,
+    "func_addr": "0x0041e320",
+    "arg": "485"
+   }
+  ],
+  "486": [
+   {
+    "file": "functions/ScoringClassificationDisplay_0041e320.c",
+    "line": 204,
+    "func_addr": "0x0041e320",
+    "arg": "486"
+   },
+   {
+    "file": "functions/ScoringClassificationDisplay_0041e320.c",
+    "line": 227,
+    "func_addr": "0x0041e320",
+    "arg": "486"
+   }
+  ],
+  "487": [
+   {
+    "file": "functions/ScoringClassificationDisplay_0041e320.c",
+    "line": 215,
+    "func_addr": "0x0041e320",
+    "arg": "487"
+   }
+  ],
+  "488": [
+   {
+    "file": "functions/ConstructorStandingsParser_00420820.c",
+    "line": 255,
+    "func_addr": "0x00420820",
+    "arg": "488"
+   }
+  ],
+  "490": [
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 182,
+    "func_addr": "0x0041daf0",
+    "arg": "490"
+   },
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 375,
+    "func_addr": "0x0041daf0",
+    "arg": "490"
+   }
+  ],
+  "491": [
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 364,
+    "func_addr": "0x0041daf0",
+    "arg": "491"
+   }
+  ],
+  "492": [
+   {
+    "file": "functions/GdbSeasonSelector_00420cf0.c",
+    "line": 376,
+    "func_addr": "0x00420cf0",
+    "arg": "492"
+   }
+  ],
+  "494": [
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 170,
+    "func_addr": "0x0041daf0",
+    "arg": "494"
+   },
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 345,
+    "func_addr": "0x0041daf0",
+    "arg": "494"
+   }
+  ],
+  "495": [
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 334,
+    "func_addr": "0x0041daf0",
+    "arg": "495"
+   }
+  ],
+  "496": [
+   {
+    "file": "functions/GdbSeasonSelector_00420cf0.c",
+    "line": 367,
+    "func_addr": "0x00420cf0",
+    "arg": "496"
+   }
+  ],
+  "498": [
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 158,
+    "func_addr": "0x0041daf0",
+    "arg": "498"
+   },
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 315,
+    "func_addr": "0x0041daf0",
+    "arg": "498"
+   }
+  ],
+  "499": [
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 304,
+    "func_addr": "0x0041daf0",
+    "arg": "499"
+   }
+  ],
+  "500": [
+   {
+    "file": "functions/GdbSeasonSelector_00420cf0.c",
+    "line": 358,
+    "func_addr": "0x00420cf0",
+    "arg": "500"
+   }
+  ],
+  "502": [
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 146,
+    "func_addr": "0x0041daf0",
+    "arg": "502"
+   },
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 284,
+    "func_addr": "0x0041daf0",
+    "arg": "502"
+   }
+  ],
+  "503": [
+   {
+    "file": "functions/SeasonDisplayIDResolver_0041daf0.c",
+    "line": 273,
+    "func_addr": "0x0041daf0",
+    "arg": "503"
+   }
+  ],
+  "504": [
+   {
+    "file": "functions/GdbSeasonSelector_00420cf0.c",
+    "line": 349,
+    "func_addr": "0x00420cf0",
+    "arg": "504"
+   }
+  ],
+  "506": [
+   {
+    "file": "functions/PitRaceStatusMessageDispatcher_0041be60.c",
+    "line": 17,
+    "func_addr": "0x0041be60",
+    "arg": "506"
+   }
+  ],
+  "507": [
+   {
+    "file": "functions/PitRaceStatusMessageDispatcher_0041be60.c",
+    "line": 21,
+    "func_addr": "0x0041be60",
+    "arg": "507"
+   }
+  ],
+  "509": [
+   {
+    "file": "functions/PitRaceStatusMessageDispatcher_0041be60.c",
+    "line": 27,
+    "func_addr": "0x0041be60",
+    "arg": "509"
+   }
+  ],
+  "510": [
+   {
+    "file": "functions/PitRaceStatusMessageDispatcher_0041be60.c",
+    "line": 34,
+    "func_addr": "0x0041be60",
+    "arg": "510"
+   }
+  ],
+  "511": [
+   {
+    "file": "functions/PitRaceStatusMessageDispatcher_0041be60.c",
+    "line": 39,
+    "func_addr": "0x0041be60",
+    "arg": "511"
+   }
+  ],
+  "512": [
+   {
+    "file": "functions/PitRaceStatusMessageDispatcher_0041be60.c",
+    "line": 29,
+    "func_addr": "0x0041be60",
+    "arg": "512"
+   },
+   {
+    "file": "functions/PitRaceStatusMessageDispatcher_0041be60.c",
+    "line": 52,
+    "func_addr": "0x0041be60",
+    "arg": "512"
+   }
+  ],
+  "513": [
+   {
+    "file": "functions/PitRaceStatusMessageDispatcher_0041be60.c",
+    "line": 44,
+    "func_addr": "0x0041be60",
+    "arg": "513"
+   }
+  ],
+  "514": [
+   {
+    "file": "functions/DisplayMessage0x202_0041c090.c",
+    "line": 9,
+    "func_addr": "0x0041c090",
+    "arg": "514"
+   }
+  ]
+ },
+ "dynamic": [
+  {
+   "file": "functions/AIDriverStateTransition_00419120.c",
+   "line": 59,
+   "func_addr": "0x00419120",
+   "arg": "v11",
+   "candidate_eids": [
+    120,
+    198
+   ],
+   "candidate_source": "literal assignments to v11 in functions/AIDriverStateTransition_00419120.c"
+  },
+  {
+   "file": "functions/AIFormationLap_0041a3a0.c",
+   "line": 24,
+   "func_addr": "0x0041a3a0",
+   "arg": "v3",
+   "candidate_eids": [
+    6,
+    180,
+    181,
+    182
+   ],
+   "candidate_source": "literal assignments to v3 in functions/AIFormationLap_0041a3a0.c"
+  },
+  {
+   "file": "functions/AIOvertakeDefendStateChange_00419690.c",
+   "line": 61,
+   "func_addr": "0x00419690",
+   "arg": "v5",
+   "candidate_eids": [
+    4,
+    5
+   ],
+   "candidate_source": "literal assignments to v5 in functions/AIOvertakeDefendStateChange_00419690.c"
+  },
+  {
+   "file": "functions/AIPitStrategyState_0041a200.c",
+   "line": 15,
+   "func_addr": "0x0041a200",
+   "arg": "v3",
+   "candidate_eids": [
+    52
+   ],
+   "candidate_source": "literal assignments to v3 in functions/AIPitStrategyState_0041a200.c"
+  },
+  {
+   "file": "functions/AIPositionChangeEvent_004198b0.c",
+   "line": 36,
+   "func_addr": "0x004198b0",
+   "arg": "v6",
+   "candidate_eids": [
+    17,
+    18
+   ],
+   "candidate_source": "literal assignments to v6 in functions/AIPositionChangeEvent_004198b0.c"
+  },
+  {
+   "file": "functions/AIPositionChangeEvent_004198b0.c",
+   "line": 48,
+   "func_addr": "0x004198b0",
+   "arg": "v8",
+   "candidate_eids": [
+    7
+   ],
+   "candidate_source": "literal assignments to v8 in functions/AIPositionChangeEvent_004198b0.c"
+  },
+  {
+   "file": "functions/AISessionPhaseChange_0041a2b0.c",
+   "line": 36,
+   "func_addr": "0x0041a2b0",
+   "arg": "v5",
+   "candidate_eids": [
+    21,
+    22,
+    178,
+    179
+   ],
+   "candidate_source": "literal assignments to v5 in functions/AISessionPhaseChange_0041a2b0.c"
+  },
+  {
+   "file": "functions/AIVehicleDamageEvent_0041a170.c",
+   "line": 19,
+   "func_addr": "0x0041a170",
+   "arg": "v1",
+   "candidate_eids": [
+    52,
+    196
+   ],
+   "candidate_source": "literal assignments to v1 in functions/AIVehicleDamageEvent_0041a170.c"
+  },
+  {
+   "file": "functions/PerDriverRaceCommentary_00419c50.c",
+   "line": 113,
+   "func_addr": "0x00419c50",
+   "arg": "v2",
+   "candidate_eids": [
+    157,
+    158,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177
+   ],
+   "candidate_source": "literal assignments to v2 in functions/PerDriverRaceCommentary_00419c50.c"
+  },
+  {
+   "file": "functions/PitExit_0041c0f0.c",
+   "line": 127,
+   "func_addr": "0x0041c0f0",
+   "arg": "v6",
+   "candidate_eids": [
+    397,
+    516,
+    517,
+    518,
+    519,
+    523,
+    526,
+    527,
+    530,
+    531,
+    532,
+    533
+   ],
+   "candidate_source": "literal assignments to v6 in functions/PitExit_0041c0f0.c"
+  },
+  {
+   "file": "functions/PositionBasedMessageDisplay_0041c4c0.c",
+   "line": 26,
+   "func_addr": "0x0041c4c0",
+   "arg": "v2",
+   "candidate_eids": [],
+   "candidate_source": "literal assignments to v2 in functions/PositionBasedMessageDisplay_0041c4c0.c"
+  },
+  {
+   "file": "functions/RaceCommentary_0041d630.c",
+   "line": 107,
+   "func_addr": "0x0041d630",
+   "arg": "v2",
+   "candidate_eids": [
+    447,
+    448,
+    449,
+    450,
+    451,
+    452,
+    453,
+    457,
+    458,
+    462,
+    463,
+    464,
+    466,
+    467,
+    471,
+    472,
+    473,
+    477
+   ],
+   "candidate_source": "literal assignments to v2 in functions/RaceCommentary_0041d630.c"
+  },
+  {
+   "file": "functions/RaceCommentary_0041d630.c",
+   "line": 148,
+   "func_addr": "0x0041d630",
+   "arg": "v11",
+   "candidate_eids": [
+    397,
+    465
+   ],
+   "candidate_source": "literal assignments to v11 in functions/RaceCommentary_0041d630.c"
+  },
+  {
+   "file": "functions/RaceCommentary_0041d630.c",
+   "line": 173,
+   "func_addr": "0x0041d630",
+   "arg": "v14",
+   "candidate_eids": [
+    459,
+    460
+   ],
+   "candidate_source": "literal assignments to v14 in functions/RaceCommentary_0041d630.c"
+  },
+  {
+   "file": "functions/TeamNameDisplayIDLookup_0041b980.c",
+   "line": 189,
+   "func_addr": "0x0041b980",
+   "arg": "v2",
+   "candidate_eids": [
+    293,
+    294,
+    295,
+    296,
+    297,
+    298,
+    299,
+    300,
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310,
+    311,
+    312,
+    313,
+    314,
+    315,
+    316,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    324,
+    325,
+    326,
+    327,
+    328,
+    329,
+    330,
+    331,
+    332,
+    333,
+    334,
+    335,
+    336
+   ],
+   "candidate_source": "literal assignments to v2 in functions/TeamNameDisplayIDLookup_0041b980.c"
+  },
+  {
+   "file": "functions/TimeBasedMessageChain_0041a500.c",
+   "line": 25,
+   "func_addr": "0x0041a500",
+   "arg": "v3",
+   "candidate_eids": [
+    34,
+    35,
+    276,
+    277,
+    278,
+    279
+   ],
+   "candidate_source": "literal assignments to v3 in functions/TimeBasedMessageChain_0041a500.c"
+  },
+  {
+   "file": "functions/sub_41A720_0041a720.c",
+   "line": 35,
+   "func_addr": "0x0041a720",
+   "arg": "v2",
+   "candidate_eids": [
+    151,
+    153,
+    154,
+    155,
+    252,
+    253,
+    254,
+    256
+   ],
+   "candidate_source": "literal assignments to v2 in functions/sub_41A720_0041a720.c"
+  },
+  {
+   "file": "functions/sub_41A940_0041a940.c",
+   "line": 15,
+   "func_addr": "0x0041a940",
+   "arg": "v2",
+   "candidate_eids": [
+    149,
+    243
+   ],
+   "candidate_source": "literal assignments to v2 in functions/sub_41A940_0041a940.c"
+  },
+  {
+   "file": "functions/sub_41AC50_0041ac50.c",
+   "line": 58,
+   "func_addr": "0x0041ac50",
+   "arg": "v2",
+   "candidate_eids": [
+    208,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    220
+   ],
+   "candidate_source": "literal assignments to v2 in functions/sub_41AC50_0041ac50.c"
+  },
+  {
+   "file": "functions/sub_41B250_0041b250.c",
+   "line": 53,
+   "func_addr": "0x0041b250",
+   "arg": "v2",
+   "candidate_eids": [
+    235,
+    238
+   ],
+   "candidate_source": "literal assignments to v2 in functions/sub_41B250_0041b250.c"
+  },
+  {
+   "file": "functions/sub_41C440_0041c440.c",
+   "line": 16,
+   "func_addr": "0x0041c440",
+   "arg": "v1",
+   "candidate_eids": [],
+   "candidate_source": "literal assignments to v1 in functions/sub_41C440_0041c440.c"
+  }
+ ],
+ "note": "An eid absent from `literal` is NOT proof of no emitter \u2014 it may be emitted by one of the `dynamic` sites, where the eid arrives in a variable. Resolve those before claiming no_emitter."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "web_telemetry",
+  "name": "Telemetry",
+  "version": "1.2.5",
+  "author": "Matias",
+  "description": "Live race telemetry in your web browser: timing tower, track map, weather forecast, lap analysis and driver comparison. Read-only by default. The TV Director (off until [Director] Enabled=1 in web_telemetry.ini) can send camera commands to this PC's game through the Lightloader broker; the car switch stays blocked until the owner approves it.",
+  "requires": [
+    "Lightloader 2.2.7 / protected host Hub 2",
+    "Built-in broker ABI 15"
+  ],
+  "lightloader": ">=2.3.16",
+  "sidecars": [
+    {
+      "file": "workbench_ui.js",
+      "sha256": "29ECD1A638AAD455E72A4726BF2B948D8E56419E73953C6D993B9033763938AD"
+    },
+    {
+      "file": "telemetry_viewer.js",
+      "sha256": "BB6335C40504A3E07747DF854F550205BE730B15C4BA391C67A9B79B3CEAEC7B"
+    }
+  ]
+}

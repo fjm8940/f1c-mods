@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/pits.json",
+  "title": "/pits response",
+  "type": "object",
+  "required": [
+    "gen",
+    "pits"
+  ],
+  "properties": {
+    "gen": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "pits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "n",
+          "li",
+          "lo",
+          "d",
+          "boxdur",
+          "reqdelay",
+          "ti",
+          "to",
+          "fi",
+          "fo",
+          "rfw",
+          "rrw",
+          "dmg",
+          "done"
+        ],
+        "properties": {
+          "t": {
+            "type": "number",
+            "description": "REPLAY/TAPE 2.2 (review only, optional): sim time of the event in seconds, 3 decimals. The live document has no such field."
+          },
+          "id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "n": {
+            "type": "string"
+          },
+          "li": {
+            "type": "integer"
+          },
+          "lo": {
+            "type": "integer"
+          },
+          "d": {
+            "type": "number",
+            "minimum": 0
+          },
+          "boxdur": {
+            "type": "number",
+            "minimum": 0
+          },
+          "reqdelay": {
+            "type": "number"
+          },
+          "ti": {
+            "type": "integer"
+          },
+          "to": {
+            "type": "integer"
+          },
+          "fi": {
+            "type": "number"
+          },
+          "fo": {
+            "type": "number"
+          },
+          "rfw": {
+            "type": "integer"
+          },
+          "rrw": {
+            "type": "integer"
+          },
+          "dmg": {
+            "type": "integer"
+          },
+          "done": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "archive": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{8,47}$",
+      "description": "1.0.1 (api_version 7): id of the archived session this document was read from (?session=); absent on live documents"
+    }
+  },
+  "additionalProperties": false
+}

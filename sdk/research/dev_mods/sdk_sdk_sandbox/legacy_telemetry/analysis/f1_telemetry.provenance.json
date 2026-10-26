@@ -1,0 +1,12 @@
+{
+  "schema": "f1c.external_idb_provenance.v1",
+  "created": "2026-10-09+0300",
+  "project": "%USERPROFILE%\\Desktop\\F1\\f1c_ida_decompiled\\mods\\sdk_sandbox\\legacy_telemetry",
+  "target_exe": "%USERPROFILE%\\Documents\\F1 Challenge V10\\Telemetry\\f1_telemetry.exe",
+  "target_sha256": "0AA34C51C30C3113BF6B6C2F1B59A8B3346AD1322F6AB519E60757BAF8573BEB",
+  "target_size": 331776,
+  "ida_batch_executable": "C:\\Program Files\\IDA Professional 9.1\\idat.exe",
+  "idb": "%USERPROFILE%\\Desktop\\F1\\f1c_ida_decompiled\\mods\\sdk_sandbox\\legacy_telemetry\\analysis\\f1_telemetry.i64",
+  "idb_sha256": "3E66F6DC306FFC6B0086D784FA5F81169A4D7D15C333544957D153A0387E7985",
+  "note": "External target analysis. This database is NOT the game IDB; never mix its functions, addresses or findings with game evidence."
+}

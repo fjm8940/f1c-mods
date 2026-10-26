@@ -1,0 +1,517 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 49,
+ "clip": "PWS_PIT03",
+ "says": "Watch for pit lane entrance",
+ "dump_rows_for_clip": [
+  {
+   "eid": 50,
+   "hex": "0x0032",
+   "priority": 20,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 48,
+   "sdt_index": 49,
+   "clip_name": "PWS_PIT03.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 367,
+   "hex": "0x016F",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 48,
+   "sdt_index": 49,
+   "clip_name": "PWS_PIT03.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  48
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 50,
+   "hex": "0x0032",
+   "priority": 20,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 48,
+   "sdt_index": 49,
+   "clip_name": "PWS_PIT03.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 367,
+   "hex": "0x016F",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 48,
+   "sdt_index": 49,
+   "clip_name": "PWS_PIT03.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  50
+ ],
+ "literal_hits": {
+  "50": {
+   "emitters": [
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "file": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "hits": [
+      {
+       "line": 74,
+       "text": "case 50:"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "LapCompletion",
+       "callers": [
+        {
+         "caller": "LapSplitTimeEvent",
+         "callers": [
+          {
+           "caller": "TimerFrameRateThrottle",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "sub_4B3400",
+         "callers": [
+          {
+           "caller": "BufferReset",
+           "callers": [
+            {
+             "caller": "GamePostMainLoop",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B9B80",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 789,
+       "text": "v5 = a4 != 0 ? 90 : 50;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 23,
+       "text": "v8 = a4 != 0 ? 29 : 50;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 87,
+    "first": [
+     "AIDriverStructInit",
+     "AudioResampler",
+     "AudioSampleCrossFadeInterpolation",
+     "BrakeTemperatureFadeModel",
+     "CameraViewSystem",
+     "CameraViewportFrustumInitialization",
+     "CollisionStateInit32",
+     "ConditionalDelegation_6460",
+     "ConfigIniParser",
+     "DDSHeaderParsing",
+     "DrawDebugTextOverlay",
+     "DynamicsJointCount",
+     "F_3DTransformWithSIMD",
+     "FilePathEntryArrayDestructor",
+     "FourCCDecoder",
+     "HistoryBufferShift",
+     "IDToValueMapper",
+     "ImageTextureDecompressor",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "MainGameTickUpdate",
+     "MapCollisionShapeToBoneIndex",
+     "MediaBufferPlaybackManager",
+     "MemoryAllocator",
+     "MenuItemLayoutCalculator",
+     "MultiLayerTextRendering",
+     "MultiLayerTextStringRenderer",
+     "NetworkSocketInitializationAndListen",
+     "PerIndexStructFieldSetter",
+     "PhysicsDefaultsInitializer",
+     "PhysicsStateStructureInitializer",
+     "PitCrewMeshLoader",
+     "PressureForceFieldMapping",
+     "QRDecomposition",
+     "RaceEventMessageDispatcher",
+     "RandomVariationScaler",
+     "SceneFileFilterBuilder",
+     "SizeOffsetTableByMode",
+     "SoundEventDispatcher",
+     "StateMachineDispatch_f9ab",
+     "StructInitWithFloatConstants"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 49 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "RaceEventMessageDispatcher",
+    "file": "RaceEventMessageDispatcher_00411bf0.c",
+    "hits": [
+     {
+      "line": 64,
+      "text": "case 0x31:"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:98: | 50 | PWS_PIT03 | Player approaching pit lane entry: lapNumber matches scheduled pit lap AND track position  | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:99: | 367 | PWS_PIT03 (alt eid) | Same as eid 50 with context variation | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:240: | `PWS_PIT03` | 49 | 50,367 | Watch for pit lane entrance |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:65: | PWS_PIT03 | 49 | 50 | Near pit lane entrance |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:425: | `PWS_PIT03` | 49 | 50, 367 | — | Watch for pit lane entrance | user triage: Z, when player coordinates are close to the pit lane entrance AND player is about to enter for schedul",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:337: | `PWS_PIT03` | 50, 367 | Watch for pit lane entrance | eid 367 has no call site |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:196: PWS_PENALTY08, PWS_PIT01, PWS_PIT03, PWS_PIT06, PWS_PIT08, PWS_PIT13,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:132: | 49 | `PWS_PIT03` | Z | - | Z, when player coordinates are close to the pit lane entrance AND player is about to enter for scheduled pit stop or stop/go |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:266: | `PWS_PIT03` | 49 | 50,367 | Watch for pit lane entrance |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:61: | `PWS_PIT03` | 49 | 50, 367 | user triage: Z, when player coordinates are close to the pit lane entrance AND player is about to enter for scheduled pit stop or stop/go |"
+ ],
+ "mod_sources": [
+  "development\\mods\\pitstop_modding\\live\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.1\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.2\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.3\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.1-rc.4\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.2-rc.1\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.2-rc.2\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.3-rc.1\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.4-rc.1\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.5-rc.1\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.5-rc.2\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.6-rc.3\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.6-rc.4\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.7-rc.1\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.8-rc.1\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.0.9-rc.1\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.0-rc.1\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.1-rc.1\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.2-rc.1\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.3-rc.1\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\release_candidates\\pitstop_failures-v1.1.4-rc.1\\source\\pit_live_voice.h:16: /* PWS_PIT03 near XPITIN, with the native latch as a fallback. */",
+  "development\\mods\\pitstop_modding\\workspace_organization_audit\\OLD_MOD_WHEEL_REVIEW_BEFORE_20260923\\development__mods__pitstop_modding__live__pit_live_voice.h:7: pit_status<=2 ? 50 : -1; /* PWS_PIT03 at XPITIN */",
+  "development\\mods\\pitstop_modding\\workspace_organization_audit\\XPITIN_NATIVE_CALL_FIX_BEFORE_20260923\\development__mods__pitstop_modding__live__pit_live_voice.h:7: pit_status<=2 ? 50 : -1; /* PWS_PIT03 at XPITIN */",
+  "development\\mods\\pitstop_modding\\workspace_organization_audit\\XPITIN_PROXIMITY_R23_BEFORE_20260923\\development\\mods\\pitstop_modding\\live\\pit_live_voice.h:15: pit_status<=2 ? 50 : -1; /* PWS_PIT03 at XPITIN */"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [],
+  "note": "user triage: Z, when player coordinates are close to the pit lane entrance AND player is about to enter for scheduled pit stop or stop/go",
+  "triage": {
+   "sdt_index": 49,
+   "text": "Z, when player coordinates are close to the pit lane entrance AND player is about to enter for scheduled pit stop or stop/go",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

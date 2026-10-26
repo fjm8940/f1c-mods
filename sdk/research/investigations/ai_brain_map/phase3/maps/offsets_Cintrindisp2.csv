@@ -1,0 +1,3 @@
+func,line,dec,hex,access,width,base,form,expr
+Cintrindisp2,5,,,CALL,,,call,sub_58DAD7
+Cintrindisp2,6,,,CALL,,,call,sub_59070A

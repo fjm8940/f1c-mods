@@ -1,0 +1,7 @@
+func,line,dec,hex,access,width,base,form,expr
+RandomVariationScaler,8,864,0x360,R,_DWORD,a1,direct,if ( *(_DWORD *)(a1 + 864) == 7 )
+RandomVariationScaler,10,17604,0x44C4,R,int,a3,direct,v7 = *(int *)(a3 + 17604);
+RandomVariationScaler,14,17600,0x44C0,R,_DWORD,a3,direct,a1 = *(_DWORD *)(a3 + 17600);
+RandomVariationScaler,17,,,CALL,,,call,RandLCGRandomNumberGenerator
+RandomVariationScaler,27,,,CALL,,,call,sub_5881F0
+RandomVariationScaler,28,,,CALL,,,call,RandLCGRandomNumberGenerator

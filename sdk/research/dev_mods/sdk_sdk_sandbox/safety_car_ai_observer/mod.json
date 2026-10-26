@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "id": "safety_car_ai_observer",
+  "name": "Safety Car AI Observer v0.10 Trial",
+  "sdk_version": "1.0.0",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "dll": "build/safety_car_ai_observer.dll",
+  "unload_event": "F1C_SAFETY_CAR_AI_OBSERVER_UNLOAD",
+  "production": false
+}
+

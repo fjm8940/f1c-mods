@@ -1,0 +1,5 @@
+func,line,dec,hex,access,width,base,form,expr
+AnimationStateSetter,5,832,0x340,W,_BYTE,this,direct,*(_BYTE *)(this + 832) = a2;
+AnimationStateSetter,7,833,0x341,W,_BYTE,this,direct,*(_BYTE *)(this + 833) = a3;
+AnimationStateSetter,8,836,0x344,W,_DWORD,this,direct,*(_DWORD *)(this + 836) = a4;
+AnimationStateSetter,9,848,0x350,W,_DWORD,this,direct,*(_DWORD *)(this + 848) = a5;

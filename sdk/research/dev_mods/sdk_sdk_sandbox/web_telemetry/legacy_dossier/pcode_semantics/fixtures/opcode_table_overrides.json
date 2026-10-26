@@ -1,0 +1,5 @@
+{
+  "schema": "f1c.legacy_pcode_opcode_overrides.v1",
+  "note": "Empirical corrections to fixtures/opcode_table_v1.json. The table was validated against all 195 f1_telemetry.exe p-code streams (0 unknown opcodes, exact buffer consumption, 0-3 filler bytes, exit terminator); no per-opcode corrections were needed. Add entries as {opcode_hex: {size|listed_size, reason, evidence}} only with stream-level evidence.",
+  "overrides": {}
+}

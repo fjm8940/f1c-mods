@@ -1,0 +1,5 @@
+# SceneRenderUpdate: offset-like lines with no extracted row (4)
+L7: LargeConfigFunctionWithPhysicsConstants(this + 3);
+L8: DelegationWrapperToFUN0040ed10(dword_5EA560, (int)(this + 3));
+L10: sub_4BB810(this + 4109);
+L24: CollisionWrapperWithLock(this + 3);

@@ -1,0 +1,7 @@
+func,line,dec,hex,access,width,base,form,expr
+sub_4BC060,18,,,CALL,,,call,ProgressBarEventEncode
+sub_4BC060,18,4,0x4,R,_DWORD,this,direct,"result = ProgressBarEventEncode((_DWORD *)v3, 4, 26, 1, *(_DWORD *)(this + 4), v5, 0);"
+sub_4BC060,19,8,0x8,W,_BYTE,v3,direct,*(_BYTE *)(v3 + 8) = *(_BYTE *)(this + 52);
+sub_4BC060,19,52,0x34,R,_BYTE,this,direct,*(_BYTE *)(v3 + 8) = *(_BYTE *)(this + 52);
+sub_4BC060,23,,,CALL,,,call,ProgressBarEventEncode
+sub_4BC060,23,4,0x4,R,_DWORD,this,direct,"return ProgressBarEventEncode((_DWORD *)v3, 4, 27, 0, *(_DWORD *)(this + 4), v5, 0);"

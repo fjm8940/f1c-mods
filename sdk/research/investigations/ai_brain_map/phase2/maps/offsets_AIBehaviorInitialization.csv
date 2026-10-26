@@ -1,0 +1,35 @@
+func,line,dec,hex,access,width,base,form,expr
+AIBehaviorInitialization,29,,,CALL,,,call,ArithmeticComparison_a140
+AIBehaviorInitialization,30,852,0x354,W,float,this,direct,*(float *)(this + 852) = dbl_8AFEA0;
+AIBehaviorInitialization,31,856,0x358,W,_DWORD,this,direct,*(_DWORD *)(this + 856) = a2;
+AIBehaviorInitialization,36,,,CALL,,,call,sub_4BE760
+AIBehaviorInitialization,36,864,0x360,R,_DWORD,this,direct,"sub_4BE760(this, *(_DWORD *)(this + 864), (int)v5, v24);"
+AIBehaviorInitialization,50,,,CALL,,,call,AnimationStateSetter
+AIBehaviorInitialization,57,,,CALL,,,call,AnimationStateSetter
+AIBehaviorInitialization,57,,,CALL,,,call,SLODWORD
+AIBehaviorInitialization,61,,,CALL,,,call,memset
+AIBehaviorInitialization,65,416,0x1A0,W,_DWORD,this,indexed,*(_DWORD *)(this + 4 * v7++ + 416) = 0;
+AIBehaviorInitialization,76,13000,0x32C8,R,_DWORD,v9,direct,v10 = *(_DWORD *)(v9 + 13000);
+AIBehaviorInitialization,81,16444,0x403C,R,_DWORD,v9,direct,v11 = *(_DWORD *)(v9 + 16444);
+AIBehaviorInitialization,82,860,0x35C,R,_DWORD,this,direct,if ( v11 < *(_DWORD *)(this + 860)
+AIBehaviorInitialization,83,,,CALL,,,call,StateFlagsLookup
+AIBehaviorInitialization,86,16484,0x4064,R,_DWORD,v9,direct,v12 = *(_DWORD *)(v9 + 16484);
+AIBehaviorInitialization,89,,,CALL,,,call,RandomVariationScaler
+AIBehaviorInitialization,89,844,0x34C,R,float,this,direct,"*(float *)(this + 4 * v8) = RandomVariationScaler(this, v7, v9, *(float *)(this + 844));"
+AIBehaviorInitialization,90,16452,0x4044,R,float,v9,direct,v13 = *(float *)(v9 + 16452);
+AIBehaviorInitialization,91,16532,0x4094,R,_DWORD,v9,direct,if ( *(_DWORD *)(v9 + 16532) <= 1u )
+AIBehaviorInitialization,93,16444,0x403C,R,_DWORD,v9,direct,++*(_DWORD *)(v9 + 16444);
+AIBehaviorInitialization,98,852,0x354,R,float,this,direct,v18 = v14 + *(float *)(this + 852);
+AIBehaviorInitialization,101,16536,0x4098,W,float,v9,direct,*(float *)(v9 + 16536) = v18;
+AIBehaviorInitialization,102,16540,0x409C,R,float,v9,direct,if ( *(float *)(v9 + 16540) <= 0.0 || *(float *)(v9 + 16540) > (double)*(float *)(this + 4 * v8) )
+AIBehaviorInitialization,102,16540,0x409C,R,float,v9,direct,if ( *(float *)(v9 + 16540) <= 0.0 || *(float *)(v9 + 16540) > (double)*(float *)(this + 4 * v8) )
+AIBehaviorInitialization,103,16540,0x409C,W,float,v9,direct,*(float *)(v9 + 16540) = *(float *)(this + 4 * v8);
+AIBehaviorInitialization,104,16568,0x40B8,W,float,v9,direct,*(float *)(v9 + 16568) = *(float *)(this + 852) - flt_8ACF90 + v27[v8];
+AIBehaviorInitialization,104,852,0x354,R,float,this,direct,*(float *)(v9 + 16568) = *(float *)(this + 852) - flt_8ACF90 + v27[v8];
+AIBehaviorInitialization,105,,,CALL,,,call,AIDriverSorting
+AIBehaviorInitialization,106,16444,0x403C,R,_DWORD,v9,direct,v7 = *(_DWORD *)(v9 + 16444);
+AIBehaviorInitialization,107,860,0x35C,R,_DWORD,this,direct,if ( v7 >= *(_DWORD *)(this + 860) || a3 )
+AIBehaviorInitialization,110,16484,0x4064,R,_DWORD,v9,direct,if ( *(_DWORD *)(v9 + 16484) != 3 )
+AIBehaviorInitialization,111,16484,0x4064,W,_DWORD,v9,direct,*(_DWORD *)(v9 + 16484) = 1;
+AIBehaviorInitialization,123,852,0x354,W,float,this,direct,*(float *)(this + 852) = v23 + *(float *)(this + 852);
+AIBehaviorInitialization,123,852,0x354,R,float,this,direct,*(float *)(this + 852) = v23 + *(float *)(this + 852);

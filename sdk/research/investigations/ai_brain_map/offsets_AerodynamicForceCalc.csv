@@ -1,0 +1,14 @@
+func,line,dec,hex,access,width,base,form,expr
+AerodynamicForceCalc,21,14960,0x3A70,R,float,this,array,v6 = (v4 * this[3740] - (v14 * 0.0 - 9.8100004) * this[3397]) * this[3839];
+AerodynamicForceCalc,21,13588,0x3514,R,float,this,array,v6 = (v4 * this[3740] - (v14 * 0.0 - 9.8100004) * this[3397]) * this[3839];
+AerodynamicForceCalc,21,15356,0x3BFC,R,float,this,array,v6 = (v4 * this[3740] - (v14 * 0.0 - 9.8100004) * this[3397]) * this[3839];
+AerodynamicForceCalc,23,,,CALL,,,call,sub_5895A2
+AerodynamicForceCalc,34,15360,0x3C00,R,float,this,array,v9 = this[v7 + 3840];
+AerodynamicForceCalc,35,15364,0x3C04,R,float,this,array,v8 = v9 + (this[v7 + 3841] - v9) * (v18 - (double)v17);
+AerodynamicForceCalc,39,15360,0x3C00,R,float,this,array,v8 = this[3840];
+AerodynamicForceCalc,41,13592,0x3518,R,float,this,array,v10 = v8 * this[3398];
+AerodynamicForceCalc,42,15676,0x3D3C,R,float,this,array,if ( v10 > this[3919] )
+AerodynamicForceCalc,43,15676,0x3D3C,R,float,this,array,v10 = this[3919];
+AerodynamicForceCalc,44,15684,0x3D44,R,float,this,array,v15 = this[3921] * this[3398] * v14 + v10;
+AerodynamicForceCalc,44,13592,0x3518,R,float,this,array,v15 = this[3921] * this[3398] * v14 + v10;
+AerodynamicForceCalc,50,,,CALL,,,call,sqrt

@@ -1,0 +1,5 @@
+ESC Pause Menu 1.1.2
+
+Requires Lightloader 2.0 hub. Install with Lightloader Manager, or copy the DLL
+and INI into plugins\lightloader while the game is closed. Keep an existing INI.
+Menu without pause in multiplayer needs Lightloader 2.3.3 or newer.

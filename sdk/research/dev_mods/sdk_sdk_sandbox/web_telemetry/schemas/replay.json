@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/replay.json",
+  "title": "/replay window (REPLAY 2.2, recorded sessions only, 5 Hz per car)",
+  "type": "object",
+  "required": [
+    "schema",
+    "session",
+    "t0",
+    "t1",
+    "cols",
+    "cars"
+  ],
+  "properties": {
+    "schema": {
+      "const": "f1c.replay/1"
+    },
+    "session": {
+      "type": "string",
+      "pattern": "^v2_[A-Za-z0-9_-]+$"
+    },
+    "t0": {
+      "type": "number"
+    },
+    "t1": {
+      "type": "number"
+    },
+    "cols": {
+      "const": [
+        "t",
+        "x",
+        "z",
+        "spd",
+        "pos",
+        "lap",
+        "pit",
+        "gear",
+        "thr",
+        "brk",
+        "dist",
+        "fin"
+      ]
+    },
+    "cars": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "slot",
+          "rows"
+        ],
+        "properties": {
+          "slot": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 103
+          },
+          "rows": {
+            "type": "array",
+            "maxItems": 160,
+            "items": {
+              "type": "array",
+              "minItems": 12,
+              "maxItems": 12,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                }
+              ],
+              "items": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

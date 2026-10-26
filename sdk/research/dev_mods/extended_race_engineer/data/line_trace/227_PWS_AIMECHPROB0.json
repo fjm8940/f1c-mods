@@ -1,0 +1,469 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 227,
+ "clip": "PWS_AIMECHPROB0",
+ "says": "",
+ "dump_rows_for_clip": [
+  {
+   "eid": 214,
+   "hex": "0x00D6",
+   "priority": 40,
+   "cooldown": 15.0,
+   "blocked": false,
+   "score": 217,
+   "sdt_index": 227,
+   "clip_name": "PWS_AIMECHPROB0",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 465,
+   "hex": "0x01D1",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 217,
+   "sdt_index": 227,
+   "clip_name": "PWS_AIMECHPROB0",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  217
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 214,
+   "hex": "0x00D6",
+   "priority": 40,
+   "cooldown": 15.0,
+   "blocked": false,
+   "score": 217,
+   "sdt_index": 227,
+   "clip_name": "PWS_AIMECHPROB0",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 465,
+   "hex": "0x01D1",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 217,
+   "sdt_index": 227,
+   "clip_name": "PWS_AIMECHPROB0",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  214
+ ],
+ "literal_hits": {
+  "214": {
+   "emitters": [
+    {
+     "function": "sub_41AC50",
+     "file": "sub_41AC50_0041ac50.c",
+     "hits": [
+      {
+       "line": 31,
+       "text": "v2 = 214;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "EngineStressSimulation",
+       "callers": [
+        {
+         "caller": "VehiclePhysicsIntegrationStep",
+         "callers": [
+          {
+           "caller": "VehiclePhysicsModeDispatcher",
+           "callers": [
+            {
+             "caller": "MainGameTickUpdate",
+             "callers": []
+            },
+            {
+             "caller": "SceneObjectLoaderStateMachine",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "caller": "FuelConsumptionAndWear",
+       "callers": [
+        {
+         "caller": "MainGameTickUpdate",
+         "callers": [
+          {
+           "caller": "GamePostMainLoop",
+           "callers": [
+            {
+             "caller": "GameMainEntry",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "StateTriggerCheck",
+           "callers": [
+            {
+             "caller": "LoadingPhase1",
+             "callers": []
+            },
+            {
+             "caller": "LoadingPhase2",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B9890",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 391,
+       "text": "v5 = a4 != 0 ? 214 : 406;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 3,
+    "first": [
+     "ConfigDirectoryPathRegistration",
+     "ConfigIniParser",
+     "sub_412E50"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 227 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "sub_412E50",
+    "file": "sub_412E50_00412e50.c",
+    "hits": [
+     {
+      "line": 39,
+      "text": "v5 = a4 != 0 ? 227 : 251;"
+     },
+     {
+      "line": 135,
+      "text": "v5 = a4 != 0 ? 227 : 253;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:204: {\"tier\": \"DERIVED\", \"tags\": [\"commentary\", \"mechanical_failures\", \"bug\"], \"title\": \"mechanical_failures.py commentary is single-shot and swallows its own failure\", \"what\": \"cfg.stu",
+  "f1c_ida_decompiled\\findings.jsonl:1101: {\"id\": \"ai-gear-voice-eids-201-206-lost-20261012\", \"tier\": \"CONFIRMED\", \"date\": \"2026-10-12\", \"tags\": [\"commentary\", \"gearbox\", \"eids\", \"ai\"], \"title\": \"AI third-person gear lines:"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-002.md:134: Note `PWS_AIMECHPROB1` and `PWS_AIMECHPROB0` are **truncated names covering",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-008.md:98: All truncate to `PWS_AIMECHPROB0`/`PWS_AIMECHPROB1` in the SDT (see",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:219: | `PWS_AIMECHPROB0` | 230 | 212,213,214,215,216,217,447,448,463,464,465,466,467,471 | 0x0041ac50? 0x0041d630? |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\HANDOFF_2026-07-28c.md:43: stuck-in-gear block (`PWS_AIMECHPROB0x`/`1x`). Also lost: 2 of the 9 `DONE`",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:89: | PWS_AIMECHPROB0 | 230 | 201,202,212-217,447-448,463-467,471 | AI gear loss (12+ eid variants: lost 1st, lost 2nd, stuck in 1st, stuck in 2nd...) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:308: | `PWS_AIMECHPROB0` | 214 | 201, 447 | — | — | EVF-008 audit: NO_KNOWN_WRITER. sub_41AC50 (the real AI gear-fault emitter, not RaceCommentary as originally assumed) has no dispatch",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:309: | `PWS_AIMECHPROB0` | 215 | 202, 448 | — | — | EVF-008 audit: NO_KNOWN_WRITER, eid 202, same as sdt214. docs/SPEC_EVF-008_B_gearloss.md |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:316: | `PWS_AIMECHPROB0` | 225 | 212, 463 | — | — | EVF-008 audit: LIVE_UNPROVEN_PREDICATE, same veh+0x3D68 timer-never-expires problem as sdt224. docs/SPEC_EVF-008_B_gearloss.md |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:317: | `PWS_AIMECHPROB0` | 226 | 213, 464 | — | — | EVF-008 audit: LIVE_UNPROVEN_PREDICATE, same as sdt225. docs/SPEC_EVF-008_B_gearloss.md |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:318: | `PWS_AIMECHPROB0` | 227 | 214, 465 | — | — | EVF-008 audit: LIVE_UNPROVEN_PREDICATE, same as sdt225. docs/SPEC_EVF-008_B_gearloss.md |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:319: | `PWS_AIMECHPROB0` | 228 | 215, 466 | — | — | EVF-008 audit: LIVE_UNPROVEN_PREDICATE, same as sdt225. docs/SPEC_EVF-008_B_gearloss.md |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:320: | `PWS_AIMECHPROB0` | 229 | 216, 467 | — | — | EVF-008 audit: LIVE_UNPROVEN_PREDICATE, same as sdt225. docs/SPEC_EVF-008_B_gearloss.md |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:321: | `PWS_AIMECHPROB0` | 230 | 217, 471 | — | — | EVF-008 audit: LIVE_UNPROVEN_PREDICATE, same as sdt225. docs/SPEC_EVF-008_B_gearloss.md |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:182: | `PWS_AIMECHPROB0` | 201, 447 |  | eid 447 live, emitter candidate RaceCommentary_0041d630.c:107 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:183: | `PWS_AIMECHPROB0` | 202, 448 |  | eid 448 live, emitter candidate RaceCommentary_0041d630.c:107 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:184: | `PWS_AIMECHPROB0` | 212, 463 |  | eid 463 live, emitter candidate RaceCommentary_0041d630.c:107 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:185: | `PWS_AIMECHPROB0` | 213, 464 |  | eid 464 live, emitter candidate RaceCommentary_0041d630.c:107 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:186: | `PWS_AIMECHPROB0` | 214, 465 |  | eid 465 live, emitter candidate RaceCommentary_0041d630.c:148 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:187: | `PWS_AIMECHPROB0` | 215, 466 |  | eid 466 live, emitter candidate RaceCommentary_0041d630.c:107 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:188: | `PWS_AIMECHPROB0` | 216, 467 |  | eid 467 live, emitter candidate RaceCommentary_0041d630.c:107 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:189: | `PWS_AIMECHPROB0` | 217, 471 |  | eid 471 live, emitter candidate RaceCommentary_0041d630.c:107 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:110: `PWS_2001_80`, `PWS_AIMECHPROB0`, `PWS_AIMECHPROB1`, `PWS_AIPENALTY01`,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002F_t1_verify_and_wire.md:92: **Caveat 3 (truncated names):** `PWS_AIMECHPROB1` covers 6 eids (203-208). `PWS_AIMECHPROB0` covers 6 more (212-217). Both are truncated names — `progress.json` merges distinct gea",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-008_B_gearloss.md:55: These 7 eids do not appear in `sub_41AC50`'s dispatch table. They are absent from both `emitter_index.json` `literal` and `dynamic` sections. A grep of all 7,138 functions for lite",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:193: | 230 | `PWS_AIMECHPROB0` | X PLAY | - | X PLAY, second *(inherited from SDT 226)* |"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [],
+  "note": "EVF-008 audit: LIVE_UNPROVEN_PREDICATE, same as sdt225. docs/SPEC_EVF-008_B_gearloss.md",
+  "triage": null,
+  "evf_status": "WIP"
+ }
+}

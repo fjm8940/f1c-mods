@@ -1,0 +1,31 @@
+func,line,dec,hex,access,width,base,form,expr
+sub_4BE760,20,844,0x34C,W,_DWORD,this,direct,*(_DWORD *)(this + 844) = 1142292480;
+sub_4BE760,30,16540,0x409C,R,float,v7,direct,if ( *(float *)(v7 + 16540) > 1.0 && *(float *)(v7 + 16540) < (double)v15 && *(_DWORD *)(v7 + 13000) == 1 )
+sub_4BE760,30,16540,0x409C,R,float,v7,direct,if ( *(float *)(v7 + 16540) > 1.0 && *(float *)(v7 + 16540) < (double)v15 && *(_DWORD *)(v7 + 13000) == 1 )
+sub_4BE760,30,13000,0x32C8,R,_DWORD,v7,direct,if ( *(float *)(v7 + 16540) > 1.0 && *(float *)(v7 + 16540) < (double)v15 && *(_DWORD *)(v7 + 13000) == 1 )
+sub_4BE760,32,16540,0x409C,R,float,v7,direct,v15 = *(float *)(v7 + 16540);
+sub_4BE760,33,864,0x360,R,_DWORD,this,direct,if ( *(_DWORD *)(this + 864) == 7 )
+sub_4BE760,34,17604,0x44C4,R,float,v7,direct,v17 = *(float *)(v7 + 17604);
+sub_4BE760,36,17600,0x44C0,R,float,v7,direct,v17 = *(float *)(v7 + 17600);
+sub_4BE760,47,16540,0x409C,R,float,v9,direct,if ( *(float *)(v9 + 16540) > 0.0
+sub_4BE760,48,16540,0x409C,R,float,v9,direct,&& *(float *)(v9 + 16540) > (double)v16
+sub_4BE760,49,16540,0x409C,R,float,v9,direct,&& v15 * 1.15 > *(float *)(v9 + 16540)
+sub_4BE760,50,13000,0x32C8,R,_DWORD,v9,direct,&& *(_DWORD *)(v9 + 13000) == 1 )
+sub_4BE760,52,16540,0x409C,R,float,v9,direct,v16 = *(float *)(v9 + 16540);
+sub_4BE760,53,864,0x360,R,_DWORD,this,direct,if ( *(_DWORD *)(this + 864) == 7 )
+sub_4BE760,54,17604,0x44C4,R,float,v9,direct,v4 = *(float *)(v9 + 17604);
+sub_4BE760,56,17600,0x44C0,R,float,v9,direct,v4 = *(float *)(v9 + 17600);
+sub_4BE760,64,,,CALL,,,call,SeasonRacesSectionFinder
+sub_4BE760,66,,,CALL,,,call,StringKeyedLinkedListSearch
+sub_4BE760,66,,,CALL,,,call,StringKeyedLinkedListSearch
+sub_4BE760,69,,,CALL,,,call,DataEntryAccessor
+sub_4BE760,70,844,0x34C,W,float,this,direct,*(float *)(this + 844) = sub_58850F(v13);
+sub_4BE760,70,,,CALL,,,call,sub_58850F
+sub_4BE760,73,840,0x348,W,float,this,direct,*(float *)(this + 840) = a4;
+sub_4BE760,74,844,0x34C,R,float,this,direct,v14 = 0.15000001 * *(float *)(this + 844);
+sub_4BE760,75,834,0x342,W,_BYTE,this,direct,*(_BYTE *)(this + 834) = 1;
+sub_4BE760,76,844,0x34C,W,float,this,direct,*(float *)(this + 844) = v14 * (1.0 - a4) + *(float *)(this + 844);
+sub_4BE760,76,844,0x34C,R,float,this,direct,*(float *)(this + 844) = v14 * (1.0 - a4) + *(float *)(this + 844);
+sub_4BE760,83,834,0x342,W,_BYTE,this,direct,*(_BYTE *)(this + 834) = 1;
+sub_4BE760,86,844,0x34C,W,float,this,direct,*(float *)(this + 844) = v11;
+sub_4BE760,89,844,0x34C,W,float,this,direct,*(float *)(this + 844) = v19;

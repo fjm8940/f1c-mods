@@ -1,0 +1,941 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 10,
+ "clip": "PWS_QUAL28",
+ "says": "Very few drivers on track",
+ "dump_rows_for_clip": [
+  {
+   "eid": 12,
+   "hex": "0x000C",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 10,
+   "sdt_index": 10,
+   "clip_name": "PWS_QUAL28.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 303,
+   "hex": "0x012F",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 10,
+   "sdt_index": 10,
+   "clip_name": "PWS_QUAL28.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  10
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 12,
+   "hex": "0x000C",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 10,
+   "sdt_index": 10,
+   "clip_name": "PWS_QUAL28.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 303,
+   "hex": "0x012F",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 10,
+   "sdt_index": 10,
+   "clip_name": "PWS_QUAL28.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  12
+ ],
+ "literal_hits": {
+  "12": {
+   "emitters": [
+    {
+     "function": "AIRetirementVehicleFailureEvent",
+     "file": "AIRetirementVehicleFailureEvent_004199e0.c",
+     "hits": [
+      {
+       "line": 67,
+       "text": "case 12:"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "LapCompletion",
+       "callers": [
+        {
+         "caller": "LapSplitTimeEvent",
+         "callers": [
+          {
+           "caller": "TimerFrameRateThrottle",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "sub_4B3400",
+         "callers": [
+          {
+           "caller": "BufferReset",
+           "callers": [
+            {
+             "caller": "GamePostMainLoop",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B9B80",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "ConstructorStandingsParser",
+     "file": "ConstructorStandingsParser_00420820.c",
+     "hits": [
+      {
+       "line": 71,
+       "text": "case 12:"
+      },
+      {
+       "line": 150,
+       "text": "case 12:"
+      },
+      {
+       "line": 232,
+       "text": "case 12:"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "ScoringClassificationDisplay",
+       "callers": [
+        {
+         "caller": "sub_4A08E0",
+         "callers": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "DisplayMessage0x113",
+     "file": "DisplayMessage0x113_0041a6b0.c",
+     "hits": [
+      {
+       "line": 8,
+       "text": "(*(void (__thiscall **)(int))(*(_DWORD *)dword_5EB10C + 12))(dword_5EB10C);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "PitTimer",
+       "callers": [
+        {
+         "caller": "sub_4D4580",
+         "callers": [
+          {
+           "caller": "GamePostMainLoop",
+           "callers": [
+            {
+             "caller": "GameMainEntry",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "StateTriggerCheck",
+           "callers": [
+            {
+             "caller": "LoadingPhase1",
+             "callers": []
+            },
+            {
+             "caller": "LoadingPhase2",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B9890",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "GdbSeasonSelector",
+     "file": "GdbSeasonSelector_00420cf0.c",
+     "hits": [
+      {
+       "line": 110,
+       "text": "case 12:"
+      },
+      {
+       "line": 183,
+       "text": "case 12:"
+      },
+      {
+       "line": 248,
+       "text": "case 12:"
+      },
+      {
+       "line": 308,
+       "text": "case 12:"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "ScoringClassificationDisplay",
+       "callers": [
+        {
+         "caller": "sub_4A08E0",
+         "callers": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "PitSelectionStateMachine",
+     "file": "PitSelectionStateMachine_0041b3c0.c",
+     "hits": [
+      {
+       "line": 23,
+       "text": "v6 = DistanceProjectionCalc(dword_7C54E8 + 12);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_4BCCC0",
+       "callers": [
+        {
+         "caller": "MainGameTickUpdate",
+         "callers": [
+          {
+           "caller": "GamePostMainLoop",
+           "callers": [
+            {
+             "caller": "GameMainEntry",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "StateTriggerCheck",
+           "callers": [
+            {
+             "caller": "LoadingPhase1",
+             "callers": []
+            },
+            {
+             "caller": "LoadingPhase2",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B9890",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "caller": "sub_4D1730",
+       "callers": [
+        {
+         "caller": "sub_4D1D80",
+         "callers": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "TimeBasedMessageChain",
+     "file": "TimeBasedMessageChain_0041a500.c",
+     "hits": [
+      {
+       "line": 67,
+       "text": "(*(void (__thiscall **)(int))(*(_DWORD *)dword_5EB10C + 12))(dword_5EB10C);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "PitTimer",
+       "callers": [
+        {
+         "caller": "sub_4D4580",
+         "callers": [
+          {
+           "caller": "GamePostMainLoop",
+           "callers": [
+            {
+             "caller": "GameMainEntry",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "StateTriggerCheck",
+           "callers": [
+            {
+             "caller": "LoadingPhase1",
+             "callers": []
+            },
+            {
+             "caller": "LoadingPhase2",
+             "callers": []
+            },
+            {
+             "caller": "sub_4B9890",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "sub_41AD80",
+     "file": "sub_41AD80_0041ad80.c",
+     "hits": [
+      {
+       "line": 28,
+       "text": "*(float *)&v13 = DistanceProjectionCalc(a2 + 12);"
+      },
+      {
+       "line": 29,
+       "text": "v14 = DistanceProjectionCalc(a3 + 12);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CollisionDetectionSystem",
+       "callers": [
+        {
+         "caller": "ParticleEffectUpdateDispatch",
+         "callers": [
+          {
+           "caller": "MainGameTickUpdate",
+           "callers": [
+            {
+             "caller": "GamePostMainLoop",
+             "callers": []
+            },
+            {
+             "caller": "StateTriggerCheck",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 364,
+       "text": "v5 = a4 != 0 ? 152 : 12;"
+      },
+      {
+       "line": 912,
+       "text": "*(_DWORD *)(a1 + 12) = v6;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "NameListBuilderFromVehicleArray",
+     "file": "NameListBuilderFromVehicleArray_004159b0.c",
+     "hits": [
+      {
+       "line": 80,
+       "text": "v10 = OperatorNewNhMallocWrapper(12);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "ShortComputation_5090",
+       "callers": [
+        {
+         "caller": "LazyRendererAudioInitCheck",
+         "callers": [
+          {
+           "caller": "Sound_Enter",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 207,
+       "text": "*(_DWORD *)(a1 + 12) = v5;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "sub_417640",
+     "file": "sub_417640_00417640.c",
+     "hits": [
+      {
+       "line": 181,
+       "text": "*(_DWORD *)(a1 + 12) = v5;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414A90",
+       "callers": [
+        {
+         "caller": "NameListBuilderFromVehicleArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 1093,
+    "first": [
+     "AILateralForceComputation",
+     "AIMainUpdate",
+     "AIOpponentSelection",
+     "AIPathPerformanceFunction",
+     "AIRacingLine",
+     "AIStateMachineWithModeDispatch",
+     "AIStateReset",
+     "AISteeringCorrection",
+     "AISteeringRacingLineCorrection",
+     "AISteering",
+     "AccumulateAngularImpulse",
+     "AddVehicleConfigEntryToLinkedList",
+     "AdobePSDHeaderParser",
+     "AllocateStructWithDefaultValues",
+     "AnimationPlaybackSequence",
+     "AppendNodeToDoublyLinkedListTail",
+     "ApplyImpulseToRigidBodyWithTorque",
+     "ArithmeticComparison_2c00",
+     "ArithmeticComparison_5660",
+     "ArithmeticComparison_8350",
+     "ArithmeticComparison_b4a0",
+     "ArrayOfStructIndexedFieldCopy",
+     "ArrayOfStructLinearSearchByID_750a",
+     "ArrayProcessingWithScaling",
+     "ArrayProcessingWithValidation",
+     "AudioADSREnvelope",
+     "AudioBufferMixing",
+     "AudioCodecMDCTFFTTransform",
+     "AudioDriverInit",
+     "AudioEmitterCreate",
+     "AudioEventRingBufferProcessing",
+     "AudioFilterParameterCalculation",
+     "AudioMixerChannelInitializer",
+     "AudioMixerFloatingPointTo16BitPCMConversion",
+     "AudioMixerPollingUpdateLoop",
+     "AudioParameterInterpolation",
+     "AudioResampler",
+     "AudioResourceCleanup",
+     "AudioRingBufferCopy",
+     "AudioSampleCrossFadeInterpolation"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 10 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "EnumValueTranslation",
+    "file": "EnumValueTranslation_00414010.c",
+    "hits": [
+     {
+      "line": 36,
+      "text": "case 10:"
+     }
+    ]
+   },
+   {
+    "function": "MapCollisionShapeToBoneIndex",
+    "file": "MapCollisionShapeToBoneIndex_00412c30.c",
+    "hits": [
+     {
+      "line": 38,
+      "text": "case 10:"
+     }
+    ]
+   },
+   {
+    "function": "RaceEventMessageDispatcher",
+    "file": "RaceEventMessageDispatcher_00411bf0.c",
+    "hits": [
+     {
+      "line": 13,
+      "text": "case 0xA:"
+     }
+    ]
+   },
+   {
+    "function": "SeasonSpecificTeamIDLookup",
+    "file": "SeasonSpecificTeamIDLookup_00413b60.c",
+    "hits": [
+     {
+      "line": 62,
+      "text": "case 10:"
+     },
+     {
+      "line": 126,
+      "text": "case 10:"
+     },
+     {
+      "line": 186,
+      "text": "case 10:"
+     },
+     {
+      "line": 246,
+      "text": "case 10:"
+     }
+    ]
+   },
+   {
+    "function": "SoundEventDispatcher",
+    "file": "SoundEventDispatcher_00411e90.c",
+    "hits": [
+     {
+      "line": 23,
+      "text": "case 0xA:"
+     }
+    ]
+   },
+   {
+    "function": "sub_412490",
+    "file": "sub_412490_00412490.c",
+    "hits": [
+     {
+      "line": 41,
+      "text": "case 10:"
+     },
+     {
+      "line": 122,
+      "text": "case 10:"
+     },
+     {
+      "line": 204,
+      "text": "case 10:"
+     },
+     {
+      "line": 284,
+      "text": "case 10:"
+     }
+    ]
+   },
+   {
+    "function": "sub_412E50",
+    "file": "sub_412E50_00412e50.c",
+    "hits": [
+     {
+      "line": 41,
+      "text": "case 10:"
+     },
+     {
+      "line": 122,
+      "text": "case 10:"
+     }
+    ]
+   },
+   {
+    "function": "sub_413820",
+    "file": "sub_413820_00413820.c",
+    "hits": [
+     {
+      "line": 66,
+      "text": "v6 = 10;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:116: {\"tier\": \"DISPROVEN\", \"area\": \"mods/extended_vanilla_features\", \"claim\": \"RETRACTION of the fix in the prior DISPROVEN row: calling the real functions (StructInitWithSentinelValues",
+  "f1c_ida_decompiled\\findings.jsonl:117: {\"ts\": \"2026-07-28\", \"tier\": \"FACT\", \"topic\": \"traffic_density_commentary / PWS_QUAL28-30\", \"claim\": \"eid range fix confirmed live: PWS_QUAL28/29/30 (via InsertDriverTabl",
+  "f1c_ida_decompiled\\findings.jsonl:120: {\"ts\": \"2026-07-28\", \"tier\": \"FACT\", \"topic\": \"traffic_density_commentary count==0 / session-exit bug\", \"claim\": \"v5 fired PWS_QUAL28 (very few drivers) when on-track cou",
+  "f1c_ida_decompiled\\findings.jsonl:227: {\"tier\": \"DISPROVEN\", \"tags\": [\"commentary\", \"eids\", \"tv_vs_pws\"], \"title\": \"Do NOT use the unblocked gear-clip twins at eids 340-383 - they are TV channel, not PWS\", \"what\": \"full"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:161: | `PWS_QUAL28` | 10 | 303 | 0x0041b980? | Very few drivers on track |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\HANDOFF_2026-07-28d.md:19: `.c` files for where `PWS_QUAL28/29/30.mp2` paths are actually built, or find",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PITSTOP_METHODOLOGY.md:3: How PWS_QUAL28/29/30 and PWS_PIT06/09/10/12 were found, restored, and",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:208: | `PWS_QUAL28` | 10 | 12, 303 | — | Very few drivers on track | PWS_QUAL28 Very few drivers on track - restored via dll/traffic_density_commentary_v5.dll, eid 12 (NOT 303), live-co",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:43: | `PWS_QUAL28` | 12, 303 | Very few drivers on track |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:116: `PWS_PIT12`, `PWS_QUAL28`, `PWS_QUAL29`, `PWS_QUAL30`, `PWS_QUAL32`,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TO_LISTEN.txt:4: 10 PWS_QUAL28 -- Very few drivers on track",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:50: ### PWS_QUAL28/29/30 (SDT 10/9/13) - traffic density during qualifying"
+ ],
+ "mod_sources": [
+  "development\\mods\\mechanical_failures\\dll\\gear_failure.c:83: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\releases\\WIP_2026-10-12_gearbox_G8\\src\\gear_failure.c:83: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUTO_TRIGGER_BEFORE_2026-09-27\\gear_failure.c:75: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\AUTO_TRIGGER_FIXES_BEFORE_2026-09-27\\gear_failure.c:75: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\CONTAINMENT_BEFORE_2026-09-29\\gear_failure.c:76: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\DELAYED_DIAG_BEFORE_2026-09-28\\gear_failure.c:76: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\DETECTION_TIMING_BEFORE_2026-09-28\\gear_failure.c:76: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\ELEC_TIMER_REALISM_BEFORE_2026-09-28\\gear_failure.c:76: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\ENGINE_SIM_BEFORE_2026-09-30_E6\\gear_failure.c:80: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\ENGINE_SIM_BEFORE_2026-09-30_E7\\gear_failure.c:80: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\ENGINE_SIM_BEFORE_2026-09-30_E9g-d\\gear_failure.c:80: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\ENGINE_SIM_BEFORE_2026-10-01_H1\\gear_failure.c:81: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\FLAVOR_WEIGHT_BEFORE_2026-09-28\\gear_failure.c:75: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\IMMERSION_BEFORE_2026-09-29\\gear_failure.c:76: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\JAM_PHASE_FIX_BEFORE_2026-09-29\\gear_failure.c:77: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\MERGE_BEFORE_2026-09-28\\gear_failure.c:75: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\REALISM_FIXES_BEFORE_2026-09-28\\gear_failure.c:76: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\ROUND3_BEFORE_2026-09-28\\gear_failure.c:76: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\TIMER_MODE_BEFORE_2026-09-28\\gear_failure.c:75: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\mechanical_failures\\workspace_organization_audit\\TIMER_TAMPER_BEFORE_2026-09-28\\gear_failure.c:76: * resolve to the TV table, not PWS (the QUAL28/29/30 dead end).",
+  "development\\mods\\traffic_density_commentary\\source.c:4: * Restores: PWS_QUAL28, PWS_QUAL29, PWS_QUAL30",
+  "development\\mods\\traffic_density_commentary\\traffic_density_commentary.c:4: *   PWS_QUAL28 (eid 12, \"very few drivers on track\"),",
+  "development\\mods\\traffic_density_commentary\\traffic_density_commentary.c:43: *     1-5   active -> PWS_QUAL28 (eid 303, \"very few drivers on track\")",
+  "development\\mods\\traffic_density_commentary\\traffic_density_commentary.c:79: #define EID_QUAL28      12    /* very few — low identity-mapped range, NOT 303 (team-bio table) */",
+  "development\\mods\\traffic_density_commentary\\traffic_density_commentary.c:83: #define THRESH_FEW_MAX  5     /* 1-5   -> QUAL28 */"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "EVF archive (progress.json DONE)",
+    "eid": null,
+    "mechanism": "see note",
+    "release_status": "archived",
+    "live_verified": true,
+    "source": "seed",
+    "condition": null
+   },
+   {
+    "mod": "traffic_density_commentary",
+    "mod_version": "dev (no version; no registry row)",
+    "eid": 12,
+    "mechanism": "dll_emit",
+    "condition": "traffic band \"few\": eid 12",
+    "source": "development/mods/traffic_density_commentary/traffic_density_commentary.c:150,223-225",
+    "release_status": "dev",
+    "live_verified": true,
+    "says": "Very few drivers on track"
+   }
+  ],
+  "note": "PWS_QUAL28 Very few drivers on track - restored via dll/traffic_density_commentary_v5.dll, eid 12 (NOT 303), live-confirmed 2026-07-28",
+  "triage": null,
+  "evf_status": "DONE"
+ }
+}

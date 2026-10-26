@@ -1,0 +1,2 @@
+func,line,dec,hex,access,width,base,form,expr
+AIRingBufferFieldInit,8,17480,0x4448,W,float,this,array,this[4370] = v2 + 0.15000001 - (double)dword_7D01A0 * 0.0099999998 * 0.1;

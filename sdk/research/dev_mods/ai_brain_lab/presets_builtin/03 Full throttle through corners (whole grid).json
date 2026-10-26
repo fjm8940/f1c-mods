@@ -1,0 +1,9 @@
+{
+ "schema": "driver_ai_toolkit.preset.v2",
+ "name": "Full throttle through corners (whole grid)",
+ "description": "AI cars no longer lift off the throttle while steering.",
+ "target": "grid",
+ "rules": {
+  "steerlift_amount": 0.0
+ }
+}

@@ -1,0 +1,2 @@
+# AIAbility: offset-like lines with no extracted row (1)
+L111: ConditionalGate(this + 3);

@@ -1,0 +1,135 @@
+{
+ "mode": "evf_guard",
+ "workers": 16,
+ "total_items": 16,
+ "assignments": [
+  {
+   "letter": "A",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_A_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_A.jsonl",
+   "items": [
+    "CI-152"
+   ]
+  },
+  {
+   "letter": "B",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_B_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_B.jsonl",
+   "items": [
+    "CI-132"
+   ]
+  },
+  {
+   "letter": "C",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_C_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_C.jsonl",
+   "items": [
+    "CI-052"
+   ]
+  },
+  {
+   "letter": "D",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_D_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_D.jsonl",
+   "items": [
+    "CI-212"
+   ]
+  },
+  {
+   "letter": "E",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_E_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_E.jsonl",
+   "items": [
+    "CI-136"
+   ]
+  },
+  {
+   "letter": "F",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_F_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_F.jsonl",
+   "items": [
+    "CI-143"
+   ]
+  },
+  {
+   "letter": "G",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_G_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_G.jsonl",
+   "items": [
+    "CI-141"
+   ]
+  },
+  {
+   "letter": "H",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_H_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_H.jsonl",
+   "items": [
+    "CI-090"
+   ]
+  },
+  {
+   "letter": "I",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_I_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_I.jsonl",
+   "items": [
+    "CI-091"
+   ]
+  },
+  {
+   "letter": "J",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_J_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_J.jsonl",
+   "items": [
+    "CI-193"
+   ]
+  },
+  {
+   "letter": "K",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_K_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_K.jsonl",
+   "items": [
+    "CI-111"
+   ]
+  },
+  {
+   "letter": "L",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_L_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_L.jsonl",
+   "items": [
+    "CI-163"
+   ]
+  },
+  {
+   "letter": "M",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_M_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_M.jsonl",
+   "items": [
+    "CI-072"
+   ]
+  },
+  {
+   "letter": "N",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_N_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_N.jsonl",
+   "items": [
+    "CI-190"
+   ]
+  },
+  {
+   "letter": "O",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_O_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_O.jsonl",
+   "items": [
+    "CI-144"
+   ]
+  },
+  {
+   "letter": "P",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\prompts\\worker_P_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_guard\\output\\worker_P.jsonl",
+   "items": [
+    "CI-146"
+   ]
+  }
+ ]
+}

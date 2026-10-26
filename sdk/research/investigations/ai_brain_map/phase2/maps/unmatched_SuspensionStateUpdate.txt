@@ -1,0 +1,6 @@
+# SuspensionStateUpdate: offset-like lines with no extracted row (5)
+L5: v1 = this + 1764;
+L7: (_DWORD *)(this + 1764),
+L8: (float *)(this + 13524),
+L9: (_DWORD *)(this + 13536),
+L10: (const void *)(this + 13488));

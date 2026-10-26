@@ -1,0 +1,403 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 77,
+ "clip": "PWS_MECHPROB06",
+ "says": "Front Left puncture",
+ "dump_rows_for_clip": [
+  {
+   "eid": 78,
+   "hex": "0x004E",
+   "priority": 40,
+   "cooldown": 15.0,
+   "blocked": false,
+   "score": 76,
+   "sdt_index": 77,
+   "clip_name": "PWS_MECHPROB06.",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 352,
+   "hex": "0x0160",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 76,
+   "sdt_index": 77,
+   "clip_name": "PWS_MECHPROB06.",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  76
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 78,
+   "hex": "0x004E",
+   "priority": 40,
+   "cooldown": 15.0,
+   "blocked": false,
+   "score": 76,
+   "sdt_index": 77,
+   "clip_name": "PWS_MECHPROB06.",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 352,
+   "hex": "0x0160",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 76,
+   "sdt_index": 77,
+   "clip_name": "PWS_MECHPROB06.",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  78
+ ],
+ "literal_hits": {
+  "78": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 139,
+       "text": "v4 = a4 != 0 ? 78 : 97;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 39,
+    "first": [
+     "AIDatabase_Init",
+     "AudioVoiceChannelAllocation",
+     "CameraViewportConfigBatch",
+     "CollisionStateInit4e",
+     "Det3x3From4x4",
+     "DrawableObjectNodeManager",
+     "EnumToIDMappingWithDefaultFallthrough",
+     "InflateDecompressionLoop",
+     "KeyboardInputActionMapper",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "NewtonRaphsonReciprocalWithVectorInterpolation",
+     "PhysicsStateStructureInitializer",
+     "RandomPasswordKeyGenerator",
+     "ResourceCleanupDestructionForDirectXObjects",
+     "SSE3DCrossProductWith33Matrix",
+     "SSEMatrix4x4Multiply",
+     "SSEVectorCross",
+     "ShortComputation_8690",
+     "TextBufferDecompressor",
+     "TextLineWrappingAndRendering",
+     "UIControlWindowInitialization",
+     "UIDimensionCapture",
+     "ZlibInflateDecompressionCore",
+     "sub_402690",
+     "sub_417AF0",
+     "sub_454350",
+     "sub_455580",
+     "sub_489D00",
+     "sub_48F1A0",
+     "sub_510975",
+     "sub_530840",
+     "sub_535C10",
+     "sub_54C320",
+     "sub_54CA00",
+     "sub_55C070",
+     "sub_56EB90",
+     "sub_56F818",
+     "sub_575882",
+     "sub_58E4D2"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 77 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": []
+ },
+ "findings": [],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:473: | 78 | PWS_MECHPROB06 | tread_FL crosses downward through 0.75 (prev>0.75 && curr<=0.75) | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:474: | 352 | PWS_MECHPROB06 | same as eid 78, shared score 76 | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:262: | `PWS_MECHPROB06` | 77 | 78,352 | Front Left puncture |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:83: | PWS_MECHPROB06 | 77 | 78 | FL puncture |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:286: | `PWS_MECHPROB06` | 77 | 78, 352 | — | Front Left puncture | user triage: Z, FL puncture, we experimented with TirePuncture before and were able to make these happen, look into 0x",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:298: | `PWS_MECHPROB06` | 78, 352 | Front Left puncture | eid 352 has no call site |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:150: | `PWS_MECHPROB06/07/08/09` | tyre_condition | tread crosses 0.75 downward — literally the sibling threshold below the already-FACT 0.85 blister band (same `VehicleDynamicsForceAcc",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:165: PWS_MECHPROB06, PWS_MECHPROB07, PWS_MECHPROB08, PWS_MECHPROB09,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:48: | 77 | `PWS_MECHPROB06` | Z | HAS_LEAD | Z, FL puncture, we experimented with TirePuncture before and were able to make these happen, look into 0x4F199E, grip calc and tirePuncture",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:288: | `PWS_MECHPROB06` | 77 | 78,352 | Front Left puncture |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:74: | `PWS_MECHPROB06` | 77 | 78, 352 | user triage: Z, FL puncture, we experimented with TirePuncture before and were able to make these happen, look into 0x4F199E, grip calc and tire"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "mechanical_failures",
+    "mod_version": "1.0.7 public (RELEASE_REGISTRY); donor table in mf_voice.h",
+    "eid": 78,
+    "mechanism": "token_only",
+    "condition": "TOKEN ONLY (owner correction 2026-10-18): MF borrows this eid as an internal radio-queue token and plays its own WAV; the vanilla clip never plays. MF V3 line MF_FUELP02 \"Fuel pressure low, keep it smooth.\": donor eid row rewritten at load when PWS_MF01 SDT is installed; fired via commentary queue / radio_req",
+    "source": "development/mods/mechanical_failures/dll/mf_voice.h:79; engine_failure.c:1722-1760 (row write), 4040-4062 (voice_native_say)",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Front Left puncture"
+   }
+  ],
+  "note": "user triage: Z, FL puncture, we experimented with TirePuncture before and were able to make these happen, look into 0x4F199E, grip calc and tirePuncture_XX (veh+0x363C, absolute 0x5efd14  [flags: HAS_LEAD]",
+  "triage": {
+   "sdt_index": 77,
+   "text": "Z, FL puncture, we experimented with TirePuncture before and were able to make these happen, look into 0x4F199E, grip calc and tirePuncture_XX (veh+0x363C, absolute 0x5efd14",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [
+    "HAS_LEAD"
+   ],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

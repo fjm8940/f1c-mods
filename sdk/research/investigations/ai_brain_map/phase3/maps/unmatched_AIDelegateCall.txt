@@ -1,0 +1,2 @@
+# AIDelegateCall: offset-like lines with no extracted row (1)
+L5: (float *)(this + 13536),

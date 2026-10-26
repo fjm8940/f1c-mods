@@ -1,0 +1,9 @@
+func,line,dec,hex,access,width,base,form,expr
+AIComputePassScore,3,,,CALL,,,call,TireForceSolver
+AIComputePassScore,3,116,0x74,R,float,a3,array,"TireForceSolver(a3[29], (int)(a3 + 30), a3[28], 16.0);"
+AIComputePassScore,3,112,0x70,R,float,a3,array,"TireForceSolver(a3[29], (int)(a3 + 30), a3[28], 16.0);"
+AIComputePassScore,4,17668,0x4504,R,float,a1,array,return (a2 * a1[4417] + a1[4416]) * a1[4448] * a1[4431] * a3[33];
+AIComputePassScore,4,17664,0x4500,R,float,a1,array,return (a2 * a1[4417] + a1[4416]) * a1[4448] * a1[4431] * a3[33];
+AIComputePassScore,4,17792,0x4580,R,float,a1,array,return (a2 * a1[4417] + a1[4416]) * a1[4448] * a1[4431] * a3[33];
+AIComputePassScore,4,17724,0x453C,R,float,a1,array,return (a2 * a1[4417] + a1[4416]) * a1[4448] * a1[4431] * a3[33];
+AIComputePassScore,4,132,0x84,R,float,a3,array,return (a2 * a1[4417] + a1[4416]) * a1[4448] * a1[4431] * a3[33];

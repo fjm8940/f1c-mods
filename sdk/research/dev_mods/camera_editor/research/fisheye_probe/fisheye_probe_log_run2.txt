@@ -1,0 +1,857 @@
+fisheye probe 2 (research build 2026-10-05)
+game CreateDevice hr=00000000 type=1 flags=00000040 2560x1600 fmt=22 windowed=1 swap=4 ms=0 autodepth=0 depthfmt=80 ppflags=0 refresh=0 interval=0
+game device table 050abee0 hooked
+== frame 1200
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x9
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x378
+  UpdateTexture
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x3
+  UpdateTexture
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x115
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x2
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x5
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x7
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x7
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 055e76dc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x8
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x112
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 055e76dc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  Present
+== end of frame 1200
+== frame 2400
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x13
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x477
+  UpdateTexture
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x2
+  UpdateTexture
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x81
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x5
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 055e76dc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x9
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x124
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 055e76dc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x2
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x12
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x2
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x12
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x2
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x12
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x2
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x12
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x2
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x12
+  EndScene
+  Present
+== end of frame 2400
+== frame 3600
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x20
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x485
+  UpdateTexture
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x2
+  UpdateTexture
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x64
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x5
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 055e76dc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x9
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x88
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 055e76dc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x12
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x12
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x12
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x12
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  Present
+== end of frame 3600
+== frame 4800
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x17
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x507
+  UpdateTexture
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x2
+  UpdateTexture
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x57
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x5
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x2
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 055e76dc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x8
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x67
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 055e76dc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x2
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x13
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x13
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x13
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x13
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  Present
+== end of frame 4800
+== frame 6000
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x9
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x263
+  UpdateTexture
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x2
+  UpdateTexture
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x39
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x5
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x2
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 055e76dc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x7
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x67
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 055e76dc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x2
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x13
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x13
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x13
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x13
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  Present
+== end of frame 6000
+== frame 7200
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x11
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x182
+  UpdateTexture
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x2
+  UpdateTexture
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x38
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x5
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 055e6f5c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x2
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 055e76dc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x9
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x97
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 055e76dc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive 3d z=1 zw=0 light=0 fvf=1234  x2
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 055e885c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x13
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x13
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x13
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP 3d z=1 zw=0 light=0 fvf=1234  x13
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  BeginScene
+  DrawPrimitive 3d z=1 zw=0 light=0 fvf=1234
+  EndScene
+  Present
+== end of frame 7200

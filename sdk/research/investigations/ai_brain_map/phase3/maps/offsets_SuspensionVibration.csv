@@ -1,0 +1,12 @@
+func,line,dec,hex,access,width,base,form,expr
+SuspensionVibration,7,7260,0x1C5C,R,double,this,direct,v2 = *(double *)(this + 7260) < *(double *)(this + 7300);
+SuspensionVibration,7,7300,0x1C84,R,double,this,direct,v2 = *(double *)(this + 7260) < *(double *)(this + 7300);
+SuspensionVibration,8,7257,0x1C59,W,_BYTE,this,direct,*(_BYTE *)(this + 7257) = 1;
+SuspensionVibration,13,7304,0x1C88,R,_DWORD,this,direct,v3 = *(_DWORD *)(this + 7304);
+SuspensionVibration,14,7260,0x1C5C,W,_DWORD,this,direct,*(_DWORD *)(this + 7260) = *(_DWORD *)(this + 7300);
+SuspensionVibration,14,7300,0x1C84,R,_DWORD,this,direct,*(_DWORD *)(this + 7260) = *(_DWORD *)(this + 7300);
+SuspensionVibration,15,7264,0x1C60,W,_DWORD,this,direct,*(_DWORD *)(this + 7264) = v3;
+SuspensionVibration,21,7440,0x1D10,W,double,this,direct,*(double *)(this + 7440) = v4 * *(double *)(this + 7456) + *(double *)(this + 7464) + *(double *)(this + 7448);
+SuspensionVibration,21,7456,0x1D20,R,double,this,direct,*(double *)(this + 7440) = v4 * *(double *)(this + 7456) + *(double *)(this + 7464) + *(double *)(this + 7448);
+SuspensionVibration,21,7464,0x1D28,R,double,this,direct,*(double *)(this + 7440) = v4 * *(double *)(this + 7456) + *(double *)(this + 7464) + *(double *)(this + 7448);
+SuspensionVibration,21,7448,0x1D18,R,double,this,direct,*(double *)(this + 7440) = v4 * *(double *)(this + 7456) + *(double *)(this + 7464) + *(double *)(this + 7448);

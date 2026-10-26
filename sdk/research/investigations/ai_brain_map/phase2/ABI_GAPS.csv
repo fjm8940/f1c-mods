@@ -1,0 +1,95 @@
+hex,dec,raw_dec,base_status,readers,writers,best_guess_meaning,proposed_group,in_proposal
+0x3D00,15616,15616,base open (not assumed veh),TireForceSolver,,? bracket table base [map_TireForceSolver.md],state,no
+0x3D04,15620,15620,base open (not assumed veh),TireForceSolver,,? bracket table next row [map_TireForceSolver.md],state,no
+0x3D3C,15676,15676,base open (not assumed veh),AerodynamicForceCalc;TireForce,,? cap [map_AerodynamicForceCalc.md],state,no
+0x3D44,15684,15684,base open (not assumed veh),AerodynamicForceCalc;TireForce,,? final-term coefficient [map_AerodynamicForceCalc.md],state,no
+0x3D4C,15692,15680,"veh (this = veh+0xC, normalised +12)",BrakeThermalModel,,? (quadratic coefficient) [map_BrakeThermalModel.md],state,no
+0x3D50,15696,15684,"veh (this = veh+0xC, normalised +12)",BrakeThermalModel,,? (quadratic coefficient) [map_BrakeThermalModel.md],state,no
+0x3D70,15728,15728,veh,,AIMainUpdate,"AIMainUpdate-owned state, not yet named. (FIELD_GLOSSARY.md)",state,yes
+0x4000,16384,16384,veh,AIAbility,,? (`this[4096]`) [map_AIAbility.md],plan_speed,yes
+0x4028,16424,16424,veh,,AIMainUpdate;AISteeringCorrection,brake-on-slip output (FIELD_GLOSSARY.md),state,yes
+0x403C,16444,16444,veh,AIAbility;AIMainUpdate;AIPushLap;ForcePitExit;FuelWeightLimitCheck;OpponentProximityScanTeamRecognition;Overtaking;PitStopDecisionTireCompound,,lapNumber (inspect) [map_AIAbility.md],plan_speed,yes
+0x4040,16448,16448,veh,AIAbility;FuelWeightLimitCheck,,? (`*((_DWORD *)this + 4112)`) [map_AIAbility.md],plan_speed,yes
+0x4044,16452,16452,veh,AIAbility,,? ring-buffer selector (`this[4113]`) [map_AIAbility.md],plan_speed,yes
+0x4060,16480,16480,veh,AISteeringRacingLineCorrection,,position (inspect CONFIRMED) [map_AISteeringRacingLineCorrection.md],plan_line,yes
+0x4064,16484,16484,veh,AIAbility;AICommandMessageQueueDispatcher;AIMainUpdate;ForcePitExit,,? state (`*((_DWORD *)this + 4121)`) [map_AIAbility.md],plan_speed,yes
+0x4068,16488,16488,veh,AIAbility;AIMainUpdate,AIAbility;AIMainUpdate,pit-request state armed to 6 before servicing. (FIELD_GLOSSARY.md),plan_speed,yes
+0x4094,16532,16532,veh,ServerSessionGateCheck,,"per-iteration step flag = 1, via `*(_DWORD *)this + 16532` [map_AIRacingLinePathFollowing.md]",state,yes
+0x409C,16540,16540,veh,AIMainUpdate;Overtaking,,bestLap (inspect) [map_Overtaking.md],state,yes
+0x413C,16700,16700,veh,AIMainUpdate,AICommandMessageQueueDispatcher;AIMainUpdate,AIMainUpdate-only state (live prior art saw FLT_MAX on both cars). (FIELD_GLOSSARY.md),state,yes
+0x4140,16704,16704,veh,sub_426430,AISteering;sub_426430,outside-corridor flag (FIELD_GLOSSARY.md),plan_line,yes
+0x416C,16748,16748,veh,AIMainUpdate,AIMainUpdate,AIMainUpdate-only state (live prior art saw FLT_MAX on both cars). (FIELD_GLOSSARY.md),state,yes
+0x4170,16752,16752,veh,AIMainUpdate,AIMainUpdate,AIMainUpdate-only state (live prior art saw FLT_MAX on both cars). (FIELD_GLOSSARY.md),state,yes
+0x41B8,16824,16824,veh,OpponentProximityScanTeamRecognition,OpponentProximityScanTeamRecognition,slot 1 vehicle ptr (FIELD_GLOSSARY.md),perception,yes
+0x41EC,16876,16876,veh,OpponentProximityScanTeamRecognition,OpponentProximityScanTeamRecognition,slot 1 squared distance (FIELD_GLOSSARY.md),perception,yes
+0x41FC,16892,16892,veh,OpponentProximityScanTeamRecognition,OpponentProximityScanTeamRecognition,slot 2 vehicle ptr (FIELD_GLOSSARY.md),perception,yes
+0x4230,16944,16944,veh,OpponentProximityScanTeamRecognition,OpponentProximityScanTeamRecognition,slot 2 squared distance (FIELD_GLOSSARY.md),perception,yes
+0x4240,16960,16960,veh,OpponentProximityScanTeamRecognition,OpponentProximityScanTeamRecognition,slot 3 vehicle ptr (FIELD_GLOSSARY.md),perception,yes
+0x4274,17012,17012,veh,OpponentProximityScanTeamRecognition,OpponentProximityScanTeamRecognition,slot 3 squared distance (FIELD_GLOSSARY.md),perception,yes
+0x4284,17028,17028,veh,,OpponentProximityScanTeamRecognition,slot 4 vehicle ptr (FIELD_GLOSSARY.md),perception,yes
+0x42B8,17080,17080,veh,OpponentProximityScanTeamRecognition,OpponentProximityScanTeamRecognition,slot 4 squared distance (FIELD_GLOSSARY.md),perception,yes
+0x42C8,17096,17096,veh,AISteering,AISteering,per-opponent waypoint index (FIELD_GLOSSARY.md),plan_line,yes
+0x4364,17252,17252,veh,sub_426430,,GUESS offsets_ALL.csv:200 v33 = *(float *)(*(_DWORD *)(this + 17252) + 184) - *(float *)(*(_DWORD *)(this + 17236) + 184);,perception,yes
+0x43F4,17396,17396,veh,,sub_426430,"sub_426430 scratch field, not yet named. (FIELD_GLOSSARY.md)",perception,yes
+0x4400,17408,17408,veh,AIRacingLine,,? (pointer to waypoint/lead data) [map_AIRacingLine.md],plan_speed,yes
+0x4404,17412,17412,veh,AIMainUpdate,AIMainUpdate,AIAbility timer (FIELD_GLOSSARY.md),state,yes
+0x4410,17424,17424,veh,AICommandMessageQueueDispatcher;SessionCleanupFlagClear,PitStopDecisionTireCompound,? byte flag (if clear -> `SessionCleanupFlagClear`) [map_AICommandMessageQueueDispatcher.md],state,yes
+0x441C,17436,17436,veh,AISteering,sub_426430,corridor centre offset (map question; not confirmed). (FIELD_GLOSSARY.md),perception,yes
+0x443C,17468,17468,veh,AIRacingLine,AIAbility;AIMainUpdate;AIRacingLine,one-shot gap request (FIELD_GLOSSARY.md),plan_speed,yes
+0x4444,17476,17476,veh,sub_426430,sub_426430,sub_426430 scratch field. (FIELD_GLOSSARY.md),perception,yes
+0x4448,17480,17480,veh,AIMainUpdate;AISteeringRacingLineCorrection,AIMainUpdate;AIRingBufferFieldInit,time margin used by the correction path. (FIELD_GLOSSARY.md),state,yes
+0x444C,17484,17484,veh,AIMainUpdate,AIMainUpdate,AIMainUpdate-owned field. (FIELD_GLOSSARY.md),state,yes
+0x4450,17488,17488,veh,AISteering;sub_426430,sub_426430,waypoint lateral reference. (FIELD_GLOSSARY.md),perception,yes
+0x4454,17492,17492,veh,,sub_426430,sub_426430 scratch field. (FIELD_GLOSSARY.md),perception,yes
+0x4458,17496,17496,veh,sub_426430,,GUESS offsets_ALL.csv:103 ++*(_DWORD *)(this + 17496);,perception,yes
+0x4460,17504,17504,veh,AISteeringRacingLineCorrection,AISteeringRacingLineCorrection,session-time stamp used to rate-limit resets. (FIELD_GLOSSARY.md),plan_line,yes
+0x4464,17508,17508,veh,AISteeringCorrection,AISteeringCorrection,last slip value (FIELD_GLOSSARY.md),decision,yes
+0x4480,17536,17536,veh,AIMainUpdate;AISteering,AIMainUpdate,per-opponent block reset value (FIELD_GLOSSARY.md),state,yes
+0x4488,17544,17544,veh,AISteering;sub_426430,AISteering;sub_426430,waypoint re-scan flag (FIELD_GLOSSARY.md),plan_line,yes
+0x448C,17548,17548,veh,AISteering;OpponentProximityScanTeamRecognition;sub_426100,AIMainUpdate,heading -sin(yaw) (FIELD_GLOSSARY.md),state,yes
+0x4490,17552,17552,veh,AISteering,,heading Y [map_AISteering_part2.md],plan_line,yes
+0x4494,17556,17556,veh,AISteering;OpponentProximityScanTeamRecognition;sub_426100,AIMainUpdate,heading -cos(yaw) (FIELD_GLOSSARY.md),state,yes
+0x44A4,17572,17572,veh,AISteering;sub_426100,sub_426100,distance since waypoint change (FIELD_GLOSSARY.md),plan_line,yes
+0x44A8,17576,17576,veh,AICommandMessageQueueDispatcher,,command queue array pointer (`this[4394]`) [map_AICommandMessageQueueDispatcher.md],state,yes
+0x44AC,17580,17580,veh,AICommandMessageQueueDispatcher,,queue capacity / bound (`this[4395]`) [map_AICommandMessageQueueDispatcher.md],state,yes
+0x44B0,17584,17584,veh,AICommandMessageQueueDispatcher,AIAbility;AICommandMessageQueueDispatcher,NAN sentinel (FIELD_GLOSSARY.md),plan_speed,yes
+0x44C4,17604,17604,veh,AIRacingLine,,"= throttle to hold speed, 0.4/0.5 off-line), ramped by 0.2 * 0x44B8/0x44C4. [54-ai-driving-brain-map.md]",plan_speed,yes
+0x44C8,17608,17608,veh,AIPushLap,,? (`this[4402]`; neighbor of the RaceAbility terms) [map_AIPushLap.md],plan_speed,yes
+0x44D4,17620,17620,veh,AIAbility,,"hold. `0x44D4-0x44D8-raceability-derived` (CONFIRMED) — 0x44D4 = `1 - 0.030455*RaceAbility`, [map_AIAbility.md]",plan_speed,yes
+0x44D8,17624,17624,veh,AIAbility;AIPushLap,,"hold. `0x44D4-0x44D8-raceability-derived` (CONFIRMED) — 0x44D4 = `1 - 0.030455*RaceAbility`, [map_AIAbility.md]",plan_speed,yes
+0x44F4,17652,17652,veh,AIAbility;AIPushLap,,? ability floor (`this[4413]`) [map_AIAbility.md],plan_speed,yes
+0x44F8,17656,17656,veh,AISteering,,`ai-pulloff-lateral-chain-v4-2026-10-02`); 0x4420 = target lateral request (prior art); 0x44F8 = [map_AISteering_part1.md],plan_line,yes
+0x44FC,17660,17660,veh,AISteering,,? race-start override selector (-1/0/+1) [map_AISteering_part1.md],plan_line,yes
+0x4508,17672,17672,veh,AIAbility;AISteering,AIAbility;AISteering,AIAbility interval/timer (0x4508). (FIELD_GLOSSARY.md),plan_speed,yes
+0x450C,17676,17676,veh,AIAbility;Overtaking,AIAbility;Overtaking,shared speed memory (FIELD_GLOSSARY.md),plan_speed,yes
+0x4524,17700,17700,veh,AIRacingLine,AIAbility;AIMainUpdate;AIRacingLine,pit-cleanup field zeroed on release. (FIELD_GLOSSARY.md),plan_speed,yes
+0x4528,17704,17704,veh,,sub_426430,sub_426430 scratch field. (FIELD_GLOSSARY.md),perception,yes
+0x452C,17708,17708,veh,,sub_426430,sub_426430 scratch field. (FIELD_GLOSSARY.md),perception,yes
+0x4534,17716,17716,veh,AIMainUpdate,AIAbility;AIMainUpdate;PitStopDecisionTireCompound;PostPitCleanup,time stamp written before pit servicing. (FIELD_GLOSSARY.md),plan_speed,yes
+0x4538,17720,17720,veh,AISteeringCorrection,AISteeringRacingLineCorrection;ParameterValueSetter,maxSpeed (FIELD_GLOSSARY.md),plan_line,yes
+0x4544,17732,17732,veh,AISteering,AIAbility;AICommandMessageQueueDispatcher,pit/ability flag set to 1 then cleared by command 15. (FIELD_GLOSSARY.md),plan_speed,yes
+0x454C,17740,17740,veh,AIPushLap;AIRacingLine;AISteering;ServerSessionGateCheck;sub_426430,AIAbility;AIMainUpdate;AIRacingLine;AIStateFlagSetter,branch id latch (FIELD_GLOSSARY.md),plan_speed,yes
+0x4550,17744,17744,veh,AIMainUpdate;AIRacingLine;AISteering;RacePhasePitEntryTrigger;sub_426430,AIAbility;AICommandMessageQueueDispatcher;AIMainUpdate;AIRacingLine;AISteeringRacingLineCorrection;sub_426430,laneMode / waypoint set selector (FIELD_GLOSSARY.md),plan_speed,yes
+0x4554,17748,17748,veh,AIRacingLine,AISteering,tick latch set to 1 by AISteering init. (FIELD_GLOSSARY.md),plan_line,yes
+0x455C,17756,17756,veh,AISteering,AISteering,counter incremented when an opponent is almost alongside. (FIELD_GLOSSARY.md),plan_line,yes
+0x4560,17760,17760,veh,AIMainUpdate,AIMainUpdate,"AIMainUpdate field, not named. (FIELD_GLOSSARY.md)",state,yes
+0x4564,17764,17764,veh,AIMainUpdate,AIMainUpdate,"AIMainUpdate field, not named. (FIELD_GLOSSARY.md)",state,yes
+0x4568,17768,17768,veh,AIMainUpdate,AIMainUpdate,"AIMainUpdate field, not named. (FIELD_GLOSSARY.md)",state,yes
+0x456C,17772,17772,veh,AISteering,AISteering,avoidance/line-follow latch. (FIELD_GLOSSARY.md),plan_line,yes
+0x4570,17776,17776,veh,AISteering,AISteering,stored opponent id + 1. (FIELD_GLOSSARY.md),plan_line,yes
+0x4574,17780,17780,veh,AISteering,AISteering,stored opponent id + 1. (FIELD_GLOSSARY.md),plan_line,yes
+0x4578,17784,17784,veh,OpponentProximityScanTeamRecognition,OpponentProximityScanTeamRecognition,team-scan reset flag (FIELD_GLOSSARY.md),perception,yes
+0x4579,17785,17785,veh,AISteering,AIAbility;AISteering,small flag zeroed by AIAbility and read by AISteering. (FIELD_GLOSSARY.md),plan_speed,yes
+0x4584,17796,17796,veh,PostPitCleanup,PitStopDecisionTireCompound,? pit flag (0/1) [map_PitStopDecisionTireCompound.md],state,yes
+0x4588,17800,17800,veh,AIMainUpdate;PitStopDecisionTireCompound,,? (`this[4450]`) [map_PitStopDecisionTireCompound.md],state,yes
+0x458C,17804,17804,veh,AIPushLap;PitStopDecisionTireCompound;RandomWeightedTierSelection,,? tire compound choice (`this[4451]`) [map_AIPushLap.md],plan_speed,yes
+0x4590,17808,17808,veh,AIPushLap;PitStopDecisionTireCompound,,tire/setup float array element (`this[4*this[4472] + 4452]`) [map_AIPushLap.md],plan_speed,yes
+0x4594,17812,17812,veh,AIAbility,,? compound speed table (`this[v11 + 4453]`) [map_AIAbility.md],plan_speed,yes
+0x45A0,17824,17824,veh,PitStopDecisionTireCompound,,"? per-compound lap estimate (`this[4*v2+4456]`, dynamic index) [map_PitStopDecisionTireCompound.md]",state,yes
+0x45E0,17888,17888,veh,AIAbility;AIMainUpdate;AIPushLap;PitStopDecisionTireCompound;PostPitCleanup,,? pit compound index (`*((_DWORD *)this + 4472)`) [map_AIAbility.md],plan_speed,yes
+0x45E8,17896,17896,veh,AISteeringRacingLineCorrection;PitStopDecisionTireCompound,,? scale [map_AISteeringRacingLineCorrection.md],plan_line,yes
+0x45F4,17908,17908,veh,AIMainUpdate,AIAbility;AICommandMessageQueueDispatcher;AIMainUpdate;AIRacingLine;AISteeringRacingLineCorrection;PitStopDecisionTireCompound;SessionCleanupFlagClear,ActiveFlag (FIELD_GLOSSARY.md),plan_speed,yes
+0x45F8,17912,17912,veh,AIAbility;Overtaking,,"interaction target (inspect, doc 54) [map_AIAbility.md]",plan_speed,yes
+0x45FC,17916,17916,veh,AIMainUpdate;AISteeringCorrection,AIMainUpdate;OpponentProximityScanTeamRecognition;Overtaking,interaction target (FIELD_GLOSSARY.md),state,yes
+0x461C,17948,17948,veh,AIMainUpdate,AIMainUpdate,AIMainUpdate-owned field. (FIELD_GLOSSARY.md),state,yes
+0x4894,18580,18580,veh,sub_4C7BD0,,- GUESS Team recognition matches the slot car's team id (vehicle+0x4894) against the team-id list at 0x42D0; on a [map_OpponentProximityScanTeamRecognition.md],state,yes

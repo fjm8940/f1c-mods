@@ -1,0 +1,599 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 14,
+ "clip": "PWS_2001_05",
+ "says": "Player is on Pole Position",
+ "dump_rows_for_clip": [
+  {
+   "eid": 16,
+   "hex": "0x0010",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 14,
+   "sdt_index": 14,
+   "clip_name": "PWS_2001_05.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 307,
+   "hex": "0x0133",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 14,
+   "sdt_index": 14,
+   "clip_name": "PWS_2001_05.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  14
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 16,
+   "hex": "0x0010",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 14,
+   "sdt_index": 14,
+   "clip_name": "PWS_2001_05.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 307,
+   "hex": "0x0133",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 14,
+   "sdt_index": 14,
+   "clip_name": "PWS_2001_05.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  16
+ ],
+ "literal_hits": {
+  "16": {
+   "emitters": [
+    {
+     "function": "AIOvertakeDefendStateChange",
+     "file": "AIOvertakeDefendStateChange_00419690.c",
+     "hits": [
+      {
+       "line": 21,
+       "text": "v8 = a3 == a4 ? 10 : 16;"
+      },
+      {
+       "line": 31,
+       "text": "BooleanOROfTwoChecks(flt_5EA618, 16);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_4D1C40",
+       "callers": [
+        {
+         "caller": "LapCompletion",
+         "callers": [
+          {
+           "caller": "LapSplitTimeEvent",
+           "callers": [
+            {
+             "caller": "TimerFrameRateThrottle",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "sub_4B3400",
+           "callers": [
+            {
+             "caller": "BufferReset",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 433,
+       "text": "v9 = a4 != 0 ? 194 : 16;"
+      },
+      {
+       "line": 913,
+       "text": "*(_BYTE *)(a1 + 16) = 0;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 208,
+       "text": "*(_BYTE *)(a1 + 16) = 0;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "function": "sub_417640",
+     "file": "sub_417640_00417640.c",
+     "hits": [
+      {
+       "line": 182,
+       "text": "*(_BYTE *)(a1 + 16) = 0;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414A90",
+       "callers": [
+        {
+         "caller": "NameListBuilderFromVehicleArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 1031,
+    "first": [
+     "AIDriverStructInit",
+     "AIStateBufferInitialize",
+     "AISteering",
+     "AccumulatorWithFixedArray",
+     "AdobePSDHeaderParser",
+     "AllocateStructWithDefaultValues",
+     "AnimationFrameTimer",
+     "AnimationPlaybackSequence",
+     "AnimationStateFlagSet",
+     "ArithmeticComparison_5e85",
+     "ArithmeticComparison_a3e0",
+     "ArrayCleanupWithDestructorLoop",
+     "ArrayElementFlagSetWithBoundsCheck",
+     "ArrayLinkedListVirtualDispatchIterator",
+     "ArrayNonZeroCounter",
+     "ArrayOfStructLinearSearchByID",
+     "ArrayProcessingWithValidation",
+     "ArrayShiftConditionalDispatch",
+     "AudioBufferSizeCalc",
+     "AudioCodecMDCTFFTTransform",
+     "AudioDriverInit",
+     "AudioEngineInitialization",
+     "AudioFIRConvolutionFilter",
+     "AudioMixerDeviceInit",
+     "AudioMixerFloatingPointTo16BitPCMConversion",
+     "AudioMixing",
+     "AudioNetworkTreeWalker",
+     "AudioNodeUpdateWalk",
+     "AudioParameterInterpolation",
+     "AudioResampler",
+     "AudioSampleCrossFadeInterpolation",
+     "AudioSamplePlaybackWithPitchModulationAndStereoP",
+     "AudioSubbandSynthesisFilterbank",
+     "AudioSystemShutdown",
+     "AudioVoiceChannelAllocation",
+     "Base64Encode",
+     "BatchClampToMax",
+     "BatchProcessWithFixedStartOffsets",
+     "BestFitPlaneFitting",
+     "BezierPatchTessellation"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 14 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "EnumValueTranslation",
+    "file": "EnumValueTranslation_00414010.c",
+    "hits": [
+     {
+      "line": 48,
+      "text": "case 14:"
+     }
+    ]
+   },
+   {
+    "function": "SeasonSpecificTeamIDLookup",
+    "file": "SeasonSpecificTeamIDLookup_00413b60.c",
+    "hits": [
+     {
+      "line": 74,
+      "text": "case 14:"
+     },
+     {
+      "line": 138,
+      "text": "case 14:"
+     },
+     {
+      "line": 198,
+      "text": "case 14:"
+     },
+     {
+      "line": 258,
+      "text": "case 14:"
+     }
+    ]
+   },
+   {
+    "function": "SoundEventDispatcher",
+    "file": "SoundEventDispatcher_00411e90.c",
+    "hits": [
+     {
+      "line": 45,
+      "text": "case 0xE:"
+     }
+    ]
+   },
+   {
+    "function": "sub_412490",
+    "file": "sub_412490_00412490.c",
+    "hits": [
+     {
+      "line": 53,
+      "text": "case 14:"
+     },
+     {
+      "line": 134,
+      "text": "case 14:"
+     },
+     {
+      "line": 216,
+      "text": "case 14:"
+     },
+     {
+      "line": 296,
+      "text": "case 14:"
+     }
+    ]
+   },
+   {
+    "function": "sub_412E50",
+    "file": "sub_412E50_00412e50.c",
+    "hits": [
+     {
+      "line": 53,
+      "text": "case 14:"
+     },
+     {
+      "line": 134,
+      "text": "case 14:"
+     }
+    ]
+   },
+   {
+    "function": "sub_413820",
+    "file": "sub_413820_00413820.c",
+    "hits": [
+     {
+      "line": 46,
+      "text": "v6 = 14;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:57: {\"tier\": \"CONFIRMED\", \"claim\": \"mods/extended_vanilla_features/docs/TODO.md lists clips that are already SHIPPED (audible in vanilla) as work items, and attributes some of them to "
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:42: | `PWS_2001_05` | 14 | 16,307 | Player is on Pole Position |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:56: | `PWS_2001_05` | 14 | 16, 307 | — | Player is on Pole Position |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:53: | `PWS_2001_05` | 16, 307 | Player is on Pole Position |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SHIPPED_MECHANISMS.md:39: | PWS_2001_05 | 16, 307 | Player is on Pole Position | Same function, SessionType==5, `a3==player` AND `a3≠a4` (player's improvement makes them the new pole, wasn't already) → eid1"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": true,
+  "vanilla_source": "evf_auto",
+  "modded_by": [
+   {
+    "mod": "mechanical_failures",
+    "mod_version": "1.0.7 public (RELEASE_REGISTRY); donor table in mf_voice.h",
+    "eid": 16,
+    "mechanism": "token_only",
+    "condition": "TOKEN ONLY (owner correction 2026-10-18): MF borrows this eid as an internal radio-queue token and plays its own WAV; the vanilla clip never plays. MF V3 line MF_OILLEAK02 \"Oil leak, take it easy.\": donor eid row rewritten at load when PWS_MF01 SDT is installed; fired via commentary queue / radio_req",
+    "source": "development/mods/mechanical_failures/dll/mf_voice.h:59; engine_failure.c:1722-1760 (row write), 4040-4062 (voice_native_say)",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Player is on Pole Position"
+   }
+  ],
+  "note": "",
+  "triage": null,
+  "evf_status": "SHIPPED"
+ }
+}

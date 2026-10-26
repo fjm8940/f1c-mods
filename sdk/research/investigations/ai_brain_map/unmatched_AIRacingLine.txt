@@ -1,0 +1,6 @@
+# AIRacingLine: offset-like lines with no extracted row (5)
+L62: (float *)(this + 13536),
+L211: v28 = this + 17236;
+L309: v42 = BrakeThermalModel(this + 12);
+L316: v42 = BrakeThermalModel(this + 12);
+L343: v41 = TireGripCoefficient(this + 12);

@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "comments": {
+    "S_s_per_unit": "AI lap seconds per +1.00 AllAIFactor, negative (faster AI = lower lap). Slowing is linear; speed-up is capped by max_gain_s.",
+    "monza_2001": "pending V3-B (Monza x1.05, night2).",
+    "fallback_update_2026-10-16": "Fallback S_rel changed from -0.420 (Austria only) to the 5-track median; the 4 night1 tracks agree within -0.28..-0.31; Austria (100 % race) is the outlier."
+  },
+  "tracks": {
+    "austria_2001": {
+      "S_s_per_unit": -30.2,
+      "baseline_ai_lap_s": 71.88,
+      "max_gain_s": 3.0,
+      "evidence": "Run 9 2026-10-15, factor 1.05, n=145 vs 221 clean laps",
+      "tier": "MEASURED"
+    },
+    "monaco_2001": {
+      "S_s_per_unit": -23.2,
+      "baseline_ai_lap_s": 83.562,
+      "max_gain_s": 3.49,
+      "evidence": "Run 11 2026-10-16 night1, 50 % race, factor 1.05 vs native in parallel, delta -1.162 s (CI -1.287..-1.015), n=75 vs 146 clean laps (Monaco: few surviving cars, CI underestimates)",
+      "tier": "MEASURED",
+      "max_gain_tier": "DERIVED (fallback ratio)"
+    },
+    "hungaroring_2001": {
+      "S_s_per_unit": -24.5,
+      "baseline_ai_lap_s": 79.666,
+      "max_gain_s": 3.32,
+      "evidence": "Run 11 2026-10-16 night1, 50 % race, factor 1.05 vs native in parallel, delta -1.224 s (CI -1.597..-0.936), n=69 vs 152 clean laps",
+      "tier": "MEASURED",
+      "max_gain_tier": "DERIVED (fallback ratio)"
+    },
+    "indianapolis_2001": {
+      "S_s_per_unit": -22.9,
+      "baseline_ai_lap_s": 74.441,
+      "max_gain_s": 3.11,
+      "evidence": "Run 11 2026-10-16 night1, 50 % race, factor 1.05 vs native in parallel, delta -1.147 s (CI -1.308..-0.901), n=199 vs 162 clean laps",
+      "tier": "MEASURED",
+      "max_gain_tier": "DERIVED (fallback ratio)"
+    },
+    "melbourne_2001": {
+      "S_s_per_unit": -26.9,
+      "baseline_ai_lap_s": 91.93,
+      "max_gain_s": 3.84,
+      "evidence": "Run 11 2026-10-16 night1, 50 % race, factor 1.05 vs native in parallel, delta -1.343 s (CI -1.825..-0.779), n=170 vs 118 clean laps",
+      "tier": "MEASURED",
+      "max_gain_tier": "DERIVED (fallback ratio)"
+    }
+  },
+  "fallback": {
+    "S_rel_per_unit": -0.307,
+    "max_gain_rel": 0.041736,
+    "reference": "S_rel = median relative sensitivity over 5 measured tracks (Austria 100 % -0.42, Monaco -0.278, Hungaroring -0.307, Indianapolis -0.308, Melbourne -0.292; night1 2026-10-16); max_gain_rel = 3.0 / 71.88 (Austria, unmeasured cap). Multiply by the track AI baseline lap.",
+    "tier": "DERIVED"
+  }
+}

@@ -1,0 +1,5 @@
+# sub_426430: offset-like lines with no extracted row (4)
+L71: v4 = (float *)(this + 13536);
+L109: v11 = this + 17240;
+L114: v12 = (_DWORD *)(this + 17240);
+L306: v50 = (int *)(this + 17240);

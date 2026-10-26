@@ -1,0 +1,5 @@
+# RenderListIteration: offset-like lines with no extracted row (4)
+L22: (*(void (__cdecl **)(int, _DWORD *, _DWORD *, _DWORD *))(*(_DWORD *)dword_8B8F24 + 4))(
+L26: this + 69);
+L27: (*(void (__cdecl **)(int, _DWORD *, _DWORD *, _DWORD *))(*(_DWORD *)dword_8B8F24 + 4))(
+L31: this + 69);

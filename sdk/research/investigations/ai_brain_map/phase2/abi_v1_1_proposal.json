@@ -1,0 +1,1878 @@
+{
+ "schema": "f1c.ai_brain_abi.v1",
+ "generated_by": "phase2/analysis/c4_census.py (DeepSeek, phase-2 C4 proposal)",
+ "generated_from": [
+  "phase2/WRITER_CENSUS.csv",
+  "phase2/ABI_GAPS.csv",
+  "phase2/COVERAGE.md",
+  "phase2/maps/*"
+ ],
+ "vehicle": {
+  "base_hex": "0x5EC6D8",
+  "stride_hex": "0x48C0",
+  "driver_name_note": "NUL-terminated driver name string follows the vehicle base; see ABI_README.md."
+ },
+ "groups": [
+  "state",
+  "perception",
+  "plan_speed",
+  "plan_line",
+  "decision",
+  "watchdog",
+  "derived_views"
+ ],
+ "fields": [
+  {
+   "id": "unnamed_3d70",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x3D70",
+   "dec": 15728,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "AIMainUpdate-owned state, not yet named. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L206",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate"
+   ],
+   "readers": []
+  },
+  {
+   "id": "unnamed_4000",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x4000",
+   "dec": 16384,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "? (`this[4096]`) [map_AIAbility.md]",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L81",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility"
+   ],
+   "readers": [
+    "AIAbility"
+   ]
+  },
+  {
+   "id": "unnamed_4028",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x4028",
+   "dec": 16424,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "brake-on-slip output (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L51",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate",
+    "AISteeringCorrection"
+   ],
+   "readers": []
+  },
+  {
+   "id": "unnamed_403c",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x403C",
+   "dec": 16444,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "lapNumber (inspect) [map_AIAbility.md]",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L88",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AIMainUpdate",
+    "AIPushLap",
+    "ForcePitExit",
+    "FuelWeightLimitCheck",
+    "OpponentProximityScanTeamRecognition",
+    "Overtaking",
+    "PitStopDecisionTireCompound"
+   ],
+   "readers": [
+    "AIAbility",
+    "AIMainUpdate",
+    "AIPushLap",
+    "ForcePitExit",
+    "FuelWeightLimitCheck",
+    "OpponentProximityScanTeamRecognition",
+    "Overtaking",
+    "PitStopDecisionTireCompound"
+   ]
+  },
+  {
+   "id": "unnamed_4040",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x4040",
+   "dec": 16448,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "? (`*((_DWORD *)this + 4112)`) [map_AIAbility.md]",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L98",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "FuelWeightLimitCheck"
+   ],
+   "readers": [
+    "AIAbility",
+    "FuelWeightLimitCheck"
+   ]
+  },
+  {
+   "id": "unnamed_4044",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x4044",
+   "dec": 16452,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "? ring-buffer selector (`this[4113]`) [map_AIAbility.md]",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L26",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility"
+   ],
+   "readers": [
+    "AIAbility"
+   ]
+  },
+  {
+   "id": "unnamed_4060",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x4060",
+   "dec": 16480,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "position (inspect CONFIRMED) [map_AISteeringRacingLineCorrection.md]",
+   "tier": "GUESS",
+   "source": "functions/AISteeringRacingLineCorrection_0042b0e0.c:L54",
+   "writer": "AISteeringRacingLineCorrection",
+   "writers": [
+    "AISteeringRacingLineCorrection"
+   ],
+   "readers": [
+    "AISteeringRacingLineCorrection"
+   ]
+  },
+  {
+   "id": "unnamed_4064",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x4064",
+   "dec": 16484,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "? state (`*((_DWORD *)this + 4121)`) [map_AIAbility.md]",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L74",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AICommandMessageQueueDispatcher",
+    "AIMainUpdate",
+    "ForcePitExit"
+   ],
+   "readers": [
+    "AIAbility",
+    "AICommandMessageQueueDispatcher",
+    "AIMainUpdate",
+    "ForcePitExit"
+   ]
+  },
+  {
+   "id": "unnamed_4068",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x4068",
+   "dec": 16488,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "pit-request state armed to 6 before servicing. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L112",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AIMainUpdate"
+   ],
+   "readers": [
+    "AIAbility",
+    "AIMainUpdate"
+   ]
+  },
+  {
+   "id": "unnamed_4094",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x4094",
+   "dec": 16532,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "per-iteration step flag = 1, via `*(_DWORD *)this + 16532` [map_AIRacingLinePathFollowing.md]",
+   "tier": "GUESS",
+   "source": "functions/ServerSessionGateCheck_0042ae60.c:L8",
+   "writer": "ServerSessionGateCheck",
+   "writers": [
+    "ServerSessionGateCheck"
+   ],
+   "readers": [
+    "ServerSessionGateCheck"
+   ]
+  },
+  {
+   "id": "unnamed_409c",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x409C",
+   "dec": 16540,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "bestLap (inspect) [map_Overtaking.md]",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L198",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate",
+    "Overtaking"
+   ],
+   "readers": [
+    "AIMainUpdate",
+    "Overtaking"
+   ]
+  },
+  {
+   "id": "unnamed_413c",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x413C",
+   "dec": 16700,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "AIMainUpdate-only state (live prior art saw FLT_MAX on both cars). (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AICommandMessageQueueDispatcher_00424cd0.c:L71",
+   "writer": "AICommandMessageQueueDispatcher",
+   "writers": [
+    "AICommandMessageQueueDispatcher",
+    "AIMainUpdate"
+   ],
+   "readers": [
+    "AIMainUpdate"
+   ]
+  },
+  {
+   "id": "unnamed_4140",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x4140",
+   "dec": 16704,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "outside-corridor flag (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AISteering_004270a0.c:L1311",
+   "writer": "AISteering",
+   "writers": [
+    "AISteering",
+    "sub_426430"
+   ],
+   "readers": [
+    "sub_426430"
+   ]
+  },
+  {
+   "id": "unnamed_416c",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x416C",
+   "dec": 16748,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "AIMainUpdate-only state (live prior art saw FLT_MAX on both cars). (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L199",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate"
+   ],
+   "readers": [
+    "AIMainUpdate"
+   ]
+  },
+  {
+   "id": "unnamed_4170",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x4170",
+   "dec": 16752,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "AIMainUpdate-only state (live prior art saw FLT_MAX on both cars). (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L89",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate"
+   ],
+   "readers": [
+    "AIMainUpdate"
+   ]
+  },
+  {
+   "id": "unnamed_41b8",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x41B8",
+   "dec": 16824,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "slot 1 vehicle ptr (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/OpponentProximityScanTeamRecognition_0042a7d0.c:L147",
+   "writer": "OpponentProximityScanTeamRecognition",
+   "writers": [
+    "OpponentProximityScanTeamRecognition"
+   ],
+   "readers": [
+    "OpponentProximityScanTeamRecognition"
+   ]
+  },
+  {
+   "id": "unnamed_41ec",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x41EC",
+   "dec": 16876,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "slot 1 squared distance (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/OpponentProximityScanTeamRecognition_0042a7d0.c:L104",
+   "writer": "OpponentProximityScanTeamRecognition",
+   "writers": [
+    "OpponentProximityScanTeamRecognition"
+   ],
+   "readers": [
+    "OpponentProximityScanTeamRecognition"
+   ]
+  },
+  {
+   "id": "unnamed_41fc",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x41FC",
+   "dec": 16892,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "slot 2 vehicle ptr (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/OpponentProximityScanTeamRecognition_0042a7d0.c:L130",
+   "writer": "OpponentProximityScanTeamRecognition",
+   "writers": [
+    "OpponentProximityScanTeamRecognition"
+   ],
+   "readers": [
+    "OpponentProximityScanTeamRecognition"
+   ]
+  },
+  {
+   "id": "unnamed_4230",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x4230",
+   "dec": 16944,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "slot 2 squared distance (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/OpponentProximityScanTeamRecognition_0042a7d0.c:L106",
+   "writer": "OpponentProximityScanTeamRecognition",
+   "writers": [
+    "OpponentProximityScanTeamRecognition"
+   ],
+   "readers": [
+    "OpponentProximityScanTeamRecognition"
+   ]
+  },
+  {
+   "id": "unnamed_4240",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x4240",
+   "dec": 16960,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "slot 3 vehicle ptr (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/OpponentProximityScanTeamRecognition_0042a7d0.c:L118",
+   "writer": "OpponentProximityScanTeamRecognition",
+   "writers": [
+    "OpponentProximityScanTeamRecognition"
+   ],
+   "readers": [
+    "OpponentProximityScanTeamRecognition"
+   ]
+  },
+  {
+   "id": "unnamed_4274",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x4274",
+   "dec": 17012,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "slot 3 squared distance (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/OpponentProximityScanTeamRecognition_0042a7d0.c:L108",
+   "writer": "OpponentProximityScanTeamRecognition",
+   "writers": [
+    "OpponentProximityScanTeamRecognition"
+   ],
+   "readers": [
+    "OpponentProximityScanTeamRecognition"
+   ]
+  },
+  {
+   "id": "unnamed_4284",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x4284",
+   "dec": 17028,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "slot 4 vehicle ptr (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/OpponentProximityScanTeamRecognition_0042a7d0.c:L113",
+   "writer": "OpponentProximityScanTeamRecognition",
+   "writers": [
+    "OpponentProximityScanTeamRecognition"
+   ],
+   "readers": []
+  },
+  {
+   "id": "unnamed_42b8",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x42B8",
+   "dec": 17080,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "slot 4 squared distance (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/OpponentProximityScanTeamRecognition_0042a7d0.c:L99",
+   "writer": "OpponentProximityScanTeamRecognition",
+   "writers": [
+    "OpponentProximityScanTeamRecognition"
+   ],
+   "readers": [
+    "OpponentProximityScanTeamRecognition"
+   ]
+  },
+  {
+   "id": "unnamed_42c8",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x42C8",
+   "dec": 17096,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "per-opponent waypoint index (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AISteering_004270a0.c:L346",
+   "writer": "AISteering",
+   "writers": [
+    "AISteering"
+   ],
+   "readers": [
+    "AISteering"
+   ]
+  },
+  {
+   "id": "unnamed_4364",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x4364",
+   "dec": 17252,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "GUESS offsets_ALL.csv:200 v33 = *(float *)(*(_DWORD *)(this + 17252) + 184) - *(float *)(*(_DWORD *)(this + 17236) + 184);",
+   "tier": "GUESS",
+   "source": "functions/sub_426430_00426430.c:L200",
+   "writer": "sub_426430",
+   "writers": [
+    "sub_426430"
+   ],
+   "readers": [
+    "sub_426430"
+   ]
+  },
+  {
+   "id": "unnamed_43f4",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x43F4",
+   "dec": 17396,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "sub_426430 scratch field, not yet named. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/sub_426430_00426430.c:L175",
+   "writer": "sub_426430",
+   "writers": [
+    "sub_426430"
+   ],
+   "readers": []
+  },
+  {
+   "id": "unnamed_4400",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x4400",
+   "dec": 17408,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "? (pointer to waypoint/lead data) [map_AIRacingLine.md]",
+   "tier": "GUESS",
+   "source": "functions/AIRacingLine_00425920.c:L71",
+   "writer": "AIRacingLine",
+   "writers": [
+    "AIRacingLine"
+   ],
+   "readers": [
+    "AIRacingLine"
+   ]
+  },
+  {
+   "id": "unnamed_4404",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x4404",
+   "dec": 17412,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "AIAbility timer (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L213",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate"
+   ],
+   "readers": [
+    "AIMainUpdate"
+   ]
+  },
+  {
+   "id": "unnamed_4410",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x4410",
+   "dec": 17424,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "? byte flag (if clear -> `SessionCleanupFlagClear`) [map_AICommandMessageQueueDispatcher.md]",
+   "tier": "GUESS",
+   "source": "functions/PitStopDecisionTireCompound_0042a3d0.c:L29",
+   "writer": "PitStopDecisionTireCompound",
+   "writers": [
+    "PitStopDecisionTireCompound"
+   ],
+   "readers": [
+    "AICommandMessageQueueDispatcher",
+    "SessionCleanupFlagClear"
+   ]
+  },
+  {
+   "id": "unnamed_441c",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x441C",
+   "dec": 17436,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "corridor centre offset (map question; not confirmed). (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/sub_426430_00426430.c:L212",
+   "writer": "sub_426430",
+   "writers": [
+    "sub_426430"
+   ],
+   "readers": [
+    "AISteering"
+   ]
+  },
+  {
+   "id": "unnamed_443c",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x443C",
+   "dec": 17468,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "one-shot gap request (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L142",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AIMainUpdate",
+    "AIRacingLine"
+   ],
+   "readers": [
+    "AIRacingLine"
+   ]
+  },
+  {
+   "id": "unnamed_4444",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x4444",
+   "dec": 17476,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "sub_426430 scratch field. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/sub_426430_00426430.c:L147",
+   "writer": "sub_426430",
+   "writers": [
+    "sub_426430"
+   ],
+   "readers": [
+    "sub_426430"
+   ]
+  },
+  {
+   "id": "unnamed_4448",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x4448",
+   "dec": 17480,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "time margin used by the correction path. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L55",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate",
+    "AIRingBufferFieldInit"
+   ],
+   "readers": [
+    "AIMainUpdate",
+    "AISteeringRacingLineCorrection"
+   ]
+  },
+  {
+   "id": "unnamed_444c",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x444C",
+   "dec": 17484,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "AIMainUpdate-owned field. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L50",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate"
+   ],
+   "readers": [
+    "AIMainUpdate"
+   ]
+  },
+  {
+   "id": "unnamed_4450",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x4450",
+   "dec": 17488,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "waypoint lateral reference. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/sub_426430_00426430.c:L476",
+   "writer": "sub_426430",
+   "writers": [
+    "sub_426430"
+   ],
+   "readers": [
+    "AISteering",
+    "sub_426430"
+   ]
+  },
+  {
+   "id": "unnamed_4454",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x4454",
+   "dec": 17492,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "sub_426430 scratch field. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/sub_426430_00426430.c:L150",
+   "writer": "sub_426430",
+   "writers": [
+    "sub_426430"
+   ],
+   "readers": []
+  },
+  {
+   "id": "unnamed_4458",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x4458",
+   "dec": 17496,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "GUESS offsets_ALL.csv:103 ++*(_DWORD *)(this + 17496);",
+   "tier": "GUESS",
+   "source": "functions/sub_426430_00426430.c:L103",
+   "writer": "sub_426430",
+   "writers": [
+    "sub_426430"
+   ],
+   "readers": [
+    "sub_426430"
+   ]
+  },
+  {
+   "id": "unnamed_4460",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x4460",
+   "dec": 17504,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "session-time stamp used to rate-limit resets. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AISteeringRacingLineCorrection_0042b0e0.c:L115",
+   "writer": "AISteeringRacingLineCorrection",
+   "writers": [
+    "AISteeringRacingLineCorrection"
+   ],
+   "readers": [
+    "AISteeringRacingLineCorrection"
+   ]
+  },
+  {
+   "id": "unnamed_4464",
+   "group": "decision",
+   "base": "veh",
+   "hex": "0x4464",
+   "dec": 17508,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "last slip value (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AISteeringCorrection_00426cf0.c:L43",
+   "writer": "AISteeringCorrection",
+   "writers": [
+    "AISteeringCorrection"
+   ],
+   "readers": [
+    "AISteeringCorrection"
+   ]
+  },
+  {
+   "id": "unnamed_4480",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x4480",
+   "dec": 17536,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "per-opponent block reset value (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L47",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate"
+   ],
+   "readers": [
+    "AIMainUpdate",
+    "AISteering"
+   ]
+  },
+  {
+   "id": "unnamed_4488",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x4488",
+   "dec": 17544,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "waypoint re-scan flag (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AISteering_004270a0.c:L804",
+   "writer": "AISteering",
+   "writers": [
+    "AISteering",
+    "sub_426430"
+   ],
+   "readers": [
+    "AISteering",
+    "sub_426430"
+   ]
+  },
+  {
+   "id": "unnamed_448c",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x448C",
+   "dec": 17548,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "heading -sin(yaw) (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L181",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate"
+   ],
+   "readers": [
+    "AISteering",
+    "OpponentProximityScanTeamRecognition",
+    "sub_426100"
+   ]
+  },
+  {
+   "id": "unnamed_4490",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x4490",
+   "dec": 17552,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "heading Y [map_AISteering_part2.md]",
+   "tier": "GUESS",
+   "source": "functions/AISteering_004270a0.c:L335",
+   "writer": "AISteering",
+   "writers": [
+    "AISteering"
+   ],
+   "readers": [
+    "AISteering"
+   ]
+  },
+  {
+   "id": "unnamed_4494",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x4494",
+   "dec": 17556,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "heading -cos(yaw) (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L182",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate"
+   ],
+   "readers": [
+    "AISteering",
+    "OpponentProximityScanTeamRecognition",
+    "sub_426100"
+   ]
+  },
+  {
+   "id": "unnamed_44a4",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x44A4",
+   "dec": 17572,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "distance since waypoint change (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/sub_426100_00426100.c:L492",
+   "writer": "sub_426100",
+   "writers": [
+    "sub_426100"
+   ],
+   "readers": [
+    "AISteering",
+    "sub_426100"
+   ]
+  },
+  {
+   "id": "unnamed_44a8",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x44A8",
+   "dec": 17576,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "command queue array pointer (`this[4394]`) [map_AICommandMessageQueueDispatcher.md]",
+   "tier": "GUESS",
+   "source": "functions/AICommandMessageQueueDispatcher_00424cd0.c:L43",
+   "writer": "AICommandMessageQueueDispatcher",
+   "writers": [
+    "AICommandMessageQueueDispatcher"
+   ],
+   "readers": [
+    "AICommandMessageQueueDispatcher"
+   ]
+  },
+  {
+   "id": "unnamed_44ac",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x44AC",
+   "dec": 17580,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "queue capacity / bound (`this[4395]`) [map_AICommandMessageQueueDispatcher.md]",
+   "tier": "GUESS",
+   "source": "functions/AICommandMessageQueueDispatcher_00424cd0.c:L51",
+   "writer": "AICommandMessageQueueDispatcher",
+   "writers": [
+    "AICommandMessageQueueDispatcher"
+   ],
+   "readers": [
+    "AICommandMessageQueueDispatcher"
+   ]
+  },
+  {
+   "id": "unnamed_44b0",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x44B0",
+   "dec": 17584,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "NAN sentinel (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L189",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AICommandMessageQueueDispatcher"
+   ],
+   "readers": [
+    "AICommandMessageQueueDispatcher"
+   ]
+  },
+  {
+   "id": "unnamed_44c4",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x44C4",
+   "dec": 17604,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "= throttle to hold speed, 0.4/0.5 off-line), ramped by 0.2 * 0x44B8/0x44C4. [54-ai-driving-brain-map.md]",
+   "tier": "GUESS",
+   "source": "functions/AIRacingLine_00425920.c:L331",
+   "writer": "AIRacingLine",
+   "writers": [
+    "AIRacingLine"
+   ],
+   "readers": [
+    "AIRacingLine"
+   ]
+  },
+  {
+   "id": "unnamed_44c8",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x44C8",
+   "dec": 17608,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "? (`this[4402]`; neighbor of the RaceAbility terms) [map_AIPushLap.md]",
+   "tier": "GUESS",
+   "source": "functions/AIPushLap_0042a180.c:L33",
+   "writer": "AIPushLap",
+   "writers": [
+    "AIPushLap"
+   ],
+   "readers": [
+    "AIPushLap"
+   ]
+  },
+  {
+   "id": "unnamed_44d4",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x44D4",
+   "dec": 17620,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "hold. `0x44D4-0x44D8-raceability-derived` (CONFIRMED) \u2014 0x44D4 = `1 - 0.030455*RaceAbility`, [map_AIAbility.md]",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L54",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility"
+   ],
+   "readers": [
+    "AIAbility"
+   ]
+  },
+  {
+   "id": "unnamed_44d8",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x44D8",
+   "dec": 17624,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "hold. `0x44D4-0x44D8-raceability-derived` (CONFIRMED) \u2014 0x44D4 = `1 - 0.030455*RaceAbility`, [map_AIAbility.md]",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L46",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AIPushLap"
+   ],
+   "readers": [
+    "AIAbility",
+    "AIPushLap"
+   ]
+  },
+  {
+   "id": "unnamed_44f4",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x44F4",
+   "dec": 17652,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "? ability floor (`this[4413]`) [map_AIAbility.md]",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L41",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AIPushLap"
+   ],
+   "readers": [
+    "AIAbility",
+    "AIPushLap"
+   ]
+  },
+  {
+   "id": "unnamed_44f8",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x44F8",
+   "dec": 17656,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "`ai-pulloff-lateral-chain-v4-2026-10-02`); 0x4420 = target lateral request (prior art); 0x44F8 = [map_AISteering_part1.md]",
+   "tier": "GUESS",
+   "source": "functions/AISteering_004270a0.c:L455",
+   "writer": "AISteering",
+   "writers": [
+    "AISteering"
+   ],
+   "readers": [
+    "AISteering"
+   ]
+  },
+  {
+   "id": "unnamed_44fc",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x44FC",
+   "dec": 17660,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "? race-start override selector (-1/0/+1) [map_AISteering_part1.md]",
+   "tier": "GUESS",
+   "source": "functions/AISteering_004270a0.c:L273",
+   "writer": "AISteering",
+   "writers": [
+    "AISteering"
+   ],
+   "readers": [
+    "AISteering"
+   ]
+  },
+  {
+   "id": "unnamed_4508",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x4508",
+   "dec": 17672,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "AIAbility interval/timer (0x4508). (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L38",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AISteering"
+   ],
+   "readers": [
+    "AIAbility",
+    "AISteering"
+   ]
+  },
+  {
+   "id": "unnamed_450c",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x450C",
+   "dec": 17676,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "shared speed memory (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L52",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "Overtaking"
+   ],
+   "readers": [
+    "AIAbility",
+    "Overtaking"
+   ]
+  },
+  {
+   "id": "unnamed_4524",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x4524",
+   "dec": 17700,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "pit-cleanup field zeroed on release. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L152",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AIMainUpdate",
+    "AIRacingLine"
+   ],
+   "readers": [
+    "AIRacingLine"
+   ]
+  },
+  {
+   "id": "unnamed_4528",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x4528",
+   "dec": 17704,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "sub_426430 scratch field. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/sub_426430_00426430.c:L190",
+   "writer": "sub_426430",
+   "writers": [
+    "sub_426430"
+   ],
+   "readers": []
+  },
+  {
+   "id": "unnamed_452c",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x452C",
+   "dec": 17708,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "sub_426430 scratch field. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/sub_426430_00426430.c:L189",
+   "writer": "sub_426430",
+   "writers": [
+    "sub_426430"
+   ],
+   "readers": []
+  },
+  {
+   "id": "unnamed_4534",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x4534",
+   "dec": 17716,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "time stamp written before pit servicing. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L102",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AIMainUpdate",
+    "PitStopDecisionTireCompound",
+    "PostPitCleanup"
+   ],
+   "readers": [
+    "AIMainUpdate"
+   ]
+  },
+  {
+   "id": "unnamed_4538",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x4538",
+   "dec": 17720,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "maxSpeed (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AISteeringRacingLineCorrection_0042b0e0.c:L80",
+   "writer": "AISteeringRacingLineCorrection",
+   "writers": [
+    "AISteeringRacingLineCorrection",
+    "ParameterValueSetter"
+   ],
+   "readers": [
+    "AISteeringCorrection"
+   ]
+  },
+  {
+   "id": "unnamed_4544",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x4544",
+   "dec": 17732,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "pit/ability flag set to 1 then cleared by command 15. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L27",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AICommandMessageQueueDispatcher"
+   ],
+   "readers": [
+    "AISteering"
+   ]
+  },
+  {
+   "id": "unnamed_454c",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x454C",
+   "dec": 17740,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "branch id latch (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L155",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AIMainUpdate",
+    "AIRacingLine",
+    "AIStateFlagSetter"
+   ],
+   "readers": [
+    "AIPushLap",
+    "AIRacingLine",
+    "AISteering",
+    "ServerSessionGateCheck",
+    "sub_426430"
+   ]
+  },
+  {
+   "id": "unnamed_4550",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x4550",
+   "dec": 17744,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "laneMode / waypoint set selector (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L140",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AICommandMessageQueueDispatcher",
+    "AIMainUpdate",
+    "AIRacingLine",
+    "AISteeringRacingLineCorrection",
+    "sub_426430"
+   ],
+   "readers": [
+    "AIMainUpdate",
+    "AIRacingLine",
+    "AISteering",
+    "RacePhasePitEntryTrigger",
+    "sub_426430"
+   ]
+  },
+  {
+   "id": "unnamed_4554",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x4554",
+   "dec": 17748,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "tick latch set to 1 by AISteering init. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AISteering_004270a0.c:L209",
+   "writer": "AISteering",
+   "writers": [
+    "AISteering"
+   ],
+   "readers": [
+    "AIRacingLine"
+   ]
+  },
+  {
+   "id": "unnamed_455c",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x455C",
+   "dec": 17756,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "counter incremented when an opponent is almost alongside. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AISteering_004270a0.c:L297",
+   "writer": "AISteering",
+   "writers": [
+    "AISteering"
+   ],
+   "readers": [
+    "AISteering"
+   ]
+  },
+  {
+   "id": "unnamed_4560",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x4560",
+   "dec": 17760,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "AIMainUpdate field, not named. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L107",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate"
+   ],
+   "readers": [
+    "AIMainUpdate"
+   ]
+  },
+  {
+   "id": "unnamed_4564",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x4564",
+   "dec": 17764,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "AIMainUpdate field, not named. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L105",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate"
+   ],
+   "readers": [
+    "AIMainUpdate"
+   ]
+  },
+  {
+   "id": "unnamed_4568",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x4568",
+   "dec": 17768,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "AIMainUpdate field, not named. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L111",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate"
+   ],
+   "readers": [
+    "AIMainUpdate"
+   ]
+  },
+  {
+   "id": "unnamed_456c",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x456C",
+   "dec": 17772,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "avoidance/line-follow latch. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AISteering_004270a0.c:L194",
+   "writer": "AISteering",
+   "writers": [
+    "AISteering"
+   ],
+   "readers": [
+    "AISteering"
+   ]
+  },
+  {
+   "id": "unnamed_4570",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x4570",
+   "dec": 17776,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "stored opponent id + 1. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AISteering_004270a0.c:L295",
+   "writer": "AISteering",
+   "writers": [
+    "AISteering"
+   ],
+   "readers": [
+    "AISteering"
+   ]
+  },
+  {
+   "id": "unnamed_4574",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x4574",
+   "dec": 17780,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "stored opponent id + 1. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AISteering_004270a0.c:L296",
+   "writer": "AISteering",
+   "writers": [
+    "AISteering"
+   ],
+   "readers": [
+    "AISteering"
+   ]
+  },
+  {
+   "id": "unnamed_4578",
+   "group": "perception",
+   "base": "veh",
+   "hex": "0x4578",
+   "dec": 17784,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "team-scan reset flag (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/OpponentProximityScanTeamRecognition_0042a7d0.c:L232",
+   "writer": "OpponentProximityScanTeamRecognition",
+   "writers": [
+    "OpponentProximityScanTeamRecognition"
+   ],
+   "readers": [
+    "OpponentProximityScanTeamRecognition"
+   ]
+  },
+  {
+   "id": "unnamed_4579",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x4579",
+   "dec": 17785,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "small flag zeroed by AIAbility and read by AISteering. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L108",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AISteering"
+   ],
+   "readers": [
+    "AISteering"
+   ]
+  },
+  {
+   "id": "unnamed_4584",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x4584",
+   "dec": 17796,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "? pit flag (0/1) [map_PitStopDecisionTireCompound.md]",
+   "tier": "GUESS",
+   "source": "functions/PitStopDecisionTireCompound_0042a3d0.c:L26",
+   "writer": "PitStopDecisionTireCompound",
+   "writers": [
+    "PitStopDecisionTireCompound"
+   ],
+   "readers": [
+    "PostPitCleanup"
+   ]
+  },
+  {
+   "id": "unnamed_4588",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x4588",
+   "dec": 17800,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "? (`this[4450]`) [map_PitStopDecisionTireCompound.md]",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L287",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate",
+    "PitStopDecisionTireCompound"
+   ],
+   "readers": [
+    "AIMainUpdate",
+    "PitStopDecisionTireCompound"
+   ]
+  },
+  {
+   "id": "unnamed_458c",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x458C",
+   "dec": 17804,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "? tire compound choice (`this[4451]`) [map_AIPushLap.md]",
+   "tier": "GUESS",
+   "source": "functions/AIPushLap_0042a180.c:L46",
+   "writer": "AIPushLap",
+   "writers": [
+    "AIPushLap",
+    "PitStopDecisionTireCompound",
+    "RandomWeightedTierSelection"
+   ],
+   "readers": [
+    "AIPushLap",
+    "PitStopDecisionTireCompound",
+    "RandomWeightedTierSelection"
+   ]
+  },
+  {
+   "id": "unnamed_4590",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x4590",
+   "dec": 17808,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "tire/setup float array element (`this[4*this[4472] + 4452]`) [map_AIPushLap.md]",
+   "tier": "GUESS",
+   "source": "functions/AIPushLap_0042a180.c:L40",
+   "writer": "AIPushLap",
+   "writers": [
+    "AIPushLap",
+    "PitStopDecisionTireCompound"
+   ],
+   "readers": [
+    "AIPushLap",
+    "PitStopDecisionTireCompound"
+   ]
+  },
+  {
+   "id": "unnamed_4594",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x4594",
+   "dec": 17812,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "? compound speed table (`this[v11 + 4453]`) [map_AIAbility.md]",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L125",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility"
+   ],
+   "readers": [
+    "AIAbility"
+   ]
+  },
+  {
+   "id": "unnamed_45a0",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x45A0",
+   "dec": 17824,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "? per-compound lap estimate (`this[4*v2+4456]`, dynamic index) [map_PitStopDecisionTireCompound.md]",
+   "tier": "GUESS",
+   "source": "functions/PitStopDecisionTireCompound_0042a3d0.c:L42",
+   "writer": "PitStopDecisionTireCompound",
+   "writers": [
+    "PitStopDecisionTireCompound"
+   ],
+   "readers": [
+    "PitStopDecisionTireCompound"
+   ]
+  },
+  {
+   "id": "unnamed_45e0",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x45E0",
+   "dec": 17888,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "? pit compound index (`*((_DWORD *)this + 4472)`) [map_AIAbility.md]",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L124",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AIMainUpdate",
+    "AIPushLap",
+    "PitStopDecisionTireCompound",
+    "PostPitCleanup"
+   ],
+   "readers": [
+    "AIAbility",
+    "AIMainUpdate",
+    "AIPushLap",
+    "PitStopDecisionTireCompound",
+    "PostPitCleanup"
+   ]
+  },
+  {
+   "id": "unnamed_45e8",
+   "group": "plan_line",
+   "base": "veh",
+   "hex": "0x45E8",
+   "dec": 17896,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "? scale [map_AISteeringRacingLineCorrection.md]",
+   "tier": "GUESS",
+   "source": "functions/AISteeringRacingLineCorrection_0042b0e0.c:L127",
+   "writer": "AISteeringRacingLineCorrection",
+   "writers": [
+    "AISteeringRacingLineCorrection",
+    "PitStopDecisionTireCompound"
+   ],
+   "readers": [
+    "AISteeringRacingLineCorrection",
+    "PitStopDecisionTireCompound"
+   ]
+  },
+  {
+   "id": "unnamed_45f4",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x45F4",
+   "dec": 17908,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "ActiveFlag (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L119",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "AICommandMessageQueueDispatcher",
+    "AIMainUpdate",
+    "AIRacingLine",
+    "AISteeringRacingLineCorrection",
+    "PitStopDecisionTireCompound",
+    "SessionCleanupFlagClear"
+   ],
+   "readers": [
+    "AIMainUpdate"
+   ]
+  },
+  {
+   "id": "unnamed_45f8",
+   "group": "plan_speed",
+   "base": "veh",
+   "hex": "0x45F8",
+   "dec": 17912,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "interaction target (inspect, doc 54) [map_AIAbility.md]",
+   "tier": "GUESS",
+   "source": "functions/AIAbility_00429470.c:L174",
+   "writer": "AIAbility",
+   "writers": [
+    "AIAbility",
+    "Overtaking"
+   ],
+   "readers": [
+    "AIAbility",
+    "Overtaking"
+   ]
+  },
+  {
+   "id": "unnamed_45fc",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x45FC",
+   "dec": 17916,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "interaction target (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L163",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate",
+    "OpponentProximityScanTeamRecognition",
+    "Overtaking"
+   ],
+   "readers": [
+    "AIMainUpdate",
+    "AISteeringCorrection"
+   ]
+  },
+  {
+   "id": "unnamed_461c",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x461C",
+   "dec": 17948,
+   "type": "float",
+   "count": 1,
+   "units": "",
+   "meaning": "AIMainUpdate-owned field. (FIELD_GLOSSARY.md)",
+   "tier": "GUESS",
+   "source": "functions/AIMainUpdate_00424e70.c:L266",
+   "writer": "AIMainUpdate",
+   "writers": [
+    "AIMainUpdate"
+   ],
+   "readers": [
+    "AIMainUpdate"
+   ]
+  },
+  {
+   "id": "unnamed_4894",
+   "group": "state",
+   "base": "veh",
+   "hex": "0x4894",
+   "dec": 18580,
+   "type": "int",
+   "count": 1,
+   "units": "",
+   "meaning": "- GUESS Team recognition matches the slot car's team id (vehicle+0x4894) against the team-id list at 0x42D0; on a [map_OpponentProximityScanTeamRecognition.md]",
+   "tier": "GUESS",
+   "source": "functions/sub_4C7BD0_004c7bd0.c:L3",
+   "writer": "sub_4C7BD0",
+   "writers": [
+    "sub_4C7BD0"
+   ],
+   "readers": [
+    "sub_4C7BD0"
+   ]
+  }
+ ],
+ "derived_views": []
+}

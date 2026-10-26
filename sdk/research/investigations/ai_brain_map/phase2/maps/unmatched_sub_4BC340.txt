@@ -1,0 +1,1 @@
+# sub_4BC340: offset-like lines with no extracted row (0)

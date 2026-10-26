@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "target": "engine_overhaul_lab.dll",
+  "sha256": "6C54CA8D58BF71B15E8A03F2B444AFFFA5363C5C8C68CFF3BC4BA08B5009BB43",
+  "source": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\sdk_sandbox\\engine_overhaul_lab\\build\\engine_overhaul_lab.dll"
+}

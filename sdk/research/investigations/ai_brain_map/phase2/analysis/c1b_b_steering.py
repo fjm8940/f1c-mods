@@ -1,0 +1,55 @@
+# c1b_b_steering.py — Run B from C1b: steering law holds across cars.
+# Read-only over %TEMP% watch folders (brake_zone situations, all cars). Prints a short per-run result.
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+import c1b_lib as L
+
+BANDS = ((0, 15, 'idx0'), (15, 30, 'idx1'), (30, 65, 'idx2'), (65, 1e9, 'idx3'))
+
+
+def main():
+    for run in L.RUNS:
+        situ = [x for x in L.situations(run) if x['kind'] == 'brake_zone']
+        n = matches = 0
+        errs, preds, cmds = [], [], []
+        locks, idx_ok = [], 0
+        by_band = {b[2]: [0, 0] for b in BANDS}
+        mode6 = 0
+        for x in situ:
+            for s in L.snaps(run, x['folder']):
+                d = s.get('derived', {}).get('steering_target')
+                if not d:
+                    continue
+                n += 1
+                e = abs(d['predicted_steer'] - d['steer_cmd'])
+                errs.append(e)
+                preds.append(d['predicted_steer'])
+                cmds.append(d['steer_cmd'])
+                matches += bool(d['law_matches'])
+                f = s['fields']
+                locks.append(f['steering_lock_divisor'])
+                sp = f['speed']
+                idx = f['steering_lookahead_index']
+                want = next(b[2] for b in BANDS if b[0] <= sp < b[1])
+                ok = (idx == int(want[-1]))
+                idx_ok += ok
+                by_band[want][0] += ok
+                by_band[want][1] += 1
+                mode6 += f['driver_status'] == 6
+        st = L.stats(errs)
+        print('== Run B steering [%s] samples=%d law_matches=%d (%.1f%%) mode6=%d ==' % (run, n, matches, 100.0 * matches / n if n else 0, mode6))
+        if st:
+            print(' abs(pred-cmd): med=%.4f p90=%.4f max=%.4f; corr=%.4f'
+                  % (st['median'], st['p90'], st['max'], L.corr(preds, cmds) or -1))
+        ls = L.stats(locks)
+        if ls:
+            print(' lock divisor min=%.4f med=%.4f max=%.4f' % (ls['min'], ls['median'], ls['max']))
+        print(' look-ahead idx vs speed rule: %d/%d (%.1f%%); per band %s'
+              % (idx_ok, n, 100.0 * idx_ok / n if n else 0,
+                 ', '.join('%s %d/%d' % (b, v[0], v[1]) for b, v in sorted(by_band.items()))))
+
+
+if __name__ == '__main__':
+    main()

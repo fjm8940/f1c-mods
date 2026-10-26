@@ -1,0 +1,3 @@
+func,line,dec,hex,access,width,base,form,expr
+SpeedValueSetterWithGlobalMirror,5,14712,0x3978,W,float,this,direct,*(float *)(this + 14712) = a2;
+SpeedValueSetterWithGlobalMirror,6,12988,0x32BC,R,_DWORD,this,direct,result = *(_DWORD *)(this + 12988);

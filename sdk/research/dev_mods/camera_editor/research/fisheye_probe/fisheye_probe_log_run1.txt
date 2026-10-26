@@ -1,0 +1,978 @@
+fisheye probe (research build 2026-10-05)
+game CreateDevice hr=00000000 type=1 flags=00000040 2560x1600 fmt=22 windowed=1 swap=4 ms=0 autodepth=0 depthfmt=80 ppflags=0 refresh=0 interval=0
+game device table 099d83c0 hooked
+== frame 1200
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  DrawPrimitive SCREEN fvf=324
+  EndScene
+  BeginScene
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  Clear flags=2 rects=0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x3
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x493
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d fvf=1234  x5
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d fvf=1234  x7
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x2
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x112
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  EndScene
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Present
+== end of frame 1200
+== frame 2400
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  DrawPrimitive SCREEN fvf=324
+  EndScene
+  BeginScene
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  Clear flags=2 rects=0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x3
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x493
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d fvf=1234  x5
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d fvf=1234  x7
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x2
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x112
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  EndScene
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Present
+== end of frame 2400
+== frame 3600
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  DrawPrimitive SCREEN fvf=324
+  EndScene
+  BeginScene
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  Clear flags=2 rects=0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x3
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x493
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d fvf=1234  x5
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d fvf=1234  x7
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x2
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x112
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 35,498 1264x845 z=0.00..1.00
+  EndScene
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Present
+== end of frame 3600
+== frame 4800
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x3
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x495
+  SetTransform PROJECTION persp m00=9131.425 m11=9131.425 m22=2739.9329 m32=-27394328.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d fvf=1234  x2
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d fvf=1234  x5
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d fvf=1234  x7
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x2
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x112
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  EndScene
+  BeginScene
+  DrawPrimitive SCREEN fvf=324
+  EndScene
+  BeginScene
+  DrawPrimitive SCREEN fvf=324
+  EndScene
+  BeginScene
+  DrawPrimitive SCREEN fvf=324
+  EndScene
+  BeginScene
+  DrawPrimitive SCREEN fvf=324
+  EndScene
+  BeginScene
+  DrawPrimitive SCREEN fvf=324
+  EndScene
+  BeginScene
+  DrawPrimitive SCREEN fvf=324
+  EndScene
+  BeginScene
+  DrawPrimitive SCREEN fvf=324
+  EndScene
+  Present
+== end of frame 4800
+== frame 6000
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x7
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x554
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d fvf=1234  x5
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d fvf=1234  x4
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x3
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x129
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  EndScene
+  Present
+== end of frame 6000
+== frame 7200
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x7
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x571
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d fvf=1234  x5
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x2
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x119
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  EndScene
+  Present
+== end of frame 7200
+== frame 8400
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x6
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x562
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d fvf=1234  x5
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234  x3
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x2
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x105
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234  x3
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  EndScene
+  Present
+== end of frame 8400
+== frame 9600
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x10
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x319
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive 3d fvf=1234  x5
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=3761.459 m11=3761.459 m22=1128.9990 m32=-11284988.0000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d675c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive 3d fvf=322
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234  x2
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234  x2
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0001 m32=-1.0001 m23=1.0
+  DrawIndexedPrimitive 3d fvf=1234
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive 3d fvf=1234  x87
+  SetTransform PROJECTION persp m00=1.600 m11=8.144 m22=1.0067 m32=-1.0067 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0f7d6bdc
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive 3d fvf=1234  x2
+  SetTransform PROJECTION persp m00=1.141 m11=1.911 m22=1.0000 m32=-0.3000 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 098b3ffc
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  EndScene
+  Present
+== end of frame 9600

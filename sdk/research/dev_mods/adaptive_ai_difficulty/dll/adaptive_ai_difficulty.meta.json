@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "adaptive_ai_difficulty",
+  "name": "Adaptive AI Difficulty (dev build)",
+  "version": "0.4.3-dev",
+  "author": "Matias",
+  "description": "Development build: scales AI car strength per slot from adaptive_ai_difficulty.ini, plus a player rating vs the AI teammate (or comparable teams when the teammate has no laps) per track, a weekend AI-level decision and a session report.",
+  "lightloader": ">=2.2.0"
+}

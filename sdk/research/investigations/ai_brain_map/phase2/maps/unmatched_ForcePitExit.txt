@@ -1,0 +1,4 @@
+# ForcePitExit: offset-like lines with no extracted row (3)
+L10: result = TeammatePartValueLookup(this + 3251);
+L13: StateConditionalAction(this + 3251);
+L20: StateConditionalAction(this + 3251);

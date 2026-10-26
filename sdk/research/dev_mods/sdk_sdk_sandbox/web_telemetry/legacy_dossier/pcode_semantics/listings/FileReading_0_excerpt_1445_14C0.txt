@@ -1,0 +1,44 @@
+; EXCERPT of FileReading #0 (RTMI 0x0044E478), offsets 0x1445-0x14C0: wheelspin pairs + camber/crown formulas
+; full listing: python pcode_decode.py --disasm 0x0044E478
+  0x1447: LitStr                   pool[41]="fr tyre camber temp"
+  0x144A: EqStr                    
+  0x144C: BranchF                  target=+0x1461
+  0x144F: FLdRfVar                 var[-1616]
+  0x1452: FLdRfVar                 var[-1648]
+  0x1455: SubVar                   raw=CCFE
+  0x1459: CR8Var                   
+  0x145B: FStFPR4                  var[-160]
+  0x145E: Branch                   target=+0x170E
+  0x1461: ILdRf                    var[-1972]
+  0x1464: LitStr                   pool[43]="fl tyre camber temp"
+  0x1467: EqStr                    
+  0x1469: BranchF                  target=+0x147E
+  0x146C: FLdRfVar                 var[-1600]
+  0x146F: FLdRfVar                 var[-1568]
+  0x1472: SubVar                   raw=CCFE
+  0x1476: CR8Var                   
+  0x1478: FStFPR4                  var[-160]
+  0x147B: Branch                   target=+0x170E
+  0x147E: ILdRf                    var[-1972]
+  0x1481: LitStr                   pool[45]="rr tyre camber temp"
+  0x1484: EqStr                    
+  0x1486: BranchF                  target=+0x149B
+  0x1489: FLdRfVar                 var[-1712]
+  0x148C: FLdRfVar                 var[-1744]
+  0x148F: SubVar                   raw=CCFE
+  0x1493: CR8Var                   
+  0x1495: FStFPR4                  var[-160]
+  0x1498: Branch                   target=+0x170E
+  0x149B: ILdRf                    var[-1972]
+  0x149E: LitStr                   pool[47]="rl tyre camber temp"
+  0x14A1: EqStr                    
+  0x14A3: BranchF                  target=+0x14B8
+  0x14A6: FLdRfVar                 var[-1696]
+  0x14A9: FLdRfVar                 var[-1664]
+  0x14AC: SubVar                   raw=CCFE
+  0x14B0: CR8Var                   
+  0x14B2: FStFPR4                  var[-160]
+  0x14B5: Branch                   target=+0x170E
+  0x14B8: ILdRf                    var[-1972]
+  0x14BB: LitStr                   pool[49]="fr tyre average temp"
+  0x14BE: EqStr                    

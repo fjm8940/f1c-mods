@@ -1,0 +1,71 @@
+SDT NAME DESCRIPTION -- every clip nobody has confirmed. Write the verdict after each line, same format as TRIAGE_NOTES.txt.
+
+9 PWS_QUAL29 -- Some drivers on track
+10 PWS_QUAL28 -- Very few drivers on track
+13 PWS_QUAL30 -- Most drivers on track
+25 PWS_2001_22 -- Rain expected - make run ASAP
+26 PWS_2001_24 -- Rain expected to ease - wait
+27 PWS_2001_25 -- Rain expected to continue - make run ASAP
+32 PWS_2001_09 -- AI driver is on Pole Position (alt)
+40 PWS_POSUPDATE01 -- Position update
+41 PWS_CHANGEPIT01 -- Change pit instructions
+93 RE_PD_FL_BAD_BL -- Front Left severe blistering
+95 RE_PD_FR_BAD_BL -- Front Right severe blistering
+96 RE_PD_FR_BLIST -- Front Right light blistering
+97 RE_PD_RL_BAD_BL -- Rear Left severe blistering
+98 RE_PD_RL_BLIST -- Rear Left light blistering
+99 RE_PD_RR_BAD_BL -- Rear Right severe blistering
+100 RE_PD_RR_BLIST -- Rear Right light blistering
+115 PWS_HIT09 -- Player hits AI driver (2)
+116 PWS_OFFROAD01 -- Player went off track (1)
+122 PWS_OVERTAKE01 -- Player overtakes AI (1)
+123 PWS_OVERTAKE02 -- Player overtakes AI (2)
+124 PWS_OVERTAKE03 -- Player overtakes AI (3)
+143 PWS_YELLOW01 -- Yellow flag Sector 1
+145 PWS_YELLOW02 -- Yellow flag Sector 2
+147 PWS_YELLOW03 -- Yellow flag Sector 3
+149 PWS_PENALTY14 -- Penalty (type 14)
+151 PWS_PENALTY05 -- Cutting track penalty
+154 PWS_MISC02 -- Player false start - investigation
+160 RE_PD_SG_CUT -- Stop/Go penalty - cutting track
+164 PWS_PENALTY02 -- Speeding in pits penalty
+166 PWS_WIN21 -- Player finishes outside points
+167 PWS_WIN20 -- Player finishes at X position
+169 RE_PD_WIN_EUR -- Player wins European GP
+170 PWS_WIN01 -- Player wins Australian GP
+171 PWS_WIN09 -- Player wins European GP
+172 PWS_WIN12 -- Player wins German GP
+173 PWS_WIN02 -- Player wins Malaysian GP
+174 PWS_WIN06 -- Player wins Austrian GP
+175 PWS_WIN07 -- Player wins Monaco GP
+176 PWS_WIN19 -- Player wins generic Grand Prix
+178 PWS_WIN10 -- Player wins French GP
+179 PWS_WIN08 -- Player wins Canadian GP
+180 PWS_WIN11 -- Player wins British GP
+181 PWS_WIN13 -- Player wins Hungarian GP
+182 PWS_WIN16 -- Player wins US GP
+183 PWS_WIN15 -- Player wins Italian GP
+184 PWS_WIN04 -- Player wins San Marino GP
+185 PWS_WIN03 -- Player wins Brazilian GP
+186 PWS_WIN05 -- Player wins Spanish GP
+187 PWS_WIN17 -- Player wins Japanese GP
+189 PWS_AIPIT05 -- AI driver pits (alt)
+191 PWS_AIPIT07 -- AI driver pits (alt 2)
+192 PWS_AIPIT08 -- AI has 1-stop strategy
+193 PWS_AIPIT09 -- AI has 2-stop strategy
+202 PWS_AIPIT13 -- AI rejoins track at X position
+211 PWS_MISC12 -- AI takes race lead (1)
+213 PWS_2001_138 -- AI driver positioned to secure WDC
+237 PWS_AIOFFTRACK0 -- AI recovers from spin
+238 PWS_AIINCID10 -- AI drivers collide (1)
+239 PWS_AIINCID11 -- AI drivers collide (2)
+253 PWS_AIRETIRE01 -- AI retired (generic 1)
+277 PWS_AIWIN03 -- AI finishes X position (2)
+290 PWS_2001_161 -- X laps to go (long)
+304 PWS_2001_223 -- Player driving wrong way (1)
+305 PWS_2001_225 -- Player driving wrong way (3)
+309 PWS_2001_309 -- AI team uses driver orders
+312 RE_PORSCHE_23 -- Porsche Cup line 23
+313 RE_PORSCHE_24 -- Porsche Cup line 24
+314 RE_PORSCHE_25 -- Porsche Cup line 25
+315 RE_PORSCHE_03 -- Porsche Cup line 03

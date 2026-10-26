@@ -1,0 +1,11 @@
+fisheye prototype (research build 2026-10-05)
+device 2560x1600 windowed=1: fisheye ready (F9 on/off, F10/F11 strength)
+-- game window IN FRONT
+-- game window tabbed out
+-- game window IN FRONT
+-- game window tabbed out
+-- game window IN FRONT
+-- game window tabbed out
+-- game window IN FRONT
+-- game window tabbed out
+-- game window IN FRONT

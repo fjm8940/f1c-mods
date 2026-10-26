@@ -1,0 +1,4 @@
+Extended Damage Commentary 1.0.1
+
+Requires Lightloader 2.0 hub. Install with Lightloader Manager, or copy the DLL
+into plugins\lightloader while the game is closed.

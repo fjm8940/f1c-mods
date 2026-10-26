@@ -1,0 +1,5 @@
+func,line,dec,hex,access,width,base,form,expr
+F_2DVectorDirectionProjection,5,8,0x8,R,float,a1,array,v2 = *a1 * *a1 + a1[2] * a1[2];
+F_2DVectorDirectionProjection,5,8,0x8,R,float,a1,array,v2 = *a1 * *a1 + a1[2] * a1[2];
+F_2DVectorDirectionProjection,9,8,0x8,R,float,a2,array,return (a2[2] * a1[2] + *a1 * *a2) / v2;
+F_2DVectorDirectionProjection,9,8,0x8,R,float,a1,array,return (a2[2] * a1[2] + *a1 * *a2) / v2;

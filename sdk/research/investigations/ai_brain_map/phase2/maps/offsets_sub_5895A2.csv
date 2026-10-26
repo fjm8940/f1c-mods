@@ -1,0 +1,16 @@
+func,line,dec,hex,access,width,base,form,expr
+sub_5895A2,8,,,CALL,,,call,ReturnFPUControlWord
+sub_5895A2,9,,,CALL,,,call,HIWORD
+sub_5895A2,11,,,CALL,,,call,UtilityFunction_1d2e
+sub_5895A2,11,,,CALL,,,call,LODWORD
+sub_5895A2,11,,,CALL,,,call,HIDWORD
+sub_5895A2,16,,,CALL,,,call,ReturnFPUControlWord
+sub_5895A2,22,,,CALL,,,call,MathDispatchWithErrorFallback
+sub_5895A2,27,,,CALL,,,call,ConditionalMathWithDAT005e9ad0Flag
+sub_5895A2,30,,,CALL,,,call,SLODWORD
+sub_5895A2,31,,,CALL,,,call,SHIDWORD
+sub_5895A2,32,,,CALL,,,call,COERCE_UNSIGNED_INT64
+sub_5895A2,33,,,CALL,,,call,HIDWORD
+sub_5895A2,33,,,CALL,,,call,COERCE_UNSIGNED_INT64
+sub_5895A2,38,,,CALL,,,call,FrndMSVCCRTRounding
+sub_5895A2,39,,,CALL,,,call,ReturnFPUControlWord

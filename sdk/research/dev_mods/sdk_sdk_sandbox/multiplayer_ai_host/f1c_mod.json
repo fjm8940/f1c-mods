@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "multiplayer_ai_host",
+  "title": "Multiplayer AI Host",
+  "production": false,
+  "sdk_major": 1,
+  "language": "cpp",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "subsystems": ["ai", "session"],
+  "seeds": [
+    "DynMan_Init",
+    "AIDriverCountSetup",
+    "ProcessDriverEntries",
+    "MultiplayerQualificationGridAssignment",
+    "ConditionalFieldSetter",
+    "FieldCopy",
+    "NetCommPlayerSlotSync",
+    "NetCommSessionMessageDispatcher",
+    "MultiplayerVehiclePlacement"
+  ],
+  "hooks": [
+    {
+      "function": "ProcessDriverEntries",
+      "handler": "process_driver_entries_hook",
+      "stolen_length": 6,
+      "expected_bytes": "81 EC 8C 00 00 00"
+    },
+    {
+      "function": "MultiplayerQualificationGridAssignment",
+      "handler": "multiplayer_qualification_grid_hook",
+      "stolen_length": 5,
+      "expected_bytes": "83 EC 10 55 56"
+    },
+    {
+      "function": "NetCommPlayerSlotSync",
+      "handler": "netcomm_slot_sync_hook",
+      "stolen_length": 6,
+      "expected_bytes": "55 8B EC 83 E4 F8"
+    },
+    {
+      "function": "SceneRenderUpdate",
+      "handler": "scene_render_update_hook",
+      "stolen_length": 8,
+      "expected_bytes": "83 EC 18 53 8B 5C 24 20"
+    },
+    {
+      "function": "SuspensionForceComputationWithPerCornerVirtualDevices",
+      "handler": "suspension_force_hook",
+      "stolen_length": 6,
+      "expected_bytes": "83 EC 24 56 8B F1"
+    },
+    {
+      "function": "DriverNameIDLookup",
+      "handler": "driver_name_lookup_hook",
+      "stolen_length": 5,
+      "expected_bytes": "53 8B 5C 24 10"
+    },
+    {
+      "function": "CommentaryDriverEntryInit",
+      "handler": "commentary_entry_hook",
+      "stolen_length": 6,
+      "expected_bytes": "81 EC 00 01 00 00"
+    },
+    {
+      "function": "CommentaryEventQueue",
+      "handler": "commentary_event_hook",
+      "stolen_length": 8,
+      "expected_bytes": "8B 44 24 08 8B 54 24 0C"
+    },
+    {
+      "function": "MultiplayerVehiclePlacement",
+      "handler": "multiplayer_vehicle_placement_hook",
+      "stolen_length": 5,
+      "expected_bytes": "53 55 56 8B E9"
+    }
+  ],
+  "writes": [
+    {"object": "F1CVehicle", "field": "WearTickGate__was__slot_live_marker_"},
+    {"object": "F1CVehicle", "field": "plannedPositionAtStart"},
+    {"object": "F1CVehicle", "field": "position"}
+  ],
+  "tracing": {
+    "driver": "",
+    "seconds": 180,
+    "hz": 20,
+    "wait_phase": 5,
+    "pit_cycle": false,
+    "semantics": [
+      "command_input",
+      "output",
+      "latched_control"
+    ]
+  },
+  "regressions": [],
+  "build": {
+    "script": "build.bat",
+    "dll": "build/multiplayer_ai_host.dll",
+    "injector": "build/f1c_pid_injector.exe",
+    "configurator": "build/multiplayer_ai_configurator.exe"
+  },
+  "runtime_files": [
+    {
+      "source": "multiplayer_ai_host.live_test.ini",
+      "destination": "multiplayer_ai_host.ini"
+    }
+  ],
+  "startup_files": [
+    {
+      "source": "build/dinput8.dll",
+      "destination": "dinput8.dll"
+    }
+  ]
+}

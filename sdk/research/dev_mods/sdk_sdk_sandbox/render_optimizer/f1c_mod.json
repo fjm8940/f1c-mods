@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "render_optimizer",
+  "title": "Render Optimizer",
+  "production": false,
+  "sdk_major": 1,
+  "language": "cpp",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "subsystems": [],
+  "seeds": [],
+  "hooks": [],
+  "writes": [],
+  "tracing": {
+    "driver": "",
+    "seconds": 180,
+    "hz": 20,
+    "wait_phase": 5,
+    "pit_cycle": false,
+    "semantics": [
+      "command_input",
+      "output",
+      "latched_control"
+    ]
+  },
+  "regressions": [],
+  "build": {
+    "script": "build_vertex.bat",
+    "dll": "%USERPROFILE%\\AppData\\Local\\Temp\\f1c-render-vertex-0.2.0-dev1\\render_vertex_optimizer.dll"
+  },
+  "runtime_files": [
+    {
+      "source": "render_optimizer.ini",
+      "destination": "render_optimizer.ini"
+    }
+  ]
+}

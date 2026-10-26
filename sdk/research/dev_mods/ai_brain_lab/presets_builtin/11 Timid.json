@@ -1,0 +1,14 @@
+{
+ "schema": "driver_ai_toolkit.preset.v2",
+ "name": "Timid",
+ "description": "Gives up attacks at once and keeps his distance.",
+ "target": "current",
+ "quick": {
+  "OVERTAKE": {
+   "OVT_POLICY": "GIVEUP"
+  },
+  "AGGRESSION": {
+   "AGGRESSION": 0.3
+  }
+ }
+}

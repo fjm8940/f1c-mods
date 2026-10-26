@@ -1,0 +1,5 @@
+# F_3x3MatrixTransform: offset-like lines with no extracted row (4)
+L12: v5 = this + 5;
+L16: v6 = (float *)(this + 8);
+L17: qmemcpy(this + 8, a4, 0x24u);
+L21: result = (float *)(this + 2);

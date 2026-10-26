@@ -1,0 +1,383 @@
+{
+ "mode": "evf_verify",
+ "workers": 20,
+ "total_items": 236,
+ "assignments": [
+  {
+   "letter": "A",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_A_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_A.jsonl",
+   "items": [
+    "CI-001",
+    "CI-021",
+    "CI-041",
+    "CI-061",
+    "CI-081",
+    "CI-101",
+    "CI-121",
+    "CI-141",
+    "CI-161",
+    "CI-181",
+    "CI-202",
+    "BL-11"
+   ]
+  },
+  {
+   "letter": "B",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_B_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_B.jsonl",
+   "items": [
+    "CI-002",
+    "CI-022",
+    "CI-042",
+    "CI-062",
+    "CI-082",
+    "CI-102",
+    "CI-122",
+    "CI-142",
+    "CI-162",
+    "CI-182",
+    "CI-203",
+    "BL-12"
+   ]
+  },
+  {
+   "letter": "C",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_C_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_C.jsonl",
+   "items": [
+    "CI-003",
+    "CI-023",
+    "CI-043",
+    "CI-063",
+    "CI-083",
+    "CI-103",
+    "CI-123",
+    "CI-143",
+    "CI-163",
+    "CI-183",
+    "CI-204",
+    "BL-13"
+   ]
+  },
+  {
+   "letter": "D",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_D_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_D.jsonl",
+   "items": [
+    "CI-004",
+    "CI-024",
+    "CI-044",
+    "CI-064",
+    "CI-084",
+    "CI-104",
+    "CI-124",
+    "CI-144",
+    "CI-164",
+    "CI-184",
+    "CI-205",
+    "BL-14"
+   ]
+  },
+  {
+   "letter": "E",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_E_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_E.jsonl",
+   "items": [
+    "CI-005",
+    "CI-025",
+    "CI-045",
+    "CI-065",
+    "CI-085",
+    "CI-105",
+    "CI-125",
+    "CI-145",
+    "CI-165",
+    "CI-185",
+    "CI-207",
+    "BL-15"
+   ]
+  },
+  {
+   "letter": "F",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_F_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_F.jsonl",
+   "items": [
+    "CI-006",
+    "CI-026",
+    "CI-046",
+    "CI-066",
+    "CI-086",
+    "CI-106",
+    "CI-126",
+    "CI-146",
+    "CI-166",
+    "CI-186",
+    "CI-208",
+    "BL-16"
+   ]
+  },
+  {
+   "letter": "G",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_G_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_G.jsonl",
+   "items": [
+    "CI-007",
+    "CI-027",
+    "CI-047",
+    "CI-067",
+    "CI-087",
+    "CI-107",
+    "CI-127",
+    "CI-147",
+    "CI-167",
+    "CI-187",
+    "CI-209",
+    "BL-17"
+   ]
+  },
+  {
+   "letter": "H",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_H_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_H.jsonl",
+   "items": [
+    "CI-008",
+    "CI-028",
+    "CI-048",
+    "CI-068",
+    "CI-088",
+    "CI-108",
+    "CI-128",
+    "CI-148",
+    "CI-168",
+    "CI-188",
+    "CI-210",
+    "BL-18"
+   ]
+  },
+  {
+   "letter": "I",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_I_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_I.jsonl",
+   "items": [
+    "CI-009",
+    "CI-029",
+    "CI-049",
+    "CI-069",
+    "CI-089",
+    "CI-109",
+    "CI-129",
+    "CI-149",
+    "CI-169",
+    "CI-189",
+    "CI-211",
+    "BL-19"
+   ]
+  },
+  {
+   "letter": "J",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_J_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_J.jsonl",
+   "items": [
+    "CI-010",
+    "CI-030",
+    "CI-050",
+    "CI-070",
+    "CI-090",
+    "CI-110",
+    "CI-130",
+    "CI-150",
+    "CI-170",
+    "CI-190",
+    "CI-212",
+    "BL-20"
+   ]
+  },
+  {
+   "letter": "K",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_K_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_K.jsonl",
+   "items": [
+    "CI-011",
+    "CI-031",
+    "CI-051",
+    "CI-071",
+    "CI-091",
+    "CI-111",
+    "CI-131",
+    "CI-151",
+    "CI-171",
+    "CI-191",
+    "BL-01",
+    "BL-21"
+   ]
+  },
+  {
+   "letter": "L",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_L_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_L.jsonl",
+   "items": [
+    "CI-012",
+    "CI-032",
+    "CI-052",
+    "CI-072",
+    "CI-092",
+    "CI-112",
+    "CI-132",
+    "CI-152",
+    "CI-172",
+    "CI-193",
+    "BL-02",
+    "BL-22"
+   ]
+  },
+  {
+   "letter": "M",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_M_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_M.jsonl",
+   "items": [
+    "CI-013",
+    "CI-033",
+    "CI-053",
+    "CI-073",
+    "CI-093",
+    "CI-113",
+    "CI-133",
+    "CI-153",
+    "CI-173",
+    "CI-194",
+    "BL-03",
+    "BL-23"
+   ]
+  },
+  {
+   "letter": "N",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_N_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_N.jsonl",
+   "items": [
+    "CI-014",
+    "CI-034",
+    "CI-054",
+    "CI-074",
+    "CI-094",
+    "CI-114",
+    "CI-134",
+    "CI-154",
+    "CI-174",
+    "CI-195",
+    "BL-04",
+    "BL-24"
+   ]
+  },
+  {
+   "letter": "O",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_O_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_O.jsonl",
+   "items": [
+    "CI-015",
+    "CI-035",
+    "CI-055",
+    "CI-075",
+    "CI-095",
+    "CI-115",
+    "CI-135",
+    "CI-155",
+    "CI-175",
+    "CI-196",
+    "BL-05",
+    "BL-25"
+   ]
+  },
+  {
+   "letter": "P",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_P_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_P.jsonl",
+   "items": [
+    "CI-016",
+    "CI-036",
+    "CI-056",
+    "CI-076",
+    "CI-096",
+    "CI-116",
+    "CI-136",
+    "CI-156",
+    "CI-176",
+    "CI-197",
+    "BL-06",
+    "BL-26"
+   ]
+  },
+  {
+   "letter": "Q",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_Q_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_Q.jsonl",
+   "items": [
+    "CI-017",
+    "CI-037",
+    "CI-057",
+    "CI-077",
+    "CI-097",
+    "CI-117",
+    "CI-137",
+    "CI-157",
+    "CI-177",
+    "CI-198",
+    "BL-07"
+   ]
+  },
+  {
+   "letter": "R",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_R_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_R.jsonl",
+   "items": [
+    "CI-018",
+    "CI-038",
+    "CI-058",
+    "CI-078",
+    "CI-098",
+    "CI-118",
+    "CI-138",
+    "CI-158",
+    "CI-178",
+    "CI-199",
+    "BL-08"
+   ]
+  },
+  {
+   "letter": "S",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_S_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_S.jsonl",
+   "items": [
+    "CI-019",
+    "CI-039",
+    "CI-059",
+    "CI-079",
+    "CI-099",
+    "CI-119",
+    "CI-139",
+    "CI-159",
+    "CI-179",
+    "CI-200",
+    "BL-09"
+   ]
+  },
+  {
+   "letter": "T",
+   "prompt": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\prompts\\worker_T_prompt.md",
+   "output": "%USERPROFILE%\\Desktop\\f1c_ida_decompiled\\mods\\extended_vanilla_features\\batch\\evf_verify\\output\\worker_T.jsonl",
+   "items": [
+    "CI-020",
+    "CI-040",
+    "CI-060",
+    "CI-080",
+    "CI-100",
+    "CI-120",
+    "CI-140",
+    "CI-160",
+    "CI-180",
+    "CI-201",
+    "BL-10"
+   ]
+  }
+ ]
+}

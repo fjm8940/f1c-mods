@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/driver.json",
+  "title": "/driver response",
+  "type": "object",
+  "required": [
+    "gen",
+    "id",
+    "n",
+    "cn",
+    "p",
+    "laps",
+    "pits"
+  ],
+  "properties": {
+    "gen": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "id": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "n": {
+      "type": "string"
+    },
+    "cn": {
+      "type": "string"
+    },
+    "p": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "laps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "l",
+          "t",
+          "s1",
+          "s2",
+          "s3",
+          "p",
+          "tc",
+          "f",
+          "pit",
+          "lf"
+        ],
+        "properties": {
+          "l": {
+            "type": "integer"
+          },
+          "t": {
+            "type": "number"
+          },
+          "s1": {
+            "type": "number"
+          },
+          "s2": {
+            "type": "number"
+          },
+          "s3": {
+            "type": "number",
+            "description": "-1 when the split data is missing"
+          },
+          "p": {
+            "type": "integer"
+          },
+          "tc": {
+            "type": "integer"
+          },
+          "f": {
+            "type": "number"
+          },
+          "pit": {
+            "type": "integer"
+          },
+          "lf": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "number"
+            }
+          },
+          "s2d": {
+            "type": "number",
+            "description": "rc.2: S2 split = s2 - s1 (s2 is cumulative); -1 = not derivable. Emitted since rc.2; added to the schema in 1.0.1 (the contract test had only seen empty lap lists)."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "pits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "li",
+          "lo",
+          "d",
+          "boxdur",
+          "reqdelay",
+          "ti",
+          "to",
+          "fi",
+          "fo",
+          "add",
+          "rfw",
+          "rrw",
+          "dmg",
+          "done"
+        ],
+        "properties": {
+          "li": {
+            "type": "integer"
+          },
+          "lo": {
+            "type": "integer"
+          },
+          "d": {
+            "type": "number",
+            "minimum": 0
+          },
+          "boxdur": {
+            "type": "number",
+            "minimum": 0
+          },
+          "reqdelay": {
+            "type": "number"
+          },
+          "ti": {
+            "type": "integer"
+          },
+          "to": {
+            "type": "integer"
+          },
+          "fi": {
+            "type": "number"
+          },
+          "fo": {
+            "type": "number"
+          },
+          "add": {
+            "type": "number"
+          },
+          "rfw": {
+            "type": "integer"
+          },
+          "rrw": {
+            "type": "integer"
+          },
+          "dmg": {
+            "type": "integer"
+          },
+          "done": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "archive": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{8,47}$",
+      "description": "1.0.1 (api_version 7): id of the archived session this document was read from (?session=); absent on live documents"
+    }
+  },
+  "additionalProperties": false
+}

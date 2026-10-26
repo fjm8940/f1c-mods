@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/error.json",
+  "title": "Error response",
+  "type": "object",
+  "required": ["error"],
+  "properties": {
+    "error": { "type": "string", "minLength": 1 },
+    "evicted": {
+      "type": "boolean",
+      "description": "/trace/data|export identity responses: true when the pinned lap was evicted or its identity changed, false when it was never recorded"
+    }
+  },
+  "additionalProperties": false
+}

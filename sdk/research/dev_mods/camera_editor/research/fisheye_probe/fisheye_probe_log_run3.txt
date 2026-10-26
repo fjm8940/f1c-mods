@@ -1,0 +1,1202 @@
+fisheye probe 3 (research build 2026-10-05)
+game CreateDevice hr=00000000 type=1 flags=00000040 2560x1600 fmt=22 windowed=1 swap=4 ms=0 autodepth=0 depthfmt=80 ppflags=0 refresh=0 interval=0
+game device table 099f2c80 hooked
+(game window IN FRONT)
+== frame 601
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  UpdateTexture
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.36/2.22/-0.101
+  EndScene
+  BeginScene
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 320,133 2240x1466 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=0 view=cam world=obj proj=1.36/2.22/-0.101  x70
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=obj proj=1.36/2.22/-0.101  x16
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 320,133 2240x1466 z=0.00..1.00
+  EndScene
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Present
+== end of frame 601
+(game window tabbed out)
+== frame 683
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  UpdateTexture
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.36/2.22/-0.101
+  EndScene
+  BeginScene
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 320,133 2240x1466 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=0 view=cam world=obj proj=1.36/2.22/-0.101  x70
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=obj proj=1.36/2.22/-0.101  x16
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 320,133 2240x1466 z=0.00..1.00
+  EndScene
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Present
+== end of frame 683
+(game window tabbed out)
+== frame 1200
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  UpdateTexture
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.36/2.22/-0.101
+  EndScene
+  BeginScene
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 320,133 2240x1466 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=0 view=cam world=obj proj=1.36/2.22/-0.101  x70
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=obj proj=1.36/2.22/-0.101  x16
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 320,133 2240x1466 z=0.00..1.00
+  EndScene
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Present
+== end of frame 1200
+(game window tabbed out)
+== frame 2400
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  UpdateTexture
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.36/2.22/-0.101
+  EndScene
+  BeginScene
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 320,133 2240x1466 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=0 view=cam world=obj proj=1.36/2.22/-0.101  x70
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=obj proj=1.36/2.22/-0.101  x16
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 320,133 2240x1466 z=0.00..1.00
+  EndScene
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Present
+== end of frame 2400
+(game window tabbed out)
+== frame 3600
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  UpdateTexture
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.36/2.22/-0.101
+  EndScene
+  BeginScene
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 320,133 2240x1466 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=0 view=cam world=obj proj=1.36/2.22/-0.101  x70
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=obj proj=1.36/2.22/-0.101  x16
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 320,133 2240x1466 z=0.00..1.00
+  EndScene
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Present
+== end of frame 3600
+(game window IN FRONT)
+== frame 3828
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  UpdateTexture
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.36/2.22/-0.101
+  EndScene
+  BeginScene
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 320,133 2240x1466 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=0 view=cam world=obj proj=1.36/2.22/-0.101  x70
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=obj proj=1.36/2.22/-0.101  x16
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 320,133 2240x1466 z=0.00..1.00
+  EndScene
+  SetTransform PROJECTION persp m00=1.364 m11=2.216 m22=1.0067 m32=-0.1007 m23=1.0
+  SetTransform VIEW
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Present
+== end of frame 3828
+(game window IN FRONT)
+== frame 4800
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-1.000  x2
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x3
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.14/1.91/-1.000  x4
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x294
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x17
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x8
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x38
+  UpdateTexture
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x2
+  UpdateTexture
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x11
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x49
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x16
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive rt=512 3d vs=1234 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=obj proj=9131.42/9131.42/-27394328.000  x2
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive rt=512 3d vs=1234 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=obj proj=3761.46/3761.46/-11284988.000  x5
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0511751c
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.000  x2
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x2
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.60/8.14/-1.000  x4
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007  x53
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x79
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007  x4
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x3
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0511751c
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x13
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x13
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x13
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x13
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x13
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  Present
+== end of frame 4800
+(game window tabbed out)
+== frame 4847
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-1.000  x2
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x3
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.14/1.91/-1.000  x4
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x294
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x17
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x8
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x38
+  UpdateTexture
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x2
+  UpdateTexture
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x11
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x49
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x16
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive rt=512 3d vs=1234 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=obj proj=9130.16/9130.16/-27394328.000  x2
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive rt=512 3d vs=1234 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=obj proj=3761.46/3761.46/-11284988.000  x5
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0511751c
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.000  x2
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x2
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.60/8.14/-1.000  x4
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007  x53
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x79
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007  x4
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x3
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0511751c
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  Present
+== end of frame 4847
+(game window IN FRONT)
+== frame 5706
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-1.000  x2
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x7
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.14/1.91/-1.000  x4
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x37
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x2
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x275
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x14
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x38
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x42
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x6
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x34
+  UpdateTexture
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x2
+  UpdateTexture
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x11
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x51
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x16
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive rt=512 3d vs=1234 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=obj proj=3761.46/3761.46/-11284988.000  x5
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x2
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0511751c
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.000  x2
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x2
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.60/8.14/-1.000  x4
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007  x49
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x72
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007  x4
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x2
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0511751c
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007  x2
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x13
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x13
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x13
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x13
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x13
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  Present
+== end of frame 5706
+(game window IN FRONT)
+== frame 6000
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-1.000  x2
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x7
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.14/1.91/-1.000  x4
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x36
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x2
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x10
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x342
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x21
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x49
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x41
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x6
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x34
+  UpdateTexture
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x2
+  UpdateTexture
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x11
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x60
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x16
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive rt=512 3d vs=1234 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=obj proj=3761.46/3761.46/-11284988.000  x5
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0511751c
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.000  x2
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x3
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.60/8.14/-1.000  x4
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007  x46
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x53
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007  x6
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x2
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0511751c
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  EndScene
+  Present
+== end of frame 6000
+(game window IN FRONT)
+== frame 7200
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-1.000  x2
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x8
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.14/1.91/-1.000  x4
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x13
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x2
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x138
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x14
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x6
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x9
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x4
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x34
+  UpdateTexture
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x2
+  UpdateTexture
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x11
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x22
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x16
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive rt=512 3d vs=1234 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=obj proj=3761.46/3761.46/-11284988.000  x5
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0511751c
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.000  x2
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x3
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.60/8.14/-1.000  x4
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007  x40
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x45
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007  x2
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x2
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0511751c
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x2
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x2
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x2
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x2
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x2
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  Present
+== end of frame 7200
+(game window IN FRONT)
+== frame 8400
+  backbuffer 2560x1600 fmt=22 usage=1 pool=0 ms=0
+  BeginScene
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-1.000  x2
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x9
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.14/1.91/-1.000  x4
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x29
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x2
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x5
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x3
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x251
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x28
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x60
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x12
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x2
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x2
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x2
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x7
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x16
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x26
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x2
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x34
+  UpdateTexture
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x2
+  UpdateTexture
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x11
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x35
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.14/1.91/-0.300  x16
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  DrawIndexedPrimitive rt=512 3d vs=1234 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=obj proj=3761.46/3761.46/-11284988.000  x5
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 512x512 fmt=21 usage=1 pool=0 ms=0
+    depth 05116f1c
+  SetViewport 0,0 512x512 z=0.00..1.00
+  Clear flags=1 rects=1
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawPrimitive rt=2560 3d vs=322 z=1 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  DrawIndexedPrimitive rt=2560 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.14/1.91/-0.300  x2
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0511751c
+  SetViewport 0,0 256x128 z=0.00..1.00
+  Clear flags=3 rects=0
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.000  x2
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x3
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.60/8.14/-1.000  x4
+  Clear flags=2 rects=0
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007  x42
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=1 light=0 blend=0 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x45
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=obj proj=1.60/8.14/-1.007  x3
+  SetRenderTarget 256x128 fmt=21 usage=1 pool=0 ms=0
+    depth 0511751c
+  SetViewport 0,0 256x128 z=0.00..1.00
+  DrawIndexedPrimitive rt=256 3d vs=1234 z=1 zw=0 light=0 blend=1 fog=1 view=cam world=IDENT proj=1.60/8.14/-1.007  x2
+  SetRenderTarget 2560x1600 fmt=22 usage=1 pool=0 ms=0
+    depth 05117c9c
+  SetViewport 0,0 2560x1600 z=0.00..1.00
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x2
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x2
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x2
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x20
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  Clear flags=1 rects=1  x2
+  DrawPrimitiveUP rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=1 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300  x12
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  BeginScene
+  DrawPrimitive rt=2560 SCREEN vs=324 z=0 zw=0 light=0 blend=0 fog=0 view=cam world=IDENT proj=1.14/1.91/-0.300
+  EndScene
+  Present
+== end of frame 8400

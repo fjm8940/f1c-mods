@@ -1,0 +1,584 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 19,
+ "clip": "PWS_2001_16",
+ "says": "AI driver pits, completed X laps",
+ "dump_rows_for_clip": [
+  {
+   "eid": 21,
+   "hex": "0x0015",
+   "priority": 20,
+   "cooldown": 10.0,
+   "blocked": false,
+   "score": 19,
+   "sdt_index": 19,
+   "clip_name": "PWS_2001_16.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 312,
+   "hex": "0x0138",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 19,
+   "sdt_index": 19,
+   "clip_name": "PWS_2001_16.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  19
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 21,
+   "hex": "0x0015",
+   "priority": 20,
+   "cooldown": 10.0,
+   "blocked": false,
+   "score": 19,
+   "sdt_index": 19,
+   "clip_name": "PWS_2001_16.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 312,
+   "hex": "0x0138",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 19,
+   "sdt_index": 19,
+   "clip_name": "PWS_2001_16.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  21
+ ],
+ "literal_hits": {
+  "21": {
+   "emitters": [
+    {
+     "function": "AISessionPhaseChange",
+     "file": "AISessionPhaseChange_0041a2b0.c",
+     "hits": [
+      {
+       "line": 21,
+       "text": "v5 = 21;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_4A5EA0",
+       "callers": [
+        {
+         "caller": "AIStateMachineWithModeDispatch",
+         "callers": [
+          {
+           "caller": "StateChangeNotify",
+           "callers": [
+            {
+             "caller": "AICommandMessageQueueDispatcher",
+             "callers": []
+            },
+            {
+             "caller": "AIStateReset",
+             "callers": []
+            },
+            {
+             "caller": "PitStateUpdateMachine",
+             "callers": []
+            },
+            {
+             "caller": "PitStopProgress",
+             "callers": []
+            },
+            {
+             "caller": "SessionTransitionDispatch",
+             "callers": []
+            },
+            {
+             "caller": "StateConditionalAction",
+             "callers": []
+            },
+            {
+             "caller": "VehicleProximityCollisionDetection",
+             "callers": []
+            },
+            {
+             "caller": "sub_4A5EA0",
+             "callers": []
+            },
+            {
+             "caller": "sub_4A5F20",
+             "callers": []
+            },
+            {
+             "caller": "sub_4A6D50",
+             "callers": []
+            },
+            {
+             "caller": "sub_4F1FE0",
+             "callers": []
+            }
+           ]
+          },
+          {
+           "caller": "sub_4B3400",
+           "callers": [
+            {
+             "caller": "BufferReset",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "caller": "TrackTemperatureDisplay",
+         "callers": []
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 853,
+       "text": "v5 = a4 != 0 ? 21 : 442;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 199,
+    "first": [
+     "ArithmeticComparison_a3e0",
+     "ArrayProcessingWithScaling",
+     "AudioDriverInit",
+     "AudioResampler",
+     "AudioSamplePlaybackWithPitchModulationAndStereoP",
+     "BatchProcessWithFixedStartOffsets",
+     "COMInterfaceVectorProcessingMethod",
+     "CRTFload",
+     "CameraShakeRingBufferWrite",
+     "CategoryScoringStateInitializer",
+     "CockpitDashboardLEDGaugeSetup",
+     "CollisionContactDetection",
+     "CollisionGlobalInit_d6a0",
+     "CollisionStructCopy",
+     "CombinatorialPermutationGenerator",
+     "CompressedAudioDecoder",
+     "ConstructorInitWith1Sentinels",
+     "ConstructorZeroInitSubCalls",
+     "D3DResourceListCleanup",
+     "DDSHeaderParsing",
+     "DDSTextureFormatValidationDecoding",
+     "DirectXTextureSurfaceFactoryDispatchingFourCCCod",
+     "DirectXVertexBufferTextureCoordinateSetup",
+     "DotProductWithScaleOffset",
+     "DualListDestructionWithDeepCleanup",
+     "EnumValueTranslation",
+     "FAILTriageUnknownUnidentifiedButIsActuallyConstr",
+     "FAILWRONGTRIAGE",
+     "F_32PointMDCTAudioTransform",
+     "F_3DSoundEmitter",
+     "F_3DSoundPositioningUpdate",
+     "F_3DTransformObjectAllocator",
+     "F_3DTransformObjectInit",
+     "F_3DTransformWithSIMD",
+     "F_3x3MatrixTransform",
+     "FileHandleDestructorWithModeCheck",
+     "Float80ToFloat64Unpack",
+     "FloatClampWithEventDispatch",
+     "FloatToShortClampedConversion",
+     "ForceVectorComputationWithAccumulator"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 19 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "EnumValueTranslation",
+    "file": "EnumValueTranslation_00414010.c",
+    "hits": [
+     {
+      "line": 63,
+      "text": "case 19:"
+     }
+    ]
+   },
+   {
+    "function": "RaceEventMessageDispatcher",
+    "file": "RaceEventMessageDispatcher_00411bf0.c",
+    "hits": [
+     {
+      "line": 15,
+      "text": "case 0x13:"
+     }
+    ]
+   },
+   {
+    "function": "SoundEventDispatcher",
+    "file": "SoundEventDispatcher_00411e90.c",
+    "hits": [
+     {
+      "line": 55,
+      "text": "case 0x13:"
+     }
+    ]
+   },
+   {
+    "function": "sub_412490",
+    "file": "sub_412490_00412490.c",
+    "hits": [
+     {
+      "line": 68,
+      "text": "case 19:"
+     },
+     {
+      "line": 149,
+      "text": "case 19:"
+     },
+     {
+      "line": 231,
+      "text": "case 19:"
+     },
+     {
+      "line": 311,
+      "text": "case 19:"
+     }
+    ]
+   },
+   {
+    "function": "sub_412E50",
+    "file": "sub_412E50_00412e50.c",
+    "hits": [
+     {
+      "line": 68,
+      "text": "case 19:"
+     },
+     {
+      "line": 149,
+      "text": "case 19:"
+     }
+    ]
+   },
+   {
+    "function": "sub_588410",
+    "file": "sub_588410_00588410.c",
+    "hits": [
+     {
+      "line": 17,
+      "text": "CriticalSectionLazyInitEnter(19);"
+     },
+     {
+      "line": 44,
+      "text": "CritSectLeave(19);"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:76: {\"tier\": \"DERIVED\", \"claim\": \"Race-distance milestone clips (eids 274/271/270, PWS_2001_163/164/165) are T3 (NEEDS_TRACKER), not T2 — they need 3 per-milestone latch flags across f"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\DUMP_RESULTS.md:51: | PWS_2001_161 | 290 | PWS_2001_160 | 289 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:563: | 274 | PWS_2001_163 | SessionType==7 AND RaceActiveFlag==3 AND find vehicle where position(veh+0x4060)==1, read  | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:564: | 271 | PWS_2001_164 | SessionType==7 AND RaceActiveFlag==3 AND find vehicle where position(veh+0x4060)==1, read  | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:565: | 270 | PWS_2001_165 | SessionType==7 AND RaceActiveFlag==3 AND find vehicle where position(veh+0x4060)==1, read  | True |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:47: | `PWS_2001_16` | 19 | 21,312 | AI driver pits, completed X laps |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:126: | `PWS_2001_160` | 289 | 272 | X laps to go (short) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:127: | `PWS_2001_161` | 290 | - | X laps to go (long) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:128: | `PWS_2001_167` | 291 | 273 | Final lap of the race |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:331: | `PWS_2001_165` | 287 | 270 | 75% race distance complete |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:332: | `PWS_2001_164` | 288 | 271 | 50% race distance complete |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:333: | `PWS_2001_163` | 292 | 274 | 25% race distance complete |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:97: | PWS_2001_165 | 287 | 270 | Three quarter distance (75%) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:98: | PWS_2001_164 | 288 | 271 | Half distance (50%) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\OBSERVER_TABLE.md:99: | PWS_2001_163 | 292 | 274 | One quarter distance (25%) |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:57: | `PWS_2001_16` | 19 | 21, 312 | — | AI driver pits, completed X laps |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:62: | `PWS_2001_160` | 289 | 272 | — | X laps to go (short) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:63: | `PWS_2001_161` | 290 | — | orphaned | X laps to go (long) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:64: | `PWS_2001_167` | 291 | 273 | — | Final lap of the race |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:266: | `PWS_2001_165` | 287 | 270 | — | 75% race distance complete | user triage: PLAY, \"that's three quarter distance gone\", when player has driven 75% of the race, this is played |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:267: | `PWS_2001_164` | 288 | 271 | — | 50% race distance complete | user triage: PLAY, \"that's half distance\", 50% laps driven |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:268: | `PWS_2001_163` | 292 | 274 | — | 25% race distance complete | user triage: PLAY, \"one quarter distance\", 25% laps driven |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:61: | `PWS_2001_16` | 21, 312 | AI driver pits, completed X laps |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:62: | `PWS_2001_160` | 272 | X laps to go (short) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:63: | `PWS_2001_161` | — | X laps to go (long) |  |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:64: | `PWS_2001_167` | 273 | Final lap of the race |  |"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": true,
+  "vanilla_source": "evf_auto",
+  "modded_by": [],
+  "note": "",
+  "triage": null,
+  "evf_status": "SHIPPED"
+ }
+}

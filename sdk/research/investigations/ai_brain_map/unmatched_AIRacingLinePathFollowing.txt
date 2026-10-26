@@ -1,0 +1,4 @@
+# AIRacingLinePathFollowing: offset-like lines with no extracted row (3)
+L32: if ( sub_4BC340((_DWORD *)(*(_DWORD *)this + 16436)) )
+L40: v6 = sub_403640(dword_5EA2C0, this + 3381, 0);
+L91: EulerToRotationMatrix(this + 3384, this + 3372);

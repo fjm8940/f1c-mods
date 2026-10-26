@@ -1,0 +1,11 @@
+func,line,dec,hex,access,width,base,form,expr
+PositionChangeMonitor,12,15004,0x3A9C,R,_DWORD,this,array,if ( !(v4 | v5) || !this[3751] )
+PositionChangeMonitor,14,,,CALL,,,call,sub_403640
+PositionChangeMonitor,14,15004,0x3A9C,R,_DWORD,this,array,"v6 = sub_403640(dword_5EA2C0, (float *)this + 3381, this[3751]);"
+PositionChangeMonitor,16,4,0x4,R,int,v2,array,v8 = v2[1];
+PositionChangeMonitor,17,15004,0x3A9C,W,_DWORD,this,array,this[3751] = v6;
+PositionChangeMonitor,18,8,0x8,R,int,v2,array,v9 = v2[2];
+PositionChangeMonitor,19,15008,0x3AA0,W,_DWORD,this,array,this[3752] = v7;
+PositionChangeMonitor,20,15012,0x3AA4,W,_DWORD,this,array,this[3753] = v8;
+PositionChangeMonitor,21,15016,0x3AA8,W,_DWORD,this,array,this[3754] = v9;
+PositionChangeMonitor,23,15004,0x3A9C,R,_DWORD,this,array,return this[3751];

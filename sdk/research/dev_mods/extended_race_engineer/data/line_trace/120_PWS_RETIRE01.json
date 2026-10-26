@@ -1,0 +1,471 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 120,
+ "clip": "PWS_RETIRE01",
+ "says": "Player engine stall",
+ "dump_rows_for_clip": [
+  {
+   "eid": 118,
+   "hex": "0x0076",
+   "priority": 55,
+   "cooldown": 6.0,
+   "blocked": false,
+   "score": 116,
+   "sdt_index": 120,
+   "clip_name": "PWS_RETIRE01.mp",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 411,
+   "hex": "0x019B",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 116,
+   "sdt_index": 120,
+   "clip_name": "PWS_RETIRE01.mp",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  116
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 118,
+   "hex": "0x0076",
+   "priority": 55,
+   "cooldown": 6.0,
+   "blocked": false,
+   "score": 116,
+   "sdt_index": 120,
+   "clip_name": "PWS_RETIRE01.mp",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 411,
+   "hex": "0x019B",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 116,
+   "sdt_index": 120,
+   "clip_name": "PWS_RETIRE01.mp",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  118
+ ],
+ "literal_hits": {
+  "118": {
+   "emitters": [
+    {
+     "function": "sub_41B250",
+     "file": "sub_41B250_0041b250.c",
+     "hits": [
+      {
+       "line": 19,
+       "text": "DriverDataTableLookupAndTimeConversion(v4, 118, -1, -1, -1, -1, -2.0, -2.0);"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_4F1FE0",
+       "callers": [
+        {
+         "caller": "VehicleYawRotationRecoveryController",
+         "callers": [
+          {
+           "caller": "MainGameTickUpdate",
+           "callers": [
+            {
+             "caller": "GamePostMainLoop",
+             "callers": []
+            },
+            {
+             "caller": "StateTriggerCheck",
+             "callers": []
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 311,
+       "text": "v5 = a4 != 0 ? 272 : 118;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 16,
+    "first": [
+     "ArrayProcessingWithValidation",
+     "BrakeBiasSetup",
+     "EnumValueTranslation",
+     "InflateDecompressionLoop",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "PitRepairStatusDisplay",
+     "SessionConfigBuilder",
+     "SessionConfigWriteback",
+     "StaticInitBulk",
+     "UIControlWindowInitialization",
+     "VehicleMainPhysicsUpdate",
+     "ZlibInflateDecompressionCore",
+     "sub_455580",
+     "sub_530840",
+     "sub_536260",
+     "sub_59070A"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 120 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "EnumValueTranslation",
+    "file": "EnumValueTranslation_00414010.c",
+    "hits": [
+     {
+      "line": 31,
+      "text": "v3 = 120;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:92: {\"tier\": \"OPEN\", \"claim\": \"A disqualification does NOT produce a player retirement commentary line, even with a nonzero ReasonCode - the DQ and retire exits are separate paths\", \"e",
+  "f1c_ida_decompiled\\findings.jsonl:94: {\"tier\": \"CONFIRMED\", \"claim\": \"Player retirement commentary (PWS_RETIRE01/02/04) requires FinishState != 0 AND a ~10 s dwell timer - collision damage alone never satisfies it beca",
+  "f1c_ida_decompiled\\findings.jsonl:95: {\"tier\": \"CONFIRMED\", \"claim\": \"The player branch of sub_4F1FE0 returns early whenever global 0x007CE814 is non-zero, making the player retirement commentary (PWS_RETIRE01/02/04) s",
+  "f1c_ida_decompiled\\findings.jsonl:97: {\"tier\": \"CONFIRMED\", \"claim\": \"NEGATIVE RESULT, all preconditions satisfied: player retirement commentary (PWS_RETIRE01/02/04) is NOT reachable by gameplay alone - the game sets F",
+  "f1c_ida_decompiled\\findings.jsonl:98: {\"tier\": \"FACT\", \"claim\": \"The retire-commentary dwell threshold at 0x007D0A8C cannot be byte-patched - it lives in the uninitialised tail of its PE section and is written at RUNTI",
+  "f1c_ida_decompiled\\findings.jsonl:99: {\"tier\": \"CONFIRMED\", \"claim\": \"DEFINITIVE NEGATIVE: player retirement commentary (PWS_RETIRE01/02/04) cannot be triggered by any gameplay situation - it requires a code hook. The "
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-003.md:19: - `PWS_RETIRE01/04` are already handled by the shipped DLL; they only await",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-005.md:20: `PWS_RETIRE01`, `PWS_RETIRE02`, `PWS_RETIRE04` are **handled by",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-005.md:22: `ReasonCode` 7 and 1 to occur live. **No spec work.** `PWS_RETIRE01` appears in",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_PARALLEL_RULES.md:66: | `PWS_RETIRE01/02/04` | handled by `dll/retire_commentary_v5.dll`, no spec needed | DONE |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:189: | `PWS_RETIRE01` | 120 | 118 | 0x0041b250 | Player engine stall |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\HANDOFF_2026-07-28.md:27: `PWS_RETIRE01/02/04` do NOT fire from gameplay: their emitter `sub_41B250` is",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\HANDOFF_2026-07-28.md:49: 2. **Observe `ReasonCode` 1 and 7** to prove `PWS_RETIRE04`/`PWS_RETIRE01`. The",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:305: | `PWS_RETIRE01` | 120 | 118, 411 | — | Player engine stall | user triage: Z, stalling, when a team doesn't have a T/spare car, how to determine which teams have and which do, from",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:215: | `PWS_RETIRE01` | 118, 411 | Player engine stall | eid 118 live, emitter literal sub_41B250_0041b250.c:19 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:30: | **A — reuse existing wiring** | **22** | 3 from T3_PATCH_APPLIED (`PWS_RETIRE01/02/04`, already registered, same function as SHIPPED `PWS_AIRETIRE*`) + 19 from T4_CONDITION whose",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:50: | `PWS_RETIRE01` | 118, 411 | Player engine stall — same function, reason code `a1+16488==?`, cooldown already patched | `patches/README.md`; RESTORATION_PLAN.md T3 row; `functions",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002B_player_retirement.md:31: | 7 (engine?) | 118 | PWS_RETIRE01 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:92: | 120 | `PWS_RETIRE01` | Z | PARKED,NEEDS_RESEARCH | Z, stalling, when a team doesn't have a T/spare car, how to determine which teams have and which do, from vanilla team paramete",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:194: | `PWS_RETIRE01` | 120 | 118 | Player engine stall |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:172: | `PWS_RETIRE01` | 120 | 118, 411 | user triage: Z, stalling, when a team doesn't have a T/spare car, how to determine which teams have and which do, from vanilla team parameters? "
+ ],
+ "mod_sources": [
+  "development\\mods\\player_retire_commentary\\retire_commentary.c:3: *   PWS_RETIRE04 (eid 119), PWS_RETIRE01 (eid 118), PWS_RETIRE02 (eid 117)",
+  "development\\mods\\player_retire_commentary\\retire_commentary.c:24: *       ReasonCode 7 -> eid 118   (PWS_RETIRE01)",
+  "development\\mods\\player_retire_commentary\\retire_commentary.c:61: #define EID_RETIRE01    118",
+  "development\\mods\\player_retire_commentary\\retire_commentary.c:113: if (reason == 7) return EID_RETIRE01;",
+  "development\\mods\\player_retire_commentary\\source.c:4: * Restores: PWS_RETIRE01, PWS_RETIRE02, PWS_RETIRE04",
+  "development\\mods\\player_retire_commentary\\source.c:5: * Status:   RETIRE02 RESTORED — heard in-game 2026-07-28. RETIRE01/04 wired, awaiting a race that produces ReasonCode 7 / 1.",
+  "development\\mods\\player_retire_commentary\\src\\retire_commentary.c:3: *   PWS_RETIRE04 (eid 119), PWS_RETIRE01 (eid 118), PWS_RETIRE02 (eid 117)",
+  "development\\mods\\player_retire_commentary\\src\\retire_commentary.c:24: *       ReasonCode 7 -> eid 118   (PWS_RETIRE01)",
+  "development\\mods\\player_retire_commentary\\src\\retire_commentary.c:64: #define EID_RETIRE01    118",
+  "development\\mods\\player_retire_commentary\\src\\retire_commentary.c:211: if (reason == 7) return EID_RETIRE01;"
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "player_retire_commentary",
+    "mod_version": "candidate (folder release-aligned-1.0.1-dev; PRODUCT_STATUS active-candidate)",
+    "eid": 118,
+    "mechanism": "cooldown_unblock",
+    "condition": "retirement ReasonCode 7: cooldown patched if FLT_MAX",
+    "source": "development/mods/player_retire_commentary/src/retire_commentary.c:64,211,322,385",
+    "release_status": "candidate",
+    "live_verified": true,
+    "says": "Player engine stall"
+   }
+  ],
+  "note": "user triage: Z, stalling, when a team doesn't have a T/spare car, how to determine which teams have and which do, from vanilla team parameters? | UPDATE 2026-07-28: engine stall, no idea how to do this  [flags: PARKED,NEEDS_RESEARCH]",
+  "triage": {
+   "sdt_index": 120,
+   "text": "Z, stalling, when a team doesn't have a T/spare car, how to determine which teams have and which do, from vanilla team parameters? | UPDATE 2026-07-28: engine stall, no idea how to do this",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [
+    "PARKED",
+    "NEEDS_RESEARCH"
+   ],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

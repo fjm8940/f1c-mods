@@ -1,0 +1,2 @@
+# ShortComputation_3ca0: offset-like lines with no extracted row (1)
+L21: v5 = (float *)(*(_DWORD *)this + 13560);

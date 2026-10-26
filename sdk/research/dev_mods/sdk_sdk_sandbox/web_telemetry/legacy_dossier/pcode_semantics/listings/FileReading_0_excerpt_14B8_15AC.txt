@@ -1,0 +1,70 @@
+; EXCERPT of FileReading #0 (RTMI 0x0044E478), offsets 0x14B8-0x15AC: average temps, ride heights
+; full listing: python pcode_decode.py --disasm 0x0044E478
+  0x14B8: ILdRf                    var[-1972]
+  0x14BB: LitStr                   pool[49]="fr tyre average temp"
+  0x14BE: EqStr                    
+  0x14C0: BranchF                  target=+0x14F5
+  0x14C3: FLdRfVar                 var[-1648]
+  0x14C6: FLdRfVar                 var[-1616]
+  0x14C9: AddVar                   raw=CCFE
+  0x14CD: FLdRfVar                 var[-1632]
+  0x14D0: AddVar                   raw=50FE
+  0x14D4: LitVarI2                 var[-268] = 3
+  0x14D9: DivVar                   raw=94FD
+  0x14DD: LitVarI2                 var[-480] = 273
+  0x14E2: SubVar                   raw=D4FB
+  0x14E6: CR8Var                   
+  0x14E8: FStFPR4                  var[-160]
+  0x14EB: FFreeVar                 raw=0400CCFE50FE
+  0x14F2: Branch                   target=+0x170E
+  0x14F5: ILdRf                    var[-1972]
+  0x14F8: LitStr                   pool[48]="fl tyre average temp"
+  0x14FB: EqStr                    
+  0x14FD: BranchF                  target=+0x1532
+  0x1500: FLdRfVar                 var[-1600]
+  0x1503: FLdRfVar                 var[-1568]
+  0x1506: AddVar                   raw=CCFE
+  0x150A: FLdRfVar                 var[-1584]
+  0x150D: AddVar                   raw=50FE
+  0x1511: LitVarI2                 var[-268] = 3
+  0x1516: DivVar                   raw=94FD
+  0x151A: LitVarI2                 var[-480] = 273
+  0x151F: SubVar                   raw=D4FB
+  0x1523: CR8Var                   
+  0x1525: FStFPR4                  var[-160]
+  0x1528: FFreeVar                 raw=0400CCFE50FE
+  0x152F: Branch                   target=+0x170E
+  0x1532: ILdRf                    var[-1972]
+  0x1535: LitStr                   pool[51]="rr tyre average temp"
+  0x1538: EqStr                    
+  0x153A: BranchF                  target=+0x156F
+  0x153D: FLdRfVar                 var[-1744]
+  0x1540: FLdRfVar                 var[-1712]
+  0x1543: AddVar                   raw=CCFE
+  0x1547: FLdRfVar                 var[-1728]
+  0x154A: AddVar                   raw=50FE
+  0x154E: LitVarI2                 var[-268] = 3
+  0x1553: DivVar                   raw=94FD
+  0x1557: LitVarI2                 var[-480] = 273
+  0x155C: SubVar                   raw=D4FB
+  0x1560: CR8Var                   
+  0x1562: FStFPR4                  var[-160]
+  0x1565: FFreeVar                 raw=0400CCFE50FE
+  0x156C: Branch                   target=+0x170E
+  0x156F: ILdRf                    var[-1972]
+  0x1572: LitStr                   pool[50]="rl tyre average temp"
+  0x1575: EqStr                    
+  0x1577: BranchF                  target=+0x15AC
+  0x157A: FLdRfVar                 var[-1696]
+  0x157D: FLdRfVar                 var[-1664]
+  0x1580: AddVar                   raw=CCFE
+  0x1584: FLdRfVar                 var[-1680]
+  0x1587: AddVar                   raw=50FE
+  0x158B: LitVarI2                 var[-268] = 3
+  0x1590: DivVar                   raw=94FD
+  0x1594: LitVarI2                 var[-480] = 273
+  0x1599: SubVar                   raw=D4FB
+  0x159D: CR8Var                   
+  0x159F: FStFPR4                  var[-160]
+  0x15A2: FFreeVar                 raw=0400CCFE50FE
+  0x15A9: Branch                   target=+0x170E

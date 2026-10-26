@@ -1,0 +1,235 @@
+; EXCERPT of FileReading #0 (RTMI 0x0044E478), offsets 0x1190-0x1450: x1000 scaling (mm), suspension/damper pairs
+; full listing: python pcode_decode.py --disasm 0x0044E478
+  0x1190: ILdRf                    var[-1520]
+  0x1193: LitStr                   pool[113]="fr undertray ride height"
+  0x1196: EqStr                    
+  0x1198: BranchF                  target=+0x11B4
+  0x119B: FLdFPR4                  var[-160]
+  0x119E: LitI2                    raw=E803
+  0x11A1: CR8I2                    
+  0x11A2: MulR8                    
+  0x11A3: FStFPR4                  var[-160]
+  0x11A6: FLdFPR4                  var[-160]
+  0x11A9: CVarR4                   raw=F4FE
+  0x11AD: FStVar                   raw=20F9
+  0x11B1: Branch                   target=+0x12FB
+  0x11B4: ILdRf                    var[-1520]
+  0x11B7: LitStr                   pool[114]="fl undertray ride height"
+  0x11BA: EqStr                    
+  0x11BC: BranchF                  target=+0x11D8
+  0x11BF: FLdFPR4                  var[-160]
+  0x11C2: LitI2                    raw=E803
+  0x11C5: CR8I2                    
+  0x11C6: MulR8                    
+  0x11C7: FStFPR4                  var[-160]
+  0x11CA: FLdFPR4                  var[-160]
+  0x11CD: CVarR4                   raw=F4FE
+  0x11D1: FStVar                   raw=10F9
+  0x11D5: Branch                   target=+0x12FB
+  0x11D8: ILdRf                    var[-1520]
+  0x11DB: LitStr                   pool[115]="rr undertray ride height"
+  0x11DE: EqStr                    
+  0x11E0: BranchF                  target=+0x11FC
+  0x11E3: FLdFPR4                  var[-160]
+  0x11E6: LitI2                    raw=E803
+  0x11E9: CR8I2                    
+  0x11EA: MulR8                    
+  0x11EB: FStFPR4                  var[-160]
+  0x11EE: FLdFPR4                  var[-160]
+  0x11F1: CVarR4                   raw=F4FE
+  0x11F5: FStVar                   raw=00F9
+  0x11F9: Branch                   target=+0x12FB
+  0x11FC: ILdRf                    var[-1520]
+  0x11FF: LitStr                   pool[116]="rl undertray ride height"
+  0x1202: EqStr                    
+  0x1204: BranchF                  target=+0x1220
+  0x1207: FLdFPR4                  var[-160]
+  0x120A: LitI2                    raw=E803
+  0x120D: CR8I2                    
+  0x120E: MulR8                    
+  0x120F: FStFPR4                  var[-160]
+  0x1212: FLdFPR4                  var[-160]
+  0x1215: CVarR4                   raw=F4FE
+  0x1219: FStVar                   raw=F0F8
+  0x121D: Branch                   target=+0x12FB
+  0x1220: ILdRf                    var[-1520]
+  0x1223: LitStr                   pool[117]="rl suspension deflection"
+  0x1226: EqStr                    
+  0x1228: BranchF                  target=+0x124B
+  0x122B: FLdFPR4                  var[-160]
+  0x122E: LitI2                    raw=E803
+  0x1231: CR8I2                    
+  0x1232: MulR8                    
+  0x1233: FStFPR4                  var[-160]
+  0x1236: FLdRfVar                 var[-1824]
+  0x1239: FStVarCopy               raw=D0F8
+  0x123D: FLdFPR4                  var[-160]
+  0x1240: CVarR4                   raw=F4FE
+  0x1244: FStVar                   raw=E0F8
+  0x1248: Branch                   target=+0x12FB
+  0x124B: ILdRf                    var[-1520]
+  0x124E: LitStr                   pool[118]="rr suspension deflection"
+  0x1251: EqStr                    
+  0x1253: BranchF                  target=+0x1276
+  0x1256: FLdFPR4                  var[-160]
+  0x1259: LitI2                    raw=E803
+  0x125C: CR8I2                    
+  0x125D: MulR8                    
+  0x125E: FStFPR4                  var[-160]
+  0x1261: FLdRfVar                 var[-1856]
+  0x1264: FStVarCopy               raw=B0F8
+  0x1268: FLdFPR4                  var[-160]
+  0x126B: CVarR4                   raw=F4FE
+  0x126F: FStVar                   raw=C0F8
+  0x1273: Branch                   target=+0x12FB
+  0x1276: ILdRf                    var[-1520]
+  0x1279: LitStr                   pool[119]="fl suspension deflection"
+  0x127C: EqStr                    
+  0x127E: BranchF                  target=+0x12A1
+  0x1281: FLdFPR4                  var[-160]
+  0x1284: LitI2                    raw=E803
+  0x1287: CR8I2                    
+  0x1288: MulR8                    
+  0x1289: FStFPR4                  var[-160]
+  0x128C: FLdRfVar                 var[-1888]
+  0x128F: FStVarCopy               raw=90F8
+  0x1293: FLdFPR4                  var[-160]
+  0x1296: CVarR4                   raw=F4FE
+  0x129A: FStVar                   raw=A0F8
+  0x129E: Branch                   target=+0x12FB
+  0x12A1: ILdRf                    var[-1520]
+  0x12A4: LitStr                   pool[120]="fr suspension deflection"
+  0x12A7: EqStr                    
+  0x12A9: BranchF                  target=+0x12CC
+  0x12AC: FLdFPR4                  var[-160]
+  0x12AF: LitI2                    raw=E803
+  0x12B2: CR8I2                    
+  0x12B3: MulR8                    
+  0x12B4: FStFPR4                  var[-160]
+  0x12B7: FLdRfVar                 var[-1920]
+  0x12BA: FStVarCopy               raw=70F8
+  0x12BE: FLdFPR4                  var[-160]
+  0x12C1: CVarR4                   raw=F4FE
+  0x12C5: FStVar                   raw=80F8
+  0x12C9: Branch                   target=+0x12FB
+  0x12CC: ILdRf                    var[-1520]
+  0x12CF: LitStr                   pool[121]="rr wheelspin"
+  0x12D2: EqStr                    
+  0x12D4: BranchF                  target=+0x12E5
+  0x12D7: FLdFPR4                  var[-160]
+  0x12DA: CVarR4                   raw=F4FE
+  0x12DE: FStVar                   raw=60F8
+  0x12E2: Branch                   target=+0x12FB
+  0x12E5: ILdRf                    var[-1520]
+  0x12E8: LitStr                   pool[122]="rl wheelspin"
+  0x12EB: EqStr                    
+  0x12ED: BranchF                  target=+0x12FB
+  0x12F0: FLdFPR4                  var[-160]
+  0x12F3: CVarR4                   raw=F4FE
+  0x12F7: FStVar                   raw=50F8
+  0x12FB: Branch                   target=+0x170E
+  0x12FE: LitI2_Byte               raw=00
+  0x1300: CR8I2                    
+  0x1301: FStFPR4                  var[-160]
+  0x1304: FLdRfVar                 var[-464]
+  0x1307: CI4Var                   
+  0x1309: FLdRfVar                 var[-208]
+  0x130C: Ary1LdI4                 
+  0x130D: FStStrCopy               raw=4CF8
+  0x1310: ILdRf                    var[-1972]
+  0x1313: LitStr                   pool[36]="rain"
+  0x1316: EqStr                    
+  0x1318: BranchF                  target=+0x1326
+  0x131B: FLdRfVar                 var[-1988]
+  0x131E: CR8Var                   
+  0x1320: FStFPR4                  var[-160]
+  0x1323: Branch                   target=+0x170E
+  0x1326: ILdRf                    var[-1972]
+  0x1329: LitStr                   pool[37]="track dampness"
+  0x132C: EqStr                    
+  0x132E: BranchF                  target=+0x133C
+  0x1331: FLdRfVar                 var[-2004]
+  0x1334: CR8Var                   
+  0x1336: FStFPR4                  var[-160]
+  0x1339: Branch                   target=+0x170E
+  0x133C: ILdRf                    var[-1972]
+  0x133F: LitStr                   pool[38]="air temp"
+  0x1342: EqStr                    
+  0x1344: BranchF                  target=+0x1352
+  0x1347: FLdRfVar                 var[-1400]
+  0x134A: CR8Var                   
+  0x134C: FStFPR4                  var[-160]
+  0x134F: Branch                   target=+0x170E
+  0x1352: ILdRf                    var[-1972]
+  0x1355: LitStr                   pool[39]="track temp"
+  0x1358: EqStr                    
+  0x135A: BranchF                  target=+0x1368
+  0x135D: FLdRfVar                 var[-1416]
+  0x1360: CR8Var                   
+  0x1362: FStFPR4                  var[-160]
+  0x1365: Branch                   target=+0x170E
+  0x1368: ILdRf                    var[-1972]
+  0x136B: LitStr                   pool[40]="fr tyre crown temp"
+  0x136E: EqStr                    
+  0x1370: BranchF                  target=+0x139F
+  0x1373: FLdRfVar                 var[-1632]
+  0x1376: LitVarR8                 var[-268] = 000000000000E03F
+  0x1382: FLdRfVar                 var[-1616]
+  0x1385: FLdRfVar                 var[-1648]
+  0x1388: AddVar                   raw=CCFE
+  0x138C: MulVar                   raw=50FE
+  0x1390: SubVar                   raw=94FD
+  0x1394: CR8Var                   
+  0x1396: FStFPR4                  var[-160]
+  0x1399: FFree1Var                var[-308]
+  0x139C: Branch                   target=+0x170E
+  0x139F: ILdRf                    var[-1972]
+  0x13A2: LitStr                   pool[42]="fl tyre crown temp"
+  0x13A5: EqStr                    
+  0x13A7: BranchF                  target=+0x13D6
+  0x13AA: FLdRfVar                 var[-1584]
+  0x13AD: LitVarR8                 var[-268] = 000000000000E03F
+  0x13B9: FLdRfVar                 var[-1568]
+  0x13BC: FLdRfVar                 var[-1600]
+  0x13BF: AddVar                   raw=CCFE
+  0x13C3: MulVar                   raw=50FE
+  0x13C7: SubVar                   raw=94FD
+  0x13CB: CR8Var                   
+  0x13CD: FStFPR4                  var[-160]
+  0x13D0: FFree1Var                var[-308]
+  0x13D3: Branch                   target=+0x170E
+  0x13D6: ILdRf                    var[-1972]
+  0x13D9: LitStr                   pool[44]="rr tyre crown temp"
+  0x13DC: EqStr                    
+  0x13DE: BranchF                  target=+0x140D
+  0x13E1: FLdRfVar                 var[-1728]
+  0x13E4: LitVarR8                 var[-268] = 000000000000E03F
+  0x13F0: FLdRfVar                 var[-1712]
+  0x13F3: FLdRfVar                 var[-1744]
+  0x13F6: AddVar                   raw=CCFE
+  0x13FA: MulVar                   raw=50FE
+  0x13FE: SubVar                   raw=94FD
+  0x1402: CR8Var                   
+  0x1404: FStFPR4                  var[-160]
+  0x1407: FFree1Var                var[-308]
+  0x140A: Branch                   target=+0x170E
+  0x140D: ILdRf                    var[-1972]
+  0x1410: LitStr                   pool[46]="rl tyre crown temp"
+  0x1413: EqStr                    
+  0x1415: BranchF                  target=+0x1444
+  0x1418: FLdRfVar                 var[-1680]
+  0x141B: LitVarR8                 var[-268] = 000000000000E03F
+  0x1427: FLdRfVar                 var[-1664]
+  0x142A: FLdRfVar                 var[-1696]
+  0x142D: AddVar                   raw=CCFE
+  0x1431: MulVar                   raw=50FE
+  0x1435: SubVar                   raw=94FD
+  0x1439: CR8Var                   
+  0x143B: FStFPR4                  var[-160]
+  0x143E: FFree1Var                var[-308]
+  0x1441: Branch                   target=+0x170E
+  0x1444: ILdRf                    var[-1972]
+  0x1447: LitStr                   pool[41]="fr tyre camber temp"
+  0x144A: EqStr                    
+  0x144C: BranchF                  target=+0x1461
+  0x144F: FLdRfVar                 var[-1616]

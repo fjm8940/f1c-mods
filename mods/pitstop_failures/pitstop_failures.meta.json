@@ -1,0 +1,1 @@
+{"schemaVersion":1,"id":"pitstop_failures","name":"Pit Stop Failures","version":"1.1.4","author":"Matias","description":"Configurable pit stop incidents for F1 Challenge.","homepage":"https://mods.palloset.com/pitstop_failures","requires":["shared_broker>=10"],"settings":"PitStopFailures.ini","lightloader":">=2.2.3"}

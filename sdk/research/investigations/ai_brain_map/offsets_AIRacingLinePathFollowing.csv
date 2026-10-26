@@ -1,0 +1,46 @@
+func,line,dec,hex,access,width,base,form,expr
+AIRacingLinePathFollowing,32,,,CALL,,,call,sub_4BC340
+AIRacingLinePathFollowing,34,,,CALL,,,call,F_3DTransformWithMatrixMultiplication
+AIRacingLinePathFollowing,35,,,CALL,,,call,RenderCallWithGuard
+AIRacingLinePathFollowing,40,,,CALL,,,call,sub_403640
+AIRacingLinePathFollowing,41,15004,0x3A9C,W,_DWORD,this,arith,*((_DWORD *)this + 3751) = v6;
+AIRacingLinePathFollowing,43,16448,0x4040,R,_DWORD,*(_DWORD*)this,deref2,v8 = *(_DWORD *)(*(_DWORD *)this + 16448);
+AIRacingLinePathFollowing,45,68,0x44,R,_DWORD,v6,arith,if ( *((_DWORD *)v6 + 17) != v8 )
+AIRacingLinePathFollowing,50,268,0x10C,R,_DWORD,v7,arith,v7 = (float *)*((_DWORD *)v7 + 67);
+AIRacingLinePathFollowing,55,68,0x44,R,_DWORD,v7,arith,while ( *((_DWORD *)v7 + 17) != v8 );
+AIRacingLinePathFollowing,57,,,CALL,,,call,RenderCallWithGuard
+AIRacingLinePathFollowing,58,,,CALL,,,call,CoordinateTransformWithOffset
+AIRacingLinePathFollowing,59,,,CALL,,,call,sub_403640
+AIRacingLinePathFollowing,65,268,0x10C,R,_DWORD,v11,arith,v11 = (float *)*((_DWORD *)v11 + 67);
+AIRacingLinePathFollowing,73,13376,0x3440,R,_BYTE,this,arith,if ( *((_BYTE *)this + 13376) )
+AIRacingLinePathFollowing,78,300,0x12C,R,_DWORD,v21,arith,if ( *((_DWORD *)v21 + 75) )
+AIRacingLinePathFollowing,80,272,0x110,R,_DWORD,v21,arith,v21 = (float *)*((_DWORD *)v21 + 68);
+AIRacingLinePathFollowing,88,13536,0x34E0,W,float,this,array,this[3384] = *(float *)v31;
+AIRacingLinePathFollowing,89,13540,0x34E4,W,float,this,array,this[3385] = *(float *)&v31[1];
+AIRacingLinePathFollowing,90,13544,0x34E8,W,float,this,array,this[3386] = *(float *)&v31[2];
+AIRacingLinePathFollowing,91,,,CALL,,,call,EulerToRotationMatrix
+AIRacingLinePathFollowing,96,13524,0x34D4,W,float,this,array,this[3381] = *v7;
+AIRacingLinePathFollowing,97,13528,0x34D8,W,float,this,array,this[3382] = v7[1];
+AIRacingLinePathFollowing,97,4,0x4,R,float,v7,array,this[3382] = v7[1];
+AIRacingLinePathFollowing,98,13532,0x34DC,W,float,this,array,this[3383] = v7[2];
+AIRacingLinePathFollowing,98,8,0x8,R,float,v7,array,this[3383] = v7[2];
+AIRacingLinePathFollowing,99,,,CALL,,,call,SuspensionStateUpdate
+AIRacingLinePathFollowing,100,16532,0x4094,W,_DWORD,*(_DWORD*)this,deref2,*(_DWORD *)(*(_DWORD *)this + 16532) = 1;
+AIRacingLinePathFollowing,101,,,CALL,,,call,VehicleBodyToWheelContactDistanceComputation
+AIRacingLinePathFollowing,102,,,CALL,,,call,F_3x3MatrixTransformWithTranslation
+AIRacingLinePathFollowing,103,,,CALL,,,call,BufferEntryClear
+AIRacingLinePathFollowing,106,,,CALL,,,call,SceneNodeVisibilityToggle
+AIRacingLinePathFollowing,107,,,CALL,,,call,UIFocusChange
+AIRacingLinePathFollowing,108,,,CALL,,,call,SceneNodeVisibilityToggle
+AIRacingLinePathFollowing,112,,,CALL,,,call,SceneNodeVisibilityToggle
+AIRacingLinePathFollowing,113,,,CALL,,,call,UIFocusChange
+AIRacingLinePathFollowing,114,,,CALL,,,call,SceneNodeVisibilityToggle
+AIRacingLinePathFollowing,118,,,CALL,,,call,SceneNodeVisibilityToggle
+AIRacingLinePathFollowing,119,,,CALL,,,call,UIFocusChange
+AIRacingLinePathFollowing,120,,,CALL,,,call,SceneNodeVisibilityToggle
+AIRacingLinePathFollowing,126,276,0x114,R,_DWORD,v7,arith,v23 = *((_DWORD *)v7 + 69);
+AIRacingLinePathFollowing,127,300,0x12C,R,_DWORD,v23,direct,if ( !v23 || *(_DWORD *)(v23 + 300) != 1 )
+AIRacingLinePathFollowing,129,276,0x114,R,_DWORD,v7,arith,v7 = (float *)*((_DWORD *)v7 + 69);
+AIRacingLinePathFollowing,135,,,CALL,,,call,BufferEntryClear
+AIRacingLinePathFollowing,139,68,0x44,R,_DWORD,v7,arith,if ( !*((_DWORD *)v7 + 17) )
+AIRacingLinePathFollowing,142,272,0x110,R,_DWORD,v7,arith,v7 = (float *)*((_DWORD *)v7 + 68);

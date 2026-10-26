@@ -1,0 +1,1117 @@
+{
+ "schema": "ere.design.v1",
+ "batch": "H4_incidents",
+ "generated": "2026-10-18",
+ "author_note": "Research only. No live game work. Every eid/offset cites a file or findings.jsonl id. Tiers: FACT (live-proven) > CONFIRMED (2 sources) > DERIVED (static, unproven) > GUESS. UNKNOWN where no source exists.",
+ "sources_root": {
+  "evf_dump": "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json (key events[eid])",
+  "evf_emitter_index": "f1c_ida_decompiled/mods/extended_vanilla_features/data/emitter_index.json (literal / dynamic)",
+  "findings": "f1c_ida_decompiled/findings.jsonl (by id)"
+ },
+ "rows": [
+  {
+   "clip": "PWS_HIT03",
+   "sdt_index": 105,
+   "pws_eid": 106,
+   "all_eids": [
+    106,
+    389
+   ],
+   "says": "Player lost Front Left wheel",
+   "eid_source": "full_event_dump.json events[106] (clip PWS_HIT03.mp2, cd 15.0); emitter_index literal eid 106 -> functions/sub_41AFD0_0041afd0.c:13 (case 0)",
+   "eid_isolation_tested": true,
+   "already_modded_by": "extended_damage_commentary v1.0.6: development/mods/extended_damage_commentary/v1.0.6/extended_damage_commentary.c:1-4 (restores PWS_HIT01-06), SITE_COUNT 6 at :57",
+   "native_emitter": "sub_41AFD0 (functions/sub_41AFD0_0041afd0.c)",
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Player wheel loss: RepairServiceStateDispatcher_004ed250 case 0 calls sub_41AFD0(this,0) when the player's vehicle matches dword_7C54E8; emitter plays eid 106 (FL wheel). Owned by EDC; ERE adds nothing.",
+   "state_reads": [
+    {
+     "what": "player vehicle pointer",
+     "locator": "dword_7C54E8",
+     "tier": "CONFIRMED",
+     "source": "functions/sub_41AFD0_0041afd0.c:9-10"
+    },
+    {
+     "what": "damaged part index",
+     "locator": "sub_41AFD0 arg a2 (0=FL,1=FR,2=RL,3=RR,4=front wing,5=rear wing)",
+     "tier": "CONFIRMED",
+     "source": "functions/sub_41AFD0_0041afd0.c:20-50; functions/RepairServiceStateDispatcher_004ed250.c:20,34,48"
+    }
+   ],
+   "latch_cooldown": "game event-table cooldown 15.0 s (EDC patched FLT_MAX to 15.0). ERE adds no latch.",
+   "calibration_needed": null,
+   "conflicts": "Do not write cooldowns for eids 106-111 again: EDC owns the patch sites and verifies original bytes; a second write could make EDC refuse or corrupt them.",
+   "live_test": "Owner: lose a front wheel with EDC loaded; line must name Front Left.",
+   "tier": "FACT",
+   "sources": [
+    "functions/sub_41AFD0_0041afd0.c:13",
+    "functions/RepairServiceStateDispatcher_004ed250.c:20",
+    "development/mods/extended_damage_commentary/v1.0.6/extended_damage_commentary.c:1-16",
+    "findings.jsonl: 'PROVEN LIVE: unblocking the event-table cooldown restores cut player commentary' (all six PWS_HIT01-06 play, match damaged part)",
+    "findings.jsonl: 'REGRESSION CONFIRMED ... PWS_HIT01/HIT02/HIT06 re-fired independently'"
+   ],
+   "open_questions": "none for ERE. Minor: EDC comment cites AI eids 220-223; sub_41AFD0 AI branch uses 221-223 only (220 is PWS_AIHIT08, not referenced there)."
+  },
+  {
+   "clip": "PWS_HIT04",
+   "sdt_index": 106,
+   "pws_eid": 107,
+   "all_eids": [
+    107,
+    373
+   ],
+   "says": "Player lost Front Right wheel",
+   "eid_source": "full_event_dump.json events[107] (PWS_HIT04.mp2, cd 15.0); sub_41AFD0.c:16 (case 1)",
+   "eid_isolation_tested": true,
+   "already_modded_by": "extended_damage_commentary v1.0.6 (extended_damage_commentary.c:1-4)",
+   "native_emitter": "sub_41AFD0",
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "RepairServiceStateDispatcher case 1 -> sub_41AFD0(this,1) -> eid 107 (FR wheel), player only.",
+   "state_reads": [
+    {
+     "what": "player vehicle pointer",
+     "locator": "dword_7C54E8",
+     "tier": "CONFIRMED",
+     "source": "functions/sub_41AFD0_0041afd0.c:9-10"
+    },
+    {
+     "what": "damaged part index a2=1",
+     "locator": "sub_41AFD0 arg a2",
+     "tier": "CONFIRMED",
+     "source": "functions/sub_41AFD0_0041afd0.c:21-22"
+    }
+   ],
+   "latch_cooldown": "game cooldown 15.0 s (EDC)",
+   "calibration_needed": null,
+   "conflicts": "As HIT03.",
+   "live_test": "Owner: lose front right wheel with EDC loaded.",
+   "tier": "FACT",
+   "sources": [
+    "functions/sub_41AFD0_0041afd0.c:16",
+    "findings.jsonl PROVEN LIVE row (HIT01-06)"
+   ],
+   "open_questions": "none"
+  },
+  {
+   "clip": "PWS_HIT01",
+   "sdt_index": 107,
+   "pws_eid": 108,
+   "all_eids": [
+    108,
+    398
+   ],
+   "says": "Player lost front wing",
+   "eid_source": "full_event_dump.json events[108] (PWS_HIT01.mp2, cd 15.0); sub_41AFD0.c:25 (case 4)",
+   "eid_isolation_tested": true,
+   "already_modded_by": "extended_damage_commentary v1.0.6 (extended_damage_commentary.c:1-4)",
+   "native_emitter": "sub_41AFD0",
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "RepairServiceStateDispatcher case 4/5 path (sub_4ED250:34) calls sub_41AFD0 with a2=4 -> eid 108 (front wing). Player only.",
+   "state_reads": [
+    {
+     "what": "player vehicle pointer",
+     "locator": "dword_7C54E8",
+     "tier": "CONFIRMED",
+     "source": "functions/sub_41AFD0_0041afd0.c:9-10"
+    },
+    {
+     "what": "part index a2=4",
+     "locator": "sub_41AFD0 arg a2",
+     "tier": "CONFIRMED",
+     "source": "functions/sub_41AFD0_0041afd0.c:30-31"
+    }
+   ],
+   "latch_cooldown": "game cooldown 15.0 s (EDC)",
+   "calibration_needed": null,
+   "conflicts": "Part mapping case 4 = front wing is inferred from the eid choice in sub_41AFD0 plus the clip name; the RepairService branch itself is not labelled (DERIVED).",
+   "live_test": "Owner: lose front wing with EDC loaded.",
+   "tier": "FACT",
+   "sources": [
+    "functions/sub_41AFD0_0041afd0.c:25",
+    "findings.jsonl PROVEN LIVE row"
+   ],
+   "open_questions": "Confirm case 4 = front wing from the RepairService side (not needed for ERE)."
+  },
+  {
+   "clip": "PWS_HIT05",
+   "sdt_index": 108,
+   "pws_eid": 109,
+   "all_eids": [
+    109,
+    402
+   ],
+   "says": "Player lost Rear Left wheel",
+   "eid_source": "full_event_dump.json events[109] (PWS_HIT05.mp2, cd 15.0); sub_41AFD0.c:19 (case 2)",
+   "eid_isolation_tested": true,
+   "already_modded_by": "extended_damage_commentary v1.0.6 (extended_damage_commentary.c:1-4)",
+   "native_emitter": "sub_41AFD0",
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "RepairService case 2 -> sub_41AFD0(this,2) -> eid 109 (RL wheel). Player only.",
+   "state_reads": [
+    {
+     "what": "player vehicle pointer",
+     "locator": "dword_7C54E8",
+     "tier": "CONFIRMED",
+     "source": "functions/sub_41AFD0_0041afd0.c:9-10"
+    }
+   ],
+   "latch_cooldown": "game cooldown 15.0 s (EDC)",
+   "calibration_needed": null,
+   "conflicts": "Note sub_41AFD0 maps a2=2 to eid 109 and a2=3 to eid 110 (not in numeric order).",
+   "live_test": "Owner: lose rear left wheel with EDC loaded.",
+   "tier": "FACT",
+   "sources": [
+    "functions/sub_41AFD0_0041afd0.c:19",
+    "findings.jsonl PROVEN LIVE row"
+   ],
+   "open_questions": "none"
+  },
+  {
+   "clip": "PWS_HIT06",
+   "sdt_index": 109,
+   "pws_eid": 110,
+   "all_eids": [
+    110,
+    403
+   ],
+   "says": "Player lost Rear Right wheel",
+   "eid_source": "full_event_dump.json events[110] (PWS_HIT06.mp2, cd 15.0); sub_41AFD0.c:22 (case 3)",
+   "eid_isolation_tested": true,
+   "already_modded_by": "extended_damage_commentary v1.0.6 (extended_damage_commentary.c:1-4)",
+   "native_emitter": "sub_41AFD0",
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "RepairService case 3 -> sub_41AFD0(this,3) -> eid 110 (RR wheel). Player only.",
+   "state_reads": [
+    {
+     "what": "player vehicle pointer",
+     "locator": "dword_7C54E8",
+     "tier": "CONFIRMED",
+     "source": "functions/sub_41AFD0_0041afd0.c:9-10"
+    }
+   ],
+   "latch_cooldown": "game cooldown 15.0 s (EDC)",
+   "calibration_needed": null,
+   "conflicts": "As HIT03.",
+   "live_test": "Owner: lose rear right wheel with EDC loaded.",
+   "tier": "FACT",
+   "sources": [
+    "functions/sub_41AFD0_0041afd0.c:22",
+    "findings.jsonl PROVEN LIVE row"
+   ],
+   "open_questions": "none"
+  },
+  {
+   "clip": "PWS_HIT02",
+   "sdt_index": 110,
+   "pws_eid": 111,
+   "all_eids": [
+    111,
+    404
+   ],
+   "says": "Player lost rear wing",
+   "eid_source": "full_event_dump.json events[111] (PWS_HIT02.mp2, cd 15.0); sub_41AFD0.c:28 (case 5)",
+   "eid_isolation_tested": true,
+   "already_modded_by": "extended_damage_commentary v1.0.6 (extended_damage_commentary.c:1-4)",
+   "native_emitter": "sub_41AFD0",
+   "why_silent": "cooldown_flt_max",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "RepairService case 5 -> sub_41AFD0(this,5) -> eid 111 (rear wing). Player only.",
+   "state_reads": [
+    {
+     "what": "player vehicle pointer",
+     "locator": "dword_7C54E8",
+     "tier": "CONFIRMED",
+     "source": "functions/sub_41AFD0_0041afd0.c:9-10"
+    }
+   ],
+   "latch_cooldown": "game cooldown 15.0 s (EDC)",
+   "calibration_needed": null,
+   "conflicts": "As HIT03.",
+   "live_test": "Owner: lose rear wing with EDC loaded.",
+   "tier": "FACT",
+   "sources": [
+    "functions/sub_41AFD0_0041afd0.c:28",
+    "findings.jsonl PROVEN LIVE row"
+   ],
+   "open_questions": "none"
+  },
+  {
+   "clip": "PWS_AIINCID10",
+   "sdt_index": 238,
+   "pws_eid": 225,
+   "all_eids": [
+    225
+   ],
+   "says": "AI drivers collide (1)",
+   "eid_source": "full_event_dump.json events[225] (cd 1.0, priority/score 228 for 225; 226 per dump). CONFLICT: SPEC_EVF-008_D says cd 30.0; table read says 1.0.",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_41AD80 (functions/sub_41AD80_0041ad80.c:53,72); same call from sub_4EA970 (CollisionDetectionSystem_004ea970.c:420-421)",
+   "why_silent": "gate_never_true",
+   "technique": "hook_native",
+   "subject": "ai",
+   "trigger": "Re-diagnosis (DERIVED, from sub_41AD80 itself; the packet-gate claim is withdrawn). The AI-AI branch runs only when neither car is the player. Gates in order: (1) dword_7D0308 != 0 and flt_7CF3C8 != 0 and dword_7C56A8 != 8 (functions/sub_41AD80_0041ad80.c:~22-24); (2) per-car 2 s guard: dbl_8AFEA0 - 2.0 > this[slot+319] for BOTH cars (c.22-24); (3) impact a4 > 1250.0 (c.24). The per-car timestamps are written BEFORE the emit, so any earlier contact of either car blocks later lines for 2 s. (4) the random gate: flt_8AB274[(u8)dword_8AAE70++] > 0 picks 225, otherwise 226 (c.41-50 vs c.60-70). The cursor is shared with AudioEventRingBufferProcessing_004feaf0.c:64 (same table, same cursor), so the pick depends on audio traffic. It cannot silence the event: both branches emit. (5) InsertDriverTableEntry (functions/InsertDriverTableEntry_00418560.c): ScoreThresholdGateCheck on the score dword_5BF9A0[5*eid] (dump score 228 for 225) passes for settings 1-3 (functions/ScoreThresholdGateCheck_00418b90.c). The entry goes into a 20-slot list sorted by play time; when full, the lowest-score entry is evicted; if the new time is not earlier than any slot, the insert returns 0 with no log. (6) cooldown: the dump gives cd 1.0 for 225 (not FLT_MAX, so NOT blocked). SPEC_EVF-008_D's cd 30.0 is not supported by the table read; treated as wrong. The cooldown only sets the entry's expiry (this[3] = play time + cd + 0.2); whether expired entries are dropped at play time is UNVERIFIED. (7) player contacts reach the same a4 > 1250 gate and their lines (114/115) were heard in vanilla, so the threshold is reachable by real contacts; AI-AI contacts may simply stay below it. Conclusion: no cooldown fix is needed. The silence is one of: AI-AI impact <= 1250, the 2 s per-car guard, queue eviction or rejection, or unverified expiry. The next step is measurement, not a patch. Line 225 is the primary of the random pick.",
+   "state_reads": [
+    {
+     "what": "impact a4 (native gate 1250.0)",
+     "locator": "sub_41AD80 arg a4 (from sub_4EA970 v65)",
+     "tier": "UNKNOWN",
+     "source": "units of v65 not established; player contacts pass the same gate"
+    },
+    {
+     "what": "per-car contact timestamp",
+     "locator": "this[slot+319] (both cars)",
+     "tier": "CONFIRMED",
+     "source": "functions/sub_41AD80_0041ad80.c:~22-30"
+    },
+    {
+     "what": "random pick cursor",
+     "locator": "flt_8AB274[(u8)dword_8AAE70++]",
+     "tier": "CONFIRMED",
+     "source": "sub_41AD80.c:~41; AudioEventRingBufferProcessing_004feaf0.c:64"
+    },
+    {
+     "what": "race gate value",
+     "locator": "dword_7D0308 (value 3 in race per EVF spec D; ScoreThresholdGateCheck switches on it)",
+     "tier": "DERIVED",
+     "source": "functions/ScoreThresholdGateCheck_00418b90.c; SPEC_EVF-008_D"
+    },
+    {
+     "what": "subject driver ids",
+     "locator": "veh+0x489C (sub_41AD80 uses +18588)",
+     "tier": "FACT",
+     "source": "brief Facts; sub_41AD80.c"
+    }
+   ],
+   "latch_cooldown": "native per-car 2 s guard (both cars) inside sub_41AD80; entry cd 1.0 (table) sets expiry only, not a lock",
+   "calibration_needed": "Log a4 for every AI-AI contact (and one player contact as a control) to see whether AI impacts ever exceed 1250.0 and in what units. Log the 2 s guard and InsertDriverTableEntry return value (0 = dropped) for the same contacts.",
+   "conflicts": "225 and 226 are alternates of one contact: the random pick guarantees exactly one. Shared cursor with audio (AudioEventRingBufferProcessing) makes the pick timing-dependent. No cooldown or priority fix is justified by the table: cd is 1.0 (not FLT_MAX) and score 228 is mid-queue.",
+   "live_test": "Single player: spectate AI-AI contacts while logging a4, the guard state and the insert return value. If a4 > 1250 and the guard passes, the line must play; if not, the logs show which gate failed.",
+   "tier": "DERIVED",
+   "sources": [
+    "functions/sub_41AD80_0041ad80.c:1-93",
+    "functions/InsertDriverTableEntry_00418560.c",
+    "functions/ScoreThresholdGateCheck_00418b90.c",
+    "functions/DriverDataTableLookupAndTimeConversion_004144f0.c",
+    "functions/AudioEventRingBufferProcessing_004feaf0.c:64",
+    "functions/CollisionDetectionSystem_004ea970.c:420-421",
+    "full_event_dump.json events[225] (cd 1.0, priority/score 228)",
+    "findings: AI-AI line REVERTED 2026-07-28 (never heard in real play)"
+   ],
+   "open_questions": "Units of a4 vs 1250. Is the AI-AI contact flow rare or always low-impact? Does the play queue drop expired entries (expiry = play time + 1.2 s)?"
+  },
+  {
+   "clip": "PWS_AIINCID11",
+   "sdt_index": 239,
+   "pws_eid": 226,
+   "all_eids": [
+    226
+   ],
+   "says": "AI drivers collide (2)",
+   "eid_source": "full_event_dump.json events[226] (cd 1.0, priority/score 228 for 225; 226 per dump). CONFLICT: SPEC_EVF-008_D says cd 30.0; table read says 1.0.",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "sub_41AD80 (functions/sub_41AD80_0041ad80.c:88); same call from sub_4EA970 (CollisionDetectionSystem_004ea970.c:420-421)",
+   "why_silent": "gate_never_true",
+   "technique": "hook_native",
+   "subject": "ai",
+   "trigger": "Re-diagnosis (DERIVED, from sub_41AD80 itself; the packet-gate claim is withdrawn). The AI-AI branch runs only when neither car is the player. Gates in order: (1) dword_7D0308 != 0 and flt_7CF3C8 != 0 and dword_7C56A8 != 8 (functions/sub_41AD80_0041ad80.c:~22-24); (2) per-car 2 s guard: dbl_8AFEA0 - 2.0 > this[slot+319] for BOTH cars (c.22-24); (3) impact a4 > 1250.0 (c.24). The per-car timestamps are written BEFORE the emit, so any earlier contact of either car blocks later lines for 2 s. (4) the random gate: flt_8AB274[(u8)dword_8AAE70++] > 0 picks 225, otherwise 226 (c.41-50 vs c.60-70). The cursor is shared with AudioEventRingBufferProcessing_004feaf0.c:64 (same table, same cursor), so the pick depends on audio traffic. It cannot silence the event: both branches emit. (5) InsertDriverTableEntry (functions/InsertDriverTableEntry_00418560.c): ScoreThresholdGateCheck on the score dword_5BF9A0[5*eid] (dump score 228 for 225) passes for settings 1-3 (functions/ScoreThresholdGateCheck_00418b90.c). The entry goes into a 20-slot list sorted by play time; when full, the lowest-score entry is evicted; if the new time is not earlier than any slot, the insert returns 0 with no log. (6) cooldown: the dump gives cd 1.0 for 225 (not FLT_MAX, so NOT blocked). SPEC_EVF-008_D's cd 30.0 is not supported by the table read; treated as wrong. The cooldown only sets the entry's expiry (this[3] = play time + cd + 0.2); whether expired entries are dropped at play time is UNVERIFIED. (7) player contacts reach the same a4 > 1250 gate and their lines (114/115) were heard in vanilla, so the threshold is reachable by real contacts; AI-AI contacts may simply stay below it. Conclusion: no cooldown fix is needed. The silence is one of: AI-AI impact <= 1250, the 2 s per-car guard, queue eviction or rejection, or unverified expiry. The next step is measurement, not a patch. Line 226 is the alternate (flt_8AB274 <= 0) of the random pick.",
+   "state_reads": [
+    {
+     "what": "impact a4 (native gate 1250.0)",
+     "locator": "sub_41AD80 arg a4 (from sub_4EA970 v65)",
+     "tier": "UNKNOWN",
+     "source": "units of v65 not established; player contacts pass the same gate"
+    },
+    {
+     "what": "per-car contact timestamp",
+     "locator": "this[slot+319] (both cars)",
+     "tier": "CONFIRMED",
+     "source": "functions/sub_41AD80_0041ad80.c:~22-30"
+    },
+    {
+     "what": "random pick cursor",
+     "locator": "flt_8AB274[(u8)dword_8AAE70++]",
+     "tier": "CONFIRMED",
+     "source": "sub_41AD80.c:~41; AudioEventRingBufferProcessing_004feaf0.c:64"
+    },
+    {
+     "what": "race gate value",
+     "locator": "dword_7D0308 (value 3 in race per EVF spec D; ScoreThresholdGateCheck switches on it)",
+     "tier": "DERIVED",
+     "source": "functions/ScoreThresholdGateCheck_00418b90.c; SPEC_EVF-008_D"
+    },
+    {
+     "what": "subject driver ids",
+     "locator": "veh+0x489C (sub_41AD80 uses +18588)",
+     "tier": "FACT",
+     "source": "brief Facts; sub_41AD80.c"
+    }
+   ],
+   "latch_cooldown": "native per-car 2 s guard (both cars) inside sub_41AD80; entry cd 1.0 (table) sets expiry only, not a lock",
+   "calibration_needed": "Log a4 for every AI-AI contact (and one player contact as a control) to see whether AI impacts ever exceed 1250.0 and in what units. Log the 2 s guard and InsertDriverTableEntry return value (0 = dropped) for the same contacts.",
+   "conflicts": "225 and 226 are alternates of one contact: the random pick guarantees exactly one. Shared cursor with audio (AudioEventRingBufferProcessing) makes the pick timing-dependent. No cooldown or priority fix is justified by the table: cd is 1.0 (not FLT_MAX) and score 228 is mid-queue.",
+   "live_test": "Single player: spectate AI-AI contacts while logging a4, the guard state and the insert return value. If a4 > 1250 and the guard passes, the line must play; if not, the logs show which gate failed.",
+   "tier": "DERIVED",
+   "sources": [
+    "functions/sub_41AD80_0041ad80.c:1-93",
+    "functions/InsertDriverTableEntry_00418560.c",
+    "functions/ScoreThresholdGateCheck_00418b90.c",
+    "functions/DriverDataTableLookupAndTimeConversion_004144f0.c",
+    "functions/AudioEventRingBufferProcessing_004feaf0.c:64",
+    "functions/CollisionDetectionSystem_004ea970.c:420-421",
+    "full_event_dump.json events[225] (cd 1.0, priority/score 228)",
+    "findings: AI-AI line REVERTED 2026-07-28 (never heard in real play)"
+   ],
+   "open_questions": "Units of a4 vs 1250. Is the AI-AI contact flow rare or always low-impact? Does the play queue drop expired entries (expiry = play time + 1.2 s)?"
+  },
+  {
+   "clip": "PWS_AIINCID06",
+   "sdt_index": 240,
+   "pws_eid": 227,
+   "all_eids": [
+    227
+   ],
+   "says": "Car off track just ahead",
+   "eid_source": "full_event_dump.json events[227] (PWS_AIINCID06.m, cd 1.0, priority 55, blocked false). Reachable on PWS via direct insert.",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none (emitter_index has no literal or dynamic site for 227)",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Non-player AI car, race (dword_7C56A4==7), not in pit lane (pittingStatus<2), with >=2 wheels on non-drivable material (or |lateral offset| > AIW road edge + 1.0 m), AND it is the car immediately ahead of the player with time gap < 10 s (owner wording 'just ahead'). Insert eid 227 once per car per latch.",
+   "state_reads": [
+    {
+     "what": "AI off-track (per-wheel)",
+     "locator": "per-wheel material tags (SDK f1c_surface_contact.h)",
+     "tier": "FACT",
+     "source": "development/mods/mechanical_failures/docs/AI_PULLOFF_SYSTEM_SPEC_2026-10-02.md section 5"
+    },
+    {
+     "what": "AI off-track byte",
+     "locator": "veh+0x40E8",
+     "tier": "FACT",
+     "source": "findings off-track-byte-40e8-player-only-2026-10-02: PLAYER ONLY, do NOT use for AI"
+    },
+    {
+     "what": "road edge",
+     "locator": "AIW wp+0x2C/0x30",
+     "tier": "DERIVED",
+     "source": "AI_PULLOFF_SYSTEM_SPEC section 5"
+    },
+    {
+     "what": "race position / lap / lap distance / speed",
+     "locator": "veh+0x4060 / veh+0x403C / veh+0x4044 / veh+0x4440",
+     "tier": "FACT",
+     "source": "findings f1c-race-position-is-4060-not-32d0; f1c-lapdist-4044-not-4048"
+    },
+    {
+     "what": "pit state",
+     "locator": "veh+0x3450 (pittingStatus)",
+     "tier": "FACT",
+     "source": "findings f1c-pittingstatus-1-is-still-on-track (CONFLICT: red_flag gr44.c:406 uses 0x4040)"
+    },
+    {
+     "what": "session type",
+     "locator": "dword_7C56A4 (7=race)",
+     "tier": "FACT",
+     "source": "findings session-global-7c56A4 / SESSION-TYPE row"
+    }
+   ],
+   "latch_cooldown": "one line per car per 60 s (DERIVED, owner to confirm)",
+   "calibration_needed": "Drivable material set per track: aad-ai-offtrack-material-tags-track-dependent-2026-10-15 shows the set is incomplete (16 vs 102 events/100 laps). Map tags per track before use.",
+   "conflicts": "Overlaps AIINCID03 (same detector, no 'just ahead'): one detector, two lines, pick one by gap. Overlaps AIINCID07/04 if a car goes off and spins. Native yellow can fire for pit-lane AI (EVF 002D) so exclude pitting cars.",
+   "live_test": "Owner: have an AI car run wide ahead of you within 10 s on a track with known tags.",
+   "tier": "DERIVED",
+   "sources": [
+    "findings aad-ai-offtrack-material-tags-track-dependent-2026-10-15",
+    "findings off-track-byte-40e8-player-only-2026-10-02",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-002D_ai_spin_offtrack_incident.md (T2, no emitter)",
+    "triage ERE clip_assignments note: 'X PLAY ... doesn't exist yet'"
+   ],
+   "open_questions": "Per-track tag set; whether 'just ahead' should use race position or distance."
+  },
+  {
+   "clip": "PWS_AIINCID03",
+   "sdt_index": 241,
+   "pws_eid": 228,
+   "all_eids": [
+    228
+   ],
+   "says": "AI went off track",
+   "eid_source": "full_event_dump.json events[228] (PWS_AIINCID03.m, cd 1.0, blocked false)",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Same off-track detector as PWS_AIINCID06 without the 'just ahead' gate. Owner wording is generic, so the radius/visibility rule is UNKNOWN. Proposed: any non-player AI on the non-drivable surface within the player's visible range, latch per car 60 s.",
+   "state_reads": [
+    {
+     "what": "same as PWS_AIINCID06",
+     "locator": "per-wheel tags + AIW road edge",
+     "tier": "FACT",
+     "source": "AI_PULLOFF_SYSTEM_SPEC_2026-10-02 section 5"
+    }
+   ],
+   "latch_cooldown": "per car 60 s (DERIVED, owner to confirm)",
+   "calibration_needed": "Visibility/relevance radius (metres or race-position band). Per-track tag set (see AIINCID06).",
+   "conflicts": "Same detector as AIINCID06: fire 06 if the car is just ahead, else 03. Never both for one event.",
+   "live_test": "Owner: watch an AI car leave the asphalt elsewhere on track.",
+   "tier": "DERIVED",
+   "sources": [
+    "findings aad-ai-offtrack-material-tags-track-dependent-2026-10-15",
+    "findings off-track-byte-40e8-player-only-2026-10-02"
+   ],
+   "open_questions": "Radius rule for 'went off track' (owner decision)."
+  },
+  {
+   "clip": "PWS_AIINCID08",
+   "sdt_index": 243,
+   "pws_eid": 229,
+   "all_eids": [
+    229
+   ],
+   "says": "Cars all over in sector X",
+   "eid_source": "full_event_dump.json events[229] (PWS_AIINCID08.m, cd 1.0, priority 70)",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Race, RacePhase settled. Count cars (including AI, not player-only) that are crashed or stopped (see red_flag veh_crash_terminal: ActiveFlag 0 + killed >= 4 s + damage + engine off, not retired) in the same native timing sector (AIW lap_length / sector_1_length / sector_2_length). When count >= 3 within 300 m, insert eid 229 with the sector number. Latch once per sector per 120 s.",
+   "state_reads": [
+    {
+     "what": "crash-terminal predicate",
+     "locator": "red_flag gr44.c:8011 veh_crash_terminal (ActiveFlag veh+0x45F4, RetiredFlag veh+0x4410, engine rpm veh+0x39A0 vs ENGINE_OFF_RPM 100)",
+     "tier": "DERIVED",
+     "source": "development/mods/red_flag/src/gr44.c:406-427,8011-8019"
+    },
+    {
+     "what": "thresholds",
+     "locator": "AUTO_TERM_THRESHOLD 3, AUTO_TERM_WINDOW_MS 10000, AUTO_TERMINAL_CONFIRM_MS 4000, AUTO_CLUSTER_M 300",
+     "tier": "DERIVED",
+     "source": "red_flag gr44.c:1286-1299 (auto-detect DISABLED, gr44.c:1230)"
+    },
+    {
+     "what": "native sector",
+     "locator": "AIW keys lap_length, sector_1_length, sector_2_length; sector 3 = remainder",
+     "tier": "CONFIRMED",
+     "source": "findings: 'A lap has exactly THREE timing sectors' (sub_565870)"
+    },
+    {
+     "what": "yellow zone table (slow-car marks)",
+     "locator": "0x8ACEE0 +0x10C count, +0x110 stride 8 {int32 state; float end}",
+     "tier": "CONFIRMED",
+     "source": "findings f1c-flag-event-dispatcher-is-41b3c0; functions/sub_4D1730_004d1730.c"
+    },
+    {
+     "what": "car position",
+     "locator": "veh+0x4044 + veh+0x403C",
+     "tier": "FACT",
+     "source": "findings f1c-lapdist-4044-not-4048"
+    }
+   ],
+   "latch_cooldown": "once per sector per 120 s (red_flag AUTO_COOLDOWN_MS 120000 as template)",
+   "calibration_needed": "Count threshold (3 is red_flag's, not measured for this line). Cluster radius 300 m. Sector numbering vs owner's 'sector 1/2/3'.",
+   "conflicts": "(a) red_flag auto-detect caused a false red flag after grid restarts (gr44.c:1230 comment, gr34): gate on settled race only. (b) Pit-lane engine-off cars must be excluded (findings f1c-pittingstatus; red_flag veh_effectively_in_pits gr44.c:1120ff). (c) Native zone table marks slow, not crashed, cars: use it only as a prefilter. (d) AUTO_ detect has 'native sector lookup not verified' (gr44.c:1180).",
+   "live_test": "Owner: a race with 3 stopped or crashed AI cars in the same sector (needs a real incident or a staged stop by the owner).",
+   "tier": "DERIVED",
+   "sources": [
+    "development/mods/red_flag/src/gr44.c:1172-1230,1286-1299,8011-8019",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-002D_ai_spin_offtrack_incident.md (T2)",
+    "ERE clip_assignments note: 'look into the red_flag script for the detection mechanism'"
+   ],
+   "open_questions": "Does the owner want the player's own car counted? Does 'cars all over' require crash (damage) or just stopped?"
+  },
+  {
+   "clip": "PWS_AIINCID07",
+   "sdt_index": 245,
+   "pws_eid": 231,
+   "all_eids": [
+    231
+   ],
+   "says": "Car spun off just ahead",
+   "eid_source": "full_event_dump.json events[231] (PWS_AIINCID07.m, cd 1.0, priority 70)",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Non-player AI car ahead of the player with time gap < 10 s (distance gap / speed), race. Spin = (a) slip angle |wrap(heading - travel direction)| >= SPIN_SLIP (UNKNOWN, calibrate; corners give small slip) held for >= SPIN_T1 s, AND (b) |yaw rate| >= SPIN_YAW over the same window, AND (c) speed drop >= SPIN_DROP fraction within SPIN_T2 s (speed from veh+0x4440). Gates: race (dword_7C56A4 == 7), pittingStatus < 2, engine on (rpm >= 100, so a stopped stall is not a spin), not inside the pit polygons. The heading-to-travel sign and offset must be calibrated first on a car driving straight (the matrix axis convention is not fixed by evidence). Latch 60 s per car. Then insert eid 231.",
+   "state_reads": [
+    {
+     "what": "heading (yaw)",
+     "locator": "yaw = atan2(veh+0x34C4, veh+0x34BC); matrix veh+0x34BC..0x34DC",
+     "tier": "FACT",
+     "source": "findings f1c-car-heading-is-a-rotation-matrix-not-the-yaw-field; EVF CLAUDE 2026-08-03h. veh+0x34F0 is a derived mirror: do not read it as the source."
+    },
+    {
+     "what": "yaw rate",
+     "locator": "d(yaw)/dt between ticks, wrapped to +-pi",
+     "tier": "DERIVED",
+     "source": "from the heading row; per-tick clock (dbl_8AFEA0 divergence OPEN: findings f1c-sessiontime-8afea0-diverges-from-wall-clock)"
+    },
+    {
+     "what": "world position X and Z",
+     "locator": "veh+0x34E0, veh+0x34E8",
+     "tier": "FACT",
+     "source": "findings f1c-authoritative-car-position-is-34e0"
+    },
+    {
+     "what": "travel direction",
+     "locator": "atan2(dZ, dX) of position deltas over the last 0.5 s",
+     "tier": "DERIVED",
+     "source": "real velocity is not a stored triple: findings f1c-veh-velocity-58-is-a-mirror (DISPROVEN); full-struct scan found no stable triple"
+    },
+    {
+     "what": "speed",
+     "locator": "veh+0x4440 (cross-check with position-delta speed)",
+     "tier": "FACT",
+     "source": "findings f1c-lapdist-4044-not-4048 (speed at 0x4440 matched 3 s distance deltas within 1-2 %)"
+    },
+    {
+     "what": "pit state",
+     "locator": "veh+0x3450 pittingStatus (>=2 excluded). veh+0x4040 is a different field (PitState), not used here",
+     "tier": "FACT",
+     "source": "findings f1c-pittingstatus-1-is-still-on-track"
+    },
+    {
+     "what": "engine off (stall vs spin)",
+     "locator": "veh+0x39A0 rpm vs 100 (red_flag OFF_ENGINE_RPM)",
+     "tier": "DERIVED",
+     "source": "development/mods/red_flag/src/gr44.c:421,427"
+    },
+    {
+     "what": "native pit lane",
+     "locator": "XPITIN / pit polygons",
+     "tier": "CONFIRMED",
+     "source": "findings f1c-pit-exit-hold-is-the-xpitout-trigger-poly"
+    },
+    {
+     "what": "time gap ahead",
+     "locator": "race position veh+0x4060 + lap veh+0x403C + lap distance veh+0x4044 / speed",
+     "tier": "DERIVED",
+     "source": "findings f1c-time-gap-cannot-identify-obstacle; f1c-race-position-is-4060-not-32d0"
+    }
+   ],
+   "latch_cooldown": "per car 60 s (DERIVED)",
+   "calibration_needed": "SPIN_SLIP, SPIN_YAW, SPIN_T1, SPIN_DROP, SPIN_T2 all UNKNOWN. Calibrate on a live AI spin and on normal corners so corners never trigger.",
+   "conflicts": "Shares the detector with AIINCID04 (sector wording): one event, one line. Off-track (AIINCID06/03) can overlap: a car that runs wide and spins gets the spin line only. The native 80 km/h pit limiter (EVF 002D bug) is excluded by the pittingStatus gate.",
+   "live_test": "Owner: an AI car spins in front of you within 10 s. Before that, log slip and yaw rate on a driving AI car to set the thresholds.",
+   "tier": "DERIVED",
+   "sources": [
+    "findings f1c-car-heading-is-a-rotation-matrix-not-the-yaw-field",
+    "findings f1c-authoritative-car-position-is-34e0",
+    "findings f1c-veh-velocity-58-is-a-mirror",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/CLAUDE.md rows 2026-08-03h and 2026-08-03c"
+   ],
+   "open_questions": "Matrix axis convention (which way is forward) and sign of the heading-to-travel offset; thresholds."
+  },
+  {
+   "clip": "PWS_AIINCID04",
+   "sdt_index": 246,
+   "pws_eid": 232,
+   "all_eids": [
+    232
+   ],
+   "says": "AI spun off sector X",
+   "eid_source": "full_event_dump.json events[232] (PWS_AIINCID04.m, cd 1.0)",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Same spin detector as PWS_AIINCID07, with no 'just ahead' gate, any non-player AI in race. Spin = (a) slip angle |wrap(heading - travel direction)| >= SPIN_SLIP (UNKNOWN, calibrate; corners give small slip) held for >= SPIN_T1 s, AND (b) |yaw rate| >= SPIN_YAW over the same window, AND (c) speed drop >= SPIN_DROP fraction within SPIN_T2 s (speed from veh+0x4440). Gates: race (dword_7C56A4 == 7), pittingStatus < 2, engine on (rpm >= 100, so a stopped stall is not a spin), not inside the pit polygons. The heading-to-travel sign and offset must be calibrated first on a car driving straight (the matrix axis convention is not fixed by evidence). Latch 60 s per car. Sector = native AIW sector of the car's lap distance. Insert eid 232 once per car per sector per 60 s.",
+   "state_reads": [
+    {
+     "what": "heading (yaw)",
+     "locator": "yaw = atan2(veh+0x34C4, veh+0x34BC); matrix veh+0x34BC..0x34DC",
+     "tier": "FACT",
+     "source": "findings f1c-car-heading-is-a-rotation-matrix-not-the-yaw-field; EVF CLAUDE 2026-08-03h. veh+0x34F0 is a derived mirror: do not read it as the source."
+    },
+    {
+     "what": "yaw rate",
+     "locator": "d(yaw)/dt between ticks, wrapped to +-pi",
+     "tier": "DERIVED",
+     "source": "from the heading row; per-tick clock (dbl_8AFEA0 divergence OPEN: findings f1c-sessiontime-8afea0-diverges-from-wall-clock)"
+    },
+    {
+     "what": "world position X and Z",
+     "locator": "veh+0x34E0, veh+0x34E8",
+     "tier": "FACT",
+     "source": "findings f1c-authoritative-car-position-is-34e0"
+    },
+    {
+     "what": "travel direction",
+     "locator": "atan2(dZ, dX) of position deltas over the last 0.5 s",
+     "tier": "DERIVED",
+     "source": "real velocity is not a stored triple: findings f1c-veh-velocity-58-is-a-mirror (DISPROVEN); full-struct scan found no stable triple"
+    },
+    {
+     "what": "speed",
+     "locator": "veh+0x4440 (cross-check with position-delta speed)",
+     "tier": "FACT",
+     "source": "findings f1c-lapdist-4044-not-4048 (speed at 0x4440 matched 3 s distance deltas within 1-2 %)"
+    },
+    {
+     "what": "pit state",
+     "locator": "veh+0x3450 pittingStatus (>=2 excluded). veh+0x4040 is a different field (PitState), not used here",
+     "tier": "FACT",
+     "source": "findings f1c-pittingstatus-1-is-still-on-track"
+    },
+    {
+     "what": "engine off (stall vs spin)",
+     "locator": "veh+0x39A0 rpm vs 100 (red_flag OFF_ENGINE_RPM)",
+     "tier": "DERIVED",
+     "source": "development/mods/red_flag/src/gr44.c:421,427"
+    },
+    {
+     "what": "native pit lane",
+     "locator": "XPITIN / pit polygons",
+     "tier": "CONFIRMED",
+     "source": "findings f1c-pit-exit-hold-is-the-xpitout-trigger-poly"
+    },
+    {
+     "what": "native sector",
+     "locator": "AIW keys lap_length, sector_1_length, sector_2_length; lap distance veh+0x4044",
+     "tier": "CONFIRMED",
+     "source": "findings (three timing sectors, sub_565870)"
+    }
+   ],
+   "latch_cooldown": "per car per sector 60 s (DERIVED)",
+   "calibration_needed": "SPIN_SLIP, SPIN_YAW, SPIN_T1, SPIN_DROP, SPIN_T2 all UNKNOWN. Calibrate on a live AI spin and on normal corners so corners never trigger.",
+   "conflicts": "Same detector as AIINCID07: fire 04 when no car is just ahead of the player, else 07.",
+   "live_test": "Owner: an AI car spins in front of you within 10 s. Before that, log slip and yaw rate on a driving AI car to set the thresholds.",
+   "tier": "DERIVED",
+   "sources": [
+    "findings f1c-car-heading-is-a-rotation-matrix-not-the-yaw-field",
+    "findings f1c-authoritative-car-position-is-34e0",
+    "findings f1c-veh-velocity-58-is-a-mirror",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/CLAUDE.md rows 2026-08-03h and 2026-08-03c"
+   ],
+   "open_questions": "As PWS_AIINCID07."
+  },
+  {
+   "clip": "PWS_AIINCID01",
+   "sdt_index": 248,
+   "pws_eid": 233,
+   "all_eids": [
+    233
+   ],
+   "says": "AI stalls on the grid",
+   "eid_source": "full_event_dump.json events[233] (PWS_AIINCID01.m, cd 1.0)",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none (emitter_index: no literal or dynamic site for 233)",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Native stall roll exists only in race Failure Rate 1-2 (sub_424080 rolls StartStalls veh+0x44BC; 10% type 4 sets restart timer veh+0x4170; 90% type 5 DNS-style sets ReasonCode veh+0x4068 to 7/3/8). When a non-player AI car is engine-off on the grid before green with that stall state, insert eid 233 once per car. Owner rule: no invented stalls, so no stall = no line.",
+   "state_reads": [
+    {
+     "what": "start stall chance",
+     "locator": "veh+0x44BC (StartStalls)",
+     "tier": "CONFIRMED",
+     "source": "findings rcd-parser-writes-vehicle-struct; functions/sub_424080_00424080.c"
+    },
+    {
+     "what": "stall roll result",
+     "locator": "veh+0x4170 (type 4 timer) and veh+0x4068 ReasonCode 7/3/8 (type 5)",
+     "tier": "CONFIRMED",
+     "source": "findings ai-start-stall-roll-2026-10-01; ai-4170-scheduled-stall-time-2026-10-02 (DERIVED); development/mods/mechanical_failures/docs/VANILLA_RACE_EVENTS_FINDING_2026-10-01.md"
+    },
+    {
+     "what": "engine state",
+     "locator": "veh+0x39A0 (red_flag OFF_ENGINE_RPM) vs ENGINE_OFF_RPM 100",
+     "tier": "DERIVED",
+     "source": "development/mods/red_flag/src/gr44.c:421,427"
+    },
+    {
+     "what": "grid phase",
+     "locator": "RACE_PHASE / SessionType",
+     "tier": "UNKNOWN",
+     "source": "RacePhase value for 'on grid before green' not in evidence"
+    }
+   ],
+   "latch_cooldown": "once per car per race (DERIVED)",
+   "calibration_needed": "Meaning of ReasonCode 7/3/8 (which is a stall?) and whether type-5 DNS cars stay on the grid visible. Confirm the grid RacePhase.",
+   "conflicts": "mechanical_failures owns the native failure system (Failure Rate modes); check MF plays no stall line (none found by grep). Red flag grid restarts also drop ActiveFlag (gr44.c:1230 comment): do not use ActiveFlag alone.",
+   "live_test": "Owner: race with Failure Rate 1 or 2 and a driver whose StartStalls is high (LL driver config). Watch the grid for a stalled AI.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/docs/VANILLA_RACE_EVENTS_FINDING_2026-10-01.md",
+    "functions/sub_424080_00424080.c ~178-190",
+    "functions/AIMainUpdate_00424e70.c ~70-90",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-002D_ai_spin_offtrack_incident.md"
+   ],
+   "open_questions": "Which RacePhase value is the grid? Does a stall happen natively in season mode (Failure Rate 3 schedule type 4/5, ai-race-events-season-script-2026-10-01)?"
+  },
+  {
+   "clip": "PWS_OD_HOLDING",
+   "sdt_index": 244,
+   "pws_eid": 230,
+   "all_eids": [
+    230
+   ],
+   "says": "AI driver holds up another AI",
+   "eid_source": "full_event_dump.json events[230] (PWS_OD_HOLDING_, cd 1.0, priority 20)",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Race. For each adjacent AI pair (race order n-1 ahead, n behind, both non-player, both not pitting), gap < 0.5 s continuously for >= 5 s. Gap time = (distance gap along lap, lap number x lap length + lap distance) / speed of the car behind. Insert eid 230 once per pair; the car ahead is 'higher position'. Shared pair latch with PWS_2001_149.",
+   "state_reads": [
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "findings f1c-race-position-is-4060-not-32d0"
+    },
+    {
+     "what": "lap number, lap distance, speed",
+     "locator": "veh+0x403C, veh+0x4044, veh+0x4440",
+     "tier": "FACT",
+     "source": "findings f1c-lapdist-4044-not-4048; race-position row"
+    },
+    {
+     "what": "gap in seconds",
+     "locator": "UNKNOWN as a native field; derive from distance / speed",
+     "tier": "DERIVED",
+     "source": "SPEC_EVF-002E_battle_holding_position.md section 2 (field not identified); findings f1c-time-gap-cannot-identify-obstacle"
+    },
+    {
+     "what": "pit state",
+     "locator": "veh+0x3450",
+     "tier": "FACT",
+     "source": "findings f1c-pittingstatus-1-is-still-on-track"
+    },
+    {
+     "what": "timer",
+     "locator": "per-pair accumulation on per-tick delta (dbl_8AFEA0 divergence is OPEN, do not use wall clock or SessionTime blindly)",
+     "tier": "OPEN",
+     "source": "findings f1c-sessiontime-8afea0-diverges-from-wall-clock"
+    }
+   ],
+   "latch_cooldown": "per pair; re-arm only after gap >= 0.5 s for 2 s (DERIVED)",
+   "calibration_needed": "0.5 s / 5 s are owner estimates (ERE note). Check the distance-derived gap against the game's own timing screen before wiring.",
+   "conflicts": "Pair latch shared with PWS_2001_149. The native race-side AI overtake/defend state change (functions/AIOvertakeDefendStateChange_00419690.c:61-70) fires eids 72/262 in race (dump names PWS_RACEFAST02 and PWS_AIFASTLAP01): do not reuse those. AAD mod changes AI pace and can change gaps.",
+   "live_test": "Owner: two AI in close battle for 5+ s with the car behind attacking (gap readout on timing screen).",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/SPEC_EVF-002E_battle_holding_position.md",
+    "functions/AIOvertakeDefendStateChange_00419690.c:43-70",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json events[72],[262]"
+   ],
+   "open_questions": "Native gap field unidentified (0x4098 is 'line time' per AAD row, not a gap). Owner rule 'driver1 higher position is fighting driver2 attacking'. Which car is the subject?"
+  },
+  {
+   "clip": "PWS_2001_149",
+   "sdt_index": 249,
+   "pws_eid": 234,
+   "all_eids": [
+    234
+   ],
+   "says": "AI driver held up by another AI",
+   "eid_source": "full_event_dump.json events[234] (PWS_2001_149.mp, cd 1.0, priority 20). Clip name truncated in dump",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Same battle predicate as PWS_OD_HOLDING (shared latch). The car BEHIND is the held-up subject. Owner suggested 50/50 between the two lines: choose one per pair with a deterministic toggle, never both.",
+   "state_reads": [
+    {
+     "what": "as PWS_OD_HOLDING",
+     "locator": "veh+0x4060, veh+0x403C, veh+0x4044, veh+0x4440",
+     "tier": "FACT",
+     "source": "see PWS_OD_HOLDING"
+    }
+   ],
+   "latch_cooldown": "shared pair latch with PWS_OD_HOLDING",
+   "calibration_needed": "As PWS_OD_HOLDING, plus the 50/50 rule (owner).",
+   "conflicts": "Mutually exclusive with 230 for the same pair.",
+   "live_test": "As PWS_OD_HOLDING, owner hears which line plays.",
+   "tier": "DERIVED",
+   "sources": [
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json events[234]",
+    "ERE clip_assignments note 'same as 244 but reverse'"
+   ],
+   "open_questions": "Is the 50/50 split right, or should the car behind always be the subject?"
+  },
+  {
+   "clip": "PWS_MISC29",
+   "sdt_index": 282,
+   "pws_eid": 265,
+   "all_eids": [
+    265
+   ],
+   "says": "AI reduces pace (2)",
+   "eid_source": "full_event_dump.json events[265] (PWS_MISC29.mp2, cd 1.0, priority 20)",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Race. A non-player AI whose live pace multiplier veh+0x453C has fallen below its baseline veh+0x44F4 by a sustained margin (the walk is toward baseline or ceiling every 4 s, traffic-driven via veh+0x4508). Insert eid 265 once per car per 60 s when the drop is real and not a yellow-zone cap (see MISC26) and not an AAD-driven change.",
+   "state_reads": [
+    {
+     "what": "live pace multiplier",
+     "locator": "veh+0x453C",
+     "tier": "OBSERVED",
+     "source": "findings ai-brain-pace-multiplier-model-live-2026-10-02"
+    },
+    {
+     "what": "baseline pace scalar",
+     "locator": "veh+0x44F4",
+     "tier": "FACT",
+     "source": "findings 0x44F4-pace-scalar"
+    },
+    {
+     "what": "traffic accumulator",
+     "locator": "veh+0x4508",
+     "tier": "OBSERVED",
+     "source": "findings ai-brain-pace-multiplier-model-live-2026-10-02"
+    },
+    {
+     "what": "walk interval",
+     "locator": "AIAbility every 4 s sim time",
+     "tier": "DERIVED",
+     "source": "findings aad-pace-walk-4s-no-rubberband-2026-10-15 (corrects the per-frame comment)"
+    }
+   ],
+   "latch_cooldown": "per car 60 s (DERIVED)",
+   "calibration_needed": "Drop margin (percent) and sustain time: UNKNOWN. A 5 % change settles in about 20 s (DERIVED).",
+   "conflicts": "adaptive_ai_difficulty writes 0x44F4 (baseline) and can make the drop/rise a mod effect, not AI choice: gate on AAD off. Overlaps MISC26 (yellow/cooldown cap on veh+0x457C).",
+   "live_test": "Owner: with AAD off, a race where a car is held in traffic; watch the line.",
+   "tier": "DERIVED",
+   "sources": [
+    "functions/AIAbility_00429470.c",
+    "findings aad-pace-walk-4s-no-rubberband-2026-10-15",
+    "findings ai-brain-pace-multiplier-model-live-2026-10-02",
+    "findings 0x44F4-pace-scalar",
+    "findings ai-throttle-cap-457c-cooldown-20261010"
+   ],
+   "open_questions": "Owner rule 'AI gets same treatment' vs 'real events only': is a traffic-driven 1-2 % walk worth a line?"
+  },
+  {
+   "clip": "PWS_MISC28",
+   "sdt_index": 283,
+   "pws_eid": 266,
+   "all_eids": [
+    266
+   ],
+   "says": "AI maintains position (2)",
+   "eid_source": "full_event_dump.json events[266] (PWS_MISC28.mp2, cd 1.0)",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Proposed (2) = holding position under pressure: race position unchanged for 3 laps AND a car within 1.5 s behind (distance gap / speed) for at least 1 of those laps AND that car has not passed. Insert eid 266 once per car per 3 laps.",
+   "state_reads": [
+    {
+     "what": "pressure car behind",
+     "locator": "race order neighbour, gap via veh+0x403C/0x4044/0x4440",
+     "tier": "DERIVED",
+     "source": "findings f1c-time-gap-cannot-identify-obstacle"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "findings f1c-race-position-is-4060-not-32d0"
+    }
+   ],
+   "latch_cooldown": "per car 3 laps (DERIVED)",
+   "calibration_needed": "3-lap window, 1.5 s pressure band, 0.3 s stability band: all DERIVED starting values.",
+   "conflicts": "Mutually exclusive with MISC27 (band). Battle pair latch (OD_HOLDING) takes precedence.",
+   "live_test": "Owner: a car runs in clean air for several laps in one position.",
+   "tier": "DERIVED",
+   "sources": [
+    "findings f1c-race-position-is-4060-not-32d0",
+    "findings f1c-time-gap-cannot-identify-obstacle",
+    "ERE clip_assignments note PWS_MISC27"
+   ],
+   "open_questions": "As MISC27. Optional cross-check: AI pressure accumulator (AISteering record 0x42DC+28k): findings ai-follow-and-lane-change-decision-constants-2026-10-03."
+  },
+  {
+   "clip": "PWS_MISC27",
+   "sdt_index": 284,
+   "pws_eid": 267,
+   "all_eids": [
+    267
+   ],
+   "says": "AI maintains position (1)",
+   "eid_source": "full_event_dump.json events[267] (PWS_MISC27.mp2, cd 1.0)",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Proposed split (owner to confirm): (1) = holding position in clean air. Race position veh+0x4060 unchanged for 3 laps AND no car within 1.5 s behind (distance gap / speed) for those laps AND gap to the car ahead stable (change < 0.3 s over 3 laps). Gaps = (lap x lap_length + lap distance) differences divided by speed. Insert eid 267 once per car per 3 laps.",
+   "state_reads": [
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "FACT",
+     "source": "findings f1c-race-position-is-4060-not-32d0"
+    },
+    {
+     "what": "gap ahead / behind",
+     "locator": "veh+0x403C, veh+0x4044, veh+0x4440 of neighbours in race order",
+     "tier": "DERIVED",
+     "source": "findings f1c-time-gap-cannot-identify-obstacle"
+    },
+    {
+     "what": "lap length",
+     "locator": "AIW lap_length",
+     "tier": "CONFIRMED",
+     "source": "findings (three sectors finding)"
+    }
+   ],
+   "latch_cooldown": "per car 3 laps (DERIVED)",
+   "calibration_needed": "3-lap window, 1.5 s pressure band, 0.3 s stability band: all DERIVED starting values.",
+   "conflicts": "MISC28 is the pressured case; the 1.5 s band makes them exclusive. Battle pair latch (OD_HOLDING) takes precedence when set.",
+   "live_test": "Owner: a car runs in clean air for several laps in one position.",
+   "tier": "DERIVED",
+   "sources": [
+    "findings f1c-race-position-is-4060-not-32d0",
+    "findings f1c-time-gap-cannot-identify-obstacle",
+    "ERE clip_assignments note PWS_MISC27"
+   ],
+   "open_questions": "Is the owner's split (clean air vs pressured) what 27 and 28 mean? The owner note mentioned a yellow-flag script: no such flag was found natively."
+  },
+  {
+   "clip": "PWS_MISC26",
+   "sdt_index": 285,
+   "pws_eid": 268,
+   "all_eids": [
+    268
+   ],
+   "says": "AI reduces pace (1)",
+   "eid_source": "full_event_dump.json events[268] (PWS_MISC26.mp2, cd 1.0)",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Observed performance trend, mechanism-free: for each non-player AI in race, compute average speed per completed clean lap (veh+0x4440 integrated over the lap; lap length from AIW lap_length). Clean lap = no pit-lane time (pittingStatus >= 1 on the lap excluded), no native yellow zone (steward state 2) on the lap, no own spin/off latch. Fire when the current clean-lap average is below 97 % of the mean of the previous 3 clean laps for 2 consecutive laps. Insert eid 268 once per car per 2 laps. Described as performance, not cause, so the line does not claim a mechanism.",
+   "state_reads": [
+    {
+     "what": "speed",
+     "locator": "veh+0x4440",
+     "tier": "FACT",
+     "source": "findings f1c-lapdist-4044-not-4048"
+    },
+    {
+     "what": "lap completion",
+     "locator": "veh+0x403C lap number edge; lap length from AIW lap_length",
+     "tier": "FACT",
+     "source": "findings f1c-race-position-is-4060-not-32d0; CONFIRMED lap_length key (three sectors finding)"
+    },
+    {
+     "what": "yellow zone on lap",
+     "locator": "steward table 0x8ACEE0 +0x10C/+0x110, state 2",
+     "tier": "CONFIRMED",
+     "source": "findings f1c-flag-event-dispatcher-is-41b3c0"
+    },
+    {
+     "what": "pit state",
+     "locator": "veh+0x3450",
+     "tier": "FACT",
+     "source": "findings f1c-pittingstatus-1-is-still-on-track"
+    }
+   ],
+   "latch_cooldown": "per car 2 laps (DERIVED)",
+   "calibration_needed": "3 % drop, 3-lap baseline, 2-lap sustain: all DERIVED starting values. Calibrate on AI laps in a no-AAD race (lap-to-lap spread).",
+   "conflicts": "Overlaps MISC29 (mechanism: 0x453C walk): if the mechanism is seen, MISC29 wins. Traffic-driven slowdowns still count as real pace loss, so keep the wording generic.",
+   "live_test": "Owner: a car slows over several laps in a race (watch lap times on the timing screen).",
+   "tier": "DERIVED",
+   "sources": [
+    "findings f1c-lapdist-4044-not-4048",
+    "findings ai-brain-pace-multiplier-model-live-2026-10-02",
+    "ERE clip_assignments note PWS_MISC26 (owner: 'is pacing himself')"
+   ],
+   "open_questions": "Owner wording: is a performance-trend line allowed when the car is held by traffic?"
+  },
+  {
+   "clip": "PWS_MISC25",
+   "sdt_index": 286,
+   "pws_eid": 269,
+   "all_eids": [
+    269
+   ],
+   "says": "AI increases pace",
+   "eid_source": "full_event_dump.json events[269] (PWS_MISC25.mp2, cd 1.0)",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": "none (AIAbility walk up is native but has no eid)",
+   "why_silent": "no_emitter",
+   "technique": "game_state_emitter",
+   "subject": "ai",
+   "trigger": "Race. Non-player AI whose pace multiplier veh+0x453C rises toward the ceiling veh+0x44F4 + veh+0x44D8 while traffic accumulator veh+0x4508 is high (native walk), sustained rise over one or more 4 s steps. Insert eid 269 once per car per 60 s. Not during AAD-driven changes.",
+   "state_reads": [
+    {
+     "what": "live pace multiplier",
+     "locator": "veh+0x453C",
+     "tier": "OBSERVED",
+     "source": "findings ai-brain-pace-multiplier-model-live-2026-10-02"
+    },
+    {
+     "what": "ceiling",
+     "locator": "veh+0x44F4 + veh+0x44D8 (0x44D8 = 0.0268 + 0.006432*RA, CONFIRMED)",
+     "tier": "CONFIRMED",
+     "source": "findings 0x44D4-0x44D8-raceability-derived"
+    },
+    {
+     "what": "traffic accumulator",
+     "locator": "veh+0x4508",
+     "tier": "OBSERVED",
+     "source": "findings ai-brain-pace-multiplier-model-live-2026-10-02"
+    }
+   ],
+   "latch_cooldown": "per car 60 s (DERIVED)",
+   "calibration_needed": "Rise margin and sustain: UNKNOWN.",
+   "conflicts": "AAD writes the baseline; gate AAD off. Opposite of MISC29; never both for one car in one window.",
+   "live_test": "Owner: car pushes up after traffic clears; watch the line.",
+   "tier": "DERIVED",
+   "sources": [
+    "findings ai-brain-pace-multiplier-model-live-2026-10-02",
+    "findings aad-pace-walk-4s-no-rubberband-2026-10-15",
+    "findings aad-quali-pace-push-ramp-2026-10-15 (quali ramp only, not race)"
+   ],
+   "open_questions": "Owner wording 'is pushing hard' vs walk of 1 %."
+  }
+ ],
+ "revision": "2026-10-18 r2 (coordinator review): spin uses the heading matrix; real velocity is not a stored triple (derived from positions); AIINCID10/11 moved to hook_native with the packet-gate finding; MISC26/27/28 designed from observed state; skip count now 0; veh+0x4040 (PitState) and veh+0x3450 (pittingStatus) recorded as DIFFERENT fields. r3 (coordinator): AIINCID10/11 re-diagnosed from sub_41AD80; packet-gate claim withdrawn.",
+ "corrections": [
+  "veh+0x4040 (PitState, red_flag OFF_PITSTATE gr44.c:406) and veh+0x3450 (pittingStatus, FACT) are two different fields. Not a contradiction. H4 rows use 0x3450 for pittingStatus; 0x4040 is not used.",
+  "veh+0x58/0x5C/0x60 is a mirror, not velocity (findings f1c-veh-velocity-58-is-a-mirror, DISPROVEN). Real velocity is derived from veh+0x34E0/E8 position deltas.",
+  "AIINCID10/11 (r3): the packet-gate diagnosis of r2 is WITHDRAWN (NetworkPacketDataReader is a contact-buffer slot reader, this[120] array, not network; sub_41AD80 also emits player-hit eids 114/115, heard in vanilla, so the path runs in single player). Re-diagnosed from sub_41AD80 itself; see the two rows.",
+  "AIINCID10/11 cooldown: SPEC_EVF-008_D cd 30.0 is not supported by the table read (cd 1.0); treated as wrong until shown otherwise."
+ ]
+}

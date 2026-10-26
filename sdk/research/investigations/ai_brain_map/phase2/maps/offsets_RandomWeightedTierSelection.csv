@@ -1,0 +1,9 @@
+func,line,dec,hex,access,width,base,form,expr
+RandomWeightedTierSelection,12,17804,0x458C,R,_DWORD,this,array,v2 = this[4451];
+RandomWeightedTierSelection,17,,,CALL,,,call,RandLCGRandomNumberGenerator
+RandomWeightedTierSelection,23,17804,0x458C,R,_DWORD,this,array,v2 = this[4451];
+RandomWeightedTierSelection,41,,,CALL,,,call,RandLCGRandomNumberGenerator
+RandomWeightedTierSelection,50,,,CALL,,,call,RandLCGRandomNumberGenerator
+RandomWeightedTierSelection,54,14712,0x3978,R,_DWORD,this,array,for ( i = 0; i < *(_DWORD *)(this[3678] + 16); ++i )
+RandomWeightedTierSelection,56,,,CALL,,,call,CompoundIndexLookup
+RandomWeightedTierSelection,59,,,CALL,,,call,TireCompoundNameIDMapping

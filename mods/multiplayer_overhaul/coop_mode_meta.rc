@@ -1,0 +1,4 @@
+#include "f1c_mod_meta.h"
+F1C_MOD_META_RESOURCE "coop_mode.meta.json"
+/* 1.0.3: settings template for the INI layout upgrade (coop_ini_layout.h) */
+COOP_INI_TEMPLATE RCDATA "coop_mode.ini"

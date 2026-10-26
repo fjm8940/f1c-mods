@@ -1,0 +1,422 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 65,
+ "clip": "PWS_2001_77",
+ "says": "Wheel is jammed",
+ "dump_rows_for_clip": [
+  {
+   "eid": 66,
+   "hex": "0x0042",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 64,
+   "sdt_index": 65,
+   "clip_name": "PWS_2001_77.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 371,
+   "hex": "0x0173",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 64,
+   "sdt_index": 65,
+   "clip_name": "PWS_2001_77.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  64
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 66,
+   "hex": "0x0042",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 64,
+   "sdt_index": 65,
+   "clip_name": "PWS_2001_77.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 371,
+   "hex": "0x0173",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 64,
+   "sdt_index": 65,
+   "clip_name": "PWS_2001_77.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  66
+ ],
+ "literal_hits": {
+  "66": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "TrackNameDisplayIDLookup",
+     "file": "TrackNameDisplayIDLookup_00417f60.c",
+     "hits": [
+      {
+       "line": 90,
+       "text": "v4 = a4 != 0 ? 45 : 66;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "CommentaryTVPWSPathBuilder",
+       "callers": [
+        {
+         "caller": "SceneListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 74,
+    "first": [
+     "ActorNodeLinkedListAppend",
+     "AudioNetworkNodeCount",
+     "AudioNetworkStreamCleanup",
+     "AudioResampler",
+     "CameraViewportConfigBatch",
+     "ClearBuffersLoop",
+     "ConditionalAudioParamSetup",
+     "ConfigObjectDestructor",
+     "DualFieldSetToSameValue",
+     "EnumToIDMappingWithDefaultFallthrough",
+     "EvaluateSceneNodeProperty",
+     "HUDFlagRendererMain",
+     "HUDFlagRendererSecondary",
+     "ImageBlendCombine",
+     "LargeZeroInitConstructor",
+     "LinkedListNodeFinder",
+     "LinkedListRemove",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "MatrixFactorizeLDLT",
+     "MediaBufferPlaybackManager",
+     "NestedLinkedListTraversalWithDirtyMark",
+     "ObjectInitWithFieldZeroing",
+     "PhysicsStateStructureInitializer",
+     "PhysicsStateZeroingResetForSuspension",
+     "PixelBlenderCompositor",
+     "PressureForceFieldMapping",
+     "ResourceCleanupDestructionForDirectXObjects",
+     "SafeStringFormat",
+     "SceneInstanceCollection",
+     "ScoringDBReset",
+     "StateMachineDispatcher",
+     "Steward_Init",
+     "StringFormatProcessingWithNullTerm",
+     "StringFormatWithBufferOverflowCheck",
+     "StructFieldZeroInitWithDefaults",
+     "TextBufferDecompressor",
+     "TireBrushModelForceSolver",
+     "TireModelDataInit",
+     "TireSlipForceCalculation",
+     "UIFullRenderPass"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 65 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "sub_588410",
+    "file": "sub_588410_00588410.c",
+    "hits": [
+     {
+      "line": 59,
+      "text": "BYTE1(result) = ((unsigned __int8)(result - 65) < 0x1Au ? 0x20 : 0) + result;"
+     },
+     {
+      "line": 60,
+      "text": "LOBYTE(result) = ((unsigned __int8)(v5 - 65) < 0x1Au ? 0x20 : 0) + v5;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:124: {\"ts\": \"2026-07-28\", \"tier\": \"OPEN\", \"topic\": \"pit-stop failure clips (wheel jam, fuel hose, wheel gun)\", \"claim\": \"Identified the pit-failure clip set for future restora"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-004.md:70: | `PWS_2001_77` | 65 | 66, 371 | failure extended far enough to end the race — \"WHEEL JAMMED\" text like red_flag? |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:189: | 66 | PWS_2001_77 | SessionType==7; sub_4C7BD0(a1) returns true (wheel damage) but carConditions != 2 (not ful | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:190: | 371 | PWS_2001_77 | Same as eid 66; score=64, priority=40 (equal to 66) | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:216: - eid 66 vs 371 (same clip PWS_2001_77): both have priority 40. What distinguishes them?",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:253: | `PWS_2001_77` | 65 | 66,371 | Wheel is jammed |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:250: | `PWS_2001_77` | 65 | 66, 371 | — | Wheel is jammed | user triage: Z, this plays if the pit stop failure is extended to take longer -> maybe cause a DNF, making it impossible for ",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:276: | `PWS_2001_77` | 66, 371 | Wheel is jammed | eid 371 has no call site |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:188: PWS_2001_75, PWS_2001_76, PWS_2001_77, PWS_2001_78, PWS_2001_79,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:31: | 65 | `PWS_2001_77` | Z PLAY | HAS_PLAN,HAS_LEAD | Z, this plays if the pit stop failure is extended to take longer -> maybe cause a DNF, making it impossible for player to contin",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:279: | `PWS_2001_77` | 65 | 66,371 | Wheel is jammed |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:153: | `PWS_2001_77` | 65 | 66, 371 | user triage: Z, this plays if the pit stop failure is extended to take longer -> maybe cause a DNF, making it impossible for player to continue/pla"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "pitstop_modding",
+    "mod_version": "1.1.4 (RELEASE_REGISTRY 2026-10-11)",
+    "eid": 66,
+    "mechanism": "dll_emit",
+    "condition": "player box stop: wheel jammed (terminal shape of the wheel-gun state machine)",
+    "source": "development/mods/pitstop_modding/dll/pit_commentary.c:580,1438,1464",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Wheel is jammed"
+   }
+  ],
+  "note": "user triage: Z, this plays if the pit stop failure is extended to take longer -> maybe cause a DNF, making it impossible for player to continue/play a \"WHEEL JAMMED\" text as with red flag? | UPDATE 2026-07-28: wheel jam, yes, reuse the red_flag script's textbox mechanism for this  [flags: HAS_PLAN,HAS_LEAD]",
+  "triage": {
+   "sdt_index": 65,
+   "text": "Z, this plays if the pit stop failure is extended to take longer -> maybe cause a DNF, making it impossible for player to continue/play a \"WHEEL JAMMED\" text as with red flag? | UPDATE 2026-07-28: wheel jam, yes, reuse the red_flag script's textbox mechanism for this",
+   "subject": "Z",
+   "play": true,
+   "verdict": "TODO",
+   "flags": [
+    "HAS_PLAN",
+    "HAS_LEAD"
+   ],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

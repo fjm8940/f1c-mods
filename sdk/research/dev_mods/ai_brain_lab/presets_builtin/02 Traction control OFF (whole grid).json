@@ -1,0 +1,9 @@
+{
+ "schema": "driver_ai_toolkit.preset.v2",
+ "name": "Traction control OFF (whole grid)",
+ "description": "AI cars get more wheelspin out of slow corners, like a driver without traction control.",
+ "target": "grid",
+ "rules": {
+  "tc_grip_threshold": 0.0
+ }
+}

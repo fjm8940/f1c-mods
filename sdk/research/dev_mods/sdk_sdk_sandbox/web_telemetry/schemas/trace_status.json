@@ -1,0 +1,273 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://f1c.local/schemas/trace_status.json",
+  "title": "/trace/status response",
+  "type": "object",
+  "required": [
+    "gen",
+    "lap_len",
+    "laps_max",
+    "samples_max",
+    "mode",
+    "cars"
+  ],
+  "properties": {
+    "gen": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "lap_len": {
+      "type": "number",
+      "minimum": 0
+    },
+    "laps_max": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "samples_max": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "mode": {
+      "description": "4.4.0 all-cars recorder: 'all' = every live car is traced (one entry per vehicle slot); 'selected' = the store is not allocated and only the A/B pair is recorded (fallback shape).",
+      "enum": [
+        "selected",
+        "all",
+        "archive"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "enum": ["archive", "legacy", "live", "recording"],
+      "description": "API 10: where the document was read from; recording = a closed v2 session (R1-B answers)"
+    },
+    "cars": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 104,
+      "items": {
+        "type": "object",
+        "required": [
+          "rev",
+          "which",
+          "slot",
+          "used",
+          "auto",
+          "n",
+          "cn",
+          "ai",
+          "team",
+          "dropped_laps",
+          "open",
+          "open_lap",
+          "open_samples",
+          "open_dropped",
+          "channels_seen",
+          "total_samples",
+          "laps",
+          "unavailable",
+          "unavailable_why",
+          "evicted",
+          "remote"
+        ],
+        "properties": {
+          "rev": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "which": {
+            "type": "string",
+            "enum": [
+              "A",
+              "B",
+              ""
+            ]
+          },
+          "slot": {
+            "type": "integer"
+          },
+          "used": {
+            "type": "integer"
+          },
+          "auto": {
+            "type": "integer"
+          },
+          "n": {
+            "type": "string"
+          },
+          "cn": {
+            "type": "string"
+          },
+          "ai": {
+            "type": "integer"
+          },
+          "team": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "dropped_laps": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "open": {
+            "type": "integer"
+          },
+          "open_lap": {
+            "type": "integer"
+          },
+          "open_samples": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "open_dropped": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "channels_seen": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "total_samples": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "laps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "lap",
+                "t",
+                "samples",
+                "flags",
+                "start",
+                "lid"
+              ],
+              "properties": {
+                "lap": {
+                  "type": "integer"
+                },
+                "t": {
+                  "type": "number"
+                },
+                "samples": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "flags": {
+                  "type": "integer"
+                },
+                "start": {
+                  "type": "number"
+                },
+                "lid": {
+                  "$ref": "#/$defs/lid"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "unavailable": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "unavailable_why": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "reason per unavailable channel name; player steering names the pending live check"
+          },
+          "evicted": {
+            "type": "array",
+            "description": "completed laps explicitly overwritten by the bounded ring (fix 2); a client-pinned reference can tell evicted from never-recorded",
+            "items": {
+              "type": "object",
+              "required": [
+                "lap",
+                "t",
+                "at",
+                "lid"
+              ],
+              "properties": {
+                "lap": {
+                  "type": "integer"
+                },
+                "t": {
+                  "type": "number"
+                },
+                "at": {
+                  "type": "number",
+                  "description": "session time when the ring evicted the lap, s"
+                },
+                "lid": {
+                  "$ref": "#/$defs/lid"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "remote": {
+            "type": "integer",
+            "description": "1 = CO-OP remote car (controller mode 2) when recording started"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": " Live modes always list at least the A/B pair; 1.0.1 mode 'archive' lists only the cars with archived trace laps (may be empty)."
+    },
+    "archive": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{8,47}$",
+      "description": "1.0.1 (api_version 7): id of the archived session this document was read from (?session=); absent on live documents"
+    }
+  },
+  "$defs": {
+    "lid": {
+      "type": "object",
+      "description": "stable lap identity: capture generation + recorder revision + vehicle slot + lap number + source",
+      "required": [
+        "gen",
+        "rev",
+        "slot",
+        "lap",
+        "src"
+      ],
+      "properties": {
+        "gen": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "rev": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "slot": {
+          "type": "integer"
+        },
+        "lap": {
+          "type": "integer"
+        },
+        "src": {
+          "type": "string",
+          "enum": [
+            "archive",
+            "import",
+            "live",
+            "recording"
+          ]
+        },
+        "serial": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "imports only: per-side import serial"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

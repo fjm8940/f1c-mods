@@ -1,0 +1,5 @@
+# Orientation correction — 2026-09-14
+
+Exact target SHA2561A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003. Canonical exe-disassemble at004109D0:00410A08 ADD ECX,0xC then00410A0B CALL004EF180. WheelContactTransform physics matrix row1/col1 offset0x714, so vehicle offset is0x720. The former RF constant omitted physics subobject displacement. Raw source PerVehicleCameraUpdateIterator independently passes vehicle+12. Immutable decompiler evidence unchanged.
+
+Live same-PID full field samples under SCv0.10.37/panis_orientation_20260914: owner-observed overturned Panis upvector(0.563980,-0.825755,0.007568), upright Schumacher(-0.029568,0.999563,0.007674). Both unit length. Old0x714 yields+0.316 and-0.030 respectively and cannot classify up. Shared accessor validates complete upvector norm and finite bounds; unknown transforms fail closed. Pure rotation boundary tests required. Persistent inversion is suspected incapacitation, never a terminal game-state write. Broader tracks/native side-roll recovery validation pending.

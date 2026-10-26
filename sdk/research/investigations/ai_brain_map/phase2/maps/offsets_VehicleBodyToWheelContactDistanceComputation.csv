@@ -1,0 +1,29 @@
+func,line,dec,hex,access,width,base,form,expr
+VehicleBodyToWheelContactDistanceComputation,18,15208,0x3B68,R,float,this,array,v14 = this[3802];
+VehicleBodyToWheelContactDistanceComputation,19,15200,0x3B60,R,float,this,array,v10 = this[3800];
+VehicleBodyToWheelContactDistanceComputation,20,15204,0x3B64,R,float,this,array,v12 = this[3801];
+VehicleBodyToWheelContactDistanceComputation,24,4,0x4,R,float,a2,array,v12 = a2[1] * 0.025 + v12;
+VehicleBodyToWheelContactDistanceComputation,25,8,0x8,R,float,a2,array,v14 = a2[2] * 0.025 + v14;
+VehicleBodyToWheelContactDistanceComputation,31,13524,0x34D4,R,float,this,array,v4 = v3 - this[3381];
+VehicleBodyToWheelContactDistanceComputation,32,13528,0x34D8,R,float,this,array,v5 = v12 - this[3382];
+VehicleBodyToWheelContactDistanceComputation,35,13532,0x34DC,R,float,this,array,v8 = v14 - this[3383];
+VehicleBodyToWheelContactDistanceComputation,36,13512,0x34C8,R,float,this,array,v11 = v8 * this[3378] + v5 * this[3375] + v4 * this[3372];
+VehicleBodyToWheelContactDistanceComputation,36,13500,0x34BC,R,float,this,array,v11 = v8 * this[3378] + v5 * this[3375] + v4 * this[3372];
+VehicleBodyToWheelContactDistanceComputation,36,13488,0x34B0,R,float,this,array,v11 = v8 * this[3378] + v5 * this[3375] + v4 * this[3372];
+VehicleBodyToWheelContactDistanceComputation,37,13516,0x34CC,R,float,this,array,v13 = v8 * this[3379] + v5 * this[3376] + v4 * this[3373];
+VehicleBodyToWheelContactDistanceComputation,37,13504,0x34C0,R,float,this,array,v13 = v8 * this[3379] + v5 * this[3376] + v4 * this[3373];
+VehicleBodyToWheelContactDistanceComputation,37,13492,0x34B4,R,float,this,array,v13 = v8 * this[3379] + v5 * this[3376] + v4 * this[3373];
+VehicleBodyToWheelContactDistanceComputation,38,13520,0x34D0,R,float,this,array,v15 = v8 * this[3380] + v5 * this[3377] + v4 * this[3374];
+VehicleBodyToWheelContactDistanceComputation,38,13508,0x34C4,R,float,this,array,v15 = v8 * this[3380] + v5 * this[3377] + v4 * this[3374];
+VehicleBodyToWheelContactDistanceComputation,38,13496,0x34B8,R,float,this,array,v15 = v8 * this[3380] + v5 * this[3377] + v4 * this[3374];
+VehicleBodyToWheelContactDistanceComputation,39,1836,0x72C,R,float,this,array,v16[0] = v11 - this[459];
+VehicleBodyToWheelContactDistanceComputation,40,1840,0x730,R,float,this,array,v16[1] = v13 - this[460];
+VehicleBodyToWheelContactDistanceComputation,41,1844,0x734,R,float,this,array,v16[2] = v15 - this[461];
+VehicleBodyToWheelContactDistanceComputation,44,1836,0x72C,R,float,this,array,v16[3] = *(v7 - 1) - this[459];
+VehicleBodyToWheelContactDistanceComputation,45,1840,0x730,R,float,this,array,v16[4] = *v7 - this[460];
+VehicleBodyToWheelContactDistanceComputation,46,4,0x4,R,float,v7,array,v16[5] = v7[1] - this[461];
+VehicleBodyToWheelContactDistanceComputation,46,1844,0x734,R,float,this,array,v16[5] = v7[1] - this[461];
+VehicleBodyToWheelContactDistanceComputation,47,,,CALL,,,call,NetworkPacketDataWriter
+VehicleBodyToWheelContactDistanceComputation,51,,,CALL,,,call,sqrt
+VehicleBodyToWheelContactDistanceComputation,52,15212,0x3B6C,R,float,this,array,if ( this[3803] > result )
+VehicleBodyToWheelContactDistanceComputation,53,15212,0x3B6C,R,float,this,array,return this[3803];

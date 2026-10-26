@@ -1,0 +1,25 @@
+func,line,dec,hex,access,width,base,form,expr
+sub_4F18C0,15,14700,0x396C,R,_DWORD *,this,direct,v5 = *(_DWORD **)(this + 14700);
+sub_4F18C0,16,14704,0x3970,W,_DWORD,this,direct,*(_DWORD *)(this + 14704) = a3;
+sub_4F18C0,17,,,CALL,,,call,CompoundIndexLookup
+sub_4F18C0,21,,,CALL,,,call,TireCompoundNameIDMapping
+sub_4F18C0,22,,,CALL,,,call,MultiplayerSessionType
+sub_4F18C0,26,,,CALL,,,call,VehicleSuspensionForceHelper
+sub_4F18C0,30,176,0xB0,R,double,v9,array,*(float *)(248 * a2 + this + 13880) = v9[22] / v10;
+sub_4F18C0,31,32,0x20,R,double,v9,array,*(float *)(248 * a2 + this + 13840) = (50.0 / v9[4] * v9[5] + v9[4]) * 0.9800000190734863;
+sub_4F18C0,31,40,0x28,R,double,v9,array,*(float *)(248 * a2 + this + 13840) = (50.0 / v9[4] * v9[5] + v9[4]) * 0.9800000190734863;
+sub_4F18C0,31,32,0x20,R,double,v9,array,*(float *)(248 * a2 + this + 13840) = (50.0 / v9[4] * v9[5] + v9[4]) * 0.9800000190734863;
+sub_4F18C0,32,256,0x100,R,double,v9,array,v11 = v9[32] * 0.5;
+sub_4F18C0,33,8,0x8,R,double,v9,array,*(float *)(248 * a2 + this + 13856) = (v9[1] + *v9) * v11;
+sub_4F18C0,34,24,0x18,R,double,v9,array,v12 = v9[3] + v9[2];
+sub_4F18C0,34,16,0x10,R,double,v9,array,v12 = v9[3] + v9[2];
+sub_4F18C0,39,272,0x110,R,double,v9,array,*(float *)(248 * a2 + this + 13876) = v9[34];
+sub_4F18C0,40,15348,0x3BF4,R,float,this,direct,*(float *)(248 * a2 + this + 13852) = v13 * *(float *)(this + 15348);
+sub_4F18C0,41,264,0x108,R,double,v9,array,if ( v9[33] <= 0.0 )
+sub_4F18C0,44,264,0x108,R,double,v9,array,*(float *)(248 * a2 + this + 13844) = 1.0 / v9[33];
+sub_4F18C0,45,248,0xF8,R,double,v9,array,v15 = v9[31];
+sub_4F18C0,46,240,0xF0,R,double,v9,array,v14 = v9[30];
+sub_4F18C0,47,,,CALL,,,call,DivisionWithThreshold
+sub_4F18C0,49,,,CALL,,,call,TireBrushModelForceSolver
+sub_4F18C0,50,12988,0x32BC,R,_DWORD,this,direct,if ( !*(_DWORD *)(this + 12988) )
+sub_4F18C0,53,,,CALL,,,call,TireCompoundPerWheelPhysicsApplication

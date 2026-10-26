@@ -1,0 +1,16 @@
+func,line,dec,hex,access,width,base,form,expr
+DistanceProjectionCalc,15,,,CALL,,,call,PositionChangeMonitor
+DistanceProjectionCalc,16,272,0x110,R,float *,v2,direct,v3 = *(float **)(v2 + 272);
+DistanceProjectionCalc,17,268,0x10C,R,float *,v2,direct,v4 = *(float **)(v2 + 268);
+DistanceProjectionCalc,19,4,0x4,R,float,v3,array,v9 = v3[1] - v4[1];
+DistanceProjectionCalc,19,4,0x4,R,float,v4,array,v9 = v3[1] - v4[1];
+DistanceProjectionCalc,20,8,0x8,R,float,v3,array,v10 = v3[2] - v4[2];
+DistanceProjectionCalc,20,8,0x8,R,float,v4,array,v10 = v3[2] - v4[2];
+DistanceProjectionCalc,22,72,0x48,R,float,v2,direct,return *(float *)(v2 + 72);
+DistanceProjectionCalc,23,,,CALL,,,call,sqrt
+DistanceProjectionCalc,26,13532,0x34DC,R,float,this,direct,v7 = v6 * v10 * (*(float *)(this + 13532) - *(float *)(v2 + 8))
+DistanceProjectionCalc,26,8,0x8,R,float,v2,direct,v7 = v6 * v10 * (*(float *)(this + 13532) - *(float *)(v2 + 8))
+DistanceProjectionCalc,27,13528,0x34D8,R,float,this,direct,+ v12 * (*(float *)(this + 13528) - *(float *)(v2 + 4))
+DistanceProjectionCalc,27,4,0x4,R,float,v2,direct,+ v12 * (*(float *)(this + 13528) - *(float *)(v2 + 4))
+DistanceProjectionCalc,28,13524,0x34D4,R,float,this,direct,+ v11 * (*(float *)(this + 13524) - *(float *)v2)
+DistanceProjectionCalc,29,72,0x48,R,float,v2,direct,+ *(float *)(v2 + 72);

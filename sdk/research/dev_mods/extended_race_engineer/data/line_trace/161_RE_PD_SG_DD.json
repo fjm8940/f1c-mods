@@ -1,0 +1,427 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 161,
+ "clip": "RE_PD_SG_DD",
+ "says": "Stop/Go penalty - dangerous driving",
+ "dump_rows_for_clip": [
+  {
+   "eid": 152,
+   "hex": "0x0098",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 155,
+   "sdt_index": 161,
+   "clip_name": "RE_PD_SG_DD.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 501,
+   "hex": "0x01F5",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 155,
+   "sdt_index": 161,
+   "clip_name": "RE_PD_SG_DD.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  155
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 152,
+   "hex": "0x0098",
+   "priority": 70,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 155,
+   "sdt_index": 161,
+   "clip_name": "RE_PD_SG_DD.mp2",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 501,
+   "hex": "0x01F5",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 155,
+   "sdt_index": 161,
+   "clip_name": "RE_PD_SG_DD.mp2",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  152
+ ],
+ "literal_hits": {
+  "152": {
+   "emitters": [],
+   "lookups": [
+    {
+     "function": "DriverNameIDLookup",
+     "file": "DriverNameIDLookup_00415d90.c",
+     "hits": [
+      {
+       "line": 364,
+       "text": "v5 = a4 != 0 ? 152 : 12;"
+      }
+     ],
+     "callers": [
+      {
+       "caller": "sub_414600",
+       "callers": [
+        {
+         "caller": "NamedEntryLookupInFormatList",
+         "callers": [
+          {
+           "caller": "PositionChangeDetector",
+           "callers": []
+          },
+          {
+           "caller": "SeasonDisplayIDResolver",
+           "callers": []
+          },
+          {
+           "caller": "ShortComputation_5730",
+           "callers": []
+          },
+          {
+           "caller": "VehicleSetupDriverNumber",
+           "callers": []
+          }
+         ]
+        },
+        {
+         "caller": "VehicleListBuilderFromGlobalArray",
+         "callers": [
+          {
+           "caller": "ShortComputation_5090",
+           "callers": []
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "other_functions": {
+    "count": 54,
+    "first": [
+     "BVHNearestNeighborQuery",
+     "BlockLDLTSparseConstraintFactorization",
+     "CollisionResponseWithRandomPerturbation",
+     "DualFieldSetterProcessCall",
+     "FAILCallChainSaysAccumulatesButFunctionZEROS0x94",
+     "F_2DTransformStructCopy",
+     "F_3DTransformObjectInit_83b0",
+     "ForceFeedback",
+     "InitDispatchWithVTableCheck",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "MatrixFactorizeLDLT",
+     "MemoryObjectAllocator",
+     "MultiLevelBufferAllocationWithVectorOps",
+     "PhysicsNodePropagationWithDistanceFalloff",
+     "PhysicsStateZeroInit",
+     "SeasonPathMatchSearch",
+     "SpatialNearestNeighborQueryWithPlaneTest",
+     "SpatialTreeNearestNeighborSearch",
+     "StateActivatedPositionSaveRestore",
+     "StructResetReinitializer",
+     "SuspensionAndWheelPhysics",
+     "TextAttributeLookup_34d0",
+     "TextFormatStructInitializer_4d70",
+     "TireCompoundPerWheelPhysicsApplication",
+     "TripleVtableQueryAndStore",
+     "UIFieldRenderer",
+     "UIScrollWidgetUpdate",
+     "UIScrollbarThumbDragHandler",
+     "UtilityFunction_7e10",
+     "VehicleMainPhysicsUpdate",
+     "VehicleOrientationMatrixConstruction",
+     "VehicleSuspensionForceCalculation",
+     "VirtualDispatchWithErrorHandling",
+     "sub_43C250",
+     "sub_4562F0",
+     "sub_457000",
+     "sub_4572B0",
+     "sub_4585E0",
+     "sub_459330",
+     "sub_486010"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 161 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "MapCollisionShapeToBoneIndex",
+    "file": "MapCollisionShapeToBoneIndex_00412c30.c",
+    "hits": [
+     {
+      "line": 54,
+      "text": "v5 = 161 - (a4 != 0);"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:74: {\"tier\": \"DERIVED\", \"claim\": \"Triage-merge classifier had three status misclassifications; SHIPPED must mean vanilla-only\", \"evidence\": \"apply_triage_notes.py classify() originally"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-007.md:64: | `RE_PD_SG_DD` | 161 | 152, 501 | stop/go for dangerous driving; human is not sure it exists at all |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-007.md:66: `RE_PD_25_DD` and `RE_PD_SG_DD` are the same definitional question in two",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\DUMP_RESULTS.md:87: RE_PD_SG_CUT, RE_PD_SG_DD, RE_PD_SG_SPEED, RE_OD_* equivalents",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:259: | 152 | RE_PD_SG_DD | Player driver receives stop/go penalty for dangerous driving AND PenaltiesEnabled | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\EMITTER_SPECS.md:260: | 501 | RE_PD_SG_DD | Same as eid 152, same score/clip | False |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:291: | `RE_PD_SG_DD` | 161 | 152,501 | Stop/Go penalty - dangerous driving |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:344: | `RE_PD_SG_DD` | 161 | 152, 501 | — | Stop/Go penalty - dangerous driving | user triage: not sure if exists  [auto: user flagged unverified -> verify in vanilla before SHIPPED]  [",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:351: | `RE_PD_SG_DD` | 152, 501 | Stop/Go penalty - dangerous driving | eid 501 has no call site |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:198: RE_OD_SG_DD, RE_OD_SLICKS, RE_PD_SG_DD, RE_PD_STALLED, RE_PD_STALLED_T`.",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:98: | 161 | `RE_PD_SG_DD` | - | NEEDS_RESEARCH | not sure if exists |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:322: | `RE_PD_SG_DD` | 161 | 152,501 | Stop/Go penalty - dangerous driving |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:180: | `RE_PD_SG_DD` | 161 | 152, 501 | user triage: not sure if exists  [auto: user flagged unverified -> verify in vanilla before SHIPPED] |"
+ ],
+ "mod_sources": [],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [],
+  "note": "user triage: not sure if exists  [auto: user flagged unverified -> verify in vanilla before SHIPPED]  [flags: NEEDS_RESEARCH]",
+  "triage": {
+   "sdt_index": 161,
+   "text": "not sure if exists",
+   "subject": "",
+   "play": false,
+   "verdict": "EXISTS_UNVERIFIED",
+   "flags": [
+    "NEEDS_RESEARCH"
+   ],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

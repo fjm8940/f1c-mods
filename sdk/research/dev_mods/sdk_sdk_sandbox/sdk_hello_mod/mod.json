@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "id": "sdk_hello_mod",
+  "name": "F1C SDK Hello Mod",
+  "sdk_version": "1.0.0",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "dll": "build/sdk_hello_mod.dll",
+  "unload_event": "F1C_SDK_HELLO_MOD_UNLOAD",
+  "production": false
+}
+

@@ -1,0 +1,1915 @@
+{
+ "schema": "ere.design.v1",
+ "batch": "H8_orphans",
+ "meta": {
+  "batch": "H8_orphans",
+  "method": "Static only: SDT header and frame walk (read-only), static exe .data read of word_5BEBB0, full_event_dump.json, decompiled code, owner notes. No live game work.",
+  "table_fact": "word_5BEBB0[score] is the base SDT index; count = word_5BEBB0[score+1] - word_5BEBB0[score]. Static read of <game folder>/modified f1 challenge 99-02.exe (file offset 0x1BEBB0) agrees with 480/480 PWS event pairs in full_event_dump.json. F1 (1).exe in the same folder gives identical table values.",
+  "table_values_relevant": {
+   "114": [
+    116,
+    118
+   ],
+   "115": [
+    118,
+    120
+   ],
+   "135": [
+    141,
+    142
+   ],
+   "170": [
+    176,
+    178
+   ],
+   "231": [
+    241,
+    243
+   ],
+   "235": [
+    246,
+    248
+   ],
+   "286": [
+    301,
+    303
+   ],
+   "293": [
+    311,
+    312
+   ],
+   "294": [
+    312,
+    315
+   ],
+   "295": [
+    315,
+    316
+   ]
+  },
+  "roll_fact": "RandomRangeTableInitializer (sub_411AB0) stores per-eid (count, random offset) for PWS eids 1..290. Its reader was NOT located in the corpus. sub_411A00 returns the base only. A second-of-two variant plays only if that reader adds the roll: UNKNOWN.",
+  "sdt_file": "<game folder>/Audio/Commentary/Pws/PC_RE_MAIN.SDT (count 316). Same index set in all installed copies scanned.",
+  "sdt_index_note": "clip_assignments sdt_index = index in PC_RE_MAIN.SDT. PC_RE_STITCH.SDT has different names at the same numbers (e.g. 117 = PWS_ISRUN28_E), so do not mix files.",
+  "contradictions": [
+   "clip_assignments / PROGRESS / VOICE_INDEX note 'SCAR04 inherited from SDT 137': SDT 137 is PWS_SCAR05; SCAR04 is SDT 141.",
+   "mechanical_failures ENGINEER_VOICE_INTEGRATION_2026-10-05.md:141-143 calls scores 294..299 'free'. Static table: 294->312 and 295->315 (RE_PORSCHE). 'Free' only in the native sense.",
+   "docs/OBSERVER_TABLE.md:181 calls the retire emitter unreachable. Dump eid 117 (RETIRE02, score 115) is not blocked.",
+   "TRIAGE_NOTES.txt:164 asks whether 2001_110 is 'loaded by the game already'. Answer DERIVED: it is the second variant of score 170 (base WIN19)."
+  ]
+ },
+ "rows": [
+  {
+   "clip": "PWS_OFFROAD02",
+   "sdt_index": 117,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Stick to the track",
+   "says_basis": "label only",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=117 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "orphan",
+   "technique": "carrier_score",
+   "subject": "player",
+   "trigger": "UNKNOWN. 'Player leaves the road' predicate not located. Owner: 'not sure if any mechanism exists directly on detecting if player is on asphalt' (f1c_ida_decompiled/mods/extended_vanilla_features/docs/TRIAGE_NOTES.txt:97-98).",
+   "state_reads": [
+    {
+     "what": "score -> SDT index: word_5BEBB0[114] = base, count = word_5BEBB0[115] - word_5BEBB0[114]",
+     "locator": "word_5BEBB0[score]",
+     "tier": "CONFIRMED",
+     "source": "<game folder>/modified f1 challenge 99-02.exe .data; functions/ShortComputation_1a00_00411a00.c:11; agrees with f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json (480/480 PWS pairs)"
+    },
+    {
+     "what": "player on/off asphalt",
+     "locator": "UNKNOWN",
+     "tier": "GUESS",
+     "source": "no source found"
+    }
+   ],
+   "latch_cooldown": "UNKNOWN (no trigger yet)",
+   "calibration_needed": "Roll consumer (variant_note); off-track trigger source",
+   "conflicts": "Base PWS_OFFROAD01 (eids 116, 409) is the default clip at score 114.",
+   "live_test": "Leave the asphalt in a race several times. Log whether OFFROAD01 always plays or whether OFFROAD02 ever plays.",
+   "tier": "DERIVED",
+   "sources": [
+    "clip_assignments.json batches.H8_orphans[117]",
+    "docs/FULL_INVENTORY.md:351",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/TRIAGE_NOTES.txt:97-98",
+    "<game folder>/modified f1 challenge 99-02.exe (table)",
+    "functions/RandomRangeTableInitializer_00411ab0.c:1-47; functions/WrapperReturning0_004116b0.c:3"
+   ],
+   "open_questions": "Who reads the random roll? Which predicate detects leaving the road?",
+   "variant_note": "Second of two clips at score 114 (table 116,117). Base lookup plays PWS_OFFROAD01 (eids 116,409). Reaching SDT 117 needs the random roll from RandomRangeTableInitializer; its reader is not located.",
+   "carrier_score_candidate": 114,
+   "sdt_duration_s": 2.351,
+   "sdt_duration_source": "MPEG frame walk of PC_RE_MAIN.SDT (header_size 40): MPEG-2 Layer III 22050 Hz 48 kbps mono, 576 samples/frame. Tier DERIVED (not measured by listening).",
+   "says_source": "owner listening 2026-10-18"
+  },
+  {
+   "clip": "PWS_RETIRE03",
+   "sdt_index": 119,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Your race is over",
+   "says_basis": "label only",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=119 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "orphan",
+   "technique": "carrier_score",
+   "subject": "player",
+   "trigger": "Owner: 'played when player receives terminal accident damage (see damage.ini for engine seizure)' (f1c_ida_decompiled/mods/extended_vanilla_features/docs/TRIAGE_NOTES.txt:100-101). State read not located in this batch.",
+   "state_reads": [
+    {
+     "what": "score -> SDT index: word_5BEBB0[115] = base, count = word_5BEBB0[116] - word_5BEBB0[115]",
+     "locator": "word_5BEBB0[score]",
+     "tier": "CONFIRMED",
+     "source": "<game folder>/modified f1 challenge 99-02.exe .data; functions/ShortComputation_1a00_00411a00.c:11; agrees with f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json (480/480 PWS pairs)"
+    },
+    {
+     "what": "terminal accident damage",
+     "locator": "UNKNOWN (owner points at damage.ini [PHYSICAL] Engine=)",
+     "tier": "GUESS",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/TRIAGE_NOTES.txt:100"
+    }
+   ],
+   "latch_cooldown": "once per retirement (proposed)",
+   "calibration_needed": "Roll consumer; retirement trigger",
+   "conflicts": "Base PWS_RETIRE02 (score 115) is native via eid 117 (cooldown 6.0, blocked False) and eid 410. docs/OBSERVER_TABLE.md:181 calls the retire emitter unreachable; the dump says eid 117 is not blocked. These disagree.",
+   "live_test": "Cause a retirement (e.g. terminal accident damage) and log whether RETIRE02 or RETIRE03 plays.",
+   "tier": "DERIVED",
+   "sources": [
+    "clip_assignments.json batches.H8_orphans[119]",
+    "docs/FULL_INVENTORY.md:352",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/TRIAGE_NOTES.txt:100-101",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/OBSERVER_TABLE.md:181",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json events['117'], events['410']"
+   ],
+   "open_questions": "Is native eid 117 really unreachable (OBSERVER_TABLE.md:181)?",
+   "variant_note": "Second of two clips at score 115 (table 118,119). Base lookup plays PWS_RETIRE02 (eids 117,410). Reaching SDT 119 needs the random roll from RandomRangeTableInitializer; its reader is not located.",
+   "carrier_score_candidate": 115,
+   "sdt_duration_s": 1.202,
+   "sdt_duration_source": "MPEG frame walk of PC_RE_MAIN.SDT (header_size 40): MPEG-2 Layer III 22050 Hz 48 kbps mono, 576 samples/frame. Tier DERIVED (not measured by listening).",
+   "says_source": "owner listening 2026-10-18"
+  },
+  {
+   "clip": "PWS_SCAR04",
+   "sdt_index": 141,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Safety car is in",
+   "says_basis": "source comment + owner isolation test",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=141 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "full_safety_car (pace_probe.c:4875 sc_say_later(SCORE_SCAR04))",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "team",
+   "trigger": "Safety car crosses into the pit lane (full_safety_car pace_probe.c:4849-4875).",
+   "state_reads": [
+    {
+     "what": "score -> SDT index: word_5BEBB0[135] = base, count = word_5BEBB0[136] - word_5BEBB0[135]",
+     "locator": "word_5BEBB0[score]",
+     "tier": "CONFIRMED",
+     "source": "<game folder>/modified f1 challenge 99-02.exe .data; functions/ShortComputation_1a00_00411a00.c:11; agrees with f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json (480/480 PWS pairs)"
+    },
+    {
+     "what": "safety car pit-lane entry",
+     "locator": "full_safety_car pace_probe.c:4849-4875",
+     "tier": "CONFIRMED",
+     "source": "development/mods/full_safety_car/dll/pace_probe.c:4875"
+    }
+   ],
+   "latch_cooldown": "owned by full_safety_car",
+   "calibration_needed": "none for this batch",
+   "conflicts": "clip_assignments note 'UNDER WORK VIA ANOTHER MOD [auto: inherited from SDT 137]' is WRONG: SDT 137 is PWS_SCAR05 (score 131). Owner note TRIAGE_NOTES.txt:127 is about 137.",
+   "live_test": "None needed here; full_safety_car owns the test.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/full_safety_car/dll/pace_probe.c:559, 4849-4875",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/CLAUDE.md:248",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/TRIAGE_NOTES.txt:127",
+    "<game folder>/modified f1 challenge 99-02.exe (table: word_5BEBB0[135] = 141, count 1)"
+   ],
+   "open_questions": "Fix the 'inherited from SDT 137' note in clip_assignments.json.",
+   "variant_note": "Score 135 covers SDT 141 only (count 1): the base lookup plays this clip exactly.",
+   "carrier_score_candidate": 135,
+   "sdt_duration_s": 1.254,
+   "sdt_duration_source": "MPEG frame walk of PC_RE_MAIN.SDT (header_size 40): MPEG-2 Layer III 22050 Hz 48 kbps mono, 576 samples/frame. Tier DERIVED (not measured by listening).",
+   "says_source": "owner listening 2026-10-18"
+  },
+  {
+   "clip": "PWS_2001_110",
+   "sdt_index": 177,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "You won, great drive, well done",
+   "says_basis": "label only",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=177 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "orphan",
+   "technique": "carrier_score",
+   "subject": "player",
+   "trigger": "Player wins the race (finish P1). Brief fact: race position = veh+0x4060 (not re-verified here). End-of-race predicate not located in this batch.",
+   "state_reads": [
+    {
+     "what": "score -> SDT index: word_5BEBB0[170] = base, count = word_5BEBB0[171] - word_5BEBB0[170]",
+     "locator": "word_5BEBB0[score]",
+     "tier": "CONFIRMED",
+     "source": "<game folder>/modified f1 challenge 99-02.exe .data; functions/ShortComputation_1a00_00411a00.c:11; agrees with f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json (480/480 PWS pairs)"
+    },
+    {
+     "what": "race position",
+     "locator": "veh+0x4060",
+     "tier": "DERIVED",
+     "source": "HAIKU_BRIEF.md (proven fact, not re-verified)"
+    }
+   ],
+   "latch_cooldown": "once per race (proposed)",
+   "calibration_needed": "Roll consumer; end-of-race trigger",
+   "conflicts": "Base PWS_WIN19 (score 170, eid 167) is the native win line; 2001_110 may already play at random if the roll is used.",
+   "live_test": "Win several races and log whether WIN19 or 2001_110 plays. This answers TRIAGE_NOTES.txt:164.",
+   "tier": "DERIVED",
+   "sources": [
+    "clip_assignments.json batches.H8_orphans[177]",
+    "docs/FULL_INVENTORY.md:356",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/TRIAGE_NOTES.txt:164",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json events['167']",
+    "<game folder>/modified f1 challenge 99-02.exe (table)"
+   ],
+   "open_questions": "Does the game already play 2001_110 by roll?",
+   "variant_note": "Second of two clips at score 170 (table 176,177). Base lookup plays PWS_WIN19 (eids 167). Reaching SDT 177 needs the random roll from RandomRangeTableInitializer; its reader is not located.",
+   "carrier_score_candidate": 170,
+   "sdt_duration_s": 2.273,
+   "sdt_duration_source": "MPEG frame walk of PC_RE_MAIN.SDT (header_size 40): MPEG-2 Layer III 22050 Hz 48 kbps mono, 576 samples/frame. Tier DERIVED (not measured by listening).",
+   "says_source": "owner listening 2026-10-18"
+  },
+  {
+   "clip": "PWS_AIINCID02",
+   "sdt_index": 242,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "<driver> is off in <sector>",
+   "says_basis": "label + owner description",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=242 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "orphan",
+   "technique": "carrier_score",
+   "subject": "ai",
+   "trigger": "AI leaves the track. No AI off-track detector found in this batch; owner: 'this doesn't exist yet I think' (f1c_ida_decompiled/mods/extended_vanilla_features/docs/TRIAGE_NOTES.txt:216-217). Sector read not located.",
+   "state_reads": [
+    {
+     "what": "score -> SDT index: word_5BEBB0[231] = base, count = word_5BEBB0[232] - word_5BEBB0[231]",
+     "locator": "word_5BEBB0[score]",
+     "tier": "CONFIRMED",
+     "source": "<game folder>/modified f1 challenge 99-02.exe .data; functions/ShortComputation_1a00_00411a00.c:11; agrees with f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json (480/480 PWS pairs)"
+    },
+    {
+     "what": "AI off-track + sector",
+     "locator": "UNKNOWN",
+     "tier": "GUESS",
+     "source": "no source found"
+    }
+   ],
+   "latch_cooldown": "UNKNOWN (no trigger yet)",
+   "calibration_needed": "AI subject id veh+0x489C (brief); roll consumer; AI off-track detector",
+   "conflicts": "Base PWS_AIINCID03 (score 231, eid 228) is the native line.",
+   "live_test": "Put an AI off the track and log whether AIINCID03 or AIINCID02 plays.",
+   "tier": "DERIVED",
+   "sources": [
+    "clip_assignments.json batches.H8_orphans[242]",
+    "docs/FULL_INVENTORY.md:357",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/TRIAGE_NOTES.txt:216-218",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json events['228']",
+    "<game folder>/modified f1 challenge 99-02.exe (table)"
+   ],
+   "open_questions": "Is there an AI off-track detector anywhere in the corpus?",
+   "variant_note": "Second of two clips at score 231 (table 241,242). Base lookup plays PWS_AIINCID03 (eids 228). Reaching SDT 242 needs the random roll from RandomRangeTableInitializer; its reader is not located.",
+   "carrier_score_candidate": 231,
+   "sdt_duration_s": 1.489,
+   "sdt_duration_source": "MPEG frame walk of PC_RE_MAIN.SDT (header_size 40): MPEG-2 Layer III 22050 Hz 48 kbps mono, 576 samples/frame. Tier DERIVED (not measured by listening).",
+   "says_source": "owner listening 2026-10-18"
+  },
+  {
+   "clip": "PWS_AIINCID05",
+   "sdt_index": 247,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "<driver> has spun",
+   "says_basis": "label + owner note",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=247 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "orphan",
+   "technique": "carrier_score",
+   "subject": "ai",
+   "trigger": "AI spin detector not located. Owner guess, not verified: 'maybe when been slower than 5kmh for 2 seconds or more' (f1c_ida_decompiled/mods/extended_vanilla_features/docs/TRIAGE_NOTES.txt:224-225, owner marked 'no idea').",
+   "state_reads": [
+    {
+     "what": "score -> SDT index: word_5BEBB0[235] = base, count = word_5BEBB0[236] - word_5BEBB0[235]",
+     "locator": "word_5BEBB0[score]",
+     "tier": "CONFIRMED",
+     "source": "<game folder>/modified f1 challenge 99-02.exe .data; functions/ShortComputation_1a00_00411a00.c:11; agrees with f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json (480/480 PWS pairs)"
+    },
+    {
+     "what": "AI spin / stopped speed",
+     "locator": "UNKNOWN",
+     "tier": "GUESS",
+     "source": "f1c_ida_decompiled/mods/extended_vanilla_features/docs/TRIAGE_NOTES.txt:225 (owner guess)"
+    }
+   ],
+   "latch_cooldown": "UNKNOWN (no trigger yet)",
+   "calibration_needed": "AI subject id; roll consumer; spin detector",
+   "conflicts": "Base PWS_AIINCID04 (score 235, eid 232) is the native line.",
+   "live_test": "Make an AI spin and log AIINCID04 vs AIINCID05.",
+   "tier": "DERIVED",
+   "sources": [
+    "clip_assignments.json batches.H8_orphans[247]",
+    "docs/FULL_INVENTORY.md:358",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/TRIAGE_NOTES.txt:224-226",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json events['232']",
+    "<game folder>/modified f1 challenge 99-02.exe (table)"
+   ],
+   "open_questions": "Does a spin detector exist? The 5 km/h guess is unverified.",
+   "variant_note": "Second of two clips at score 235 (table 246,247). Base lookup plays PWS_AIINCID04 (eids 232). Reaching SDT 247 needs the random roll from RandomRangeTableInitializer; its reader is not located.",
+   "carrier_score_candidate": 235,
+   "sdt_duration_s": 0.862,
+   "sdt_duration_source": "MPEG frame walk of PC_RE_MAIN.SDT (header_size 40): MPEG-2 Layer III 22050 Hz 48 kbps mono, 576 samples/frame. Tier DERIVED (not measured by listening).",
+   "says_source": "owner listening 2026-10-18"
+  },
+  {
+   "clip": "PWS_2001_219",
+   "sdt_index": 302,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "It's starting to rain but I don't think it's gonna get any worse",
+   "says_basis": "owner quote + label",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=302 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "orphan",
+   "technique": "carrier_score",
+   "subject": "none",
+   "trigger": "Rain starts, light. Weather-transition predicate not located in this batch (see H6_weather_tyres.json, not cross-checked here).",
+   "state_reads": [
+    {
+     "what": "score -> SDT index: word_5BEBB0[286] = base, count = word_5BEBB0[287] - word_5BEBB0[286]",
+     "locator": "word_5BEBB0[score]",
+     "tier": "CONFIRMED",
+     "source": "<game folder>/modified f1 challenge 99-02.exe .data; functions/ShortComputation_1a00_00411a00.c:11; agrees with f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json (480/480 PWS pairs)"
+    },
+    {
+     "what": "weather state (light rain start)",
+     "locator": "UNKNOWN in this batch",
+     "tier": "GUESS",
+     "source": "none"
+    }
+   ],
+   "latch_cooldown": "once per rain start (proposed)",
+   "calibration_needed": "Roll consumer; weather trigger",
+   "conflicts": "Base PWS_2001_220 (score 286, eid 283) is the 'more than a shower' line in owner notes (f1c_ida_decompiled/mods/extended_vanilla_features/docs/TRIAGE_NOTES.txt:277).",
+   "live_test": "Trigger a change to rain and log whether 2001_220 or 2001_219 plays; check the 'light drizzle' wording.",
+   "tier": "DERIVED",
+   "sources": [
+    "clip_assignments.json batches.H8_orphans[302]",
+    "docs/FULL_INVENTORY.md:359",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/TRIAGE_NOTES.txt:277-278",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json events['283']",
+    "<game folder>/modified f1 challenge 99-02.exe (table)"
+   ],
+   "open_questions": "Which weather predicate is right (H6 batch)?",
+   "variant_note": "Second of two clips at score 286 (table 301,302). Base lookup plays PWS_2001_220 (eids 283). Reaching SDT 302 needs the random roll from RandomRangeTableInitializer; its reader is not located.",
+   "carrier_score_candidate": 286,
+   "sdt_duration_s": 2.769,
+   "sdt_duration_source": "MPEG frame walk of PC_RE_MAIN.SDT (header_size 40): MPEG-2 Layer III 22050 Hz 48 kbps mono, 576 samples/frame. Tier DERIVED (not measured by listening).",
+   "says_source": "owner listening 2026-10-18"
+  },
+  {
+   "clip": "RE_PORSCHE_23",
+   "sdt_index": 312,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "UNKNOWN - owner must listen. Label only: 'Porsche Cup line 23' (clip_assignments.json; TO_LISTEN.txt:68; docs/FULL_INVENTORY.md:360).",
+   "says_basis": "label only",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=312 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "skip",
+   "subject": "unknown",
+   "trigger": "UNKNOWN. No event, owner note or code in the corpus names a trigger for RE_PORSCHE clips. The 'Porsche Cup' context is not documented in ERE or EVF.",
+   "state_reads": [
+    {
+     "what": "score -> SDT index: word_5BEBB0[294] = base, count = word_5BEBB0[295] - word_5BEBB0[294]",
+     "locator": "word_5BEBB0[score]",
+     "tier": "CONFIRMED",
+     "source": "<game folder>/modified f1 challenge 99-02.exe .data; functions/ShortComputation_1a00_00411a00.c:11; agrees with f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json (480/480 PWS pairs)"
+    },
+    {
+     "what": "Porsche Cup context",
+     "locator": "UNKNOWN",
+     "tier": "GUESS",
+     "source": "none"
+    }
+   ],
+   "latch_cooldown": "UNKNOWN",
+   "calibration_needed": "Subject and trigger; carrier eid choice (a dead PWS eid 1..290, not chosen)",
+   "conflicts": "Scores 294/295 have no native PWS event (dump max used PWS score is 293). mechanical_failures/docs/ENGINEER_VOICE_INTEGRATION_2026-10-05.md:141-143 calls scores 294..299 'free'; the table does hold RE_PORSCHE clips there, so 'free' only means no native eid uses them.",
+   "live_test": "Play the clip through the score test and note speaker, subject and any named team or driver.",
+   "tier": "DERIVED",
+   "sources": [
+    "clip_assignments.json batches.H8_orphans",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/TO_LISTEN.txt:68",
+    "docs/FULL_INVENTORY.md:360",
+    "<game folder>/modified f1 challenge 99-02.exe (table: [294]=312, [295]=315)",
+    "development/mods/mechanical_failures/docs/ENGINEER_VOICE_INTEGRATION_2026-10-05.md:141-143"
+   ],
+   "open_questions": "owner 2026-10-18: do not use Porsche lines (DD-14)",
+   "variant_note": "Score 294 covers SDT 312-314 (count 3). The base lookup returns 312. 313/314 need the random roll.",
+   "carrier_score_candidate": 294,
+   "sdt_duration_s": 1.463,
+   "sdt_duration_source": "MPEG frame walk of PC_RE_MAIN.SDT (header_size 40): MPEG-2 Layer III 22050 Hz 48 kbps mono, 576 samples/frame. Tier DERIVED (not measured by listening)."
+  },
+  {
+   "clip": "RE_PORSCHE_24",
+   "sdt_index": 313,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "UNKNOWN - owner must listen. Label only: 'Porsche Cup line 24' (clip_assignments.json; TO_LISTEN.txt:69; docs/FULL_INVENTORY.md:361).",
+   "says_basis": "label only",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=313 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "skip",
+   "subject": "unknown",
+   "trigger": "UNKNOWN. No event, owner note or code in the corpus names a trigger for RE_PORSCHE clips. The 'Porsche Cup' context is not documented in ERE or EVF.",
+   "state_reads": [
+    {
+     "what": "score -> SDT index: word_5BEBB0[294] = base, count = word_5BEBB0[295] - word_5BEBB0[294]",
+     "locator": "word_5BEBB0[score]",
+     "tier": "CONFIRMED",
+     "source": "<game folder>/modified f1 challenge 99-02.exe .data; functions/ShortComputation_1a00_00411a00.c:11; agrees with f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json (480/480 PWS pairs)"
+    },
+    {
+     "what": "Porsche Cup context",
+     "locator": "UNKNOWN",
+     "tier": "GUESS",
+     "source": "none"
+    }
+   ],
+   "latch_cooldown": "UNKNOWN",
+   "calibration_needed": "Subject and trigger; carrier eid choice (a dead PWS eid 1..290, not chosen)",
+   "conflicts": "Scores 294/295 have no native PWS event (dump max used PWS score is 293). mechanical_failures/docs/ENGINEER_VOICE_INTEGRATION_2026-10-05.md:141-143 calls scores 294..299 'free'; the table does hold RE_PORSCHE clips there, so 'free' only means no native eid uses them.",
+   "live_test": "Play the clip through the score test and note speaker, subject and any named team or driver.",
+   "tier": "DERIVED",
+   "sources": [
+    "clip_assignments.json batches.H8_orphans",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/TO_LISTEN.txt:69",
+    "docs/FULL_INVENTORY.md:361",
+    "<game folder>/modified f1 challenge 99-02.exe (table: [294]=312, [295]=315)",
+    "development/mods/mechanical_failures/docs/ENGINEER_VOICE_INTEGRATION_2026-10-05.md:141-143"
+   ],
+   "open_questions": "owner 2026-10-18: do not use Porsche lines (DD-14)",
+   "variant_note": "Score 294 covers SDT 312-314 (count 3). Roll-only variant.",
+   "carrier_score_candidate": 294,
+   "sdt_duration_s": 1.907,
+   "sdt_duration_source": "MPEG frame walk of PC_RE_MAIN.SDT (header_size 40): MPEG-2 Layer III 22050 Hz 48 kbps mono, 576 samples/frame. Tier DERIVED (not measured by listening)."
+  },
+  {
+   "clip": "RE_PORSCHE_25",
+   "sdt_index": 314,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "UNKNOWN - owner must listen. Label only: 'Porsche Cup line 25' (clip_assignments.json; TO_LISTEN.txt:70; docs/FULL_INVENTORY.md:362).",
+   "says_basis": "label only",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=314 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "skip",
+   "subject": "unknown",
+   "trigger": "UNKNOWN. No event, owner note or code in the corpus names a trigger for RE_PORSCHE clips. The 'Porsche Cup' context is not documented in ERE or EVF.",
+   "state_reads": [
+    {
+     "what": "score -> SDT index: word_5BEBB0[294] = base, count = word_5BEBB0[295] - word_5BEBB0[294]",
+     "locator": "word_5BEBB0[score]",
+     "tier": "CONFIRMED",
+     "source": "<game folder>/modified f1 challenge 99-02.exe .data; functions/ShortComputation_1a00_00411a00.c:11; agrees with f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json (480/480 PWS pairs)"
+    },
+    {
+     "what": "Porsche Cup context",
+     "locator": "UNKNOWN",
+     "tier": "GUESS",
+     "source": "none"
+    }
+   ],
+   "latch_cooldown": "UNKNOWN",
+   "calibration_needed": "Subject and trigger; carrier eid choice (a dead PWS eid 1..290, not chosen)",
+   "conflicts": "Scores 294/295 have no native PWS event (dump max used PWS score is 293). mechanical_failures/docs/ENGINEER_VOICE_INTEGRATION_2026-10-05.md:141-143 calls scores 294..299 'free'; the table does hold RE_PORSCHE clips there, so 'free' only means no native eid uses them.",
+   "live_test": "Play the clip through the score test and note speaker, subject and any named team or driver.",
+   "tier": "DERIVED",
+   "sources": [
+    "clip_assignments.json batches.H8_orphans",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/TO_LISTEN.txt:70",
+    "docs/FULL_INVENTORY.md:362",
+    "<game folder>/modified f1 challenge 99-02.exe (table: [294]=312, [295]=315)",
+    "development/mods/mechanical_failures/docs/ENGINEER_VOICE_INTEGRATION_2026-10-05.md:141-143"
+   ],
+   "open_questions": "owner 2026-10-18: do not use Porsche lines (DD-14)",
+   "variant_note": "Score 294 covers SDT 312-314 (count 3). Roll-only variant.",
+   "carrier_score_candidate": 294,
+   "sdt_duration_s": 0.993,
+   "sdt_duration_source": "MPEG frame walk of PC_RE_MAIN.SDT (header_size 40): MPEG-2 Layer III 22050 Hz 48 kbps mono, 576 samples/frame. Tier DERIVED (not measured by listening)."
+  },
+  {
+   "clip": "RE_PORSCHE_03",
+   "sdt_index": 315,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "UNKNOWN - owner must listen. Label only: 'Porsche Cup line 03' (clip_assignments.json; TO_LISTEN.txt:71; docs/FULL_INVENTORY.md:363).",
+   "says_basis": "label only",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=315 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": null,
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "skip",
+   "subject": "unknown",
+   "trigger": "UNKNOWN. No event, owner note or code in the corpus names a trigger for RE_PORSCHE clips. The 'Porsche Cup' context is not documented in ERE or EVF.",
+   "state_reads": [
+    {
+     "what": "score -> SDT index: word_5BEBB0[295] = base, count = word_5BEBB0[296] - word_5BEBB0[295]",
+     "locator": "word_5BEBB0[score]",
+     "tier": "CONFIRMED",
+     "source": "<game folder>/modified f1 challenge 99-02.exe .data; functions/ShortComputation_1a00_00411a00.c:11; agrees with f1c_ida_decompiled/mods/extended_vanilla_features/data/full_event_dump.json (480/480 PWS pairs)"
+    },
+    {
+     "what": "Porsche Cup context",
+     "locator": "UNKNOWN",
+     "tier": "GUESS",
+     "source": "none"
+    }
+   ],
+   "latch_cooldown": "UNKNOWN",
+   "calibration_needed": "Subject and trigger; carrier eid choice (a dead PWS eid 1..290, not chosen)",
+   "conflicts": "Scores 294/295 have no native PWS event (dump max used PWS score is 293). mechanical_failures/docs/ENGINEER_VOICE_INTEGRATION_2026-10-05.md:141-143 calls scores 294..299 'free'; the table does hold RE_PORSCHE clips there, so 'free' only means no native eid uses them.",
+   "live_test": "Play the clip through the score test and note speaker, subject and any named team or driver.",
+   "tier": "DERIVED",
+   "sources": [
+    "clip_assignments.json batches.H8_orphans",
+    "f1c_ida_decompiled/mods/extended_vanilla_features/docs/TO_LISTEN.txt:71",
+    "docs/FULL_INVENTORY.md:363",
+    "<game folder>/modified f1 challenge 99-02.exe (table: [294]=312, [295]=315)",
+    "development/mods/mechanical_failures/docs/ENGINEER_VOICE_INTEGRATION_2026-10-05.md:141-143"
+   ],
+   "open_questions": "owner 2026-10-18: do not use Porsche lines (DD-14)",
+   "variant_note": "Score 295 covers SDT 315 only (count 1): the base lookup plays this clip exactly.",
+   "carrier_score_candidate": 295,
+   "sdt_duration_s": 1.332,
+   "sdt_duration_source": "MPEG frame walk of PC_RE_MAIN.SDT (header_size 40): MPEG-2 Layer III 22050 Hz 48 kbps mono, 576 samples/frame. Tier DERIVED (not measured by listening)."
+  },
+  {
+   "clip": "PWS_MF01",
+   "sdt_index": 316,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Oil pressure dropping.  [source: mechanical_failures audio/engineer/MANIFEST.csv:2 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=316 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:2)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:2"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:2",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 316)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 1.44,
+   "sdt_duration_source": "MANIFEST.csv:2 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF02",
+   "sdt_index": 317,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Oil pressure low, short shift.  [source: mechanical_failures audio/engineer/MANIFEST.csv:3 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=317 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:3)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:3"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:3",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 317)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 3.0764,
+   "sdt_duration_source": "MANIFEST.csv:3 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF03",
+   "sdt_index": 318,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Low oil pressure, keep the revs down.  [source: mechanical_failures audio/engineer/MANIFEST.csv:4 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=318 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:4)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:4"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:4",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 318)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.64,
+   "sdt_duration_source": "MANIFEST.csv:4 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF04",
+   "sdt_index": 319,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "You're leaking oil.  [source: mechanical_failures audio/engineer/MANIFEST.csv:5 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=319 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:5)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:5"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:5",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 319)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 1.92,
+   "sdt_duration_source": "MANIFEST.csv:5 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF05",
+   "sdt_index": 320,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Oil leak, take it easy.  [source: mechanical_failures audio/engineer/MANIFEST.csv:6 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=320 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:6)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:6"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:6",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 320)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.2036,
+   "sdt_duration_source": "MANIFEST.csv:6 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF06",
+   "sdt_index": 321,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Oil temperature high, back off.  [source: mechanical_failures audio/engineer/MANIFEST.csv:7 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=321 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:7)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:7"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:7",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 321)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.3564,
+   "sdt_duration_source": "MANIFEST.csv:7 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF07",
+   "sdt_index": 322,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Bearings are going, box now.  [source: mechanical_failures audio/engineer/MANIFEST.csv:8 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=322 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:8)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:8"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:8",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 322)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.2255,
+   "sdt_duration_source": "MANIFEST.csv:8 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF08",
+   "sdt_index": 323,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Water temperature rising.  [source: mechanical_failures audio/engineer/MANIFEST.csv:9 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=323 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:9)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:9"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:9",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 323)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 1.7019,
+   "sdt_duration_source": "MANIFEST.csv:9 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF09",
+   "sdt_index": 324,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Water temp high, lift and coast.  [source: mechanical_failures audio/engineer/MANIFEST.csv:10 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=324 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:10)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:10"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:10",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 324)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.5309,
+   "sdt_duration_source": "MANIFEST.csv:10 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF10",
+   "sdt_index": 325,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "You're losing coolant.  [source: mechanical_failures audio/engineer/MANIFEST.csv:11 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=325 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:11)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:11"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:11",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 325)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.3564,
+   "sdt_duration_source": "MANIFEST.csv:11 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF11",
+   "sdt_index": 326,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Coolant low, box this lap.  [source: mechanical_failures audio/engineer/MANIFEST.csv:12 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=326 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:12)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:12"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:12",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 326)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.2691,
+   "sdt_duration_source": "MANIFEST.csv:12 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF12",
+   "sdt_index": 327,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Debris in the radiator.  [source: mechanical_failures audio/engineer/MANIFEST.csv:13 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=327 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:13)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:13"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:13",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 327)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 1.9636,
+   "sdt_duration_source": "MANIFEST.csv:13 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF13",
+   "sdt_index": 328,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Radiator blocked, find clean air.  [source: mechanical_failures audio/engineer/MANIFEST.csv:14 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=328 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:14)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:14"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:14",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 328)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.5309,
+   "sdt_duration_source": "MANIFEST.csv:14 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF14",
+   "sdt_index": 329,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Radiator's clear now.  [source: mechanical_failures audio/engineer/MANIFEST.csv:15 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=329 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:15)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:15"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:15",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 329)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 1.6581,
+   "sdt_duration_source": "MANIFEST.csv:15 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF15",
+   "sdt_index": 330,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Head gasket's gone.  [source: mechanical_failures audio/engineer/MANIFEST.csv:16 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=330 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:16)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:16"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:16",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 330)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 1.6581,
+   "sdt_duration_source": "MANIFEST.csv:16 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF16",
+   "sdt_index": 331,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Losing valve pressure.  [source: mechanical_failures audio/engineer/MANIFEST.csv:17 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=331 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:17)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:17"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:17",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 331)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.6181,
+   "sdt_duration_source": "MANIFEST.csv:17 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF17",
+   "sdt_index": 332,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Valves are floating, short shift.  [source: mechanical_failures audio/engineer/MANIFEST.csv:18 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=332 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:18)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:18"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:18",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 332)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.3564,
+   "sdt_duration_source": "MANIFEST.csv:18 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF18",
+   "sdt_index": 333,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Over-rev, watch the downshifts.  [source: mechanical_failures audio/engineer/MANIFEST.csv:19 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=333 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:19)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:19"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:19",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 333)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.2036,
+   "sdt_duration_source": "MANIFEST.csv:19 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF19",
+   "sdt_index": 334,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "That over-rev hurt the engine.  [source: mechanical_failures audio/engineer/MANIFEST.csv:20 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=334 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:20)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:20"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:20",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 334)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 1.9636,
+   "sdt_duration_source": "MANIFEST.csv:20 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF20",
+   "sdt_index": 335,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Exhaust is cracked.  [source: mechanical_failures audio/engineer/MANIFEST.csv:21 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=335 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:21)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:21"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:21",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 335)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 1.6364,
+   "sdt_duration_source": "MANIFEST.csv:21 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF21",
+   "sdt_index": 336,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Exhaust problem, keep pushing.  [source: mechanical_failures audio/engineer/MANIFEST.csv:22 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=336 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:22)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:22"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:22",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 336)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.2036,
+   "sdt_duration_source": "MANIFEST.csv:22 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF22",
+   "sdt_index": 337,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Engine's losing compression.  [source: mechanical_failures audio/engineer/MANIFEST.csv:23 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=337 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:23)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:23"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:23",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 337)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 1.8783,
+   "sdt_duration_source": "MANIFEST.csv:23 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF23",
+   "sdt_index": 338,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "We're seeing an engine problem.  [source: mechanical_failures audio/engineer/MANIFEST.csv:24 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=338 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:24)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:24"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:24",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 338)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.7339,
+   "sdt_duration_source": "MANIFEST.csv:24 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF24",
+   "sdt_index": 339,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Fuel pressure dropping.  [source: mechanical_failures audio/engineer/MANIFEST.csv:25 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=339 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:25)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:25"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:25",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 339)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 1.8109,
+   "sdt_duration_source": "MANIFEST.csv:25 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF25",
+   "sdt_index": 340,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Fuel pressure low, keep it smooth.  [source: mechanical_failures audio/engineer/MANIFEST.csv:26 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=340 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:26)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:26"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:26",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 340)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.7491,
+   "sdt_duration_source": "MANIFEST.csv:26 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF26",
+   "sdt_index": 341,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "You've got a fuel leak.  [source: mechanical_failures audio/engineer/MANIFEST.csv:27 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=341 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:27)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:27"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:27",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 341)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 1.9855,
+   "sdt_duration_source": "MANIFEST.csv:27 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF27",
+   "sdt_index": 342,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Fuel leak, box now.  [source: mechanical_failures audio/engineer/MANIFEST.csv:28 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=342 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:28)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:28"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:28",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 342)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 1.6581,
+   "sdt_duration_source": "MANIFEST.csv:28 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF28",
+   "sdt_index": 343,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Engine critical, box now.  [source: mechanical_failures audio/engineer/MANIFEST.csv:29 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=343 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:29)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:29"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:29",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 343)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.3564,
+   "sdt_duration_source": "MANIFEST.csv:29 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF29",
+   "sdt_index": 344,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Save the engine.  [source: mechanical_failures audio/engineer/MANIFEST.csv:30 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=344 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:30)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:30"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:30",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 344)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 1.2,
+   "sdt_duration_source": "MANIFEST.csv:30 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF30",
+   "sdt_index": 345,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Engine's gone, stop the car.  [source: mechanical_failures audio/engineer/MANIFEST.csv:31 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=345 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:31)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:31"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:31",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 345)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.2036,
+   "sdt_duration_source": "MANIFEST.csv:31 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF31",
+   "sdt_index": 346,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Engine's failed, park it safely.  [source: mechanical_failures audio/engineer/MANIFEST.csv:32 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=346 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:32)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:32"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:32",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 346)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.6181,
+   "sdt_duration_source": "MANIFEST.csv:32 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF32",
+   "sdt_index": 347,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Engine fixed, go.  [source: mechanical_failures audio/engineer/MANIFEST.csv:33 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=347 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:33)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:33"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:33",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 347)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.2036,
+   "sdt_duration_source": "MANIFEST.csv:33 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF33",
+   "sdt_index": 348,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Problem's cleared, push now.  [source: mechanical_failures audio/engineer/MANIFEST.csv:34 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=348 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:34)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:34"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:34",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 348)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 2.2036,
+   "sdt_duration_source": "MANIFEST.csv:34 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF34",
+   "sdt_index": 349,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Big hit, checking the data.  [source: mechanical_failures audio/engineer/MANIFEST.csv:35 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=349 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:35)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:35"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:35",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 349)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 1.8546,
+   "sdt_duration_source": "MANIFEST.csv:35 col 5 (duration_s)"
+  },
+  {
+   "clip": "PWS_MF35",
+   "sdt_index": 350,
+   "pws_eid": null,
+   "all_eids": [],
+   "says": "Damage after that hit, watch the temps.  [source: mechanical_failures audio/engineer/MANIFEST.csv:36 col 6]",
+   "says_basis": "mod manifest text (not heard)",
+   "eid_source": "full_event_dump.json has no events entry with sdt_index=350 (orphaned_clips only); clip_assignments.json batches.H8_orphans",
+   "eid_isolation_tested": false,
+   "already_modded_by": "mechanical_failures (audio/engineer/MANIFEST.csv:36)",
+   "native_emitter": null,
+   "why_silent": "no_emitter",
+   "technique": "owned_by_other_mod",
+   "subject": "player",
+   "trigger": "Owned by mechanical_failures. Trigger not audited in H8 (owned_by_other_mod).",
+   "state_reads": [
+    {
+     "what": "clip owner",
+     "locator": "mechanical_failures MANIFEST",
+     "tier": "CONFIRMED",
+     "source": "MANIFEST.csv:36"
+    }
+   ],
+   "latch_cooldown": "owned by mechanical_failures",
+   "calibration_needed": "none for H8",
+   "conflicts": "Vanilla PC_RE_MAIN.SDT has count 316 (no index 316+). The mechanical_failures build copy has count 351 with PWS_MF01 at 316 (audio/engineer/build/PC_RE_MAIN.SDT). No installed copy under Documents has them.",
+   "live_test": "None for H8.",
+   "tier": "CONFIRMED",
+   "sources": [
+    "development/mods/mechanical_failures/audio/engineer/MANIFEST.csv:36",
+    "development/mods/mechanical_failures/audio/engineer/build/PC_RE_MAIN.SDT (count 351, index 350)"
+   ],
+   "open_questions": "Score values the MF build uses for these indices were not audited here.",
+   "variant_note": null,
+   "carrier_score_candidate": null,
+   "sdt_duration_s": 3.1855,
+   "sdt_duration_source": "MANIFEST.csv:36 col 5 (duration_s)"
+  }
+ ]
+}

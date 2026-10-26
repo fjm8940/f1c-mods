@@ -1,0 +1,76 @@
+CODEX - INDEPENDENT REVIEW OF THE ENGINE SIMULATION (mechanical_failures), 2026-10-01
+Owner: Matias. Reviewer: Codex. Read-only review. Plain English, short lines.
+
+0. COLD START (mandatory)
+Follow %USERPROFILE%\Desktop\F1\AGENTS.md cold start, then development\AGENTS.md and the component docs below.
+Workspace text is UTF-8 without BOM. Never read api1.txt or private keys.
+
+1. WHAT YOU REVIEW
+The "extended engine simulation" inside the merged Lightloader plugin mechanical_failures.dll for F1 Challenge 99-02.
+Installed in the game since 2026-10-01: dll sha256 db1932ec... (dev = installed, same hash).
+Design: WHEN an engine fails = the game's own engine life clock; HOW it fails = our model (usage-weighted fault
+choice, part health, cascades, early failures, per-engine quality q, niggles, save mode F8, AI shadow engines in
+TEST mode). Dead engine = torque 0 in the 0x447B10 detour, ignition stays on.
+Engine grade G (E9q) is coded but NOT wired: G = 1.0 in game (no per-car data source yet).
+
+Files (dev root %USERPROFILE%\Desktop\F1\development\mods\mechanical_failures):
+- dll\mf_engine_model.h          pure model (constants, MfInputs/MfOutputs, step function)
+- dll\engine_failure.c           game side: hooks, memory reads/writes, control block EngineCtl (444 bytes), pumps
+- dll\mechanical_failures.c      host / Lightloader activation
+- dll\mf_audio.h, mf_hud.h, mf_exit.h, mf_variance.h   helpers
+- tools\engine_model_test.c + tools\run_engine_model_test.bat   model test (expect ALL PASS, 67306 checks)
+- dll\build_merged.bat           build (two builds must give the same hash)
+- tools\car_sweep\               offline sweep over 145 real car engine files (README.md)
+- tools\mech_test_panel.py, tools\mech_failure_test_gui.py      owner test panel (control block field map)
+Docs to read first:
+- docs\HANDOFF_2026-10-01b.md                          current state
+- docs\ENGINE_SIM_MODEL_DEEPSEEK_HANDOFF_2026-09-30.md section 8   batch log + Claude reviews
+- docs\DEEPSEEK_E9_PAPER_2026-09-30.md + addenda 1-3   specs
+- docs\CAR_SWEEP_2026-10-01.md (last section = latest re-run)
+- docs\BIG_LIVE_TEST_2026-10-01.md                     pending owner live test
+Game knowledge: use the SDK front door from f1c_ida_decompiled (python tools/f1c_mod.py start --json,
+evidence-query findings TEXT --json, inspect ADDRESS_OR_NAME). Check every fixed address the DLL uses against it.
+
+2. REVIEW QUESTIONS (answer each, with evidence tier FACT / DERIVED / INFERENCE)
+A. Safety of game memory: every write (torque tables, rev band, radiator coefficient, fuel, oil, life clock,
+   AI vehicle fields). Bounds, pointer validation, session-change / unload restore, stale pointers, races with the
+   game thread, writes after SESSION_OVER, double restore. Any path that can crash the game or corrupt a save.
+B. Compatibility contract (development\AGENTS.md 2026-09-24): activation only through a verified Lightloader host;
+   code-pattern / layout checks before fixed addresses; refusal path when they fail. Is it really enforced?
+C. Model correctness: math in mf_engine_model.h vs the paper/addenda (drain EMA, fault choice, cascades, early
+   hazard, quality q, niggles, save mode x0.97 / growth x0.6 / hazard x0.5, grade formula). Units, NaN/inf,
+   division by zero, clamps, RNG reproducibility.
+D. Known issue to analyse: car sweep re-run - 26 cars at ABUSE reach game life 0 with NO model onset (no warning),
+   mostly 2004RH/2005RH (drain 8-16x at limiter, dead 7-14 min). Confirm root cause and propose the smallest fix
+   (Claude's guess: onset is not tied to projected time_to_fail). Check the fix would not change RACE/CASUAL results.
+E. State and lifecycle: session start/end, garage, stint reset vs real failure (E9g-g reset floor), repair,
+   dead latch, F8 edge detection and focus test, control-block ABI (field order vs the Python field map, 444 bytes).
+F. AI shadow engines (off by default): shared torque table handling, restore guard, cost per tick.
+G. Simplicity: state or code that the player cannot see/hear/feel and that does not pick the fault (project rule).
+   Dead code, duplicated logic, constants defined but unused.
+H. Test gaps: what the model test and car sweep do not cover that the live test must.
+
+3. YOU MAY RUN (scratch output only in %TEMP%)
+- tools\run_engine_model_test.bat (from tools)
+- the car sweep per tools\car_sweep\README.md, in a %TEMP% scratch copy
+- python -B -m unittest test_mech_failure_test_gui and python -B mech_test_panel.py --smoke-test (from tools)
+- build in a %TEMP% COPY of dll\ only (do not overwrite dll\mechanical_failures.dll)
+
+4. LIMITS (hard)
+- Do NOT edit any source, header, .py, .bat, .ini or existing doc. Do NOT build into dll\. Do NOT run
+  build_merged.bat install. Do NOT start the game or the GUI. Do NOT write game memory. No deletions.
+- Only new files allowed: your report (section 5) and appended lines in
+  %USERPROFILE%\Desktop\F1\f1c_ida_decompiled\findings.jsonl for any new proven/disproven/open game fact
+  (tier, evidence, source), per AGENTS.md.
+- LLM confidence is not evidence. Say what you ran, what you read, what you only inferred.
+
+5. OUTPUT
+Write docs\CODEX_ENGINE_SIM_REVIEW_2026-10-01.md (new file) with:
+- Summary (5 lines max): ship / fix first / stop.
+- Findings table: id, severity (CRASH / WRONG / RISK / CLEANUP), file:line, problem, evidence tier, smallest fix.
+  Most severe first. No praise, no style nits.
+- Section D answer (root cause + fix sketch + expected sweep result).
+- Commands run + results (pass counts, hashes).
+- Open questions for Matias (max 5).
+- Extra live checks to add to docs\BIG_LIVE_TEST_2026-10-01.md (list only; do not edit that file).
+Final chat reply: the summary + path to the report.

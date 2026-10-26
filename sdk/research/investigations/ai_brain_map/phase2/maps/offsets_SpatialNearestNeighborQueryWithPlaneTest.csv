@@ -1,0 +1,15 @@
+func,line,dec,hex,access,width,base,form,expr
+SpatialNearestNeighborQueryWithPlaneTest,13,304,0x130,R,_DWORD,this,array,v3 = this[76];
+SpatialNearestNeighborQueryWithPlaneTest,18,308,0x134,R,_DWORD,this,array,v5 = this[77];
+SpatialNearestNeighborQueryWithPlaneTest,22,4,0x4,R,float,a2,array,v7 = a2[1] - *(float *)(v5 + 152);
+SpatialNearestNeighborQueryWithPlaneTest,22,152,0x98,R,float,v5,direct,v7 = a2[1] - *(float *)(v5 + 152);
+SpatialNearestNeighborQueryWithPlaneTest,23,8,0x8,R,float,a2,array,v8 = a2[2] - *(float *)(v5 + 156);
+SpatialNearestNeighborQueryWithPlaneTest,23,156,0x9C,R,float,v5,direct,v8 = a2[2] - *(float *)(v5 + 156);
+SpatialNearestNeighborQueryWithPlaneTest,24,148,0x94,R,float,v5,direct,v9 = *a2 - *(float *)(v5 + 148);
+SpatialNearestNeighborQueryWithPlaneTest,26,300,0x12C,R,_DWORD,v5,direct,if ( v10 < v12 && (a3 == -1 || a3 == *(_DWORD *)(v5 + 300)) )
+SpatialNearestNeighborQueryWithPlaneTest,36,172,0xAC,R,float,v4,direct,&& *(float *)(v4 + 172) * (*(float *)(v4 + 156) - a2[2]) + *(float *)(v4 + 164) * (*(float *)(v4 + 148) - *a2) < 0.0 )
+SpatialNearestNeighborQueryWithPlaneTest,36,156,0x9C,R,float,v4,direct,&& *(float *)(v4 + 172) * (*(float *)(v4 + 156) - a2[2]) + *(float *)(v4 + 164) * (*(float *)(v4 + 148) - *a2) < 0.0 )
+SpatialNearestNeighborQueryWithPlaneTest,36,8,0x8,R,float,a2,array,&& *(float *)(v4 + 172) * (*(float *)(v4 + 156) - a2[2]) + *(float *)(v4 + 164) * (*(float *)(v4 + 148) - *a2) < 0.0 )
+SpatialNearestNeighborQueryWithPlaneTest,36,164,0xA4,R,float,v4,direct,&& *(float *)(v4 + 172) * (*(float *)(v4 + 156) - a2[2]) + *(float *)(v4 + 164) * (*(float *)(v4 + 148) - *a2) < 0.0 )
+SpatialNearestNeighborQueryWithPlaneTest,36,148,0x94,R,float,v4,direct,&& *(float *)(v4 + 172) * (*(float *)(v4 + 156) - a2[2]) + *(float *)(v4 + 164) * (*(float *)(v4 + 148) - *a2) < 0.0 )
+SpatialNearestNeighborQueryWithPlaneTest,38,272,0x110,R,_DWORD,v4,direct,return *(_DWORD *)(v4 + 272);

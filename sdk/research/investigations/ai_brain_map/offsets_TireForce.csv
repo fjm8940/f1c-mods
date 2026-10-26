@@ -1,0 +1,29 @@
+func,line,dec,hex,access,width,base,form,expr
+TireForce,33,14960,0x3A70,R,float,this,array,v28 = v5 * this[3740] - (v27 * a3 + a4[1]) * this[3397];
+TireForce,33,4,0x4,R,float,a4,array,v28 = v5 * this[3740] - (v27 * a3 + a4[1]) * this[3397];
+TireForce,33,13588,0x3514,R,float,this,array,v28 = v5 * this[3740] - (v27 * a3 + a4[1]) * this[3397];
+TireForce,34,,,CALL,,,call,fabs
+TireForce,34,13588,0x3514,R,float,this,array,v25 = fabs(v27 * a5 - *a4) * this[3397];
+TireForce,38,15420,0x3C3C,R,float,this,array,v12 = v9 * this[3855];
+TireForce,40,,,CALL,,,call,sub_5895A2
+TireForce,46,15424,0x3C40,R,float,this,array,v14 = this[3856];
+TireForce,54,15424,0x3C40,R,float,this,array,v15 = this[v13 + 3856];
+TireForce,55,15428,0x3C44,R,float,this,array,v16 = this[v13 + 3857];
+TireForce,59,15484,0x3C7C,R,float,this,array,v17 = v9 * this[3871];
+TireForce,61,,,CALL,,,call,sub_5895A2
+TireForce,67,15488,0x3C80,R,float,this,array,v14 = this[3872];
+TireForce,75,15488,0x3C80,R,float,this,array,v15 = this[v18 + 3872];
+TireForce,76,15492,0x3C84,R,float,this,array,v16 = this[v18 + 3873];
+TireForce,87,,,CALL,,,call,sqrt
+TireForce,88,15356,0x3BFC,R,float,this,array,v20 = v28 * this[3839];
+TireForce,90,,,CALL,,,call,sub_5895A2
+TireForce,101,15360,0x3C00,R,float,this,array,v23 = this[v21 + 3840];
+TireForce,102,15364,0x3C04,R,float,this,array,v22 = (v23 + (this[v21 + 3841] - v23) * (*(float *)&v34 - (double)v30)) * this[3398] * v26;
+TireForce,102,13592,0x3518,R,float,this,array,v22 = (v23 + (this[v21 + 3841] - v23) * (*(float *)&v34 - (double)v30)) * this[3398] * v26;
+TireForce,106,15360,0x3C00,R,float,this,array,v22 = this[3840] * this[3398] * v26;
+TireForce,106,13592,0x3518,R,float,this,array,v22 = this[3840] * this[3398] * v26;
+TireForce,109,15676,0x3D3C,R,float,this,array,if ( v22 > this[3919] )
+TireForce,110,15676,0x3D3C,R,float,this,array,v22 = this[3919];
+TireForce,111,15684,0x3D44,R,float,this,array,return v22 + this[3921] * this[3398] * v27 + a4[2];
+TireForce,111,13592,0x3518,R,float,this,array,return v22 + this[3921] * this[3398] * v27 + a4[2];
+TireForce,111,8,0x8,R,float,a4,array,return v22 + this[3921] * this[3398] * v27 + a4[2];

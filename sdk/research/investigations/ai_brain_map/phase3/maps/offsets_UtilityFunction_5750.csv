@@ -1,0 +1,9 @@
+func,line,dec,hex,access,width,base,form,expr
+UtilityFunction_5750,9,,,CALL,,,call,FindZeroResultIndex
+UtilityFunction_5750,10,,,R,_DWORD,this,array,result = (int)&this[16 * a2];
+UtilityFunction_5750,11,44,0x2C,R,_DWORD,result,direct,v4 = *(_DWORD *)(result + 44) + 1;
+UtilityFunction_5750,12,44,0x2C,W,_DWORD,result,direct,*(_DWORD *)(result + 44) = v4;
+UtilityFunction_5750,13,40,0x28,R,_DWORD,result,direct,v5 = *(_DWORD *)(result + 40);
+UtilityFunction_5750,16,53,0x35,R,_BYTE,result,direct,if ( *(_BYTE *)(result + 53) )
+UtilityFunction_5750,20,44,0x2C,W,_DWORD,result,direct,*(_DWORD *)(result + 44) = v6;
+UtilityFunction_5750,23,,,CALL,,,call,ConditionalDispatch_55e0

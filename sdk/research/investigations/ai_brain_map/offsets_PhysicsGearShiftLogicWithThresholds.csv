@@ -1,0 +1,15 @@
+func,line,dec,hex,access,width,base,form,expr
+PhysicsGearShiftLogicWithThresholds,6,14864,0x3A10,R,float,this,direct,if ( *(float *)(this + 14864) > 0.0 )
+PhysicsGearShiftLogicWithThresholds,8,14844,0x39FC,R,_DWORD,this,direct,v1 = *(_DWORD *)(this + 14844);
+PhysicsGearShiftLogicWithThresholds,9,17680,0x4510,R,_DWORD,this,direct,if ( *(_DWORD *)(this + 17680) == 6 )
+PhysicsGearShiftLogicWithThresholds,12,,,CALL,,,call,RaceStartCountdownStateUpdate
+PhysicsGearShiftLogicWithThresholds,15,15724,0x3D6C,R,_DWORD,this,direct,if ( *(_DWORD *)(this + 15724) == 2 )
+PhysicsGearShiftLogicWithThresholds,17,,,CALL,,,call,RaceStartCountdownStateUpdate
+PhysicsGearShiftLogicWithThresholds,22,14872,0x3A18,R,float,this,direct,if ( *(float *)(this + 14872) < (double)*(float *)(this + 14752) )
+PhysicsGearShiftLogicWithThresholds,22,14752,0x39A0,R,float,this,direct,if ( *(float *)(this + 14872) < (double)*(float *)(this + 14752) )
+PhysicsGearShiftLogicWithThresholds,24,14284,0x37CC,R,float,this,direct,if ( *(float *)(this + 14284) <= 0.80000001 || *(float *)(this + 14532) <= 0.80000001 )
+PhysicsGearShiftLogicWithThresholds,24,14532,0x38C4,R,float,this,direct,if ( *(float *)(this + 14284) <= 0.80000001 || *(float *)(this + 14532) <= 0.80000001 )
+PhysicsGearShiftLogicWithThresholds,27,14844,0x39FC,R,_DWORD,this,direct,v2 = *(_DWORD *)(this + 14844);
+PhysicsGearShiftLogicWithThresholds,28,14852,0x3A04,R,_DWORD,this,direct,if ( v2 < *(_DWORD *)(this + 14852) )
+PhysicsGearShiftLogicWithThresholds,29,,,CALL,,,call,RaceStartCountdownStateUpdate
+PhysicsGearShiftLogicWithThresholds,33,,,CALL,,,call,JUMPOUT

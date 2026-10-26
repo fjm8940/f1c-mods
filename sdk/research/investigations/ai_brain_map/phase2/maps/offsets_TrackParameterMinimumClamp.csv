@@ -1,0 +1,5 @@
+func,line,dec,hex,access,width,base,form,expr
+TrackParameterMinimumClamp,3,17540,0x4484,R,float,this,array,if ( this[4385] > (double)a2 )
+TrackParameterMinimumClamp,4,17540,0x4484,W,float,this,array,this[4385] = a2;
+TrackParameterMinimumClamp,5,17540,0x4484,R,float,this,array,if ( this[4385] < 5.0 )
+TrackParameterMinimumClamp,6,17540,0x4484,W,float,this,array,this[4385] = 5.0;

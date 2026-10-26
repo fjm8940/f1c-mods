@@ -1,0 +1,11 @@
+{
+ "schema": "driver_ai_toolkit.preset.v2",
+ "name": "Late braker",
+ "description": "Brakes later into every corner.",
+ "target": "current",
+ "quick": {
+  "BRAKE_FAC": {
+   "BRAKE_FAC": 1.15
+  }
+ }
+}

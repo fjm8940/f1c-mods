@@ -1,0 +1,52 @@
+; EXCERPT of FileReading #0 (RTMI 0x0044E478), offsets 0x170E-0x17A0: unit fix-ups: -273 for ' temp', value store
+; full listing: python pcode_decode.py --disasm 0x0044E478
+  0x170E: LitI4                    raw=01000000
+  0x1713: FLdRfVar                 var[-464]
+  0x1716: CI4Var                   
+  0x1718: FLdRfVar                 var[-208]
+  0x171B: Ary1LdI4                 
+  0x171C: LitStr                   pool[123]=" temp"
+  0x171F: LitI4                    raw=00000000
+  0x1724: FnInStr4                 
+  0x1726: LitI4                    raw=00000000
+  0x172B: GtI4                     
+  0x172C: BranchF                  target=+0x1748
+  0x172F: FLdRfVar                 var[-464]
+  0x1732: FLdRfVar                 var[-712]
+  0x1735: LeVarBool                
+  0x1737: BranchF                  target=+0x1745
+  0x173A: FLdFPR4                  var[-160]
+  0x173D: LitI2                    raw=1101
+  0x1740: CR8I2                    
+  0x1741: SubR4                    
+  0x1742: FStFPR4                  var[-160]
+  0x1745: Branch                   target=+0x1768
+  0x1748: FLdRfVar                 var[-464]
+  0x174B: LitVarI2                 var[-268] = 10
+  0x1750: HardType                 
+  0x1751: LeVarBool                
+  0x1753: BranchF                  target=+0x1768
+  0x1756: FLdRfVar                 var[-1484]
+  0x1759: FLdFPR4                  var[-160]
+  0x175C: CVarR4                   raw=F4FE
+  0x1760: AddVar                   raw=CCFE
+  0x1764: FStVar                   raw=34FA
+  0x1768: FLdFPR4                  var[-160]
+  0x176B: ImpAdLdRf                raw=4300
+  0x176E: FLdRfVar                 var[-464]
+  0x1771: AddVar                   raw=CCFE
+  0x1775: CI4Var                   
+  0x1777: ImpAdLdI4                raw=4500
+  0x177A: Ary1StFPR4               
+  0x177B: FFree1Var                var[-308]
+  0x177E: FLdRfVar                 var[-464]
+  0x1781: NextStepVar              raw=14FA320F
+  0x1787: FLdRfVar                 var[-1484]
+  0x178A: LitVarI2                 var[-268] = 0
+  0x178F: HardType                 
+  0x1790: EqVarBool                
+  0x1792: BranchF                  target=+0x1798
+  0x1795: Branch                   target=+0x1C82
+  0x1798: ImpAdLdRf                raw=4300
+  0x179B: FLdRfVar                 var[-644]
+  0x179E: AddVar                   raw=CCFE

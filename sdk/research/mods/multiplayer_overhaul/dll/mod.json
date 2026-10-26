@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "id": "multiplayer_overhaul",
+  "name": "Multiplayer Overhaul",
+  "sdk_version": "1.0.0",
+  "target_sha256": "1A70E5ED0C4A059F7F66741B1682D0AEDB14921AA6140CDB70B09549FDF3A003",
+  "dll": "build/multiplayer_overhaul.dll",
+  "unload_event": "F1C_COOP_MODE_UNLOAD",
+  "production": false
+}
+

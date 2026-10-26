@@ -1,0 +1,30 @@
+func,line,dec,hex,access,width,base,form,expr
+sub_4C6F10,34,18596,0x48A4,W,_DWORD,this,array,this[4649] = this[4645] % 52;
+sub_4C6F10,34,18580,0x4894,R,_DWORD,this,array,this[4649] = this[4645] % 52;
+sub_4C6F10,37,,,CALL,,,call,IndexedArrayAccessor
+sub_4C6F10,40,,,CALL,,,call,sub_588410
+sub_4C6F10,42,18596,0x48A4,W,_DWORD,this,array,this[4649] = v2;
+sub_4C6F10,48,18192,0x4710,R,_DWORD,this,array,v4 = this[4548];
+sub_4C6F10,62,,,CALL,,,call,ArrayOfStructIndexedFieldCopy
+sub_4C6F10,62,18596,0x48A4,R,_DWORD,this,array,"ArrayOfStructIndexedFieldCopy(dword_5EA2C0, this[4649], v28, v27);"
+sub_4C6F10,63,,,CALL,,,call,ZeroVectorCheck
+sub_4C6F10,68,18600,0x48A8,W,_DWORD,this,array,this[4650] = v7;
+sub_4C6F10,72,18596,0x48A4,R,_DWORD,v9,direct,if ( (_DWORD *)v9 != this && *(_DWORD *)(v9 + 18596) == this[4649] && *(_DWORD *)(v9 + 18600) == v7 )
+sub_4C6F10,72,18596,0x48A4,R,_DWORD,this,array,if ( (_DWORD *)v9 != this && *(_DWORD *)(v9 + 18596) == this[4649] && *(_DWORD *)(v9 + 18600) == v7 )
+sub_4C6F10,72,18600,0x48A8,R,_DWORD,v9,direct,if ( (_DWORD *)v9 != this && *(_DWORD *)(v9 + 18596) == this[4649] && *(_DWORD *)(v9 + 18600) == v7 )
+sub_4C6F10,93,18596,0x48A4,W,_DWORD,this,array,this[4649] = 0;
+sub_4C6F10,96,,,CALL,,,call,ArrayOfStructIndexedFieldCopy
+sub_4C6F10,96,18596,0x48A4,R,_DWORD,this,array,"ArrayOfStructIndexedFieldCopy(dword_5EA2C0, this[4649], v28, v27);"
+sub_4C6F10,97,,,CALL,,,call,ZeroVectorCheck
+sub_4C6F10,101,,,CALL,,,call,IndexedStructDataRead
+sub_4C6F10,101,18596,0x48A4,R,_DWORD,this,array,"IndexedStructDataRead(dword_5EA2C0, this[4649], k, v30, v29);"
+sub_4C6F10,105,18600,0x48A8,W,_DWORD,this,array,this[4650] = v14;
+sub_4C6F10,109,18596,0x48A4,R,_DWORD,v16,direct,if ( (_DWORD *)v16 != this && *(_DWORD *)(v16 + 18596) == this[4649] && *(_DWORD *)(v16 + 18600) == v14 )
+sub_4C6F10,109,18596,0x48A4,R,_DWORD,this,array,if ( (_DWORD *)v16 != this && *(_DWORD *)(v16 + 18596) == this[4649] && *(_DWORD *)(v16 + 18600) == v14 )
+sub_4C6F10,109,18600,0x48A8,R,_DWORD,v16,direct,if ( (_DWORD *)v16 != this && *(_DWORD *)(v16 + 18596) == this[4649] && *(_DWORD *)(v16 + 18600) == v14 )
+sub_4C6F10,119,18596,0x48A4,R,_DWORD,this,array,v17 = this[4649] + 1;
+sub_4C6F10,120,18596,0x48A4,R,_DWORD,this,array,v18 = this[4649] - 51 < 0;
+sub_4C6F10,121,18596,0x48A4,W,_DWORD,this,array,this[4649] = v17;
+sub_4C6F10,123,,,CALL,,,call,__OFSUB__
+sub_4C6F10,127,18596,0x48A4,W,_DWORD,this,array,this[4649] = -1;
+sub_4C6F10,128,18600,0x48A8,W,_DWORD,this,array,this[4650] = -1;

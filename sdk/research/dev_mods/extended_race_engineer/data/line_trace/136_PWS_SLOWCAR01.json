@@ -1,0 +1,422 @@
+{
+ "schema": "ere.line_trace.v1",
+ "sdt_index": 136,
+ "clip": "PWS_SLOWCAR01",
+ "says": "Slow car ahead",
+ "dump_rows_for_clip": [
+  {
+   "eid": 132,
+   "hex": "0x0084",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 130,
+   "sdt_index": 136,
+   "clip_name": "PWS_SLOWCAR01.m",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 427,
+   "hex": "0x01AB",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 130,
+   "sdt_index": 136,
+   "clip_name": "PWS_SLOWCAR01.m",
+   "via_pws_lookup": true
+  }
+ ],
+ "score_values": [
+  130
+ ],
+ "all_rows_sharing_score": [
+  {
+   "eid": 132,
+   "hex": "0x0084",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 130,
+   "sdt_index": 136,
+   "clip_name": "PWS_SLOWCAR01.m",
+   "via_pws_lookup": true
+  },
+  {
+   "eid": 427,
+   "hex": "0x01AB",
+   "priority": 40,
+   "cooldown": 1.0,
+   "blocked": false,
+   "score": 130,
+   "sdt_index": 136,
+   "clip_name": "PWS_SLOWCAR01.m",
+   "via_pws_lookup": true
+  }
+ ],
+ "pws_eids": [
+  132
+ ],
+ "literal_hits": {
+  "132": {
+   "emitters": [],
+   "lookups": [],
+   "other_functions": {
+    "count": 124,
+    "first": [
+     "AccumulatorWithStateSwitch",
+     "ArithmeticComparison_8330",
+     "BufferEntryAppendWithMatrixInit",
+     "CameraPositionDefinitions",
+     "CameraShakeRingBufferWrite",
+     "ClampedFloatSetter",
+     "CloudSceneObjectRandomSelector",
+     "CollisionContactGenerationAndFrictionResponse",
+     "CollisionDataCopy",
+     "CollisionResponseTypeClassification",
+     "DamperSpringForceComputationWithAntiRoll",
+     "DrawableObjectBatchProcessor",
+     "EnumValueTranslation",
+     "F_2DTransformStructCopy",
+     "F_3DDistanceCheckAccumulate",
+     "F_3DTransformObjectInit_83b0",
+     "F_3DVectorCrossProductRotationAccumulation",
+     "F_3x3RotationTensorMatrixTransform",
+     "GameOptionsWriter",
+     "InertiaTensorWorldSpaceTransform",
+     "InertialTensorVectorTransform",
+     "InitWithVTableFlags",
+     "LinkedListDestructorWithChildCleanup",
+     "MP3AudioDecoderHuffmanSampleRendering",
+     "MatrixFactorizeLDLT",
+     "MultiFieldReset",
+     "MultiLevelBufferAllocationWithVectorOps",
+     "MutexGuardedTimerRead",
+     "PhysicsObjectNameCompare",
+     "PhysicsSignDirectionFunction",
+     "RecursiveStateTraversalWithFlagCheck",
+     "ReferenceCountedResourceRelease",
+     "RenderUISystemGlobalInit",
+     "RigidBodyConstraintJointSolver",
+     "RigidBodyTorqueAccumulation",
+     "ScaledDotProductWithClamp",
+     "SearchPathPrune",
+     "SoundInstanceInit",
+     "SpatialTreeNearestNeighborQuery",
+     "SphereVsFrustumVisibilityTest"
+    ]
+   }
+  }
+ },
+ "dynamic_emitters_to_check_by_hand": [
+  {
+   "function": "AIDriverStateTransition",
+   "file": "AIDriverStateTransition_00419120.c",
+   "calls": [
+    {
+     "line": 59,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v11, v12, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIFormationLap",
+   "file": "AIFormationLap_0041a3a0.c",
+   "calls": [
+    {
+     "line": 24,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIOvertakeDefendStateChange",
+   "file": "AIOvertakeDefendStateChange_00419690.c",
+   "calls": [
+    {
+     "line": 61,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v5, dword_5F0F74[4656 * v6], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPitStrategyState",
+   "file": "AIPitStrategyState_0041a200.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIPositionChangeEvent",
+   "file": "AIPositionChangeEvent_004198b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v6, v4, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 48,
+     "eid_expr": "v8",
+     "text": "DriverDataTableLookupAndTimeConversion(v9, v8, a2[4647], this[v5 + 108], -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AISessionPhaseChange",
+   "file": "AISessionPhaseChange_0041a2b0.c",
+   "calls": [
+    {
+     "line": 36,
+     "eid_expr": "v5",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v5, *(_DWORD *)(a2 + 18588), v3, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "AIVehicleDamageEvent",
+   "file": "AIVehicleDamageEvent_0041a170.c",
+   "calls": [
+    {
+     "line": 19,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v2, v1, *(_DWORD *)(a1 + 18592), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PerDriverRaceCommentary",
+   "file": "PerDriverRaceCommentary_00419c50.c",
+   "calls": [
+    {
+     "line": 113,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v13, v2, a1[4120], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PitExit",
+   "file": "PitExit_0041c0f0.c",
+   "calls": [
+    {
+     "line": 127,
+     "eid_expr": "v6",
+     "text": "DriverDataTableLookupAndTimeConversion(v12, v6, dword_5F0F74[4656 * v4], v13, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "PositionBasedMessageDisplay",
+   "file": "PositionBasedMessageDisplay_0041c4c0.c",
+   "calls": [
+    {
+     "line": 26,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v6, v2, v3, -1, -1, -1, v4, v5);"
+    }
+   ]
+  },
+  {
+   "function": "RaceCommentary",
+   "file": "RaceCommentary_0041d630.c",
+   "calls": [
+    {
+     "line": 107,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 148,
+     "eid_expr": "v11",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v11, *(_DWORD *)(v10 + 18588), v5, -1, -1, -2.0, -2.0);"
+    },
+    {
+     "line": 173,
+     "eid_expr": "v14",
+     "text": "DriverDataTableLookupAndTimeConversion(v20, v14, v13, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TeamNameDisplayIDLookup",
+   "file": "TeamNameDisplayIDLookup_0041b980.c",
+   "calls": [
+    {
+     "line": 189,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "TimeBasedMessageChain",
+   "file": "TimeBasedMessageChain_0041a500.c",
+   "calls": [
+    {
+     "line": 25,
+     "eid_expr": "v3",
+     "text": "DriverDataTableLookupAndTimeConversion(v5, v3, -1, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A720",
+   "file": "sub_41A720_0041a720.c",
+   "calls": [
+    {
+     "line": 35,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41A940",
+   "file": "sub_41A940_0041a940.c",
+   "calls": [
+    {
+     "line": 15,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, *(_DWORD *)(a1 + 18588), -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41AC50",
+   "file": "sub_41AC50_0041ac50.c",
+   "calls": [
+    {
+     "line": 58,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v2, a1[4647], -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41B250",
+   "file": "sub_41B250_0041b250.c",
+   "calls": [
+    {
+     "line": 53,
+     "eid_expr": "v2",
+     "text": "DriverDataTableLookupAndTimeConversion(v4, v2, v3, v1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  },
+  {
+   "function": "sub_41C440",
+   "file": "sub_41C440_0041c440.c",
+   "calls": [
+    {
+     "line": 16,
+     "eid_expr": "v1",
+     "text": "DriverDataTableLookupAndTimeConversion(v3, v1, v2, -1, -1, -1, -2.0, -2.0);"
+    }
+   ]
+  }
+ ],
+ "emitter_function_count": 40,
+ "subclip_resolvers": {
+  "note": "literal SDT index 136 inside the clip-list builder tree (FontRenderingPrep/SoundEventDispatcher, depth 2): the clip may play as a sub-clip of another line. Check each by hand.",
+  "hits": [
+   {
+    "function": "SessionStringNameLookup",
+    "file": "SessionStringNameLookup_004122c0.c",
+    "hits": [
+     {
+      "line": 41,
+      "text": "v8 = v5 + 136;"
+     }
+    ]
+   }
+  ]
+ },
+ "findings": [
+  "f1c_ida_decompiled\\findings.jsonl:82: {\"tier\": \"DERIVED\", \"claim\": \"Group F (T1 verify-and-wire): 3 of 7 clips have working emitters (RE_PD_DQ sub_41A940, RE_OD_STUCK_7 sub_41AC50, PWS_AIMECHPROB1 sub_41AC50+DriverName",
+  "f1c_ida_decompiled\\findings.jsonl:132: {\"ts\": \"2026-07-28\", \"tier\": \"CONFIRMED\", \"topic\": \"Audit of todays SHIPPED sweep - one methodology gap found, most of the batch holds up\", \"claim\": \"Audited every clip f",
+  "f1c_ida_decompiled\\findings.jsonl:321: {\"id\": \"f1c-tv-only-clips-playable-via-score-swap\", \"date\": \"2026-07-31\", \"tier\": \"FACT\", \"claim\": \"A clip that has NO event in the PWS range can still be played on the race-engine",
+  "f1c_ida_decompiled\\findings.jsonl:345: {\"id\": \"f1c-safety-car-scores-131-135-all-isolation-tested\", \"date\": \"2026-08-01\", \"tier\": \"FACT\", \"claim\": \"The five safety-car commentary scores are fixed: 131=PWS_SCAR05 'safety",
+  "f1c_ida_decompiled\\findings.jsonl:384: {\"id\": \"f1c-slowcar01-leak-is-the-carrier-restore\", \"date\": \"2026-08-02\", \"tier\": \"DERIVED\", \"claim\": \"PWS_SLOWCAR01 heard during safety-car handling is the carrier trick leaking. ",
+  "f1c_ida_decompiled\\findings.jsonl:387: {\"id\": \"f1c-slowcar01-killed-at-source\", \"date\": \"2026-08-02\", \"tier\": \"DERIVED\", \"claim\": \"PWS_SLOWCAR01 is killable outright because score 130 is reachable on the race-engineer c"
+ ],
+ "evf_docs": [
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-002.md:125: | `PWS_SLOWCAR01` | 136 | 132, 427 | reuse the faster-AI-car detection mechanism |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\ASSIGNMENT_EVF-008.md:27: Two clips were caught red-handed: `PWS_SLOWCAR01` and the `SeasonDisplayIDResolver`",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\FULL_INVENTORY.md:192: | `PWS_SLOWCAR01` | 136 | 427 | 0x0041e320 | Slow car ahead |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\PROGRESS.md:399: | `PWS_SLOWCAR01` | 136 | 132, 427 | — | Slow car ahead | REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match alone. Traced emitter chain (ScoringClassifica",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\RESTORATION_PLAN.md:220: | `PWS_SLOWCAR01` | 132, 427 | Slow car ahead | eid 427 live, emitter literal ScoringClassificationDisplay_0041e320.c:129 |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SILENT_WIRING_EFFORT.md:117: `PWS_SCAR01`, `PWS_SCAR03`, `PWS_SLOWCAR01`, `PWS_WIN20`, `PWS_WIN21`,",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002F_t1_verify_and_wire.md:9: PWS_SLOWCAR01       [T2] no emitter — needs gap/speed observer",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002F_t1_verify_and_wire.md:112: ## 5. PWS_SLOWCAR01 (eid 132) — T2: no emitter",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\SPEC_EVF-002F_t1_verify_and_wire.md:182: | PWS_SLOWCAR01 | 136 | 132 | none | no emitter | T2: reuse AI speed detection |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\TODO.md:58: | 136 | `PWS_SLOWCAR01` | Z | HAS_LEAD | Z, player approaching a car about to be lapped, use the same mechanism what is used for the detection of faster AI car |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\VOICE_LINES.md:250: | `PWS_SLOWCAR01` | 136 | 427 | Slow car ahead |",
+  "f1c_ida_decompiled\\mods\\extended_vanilla_features\\docs\\WORK_CATEGORIES.md:20: | `PWS_SLOWCAR01` | 136 | 132, 427 | user triage: Z, player approaching a car about to be lapped, use the same mechanism what is used for the detection of faster AI car |"
+ ],
+ "mod_sources": [
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:474: * SLOWCAR01) straight to score 136 (eid 133, YELLOW04), skipping exactly the",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:490: #define CARRIER_EID     132       /* PWS range; its own clip is SLOWCAR01 */",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:506: /* SLOWCAR01 MUST NEVER PLAY. Driver instruction, stated twice.",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:508: * Score 130 (PWS_SLOWCAR01, \"watch out, there's a slow car ahead\") is",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:551: * playing comes out as the CARRIER's own clip (score 130, SLOWCAR01 \"watch",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2443: * SLOWCAR01. Re-armed every tick: this is one aligned float in .rdata and the",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2451: * clip is SLOWCAR01 AND the carrier every safety-car line is spoken through,",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2471: * it, the parked score means a safety-car line is spoken instead of SLOWCAR01.",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2491: logf_(\"  [audio] SLOWCAR01 blocked at source: eid %d cooldown %.1f -> \"",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2518: logf_(\"  [audio] SLOWCAR01 restored (cooldown %.1f, score %d) - the game is \"",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2528: /* NEVER FIRE THE CARRIER INTO A BUSY CHANNEL - THAT IS HOW SLOWCAR01 GETS",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2531: * The carrier's own score is 130, PWS_SLOWCAR01 \"watch out for the slow",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2535: * the score has already been restored, and what comes out is SLOWCAR01.",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2536: * Driver report 2026-08-02: SLOWCAR01 heard during safety car handling.",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2545: * Driver instruction 2026-08-02: \"SLOWCAR01 is not to be played at all.\"",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2559: * SLOWCAR01. Leaving a safety-car score parked here is harmless because",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2564: /* Lift the SLOWCAR01 block for the length of this line. Without this the",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2636: * so a line that is never played cannot leave SLOWCAR01 reachable forever. */",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2662: * is what produces SLOWCAR01 - see sc_say(). */",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:2671: * source, so a late resolve cannot produce SLOWCAR01 any more. */",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:6149: slowcar_block();     /* SLOWCAR01 stays unreachable, re-armed        */",
+  "development\\mods\\full_safety_car\\dll\\pace_probe.c:6182: /* The SLOWCAR01 block is a write into the exe's event table and must be",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:534: * SLOWCAR01) straight to score 136 (eid 133, YELLOW04), skipping exactly the",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:550: #define CARRIER_EID     132       /* PWS range; its own clip is SLOWCAR01 */",
+  "development\\mods\\full_safety_car\\dll\\pace_probe_standings.c:566: /* SLOWCAR01 MUST NEVER PLAY. Driver instruction, stated twice."
+ ],
+ "voice_index_row": {
+  "vanilla": false,
+  "vanilla_source": "evf_user",
+  "modded_by": [
+   {
+    "mod": "full_safety_car",
+    "mod_version": "0.10.66 beta1 public (RELEASE_REGISTRY); dev pace_probe.c (0.10.88 private per CURRENT_STATE)",
+    "eid": 132,
+    "mechanism": "carrier_score",
+    "condition": "safety-car announcements: score rewritten on carrier eid 132 (SCAR05=131, SCAR01=132, SCAR02=133, SCAR03=134, SCAR04=135) then FN_DRIVER_LOOKUP(132); SLOWCAR01 (own clip) cooldown parked at FLT_MAX so it never plays",
+    "source": "development/mods/full_safety_car/dll/pace_probe.c:490,555-559,2480-2506,2522-2588",
+    "release_status": "released",
+    "live_verified": true,
+    "says": "Slow car ahead"
+   }
+  ],
+  "note": "REVERTED 2026-07-28: was marked SHIPPED off isolation-injection audio match alone. Traced emitter chain (ScoringClassificationDisplay_0041e320 <- sub_4A08E0) and found the same post-race-screen fingerprint as the reverted MISC/PENALTY investigation lines: gated on DelegatedFieldGetter(dword_7D2DB0)==3 (RaceStandingsSortBuffer) AND dword_7D032C==1, followed by a .bik win-movie load (aWinconstructor) - this is the post-race constructor standings screen, not live driving. Injection proved the clip and code path exist, not that it fires during a race. Needs live observation or a DLL hook, not verification.",
+  "triage": {
+   "sdt_index": 136,
+   "text": "Z, player approaching a car about to be lapped, use the same mechanism what is used for the detection of faster AI car",
+   "subject": "Z",
+   "play": false,
+   "verdict": "TODO",
+   "flags": [
+    "HAS_LEAD"
+   ],
+   "inherited": false,
+   "status": "WIP"
+  },
+  "evf_status": "WIP"
+ }
+}

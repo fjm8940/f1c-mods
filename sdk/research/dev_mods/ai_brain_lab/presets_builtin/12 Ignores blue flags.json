@@ -1,0 +1,12 @@
+{
+ "schema": "driver_ai_toolkit.preset.v2",
+ "name": "Ignores blue flags",
+ "description": "Never moves aside for faster cars.",
+ "target": "current",
+ "quick": {
+  "COOP": {
+   "COOP_MOVE": true,
+   "COOP_ASK": false
+  }
+ }
+}

@@ -1,0 +1,12 @@
+Mechanical Failures 1.0.7
+Last updated 2026-10-12
+Author Matias
+
+Requires Lightloader v2.2.2 or newer. How the mod works: mechanical_failures-guide.txt.
+
+Install with Lightloader (Mods page, Install/Update), or by hand with the game closed:
+- copy mechanical_failures.dll and mechanical_failures.ini into plugins\lightloader
+  (keep an existing INI),
+- copy the Audio\MechanicalFailures folder into your game's Audio folder
+  (sounds and the 35 engineer radio lines).
+No game file is replaced.

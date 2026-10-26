@@ -1,0 +1,2 @@
+# SentinelSlotFill: offset-like lines with no extracted row (1)
+L7: for ( i = this + 56; *i != -1; ++i )

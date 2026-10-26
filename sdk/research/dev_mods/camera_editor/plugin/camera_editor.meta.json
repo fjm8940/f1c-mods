@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "id": "camera_editor",
+  "name": "Camera Editor (game plug-in)",
+  "version": "1.0.6",
+  "author": "Matias",
+  "description": "Applies your Camera Editor camera profiles in game and lets the Camera Editor tool move cameras live. Installed and updated by Lightloader > Tools > Camera Editor.",
+  "homepage": "https://mods.palloset.com/camera_editor",
+  "lightloader": ">=2.2.0"
+}

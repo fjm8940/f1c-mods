@@ -1,0 +1,12 @@
+{
+  "driver": "Player",
+  "seconds": 240,
+  "hz": 20,
+  "wait_phase": 5,
+  "pit_cycle": true,
+  "semantics": [
+    "command_input",
+    "output",
+    "latched_control"
+  ]
+}

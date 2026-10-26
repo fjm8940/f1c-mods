@@ -1,0 +1,94 @@
+{
+  "32": {
+    "sdt_index": 32,
+    "clip_name": "PWS_2001_09.mp2"
+  },
+  "115": {
+    "sdt_index": 115,
+    "clip_name": "PWS_HIT09.mp2"
+  },
+  "117": {
+    "sdt_index": 117,
+    "clip_name": "PWS_OFFROAD02.m"
+  },
+  "119": {
+    "sdt_index": 119,
+    "clip_name": "PWS_RETIRE03.mp"
+  },
+  "123": {
+    "sdt_index": 123,
+    "clip_name": "PWS_OVERTAKE02."
+  },
+  "124": {
+    "sdt_index": 124,
+    "clip_name": "PWS_OVERTAKE03."
+  },
+  "141": {
+    "sdt_index": 141,
+    "clip_name": "PWS_SCAR04.mp2"
+  },
+  "177": {
+    "sdt_index": 177,
+    "clip_name": "PWS_2001_110.mp"
+  },
+  "189": {
+    "sdt_index": 189,
+    "clip_name": "PWS_AIPIT05.mp2"
+  },
+  "191": {
+    "sdt_index": 191,
+    "clip_name": "PWS_AIPIT07.mp2"
+  },
+  "211": {
+    "sdt_index": 211,
+    "clip_name": "PWS_MISC12.mp2"
+  },
+  "242": {
+    "sdt_index": 242,
+    "clip_name": "PWS_AIINCID02.m"
+  },
+  "247": {
+    "sdt_index": 247,
+    "clip_name": "PWS_AIINCID05.m"
+  },
+  "253": {
+    "sdt_index": 253,
+    "clip_name": "PWS_AIRETIRE01."
+  },
+  "277": {
+    "sdt_index": 277,
+    "clip_name": "PWS_AIWIN03.mp2"
+  },
+  "290": {
+    "sdt_index": 290,
+    "clip_name": "PWS_2001_161.mp"
+  },
+  "302": {
+    "sdt_index": 302,
+    "clip_name": "PWS_2001_219.mp"
+  },
+  "304": {
+    "sdt_index": 304,
+    "clip_name": "PWS_2001_223.mp"
+  },
+  "305": {
+    "sdt_index": 305,
+    "clip_name": "PWS_2001_225.mp"
+  },
+  "312": {
+    "sdt_index": 312,
+    "clip_name": "RE_PORSCHE_23.m"
+  },
+  "313": {
+    "sdt_index": 313,
+    "clip_name": "RE_PORSCHE_24.m"
+  },
+  "314": {
+    "sdt_index": 314,
+    "clip_name": "RE_PORSCHE_25.m"
+  },
+  "315": {
+    "sdt_index": 315,
+    "clip_name": "RE_PORSCHE_03.m"
+  }
+}

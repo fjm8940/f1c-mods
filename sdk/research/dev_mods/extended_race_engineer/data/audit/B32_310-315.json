@@ -1,0 +1,1388 @@
+{
+  "schema": "ere.audit.v1",
+  "range": "B32_310-315",
+  "rows": [
+    {
+      "eid": 289,
+      "clip": "PWS_2001_308",
+      "sdt_index": 310,
+      "says": "You are being chased by AI driver",
+      "score": 292,
+      "cooldown": 1.0,
+      "priority": 40,
+      "verdict": "NOT_ACTIVATED",
+      "reason": "no_emitter_for_eid",
+      "situation": "No native code queues eid 289 (EVF design only; not in native code). Its only other route was a sub-clip (SDT 310, PC_RE_STITCH), excluded by the SUB-CLIP BANK FACT.",
+      "mod_active_in_owner_game": false,
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "No native trigger exists for eid 289. The team-order sandbox that injects it (findings.jsonl:565, f1c_ida_decompiled/mods/sdk_sandbox/team_order) is not loaded in the owner game.",
+      "emitters": [
+        "none for eid 289 (dynamic and literal scan, see checked)"
+      ],
+      "call_path": "eid route: none (no emitter). The former sub-clip chain (RenderTickUpdate sub_4C8B70 -> TextOverlayDisplayTimer sub_4186F0 -> FontRenderingPrep sub_411840 -> dispatchers -> sub_412490) is excluded: sub_412490 fills PC_RE_STITCH indices.",
+      "gates": [
+        "eid route: none (no emitter)",
+        "TextOverlayDisplayTimer: dword_7D0308 && flt_7CF3C8 > 0 && this+2800 (TextOverlayDisplayTimer_004186f0.c:19-20)",
+        "queue head this+2148 != -1 (TextOverlayDisplayTimer_004186f0.c:33-37)",
+        "per-slot cooldown dbl_8AFEA8 - stamp >= flt_5BF9AC[5*slot] (TextOverlayDisplayTimer_004186f0.c:60)",
+        "sub-clip branch of FontRenderingPrep excluded (SUB-CLIP BANK FACT); no queued line for eid 289 exists"
+      ],
+      "mod": "",
+      "mod_sources": [],
+      "heard_evidence": "EVF docs/TRIAGE_NOTES.txt:286 owner note 'X PLAY ... needs investigation' (not heard); findings.jsonl:565 FACT live injection 2026-08-07 (injected, not a native line)",
+      "tier": "DERIVED",
+      "notes": "Eid 289 has no native caller (dump: blocked false, cooldown 1.0, score 292 -> SDT 310 exact, count 1). The injection test (findings.jsonl:565) shows the line plays when queued by injection; nothing in the native game queues it. The former sub-clip route (SDT 310 index in PC_RE_STITCH) is excluded by the SUB-CLIP BANK FACT, so the line is not activated.",
+      "checked": [
+        {
+          "function": "AIDriverStateTransition sub_419120",
+          "result": "emits {120,259,198}; cannot produce 289",
+          "line": "AIDriverStateTransition_00419120.c:37,39,59"
+        },
+        {
+          "function": "AIFormationLap sub_41A3A0",
+          "result": "emits {6,180,181,182}; cannot produce 289",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange sub_419690",
+          "result": "emits {3,4,5,10,16,33,72,262}; cannot produce 289",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState sub_41A200",
+          "result": "emits {42,52}; cannot produce 289",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent sub_4198B0",
+          "result": "emits {17,18} and {7,8,9}; cannot produce 289",
+          "line": "AIPositionChangeEvent_004198b0.c:36,48"
+        },
+        {
+          "function": "AISessionPhaseChange sub_41A2B0",
+          "result": "emits {21,22,178,179}; cannot produce 289",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent sub_41A170",
+          "result": "emits {52,196}; cannot produce 289",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary sub_419C50",
+          "result": "emits {157,158,159,160-177,260,261}; cannot produce 289",
+          "line": "PerDriverRaceCommentary_00419c50.c:113,149,159,164"
+        },
+        {
+          "function": "PitExit sub_41C0F0",
+          "result": "emits {397,516-519,521-524,526-535}; cannot produce 289",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from ThunkToFUN004201e0 -> sub_4203D0)",
+          "result": "thunk/sub_4203D0 returns {355-372} or -1; cannot produce 289",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary sub_41D630",
+          "result": "emits {447,448,449,450,451,452,453,457,458,462,463,464,466,467,471,472,473,477,397,465,474,454,455,456,459,460,461,476}; cannot produce 289",
+          "line": "RaceCommentary_0041d630.c:107,148,158,173,191,201,213,226"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup sub_41B980",
+          "result": "emits {293-336}; cannot produce 289",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain sub_41A500",
+          "result": "emits {34,35,276,277,278,279}; cannot produce 289",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "emits {151,153,154,155,252,253,254,256}; cannot produce 289",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "emits {149,243}; cannot produce 289",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "emits {208,211-217,220}; cannot produce 289",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "emits {117,118,119,235,236,237,238}; cannot produce 289",
+          "line": "sub_41B250_0041b250.c:15,19,23,45,47,48,53"
+        },
+        {
+          "function": "sub_41C440 (eid from sub_420000)",
+          "result": "sub_420000 returns {338-354} or -1; cannot produce 289",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "global sweep (functions/*.c)",
+          "result": "no literal 289 in any emitter position except sub_412490 line 57 (SDT index); no native caller of eid 289 (findings.jsonl:565 FACT: no caller found)",
+          "line": "functions/*.c"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "writes an SDT index into record+8 by kind and index; literal 289 at line 57 is an SDT index (kind1 flag1 branch), not an eid argument",
+          "line": "sub_412490_00412490.c:57"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:129,226"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:132,229"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:135-241"
+        },
+        {
+          "function": "SoundEventDispatcher sub_411E90",
+          "result": "Dispatcher; its sub_412490 calls build PC_RE_STITCH sub-clip indices only (SUB-CLIP BANK FACT), excluded. Eid route: none.",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49,81"
+        },
+        {
+          "function": "RaceEventMessageDispatcher sub_411BF0",
+          "result": "Dispatcher; its sub_412490 call (line 32) builds a PC_RE_STITCH sub-clip index only (SUB-CLIP BANK FACT), excluded. Eid route: none.",
+          "line": "RaceEventMessageDispatcher_00411bf0.c:32"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher sub_411DB0",
+          "result": "Dispatcher; its sub_412490 call (lines 13-15, record 9875, msg 397/426) is sub-clip only (SUB-CLIP BANK FACT), excluded. Eid 397 is TV range (channel 1), so it cannot reach PC_RE_MAIN.",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:13-15"
+        },
+        {
+          "function": "FontRenderingPrep sub_411840",
+          "result": "Queue consumer for every queued line; main clip via dispatchers (SUB-CLIP BANK FACT). Eid route: none (no emitter for this eid). Sub-clip branch excluded.",
+          "line": "FontRenderingPrep_00411840.c:12-45"
+        },
+        {
+          "function": "CharacterCodeMapper 0x411B50 and ShortComputation_19d0 0x4119D0",
+          "result": "NOT READ by this worker; not needed for this verdict because no emitter exists for the eid (the mapper only gated the excluded sub-clip route).",
+          "line": "FontRenderingPrep_00411840.c:34"
+        },
+        {
+          "function": "TextOverlayDisplayTimer sub_4186F0",
+          "result": "per-frame consumer: gates dword_7D0308, flt_7CF3C8>0, this+2800 (lines 19-20); head == -1 returns (lines 33-37); per-slot cooldown flt_5BF9AC[5*slot] (line 60); calls FontRenderingPrep (line 76). SDK callers: RenderTickUpdate 0x4C8B70, Options_Setup 0x4A0EB0, sub_4F9480",
+          "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+        },
+        {
+          "function": "RenderTickUpdate sub_4C8B70",
+          "result": "caller of TextOverlayDisplayTimer (SDK callers list); per-frame root assumed from name and gate dword_8AB6E4 != 2 (lines 1-12); frame rate not measured",
+          "line": "RenderTickUpdate_004c8b70.c:1-12"
+        },
+        {
+          "function": "UtilityFunction_84b0 and ScreenDataStructInit",
+          "result": "sentinel init of this+2148 (queue head) to -1; no other static writer of this+2148 found in functions/*.c; the injection path is in findings.jsonl:565 (live test, not native)",
+          "line": "UtilityFunction_84b0_004184b0.c:8-11; ScreenDataStructInit_0047f370.c:4"
+        },
+        {
+          "function": "SeasonDisplayIDResolver sub_41DAF0",
+          "result": "literal eids 478-503 only; no 289/290/312-315 eid argument (global sweep)",
+          "line": "SeasonDisplayIDResolver_0041daf0.c:99-315"
+        },
+        {
+          "function": "sub_4203F0 (BestLapEntrantFinder caller)",
+          "result": "no DriverDataTable or InsertDriverTableEntry call; SDK callers: none",
+          "line": "sub_4203F0_004203f0.c"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (PC_RE_STITCH bank). Verdict re-judged from main-clip evidence: UNKNOWN -> NOT_ACTIVATED.",
+          "line": "data/audit stitch_recheck"
+        }
+      ],
+      "play_plan": {
+        "meaning": "An AI car is right behind you on track and closing in. The engineer warns that you are being chased.",
+        "when_it_should_play": "Race only (SessionType 7), green flag (RacePhase dword_7C56A8 == 5), player on track, a named AI car directly behind the player on the same lap.",
+        "trigger": "AI vehicle with lap distance veh+0x4044 slightly less than the player's on the same lap (or wrapped lap); gap within [G_min, G_max] (calibration); gap decreasing over N frames. Use lap distance, never race_position for ahead/behind (coordinator rule a).",
+        "subject": "AI driver id veh+0x489C of the chaser (queue a3 = chaser id, fills the driver-name slot)",
+        "technique": "own_emitter (ERE queues PWS eid 289 through InsertDriverTableEntry 0x418560 on controller 0x5EA618)",
+        "latch_cooldown": "once per chaser per 60 s; plus eid cooldown 1.0 s from dump",
+        "must_not_play_when": "player or chaser in pit (pittingStatus veh+0x3450 != 0); chaser lapped or more than one lap away; RacePhase != 5 (safety car, red flag); player retired; same chaser already announced in the latch window; MF line pending on eid 289 (DD-07; eid 289 has no hit in the MF census)",
+        "conflicts": "Not the team-order variant: no native team-order code exists (EVF TODO; findings.jsonl:565 note). Shares the chase state with any future overtake or position lines.",
+        "calibration": "G_min, G_max (gap in metres or seconds) and N frames: UNKNOWN, measure live",
+        "live_test": "1) Start a race with AI, pitStatus 0, RacePhase 5. 2) Drive slowly on a lap until a faster AI car closes from behind. 3) Confirm the line is heard once per chaser. 4) Check the sim time advances between samples (identical samples mean pause).",
+        "confidence": "DERIVED (EVF EMITTER_SPECS.md:187 design; not in native code). Raise to CONFIRMED with an isolation test of the ERE emitter and its gate; FACT with a live hearing."
+      },
+      "stitch_recheck": {
+        "old_verdict": "UNKNOWN",
+        "new_verdict": "NOT_ACTIVATED",
+        "why": "Its only route was a sub-clip index (SDT 310, PC_RE_STITCH), which is excluded. No native function queues eid 289 (literal and dynamic scans), so it is not activated; the injection test is not a native queue."
+      }
+    },
+    {
+      "eid": 290,
+      "clip": "RE_OD_FASTEST_M",
+      "sdt_index": 311,
+      "says": "Other driver fastest - on Monsoon tires",
+      "score": 293,
+      "cooldown": 5.0,
+      "priority": 70,
+      "verdict": "NOT_ACTIVATED",
+      "reason": "no_emitter_for_eid",
+      "situation": "Qualifying (SessionType 5): the AI driver with the fastest best lap is on monsoon tyres (EVF design only; not in native code). No function queues eid 290 (literal and dynamic scans). Its only other index is a sub-clip (SDT 311), excluded.",
+      "mod_active_in_owner_game": false,
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "No emitter consumes eid 290. The tyre state read (nextChosenTires) appears only in EVF EMITTER_SPECS.md:378, not in code. BestLapEntrantFinder 0x41E920 has no emit call.",
+      "emitters": [
+        "none for eid 290 (dynamic and literal scan, see checked)"
+      ],
+      "call_path": "eid route: none (no emitter). The former sub-clip chain (sub_4C8B70 -> sub_4186F0 -> sub_411840 -> dispatchers -> sub_412490) is excluded: sub_412490 fills PC_RE_STITCH indices.",
+      "gates": [
+        "eid route: none (no emitter)",
+        "TextOverlayDisplayTimer gates as for eid 289 (TextOverlayDisplayTimer_004186f0.c:19-60)",
+        "sub-clip branch excluded (SUB-CLIP BANK FACT); no queued line for eid 290 exists"
+      ],
+      "mod": "",
+      "mod_sources": [],
+      "heard_evidence": "owner triage note only: 'X PLAY, same as 306 but with monsoon' (voice_index, dossier; not heard). No findings entry.",
+      "tier": "DERIVED",
+      "notes": "Dump row eid 290: score 293 -> SDT 311 exact, count 1 (word_5BEBB0 base), cooldown 5.0, not blocked. The six literal 290 hits are all non-eid (see checked). The sub-clip route is excluded by the SUB-CLIP BANK FACT (SDT 311 is a PC_RE_STITCH index). Not activated: no emitter.",
+      "checked": [
+        {
+          "function": "AIDriverStateTransition sub_419120",
+          "result": "emits {120,259,198}; cannot produce 290",
+          "line": "AIDriverStateTransition_00419120.c:37,39,59"
+        },
+        {
+          "function": "AIFormationLap sub_41A3A0",
+          "result": "emits {6,180,181,182}; cannot produce 290",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange sub_419690",
+          "result": "emits {3,4,5,10,16,33,72,262}; cannot produce 290",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState sub_41A200",
+          "result": "emits {42,52}; cannot produce 290",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent sub_4198B0",
+          "result": "emits {17,18} and {7,8,9}; cannot produce 290",
+          "line": "AIPositionChangeEvent_004198b0.c:36,48"
+        },
+        {
+          "function": "AISessionPhaseChange sub_41A2B0",
+          "result": "emits {21,22,178,179}; cannot produce 290",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent sub_41A170",
+          "result": "emits {52,196}; cannot produce 290",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary sub_419C50",
+          "result": "emits {157,158,159,160-177,260,261}; cannot produce 290",
+          "line": "PerDriverRaceCommentary_00419c50.c:113,149,159,164"
+        },
+        {
+          "function": "PitExit sub_41C0F0",
+          "result": "emits {397,516-519,521-524,526-535}; cannot produce 290",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from ThunkToFUN004201e0 -> sub_4203D0)",
+          "result": "thunk/sub_4203D0 returns {355-372} or -1; cannot produce 290",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary sub_41D630",
+          "result": "emits {447,448,449,450,451,452,453,457,458,462,463,464,466,467,471,472,473,477,397,465,474,454,455,456,459,460,461,476}; cannot produce 290",
+          "line": "RaceCommentary_0041d630.c:107,148,158,173,191,201,213,226"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup sub_41B980",
+          "result": "emits {293-336}; cannot produce 290",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain sub_41A500",
+          "result": "emits {34,35,276,277,278,279}; cannot produce 290",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "emits {151,153,154,155,252,253,254,256}; cannot produce 290",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "emits {149,243}; cannot produce 290",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "emits {208,211-217,220}; cannot produce 290",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "emits {117,118,119,235,236,237,238}; cannot produce 290",
+          "line": "sub_41B250_0041b250.c:15,19,23,45,47,48,53"
+        },
+        {
+          "function": "sub_41C440 (eid from sub_420000)",
+          "result": "sub_420000 returns {338-354} or -1; cannot produce 290",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "HATPolygonSurfaceFit",
+          "result": "290 is the 3rd argument of StringSplitLoop, not an eid",
+          "line": "HATPolygonSurfaceFit_00449a80.c:179"
+        },
+        {
+          "function": "PhysicsParameterInitialization",
+          "result": "v10[290] and v21[290] array index, not an eid",
+          "line": "PhysicsParameterInitialization_004af3a0.c:317,477"
+        },
+        {
+          "function": "sub_44FF50",
+          "result": "v29[290] and v56[290] array index, not an eid",
+          "line": "sub_44FF50_0044ff50.c:701,817"
+        },
+        {
+          "function": "StaticInitBulk",
+          "result": "this+290 struct offset, not an eid",
+          "line": "StaticInitBulk_004a8b80.c:614"
+        },
+        {
+          "function": "UIControlWindowInitialization",
+          "result": "this+290 struct offset, not an eid",
+          "line": "UIControlWindowInitialization_004a70e0.c:157"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "290 at line 60 is an SDT index (kind1, flag1, index16), not an eid",
+          "line": "sub_412490_00412490.c:60"
+        },
+        {
+          "function": "BestLapEntrantFinder sub_41E920",
+          "result": "finder only; no DriverDataTable or InsertDriverTableEntry call in its file",
+          "line": "BestLapEntrantFinder_0041e920.c"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "writes an SDT index into record+8 by kind and index; literal 289 at line 57 is an SDT index (kind1 flag1 branch), not an eid argument",
+          "line": "sub_412490_00412490.c:57"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:129,226"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:132,229"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:135-241"
+        },
+        {
+          "function": "SoundEventDispatcher sub_411E90",
+          "result": "Dispatcher; its sub_412490 calls build PC_RE_STITCH sub-clip indices only (SUB-CLIP BANK FACT), excluded. Eid route: none.",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49,81"
+        },
+        {
+          "function": "RaceEventMessageDispatcher sub_411BF0",
+          "result": "Dispatcher; its sub_412490 call (line 32) builds a PC_RE_STITCH sub-clip index only (SUB-CLIP BANK FACT), excluded. Eid route: none.",
+          "line": "RaceEventMessageDispatcher_00411bf0.c:32"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher sub_411DB0",
+          "result": "Dispatcher; its sub_412490 call (lines 13-15, record 9875, msg 397/426) is sub-clip only (SUB-CLIP BANK FACT), excluded. Eid 397 is TV range (channel 1), so it cannot reach PC_RE_MAIN.",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:13-15"
+        },
+        {
+          "function": "FontRenderingPrep sub_411840",
+          "result": "Queue consumer for every queued line; main clip via dispatchers (SUB-CLIP BANK FACT). Eid route: none (no emitter for this eid). Sub-clip branch excluded.",
+          "line": "FontRenderingPrep_00411840.c:12-45"
+        },
+        {
+          "function": "CharacterCodeMapper 0x411B50 and ShortComputation_19d0 0x4119D0",
+          "result": "NOT READ by this worker; not needed for this verdict because no emitter exists for the eid (the mapper only gated the excluded sub-clip route).",
+          "line": "FontRenderingPrep_00411840.c:34"
+        },
+        {
+          "function": "TextOverlayDisplayTimer sub_4186F0",
+          "result": "per-frame consumer: gates dword_7D0308, flt_7CF3C8>0, this+2800 (lines 19-20); head == -1 returns (lines 33-37); per-slot cooldown flt_5BF9AC[5*slot] (line 60); calls FontRenderingPrep (line 76). SDK callers: RenderTickUpdate 0x4C8B70, Options_Setup 0x4A0EB0, sub_4F9480",
+          "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+        },
+        {
+          "function": "RenderTickUpdate sub_4C8B70",
+          "result": "caller of TextOverlayDisplayTimer (SDK callers list); per-frame root assumed from name and gate dword_8AB6E4 != 2 (lines 1-12); frame rate not measured",
+          "line": "RenderTickUpdate_004c8b70.c:1-12"
+        },
+        {
+          "function": "UtilityFunction_84b0 and ScreenDataStructInit",
+          "result": "sentinel init of this+2148 (queue head) to -1; no other static writer of this+2148 found in functions/*.c; the injection path is in findings.jsonl:565 (live test, not native)",
+          "line": "UtilityFunction_84b0_004184b0.c:8-11; ScreenDataStructInit_0047f370.c:4"
+        },
+        {
+          "function": "SeasonDisplayIDResolver sub_41DAF0",
+          "result": "literal eids 478-503 only; no 289/290/312-315 eid argument (global sweep)",
+          "line": "SeasonDisplayIDResolver_0041daf0.c:99-315"
+        },
+        {
+          "function": "sub_4203F0 (BestLapEntrantFinder caller)",
+          "result": "no DriverDataTable or InsertDriverTableEntry call; SDK callers: none",
+          "line": "sub_4203F0_004203f0.c"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (PC_RE_STITCH bank). Verdict re-judged from main-clip evidence: UNKNOWN -> NOT_ACTIVATED.",
+          "line": "data/audit stitch_recheck"
+        }
+      ],
+      "play_plan": {
+        "meaning": "In qualifying, the fastest lap on the timing so far belongs to an AI driver who is on monsoon (wet) tyres. Information about a rival's tyre choice.",
+        "when_it_should_play": "Qualifying only (SessionType 5), when an AI driver sets the session best lap and that driver is on monsoon tyres. Never for the player's own laps.",
+        "trigger": "SessionType == 5 and the session best-lap entrant (BestLapEntrantFinder_0041e920.c: standings best lap, +408 per EVF note, UNVERIFIED) is an AI driver whose tyre state is monsoon (nextChosenTires == 1 per EVF, code offset UNKNOWN). Fire on best-lap change, not every tick.",
+        "subject": "AI driver id of the best-lap entrant (veh+0x489C); queue a3 = that id",
+        "technique": "own_emitter (ERE queues eid 290 with a3 = fastest AI driver id)",
+        "latch_cooldown": "once per best-lap change, per session; eid cooldown 5.0 s from dump",
+        "must_not_play_when": "subject is the player; race (SessionType 7); tyre not monsoon; dry weather; another fastest-lap family line (306/308 family, EVF rows 285-290) already queued in the same lap",
+        "conflicts": "Fastest-lap family lines (EVF rows 285-290) share the same best-lap trigger: at most one per lap",
+        "calibration": "tyre state offset and best-lap field offset (+408): UNKNOWN, read live",
+        "live_test": "1) Qualifying in a wet session where an AI sets a best lap on monsoon tyres. 2) Watch for an AI best lap on monsoon tyres. 3) Confirm one line per best-lap change. 4) Check the sim time advances between samples.",
+        "confidence": "GUESS on the trigger reads (EVF note unverified); DERIVED on the eid route"
+      },
+      "stitch_recheck": {
+        "old_verdict": "UNKNOWN",
+        "new_verdict": "NOT_ACTIVATED",
+        "why": "Its only other route was a sub-clip index (SDT 311, PC_RE_STITCH), which is excluded. No function queues eid 290 (literal and dynamic scans), so it is not activated."
+      }
+    },
+    {
+      "eid": null,
+      "clip": "RE_PORSCHE_23",
+      "sdt_index": 312,
+      "says": "Porsche Cup line 23 (no text in corpus)",
+      "score": null,
+      "cooldown": null,
+      "priority": null,
+      "verdict": "NOT_ACTIVATED",
+      "reason": "orphan_clip; owner excluded (DD-14)",
+      "situation": "EXCLUDED by DD-14 (owner 2026-10-18: do not use the Porsche lines, status WONT_DO)",
+      "mod_active_in_owner_game": false,
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "",
+      "emitters": [
+        "none; no eid row maps to this SDT index"
+      ],
+      "call_path": "none for eid route; no main-clip route (sub-clip bank excluded, SUB-CLIP BANK FACT)",
+      "gates": [
+        "no eid route: no event row (dump) and no score 294/295 row",
+        "no main-clip route (sub-clip bank excluded, SUB-CLIP BANK FACT)"
+      ],
+      "mod": "",
+      "mod_sources": [],
+      "heard_evidence": "none (EVF VOICE_LINES: vanilla false, evf_auto SILENT)",
+      "tier": "DERIVED",
+      "notes": "No eid can play this clip: the static score table places SDT 312-314 at score 294 and SDT 315 at score 295 (H8_orphans.md), and no event row uses those scores (dump). Eids 312-315 that the TeamNameDisplayIDLookup emitter sends are different clips (SDT 19-22). No main-clip route exists; the sub-clip builder route is excluded by SUB-CLIP BANK FACT. Owner excluded (DD-14).",
+      "checked": [
+        {
+          "function": "AIDriverStateTransition sub_419120",
+          "result": "emits {120,259,198} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIDriverStateTransition_00419120.c:37,39,59"
+        },
+        {
+          "function": "AIFormationLap sub_41A3A0",
+          "result": "emits {6,180,181,182} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange sub_419690",
+          "result": "emits {3,4,5,10,16,33,72,262} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState sub_41A200",
+          "result": "emits {42,52} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent sub_4198B0",
+          "result": "emits {17,18} and {7,8,9} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIPositionChangeEvent_004198b0.c:36,48"
+        },
+        {
+          "function": "AISessionPhaseChange sub_41A2B0",
+          "result": "emits {21,22,178,179} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent sub_41A170",
+          "result": "emits {52,196} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary sub_419C50",
+          "result": "emits {157,158,159,160-177,260,261} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "PerDriverRaceCommentary_00419c50.c:113,149,159,164"
+        },
+        {
+          "function": "PitExit sub_41C0F0",
+          "result": "emits {397,516-519,521-524,526-535} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from ThunkToFUN004201e0 -> sub_4203D0)",
+          "result": "cannot produce this clip: no event row maps to its SDT index",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary sub_41D630",
+          "result": "emits {447,448,449,450,451,452,453,457,458,462,463,464,466,467,471,472,473,477,397,465,474,454,455,456,459,460,461,476} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "RaceCommentary_0041d630.c:107,148,158,173,191,201,213,226"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup sub_41B980",
+          "result": "emits eids 312-315 (lines 89-101) for 2000 Prost/Sauber/Williams and 2001 Arrows; eid 312 -> SDT 19, 313 -> SDT 20, 314 -> SDT 21, 315 -> SDT 22 (dump): these play PWS_2001_16/21/17/18, NOT this clip",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain sub_41A500",
+          "result": "emits {34,35,276,277,278,279} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "emits {151,153,154,155,252,253,254,256} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "emits {149,243} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "emits {208,211-217,220} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "emits {117,118,119,235,236,237,238} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41B250_0041b250.c:15,19,23,45,47,48,53"
+        },
+        {
+          "function": "sub_41C440 (eid from sub_420000)",
+          "result": "cannot produce this clip: no event row maps to its SDT index",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "dump scan (full_event_dump.json)",
+          "result": "no event row has sdt_index 312; no row has score 294 or 295 (the scores that map to SDT 312-315); orphaned_clips lists 312",
+          "line": "mods/extended_vanilla_features/data/full_event_dump.json"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:135-241"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup sub_41B980",
+          "result": "name collision: this emitter sends eid 312 which plays a different clip (see checked row above); it does not play RE_PORSCHE_23",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:89-101"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "writes an SDT index into record+8 by kind and index; literal 289 at line 57 is an SDT index (kind1 flag1 branch), not an eid argument",
+          "line": "sub_412490_00412490.c:57"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:129,226"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:132,229"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:135-241"
+        },
+        {
+          "function": "SoundEventDispatcher sub_411E90",
+          "result": "Dispatcher; its sub_412490 calls build PC_RE_STITCH sub-clip indices only (SUB-CLIP BANK FACT), excluded. Eid route: none.",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49,81"
+        },
+        {
+          "function": "RaceEventMessageDispatcher sub_411BF0",
+          "result": "Dispatcher; its sub_412490 call (line 32) builds a PC_RE_STITCH sub-clip index only (SUB-CLIP BANK FACT), excluded. Eid route: none.",
+          "line": "RaceEventMessageDispatcher_00411bf0.c:32"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher sub_411DB0",
+          "result": "Dispatcher; its sub_412490 call (lines 13-15, record 9875, msg 397/426) is sub-clip only (SUB-CLIP BANK FACT), excluded. Eid 397 is TV range (channel 1), so it cannot reach PC_RE_MAIN.",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:13-15"
+        },
+        {
+          "function": "FontRenderingPrep sub_411840",
+          "result": "Queue consumer for every queued line; main clip via dispatchers (SUB-CLIP BANK FACT). Eid route: none (no emitter for this eid). Sub-clip branch excluded.",
+          "line": "FontRenderingPrep_00411840.c:12-45"
+        },
+        {
+          "function": "CharacterCodeMapper 0x411B50 and ShortComputation_19d0 0x4119D0",
+          "result": "NOT READ by this worker; not needed for this verdict because no emitter exists for the eid (the mapper only gated the excluded sub-clip route).",
+          "line": "FontRenderingPrep_00411840.c:34"
+        },
+        {
+          "function": "TextOverlayDisplayTimer sub_4186F0",
+          "result": "per-frame consumer: gates dword_7D0308, flt_7CF3C8>0, this+2800 (lines 19-20); head == -1 returns (lines 33-37); per-slot cooldown flt_5BF9AC[5*slot] (line 60); calls FontRenderingPrep (line 76). SDK callers: RenderTickUpdate 0x4C8B70, Options_Setup 0x4A0EB0, sub_4F9480",
+          "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+        },
+        {
+          "function": "RenderTickUpdate sub_4C8B70",
+          "result": "caller of TextOverlayDisplayTimer (SDK callers list); per-frame root assumed from name and gate dword_8AB6E4 != 2 (lines 1-12); frame rate not measured",
+          "line": "RenderTickUpdate_004c8b70.c:1-12"
+        },
+        {
+          "function": "UtilityFunction_84b0 and ScreenDataStructInit",
+          "result": "sentinel init of this+2148 (queue head) to -1; no other static writer of this+2148 found in functions/*.c; the injection path is in findings.jsonl:565 (live test, not native)",
+          "line": "UtilityFunction_84b0_004184b0.c:8-11; ScreenDataStructInit_0047f370.c:4"
+        },
+        {
+          "function": "SeasonDisplayIDResolver sub_41DAF0",
+          "result": "literal eids 478-503 only; no 289/290/312-315 eid argument (global sweep)",
+          "line": "SeasonDisplayIDResolver_0041daf0.c:99-315"
+        },
+        {
+          "function": "sub_4203F0 (BestLapEntrantFinder caller)",
+          "result": "no DriverDataTable or InsertDriverTableEntry call; SDK callers: none",
+          "line": "sub_4203F0_004203f0.c"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (PC_RE_STITCH bank). Verdict re-judged from main-clip evidence: UNKNOWN -> NOT_ACTIVATED.",
+          "line": "data/audit stitch_recheck"
+        }
+      ],
+      "play_plan": {
+        "meaning": "not decided",
+        "when_it_should_play": "EXCLUDED by DD-14",
+        "trigger": "EXCLUDED by DD-14",
+        "subject": "n/a",
+        "technique": "skip",
+        "latch_cooldown": "n/a",
+        "must_not_play_when": "always (owner excluded)",
+        "conflicts": "n/a",
+        "calibration": null,
+        "live_test": "n/a",
+        "confidence": "n/a"
+      },
+      "stitch_recheck": {
+        "old_verdict": "UNKNOWN",
+        "new_verdict": "NOT_ACTIVATED",
+        "why": "Its only route was a sub-clip index in PC_RE_STITCH (SUB-CLIP BANK FACT), which does not count. No event row or emitter exists, so it is an orphan; the owner excluded it (DD-14)."
+      }
+    },
+    {
+      "eid": null,
+      "clip": "RE_PORSCHE_24",
+      "sdt_index": 313,
+      "says": "Porsche Cup line 24 (no text in corpus)",
+      "score": null,
+      "cooldown": null,
+      "priority": null,
+      "verdict": "NOT_ACTIVATED",
+      "reason": "orphan_clip; owner excluded (DD-14)",
+      "situation": "EXCLUDED by DD-14 (owner 2026-10-18: do not use the Porsche lines, status WONT_DO)",
+      "mod_active_in_owner_game": false,
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "",
+      "emitters": [
+        "none; no eid row maps to this SDT index"
+      ],
+      "call_path": "none for eid route; no main-clip route (sub-clip bank excluded, SUB-CLIP BANK FACT)",
+      "gates": [
+        "no eid route: no event row (dump) and no score 294/295 row",
+        "no main-clip route (sub-clip bank excluded, SUB-CLIP BANK FACT)"
+      ],
+      "mod": "",
+      "mod_sources": [],
+      "heard_evidence": "none (EVF VOICE_LINES: vanilla false, evf_auto SILENT)",
+      "tier": "DERIVED",
+      "notes": "No eid can play this clip: the static score table places SDT 312-314 at score 294 and SDT 315 at score 295 (H8_orphans.md), and no event row uses those scores (dump). Eids 312-315 that the TeamNameDisplayIDLookup emitter sends are different clips (SDT 19-22). No main-clip route exists; the sub-clip builder route is excluded by SUB-CLIP BANK FACT. Owner excluded (DD-14).",
+      "checked": [
+        {
+          "function": "AIDriverStateTransition sub_419120",
+          "result": "emits {120,259,198} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIDriverStateTransition_00419120.c:37,39,59"
+        },
+        {
+          "function": "AIFormationLap sub_41A3A0",
+          "result": "emits {6,180,181,182} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange sub_419690",
+          "result": "emits {3,4,5,10,16,33,72,262} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState sub_41A200",
+          "result": "emits {42,52} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent sub_4198B0",
+          "result": "emits {17,18} and {7,8,9} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIPositionChangeEvent_004198b0.c:36,48"
+        },
+        {
+          "function": "AISessionPhaseChange sub_41A2B0",
+          "result": "emits {21,22,178,179} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent sub_41A170",
+          "result": "emits {52,196} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary sub_419C50",
+          "result": "emits {157,158,159,160-177,260,261} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "PerDriverRaceCommentary_00419c50.c:113,149,159,164"
+        },
+        {
+          "function": "PitExit sub_41C0F0",
+          "result": "emits {397,516-519,521-524,526-535} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from ThunkToFUN004201e0 -> sub_4203D0)",
+          "result": "cannot produce this clip: no event row maps to its SDT index",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary sub_41D630",
+          "result": "emits {447,448,449,450,451,452,453,457,458,462,463,464,466,467,471,472,473,477,397,465,474,454,455,456,459,460,461,476} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "RaceCommentary_0041d630.c:107,148,158,173,191,201,213,226"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup sub_41B980",
+          "result": "emits eids 312-315 (lines 89-101) for 2000 Prost/Sauber/Williams and 2001 Arrows; eid 312 -> SDT 19, 313 -> SDT 20, 314 -> SDT 21, 315 -> SDT 22 (dump): these play PWS_2001_16/21/17/18, NOT this clip",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain sub_41A500",
+          "result": "emits {34,35,276,277,278,279} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "emits {151,153,154,155,252,253,254,256} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "emits {149,243} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "emits {208,211-217,220} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "emits {117,118,119,235,236,237,238} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41B250_0041b250.c:15,19,23,45,47,48,53"
+        },
+        {
+          "function": "sub_41C440 (eid from sub_420000)",
+          "result": "cannot produce this clip: no event row maps to its SDT index",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "dump scan (full_event_dump.json)",
+          "result": "no event row has sdt_index 313; no row has score 294 or 295 (the scores that map to SDT 312-315); orphaned_clips lists 313",
+          "line": "mods/extended_vanilla_features/data/full_event_dump.json"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:135-241"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup sub_41B980",
+          "result": "name collision: this emitter sends eid 313 which plays a different clip (see checked row above); it does not play RE_PORSCHE_24",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:89-101"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "writes an SDT index into record+8 by kind and index; literal 289 at line 57 is an SDT index (kind1 flag1 branch), not an eid argument",
+          "line": "sub_412490_00412490.c:57"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:129,226"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:132,229"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:135-241"
+        },
+        {
+          "function": "SoundEventDispatcher sub_411E90",
+          "result": "Dispatcher; its sub_412490 calls build PC_RE_STITCH sub-clip indices only (SUB-CLIP BANK FACT), excluded. Eid route: none.",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49,81"
+        },
+        {
+          "function": "RaceEventMessageDispatcher sub_411BF0",
+          "result": "Dispatcher; its sub_412490 call (line 32) builds a PC_RE_STITCH sub-clip index only (SUB-CLIP BANK FACT), excluded. Eid route: none.",
+          "line": "RaceEventMessageDispatcher_00411bf0.c:32"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher sub_411DB0",
+          "result": "Dispatcher; its sub_412490 call (lines 13-15, record 9875, msg 397/426) is sub-clip only (SUB-CLIP BANK FACT), excluded. Eid 397 is TV range (channel 1), so it cannot reach PC_RE_MAIN.",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:13-15"
+        },
+        {
+          "function": "FontRenderingPrep sub_411840",
+          "result": "Queue consumer for every queued line; main clip via dispatchers (SUB-CLIP BANK FACT). Eid route: none (no emitter for this eid). Sub-clip branch excluded.",
+          "line": "FontRenderingPrep_00411840.c:12-45"
+        },
+        {
+          "function": "CharacterCodeMapper 0x411B50 and ShortComputation_19d0 0x4119D0",
+          "result": "NOT READ by this worker; not needed for this verdict because no emitter exists for the eid (the mapper only gated the excluded sub-clip route).",
+          "line": "FontRenderingPrep_00411840.c:34"
+        },
+        {
+          "function": "TextOverlayDisplayTimer sub_4186F0",
+          "result": "per-frame consumer: gates dword_7D0308, flt_7CF3C8>0, this+2800 (lines 19-20); head == -1 returns (lines 33-37); per-slot cooldown flt_5BF9AC[5*slot] (line 60); calls FontRenderingPrep (line 76). SDK callers: RenderTickUpdate 0x4C8B70, Options_Setup 0x4A0EB0, sub_4F9480",
+          "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+        },
+        {
+          "function": "RenderTickUpdate sub_4C8B70",
+          "result": "caller of TextOverlayDisplayTimer (SDK callers list); per-frame root assumed from name and gate dword_8AB6E4 != 2 (lines 1-12); frame rate not measured",
+          "line": "RenderTickUpdate_004c8b70.c:1-12"
+        },
+        {
+          "function": "UtilityFunction_84b0 and ScreenDataStructInit",
+          "result": "sentinel init of this+2148 (queue head) to -1; no other static writer of this+2148 found in functions/*.c; the injection path is in findings.jsonl:565 (live test, not native)",
+          "line": "UtilityFunction_84b0_004184b0.c:8-11; ScreenDataStructInit_0047f370.c:4"
+        },
+        {
+          "function": "SeasonDisplayIDResolver sub_41DAF0",
+          "result": "literal eids 478-503 only; no 289/290/312-315 eid argument (global sweep)",
+          "line": "SeasonDisplayIDResolver_0041daf0.c:99-315"
+        },
+        {
+          "function": "sub_4203F0 (BestLapEntrantFinder caller)",
+          "result": "no DriverDataTable or InsertDriverTableEntry call; SDK callers: none",
+          "line": "sub_4203F0_004203f0.c"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (PC_RE_STITCH bank). Verdict re-judged from main-clip evidence: UNKNOWN -> NOT_ACTIVATED.",
+          "line": "data/audit stitch_recheck"
+        }
+      ],
+      "play_plan": {
+        "meaning": "not decided",
+        "when_it_should_play": "EXCLUDED by DD-14",
+        "trigger": "EXCLUDED by DD-14",
+        "subject": "n/a",
+        "technique": "skip",
+        "latch_cooldown": "n/a",
+        "must_not_play_when": "always (owner excluded)",
+        "conflicts": "n/a",
+        "calibration": null,
+        "live_test": "n/a",
+        "confidence": "n/a"
+      },
+      "stitch_recheck": {
+        "old_verdict": "UNKNOWN",
+        "new_verdict": "NOT_ACTIVATED",
+        "why": "Its only route was a sub-clip index in PC_RE_STITCH (SUB-CLIP BANK FACT), which does not count. No event row or emitter exists, so it is an orphan; the owner excluded it (DD-14)."
+      }
+    },
+    {
+      "eid": null,
+      "clip": "RE_PORSCHE_25",
+      "sdt_index": 314,
+      "says": "Porsche Cup line 25 (no text in corpus)",
+      "score": null,
+      "cooldown": null,
+      "priority": null,
+      "verdict": "NOT_ACTIVATED",
+      "reason": "orphan_clip; owner excluded (DD-14)",
+      "situation": "EXCLUDED by DD-14 (owner 2026-10-18: do not use the Porsche lines, status WONT_DO)",
+      "mod_active_in_owner_game": false,
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "",
+      "emitters": [
+        "none; no eid row maps to this SDT index"
+      ],
+      "call_path": "none for eid route; no main-clip route (sub-clip bank excluded, SUB-CLIP BANK FACT)",
+      "gates": [
+        "no eid route: no event row (dump) and no score 294/295 row",
+        "no main-clip route (sub-clip bank excluded, SUB-CLIP BANK FACT)"
+      ],
+      "mod": "",
+      "mod_sources": [],
+      "heard_evidence": "none (EVF VOICE_LINES: vanilla false, evf_auto SILENT)",
+      "tier": "DERIVED",
+      "notes": "No eid can play this clip: the static score table places SDT 312-314 at score 294 and SDT 315 at score 295 (H8_orphans.md), and no event row uses those scores (dump). Eids 312-315 that the TeamNameDisplayIDLookup emitter sends are different clips (SDT 19-22). No main-clip route exists; the sub-clip builder route is excluded by SUB-CLIP BANK FACT. Owner excluded (DD-14).",
+      "checked": [
+        {
+          "function": "AIDriverStateTransition sub_419120",
+          "result": "emits {120,259,198} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIDriverStateTransition_00419120.c:37,39,59"
+        },
+        {
+          "function": "AIFormationLap sub_41A3A0",
+          "result": "emits {6,180,181,182} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange sub_419690",
+          "result": "emits {3,4,5,10,16,33,72,262} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState sub_41A200",
+          "result": "emits {42,52} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent sub_4198B0",
+          "result": "emits {17,18} and {7,8,9} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIPositionChangeEvent_004198b0.c:36,48"
+        },
+        {
+          "function": "AISessionPhaseChange sub_41A2B0",
+          "result": "emits {21,22,178,179} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent sub_41A170",
+          "result": "emits {52,196} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary sub_419C50",
+          "result": "emits {157,158,159,160-177,260,261} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "PerDriverRaceCommentary_00419c50.c:113,149,159,164"
+        },
+        {
+          "function": "PitExit sub_41C0F0",
+          "result": "emits {397,516-519,521-524,526-535} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from ThunkToFUN004201e0 -> sub_4203D0)",
+          "result": "cannot produce this clip: no event row maps to its SDT index",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary sub_41D630",
+          "result": "emits {447,448,449,450,451,452,453,457,458,462,463,464,466,467,471,472,473,477,397,465,474,454,455,456,459,460,461,476} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "RaceCommentary_0041d630.c:107,148,158,173,191,201,213,226"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup sub_41B980",
+          "result": "emits eids 312-315 (lines 89-101) for 2000 Prost/Sauber/Williams and 2001 Arrows; eid 312 -> SDT 19, 313 -> SDT 20, 314 -> SDT 21, 315 -> SDT 22 (dump): these play PWS_2001_16/21/17/18, NOT this clip",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain sub_41A500",
+          "result": "emits {34,35,276,277,278,279} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "emits {151,153,154,155,252,253,254,256} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "emits {149,243} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "emits {208,211-217,220} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "emits {117,118,119,235,236,237,238} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41B250_0041b250.c:15,19,23,45,47,48,53"
+        },
+        {
+          "function": "sub_41C440 (eid from sub_420000)",
+          "result": "cannot produce this clip: no event row maps to its SDT index",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "dump scan (full_event_dump.json)",
+          "result": "no event row has sdt_index 314; no row has score 294 or 295 (the scores that map to SDT 312-315); orphaned_clips lists 314",
+          "line": "mods/extended_vanilla_features/data/full_event_dump.json"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:135-241"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup sub_41B980",
+          "result": "name collision: this emitter sends eid 314 which plays a different clip (see checked row above); it does not play RE_PORSCHE_25",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:89-101"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "writes an SDT index into record+8 by kind and index; literal 289 at line 57 is an SDT index (kind1 flag1 branch), not an eid argument",
+          "line": "sub_412490_00412490.c:57"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:129,226"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:132,229"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:135-241"
+        },
+        {
+          "function": "SoundEventDispatcher sub_411E90",
+          "result": "Dispatcher; its sub_412490 calls build PC_RE_STITCH sub-clip indices only (SUB-CLIP BANK FACT), excluded. Eid route: none.",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49,81"
+        },
+        {
+          "function": "RaceEventMessageDispatcher sub_411BF0",
+          "result": "Dispatcher; its sub_412490 call (line 32) builds a PC_RE_STITCH sub-clip index only (SUB-CLIP BANK FACT), excluded. Eid route: none.",
+          "line": "RaceEventMessageDispatcher_00411bf0.c:32"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher sub_411DB0",
+          "result": "Dispatcher; its sub_412490 call (lines 13-15, record 9875, msg 397/426) is sub-clip only (SUB-CLIP BANK FACT), excluded. Eid 397 is TV range (channel 1), so it cannot reach PC_RE_MAIN.",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:13-15"
+        },
+        {
+          "function": "FontRenderingPrep sub_411840",
+          "result": "Queue consumer for every queued line; main clip via dispatchers (SUB-CLIP BANK FACT). Eid route: none (no emitter for this eid). Sub-clip branch excluded.",
+          "line": "FontRenderingPrep_00411840.c:12-45"
+        },
+        {
+          "function": "CharacterCodeMapper 0x411B50 and ShortComputation_19d0 0x4119D0",
+          "result": "NOT READ by this worker; not needed for this verdict because no emitter exists for the eid (the mapper only gated the excluded sub-clip route).",
+          "line": "FontRenderingPrep_00411840.c:34"
+        },
+        {
+          "function": "TextOverlayDisplayTimer sub_4186F0",
+          "result": "per-frame consumer: gates dword_7D0308, flt_7CF3C8>0, this+2800 (lines 19-20); head == -1 returns (lines 33-37); per-slot cooldown flt_5BF9AC[5*slot] (line 60); calls FontRenderingPrep (line 76). SDK callers: RenderTickUpdate 0x4C8B70, Options_Setup 0x4A0EB0, sub_4F9480",
+          "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+        },
+        {
+          "function": "RenderTickUpdate sub_4C8B70",
+          "result": "caller of TextOverlayDisplayTimer (SDK callers list); per-frame root assumed from name and gate dword_8AB6E4 != 2 (lines 1-12); frame rate not measured",
+          "line": "RenderTickUpdate_004c8b70.c:1-12"
+        },
+        {
+          "function": "UtilityFunction_84b0 and ScreenDataStructInit",
+          "result": "sentinel init of this+2148 (queue head) to -1; no other static writer of this+2148 found in functions/*.c; the injection path is in findings.jsonl:565 (live test, not native)",
+          "line": "UtilityFunction_84b0_004184b0.c:8-11; ScreenDataStructInit_0047f370.c:4"
+        },
+        {
+          "function": "SeasonDisplayIDResolver sub_41DAF0",
+          "result": "literal eids 478-503 only; no 289/290/312-315 eid argument (global sweep)",
+          "line": "SeasonDisplayIDResolver_0041daf0.c:99-315"
+        },
+        {
+          "function": "sub_4203F0 (BestLapEntrantFinder caller)",
+          "result": "no DriverDataTable or InsertDriverTableEntry call; SDK callers: none",
+          "line": "sub_4203F0_004203f0.c"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (PC_RE_STITCH bank). Verdict re-judged from main-clip evidence: UNKNOWN -> NOT_ACTIVATED.",
+          "line": "data/audit stitch_recheck"
+        }
+      ],
+      "play_plan": {
+        "meaning": "not decided",
+        "when_it_should_play": "EXCLUDED by DD-14",
+        "trigger": "EXCLUDED by DD-14",
+        "subject": "n/a",
+        "technique": "skip",
+        "latch_cooldown": "n/a",
+        "must_not_play_when": "always (owner excluded)",
+        "conflicts": "n/a",
+        "calibration": null,
+        "live_test": "n/a",
+        "confidence": "n/a"
+      },
+      "stitch_recheck": {
+        "old_verdict": "UNKNOWN",
+        "new_verdict": "NOT_ACTIVATED",
+        "why": "Its only route was a sub-clip index in PC_RE_STITCH (SUB-CLIP BANK FACT), which does not count. No event row or emitter exists, so it is an orphan; the owner excluded it (DD-14)."
+      }
+    },
+    {
+      "eid": null,
+      "clip": "RE_PORSCHE_03",
+      "sdt_index": 315,
+      "says": "Porsche Cup line 03 (no text in corpus)",
+      "score": null,
+      "cooldown": null,
+      "priority": null,
+      "verdict": "NOT_ACTIVATED",
+      "reason": "orphan_clip; owner excluded (DD-14)",
+      "situation": "EXCLUDED by DD-14 (owner 2026-10-18: do not use the Porsche lines, status WONT_DO)",
+      "mod_active_in_owner_game": false,
+      "suppressed_trigger_exists": false,
+      "suppressed_note": "",
+      "emitters": [
+        "none; no eid row maps to this SDT index"
+      ],
+      "call_path": "none for eid route; no main-clip route (sub-clip bank excluded, SUB-CLIP BANK FACT)",
+      "gates": [
+        "no eid route: no event row (dump) and no score 294/295 row",
+        "no main-clip route (sub-clip bank excluded, SUB-CLIP BANK FACT)"
+      ],
+      "mod": "",
+      "mod_sources": [],
+      "heard_evidence": "none (EVF VOICE_LINES: vanilla false, evf_auto SILENT)",
+      "tier": "DERIVED",
+      "notes": "No eid can play this clip: the static score table places SDT 312-314 at score 294 and SDT 315 at score 295 (H8_orphans.md), and no event row uses those scores (dump). Eids 312-315 that the TeamNameDisplayIDLookup emitter sends are different clips (SDT 19-22). No main-clip route exists; the sub-clip builder route is excluded by SUB-CLIP BANK FACT. Owner excluded (DD-14).",
+      "checked": [
+        {
+          "function": "AIDriverStateTransition sub_419120",
+          "result": "emits {120,259,198} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIDriverStateTransition_00419120.c:37,39,59"
+        },
+        {
+          "function": "AIFormationLap sub_41A3A0",
+          "result": "emits {6,180,181,182} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIFormationLap_0041a3a0.c:24"
+        },
+        {
+          "function": "AIOvertakeDefendStateChange sub_419690",
+          "result": "emits {3,4,5,10,16,33,72,262} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIOvertakeDefendStateChange_00419690.c:61"
+        },
+        {
+          "function": "AIPitStrategyState sub_41A200",
+          "result": "emits {42,52} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIPitStrategyState_0041a200.c:15"
+        },
+        {
+          "function": "AIPositionChangeEvent sub_4198B0",
+          "result": "emits {17,18} and {7,8,9} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIPositionChangeEvent_004198b0.c:36,48"
+        },
+        {
+          "function": "AISessionPhaseChange sub_41A2B0",
+          "result": "emits {21,22,178,179} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AISessionPhaseChange_0041a2b0.c:36"
+        },
+        {
+          "function": "AIVehicleDamageEvent sub_41A170",
+          "result": "emits {52,196} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "AIVehicleDamageEvent_0041a170.c:19"
+        },
+        {
+          "function": "PerDriverRaceCommentary sub_419C50",
+          "result": "emits {157,158,159,160-177,260,261} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "PerDriverRaceCommentary_00419c50.c:113,149,159,164"
+        },
+        {
+          "function": "PitExit sub_41C0F0",
+          "result": "emits {397,516-519,521-524,526-535} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "PitExit_0041c0f0.c:127"
+        },
+        {
+          "function": "PositionBasedMessageDisplay sub_41C4C0 (eid from ThunkToFUN004201e0 -> sub_4203D0)",
+          "result": "cannot produce this clip: no event row maps to its SDT index",
+          "line": "PositionBasedMessageDisplay_0041c4c0.c:26"
+        },
+        {
+          "function": "RaceCommentary sub_41D630",
+          "result": "emits {447,448,449,450,451,452,453,457,458,462,463,464,466,467,471,472,473,477,397,465,474,454,455,456,459,460,461,476} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "RaceCommentary_0041d630.c:107,148,158,173,191,201,213,226"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup sub_41B980",
+          "result": "emits eids 312-315 (lines 89-101) for 2000 Prost/Sauber/Williams and 2001 Arrows; eid 312 -> SDT 19, 313 -> SDT 20, 314 -> SDT 21, 315 -> SDT 22 (dump): these play PWS_2001_16/21/17/18, NOT this clip",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:189"
+        },
+        {
+          "function": "TimeBasedMessageChain sub_41A500",
+          "result": "emits {34,35,276,277,278,279} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "TimeBasedMessageChain_0041a500.c:25"
+        },
+        {
+          "function": "sub_41A720",
+          "result": "emits {151,153,154,155,252,253,254,256} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41A720_0041a720.c:35"
+        },
+        {
+          "function": "sub_41A940",
+          "result": "emits {149,243} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41A940_0041a940.c:15"
+        },
+        {
+          "function": "sub_41AC50",
+          "result": "emits {208,211-217,220} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41AC50_0041ac50.c:58"
+        },
+        {
+          "function": "sub_41B250",
+          "result": "emits {117,118,119,235,236,237,238} only; no event row maps to this SDT index, so no eid can play it",
+          "line": "sub_41B250_0041b250.c:15,19,23,45,47,48,53"
+        },
+        {
+          "function": "sub_41C440 (eid from sub_420000)",
+          "result": "cannot produce this clip: no event row maps to its SDT index",
+          "line": "sub_41C440_0041c440.c:16"
+        },
+        {
+          "function": "dump scan (full_event_dump.json)",
+          "result": "no event row has sdt_index 315; no row has score 294 or 295 (the scores that map to SDT 312-315); orphaned_clips lists 315",
+          "line": "mods/extended_vanilla_features/data/full_event_dump.json"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:135-241"
+        },
+        {
+          "function": "TeamNameDisplayIDLookup sub_41B980",
+          "result": "name collision: this emitter sends eid 315 which plays a different clip (see checked row above); it does not play RE_PORSCHE_03",
+          "line": "TeamNameDisplayIDLookup_0041b980.c:89-101"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "writes an SDT index into record+8 by kind and index; literal 289 at line 57 is an SDT index (kind1 flag1 branch), not an eid argument",
+          "line": "sub_412490_00412490.c:57"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:129,226"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:132,229"
+        },
+        {
+          "function": "sub_412490 (clip-list builder)",
+          "result": "SUB-CLIP BANK ONLY (SUB-CLIP BANK FACT): this sub_412490 branch fills a PC_RE_STITCH index, not a PC_RE_MAIN queue. Excluded from the verdict.",
+          "line": "sub_412490_00412490.c:135-241"
+        },
+        {
+          "function": "SoundEventDispatcher sub_411E90",
+          "result": "Dispatcher; its sub_412490 calls build PC_RE_STITCH sub-clip indices only (SUB-CLIP BANK FACT), excluded. Eid route: none.",
+          "line": "SoundEventDispatcher_00411e90.c:25,33,49,81"
+        },
+        {
+          "function": "RaceEventMessageDispatcher sub_411BF0",
+          "result": "Dispatcher; its sub_412490 call (line 32) builds a PC_RE_STITCH sub-clip index only (SUB-CLIP BANK FACT), excluded. Eid route: none.",
+          "line": "RaceEventMessageDispatcher_00411bf0.c:32"
+        },
+        {
+          "function": "FontCharacterRenderDispatcher sub_411DB0",
+          "result": "Dispatcher; its sub_412490 call (lines 13-15, record 9875, msg 397/426) is sub-clip only (SUB-CLIP BANK FACT), excluded. Eid 397 is TV range (channel 1), so it cannot reach PC_RE_MAIN.",
+          "line": "FontCharacterRenderDispatcher_00411db0.c:13-15"
+        },
+        {
+          "function": "FontRenderingPrep sub_411840",
+          "result": "Queue consumer for every queued line; main clip via dispatchers (SUB-CLIP BANK FACT). Eid route: none (no emitter for this eid). Sub-clip branch excluded.",
+          "line": "FontRenderingPrep_00411840.c:12-45"
+        },
+        {
+          "function": "CharacterCodeMapper 0x411B50 and ShortComputation_19d0 0x4119D0",
+          "result": "NOT READ by this worker; not needed for this verdict because no emitter exists for the eid (the mapper only gated the excluded sub-clip route).",
+          "line": "FontRenderingPrep_00411840.c:34"
+        },
+        {
+          "function": "TextOverlayDisplayTimer sub_4186F0",
+          "result": "per-frame consumer: gates dword_7D0308, flt_7CF3C8>0, this+2800 (lines 19-20); head == -1 returns (lines 33-37); per-slot cooldown flt_5BF9AC[5*slot] (line 60); calls FontRenderingPrep (line 76). SDK callers: RenderTickUpdate 0x4C8B70, Options_Setup 0x4A0EB0, sub_4F9480",
+          "line": "TextOverlayDisplayTimer_004186f0.c:19-76"
+        },
+        {
+          "function": "RenderTickUpdate sub_4C8B70",
+          "result": "caller of TextOverlayDisplayTimer (SDK callers list); per-frame root assumed from name and gate dword_8AB6E4 != 2 (lines 1-12); frame rate not measured",
+          "line": "RenderTickUpdate_004c8b70.c:1-12"
+        },
+        {
+          "function": "UtilityFunction_84b0 and ScreenDataStructInit",
+          "result": "sentinel init of this+2148 (queue head) to -1; no other static writer of this+2148 found in functions/*.c; the injection path is in findings.jsonl:565 (live test, not native)",
+          "line": "UtilityFunction_84b0_004184b0.c:8-11; ScreenDataStructInit_0047f370.c:4"
+        },
+        {
+          "function": "SeasonDisplayIDResolver sub_41DAF0",
+          "result": "literal eids 478-503 only; no 289/290/312-315 eid argument (global sweep)",
+          "line": "SeasonDisplayIDResolver_0041daf0.c:99-315"
+        },
+        {
+          "function": "sub_4203F0 (BestLapEntrantFinder caller)",
+          "result": "no DriverDataTable or InsertDriverTableEntry call; SDK callers: none",
+          "line": "sub_4203F0_004203f0.c"
+        },
+        {
+          "function": "SUB-CLIP BANK FACT applied 2026-10-18",
+          "result": "Sub-clip route removed as evidence (PC_RE_STITCH bank). Verdict re-judged from main-clip evidence: UNKNOWN -> NOT_ACTIVATED.",
+          "line": "data/audit stitch_recheck"
+        }
+      ],
+      "play_plan": {
+        "meaning": "not decided",
+        "when_it_should_play": "EXCLUDED by DD-14",
+        "trigger": "EXCLUDED by DD-14",
+        "subject": "n/a",
+        "technique": "skip",
+        "latch_cooldown": "n/a",
+        "must_not_play_when": "always (owner excluded)",
+        "conflicts": "n/a",
+        "calibration": null,
+        "live_test": "n/a",
+        "confidence": "n/a"
+      },
+      "stitch_recheck": {
+        "old_verdict": "UNKNOWN",
+        "new_verdict": "NOT_ACTIVATED",
+        "why": "Its only route was a sub-clip index in PC_RE_STITCH (SUB-CLIP BANK FACT), which does not count. No event row or emitter exists, so it is an orphan; the owner excluded it (DD-14)."
+      }
+    }
+  ]
+}

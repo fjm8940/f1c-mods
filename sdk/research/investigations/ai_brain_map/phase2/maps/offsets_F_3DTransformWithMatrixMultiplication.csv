@@ -1,0 +1,14 @@
+func,line,dec,hex,access,width,base,form,expr
+F_3DTransformWithMatrixMultiplication,11,,,CALL,,,call,RideHeightDelta
+F_3DTransformWithMatrixMultiplication,12,13496,0x34B8,R,float,v3,direct,v4 = v9 * *(float *)(v3 + 13496);
+F_3DTransformWithMatrixMultiplication,13,13492,0x34B4,R,float,v3,direct,v5 = v8 * *(float *)(v3 + 13492);
+F_3DTransformWithMatrixMultiplication,16,4,0x4,W,float,a2,array,a2[1] = v9 * *(float *)(v3 - 28) + v7 * *(float *)(v3 - 36) + v8 * *(float *)(v3 - 32);
+F_3DTransformWithMatrixMultiplication,17,8,0x8,W,float,a2,array,a2[2] = v9 * *(float *)(v3 - 16) + v7 * *(float *)(v3 - 24) + v8 * *(float *)(v3 - 20);
+F_3DTransformWithMatrixMultiplication,19,4,0x4,W,float,a2,array,a2[1] = *(float *)(v3 - 8) + a2[1];
+F_3DTransformWithMatrixMultiplication,19,4,0x4,R,float,a2,array,a2[1] = *(float *)(v3 - 8) + a2[1];
+F_3DTransformWithMatrixMultiplication,20,8,0x8,W,float,a2,array,a2[2] = *(float *)(v3 - 4) + a2[2];
+F_3DTransformWithMatrixMultiplication,20,8,0x8,R,float,a2,array,a2[2] = *(float *)(v3 - 4) + a2[2];
+F_3DTransformWithMatrixMultiplication,22,4,0x4,R,_DWORD,v3,direct,result = *(_DWORD *)(v3 + 4);
+F_3DTransformWithMatrixMultiplication,23,4,0x4,W,_DWORD,a3,array,a3[1] = result;
+F_3DTransformWithMatrixMultiplication,24,8,0x8,W,_DWORD,a3,array,a3[2] = *(_DWORD *)(v3 + 8);
+F_3DTransformWithMatrixMultiplication,24,8,0x8,R,_DWORD,v3,direct,a3[2] = *(_DWORD *)(v3 + 8);

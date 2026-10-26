@@ -1,0 +1,1 @@
+{"schemaVersion":1,"id":"fast_loading","name":"Fast Loading","version":"1.0.0","author":"Matias","description":"Makes race loads and game start faster by using all of your CPU cores. Optional texture cache (off by default); its size is capped in fast_loading.ini.","settings":"fast_loading.ini","lightloader":">=2.2.3"}

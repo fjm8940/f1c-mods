@@ -1,0 +1,8 @@
+func,line,dec,hex,access,width,base,form,expr
+RingBufferAccessWithWrap,6,,,CALL,,,call,CRTFtol
+RingBufferAccessWithWrap,6,264,0x108,R,float,this,direct,v3 = CRTFtol(a2 * *(float *)(this + 264)) - 1;
+RingBufferAccessWithWrap,8,268,0x10C,R,_DWORD,this,direct,v3 += *(_DWORD *)(this + 268);
+RingBufferAccessWithWrap,9,268,0x10C,R,_DWORD,this,direct,v4 = *(_DWORD *)(this + 268) - 1;
+RingBufferAccessWithWrap,13,272,0x110,R,_DWORD,this,direct,return *(_DWORD *)(*(_DWORD *)(this + 272) + 8 * v3);
+RingBufferAccessWithWrap,16,272,0x110,R,_DWORD,this,direct,return *(_DWORD *)(*(_DWORD *)(this + 272) + 8 * v3);
+RingBufferAccessWithWrap,17,272,0x110,R,_DWORD,this,direct,return *(_DWORD *)(*(_DWORD *)(this + 272) + 8 * v4);
