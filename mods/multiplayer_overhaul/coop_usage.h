@@ -23,7 +23,7 @@
 #include "f1c_usage.h"
 
 #define COOPU_MOD_ID      "coop_mode"
-#define COOPU_MOD_VERSION "1.0.4"
+#define COOPU_MOD_VERSION "1.0.5"
 
 typedef struct {
     int   active;
