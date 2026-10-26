@@ -4582,6 +4582,10 @@ static void sc_pose_pump(void)
 #include "f1c_placement.h"
 #include "f1c_car_restart.h"
 static int sc_hide(int slot);
+/* 0.10.95: set when the game built the extra car without a pit crew (seen at
+ * 40 cars, crew=NULL, then a native crash at 0x4FB6D9 after the hide). The car
+ * is then left alone: no hide, no park, no deploy, for the rest of this load. */
+static volatile int g_sc_no_crew = 0;
 /* Exact bytes of the existing parked control fields, not the vehicle object.
    Native placement restores transform/motion; heap/scene/audio objects stay live. */
 static const unsigned sc_park_offsets[]={OFF_MAXSPEED,OFF_CALLBOX,OFF_CARCOND,
@@ -5047,6 +5051,11 @@ static void sc_deploy(void)
         return;
     }
     if (!sc_slot_owned()) { hud_show("SAFETY CAR UNAVAILABLE"); return; }
+    if (g_sc_no_crew) {
+        logf_("SAFETY CAR: deployment refused - built without a pit crew this race");
+        hud_show("SAFETY CAR UNAVAILABLE");
+        return;
+    }
 
     /* REFUSE IF HE IS STILL ON HIS WAY IN.
      *
@@ -5409,6 +5418,7 @@ static int sc_hide(int slot)
 {
     int n = VEHICLE_COUNT;
     if (!on_game_thread() || !sc_slot_owned() || slot != g_sc_slot) return 0;
+    if (g_sc_no_crew) return 0;
     if (g_hidden) return 1;
 
     /* Never touch the field while it is being built or torn down. Measured
@@ -6272,7 +6282,7 @@ static void sc_pump(void)
          * covered the time AFTER placement, and the arming happens before it.
          *
          * So the whole feature stands down whenever the box start is armed. */
-        if (g_sc_park) {
+        if (g_sc_park && !g_sc_no_crew) {
             int i = find_safety_car();
             if (i > 0) sc_park(i);      /* i > 0: never the player's own slot */
         }
@@ -8378,6 +8388,7 @@ static int __stdcall aidcs_detour(const char *cfg)
 
     g_state3_done = 0;
     g_sc_slot     = -1;      /* re-resolved below; -1 keeps the restart detour inert */
+    g_sc_no_crew  = 0;
     g_built       = 0;       /* fresh load: allow ONE bootstrap rebuild below, see
                                * dynrestart_detour() - found 2026-08-08, live crash */
 
@@ -8467,6 +8478,19 @@ static int __cdecl dynrestart_detour(void)
 
     if (!sc_slot_owned() || g_sc_slot != slot) {
         logf_("[identity] Safety Car changed during native restart; no post-restart vehicle writes");
+        return r;
+    }
+
+    /* NO PIT CREW: leave him alone (0.10.95). See g_sc_no_crew. */
+    if (slot >= 0 && slot < VEH_SLOTS && V_I32(slot, OFF_ACTIVE) == 1 &&
+        !g_hidden && !V_PTR(slot, OFF_CREW)) {
+        if (!g_sc_no_crew)
+            logf_("[crew] Safety Car slot %d built without a pit crew "
+                  "(VehicleCount=%d): not hiding or parking him; Safety Car "
+                  "unavailable this race. Use a smaller field.",
+                  slot, VEHICLE_COUNT);
+        g_sc_no_crew = 1;
+        g_built = 1;
         return r;
     }
 
@@ -9473,7 +9497,7 @@ static DWORD WINAPI worker(LPVOID unused)
     if (!GetModuleHandleExA(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
                            GET_MODULE_HANDLE_EX_FLAG_PIN, (LPCSTR)worker, &pinned)) return 1;
     logf_("[startup] worker entry tick=%lu", (unsigned long)GetTickCount());
-    logf_("[startup] safety_car_clk2002 v0.10.93 worker started");
+    logf_("[startup] safety_car_clk2002 v0.10.95 worker started");
     log_flush();
     if (!sc_target_compatible()) {
         logf_("[startup] unsupported target: %s; initialization stopped", sc_target_reason()); log_flush(); return 2;
@@ -9515,7 +9539,7 @@ static DWORD WINAPI worker(LPVOID unused)
     }
     /* sc_pose_load() removed: no saved pose is ever applied. */
 
-    logf_("--- safetycar.dll v0.10.93 loaded (full_safety_car caution engine) ---");
+    logf_("--- safetycar.dll v0.10.95 loaded (full_safety_car caution engine) ---");
     logf_("[startup] free build; no licence or activation check");
     logf_("Configured deploy key toggles deployment/recall; emergency key resets to pits. GUI "
           "else is in the external window: python tools/safety_car_gui.py");

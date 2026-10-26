@@ -44,7 +44,7 @@ static F1CDetourResult coop_registry_install(
 #define MOD_ID "multiplayer_overhaul"
 #define COOP_LEGACY_ID "coop_mode"
 #define MOD_NAME "Multiplayer Overhaul"
-#define MOD_VERSION "1.0.4"
+#define MOD_VERSION "1.0.5"
 #define UNLOAD_EVENT "F1C_COOP_MODE_UNLOAD"
 
 namespace multiplayer_ai_host {
@@ -319,6 +319,8 @@ static int g_menu_saved_state = COOP_MENU_UNKNOWN;
 static volatile LONG g_menu_restore_frames = -1;  /* frames left to wait for mode 5; -1 = not armed */
 static volatile LONG g_menu_hooked;
 static volatile LONG g_menu_active_calls;
+static volatile LONG g_scene_calls;
+namespace hooks { static void scene_hook_sync(void); }
 static volatile LONG g_inert_logged;
 
 static volatile int32_t *game_mode_ptr(void)
@@ -397,6 +399,7 @@ int32_t __attribute__((thiscall)) spinner_sync_hook(void *self)
         }
     }
     result = ((SpinnerNoArgFn)ADDR_SPINNER_SYNC)(self);
+    hooks::scene_hook_sync();
     InterlockedDecrement(&g_menu_active_calls);
     return result;
 }
@@ -3795,6 +3798,7 @@ void __attribute__((thiscall)) scene_render_update_hook(F1CVehicle *vehicle,
     int32_t slot = vehicle_slot_of(vehicle);
     LONG bit = slot >= 0 && slot < 31 ? (1L << slot) : 0;
     InterlockedIncrement(&g_active_calls);
+    InterlockedIncrement(&g_scene_calls);
     if (bit && !(InterlockedOr(&g_scene_entered_mask, bit) & bit))
         log_line("scene enter: pid=%lu slot=%ld role=%ld roster=%ld name=%s",
                  (unsigned long)GetCurrentProcessId(), (long)slot,
@@ -3812,7 +3816,35 @@ void __attribute__((thiscall)) scene_render_update_hook(F1CVehicle *vehicle,
         log_line("scene exit: pid=%lu slot=%ld box=%ld:%ld %s", (unsigned long)GetCurrentProcessId(),
                  (long)slot, (long)*(int32_t *)((uint8_t *)vehicle + VEH_GARAGE_TEAM),
                  (long)*(int32_t *)((uint8_t *)vehicle + VEH_GARAGE_BAY), vehicle->DriverName);
+    InterlockedDecrement(&g_scene_calls);
     InterlockedDecrement(&g_active_calls);
+}
+
+/* 1.0.5: SceneRenderUpdate (0x4C6D90) is detoured only while CO-OP is
+ * selected. Its handler only presets garage boxes in CO-OP; outside CO-OP the
+ * detour did nothing useful but broke Safety Car's native car-restart
+ * readiness check (original bytes required), so single-player races lost the
+ * SC re-park after recall (2026-10-26). Called from the menu sync and time
+ * step hooks on the game thread, never while the scene hook is running. */
+static void scene_hook_sync(void)
+{
+    static int failed_logged;
+    int want = !g_stopping && coop_mode_is_selected();
+    if (want == (SceneRenderUpdate_detour.installed != 0) || g_scene_calls != 0) return;
+    if (want) {
+        F1CDetourResult result = f1c_detour_install(&SceneRenderUpdate_detour,
+            reinterpret_cast<void *>(0x004C6D90u),
+            reinterpret_cast<void *>(&scene_render_update_hook),
+            SceneRenderUpdate_expected, sizeof(SceneRenderUpdate_expected));
+        if (result == F1C_DETOUR_OK) { failed_logged = 0; log_line("scene hook: installed (CO-OP selected)"); }
+        else if (!failed_logged) {
+            failed_logged = 1;
+            log_line("COOP-E03 scene hook install refused: %d; CO-OP garage boxes not preset", (int)result);
+        }
+    } else {
+        F1CDetourResult result = f1c_detour_remove(&SceneRenderUpdate_detour);
+        log_line("scene hook: removed (CO-OP not selected): %d", (int)result);
+    }
 }
 
 uint8_t __attribute__((thiscall)) suspension_force_hook(void *vehicle_dynamics)
@@ -6287,6 +6319,7 @@ int8_t __attribute__((thiscall)) time_step_hook(void *self)
     int32_t session_type = *(volatile int32_t *)ADDR_SESSION_TYPE;
 
     InterlockedIncrement(&g_active_calls);
+    hooks::scene_hook_sync();
     post_restart_notice();
     if (!g_stopping && coop_mode_is_selected() && network_state() != 0) {
         static DWORD last_box_check;
@@ -6543,8 +6576,7 @@ static int install_hooks(void)
     if (result != F1C_DETOUR_OK) return (int)result;
     result = hooks::install_NetCommPlayerSlotSync(&g_registry);
     if (result != F1C_DETOUR_OK) return (int)result;
-    result = hooks::install_SceneRenderUpdate(&g_registry);
-    if (result != F1C_DETOUR_OK) return (int)result;
+    /* SceneRenderUpdate: installed on demand by hooks::scene_hook_sync (1.0.5). */
     result = hooks::install_SuspensionForceComputationWithPerCornerVirtualDevices(&g_registry);
     if (result != F1C_DETOUR_OK) return (int)result;
     result = hooks::install_DriverNameIDLookup(&g_registry);
@@ -6832,6 +6864,10 @@ static DWORD WINAPI mod_worker(void *)
     for (index = g_registry.count; index > 0; --index)
         if (detach_preserving_trampoline(g_registry.hooks[index - 1]) != F1C_DETOUR_OK)
             ++detach_failures;
+    void *scene_trampoline = hooks::SceneRenderUpdate_detour.trampoline;
+    if (hooks::SceneRenderUpdate_detour.installed &&
+        detach_preserving_trampoline(&hooks::SceneRenderUpdate_detour) != F1C_DETOUR_OK)
+        ++detach_failures;
     while ((g_active_calls != 0 || g_menu_active_calls != 0) && wait_count++ < 2000) Sleep(1);
     apply_start_timer(0);  /* after the time-step hook is detached and idle */
     apply_leader_slot_limit(0);
@@ -6841,6 +6877,10 @@ static DWORD WINAPI mod_worker(void *)
         for (index = 0; index < g_registry.count; ++index) {
             VirtualFree(g_registry.hooks[index]->trampoline, 0, MEM_RELEASE);
             g_registry.hooks[index]->trampoline = NULL;
+        }
+        if (scene_trampoline && !hooks::SceneRenderUpdate_detour.installed) {
+            VirtualFree(scene_trampoline, 0, MEM_RELEASE);
+            hooks::SceneRenderUpdate_detour.trampoline = NULL;
         }
     }
     log_line("unload: detach_failures=%u active_calls=%ld",
