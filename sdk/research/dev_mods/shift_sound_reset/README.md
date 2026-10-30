@@ -4,7 +4,9 @@ Product id (proposed): `shift_sound_reset`. Status: **owner test passed**
 (2026-10-26), not yet released. 0.1.0 failed on the player car (rule 17
 disproven). 0.1.1 in `dll/` replaces the ownership rule (rule 18) and passed
 three in-game runs: alone, with 4 AI cars, and a full race with the teammate
-(rules 19-20). Remaining before release: see "Open items".
+(rules 19-20). 0.1.2 re-reads the `.sfx` files at each session start (rules
+21-22) and passed the owner's test on the 1990 C&D install; 0.1.3 turns the log
+off by default. Remaining before release: see "Open items".
 
 ## Objective
 
@@ -61,6 +63,9 @@ viewed; a viewed AI car does get cockpit layers, rule 20). Every car has its own
 | 18 | Replacement rule (0.1.1): all of a car's sound objects share one position (rule 16). The focus car's sound point is the closest engine-layer sound within `SearchMeters` (2.0) of its `WorldPosition`, tracked as an offset relative to the car and refreshed every 50 ms; a sound belongs to the focus car when it is within 0.25 m of that point. Independent of the per-car offset. | CONFIRMED (rows 19-20) | - |
 | 19 | 0.1.1 in game (player + 4 AI, no teammate): restarts on 189/190 player shifts and 181/182 shifts of three viewed AI cars; owner reports it works on the player car and the AI cars. 1-3 layers restart per shift (only voiced layers; rule 11). The car-to-sound distance is not constant: player 1.39-1.52 m this run (1.2-1.3 m in the 0.1.0 run), AI 0.36-0.97 m. Non-matched engine sounds as close as 0.3-0.4 m to a viewed AI car were seen, which can only be that car's own layers: the 0.25 m match misses some layers. Inferred cause: sound positions and `WorldPosition` are updated at different moments, so the gap varies with speed. | FACT (results, distances) / DERIVED (cause) | `shift_sound_reset_log.txt` 2026-10-26, 0.1.1 |
 | 20 | 0.1.1 in a full race with the teammate (same sound files possible): player 84/84 shifts restarted, viewed teammate (slot 2) 59/62. The 3 misses came together right after a view switch, with no engine sound of that car within 10 m (nearest 10-260 m), so nothing was playing to restart. Every shift restarted cockpit layers or outside layers, never both (all 434 shifts across both 0.1.1 runs): only the current view's set is voiced. Owner test: shifting while alongside the teammate never reset the other car's sound, in either direction, and no clicks at `FadeInMs` 30. Player sound point held 1.39-1.47 m from `WorldPosition`; nearest other engine sound 1.3 m. Rule 18 holds in practice. | FACT (results, owner report) / DERIVED (view-dependent voicing, cause of the 3 misses) | `shift_sound_reset_log.txt` 2026-10-26 19:56, 0.1.1 |
+| 21 | Second install (1990 C&D, `F1C_CMT.exe` 3141632 bytes, Lightloader 2.4.4, Lamborghini engine sounds): the probe showed nothing unusual (all 8 engine files named in the car's `.sfx` and recognised by the mod's matcher, gear pattern n -> 0 -> m, rate tracks RPM at r 0.96-1.00, one shared sound position per car). With the mod 0.1.1 the first sessions logged no shifts and the owner heard no effect; after a restart it restarted 34 of 34 shifts (16 cockpit, 18 outside, sound point steady at 1.30-1.32 m). Cause, confirmed by the owner: the car's `.sfx` was being edited while the game was open, and the mod reads the `.sfx` files only once at game start (engine files found: 103 in the earlier runs, 105 after the edit), so layers named in the edited file were unknown to it. The earlier absence of any shift line is not explained by this and is assumed to be no gear changes in those sessions (unconfirmed). | CONFIRMED (cause: owner report + file timestamps + counts) / FACT (results) | probe log 2026-10-29 21:22; `shift_sound_reset_log.txt` 2026-10-29 21:35 |
+| 22 | When the game parses a car's `.sfx` (static, `F1C_CMT.exe`, same layout as the SDK target): the parser 0x4F7460 (refs `VS_INSIDE_` 0x5D6770, `EngineRPMSoundInside`) is called only from 0x4F70C0 (which also refs `F1Sounds.sfx` 0x5D6788), called only from 0x4F8370, called only from `VehgenScnFileLoader` 0x4C6C40. That loader has three callers: `DynMan_Init` 0x42C1A0 (from `Game_Init` 0x42D6B0, site 0x42C30A), `NetCommPlayerSlotSync` 0x45FC50 (multiplayer car join, 0x45FE45) and 0x4B8DA0 (site 0x4B8F6B, purpose OPEN). `GameMainEntry` 0x45B200 loops: menus 0x42D5D0 -> `Game_Init` -> [session start 0x42D7A0 (calls `DynMan_Restart` 0x42C3B0, which does not reach the loader) -> frame loop 0x42D8A0]... -> teardown 0x42DA30 -> menus -> `Game_Init`. So the `.sfx` is parsed each time the player goes from the menus into a session, and not on a restart inside it. Matches the owner's experience (edits apply after leaving to the menus and loading again). Whether a session change within one event (e.g. practice to qualifying) goes through `Game_Init` is not checked. | DERIVED (static call graph) / CONFIRMED (owner experience) | objdump of `F1C_CMT.exe` 2026-10-29 |
+| 23 | 0.1.2 in game (1990 C&D, owner): 107 shifts, 106 with restarts; the `.sfx` re-read ran at each of 3 session starts (13-14 ms, 0 new files in that run). Owner reports it works. | FACT (log) / CONFIRMED (owner) | `shift_sound_reset_log.txt` 2026-10-29 21:54, 0.1.2 |
 
 All static addresses are for the co-op executable variant, which shares its
 layout with the SDK target (same timestamp, image size and probe bytes; see
@@ -93,7 +98,7 @@ preserve esi, pass arguments unchanged and read object fields through esi
 Ran twice in game 2026-10-26 (alone, then full grid); results in rules 7-16.
 The probe and the mod redirect the same imports: install only one.
 
-## Mod 0.1.1 (`dll/`)
+## Mod 0.1.3 (`dll/`)
 
 Files for players: `shift_sound_reset.dll` and, optionally,
 `shift_sound_reset.ini` (missing keys use the defaults), both in
@@ -103,10 +108,14 @@ snapshots (ABI >= 11); without it only slot 0 is followed.
 History: 0.1.0 used `OwnerMeters` 1.0 around the car's `WorldPosition`; in
 game the player's sounds sat 1.2-1.3 m away and never matched (rule 17).
 0.1.1 finds the car's sound point from the sounds themselves (rule 18).
+0.1.2 re-reads the `.sfx` files at each session start (rules 21-22). 0.1.3
+writes no log unless `Log=1` (owner request: logs off by default).
 
-- Engine layers: at start-up the worker reads every `.sfx` under the game
-  folder and collects the `VS_INSIDE_ENGINE_n` / `VS_OUTSIDE_ENGINE_n` file
-  names. A voice plays an engine layer when the file loaded into it (from
+- Engine layers: at start-up, and again each time the player's car appears in
+  a new session (the game re-parses the `.sfx` on every load from the menus,
+  rule 22), the worker reads every `.sfx` under the game folder and collects
+  the `VS_INSIDE_ENGINE_n` / `VS_OUTSIDE_ENGINE_n` file names. Names are only
+  added, never dropped, and after an addition every voice re-checks its file. A voice plays an engine layer when the file loaded into it (from
   `AIL_file_read` + `AIL_set_sample_file`) ends with one of those names. On
   the owner's install: 46 `.sfx`, 460 engine lines, 189 distinct files;
   Ferrari INT/EXT and BMW layers recognised, skid/TC not (checked with the
@@ -135,9 +144,11 @@ game the player's sounds sat 1.2-1.3 m away and never matched (rule 17).
   mod calls `AIL_set_sample_ms_position(h, 0)` on its voice and scales the
   game's left/right levels from 0 to 1 over `FadeInMs` (linear). Layers
   without a voice need nothing (rule 11).
-- Logging: one line per shift with the number of cockpit/outside layers
-  restarted, the largest distance of an owned sound from the car and the
-  nearest other car's engine sound, to verify rule 18.
+- Logging: off by default; no file is written or touched. With `Log=1` the
+  mod writes `shift_sound_reset_log.txt` (1 MB cap, previous run kept as
+  `_prev`) with start-up, session and focus-car lines and one line per shift:
+  the number of cockpit/outside layers restarted, the largest distance of an
+  owned sound from the car and the nearest other car's engine sound.
 - Fails closed (nothing installed) on: `Enabled=0`, unknown executable
   layout, unexpected bytes at 0x405CC1, an import already redirected by
   another module (including the probe; do not install both), or a missing
@@ -151,8 +162,11 @@ game the player's sounds sat 1.2-1.3 m away and never matched (rule 17).
   proving only the focus car's layers restart (not the teammate, not
   non-engine sounds), the fade ramps 0 -> 0.5 -> 1, switching the camera to
   the teammate is not a shift but its own shift then restarts its layers and
-  leaves the player's alone, the stack stays balanced and esi survives (185
-  checks).
+  leaves the player's alone, the stack stays balanced and esi survives; a
+  car's `.sfx` edited on disk between sessions (new layer unknown before the
+  re-read, recognised after it on a voice bound earlier, old names kept); and
+  the `Log` setting (off without the key, with an old `LogShifts=1` ini, with
+  an invalid value or without an ini) (218 checks).
 
 Address inventory (MOD_STANDARD R6), all for the shared co-op/SDK layout:
 
@@ -172,6 +186,8 @@ Against `sdk/docs/MOD_STANDARD.md`:
 - R5: the import redirections are not undone on unload.
 - R7: no explicit multiplayer/replay decision (effect is local sound only).
 - R9: 3 race loads in one process not tested on purpose.
+- Without the broker the `.sfx` files are only read at game start (the
+  session-start re-read needs the broker's player slot).
 - Usage and crash reports (`f1c_usage.h`): not in this checkout; ask the
   maintainer.
 - Meta `lightloader` is `>=2.0.0`; should be the oldest loader with broker

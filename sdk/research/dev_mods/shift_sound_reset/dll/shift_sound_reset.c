@@ -21,7 +21,9 @@
  *   - Engine layers: the worker reads every .sfx under the game folder and
  *     collects VS_INSIDE_ENGINE_n / VS_OUTSIDE_ENGINE_n files. A voice plays
  *     an engine layer when the file loaded into it (AIL_file_read +
- *     AIL_set_sample_file) ends with one of those names.
+ *     AIL_set_sample_file) ends with one of those names. The .sfx files are
+ *     read again each time a session is loaded, as the game does, so edits
+ *     made while the game is open are picked up (names are only added).
  *   - Focus car: broker session snapshot spectated_vehicle_slot (the camera
  *     target, game 0x7C54DC) when valid, else the player's slot (broker
  *     controller_role == 0). Polled every 100 ms by the worker.
@@ -63,7 +65,7 @@
 #include "ssr_logic.h"
 
 #define SSR_ID       "shift_sound_reset"
-#define SSR_VERSION  "0.1.1"
+#define SSR_VERSION  "0.1.3"
 #define SSR_INI      SSR_ID ".ini"
 #define SSR_LOG      SSR_ID "_log.txt"
 #define SSR_LOG_PREV SSR_ID "_log_prev.txt"
@@ -93,7 +95,7 @@ static const uint8_t k_site_volume[6] = {0xFF, 0x15, 0xB8, 0xE3, 0x59, 0x00};
 #define ANCHOR_WINDOW_MS 50.0      /* focus car sound point refreshed this often */
 
 /* ------------------------------------------------------------ settings */
-static int g_enabled = 1, g_up = 1, g_down = 1, g_log_shifts = 1;
+static int g_enabled = 1, g_up = 1, g_down = 1, g_log = 0;
 static double g_fade_ms = 30.0;
 static float g_search_m = 2.0f, g_match_m = 0.25f;
 
@@ -515,7 +517,7 @@ static double ini_number(const char *ini, const char *section, const char *key, 
 
 static void load_settings(void)
 {
-    char ini[MAX_PATH];
+    char ini[MAX_PATH + 32];
     snprintf(ini, sizeof ini, "%s%s", g_dir, SSR_INI);
     g_enabled = ini_flag(ini, "Mod", "Enabled", 1);
     g_fade_ms = ini_number(ini, "Mod", "FadeInMs", 30.0, 0.0, 1000.0);
@@ -523,19 +525,48 @@ static void load_settings(void)
     g_down = ini_flag(ini, "Mod", "Downshifts", 1);
     g_search_m = (float)ini_number(ini, "Advanced", "SearchMeters", 2.0, 0.5, 5.0);
     g_match_m = (float)ini_number(ini, "Advanced", "MatchMeters", 0.25, 0.05, 1.0);
-    g_log_shifts = ini_flag(ini, "Advanced", "LogShifts", 1);
+    g_log = ini_flag(ini, "Advanced", "Log", 0);
 }
 
 /* ------------------------------------------------------------ .sfx scan */
-static void add_engine_name(const char *rel, int kind)
+/* The game parses a car's .sfx each time the player goes from the menus into
+ * a session (README rule 22), so the files can change while the game runs.
+ * Each scan fills g_scan (worker only); merge_engine_names() then adds its new
+ * names to g_names under g_cs. */
+static EngineName g_scan[MAX_NAMES];
+static unsigned g_scan_count;
+
+static void stage_engine_name(const char *rel, int kind)
 {
     unsigned i;
-    for (i = 0; i < g_name_count; i++)
-        if (!strcmp(g_names[i].rel, rel)) return;
-    if (g_name_count >= MAX_NAMES) return;
-    lstrcpynA(g_names[g_name_count].rel, rel, sizeof g_names[0].rel);
-    g_names[g_name_count].kind = kind;
-    g_name_count++;
+    for (i = 0; i < g_scan_count; i++)
+        if (!strcmp(g_scan[i].rel, rel)) return;
+    if (g_scan_count >= MAX_NAMES) return;
+    lstrcpynA(g_scan[g_scan_count].rel, rel, sizeof g_scan[0].rel);
+    g_scan[g_scan_count].kind = kind;
+    g_scan_count++;
+}
+
+/* Names are only ever added: until the next load a car can still be playing
+ * files that its edited .sfx no longer lists. When something was added, every
+ * voice re-checks its file, so a layer bound before the scan is recognised.
+ * Returns the number of names added. */
+static unsigned merge_engine_names(void)
+{
+    unsigned i, j, added = 0;
+    EnterCriticalSection(&g_cs);
+    for (i = 0; i < g_scan_count && g_name_count < MAX_NAMES; i++) {
+        for (j = 0; j < g_name_count && strcmp(g_names[j].rel, g_scan[i].rel); j++)
+            ;
+        if (j < g_name_count) continue;
+        g_names[g_name_count++] = g_scan[i];
+        added++;
+    }
+    if (added)
+        for (i = 0; i < MAX_HANDLES; i++) g_handles[i].kind = -1;
+    InterlockedExchange(&g_names_ready, 1);
+    LeaveCriticalSection(&g_cs);
+    return added;
 }
 
 static void scan_sfx_file(const char *path, unsigned *engine_lines)
@@ -546,7 +577,7 @@ static void scan_sfx_file(const char *path, unsigned *engine_lines)
     if (!f) return;
     while (fgets(line, sizeof line, f))
         if ((kind = ssr_parse_engine_line(line, rel, sizeof rel)) != 0) {
-            add_engine_name(rel, kind);
+            stage_engine_name(rel, kind);
             (*engine_lines)++;
         }
     fclose(f);
@@ -579,21 +610,33 @@ static void scan_dir(const char *dir, int depth, unsigned *files, unsigned *engi
     FindClose(h);
 }
 
-static void scan_engine_names(void)
+/* root ends with '\'. Returns the number of engine files new to the list. */
+static unsigned scan_engine_names_in(const char *root, int rescan)
+{
+    unsigned files = 0, lines = 0, visited = 0, added;
+    double t0 = now_ms();
+    g_scan_count = 0;
+    scan_dir(root, 0, &files, &lines, &visited);
+    added = merge_engine_names();
+    if (rescan)
+        logf_("engine sounds re-read at session start: %u .sfx files, %u new engine files (%u in total, %.0f ms)",
+              files, added, g_name_count, now_ms() - t0);
+    else
+        logf_("engine sounds: %u .sfx files, %u engine-layer lines, %u distinct files (%.0f ms)",
+              files, lines, g_name_count, now_ms() - t0);
+    return added;
+}
+
+static void scan_engine_names(int rescan)
 {
     char root[MAX_PATH], *slash;
-    unsigned files = 0, lines = 0, visited = 0;
-    double t0 = now_ms();
     DWORD n = GetModuleFileNameA(NULL, root, sizeof root);
     if (!n || n >= sizeof root || !(slash = strrchr(root, '\\'))) {
-        logf_("engine sounds: cannot resolve the game folder; mod inactive");
+        if (!rescan) logf_("engine sounds: cannot resolve the game folder; mod inactive");
         return;
     }
     slash[1] = '\0';
-    scan_dir(root, 0, &files, &lines, &visited);
-    InterlockedExchange(&g_names_ready, 1);
-    logf_("engine sounds: %u .sfx files, %u engine-layer lines, %u distinct files (%.0f ms)",
-          files, lines, g_name_count, now_ms() - t0);
+    scan_engine_names_in(root, rescan);
 }
 
 /* ------------------------------------------------------------ worker */
@@ -622,6 +665,7 @@ static void refresh_human_slot(F1CBrokerApi *api, F1CBrokerToken token)
         }
     }
     if (found != g_human_slot) logf_("your car: slot %ld", (long)found);
+    if (found >= 0 && g_human_slot < 0) scan_engine_names(1);   /* a session was loaded */
     g_human_slot = found;
 }
 
@@ -661,7 +705,7 @@ static void log_shift_stats(void)
         s = g_stats[i];
         if (s.pending == 1 && now - s.at > STATS_WINDOW_MS) g_stats[i].pending = 0;
         LeaveCriticalSection(&g_cs);
-        if (s.pending != 1 || now - s.at <= STATS_WINDOW_MS || !g_log_shifts) continue;
+        if (s.pending != 1 || now - s.at <= STATS_WINDOW_MS || !g_log) continue;
         if (s.foreign_seen)
             logf_("car %d shift %d -> %d: restarted %u cockpit + %u outside layers; its sounds max %.2f m "
                   "from it, nearest other engine sound %.1f m", s.slot, s.from, s.to, s.reset_inside,
@@ -685,7 +729,7 @@ static DWORD WINAPI worker(void *unused)
     logf_("settings: FadeInMs=%.0f Upshifts=%d Downshifts=%d SearchMeters=%.2f MatchMeters=%.2f", g_fade_ms, g_up, g_down,
           (double)g_search_m, (double)g_match_m);
     if (!g_active) return 0;
-    scan_engine_names();
+    scan_engine_names(0);
     do {
         memset(&api, 0, sizeof api);
         api.structure_size = sizeof api;
@@ -765,12 +809,14 @@ __declspec(dllexport) BOOL __cdecl rfe_1d3b7a91(const LightLoaderProtectedHostV2
     n = GetModuleFileNameA(g_module, g_dir, sizeof g_dir);
     if (!n || n >= sizeof g_dir || !(slash = strrchr(g_dir, '\\'))) g_dir[0] = '\0';
     else slash[1] = '\0';
-    snprintf(g_log_path, sizeof g_log_path, "%s%s", g_dir, SSR_LOG);
-    snprintf(prev, sizeof prev, "%s%s", g_dir, SSR_LOG_PREV);
-    if (GetFileAttributesA(g_log_path) != INVALID_FILE_ATTRIBUTES)
-        MoveFileExA(g_log_path, prev, MOVEFILE_REPLACE_EXISTING);
     InitializeCriticalSection(&g_cs);
     load_settings();
+    if (g_log) {                       /* Log=0 (default): no log file is written or touched */
+        snprintf(g_log_path, sizeof g_log_path, "%s%s", g_dir, SSR_LOG);
+        snprintf(prev, sizeof prev, "%s%s", g_dir, SSR_LOG_PREV);
+        if (GetFileAttributesA(g_log_path) != INVALID_FILE_ATTRIBUTES)
+            MoveFileExA(g_log_path, prev, MOVEFILE_REPLACE_EXISTING);
+    }
     if (!g_enabled) {
         lstrcpyA(g_status, "disabled in " SSR_INI " (Enabled=0); nothing installed");
     } else if (!layout_ok()) {

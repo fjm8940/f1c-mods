@@ -6,6 +6,8 @@
  *    a fake vehicle: only the player's engine layers restart, other cars'
  *    identical files and non-engine sounds never do, the fade ramps 0 -> 1,
  *    the stack stays balanced and esi survives.
+ * 3. A car's .sfx edited while the game runs: the re-read at session start
+ *    picks up its new engine files and keeps the old ones.
  */
 #include <stdint.h>
 extern char ssr_test_ret_volume[] __asm__("ssr_test_ret_volume_sym");
@@ -162,9 +164,9 @@ static void test_end_to_end(void)
     g_release = fake_release;
     g_active = 1;
     g_fade_ms = 30.0;
-    add_engine_name("int\\ferrari\\max4.wav", SSR_KIND_INSIDE);
-    add_engine_name("ext\\ferrari\\max1.wav", SSR_KIND_OUTSIDE);
-    g_names_ready = 1;
+    stage_engine_name("int\\ferrari\\max4.wav", SSR_KIND_INSIDE);
+    stage_engine_name("ext\\ferrari\\max1.wav", SSR_KIND_OUTSIDE);
+    CHECK(merge_engine_names() == 2 && g_names_ready);
     g_focus_slot = 0;
 
     /* distances as measured in game by 0.1.0: your sounds 1.25 m from your
@@ -292,10 +294,134 @@ static void test_end_to_end(void)
 #undef FRAME
 }
 
+static void write_text(const char *path, const char *text)
+{
+    FILE *f = fopen(path, "w");
+    if (f) { fputs(text, f); fclose(f); }
+}
+
+static int name_known(const char *rel)
+{
+    unsigned i;
+    for (i = 0; i < g_name_count; i++)
+        if (!strcmp(g_names[i].rel, rel)) return 1;
+    return 0;
+}
+
+/* The owner's case (README rules 21-22): a car's .sfx is edited while the game
+ * is open. A layer named only in the edited file is unknown until the re-read
+ * at the next session start; then it is recognised, even on a voice bound
+ * before the re-read, and the names of the old file stay known. */
+static void test_rescan(void)
+{
+    char root[MAX_PATH], veh[MAX_PATH + 16], dir[MAX_PATH + 32], sfx[MAX_PATH + 48];
+    static uint8_t lambo[0x60];
+    static char img_lambo[4];
+    HSAMPLE h = (HSAMPLE)0x106;
+    HandleEntry *he;
+    unsigned before = g_name_count;
+    int calls;
+    DWORD n = GetTempPathA(sizeof root, root);
+    CHECK(n > 0 && n < sizeof root - 64);
+    snprintf(root + n, sizeof root - n, "ssr_test_scan_%lu\\", (unsigned long)GetCurrentProcessId());
+    snprintf(veh, sizeof veh, "%sVehicles\\", root);
+    snprintf(dir, sizeof dir, "%sLotus\\", veh);
+    snprintf(sfx, sizeof sfx, "%sLambo.sfx", dir);
+    CreateDirectoryA(root, NULL);
+    CreateDirectoryA(veh, NULL);
+    CreateDirectoryA(dir, NULL);
+
+    write_text(sfx, "VS_OUTSIDE_ENGINE_1=ext\\Lambo\\v1g.wav\nVS_OUTSIDE_ENGINE_5=ext\\Lambo\\max2k.wav\n");
+    CHECK(scan_engine_names_in(root, 0) == 2 && g_name_count == before + 2);
+
+    /* the .sfx is edited and the car loaded with it; the mod has not re-read yet */
+    write_text(sfx, "VS_OUTSIDE_ENGINE_1=ext\\Lambo\\idle1.wav\nVS_OUTSIDE_ENGINE_5=ext\\Lambo\\max1k.wav\n");
+    g_active = 1;
+    g_focus_slot = 0;
+    g_rearm = 1;
+    set_pos(test_vehicle + OFF_WORLD_POS, 100.0f, 0.0f, 0.0f);
+    set_pos(lambo + OBJ_POS, 100.0f, 0.0f, -1.3f);
+    bind_voice(h, "AUDIO\\VEHICLE\\EXT\\LAMBO\\IDLE1.WAV", img_lambo);
+    calls = ms_calls;
+    ssr_test_clock += 500.0;
+    set_gear(2);
+    volume(lambo, h);
+    ssr_test_clock += 60.0;
+    volume(lambo, h);
+    ssr_test_clock += 16.0;
+    set_gear(0);
+    volume(lambo, h);
+    ssr_test_clock += 16.0;
+    set_gear(3);
+    volume(lambo, h);
+    he = handle_entry(h, 0);
+    CHECK(ms_calls == calls && he && he->kind == 0);          /* unknown file: not restarted */
+
+    /* next session start: re-read */
+    CHECK(scan_engine_names_in(root, 1) == 2 && g_name_count == before + 4);
+    CHECK(name_known("ext\\lambo\\idle1.wav") && name_known("ext\\lambo\\max1k.wav"));
+    CHECK(name_known("ext\\lambo\\v1g.wav") && name_known("ext\\lambo\\max2k.wav"));   /* never dropped */
+    CHECK(he->kind == -1);                                    /* the bound voice re-checks its file */
+    CHECK(scan_engine_names_in(root, 1) == 0 && g_name_count == before + 4);           /* nothing new */
+
+    /* the same voice, still playing, is restarted on the next shift */
+    ssr_test_clock += 500.0;
+    volume(lambo, h);
+    CHECK(he->kind == SSR_KIND_OUTSIDE);
+    ssr_test_clock += 60.0;
+    volume(lambo, h);
+    ssr_test_clock += 16.0;
+    set_gear(0);
+    volume(lambo, h);
+    ssr_test_clock += 16.0;
+    set_gear(4);
+    CHECK(volume(lambo, h) == 0.0f && ms_calls == calls + 1 && ms_last == h);
+
+    DeleteFileA(sfx);
+    RemoveDirectoryA(dir);
+    RemoveDirectoryA(veh);
+    RemoveDirectoryA(root);
+}
+
+/* Logging is off unless Log=1: no key, an old ini with only LogShifts=1, or an
+ * invalid value all mean no log file. */
+static void test_log_setting(void)
+{
+    char ini[MAX_PATH + 32];
+    DWORD n = GetTempPathA(sizeof g_dir, g_dir);
+    CHECK(n > 0 && n < sizeof g_dir - 40);
+    snprintf(g_dir + n, sizeof g_dir - n, "ssr_test_ini_%lu\\", (unsigned long)GetCurrentProcessId());
+    CreateDirectoryA(g_dir, NULL);
+    snprintf(ini, sizeof ini, "%s%s", g_dir, SSR_INI);
+
+    write_text(ini, "[Mod]\nEnabled=1\n");
+    g_log = 1;
+    load_settings();
+    CHECK(g_log == 0);
+    write_text(ini, "[Advanced]\nLogShifts=1\n");
+    load_settings();
+    CHECK(g_log == 0);
+    write_text(ini, "[Advanced]\nLog=1\n");
+    load_settings();
+    CHECK(g_log == 1);
+    write_text(ini, "[Advanced]\nLog=yes\n");
+    load_settings();
+    CHECK(g_log == 0);
+    DeleteFileA(ini);                  /* no ini at all */
+    g_log = 1;
+    load_settings();
+    CHECK(g_log == 0);
+
+    RemoveDirectoryA(g_dir);
+    g_dir[0] = '\0';
+}
+
 int main(void)
 {
     test_logic();
     test_end_to_end();
+    test_rescan();
+    test_log_setting();
     if (failures) printf("ssr_test: %d of %d checks FAILED\n", failures, checks);
     else printf("ssr_test: PASS (%d checks)\n", checks);
     return failures ? 1 : 0;

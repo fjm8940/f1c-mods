@@ -1,5 +1,5 @@
 @echo off
-REM Shift Sound Reset 0.1.1 (development build). Output goes to %TEMP%\shift_sound_reset unless OUT is set.
+REM Shift Sound Reset 0.1.3 (development build). Output goes to %TEMP%\shift_sound_reset unless OUT is set.
 REM Builds and runs the headless test first; refuses to overwrite an existing DLL.
 setlocal
 cd /d "%~dp0"
